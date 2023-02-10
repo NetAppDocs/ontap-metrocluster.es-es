@@ -1,0 +1,188 @@
+---
+permalink: upgrade/task_prepare_cluster_ports_on_the_exist_controller.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, prepare, cluster, ports, existing, controller, module 
+summary: Antes de instalar un nuevo módulo de controladora, debe configurar los puertos del clúster en el módulo de controladora existente para que los puertos del clúster puedan proporcionar comunicación del clúster con el nuevo módulo de controladora. 
+---
+= Preparar puertos del clúster en un módulo de controladora existente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar un nuevo módulo de controladora, debe configurar los puertos del clúster en el módulo de controladora existente para que los puertos del clúster puedan proporcionar comunicación del clúster con el nuevo módulo de controladora.
+
+.Acerca de esta tarea
+Si va a crear un clúster de dos nodos sin switch (sin switches de red de clúster), debe habilitar el modo de red de clúster sin switch.
+
+Para obtener información detallada acerca de la configuración de puerto, LIF y red en ONTAP, consulte link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["Gestión de redes"^].
+
+.Pasos
+. Determine qué puertos se deben usar como puertos de clúster del nodo.
++
+Para obtener una lista de los roles de puerto predeterminados para la plataforma, consulte https://hwu.netapp.com/["Hardware Universe"^]
+
++
+El _instrucciones de instalación y configuración_ de la plataforma en el sitio de soporte de NetApp contiene información acerca de los puertos para las conexiones de red de los clústeres.
+
+. Para cada puerto del clúster, identifique los roles de puerto:
++
+`network port show`
+
++
+En el siguiente ejemplo, los puertos «'e0a», «'e0b», «'e0c» y «'e0d» deben cambiarse por puertos del clúster:
+
++
+[listing]
+----
+cluster_A::> network port show
+
+Node: controller_A_1
+Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link  MTU    Admin/Oper  Status
+--------- ------------ ---------------- ----  ----   ----------- --------
+e0M       Default      mgmt_bd_1500     up    1500   auto/1000   healthy
+e0a       Default      Default          up    1500   auto/10000  healthy
+e0b       Default      Default          up    1500   auto/10000  healthy
+e0c       Default      Default          up    1500   auto/10000  healthy
+e0d       Default      Default          up    1500   auto/10000  healthy
+e0i       Default      Default          down  1500   auto/10     -
+e0j       Default      Default          down  1500   auto/10     -
+e0k       Default      Default          down  1500   auto/10     -
+e0l       Default      Default          down  1500   auto/10     -
+e2a       Default      Default          up    1500   auto/10000  healthy
+e2b       Default      Default          up    1500   auto/10000  healthy
+e4a       Default      Default          up    1500   auto/10000  healthy
+e4b       Default      Default          up    1500   auto/10000  healthy
+13 entries were displayed.
+----
+. Para cualquier LIF de datos que utilice un puerto de clúster como puerto principal o puerto actual, modifique la LIF para utilizar un puerto de datos como puerto principal:
++
+`network interface modify`
+
++
+En el ejemplo siguiente se cambia el puerto de inicio de una LIF de datos por un puerto de datos:
+
++
+[listing]
+----
+cluster1::> network interface modify -lif datalif1 -vserver vs1 -home-port e1b
+----
+. Para cada LIF que modificó, revierte la LIF a su nuevo puerto raíz:
++
+`network interface revert`
+
++
+En el siguiente ejemplo se revierte la LIF «d’atalif1» a su nuevo puerto de origen «'e1b»:
+
++
+[listing]
+----
+cluster1::> network interface revert -lif datalif1 -vserver vs1
+----
+. Quite todos los puertos VLAN que utilicen puertos de clúster como puertos miembro e ifgrps usando puertos de clúster como puertos miembro.
++
+.. Eliminar puertos VLAN: +
+`network port vlan delete -node _node-name_ -vlan-name _portid-vlandid_`
++
+Por ejemplo:
+
++
+[listing]
+----
+network port vlan delete -node node1 -vlan-name e1c-80
+----
+.. Quite puertos físicos de los grupos de interfaces:
++
+`network port ifgrp remove-port -node _node-name_ -ifgrp _interface-group-name_ -port _portid_`
+
++
+Por ejemplo:
+
++
+[listing]
+----
+network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
+----
+.. Quite puertos VLAN y de grupo de interfaces del dominio de retransmisión:
++
+`network port broadcast-domain remove-ports -ipspace _ipspace_ -broadcast-domain _broadcast-domain-name_ -ports _nodename:portname,nodename:portname_,..`
+
+.. Modifique los puertos del grupo de interfaces para utilizar otros puertos físicos como miembro según sea necesario.: +
+`ifgrp add-port -node _node-name_ -ifgrp _interface-group-name_ -port _port-id_`
+
+
+. Compruebe que los roles de puerto han cambiado:
++
+`network port show`
+
++
+En el siguiente ejemplo se muestra que los puertos «'e0a», «'e0b», «'e0c» y «'e0d» son ahora puertos de clúster:
+
++
+[listing]
+----
+Node: controller_A_1
+Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link  MTU    Admin/Oper  Status
+--------- ------------ ---------------- ----  ----   ----------- --------
+e0M       Default      mgmt_bd_1500     up    1500   auto/1000   healthy
+e0a       Cluster      Cluster          up    9000   auto/10000  healthy
+e0b       Cluster      Cluster          up    9000   auto/10000  healthy
+e0c       Cluster      Cluster          up    9000   auto/10000  healthy
+e0d       Cluster      Cluster          up    9000   auto/10000  healthy
+e0i       Default      Default          down  1500   auto/10 -
+e0j       Default      Default          down  1500   auto/10 -
+e0k       Default      Default          down  1500   auto/10 -
+e0l       Default      Default          down  1500   auto/10 -
+e2a       Default      Default          up    1500   auto/10000  healthy
+e2b       Default      Default          up    1500   auto/10000  healthy
+e4a       Default      Default          up    1500   auto/10000  healthy
+e4b       Default      Default          up    1500   auto/10000  healthy
+13 entries were displayed.
+----
+. Añada los puertos al dominio de retransmisión del clúster:
++
+`broadcast-domain add-ports -ipspace Cluster -broadcast-domain Cluster -ports _port-id_, _port-id_, _port-id_...`
+
++
+Por ejemplo:
+
++
+[listing]
+----
+broadcast-domain add-ports -ipspace Cluster -broadcast-domain Cluster -ports cluster1-01:e0a
+----
+. Si el sistema forma parte de un clúster de switches, cree LIF de clúster en los puertos del clúster: `network interface create`
++
+En el ejemplo siguiente se crea un LIF de clúster en uno de los puertos de clúster del nodo. La `-auto` El parámetro configura la LIF para utilizar una dirección IP local de enlace.
+
++
+[listing]
+----
+cluster1::> network interface create -vserver Cluster -lif clus1 -role cluster -home-node node0 -home-port e1a -auto true
+----
+. Si va a crear un clúster sin switches de dos nodos, habilite el modo de red de clúster sin switches:
++
+.. Cambie al nivel de privilegio avanzado de cualquiera de los nodos:
++
+`set -privilege advanced`
+
++
+Usted puede responder `y` cuando se le pregunte si desea continuar en el modo avanzado. Aparece el símbolo del sistema del modo avanzado (`*>`).
+
+.. Habilite el modo de red de clúster sin switches:
++
+`network options switchless-cluster modify -enabled true`
+
+.. Vuelva al nivel de privilegio de administrador:
++
+`set -privilege admin`
+
+
+
+
+
+
+IMPORTANT: La creación de interfaz de clúster para el nodo existente en un sistema de clúster sin switches de dos nodos se completa después de que se completa la configuración del clúster mediante un sistema netboot en el nuevo módulo de controladora.

@@ -1,0 +1,43 @@
+---
+permalink: disaster-recovery/task_restore_connectivity_mcip.html 
+sidebar: sidebar 
+keywords: metrocluster, iscsi, connections, disaster, site, surviving, connectivity, restore 
+summary: Es necesario restaurar las conexiones de iniciadores iSCSI de MetroCluster desde los nodos supervivientes. 
+---
+= Restauración de la conectividad de los nodos supervivientes al sitio desastre (configuraciones IP de MetroCluster)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+Es necesario restaurar las conexiones de iniciadores iSCSI de MetroCluster desde los nodos supervivientes.
+
+.Acerca de esta tarea
+Este procedimiento solo es necesario en las configuraciones de MetroCluster IP.
+
+.Pasos
+. Desde el símbolo del sistema del nodo superviviente, cambie al nivel de privilegio avanzado:
++
+`set -privilege advanced`
+
++
+Debe responder con `y` cuando se le solicite que continúe en el modo avanzado y vea el indicador del modo avanzado (*).
+
+. Conecte los iniciadores iSCSI en los dos nodos supervivientes del grupo DR:
++
+`storage iscsi-initiator connect -node surviving-node -label *`
+
++
+En el ejemplo siguiente se muestran los comandos para conectar los iniciadores del sitio B:
+
++
+[listing]
+----
+site_B::*> storage iscsi-initiator connect -node node_B_1 -label *
+site_B::*> storage iscsi-initiator connect -node node_B_2 -label *
+----
+. Vuelva al nivel de privilegio de administrador:
++
+`set -privilege admin`
+
+

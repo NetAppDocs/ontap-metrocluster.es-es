@@ -1,0 +1,28 @@
+---
+permalink: upgrade/task_set_the_partner_system_id_for_both_controller_modules.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, set, up, partner, system, id, controller, module 
+summary: Debe establecer el ID de sistema de partner en ambos módulos de la controladora para que puedan formar un par de alta disponibilidad. 
+---
+= Establecer el ID del sistema asociado para ambos módulos de la controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe establecer el ID de sistema de partner en ambos módulos de la controladora para que puedan formar un par de alta disponibilidad.
+
+.Acerca de esta tarea
+Esta tarea se realiza con ambos módulos de la controladora en el aviso del CARGADOR.
+
+.Pasos
+. En el módulo del controlador existente, establezca el ID del sistema asociado en el módulo del controlador nuevo:
++
+`setenv partner-sysid _sysID_of_new_controller_`
+
+. En el nuevo módulo de controlador, defina el ID del sistema asociado al del módulo de controlador existente:
++
+`setenv partner-sysid _sysID_of_existing_controller_`
+
+

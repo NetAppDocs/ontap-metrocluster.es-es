@@ -1,0 +1,158 @@
+---
+permalink: disaster-recovery/task_cfg_bridges_mcfc.html 
+sidebar: sidebar 
+keywords: fc, sas, bridge, configure, metrocluster, configuration 
+summary: Si sustituyó los puentes FC-a-SAS, debe configurarlos al restaurar la configuración de MetroCluster. 
+---
+= Configuración de los puentes FC a SAS (solo configuraciones de FC de MetroCluster)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si sustituyó los puentes FC-a-SAS, debe configurarlos al restaurar la configuración de MetroCluster. El procedimiento es idéntico a la configuración inicial de un puente FC-a-SAS.
+
+.Pasos
+. Encienda los puentes FC-a-SAS.
+. Configure la dirección IP en los puertos Ethernet mediante el `set IPAddress port ipaddress` comando.
++
+** `port` Puede ser "MP1" o "MP2".
+** `ipaddress` Puede ser una dirección IP con el formato xxx.xxx.xxx.xxx.
++
+En el ejemplo siguiente, la dirección IP es 10.10.10.55 en el puerto Ethernet 1:
+
++
+[listing]
+----
+
+Ready.
+set IPAddress MP1 10.10.10.55
+
+Ready. *
+----
+
+
+. Establezca la máscara de subred IP en los puertos Ethernet mediante el `set IPSubnetMask port mask` comando.
++
+** `port` Puede ser "MP1" o "MP2".
+** `mask` puede ser una máscara de subred con el formato xxx.xxx.xxx.xxx.
++
+En el ejemplo siguiente, la máscara de subred IP es 255.255.255.0 en el puerto Ethernet 1:
+
++
+[listing]
+----
+
+Ready.
+set IPSubnetMask MP1 255.255.255.0
+
+Ready. *
+----
+
+
+. Configure la velocidad de los puertos Ethernet mediante el `set EthernetSpeed port speed` comando.
++
+** `port` Puede ser "MP1" o "MP2".
+** `speed` puede ser "100" o "1000".
++
+En el ejemplo siguiente, la velocidad Ethernet está establecida en 1000 en el puerto Ethernet 1.
+
++
+[listing]
+----
+
+Ready.
+set EthernetSpeed MP1 1000
+
+Ready. *
+----
+
+
+. Guarde la configuración mediante `saveConfiguration` y reinicie el puente cuando se le solicite.
++
+Si guarda la configuración después de configurar los puertos Ethernet, podrá continuar con la configuración del puente mediante Telnet y podrá acceder al puente utilizando FTP para realizar actualizaciones de firmware.
+
++
+En el siguiente ejemplo se muestra el `saveConfiguration` y el símbolo del sistema para reiniciar el puente.
+
++
+[listing]
+----
+
+Ready.
+SaveConfiguration
+  Restart is necessary....
+  Do you wish to restart (y/n) ?
+Confirm with 'y'. The bridge will save and restart with the new settings.
+----
+. Cuando se reinicie el puente de FC-a-SAS, vuelva a iniciar sesión.
+. Configure la velocidad de los puertos FC con el `set fcdatarate port speed` comando.
++
+** `port` puede ser "1" o "2".
+** `speed` Puede ser de "2 GB", "4 GB", "8 GB" o "16 GB", dependiendo de su puente de modelo.
++
+En el ejemplo siguiente, la velocidad FC1 por el puerto se establece en "8 GB".
+
++
+[listing]
+----
+
+Ready.
+set fcdatarate 1 8Gb
+
+Ready. *
+----
+
+
+. Establezca la topología en los puertos FC mediante el `set FCConnMode port mode` comando.
++
+** `port` puede ser "1" o "2".
+** `mode` puede ser "ptp", "bucle", "bucle ptp" o "automático".
++
+En el ejemplo siguiente, la topología Port FC1 a "ptp".
+
++
+[listing]
+----
+
+Ready.
+set FCConnMode 1 ptp
+
+Ready. *
+----
+
+
+. Guarde la configuración mediante `saveConfiguration` y reinicie el puente cuando se le solicite.
++
+En el siguiente ejemplo se muestra el `saveConfiguration` y el símbolo del sistema para reiniciar el puente.
+
++
+[listing]
+----
+
+ Ready.
+ SaveConfiguration
+    Restart is necessary....
+    Do you wish to restart (y/n) ?
+ Confirm with 'y'. The bridge will save and restart with the new settings.
+----
+. Cuando se reinicie el puente de FC-a-SAS, vuelva a iniciar sesión.
+. Si el puente de FC a SAS ejecuta firmware 1.60 o posterior, habilite SNMP.
++
+[listing]
+----
+
+Ready.
+set snmp enabled
+
+Ready. *
+saveconfiguration
+
+Restart is necessary....
+Do you wish to restart (y/n) ?
+
+Verify with 'y' to restart the FibreBridge.
+----
+. Apague los puentes FC a SAS.
+

@@ -1,0 +1,25 @@
+---
+permalink: install-stretch/task_cable_the_management_and_data_connections.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, management, data, connections 
+summary: Debe cablear los puertos de gestión y datos de cada controladora de almacenamiento a las redes del sitio. 
+---
+= Cableado de conexiones de datos y gestión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe cablear los puertos de gestión y datos de cada controladora de almacenamiento a las redes del sitio.
+
+Esta tarea debe repetirse para cada controladora nueva en ambas instalaciones MetroCluster.
+
+Puede conectar los puertos de gestión del switch de clúster y la controladora a los switches existentes en la red. Además, es posible conectar la controladora a nuevos switches de red dedicados como los switches de administración de clústeres CN1601 de NetApp.
+
+.Pasos
+. Conecte los puertos de datos y de gestión de la controladora a las redes de datos y gestión en el sitio local.
++
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+
+

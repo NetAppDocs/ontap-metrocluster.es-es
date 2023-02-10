@@ -1,0 +1,315 @@
+---
+permalink: maintain/task_replace_a_shelf_nondisruptively_in_a_mcc_fc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, shelf, nondisruptively, fabric, attached, configuration 
+summary: Es posible que tenga que saber cómo sustituir una bandeja de forma no disruptiva en una configuración MetroCluster estructural. 
+---
+= Reemplazar una bandeja de forma no disruptiva en una configuración MetroCluster estructural
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que tenga que saber cómo sustituir una bandeja de forma no disruptiva en una configuración MetroCluster estructural.
+
+
+NOTE: Este procedimiento solo se puede utilizar en una configuración de MetroCluster estructural.
+
+
+
+== Deshabilitación del acceso a la bandeja
+
+Debe deshabilitar el acceso a la bandeja antes de sustituir los módulos de la bandeja.
+
+Compruebe el estado general de la configuración. Si el sistema no parece correcto, primero debe solucionar el problema antes de continuar.
+
+.Pasos
+. Desde ambos clústeres, todos los complejos sin conexión con discos en la pila de bandeja afectada:
++
+`aggr offline _plex_name_`
+
++
+El ejemplo muestra los comandos para los complejos sin conexión de una controladora que ejecuta OTNAP en clúster.
+
++
+[listing]
+----
+
+cluster_A_1::> storage aggregate plex offline -aggr aggrA_1_0 -plex plex0
+cluster_A_1::> storage aggregate plex offline -aggr dataA_1_data -plex plex0
+cluster_A_2::> storage aggregate plex offline -aggr aggrA_2_0 -plex plex0
+cluster_A_2::> storage aggregate plex offline -aggr dataA_2_data -plex plex0
+----
+. Compruebe que los complejos están sin conexión:
++
+`aggr status _-raggr_name_`
+
++
+El ejemplo muestra los comandos para verificar que los agregados están sin conexión para una controladora que ejecuta cMode.
+
++
+[listing]
+----
+
+Cluster_A_1::> storage aggregate show -aggr aggrA_1_0
+Cluster_A_1::> storage aggregate show -aggr dataA_1_data
+Cluster_A_2::> storage aggregate show -aggr aggrA_2_0
+Cluster_A_2::> storage aggregate show -aggr dataA_2_data
+----
+. Deshabilite los puertos SAS o los puertos del switch en función de si los puentes que conectan la bandeja de destino están conectando una sola pila SAS o dos o más pilas SAS:
++
+** Si los puentes están conectando una única pila SAS, deshabilite los puertos del switch a los que están conectados los puentes mediante el comando correspondiente al switch.
++
+En el siguiente ejemplo se muestra un par de puentes que conectan una sola pila SAS, que contiene la bandeja de destino:
+
++
+image::../media/mcc_shelf_replacement_bridges_with_a_single_stack.gif[puentes de sustitución de bandejas mcc con una única pila]
+
++
+Los puertos 8 y 9 de cada switch conectan los puentes a la red.
+
++
+En el siguiente ejemplo se muestran los puertos 8 y 9 desactivados en un switch de Brocade.
+
++
+[listing]
+----
+FC_switch_A_1:admin> portDisable 8
+FC_switch_A_1:admin> portDisable 9
+
+FC_switch_A_2:admin> portDisable 8
+FC_switch_A_2:admin> portDisable 9
+----
++
+En el ejemplo siguiente se muestran los puertos 8 y 9 que se están deshabilitando en un switch Cisco.
+
++
+[listing]
+----
+FC_switch_A_1# conf t
+FC_switch_A_1(config)# int fc1/8
+FC_switch_A_1(config)# shut
+FC_switch_A_1(config)# int fc1/9
+FC_switch_A_1(config)# shut
+FC_switch_A_1(config)# end
+
+FC_switch_A_2# conf t
+FC_switch_A_2(config)# int fc1/8
+FC_switch_A_2(config)# shut
+FC_switch_A_2(config)# int fc1/9
+FC_switch_A_2(config)# shut
+FC_switch_A_2(config)# end
+----
+** Si los puentes están conectando dos o más pilas SAS, deshabilite los puertos SAS que conectan los puentes a la bandeja de destino: +
+`SASportDisable _port number_`
++
+
+NOTE: Esto no es aplicable a los puentes FiberBridge 6500.
+
++
+En el siguiente ejemplo se muestra un par de puentes que conectan cuatro pilas SAS. La pila SAS 2 contiene la bandeja objetivo:
+
++
+image::../media/mcc_shelf_replacement_bridges_with_four_stacks.gif[puentes de sustitución de bandejas mcc con cuatro pilas]
+
++
+El puerto SAS B conecta los puentes a la bandeja de destino. Al deshabilitar solo el puerto SAS B en ambas bandejas, las otras pilas SAS pueden seguir sirviendo datos durante el procedimiento de reemplazo.
+
++
+En este caso, deshabilite el puerto SAS que conecta el puente a la bandeja de destino:
+
++
+`SASportDisable _port number_`
+
++
+En el ejemplo siguiente se muestra que el puerto SAS B está desactivado desde el puente y también se comprueba que está deshabilitado. Debe repetir el comando en ambos puentes.
+
++
+[listing]
+----
+Ready. *
+SASPortDisable B
+
+SAS Port B has been disabled.
+----
+
+
+. Si anteriormente deshabilitó los puertos del switch, compruebe que estén deshabilitados:
++
+`switchShow`
+
++
+El ejemplo muestra que los puertos del switch están deshabilitados en un switch Brocade.
+
++
+[listing]
+----
+
+FC_switch_A_1:admin> switchShow
+FC_switch_A_2:admin> switchShow
+----
++
+El ejemplo muestra que los puertos del switch están deshabilitados en un switch de Cisco.
+
++
+[listing]
+----
+
+FC_switch_A_1# show interface fc1/6
+FC_switch_A_2# show interface fc1/6
+----
+. Espere a que ONTAP se dé cuenta de que falta el disco.
+. Apague la bandeja que desee reemplazar.
+
+
+
+
+== Sustituya la bandeja
+
+Debe quitar físicamente todos los cables y la bandeja antes de insertar y cablear la bandeja y los módulos de bandeja nuevos.
+
+.Pasos
+. Quite todos los discos y desconecte todos los cables de la bandeja que se va a reemplazar.
+. Quite los módulos de la bandeja.
+. Inserte la nueva bandeja.
+. Inserte los discos nuevos en la bandeja nueva.
+. Inserte los módulos de las bandejas.
+. Conecte el cable de la bandeja (SAS o alimentación).
+. Encienda la bandeja.
+
+
+
+
+== Volver a habilitar el acceso y verificar la operación
+
+Una vez sustituida la bandeja, es necesario volver a habilitar el acceso y comprobar que la nueva bandeja funcione correctamente.
+
+.Pasos
+. Compruebe que la bandeja se encienda correctamente y que los enlaces de los módulos IOM estén presentes.
+. Habilite los puertos del switch o el puerto SAS de acuerdo con las siguientes situaciones:
++
+[cols="1,3"]
+|===
+
+
+| Opción | Paso 
+
+
+ a| 
+*Si ha desactivado previamente los puertos del conmutador*
+ a| 
+.. Active los puertos del switch:
++
+`portEnable _port number_`
+
++
+En el ejemplo se muestra el puerto del switch que se está habilitando en un switch de Brocade.
+
++
+[listing]
+----
+
+Switch_A_1:admin> portEnable 6
+Switch_A_2:admin> portEnable 6
+----
++
+En el ejemplo se muestra el puerto del switch que se está habilitando en un switch de Cisco.
+
++
+[listing]
+----
+
+Switch_A_1# conf t
+Switch_A_1(config)# int fc1/6
+Switch_A_1(config)# no shut
+Switch_A_1(config)# end
+
+Switch_A_2# conf t
+Switch_A_2(config)# int fc1/6
+Switch_A_2(config)# no shut
+Switch_A_2(config)# end
+----
+
+
+
+
+ a| 
+*Si anteriormente deshabilitó un puerto SAS*
+ a| 
+.. Habilite el puerto SAS que conecta la pila a la ubicación de la bandeja:
++
+`SASportEnable _port number_`
+
++
+En el ejemplo se muestra que el puerto SAS A está habilitado desde el puente y también se comprueba que está habilitado.
+
++
+[listing]
+----
+Ready. *
+SASPortEnable A
+
+SAS Port A has been enabled.
+----
+
+
+
+NOTE: Esto no es aplicable a ATTO 6500 FiberBridges.
+
+|===
+. Si anteriormente ha desactivado los puertos del conmutador, compruebe que están habilitados y en línea y que todos los dispositivos están conectados correctamente:
++
+`switchShow`
+
++
+En el ejemplo se muestra la `switchShow` Comando para verificar que un switch Brocade está en línea.
+
++
+[listing]
+----
+
+Switch_A_1:admin> SwitchShow
+Switch_A_2:admin> SwitchShow
+----
++
+En el ejemplo se muestra la `switchShow` Comando para verificar que un switch Cisco está en línea.
+
++
+[listing]
+----
+
+Switch_A_1# show interface fc1/6
+Switch_A_2# show interface fc1/6
+----
++
+
+NOTE: Transcurridos varios minutos, ONTAP detecta que se han insertado nuevos discos y muestra un mensaje para cada disco nuevo.
+
+. Compruebe que ONTAP ha detectado los discos:
++
+`sysconfig -a`
+
+. En línea los complejos que estaban fuera de línea antes:
++
+`aggr online__plex_name__`
+
++
+El ejemplo muestra los comandos para colocar complejos en una controladora que ejecuta cMode nuevamente en línea.
+
++
+[listing]
+----
+
+Cluster_A_1::> storage aggregate plex online -aggr aggr1 -plex plex2
+Cluster_A_1::> storage aggregate plex online -aggr aggr2 -plex plex6
+Cluster_A_1::> storage aggregate plex online -aggr aggr3 -plex plex1
+----
++
+Los complejos empiezan a resincronizar.
+
++
+
+NOTE: Puede supervisar el progreso de la resincronización mediante el `aggr status _-raggr_name_` comando.
+
+

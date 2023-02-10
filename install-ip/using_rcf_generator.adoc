@@ -1,0 +1,44 @@
+---
+permalink: install-ip/using_rcf_generator.html 
+sidebar: sidebar 
+keywords: cabling, cable, component, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure, rcf, file, generator, RcfFileGenerator 
+summary: Debe comprender cómo utilizar la información de las tablas de puertos para generar correctamente los archivos RCF. 
+---
+= Utilizar las tablas de puertos con la herramienta RcfFileGenerator o varias configuraciones de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe comprender cómo utilizar la información de las tablas de puertos para generar correctamente los archivos RCF.
+
+.Antes de empezar
+Revise estas consideraciones antes de utilizar las tablas:
+
+* Las siguientes tablas muestran el uso del puerto para el sitio A. El mismo cableado se utiliza para el centro B.
+* Los switches no pueden configurarse con puertos de diferentes velocidades (por ejemplo, una combinación de puertos de 100 Gbps y puertos de 40 Gbps).
+* Realizar un seguimiento del grupo de puertos de MetroCluster (MetroCluster 1, MetroCluster 2, etc.). Necesitará esta información cuando utilice la herramienta RcfFileGenerator como se describe más adelante en este procedimiento de configuración.
+* La https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"] también ofrece información general sobre el cableado por puerto para cada switch. Utilice esta información general sobre el cableado para verificar el cableado.
+
+
+
+
+== Cableado de configuraciones MetroCluster de ocho nodos
+
+Para la configuración de MetroCluster que ejecuta ONTAP 9.8 y versiones anteriores, algunos procedimientos que se realizan para realizar la transición de una actualización requieren la adición de un segundo grupo de recuperación ante desastres de cuatro nodos a la configuración para crear una configuración temporal de ocho nodos. A partir de ONTAP 9.9.1, se admiten las configuraciones MetroCluster permanentes de 8 nodos.
+
+.Acerca de esta tarea
+Para dichas configuraciones, utilice el mismo método que se describe anteriormente. En lugar de una segunda MetroCluster, está cablear un grupo de recuperación ante desastres de cuatro nodos adicional.
+
+Por ejemplo, la configuración incluye lo siguiente:
+
+* Switches Cisco 3132Q-V.
+* MetroCluster 1: Plataformas FAS2750
+* MetroCluster 2: Plataformas AFF A700 (estas plataformas se están añadiendo como un segundo grupo de recuperación ante desastres de cuatro nodos)
+
+
+.Pasos
+. Para MetroCluster 1, conecte los cables de los switches Cisco 3132Q-V utilizando la tabla para la plataforma FAS2750 y las filas para las interfaces MetroCluster 1.
+. Para MetroCluster 2 (el segundo grupo de recuperación ante desastres), conecte los switches Cisco 3132Q-V utilizando la tabla para la plataforma AFF A700 y las filas para interfaces MetroCluster 2.
+

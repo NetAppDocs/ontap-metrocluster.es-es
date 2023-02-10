@@ -1,0 +1,14 @@
+---
+permalink: install-fc/task_install_and_cable_the_mcc_components_in_a_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, components, array, luns 
+summary: Para configurar una configuración de MetroCluster con LUN de cabina, debe cablear las controladoras de almacenamiento a los switches FC y conectar los ISL para que se puedan vincular los sitios. Además, debe cablear las cabinas de almacenamiento a los switches FC. 
+---
+= Instalación y cableado de los componentes de MetroCluster en una configuración con LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para configurar una configuración de MetroCluster con LUN de cabina, debe cablear las controladoras de almacenamiento a los switches FC y conectar los ISL para que se puedan vincular los sitios. Además, debe cablear las cabinas de almacenamiento a los switches FC.

@@ -1,0 +1,16 @@
+---
+permalink: install-ip/task_install_and_cable_the_mcc_components.html 
+sidebar: sidebar 
+keywords: ip, switch, configuring 
+summary: Debe configurar los switches IP para proporcionar conectividad IP de MetroCluster back-end. 
+---
+= Configurar los switches
+:allow-uri-read: 
+
+
+[role="lead"]
+Debe configurar los switches IP para proporcionar conectividad IP de MetroCluster back-end.
+
+* link:../install-ip/task_switch_config_broadcom.html["Configuración de switches IP de Broadcom"]
+* link:../install-ip/task_switch_config_broadcom.html["Configuración de switches Cisco IP"]
+

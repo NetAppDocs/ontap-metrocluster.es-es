@@ -1,0 +1,24 @@
+---
+permalink: install-ip/concept-risks-limitations-automatic-switchover.html 
+sidebar: sidebar 
+keywords: ontap, mediator, service, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, forced 
+summary:  
+---
+= Riesgos y limitaciones del uso de conmutación forzada automática de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.12.1, es posible habilitar la función de conmutación automática de sitios forzada MetroCluster en una configuración de IP de MetroCluster. Esta característica es una extensión de la función de cambio no planificado asistido por Mediator (MAUSO).
+
+La conmutación de sitios tras la detección de un fallo de sitio se realiza automáticamente cuando se habilita la función de conmutación forzada automática de MetroCluster. Puede utilizar esta función para complementar la capacidad de conmutación automática de MetroCluster IP.
+
+Cuando permite que una configuración de IP de MetroCluster funcione en modo de conmutación automática forzada, los siguientes problemas conocidos pueden provocar la pérdida de datos:
+
+* La memoria no volátil de las controladoras de almacenamiento no se refleja en el compañero de recuperación ante desastres remoto del sitio del partner.
+
+
+
+CAUTION: Puede encontrar situaciones que no se mencionan. NetApp no se hace responsable de la corrupción de datos, la pérdida de datos u otros daños que puedan derivarse de la habilitación de la función de conmutación automática forzada de MetroCluster. No utilice la función de conmutación forzada automática de MetroCluster si los riesgos y limitaciones no son aceptables para usted.

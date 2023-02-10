@@ -1,0 +1,55 @@
+---
+permalink: upgrade/task_prepare_for_the_upgrade_add_2nd_controller_to_create_ha_pair.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, prepare, upgrade 
+summary: Antes de actualizar a una pareja de alta disponibilidad, debe verificar que el sistema cumple todos los requisitos y que dispone de toda la información necesaria. 
+---
+= Preparando la actualización
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de actualizar a una pareja de alta disponibilidad, debe verificar que el sistema cumple todos los requisitos y que dispone de toda la información necesaria.
+
+.Pasos
+. Identifique discos sin asignar o discos de repuesto que puede asignar al nuevo módulo de controladora con los comandos siguientes:
++
+** `storage disk show -container-type spare`
+** `storage disk show -container-type unassigned`
+
+
+. Complete los siguientes subpasos:
++
+.. Determine dónde se encuentran los agregados del nodo existente:
++
+`storage aggregate show`
+
+.. Si la asignación automática de propiedad de disco está activada, desactive:
++
+`storage disk option modify -node _node_name_ -autoassign off`
+
+.. Elimine la propiedad de los discos que no tienen agregados:
++
+`storage disk removeowner _disk_name_`
+
+.. Repita el paso anterior para tantos discos como necesite para el nuevo nodo.
+
+
+. Compruebe que dispone de cables listos para las siguientes conexiones:
++
+** Conexiones de clúster
++
+Si va a crear un clúster sin switches de dos nodos, necesita dos cables para conectar los módulos de la controladora. De lo contrario, se necesita un mínimo de cuatro cables, dos para cada conexión del módulo de la controladora al switch de red del clúster. Otros sistemas (como la serie 80xx) tienen valores predeterminados de cuatro o seis conexiones de clúster.
+
+** Conexiones de alta DISPONIBILIDAD, si el sistema está en un par de alta disponibilidad de chasis doble
+
+
+. Verifique que dispone de una consola de puerto serie disponible para los módulos de la controladora.
+. Compruebe que su entorno cumple los requisitos del sitio y del sistema.
++
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
+
+. Recopile todas las direcciones IP y otros parámetros de red para el nuevo módulo de controladora.
+

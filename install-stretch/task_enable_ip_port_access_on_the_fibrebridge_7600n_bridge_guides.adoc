@@ -1,0 +1,66 @@
+---
+permalink: install-stretch/task_enable_ip_port_access_on_the_fibrebridge_7600n_bridge_guides.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, enable, ip, port, access, bridge, fibrebridge 
+summary: 'Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP \(FTP, ExpressNAV, ICMP o Quickav\), puede activar los servicios de acceso a través del puerto de consola.' 
+---
+= Habilitar el acceso al puerto IP en el puente FibreBridge 7600N si es necesario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP (FTP, ExpressNAV, ICMP o navegación rápida), puede activar los servicios de acceso a través del puerto de consola.
+
+A diferencia de los puentes ATTO FibreBridge 7500N y 6500N, el puente FibreBridge 7600N se entrega con todos los protocolos de puerto IP y servicios desactivados.
+
+A partir de ONTAP 9.5, se admite la gestión en banda_ de los puentes. Esto significa que los puentes se pueden configurar y supervisar desde la CLI de ONTAP a través de la conexión FC al puente. No se requiere acceso físico al puente a través de los puertos Ethernet puente y no se necesitan las interfaces de usuario de puente.
+
+A partir de ONTAP 9.8, la gestión en banda_ de los puentes se admite de forma predeterminada y la administración de SNMP fuera de banda está obsoleta.
+
+Esta tarea es necesaria si está *no* utilizando la administración en banda para administrar los puentes. En este caso, debe configurar el puente a través del puerto de administración Ethernet.
+
+.Pasos
+. Acceda a la interfaz de consola del puente conectando un cable serie al puerto serie del puente FibreBridge 7600N.
+. Mediante la consola, habilite los servicios de acceso y, a continuación, guarde la configuración:
++
+`*set closeport none*`
+
++
+`*saveconfiguration*`
+
++
+La `set closeport none` comando habilita todos los servicios de acceso en el puente.
+
+. Si lo desea, desactive un servicio emitiendo el `set closeport` y repetir el comando según sea necesario hasta que todos los servicios deseados estén desactivados:
++
+`*set closeport _service_*`
+
++
+La `set closeport` command deshabilita un servicio único cada vez.
+
++
+`_service_` puede especificar una de las opciones siguientes:
+
++
+** expresslav
+** ftp
+** icmp
+** navegación rápida
+** snmp
+** telnet + puede comprobar si un protocolo específico está activado o desactivado mediante el `get closeport` comando.
+
+
+. Si se habilita SNMP, también se debe ejecutar el comando Set SNMP Enabled:
++
+`*set SNMP enabled*`
+
++
+SNMP es el único protocolo que requiere un comando de habilitación aparte.
+
+. Guarde la configuración:
++
+`*saveconfiguration*`
+
+

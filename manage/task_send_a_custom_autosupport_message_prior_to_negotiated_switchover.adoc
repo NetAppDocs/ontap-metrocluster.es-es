@@ -1,0 +1,25 @@
+---
+permalink: manage/task_send_a_custom_autosupport_message_prior_to_negotiated_switchover.html 
+sidebar: sidebar 
+keywords: perform, negotiate, switchover, autosupport, message, netapp, technical, support, maintenance, underway, failure, trigger, support, prevent, disruption, custom, prior 
+summary: Antes de realizar una conmutación negociada, debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que está en curso el mantenimiento. La conmutación negociada puede dar lugar a errores de funcionamiento plex o MetroCluster que activan mensajes de AutoSupport. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción. 
+---
+= Enviar un mensaje de AutoSupport personalizado antes de que se negocie la conmutación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de realizar una conmutación negociada, debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que está en curso el mantenimiento. La conmutación negociada puede dar lugar a errores de funcionamiento plex o MetroCluster que activan mensajes de AutoSupport. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción.
+
+Esta tarea debe realizarse en cada sitio MetroCluster.
+
+.Pasos
+. Inicie sesión en el clúster en Site_A.
+. Invoque un mensaje de AutoSupport que indique el inicio del mantenimiento: `system node autosupport invoke -node * -type all -message MAINT=maintenance-window-in-hours`
++
+la ventana de mantenimiento en horas especifica la duración de la ventana de mantenimiento y puede ser un máximo de 72 horas. Si el mantenimiento se completa antes de que haya transcurrido el tiempo, puede ejecutar un comando para indicar que el periodo de mantenimiento ha finalizado:``system node autosupport invoke -node * -type all -message MAINT=end``
+
+. Repita este paso en el sitio del partner.
+

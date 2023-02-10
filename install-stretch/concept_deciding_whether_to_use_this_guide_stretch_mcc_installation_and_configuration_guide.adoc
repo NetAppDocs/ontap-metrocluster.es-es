@@ -1,0 +1,21 @@
+---
+permalink: install-stretch/concept_deciding_whether_to_use_this_guide_stretch_mcc_installation_and_configuration_guide.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, stretch, configuration, decide 
+summary: 'En esta información se describe cómo instalar y configurar los componentes de hardware y software de MetroCluster en una configuración con ampliación \(a veces denominada configuración MetroCluster óptica SAS\).' 
+---
+= Instalación y configuración de MetroCluster con ampliación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En esta información, se describe cómo instalar y configurar los componentes de hardware y software de MetroCluster en una configuración con ampliación (a veces llamada configuración MetroCluster óptica SAS).
+
+Debe utilizar esta información para planificar, instalar y configurar una configuración de MetroCluster con ampliación en las siguientes circunstancias:
+
+* Debe comprender la arquitectura de una configuración de MetroCluster con ampliación.
+* Desea comprender los requisitos y las prácticas recomendadas para configurar una configuración de MetroCluster con ampliación.
+* Desea usar la interfaz de línea de comandos (CLI), no una herramienta de secuencias de comandos automatizada.
+

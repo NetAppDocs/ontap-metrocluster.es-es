@@ -1,0 +1,106 @@
+---
+permalink: transition/task_complete_transition.html 
+sidebar: sidebar 
+keywords: Generating and applying RCFs to the new IP switches, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+summary: Para preparar la configuración para la transición, añada los nodos nuevos a la configuración de MetroCluster existente y, a continuación, mueva los datos a los nuevos nodos. 
+---
+= Completar la transición
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para completar la transición, debe comprobar el funcionamiento de la nueva configuración de IP de MetroCluster.
+
+. Compruebe la configuración de IP de MetroCluster.
++
+Debe realizar este paso en cada clúster.
+
++
+En el ejemplo siguiente se muestra el resultado de cluster_A.
+
++
+....
+cluster_A::> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node_A_1-IP          true    true          true
+node_A_2-IP          true    true          false
+2 entries were displayed.
+
+cluster_A::>
+....
++
+En el siguiente ejemplo se muestra el resultado de cluster_B.
+
++
+....
+cluster_B::> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node_B_1-IP          true    true          true
+node_B_2-IP          true    true          false
+2 entries were displayed.
+
+cluster_B::>
+....
+. Habilite la alta disponibilidad del clúster y la recuperación tras fallos del almacenamiento.
++
+Debe realizar este paso en cada clúster.
+
+. Compruebe que la funcionalidad de alta disponibilidad del clúster está habilitada.
++
+....
+cluster_A::> cluster ha show
+High Availability Configured: true
+
+cluster_A::>
+
+
+cluster_A::> storage  failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node_A_1-IP    node_A_2-IP    true     Connected to node_A_2-IP
+node_A_2-IP    node_A_1-IP    true     Connected to node_A_1-IP
+2 entries were displayed.
+
+cluster_A::>
+....
+. Deshabilite el modo de transición de MetroCluster.
++
+.. Cambie al nivel de privilegio avanzado: `set -privilege advanced`
+.. Desactivar el modo de transición:``metrocluster transition disable``
+.. Vuelva al nivel de privilegio de administrador: `set -privilege admin`
+
+
++
+....
+cluster_A::*> metrocluster transition disable
+
+cluster_A::*>
+....
+. Compruebe que la transición está deshabilitada:``metrocluster transition show-mode``
++
+Debe ejecutar estos pasos en ambos clústeres.
+
++
+....
+cluster_A::> metrocluster transition show-mode
+Transition Mode
+--------------------------
+not-enabled
+
+cluster_A::>
+....
++
+....
+cluster_B::> metrocluster transition show-mode
+Transition Mode
+--------------------------
+not-enabled
+
+cluster_B::>
+....
+

@@ -1,0 +1,21 @@
+---
+permalink: upgrade/task_install_firmware_after_add_a_controller_module.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, install, firmware, add, controller, module 
+summary: Tras añadir el módulo de controlador, debe instalar el firmware más reciente en el nuevo módulo de controlador para que el módulo de controlador funcione correctamente con ONTAP. 
+---
+= Instalar el firmware después de agregar un módulo de controlador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tras añadir el módulo de controlador, debe instalar el firmware más reciente en el nuevo módulo de controlador para que el módulo de controlador funcione correctamente con ONTAP.
+
+.Pasos
+. Descargue la versión más reciente del firmware del sistema y siga las instrucciones para descargar e instalar el nuevo firmware.
++
+https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["Descargas de NetApp: Diagnóstico y firmware del sistema"]
+
+

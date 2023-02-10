@@ -1,0 +1,36 @@
+---
+permalink: install-stretch/task_rack_the_hardware_components_2_node_stretch_sas.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, rack, hardware, components 
+summary: Si no ha recibido el equipo ya instalado en armarios, debe montar los componentes en rack. 
+---
+= Acumular en rack los componentes de hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si no ha recibido el equipo ya instalado en armarios, debe montar los componentes en rack.
+
+Esta tarea debe realizarse en los dos sitios MetroCluster.
+
+.Pasos
+. Planifique la colocación de los componentes de MetroCluster.
++
+La cantidad de espacio de rack necesario depende del modelo de plataforma de las controladoras de almacenamiento, los tipos de switch y el número de pilas de bandejas de discos de la configuración.
+
+. El uso de prácticas estándar de la tienda para trabajar con equipos eléctricos garantiza que está correctamente conectado a tierra.
+. Instale las controladoras de almacenamiento en el rack o armario.
++
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+
+. Instale las bandejas de discos, conecte en cadena las bandejas de discos en cada pila, encienda las bandejas y establezca los ID de bandeja.
++
+Consulte la guía adecuada del modelo de bandeja de discos para obtener información sobre las bandejas de discos en cadena y cómo configurar los ID de bandeja.
+
++
+
+NOTE: Los ID de bandeja deben ser únicos para cada bandeja de discos SAS dentro de cada grupo de recuperación ante desastres MetroCluster (incluidos ambos sitios). Cuando se configuran manualmente los ID de bandeja, es necesario apagar y encender la bandeja de discos.
+
+

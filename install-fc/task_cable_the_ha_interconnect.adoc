@@ -1,0 +1,32 @@
+---
+permalink: install-fc/task_cable_the_ha_interconnect.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, ha, interconnect, cabling 
+summary: Si tiene una configuración MetroCluster de ocho o cuatro nodos y las controladoras de almacenamiento dentro de las parejas de alta disponibilidad se encuentran en un chasis separado, debe cablear la interconexión de alta disponibilidad entre las controladoras. 
+---
+= Cableado de la interconexión de alta disponibilidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si tiene una configuración MetroCluster de ocho o cuatro nodos y las controladoras de almacenamiento dentro de las parejas de alta disponibilidad se encuentran en un chasis separado, debe cablear la interconexión de alta disponibilidad entre las controladoras.
+
+.Acerca de esta tarea
+* Esta tarea no se aplica a configuraciones MetroCluster de dos nodos.
+* Esta tarea debe realizarse en los dos sitios MetroCluster.
+* La interconexión de alta disponibilidad solo debe cablearse si las controladoras de almacenamiento incluidas en el par de alta disponibilidad están en chasis separados.
++
+Algunos modelos de controladoras de almacenamiento admiten dos controladoras en un solo chasis, en cuyo caso utilizan una interconexión de alta disponibilidad interna.
+
+
+
+.Pasos
+. Conecte el cable de alta disponibilidad si el compañero de alta disponibilidad de la controladora de almacenamiento está en un chasis separado.
++
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+
+. Si el sitio MetroCluster incluye dos pares de alta disponibilidad, repita los pasos anteriores en el segundo par de alta disponibilidad.
+. Repita esta tarea en el sitio para partners de MetroCluster.
+

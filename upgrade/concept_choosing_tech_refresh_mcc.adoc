@@ -1,0 +1,67 @@
+---
+permalink: upgrade/concept_choosing_tech_refresh_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, choose, upgrade, refresh, method 
+summary: El procedimiento de actualización que utilice dependerá del modelo de plataforma, el ámbito de la actualización y el tipo de configuración de MetroCluster. 
+---
+= Seleccione un método de actualización del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El procedimiento de actualización del sistema que utilice dependerá del modelo de la plataforma y el tipo de configuración de MetroCluster. Los procedimientos de actualización se aplican a las controladoras y las bandejas de almacenamiento. En los procedimientos de actualización, se añaden nuevas controladoras y bandejas a la configuración de la MetroCluster y se crea un segundo grupo de recuperación ante desastres. A continuación, los datos se migran sin interrupciones a los nuevos nodos. A continuación, se retiran las controladoras originales.
+
+
+
+=== Compatible con combinaciones de actualización tecnológica de FC de MetroCluster
+
+image::../media/metrocluster_fc_tech_refresh.png[actualización tecnológica de MetroCluster fc]
+
+* Asegúrese de completar el procedimiento de actualización tecnológica antes de agregar una nueva carga.
+
+
+
+NOTE: No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas. Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
+
+
+
+=== Compatible con combinaciones de actualización tecnológica de MetroCluster IP
+
+image::../media/metrocluster_ip_tech_refresh.png[actualización tecnológica de MetroCluster ip]
+
+* Asegúrese de completar el procedimiento de actualización tecnológica antes de agregar una nueva carga.
+
+
+
+NOTE: No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas. Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
+
+[cols="2,1,1,2"]
+|===
+| Método de actualización | Tipo de configuración | Versión de ONTAP | Procedimiento 
+
+
+ a| 
+* Método: Expanda la configuración de MetroCluster y quite los nodos antiguos
+
+ a| 
+FC de cuatro nodos
+ a| 
+9.6 y posterior
+ a| 
+link:task_refresh_4n_mcc_fc.html["Enlace al procedimiento"]
+
+
+
+ a| 
+* Método: Expanda la configuración de MetroCluster y quite los nodos antiguos
+
+ a| 
+IP de cuatro nodos
+ a| 
+9.8 y posterior
+ a| 
+link:task_refresh_4n_mcc_ip.html["Enlace al procedimiento"]
+
+|===

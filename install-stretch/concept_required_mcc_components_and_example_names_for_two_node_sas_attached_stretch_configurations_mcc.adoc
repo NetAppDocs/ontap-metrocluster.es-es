@@ -1,0 +1,105 @@
+---
+permalink: install-stretch/concept_required_mcc_components_and_example_names_for_two_node_sas_attached_stretch_configurations_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, required, hardware, components, naming, guidelines, two, node, sas, configuration 
+summary: La configuración de MetroCluster requiere varios componentes de hardware. Para mayor comodidad y claridad, en la documentación de MetroCluster se utilizan los nombres estándar de los componentes. Un sitio se conoce como Sitio A y el otro se conoce como Sitio B. 
+---
+= Componentes de hardware de MetroCluster y directrices de nomenclatura necesarias para configuraciones de ampliación conectadas a SAS de dos nodos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configuración de MetroCluster requiere varios componentes de hardware. Para mayor comodidad y claridad, en la documentación de MetroCluster se utilizan los nombres estándar de los componentes. Un sitio se conoce como Sitio A y el otro se conoce como Sitio B.
+
+
+
+== Software y hardware compatibles
+
+El hardware y el software deben ser compatibles con la configuración FC de MetroCluster.
+
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+Al usar sistemas AFF, todos los módulos de controladora de la configuración MetroCluster deben configurarse como sistemas AFF.
+
+
+
+== Redundancia del hardware en la configuración de MetroCluster
+
+Debido a la redundancia del hardware en la configuración de MetroCluster, hay dos componentes de cada sitio. Los sitios son asignados arbitrariamente las letras A y B y los componentes individuales son asignados arbitrariamente los números 1 y 2.
+
+
+
+== Dos clústeres ONTAP de un solo nodo
+
+La configuración de MetroCluster de ampliación con conexión a SAS requiere dos clústeres ONTAP de un solo nodo.
+
+La nomenclatura debe ser única en la configuración de MetroCluster.
+
+Nombres de ejemplo:
+
+* Sitio A: Cluster_A
+* Centro B: Cluster_B
+
+
+
+
+== Dos módulos de controladora de almacenamiento
+
+La configuración de MetroCluster de ampliación en conexión SAS requiere dos módulos de controladora de almacenamiento.
+
+* La nomenclatura debe ser única en la configuración de MetroCluster.
+* Todos los módulos de controladora de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP.
+* Todos los módulos de controladora de un grupo de recuperación ante desastres deben ser del mismo modelo.
+* Todos los módulos de controladoras de un grupo de recuperación ante desastres deben utilizar la misma configuración FC-VI.
++
+Algunos módulos de controladora admiten dos opciones para la conectividad FC-VI:
+
++
+** Puertos FC-VI integrados
+** Una tarjeta FC-VI en la ranura 1
++
+No se admite una combinación de un módulo de controladora usando puertos FC-VI integrados y otro usando una tarjeta FC-VI complementaria. Por ejemplo, si un nodo utiliza una configuración FC-VI integrada, los demás nodos del grupo DR también deben utilizar la configuración de FC-VI integrada.
+
+
+
+
+
+Nombres de ejemplo:
+
+* Centro A: Controller_A_1
+* Centro B: Controller_B_1
+
+
+
+
+== Al menos cuatro bandejas de discos SAS (recomendado)
+
+La configuración de MetroCluster con ampliación conectada a SAS requiere al menos dos bandejas de discos SAS. Se recomiendan cuatro bandejas de discos SAS.
+
+Se recomiendan dos bandejas en cada sitio para permitir la propiedad de disco por bandeja. Se admite un mínimo de una bandeja en cada sitio.
+
+Nombres de ejemplo:
+
+* Centro A:
++
+** Bandeja_a_1_1
+** Bandeja_a_1_2
+
+
+* Centro B:
++
+** Shelf_B_1_1
+** Shelf_B_1_2
+
+
+
+
+
+
+== Mezcla módulos IOM12 e IOM 6 en una pila
+
+Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la herramienta de matriz de interoperabilidad (IMT) para ver si la versión de ONTAP admite la combinación de bandejas. https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilidad de NetApp"]
+
+Para obtener más información sobre la mezcla de estantes, consulte: https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"]

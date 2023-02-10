@@ -1,0 +1,91 @@
+---
+permalink: upgrade/task_create_unmirrored_data_aggregates_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, create, unmirrored, data, aggregates 
+summary: Opcionalmente, puede crear agregados de datos no reflejados para datos que no requieren el mirroring redundante que proporcionan las configuraciones de MetroCluster. 
+---
+= Creación de agregados de datos no reflejados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Opcionalmente, puede crear agregados de datos no reflejados para datos que no requieren el mirroring redundante que proporcionan las configuraciones de MetroCluster.
+
+.Acerca de esta tarea
+* Debe conocer qué unidades o LUN de cabina se utilizarán en el nuevo agregado.
+* Si tiene varios tipos de unidades en el sistema (almacenamiento heterogéneo), debe comprender cómo verificar que se selecciona el tipo de unidad correcto.
+
+
+
+IMPORTANT: En las configuraciones de IP de MetroCluster, no se puede acceder a los agregados remotos no reflejados tras una conmutación por sitios
+
+
+NOTE: Los agregados no reflejados deben ser locales para el nodo a los que pertenecen.
+
+* Las unidades y los LUN de cabina son propiedad de un nodo específico; cuando se crea un agregado, todas las unidades de ese agregado deben ser propiedad del mismo nodo, que se convierte en el nodo inicial para ese agregado.
+* Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster.
+* _Administración de discos y agregados_ contiene más información sobre el mirroring de agregados.
+
+
+.Pasos
+. Instale y cablee las bandejas de discos que contendrán los agregados no reflejados.
++
+Puede utilizar los procedimientos de la documentación _Installation and Setup_ para su plataforma y bandejas de discos.
+
++
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+
+. Asigne manualmente todos los discos de la bandeja nueva al nodo apropiado:
++
+`disk assign -disk _disk-id_ -owner _owner-node-name_`
+
+. Cree el agregado:
++
+`storage aggregate create`
+
++
+Si ha iniciado sesión en el clúster en la interfaz de gestión del clúster, puede crear un agregado en cualquier nodo del clúster. Para verificar que el agregado se ha creado en un nodo concreto, debe usar el `-node` especifique o especifique las unidades que son propiedad de ese nodo.
+
++
+También debe asegurarse de que solo se incluyan unidades de la bandeja no reflejada al agregado.
+
++
+Puede especificar las siguientes opciones:
+
++
+** Nodo principal del agregado (es decir, el nodo al que pertenece el agregado en un funcionamiento normal)
+** Lista de unidades específicas o LUN de cabina que se añadirán al agregado
+** Cantidad de unidades que se incluirán
+** Estilo de suma de comprobación que se utilizará para el agregado
+** El tipo de unidades que se van a utilizar
+** El tamaño de las unidades que se van a utilizar
+** Conduzca la velocidad que se va a utilizar
+** Tipo de RAID para grupos RAID en el agregado
+** Cantidad máxima de unidades o LUN de cabina que se pueden incluir en un grupo RAID
+** Si se permiten unidades con RPM diferentes
++
+Para obtener más información acerca de estas opciones, consulte `storage aggregate create` página de manual.
+
++
+El siguiente comando crea un agregado no reflejado con 10 discos:
+
++
+[listing]
+----
+controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -node controller_A_1
+[Job 15] Job is queued: Create aggr1_controller_A_1.
+[Job 15] The job is starting.
+[Job 15] Job succeeded: DONE
+----
+
+
+. Compruebe el grupo RAID y las unidades del nuevo agregado:
++
+`storage aggregate show-status -aggregate _aggregate-name_`
+
+
+
+.Información relacionada
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]

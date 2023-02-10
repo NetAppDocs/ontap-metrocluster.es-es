@@ -1,0 +1,83 @@
+---
+permalink: transition/concept_switchover_and_switchback_operations_during_transition.html 
+sidebar: sidebar 
+keywords: stage, transition, process, metrocluster, switchover, heal, switchback, operation, fc, ip, workflow 
+summary: Según la etapa del proceso de transición, las operaciones de conmutación de sitios, reparación y conmutación de estado de MetroCluster utilizan el flujo de trabajo de MetroCluster FC o MetroCluster IP. 
+---
+= Operaciones de conmutación de sitios, reparación y conmutación de estado durante una transición no disruptiva
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Según la etapa del proceso de transición, las operaciones de conmutación de sitios, reparación y conmutación de estado de MetroCluster utilizan el flujo de trabajo de MetroCluster FC o MetroCluster IP.
+
+La siguiente tabla muestra qué flujos de trabajo se utilizan en las distintas etapas del proceso de transición. En algunas fases, no se admiten la conmutación de sitios ni la conmutación de estado.
+
+* En el flujo de trabajo de MetroCluster FC, los pasos de conmutación de sitios, reparación y conmutación de estado son los que se utilizan con una configuración de FC de MetroCluster.
+* En el flujo de trabajo de MetroCluster IP, los pasos de conmutación de sitios, reparación y conmutación de estado son los que se utilizan con una configuración IP de MetroCluster.
+* En el flujo de trabajo unificado, cuando se configuran los nodos FC e IP, los pasos dependen de si se realizan NSO o USO. Los detalles se muestran en la tabla.
+
+
+Para obtener información sobre los flujos de trabajo de MetroCluster FC e IP para conmutación de sitios, reparación y conmutación de estado, consulte link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html["Comprender la protección de datos y la recuperación ante desastres de MetroCluster"].
+
+
+NOTE: La conmutación automática de sitios no planificada no está disponible durante el proceso de transición.
+
+[cols="2,1,3"]
+|===
+
+
+| Etapa de la transición | El cambio negociado usa este flujo de trabajo... | El cambio no planificado usa este flujo de trabajo... 
+
+
+ a| 
+Antes de que los nodos IP de MetroCluster se hayan Unido al clúster
+ a| 
+FC de MetroCluster
+ a| 
+FC de MetroCluster
+
+
+
+ a| 
+Después de que los nodos IP de MetroCluster se hayan Unido al clúster, antes del `metrocluster configure` se ejecuta el comando
+ a| 
+No admitido
+ a| 
+FC de MetroCluster
+
+
+
+ a| 
+Después del `metrocluster configure` se ha emitido el comando. El movimiento de volumen puede estar en curso.
+ a| 
+Unificado: Todos los nodos de sitios remotos permanecen en funcionamiento y la reparación se realiza automáticamente
+ a| 
+Unificado:
+
+* Los agregados reflejados propiedad del nodo FC de MetroCluster se reflejan si se puede acceder al almacenamiento, mientras que los demás se degradan después de la conmutación.
+* Todos los nodos del sitio remoto pueden arrancar.
+* La `heal aggregate` y.. `heal root` los comandos deben ejecutarse manualmente.
+
+
+
+
+ a| 
+Los nodos FC de MetroCluster no están configurados.
+ a| 
+No admitido
+ a| 
+IP de MetroCluster
+
+
+
+ a| 
+La `cluster unjoin` El comando se ha realizado en los nodos FC de MetroCluster.
+ a| 
+IP de MetroCluster
+ a| 
+IP de MetroCluster
+
+|===

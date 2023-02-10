@@ -1,0 +1,194 @@
+---
+permalink: install-fc/concept_example_of_switch_zoning_in_a_two_node_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, switch, zoning, two, node, array, luns 
+summary: La división en zonas de switches define las rutas entre los nodos conectados. La configuración de la división en zonas permite definir los LUN de cabina que pueden ver los sistemas ONTAP específicos. 
+---
+= Ejemplo de división en zonas de switches en una configuración MetroCluster de dos nodos con LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La división en zonas de switches define las rutas entre los nodos conectados. La configuración de la división en zonas permite definir los LUN de cabina que pueden ver los sistemas ONTAP específicos.
+
+Puede utilizar el siguiente ejemplo como referencia al determinar la división en zonas de una configuración MetroCluster de dos nodos conectada a la estructura con LUN de cabina:
+
+image::../media/zoning_two_node_mcc_fabric_attached.gif[dividir en zonas dos nodos mcc conectado con estructura]
+
+El ejemplo muestra la división en zonas de un solo iniciador a un destino para las configuraciones MetroCluster. Las líneas del ejemplo representan zonas en lugar de conexiones; cada línea está etiquetada con su número de zona.
+
+En el ejemplo, se asignan LUN de cabina en cada cabina de almacenamiento. Las LUN de igual tamaño se aprovisionan en las cabinas de almacenamiento en ambos sitios, un requisito de SyncMirror. Cada sistema ONTAP tiene dos rutas a los LUN de cabina. Los puertos en la cabina de almacenamiento son redundantes.
+
+Los pares de puertos de matriz redundantes para ambos sitios son los siguientes:
+
+* Cabina de almacenamiento en el sitio A:
++
+** Puertos 1A y 2A
+** Puertos 1B y 2B
+
+
+* Cabina de almacenamiento en el sitio B:
++
+** Puertos 1A' y 2A'
+** Puertos 1B' y 2B'
+
+
+
+
+Las parejas de puertos redundantes de cada cabina de almacenamiento forman rutas alternativas. Por lo tanto, ambos puertos de las parejas de puertos pueden acceder a las LUN en sus respectivas cabinas de almacenamiento.
+
+En la siguiente tabla se muestran las zonas de las ilustraciones:
+
+|===
+
+
+| Zona | Controladora ONTAP y puerto del iniciador | Puerto de la cabina de almacenamiento 
+
+
+3+| *FC_switch_A_1* 
+
+
+ a| 
+z1
+ a| 
+Controladora A: Puerto 0a
+ a| 
+Puerto 1A
+
+
+
+ a| 
+z3
+ a| 
+Controladora A: Puerto 0c
+ a| 
+Puerto 1A'
+
+
+
+3+| *FC_switch_A_2* 
+
+
+ a| 
+z2
+ a| 
+Controladora A: Puerto 0b
+ a| 
+Puerto 2A'
+
+
+
+ a| 
+z4
+ a| 
+Controladora A: Puerto 0d
+ a| 
+Puerto 2A
+
+
+
+3+| *FC_switch_B_1* 
+
+
+ a| 
+z5
+ a| 
+Controladora B: Puerto 0a
+ a| 
+Puerto 1B'
+
+
+
+ a| 
+z7
+ a| 
+Controladora B: Puerto 0c
+ a| 
+Puerto 1B
+
+
+
+3+| *FC_switch_B_2* 
+
+
+ a| 
+z6
+ a| 
+Controladora B: Puerto 0b
+ a| 
+Puerto 2B
+
+
+
+ a| 
+z8
+ a| 
+Controladora B: Puerto 0d
+ a| 
+Puerto 2B'
+
+|===
+En la siguiente tabla se muestran las zonas para las conexiones FC-VI:
+
+|===
+
+
+| Zona | Controladora ONTAP y puerto del iniciador | Conmutador 
+
+
+3+| *Sitio A* 
+
+
+ a| 
+ZX
+ a| 
+Controladora A: Puerto FC-VI a
+ a| 
+FC_switch_A_1
+
+
+
+ a| 
+ZY
+ a| 
+Controladora A: Puerto FC-VI b
+ a| 
+FC_switch_A_2
+
+
+
+3+| *Sitio B* 
+
+
+ a| 
+ZX
+ a| 
+Controladora B: Puerto FC-VI a
+ a| 
+FC_switch_B_1
+
+
+
+ a| 
+ZY
+ a| 
+Controladora B: Puerto FC-VI b
+ a| 
+FC_switch_B_2
+
+|===
+.Información relacionada
+* La división en zonas de switches define las rutas entre los nodos conectados. La configuración de la división en zonas permite definir los LUN de cabina que puede ver un sistema ONTAP específico.
++
+link:reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.html["Requisitos para la división en zonas de switches en una configuración de MetroCluster con LUN de cabina"]
+
++
+link:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.html["Ejemplo de división en zonas de switches en una configuración de MetroCluster de cuatro nodos con LUN de cabina"]
+
+* Al utilizar la división en zonas de switches en una configuración de MetroCluster con LUN de cabina, debe asegurarse de que se cumplan ciertos requisitos básicos.
++
+link:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.html["Ejemplo de división en zonas de switches en una configuración MetroCluster de ocho nodos con LUN de cabina"]
+
+

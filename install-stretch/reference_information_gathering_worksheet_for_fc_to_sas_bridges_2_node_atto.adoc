@@ -1,0 +1,139 @@
+---
+permalink: install-stretch/reference_information_gathering_worksheet_for_fc_to_sas_bridges_2_node_atto.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, worksheet, fc, sas, bridges, information 
+summary: Antes de empezar a configurar los sitios MetroCluster, debe recopilar la información de configuración necesaria. 
+---
+= Hoja de trabajo de recopilación de información para los puentes FC a SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de empezar a configurar los sitios MetroCluster, debe recopilar la información de configuración necesaria.
+
+
+
+== Centro A, puente FC a SAS 1 (FC_bridge_A_1a)
+
+Cada pila SAS requiere al menos dos puentes FC a SAS.
+
+Cada puente se conecta a Controller_A_1_``__port-number__`` Y Controller_B_1_``__port-number__``.
+
+|===
+
+
+| Centro a | Su valor 
+
+
+ a| 
+Dirección IP Bridge_A_1a
+ a| 
+
+
+
+ a| 
+Nombre de usuario Bridge_A_1a
+ a| 
+
+
+
+ a| 
+Contraseña Bridge_A_1a
+ a| 
+
+|===
+
+
+== Centro A, puente FC a SAS 2 (FC_bridge_A_1b)
+
+Cada pila SAS requiere al menos dos puentes FC a SAS.
+
+Cada puente se conecta a Controller_A_1_``__port-number__`` Y Controller_B_1_``__port-number__``.
+
+|===
+
+
+| Centro a | Su valor 
+
+
+ a| 
+Dirección IP de Bridge_A_1b
+ a| 
+
+
+
+ a| 
+Nombre de usuario Bridge_A_1b
+ a| 
+
+
+
+ a| 
+Contraseña Bridge_A_1b
+ a| 
+
+|===
+
+
+== Centro B, puente FC a SAS 1 (FC_bridge_B_1a)
+
+Cada pila SAS requiere al menos dos puentes FC a SAS.
+
+Cada puente se conecta al Controller_A_1___________ y al Controller_B_1_'_____________.
+
+|===
+
+
+| Centro B | Su valor 
+
+
+ a| 
+Dirección IP Bridge_B_1a
+ a| 
+
+
+
+ a| 
+Nombre de usuario Bridge_B_1a
+ a| 
+
+
+
+ a| 
+Contraseña Bridge_B_1a
+ a| 
+
+|===
+
+
+== Centro B, puente FC a SAS 2 (FC_bridge_B_1b)
+
+Cada pila SAS requiere al menos dos puentes FC a SAS.
+
+Cada puente se conecta al Controller_A_1___________ y al Controller_B_1_'_____________.
+
+|===
+
+
+| Centro B | Su valor 
+
+
+ a| 
+Dirección IP de Bridge_B_1b
+ a| 
+
+
+
+ a| 
+Nombre de usuario Bridge_B_1b
+ a| 
+
+
+
+ a| 
+Contraseña Bridge_B_1b
+ a| 
+
+|===

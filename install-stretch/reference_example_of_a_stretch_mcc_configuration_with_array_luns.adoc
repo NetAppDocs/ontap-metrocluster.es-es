@@ -1,0 +1,29 @@
+---
+permalink: install-stretch/reference_example_of_a_stretch_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, example, stretch, configuration, array, luns, e-series, FAS9000 
+summary: En una configuración MetroCluster con ampliación con LUN de cabina, debe cablear los puertos FC-VI para la conectividad directa entre las controladoras. Además, debe cablear cada puerto HBA de controladora a los puertos de switch en los switches FC correspondientes. El cableado a los LUN de cabina es igual que el de un MetroCluster conectado a la estructura, excepto los LUN de cabina E-Series, que se pueden conectar directamente. 
+---
+= Ejemplo de una configuración de MetroCluster con ampliación con LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En una configuración MetroCluster con ampliación con LUN de cabina, debe cablear los puertos FC-VI para la conectividad directa entre las controladoras. Además, debe cablear cada puerto HBA de controladora a los puertos de switch en los switches FC correspondientes. El cableado a los LUN de cabina es igual que el de un MetroCluster conectado a la estructura, excepto los LUN de cabina E-Series, que se pueden conectar directamente.
+
+En la siguiente ilustración, se muestran los puertos FC-VI que se cablean en las controladoras A y B en una configuración MetroCluster con ampliación:
+
+image::../media/fc_vi_connections_campus.gif[fc vi conexiones campus]
+
+
+NOTE: Los módulos de controladoras de los sistemas de almacenamiento FAS9000 utilizan cuatro puertos FC-VI cada uno.
+
+Para las configuraciones con LUN de cabina E-Series, puede conectar directamente los LUN de E-Series.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Direct_Attach_support_for_Stretch_MetroCluster_Configuration_with_NetApp_E-Series_array["Compatibilidad de la conexión directa para la configuración de MetroCluster con ampliación con la cabina E-Series de NetApp"]
+
+Excepto para conectar los puertos FC-VI, el resto de este procedimiento es para configurar una configuración de MetroCluster con LUN de cabina, que no utilizan LUN de cabina E-Series. Esto requiere switches FC que sean los mismos que para utilizar LUN de cabina en configuraciones estructural.
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]

@@ -1,0 +1,77 @@
+---
+permalink: install-ip/concept_considerations_unmirrored_aggrs.html 
+sidebar: sidebar 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+summary: Si la configuración incluye agregados no reflejados, debe tener en cuenta los posibles problemas de acceso tras las operaciones de conmutación. 
+---
+= Uso de agregados no reflejados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la configuración incluye agregados no reflejados, debe tener en cuenta los posibles problemas de acceso tras las operaciones de conmutación.
+
+
+
+== Consideraciones sobre los agregados no reflejados al realizar tareas de mantenimiento que requieren apagado y encendido
+
+Si está realizando una conmutación de sitios negociada por motivos de mantenimiento que requieran un apagado de alimentación de todo el sitio, primero debe desconectar manualmente todos los agregados no reflejados propiedad del sitio de desastre.
+
+Si no lo hace, los nodos del sitio superviviente podrían desaparecer debido a una alarma por varios discos. Esto puede suceder si los agregados de conmutación sin mirroring no se desconectan o no existen debido a la pérdida de conectividad al almacenamiento en el sitio de recuperación ante desastres debido al apagado de alimentación o a la pérdida de ISL.
+
+
+
+== Consideraciones sobre los agregados no reflejados y los espacios de nombres jerárquicos
+
+Si utiliza espacios de nombres jerárquicos, debe configurar la ruta de unión de modo que todos los volúmenes de esa ruta estén en agregados reflejados o solo en agregados no reflejados. La configuración de una combinación de agregados no reflejados y reflejados en la ruta de unión puede impedir el acceso a los agregados no reflejados después de la operación de conmutación.
+
+
+
+== Consideraciones sobre los agregados no reflejados, el volumen de metadatos de CRS y los volúmenes raíz de la SVM de datos
+
+El volumen de metadatos del servicio de replicación de configuración (CRS) y los volúmenes raíz de la SVM de datos deben estar en un agregado reflejado. No se pueden mover estos volúmenes a un agregado no reflejado. Si se encuentran en agregados sin mirroring, las operaciones de conmutación de sitios y conmutación de estado negociadas son vetadas. El comando MetroCluster check proporciona una advertencia si este es el caso.
+
+
+
+== Consideraciones sobre agregados y SVM no reflejados
+
+Las instancias de SVM solo deben configurarse en agregados reflejados o solo en agregados no reflejados. La configuración de una combinación de agregados no reflejados y sin mirroring puede provocar una operación de conmutación por cierre que supere los 120 segundos y provocar una interrupción de los datos si los agregados no reflejados no se encuentran en línea.
+
+
+
+== Consideraciones sobre agregados y SAN no reflejados
+
+Antes de ONTAP 9.9.1, no se debe ubicar un LUN en un agregado no reflejado. Configurar un LUN en un agregado no reflejado puede provocar una operación de conmutación por encima de 120 segundos y una interrupción del servicio de los datos.
+
+
+
+== Consideraciones sobre la adición de bandejas de almacenamiento para agregados no reflejados
+
+
+NOTE: Si va a añadir bandejas que se utilizarán para agregados no reflejados en una configuración IP de MetroCluster, debe hacer lo siguiente:
+
+. Antes de iniciar el procedimiento para añadir las bandejas, emita el siguiente comando:
++
+`metrocluster modify -enable-unmirrored-aggr-deployment true`
+
+. Compruebe que la asignación automática de discos está desactivada:
++
+`disk option show`
+
+. Siga los pasos del procedimiento para añadir la bandeja.
+. Asigne manualmente todos los discos de la bandeja nueva al nodo que posea el agregado o los agregados no reflejados.
+. Cree los agregados:
++
+`storage aggregate create`
+
+. Tras completar el procedimiento, ejecute el siguiente comando:
++
+`metrocluster modify -enable-unmirrored-aggr-deployment false`
+
+. Compruebe que la asignación automática de discos está habilitada:
++
+`disk option show`
+
+

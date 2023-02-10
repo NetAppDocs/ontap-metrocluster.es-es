@@ -1,0 +1,57 @@
+---
+permalink: install-stretch/concept_considerations_firewalls.html 
+sidebar: sidebar 
+keywords: metrocluster, firewall, ports, prepare, tcp, udp 
+summary: Si utiliza un firewall en un sitio de MetroCluster, debe garantizar el acceso a determinados puertos. 
+---
+= Uso del firewall en sitios de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Consideraciones sobre el uso del firewall en sitios MetroCluster
+
+Si utiliza un firewall en un sitio de MetroCluster, debe garantizar el acceso a los puertos correspondientes.
+
+La siguiente tabla muestra el uso de puertos TCP/UDP en un firewall externo colocado entre dos sitios MetroCluster.
+
+|===
+
+
+| Tipo de tráfico | Puerto/servicios 
+
+
+ a| 
+Conexión de clústeres entre iguales
+ a| 
+11104 / TCP
+
+11105 / TCP
+
+
+
+ a| 
+System Manager de ONTAP
+ a| 
+443 / TCP
+
+
+
+ a| 
+LIF de interconexión de clústeres IP de MetroCluster
+ a| 
+65200 / TCP
+
+10006 / TCP y UDP
+
+
+
+ a| 
+Asistencia de hardware
+ a| 
+4444 / TCP
+
+|===

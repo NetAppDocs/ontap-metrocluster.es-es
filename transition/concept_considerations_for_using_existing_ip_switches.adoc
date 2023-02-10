@@ -1,0 +1,36 @@
+---
+permalink: transition/concept_considerations_for_using_existing_ip_switches.html 
+sidebar: sidebar 
+keywords: ensure, ip, switch, support, exist, model, metrocluster, fc, configuration, ip, consideration, support 
+summary: Debe asegurarse de que los switches IP sean compatibles. Si el modelo de switch existente es compatible con la configuración FC de MetroCluster original y la nueva configuración IP de MetroCluster, es posible reutilizar los switches existentes. 
+---
+= Consideraciones sobre los switches IP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe asegurarse de que los switches IP sean compatibles. Si el modelo de switch existente es compatible con la configuración FC de MetroCluster original y la nueva configuración IP de MetroCluster, es posible reutilizar los switches existentes.
+
+
+
+== Switches compatibles
+
+Debe utilizar switches proporcionados por NetApp.
+
+* Para la transición no se puede utilizar switches compatibles con MetroCluster (switches que no han sido validados y proporcionados por NetApp).
+* Los switches IP deben ser compatibles como switch de clúster tanto con la configuración de MetroCluster FC como con la configuración de IP de MetroCluster.
+* Los switches IP pueden volver a utilizarse en la nueva configuración de IP de MetroCluster si el FC de MetroCluster es un clúster de switches y los switches de clúster IP son compatibles con la configuración de IP de MetroCluster.
+* Normalmente, los nuevos switches IP se usan en los siguientes casos:
++
+** FC de MetroCluster es un clúster sin switches, por lo que se requieren nuevos switches.
+** MetroCluster FC es un clúster con switches, pero los switches IP existentes no son compatibles con la configuración IP de MetroCluster.
+** Desea utilizar diferentes switches para la configuración de IP de MetroCluster.
+
+
+
+
+Consulte _Hardware Universe_ de NetApp_ para obtener información sobre el modelo de plataforma y la compatibilidad con switches.
+
+https://hwu.netapp.com["Hardware Universe de NetApp"]

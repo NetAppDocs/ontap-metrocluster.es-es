@@ -1,0 +1,121 @@
+---
+permalink: disaster-recovery/task_perform_a_forced_switchover_after_a_disaster.html 
+sidebar: sidebar 
+keywords: disaster, occur, perform, surviving, cluster, survive, switchover, ensure, safe, data, service, force, fence, fencing, off, site, access, volume, nvfail, state, output, storage, aggregate, plex, show, command, indeterminate, metroxluster 
+summary: Si se ha producido un desastre, hay pasos que debe realizar tanto en el clúster ante desastres como en el clúster superviviente tras la conmutación para garantizar un servicio de datos seguro y continuado. 
+---
+= Realizar una conmutación de sitios forzada después de un desastre
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si se ha producido un desastre, hay pasos que debe realizar tanto en el clúster ante desastres como en el clúster superviviente tras la conmutación para garantizar un servicio de datos seguro y continuado.
+
+Para determinar si se ha producido un desastre:
+
+* Un administrador
+* El software MetroCluster Tiebreaker, si está configurado
+* El software Mediator de ONTAP, si está configurado
+
+
+
+
+== Esgrima fuera del lugar del desastre
+
+Después del desastre, si es necesario reemplazar los nodos del sitio de desastres, debe detenerlos para impedir que el sitio reanude el servicio. De lo contrario, se arriesga a que se produzcan daños en los datos si los clientes empiezan a acceder a los nodos antes de completar el procedimiento de sustitución.
+
+.Paso
+. Detenga los nodos en el sitio de desastre y manténgalos encendidos o en el símbolo del sistema del CARGADOR hasta que se le indique arrancar la ONTAP:
++
+`system node halt -node disaster-site-node-name`
+
++
+Si los nodos del sitio de desastres han sido destruidos o no se pueden detener, apague los nodos y no arranque los nodos de reemplazo hasta que se indique en el procedimiento de recuperación.
+
+
+
+
+
+== Realizar un cambio forzado
+
+El proceso de conmutación de sitios, además de proporcionar operaciones no disruptivas durante las pruebas y el mantenimiento, le permite recuperarse de un fallo de sitio con un único comando.
+
+.Antes de empezar
+* Al menos uno de los nodos del sitio supervivientes debe estar activo y en ejecución antes de realizar la conmutación.
+* Todos los cambios de configuración anteriores deben completarse antes de ejecutar una operación de conmutación de estado.
++
+Esto significa evitar la competencia con las operaciones de conmutación de sitios o conmutación de estado negociadas.
+
+
+
+
+NOTE: Las configuraciones de SnapMirror y SnapVault se eliminan automáticamente.
+
+.Acerca de esta tarea
+La `metrocluster switchover` El comando cambia a través de los nodos de todos los grupos de recuperación ante desastres de la configuración de MetroCluster. Por ejemplo, en una configuración MetroCluster de ocho nodos, conmuta a los nodos en ambos grupos de recuperación ante desastres.
+
+.Pasos
+. Implemente el cambio:
++
+`metrocluster switchover -forced-on-disaster true`
+
++
+La operación puede tardar varios minutos en completarse.
+
+. Responda `y` cuando se le solicite que continúe con la conmutación.
+. Compruebe que la conmutación se haya completado correctamente ejecutando el comando MetroCluster operation show.
++
+....
+mcc1A::> metrocluster operation show
+  Operation: switchover
+ Start time: 10/4/2012 19:04:13
+      State: in-progress
+   End time: -
+     Errors:
+
+mcc1A::> metrocluster operation show
+  Operation: switchover
+ Start time: 10/4/2012 19:04:13
+      State: successful
+   End time: 10/4/2012 19:04:22
+     Errors: -
+....
++
+Si el cambio es vetado, usted tiene la opción de volver a emitir el `metrocluster switchover-forced-on-disaster true` con el `--override-vetoes` opción. Si utiliza este parámetro opcional, el sistema anula cualquier vetoo suave que haya impedido la conmutación.
+
+
+
+.Después de terminar
+Las relaciones de SnapMirror deben reestablecerse tras la conmutación.
+
+
+
+== El resultado del comando Storage Aggregate plex show es indefinido después de una conmutación de MetroCluster
+
+Cuando ejecute el `storage aggregate plex show` Comando después de una conmutación MetroCluster, el estado de plex0 del agregado raíz conmutado es indefinido y se muestra como con errores. Durante este tiempo, la raíz conmutada no se actualiza. El estado real de este complejo sólo se puede determinar después de la fase de curación del MetroCluster.
+
+
+
+== Acceder a volúmenes con el estado NVFAIL después de una conmutación de sitios
+
+Después de una conmutación de sitios, debe borrar el estado NVFAIL restableciendo el `-in-nvfailed-state` parámetro de `volume modify` para eliminar la restricción de clientes a acceder a los datos.
+
+.Antes de empezar
+La base de datos o el sistema de archivos no deben estar en ejecución ni intentar acceder al volumen afectado.
+
+.Acerca de esta tarea
+Ajuste de `-in-nvfailed-state` el parámetro requiere un privilegio de nivel avanzado.
+
+.Paso
+. Recupere el volumen mediante la `volume modify` con el `-in-nvfailed-state` el parámetro se establece en false.
+
+
+.Después de terminar
+Para obtener instrucciones acerca de cómo examinar la validez del archivo de base de datos, consulte la documentación del software de base de datos específico.
+
+Si su base de datos utiliza LUN, revise los pasos para hacer que las LUN sean accesibles para el host después de un fallo de NVRAM.
+
+.Información relacionada
+link:../manage/concept_monitoring_and_protecting_database_validity_by_using_nvfail.html["Supervisión y protección de la validez de la base de datos mediante el uso de la opción NVFAIL"]

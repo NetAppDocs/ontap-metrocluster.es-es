@@ -1,0 +1,33 @@
+---
+permalink: install-ip/task_cable_other_connections.html 
+sidebar: sidebar 
+keywords: cabling, cable, component, peering, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure 
+summary: Debe cablear los puertos del módulo de controladora que se utilizan para la conexión de clústeres entre iguales, la gestión y la conectividad de datos. 
+---
+= Cableado de los puertos de conexión, datos y gestión de las controladoras
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe cablear los puertos del módulo de controladora que se utilizan para la conexión de clústeres entre iguales, la gestión y la conectividad de datos.
+
+Esta tarea debe realizarse en cada módulo del controlador de la configuración de MetroCluster.
+
+Se deben utilizar al menos dos puertos en cada módulo de controlador para la conexión de clústeres entre iguales.
+
+El ancho de banda mínimo recomendado para los puertos y la conectividad de red es de 1 GbE.
+
+. Identifique y conecte al menos dos puertos para la conexión de clústeres entre iguales y compruebe que tengan conectividad de red con el clúster de socios.
++
+La relación de clústeres entre iguales puede realizarse en puertos dedicados o en puertos de datos. El uso de puertos dedicados proporciona un rendimiento mayor para el tráfico de paridad de clústeres.
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
+
+. Conecte los puertos de datos y de gestión de la controladora a las redes de datos y gestión en el sitio local.
++
+Utilice las instrucciones de instalación de la plataforma en https://docs.netapp.com/us-en/ontap-systems/["Documentación de los sistemas AFF y FAS"].
+
+

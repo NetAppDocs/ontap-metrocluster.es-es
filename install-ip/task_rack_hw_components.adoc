@@ -1,0 +1,72 @@
+---
+permalink: install-ip/task_rack_hw_components.html 
+sidebar: sidebar 
+keywords: metrocluster ip, rack hardware, components, racking 
+summary: Si no ha recibido el equipo ya instalado en armarios, debe montar los componentes en rack. 
+---
+= Acumular en rack los componentes de hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si no ha recibido el equipo ya instalado en armarios, debe montar los componentes en rack.
+
+.Acerca de esta tarea
+Esta tarea debe realizarse en los dos sitios MetroCluster.
+
+.Pasos
+. Planifique la colocación de los componentes de MetroCluster.
++
+El espacio en rack depende del modelo de plataforma de los módulos de la controladora, los tipos de switch y el número de pilas de bandejas de discos que haya en la configuración.
+
+. Puesta a tierra apropiadamente usted mismo.
+. Instale los módulos de la controladora en el rack o armario.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["Instrucciones de instalación y configuración de los sistemas AFF A220/FAS2700"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2870798["Instrucciones de instalación y configuración de sistemas AFF A250"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["Instrucciones de instalación y configuración de los sistemas AFF A300"^]
+
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["Sistemas AFF A320: Instalación y configuración"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2858854["Instrucciones de instalación y configuración de los sistemas AFF A400"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2873445["Instrucciones de instalación y configuración del sistema AFF A700"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["Instrucciones de instalación y configuración de los sistemas AFF A800"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2872833["Instrucciones de instalación y configuración de sistemas FAS500f"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["Instrucciones de instalación y configuración de los sistemas FAS8200"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2858856["Instrucciones de instalación y configuración de los sistemas FAS8300 y FAS8700"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2874463["Instrucciones de instalación y configuración de los sistemas FAS9000"^]
+
+
+
+. Instale los switches IP en el rack o armario.
+. Instale las bandejas de discos, enciúdeles a encender y, a continuación, configure los ID de bandeja.
++
+** Debe apagar y encender cada bandeja de discos.
+** Los ID de bandeja únicos se recomiendan en gran medida para cada bandeja de discos SAS dentro de cada grupo de recuperación ante desastres de MetroCluster, como ayuda en la solución de problemas.
+
+
++
+
+IMPORTANT: No conecte el cable de las bandejas de discos que estén destinadas a contener agregados no reflejados en este momento. Debe esperar a implementar bandejas destinadas a agregados no reflejados hasta que se complete la configuración de MetroCluster y solo implementarla después de utilizar el `metrocluster modify -enable-unmirrored-aggr-deployment true` comando.
+
+

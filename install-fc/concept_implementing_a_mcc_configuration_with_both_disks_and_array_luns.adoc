@@ -1,0 +1,25 @@
+---
+permalink: install-fc/concept_implementing_a_mcc_configuration_with_both_disks_and_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, implement, configuration, disks, array, luns 
+summary: Para implementar una configuración de MetroCluster con discos nativos y LUN de cabina, debe asegurarse de que los sistemas ONTAP utilizados en la configuración puedan conectarse a las cabinas de almacenamiento. 
+---
+= Implementación de una configuración de MetroCluster con discos y LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para implementar una configuración de MetroCluster con discos nativos y LUN de cabina, debe asegurarse de que los sistemas ONTAP utilizados en la configuración puedan conectarse a las cabinas de almacenamiento.
+
+Una configuración MetroCluster con discos y LUN de cabina puede tener dos o cuatro nodos. Aunque la configuración MetroCluster de cuatro nodos debe estar conectada a la estructura, la configuración de dos nodos puede ser más elástica o estar conectada a la estructura.
+
+En la https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp (IMT)"], Puede utilizar el campo solución de almacenamiento para seleccionar la solución MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
+
+.Información relacionada
+Para configurar una configuración MetroCluster con estructura de dos nodos o MetroCluster de cuatro nodos con discos nativos y LUN de cabina, debe utilizar puentes de FC a SAS para conectar los sistemas ONTAP con las bandejas de discos a través de los switches de FC. Puede conectar los LUN de la cabina mediante los switches FC a los sistemas ONTAP.
+
+link:reference_example_of_a_two_node_fabric_attached_mcc_configuration_with_disks_and_array_luns.html["Ejemplo de una configuración MetroCluster de dos nodos con conexión a la estructura con discos y LUN de cabina"]
+
+link:concept_example_of_a_four_node_mcc_configuration_with_disks_and_array_luns.html["Ejemplo de una configuración MetroCluster de cuatro nodos con discos y LUN de cabina"]

@@ -1,0 +1,118 @@
+---
+permalink: install-fc/concept_parts_of_a_fabric_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, configuration 
+summary: Al planificar la configuración de MetroCluster, debe comprender los componentes de hardware y cómo interconectan. 
+---
+= Partes de una configuración de MetroCluster estructural
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al planificar la configuración de MetroCluster, debe comprender los componentes de hardware y cómo interconectan.
+
+
+
+== Grupos de recuperación ante desastres
+
+Una configuración de Fabric MetroCluster consta de uno o dos grupos de recuperación ante desastres, en función del número de nodos en la configuración de MetroCluster. Cada grupo de recuperación ante desastres consta de cuatro nodos.
+
+* Una configuración MetroCluster de ocho nodos consta de dos grupos de recuperación ante desastres.
+* Una configuración MetroCluster de cuatro nodos consta de un grupo de recuperación ante desastres.
+
+
+En la siguiente ilustración, se muestra la organización de los nodos en una configuración MetroCluster de ocho nodos:
+
+image::../media/mcc_dr_groups_8_node.gif[mcc grupos dr de 8 nodos]
+
+En la siguiente ilustración, se muestra la organización de los nodos en una configuración de MetroCluster de cuatro nodos:
+
+image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
+
+
+
+== Elementos clave del hardware
+
+Una configuración MetroCluster incluye los siguientes elementos clave de hardware:
+
+* Controladoras de almacenamiento
++
+Las controladoras de almacenamiento no están conectadas directamente al almacenamiento, sino que se conectan a dos estructuras de switch FC redundantes.
+
+* Puentes FC a SAS
++
+Los puentes de FC a SAS conectan las pilas de almacenamiento SAS a los switches FC, lo que proporciona un puente entre los dos protocolos.
+
+* Switches FC
++
+Los switches FC proporcionan el eje ISL de larga distancia entre los dos sitios. Los switches FC proporcionan las dos estructuras de almacenamiento que permiten el mirroring de datos en los pools de almacenamiento remotos.
+
+* Red de conexión de clústeres entre iguales
++
+La red de paridad de clústeres ofrece conectividad para el mirroring de la configuración de clústeres, lo que incluye la configuración de máquinas virtuales de almacenamiento (SVM). La configuración de todas las SVM de un clúster se refleja en el clúster partner.
+
+
+
+
+
+== Configuración MetroCluster estructural de ocho nodos
+
+Una configuración de ocho nodos consta de dos clústeres, uno en cada sitio separado geográficamente. Cluster_A está situado en el primer sitio MetroCluster. Cluster_B está situado en el segundo sitio MetroCluster. Cada sitio tiene una pila de almacenamiento SAS. Se admiten pilas de almacenamiento adicionales, pero solo se muestra una en cada sitio. Los pares de alta disponibilidad se configuran como clústeres sin switches, sin switches de Cluster Interconnect. Es compatible con una configuración conmutada, pero no se muestra.
+
+Una configuración de ocho nodos incluye las siguientes conexiones:
+
+* Conexiones FC desde los HBA de cada controladora y los adaptadores de FC-VI a cada uno de los switches FC
+* Una conexión FC entre cada puente FC-a-SAS y un switch FC
+* Conexiones SAS entre cada bandeja SAS y desde la parte superior e inferior de cada pila a un puente de FC a SAS
+* Una interconexión de alta disponibilidad entre cada controladora en el par de alta disponibilidad local
++
+Si las controladoras admiten un par de alta disponibilidad de chasis único, la interconexión de alta disponibilidad es interna, lo que tiene lugar a través del backplane, lo que significa que no se necesita una interconexión externa.
+
+* Las conexiones Ethernet de las controladoras a la red proporcionada por el cliente que se utiliza para la configuración de clústeres entre iguales
++
+La configuración de SVM se replica en la red de clústeres entre iguales.
+
+* Una interconexión de clúster entre cada controladora del clúster local
+
+
+
+
+== Configuración MetroCluster de estructura de cuatro nodos
+
+En la siguiente ilustración, se muestra una vista simplificada de una configuración MetroCluster estructural de cuatro nodos. En algunas conexiones, una sola línea representa varias conexiones redundantes entre los componentes. No se muestran las conexiones de red de datos y gestión.
+
+image::../media/mcc_hardware_architecture_both_clusters.gif[arquitectura de hardware de mcc en ambos clústeres]
+
+En la siguiente ilustración, se muestra una vista más detallada de la conectividad en un único clúster de MetroCluster (ambos clústeres tienen la misma configuración):
+
+image::../media/mcc_hardware_architecture_cluster_a_with_7500n.gif[arquitectura de hardware de mcc clúster a con 7500n]
+
+
+
+== Configuración MetroCluster de estructura de dos nodos
+
+En la siguiente ilustración, se muestra una vista simplificada de una configuración de MetroCluster estructural de dos nodos. En algunas conexiones, una sola línea representa varias conexiones redundantes entre los componentes. No se muestran las conexiones de red de datos y gestión.
+
+image::../media/mcc_hardware_architecture_both_clusters_2_node_fabric.gif[arquitectura de hardware de mcc los dos clústeres tienen estructura de 2 nodos]
+
+Una configuración de dos nodos consta de dos clústeres, uno en cada sitio separado geográficamente. Cluster_A está situado en el primer sitio MetroCluster. Cluster_B está situado en el segundo sitio MetroCluster. Cada sitio tiene una pila de almacenamiento SAS. Se admiten pilas de almacenamiento adicionales, pero solo se muestra una en cada sitio.
+
+
+NOTE: En una configuración de dos nodos, los nodos no están configurados como un par de alta disponibilidad.
+
+En la siguiente ilustración, se muestra una vista más detallada de la conectividad en un único clúster de MetroCluster (ambos clústeres tienen la misma configuración):
+
+image::../media/mcc_hardware_architecture_cluster_a_2_node_with_7500n.gif[arquitectura de hardware de mcc, clúster de 2 nodos con 7500n]
+
+Una configuración de dos nodos incluye las siguientes conexiones:
+
+* Conexiones FC entre el adaptador FC-VI en cada módulo de controladora
+* Conexiones FC entre los HBA de cada módulo de controladora y el puente de FC a SAS para cada pila de bandeja SAS
+* Conexiones SAS entre cada bandeja SAS y desde la parte superior e inferior de cada pila a un puente de FC a SAS
+* Las conexiones Ethernet de las controladoras a la red proporcionada por el cliente que se utiliza para la configuración de clústeres entre iguales
++
+La configuración de SVM se replica en la red de clústeres entre iguales.
+
+

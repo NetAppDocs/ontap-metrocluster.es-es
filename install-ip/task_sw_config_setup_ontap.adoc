@@ -1,0 +1,274 @@
+---
+permalink: install-ip/task_sw_config_setup_ontap.html 
+sidebar: sidebar 
+keywords: metrocluster, ontap, setup 
+summary: Tras arrancar cada nodo, se le pedirá que realice la configuración básica del nodo y del clúster. Después de configurar el clúster, volverá a la CLI de ONTAP para crear agregados y crear la configuración de MetroCluster. 
+---
+= Configurar ONTAP
+:allow-uri-read: 
+
+
+[role="lead"]
+Tras arrancar cada nodo, se le pedirá que realice la configuración básica del nodo y del clúster. Después de configurar el clúster, volverá a la CLI de ONTAP para crear agregados y crear la configuración de MetroCluster.
+
+.Antes de empezar
+* Debe haber cableado la configuración de MetroCluster.
+
+
+Si debe reiniciar el sistema de las nuevas controladoras, consulte link:../upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#netbooting-the-new-controllers["Netarrancando los nuevos módulos del controlador"].
+
+.Acerca de esta tarea
+Esta tarea debe realizarse en ambos clústeres de la configuración de MetroCluster.
+
+.Pasos
+. Encienda cada nodo en el sitio local si aún no lo ha hecho y deje que todos arranquemos por completo.
++
+Si el sistema se encuentra en modo de mantenimiento, debe emitir el comando halt para salir del modo de mantenimiento y, a continuación, emitir el `boot_ontap` comando para arrancar el sistema y acceder a la configuración del clúster.
+
+. En el primer nodo de cada clúster, siga las indicaciones para configurar el clúster.
++
+.. Active la herramienta AutoSupport siguiendo las instrucciones del sistema.
++
+La salida debe ser similar a la siguiente:
+
++
+[listing]
+----
+Welcome to the cluster setup wizard.
+
+    You can enter the following commands at any time:
+    "help" or "?" - if you want to have a question clarified,
+    "back" - if you want to change previously answered questions, and
+    "exit" or "quit" - if you want to quit the cluster setup wizard.
+    Any changes you made before quitting will be saved.
+
+    You can return to cluster setup at any time by typing "cluster setup".
+    To accept a default or omit a question, do not enter a value.
+
+    This system will send event messages and periodic reports to NetApp Technical
+    Support. To disable this feature, enter
+    autosupport modify -support disable
+    within 24 hours.
+
+    Enabling AutoSupport can significantly speed problem determination and
+    resolution should a problem occur on your system.
+    For further information on AutoSupport, see:
+    http://support.netapp.com/autosupport/
+
+    Type yes to confirm and continue {yes}: yes
+.
+.
+.
+----
+.. Configure la interfaz de gestión de nodos respondiendo a las preguntas de.
++
+Los mensajes son similares a los siguientes:
+
++
+[listing]
+----
+Enter the node management interface port [e0M]:
+Enter the node management interface IP address: 172.17.8.229
+Enter the node management interface netmask: 255.255.254.0
+Enter the node management interface default gateway: 172.17.8.1
+A node management interface on port e0M with IP address 172.17.8.229 has been created.
+----
+.. Cree el clúster respondiendo a las preguntas de.
++
+Los mensajes son similares a los siguientes:
+
++
+[listing]
+----
+Do you want to create a new cluster or join an existing cluster? {create, join}:
+create
+
+
+Do you intend for this node to be used as a single node cluster? {yes, no} [no]:
+no
+
+Existing cluster interface configuration found:
+
+Port MTU IP Netmask
+e0a 1500 169.254.18.124 255.255.0.0
+e1a 1500 169.254.184.44 255.255.0.0
+
+Do you want to use this configuration? {yes, no} [yes]: no
+
+System Defaults:
+Private cluster network ports [e0a,e1a].
+Cluster port MTU values will be set to 9000.
+Cluster interface IP addresses will be automatically generated.
+
+Do you want to use these defaults? {yes, no} [yes]: no
+
+Enter the cluster administrator's (username "admin") password:
+
+Retype the password:
+
+
+Step 1 of 5: Create a Cluster
+You can type "back", "exit", or "help" at any question.
+
+List the private cluster network ports [e0a,e1a]:
+Enter the cluster ports' MTU size [9000]:
+Enter the cluster network netmask [255.255.0.0]: 255.255.254.0
+Enter the cluster interface IP address for port e0a: 172.17.10.228
+Enter the cluster interface IP address for port e1a: 172.17.10.229
+Enter the cluster name: cluster_A
+
+Creating cluster cluster_A
+
+Starting cluster support services ...
+
+Cluster cluster_A has been created.
+----
+.. Añada licencias, configure una SVM de administración del clúster y escriba información de DNS respondiendo a las solicitudes.
++
+Los mensajes son similares a los siguientes:
+
++
+[listing]
+----
+Step 2 of 5: Add Feature License Keys
+You can type "back", "exit", or "help" at any question.
+
+Enter an additional license key []:
+
+
+Step 3 of 5: Set Up a Vserver for Cluster Administration
+You can type "back", "exit", or "help" at any question.
+
+
+Enter the cluster management interface port [e3a]:
+Enter the cluster management interface IP address: 172.17.12.153
+Enter the cluster management interface netmask: 255.255.252.0
+Enter the cluster management interface default gateway: 172.17.12.1
+
+A cluster management interface on port e3a with IP address 172.17.12.153 has been created. You can use this address to connect to and manage the cluster.
+
+Enter the DNS domain names: lab.netapp.com
+Enter the name server IP addresses: 172.19.2.30
+DNS lookup for the admin Vserver will use the lab.netapp.com domain.
+
+Step 4 of 5: Configure Storage Failover (SFO)
+You can type "back", "exit", or "help" at any question.
+
+
+SFO will be enabled when the partner joins the cluster.
+
+
+Step 5 of 5: Set Up the Node
+You can type "back", "exit", or "help" at any question.
+
+Where is the controller located []: svl
+----
+.. Habilite la conmutación al nodo de respaldo de almacenamiento y configure el nodo respondiendo a las preguntas.
++
+Los mensajes son similares a los siguientes:
+
++
+[listing]
+----
+Step 4 of 5: Configure Storage Failover (SFO)
+You can type "back", "exit", or "help" at any question.
+
+
+SFO will be enabled when the partner joins the cluster.
+
+
+Step 5 of 5: Set Up the Node
+You can type "back", "exit", or "help" at any question.
+
+Where is the controller located []: site_A
+----
+.. Complete la configuración del nodo, pero no cree agregados de datos.
++
+Puede usar System Manager de ONTAP para dirigir el navegador web a la dirección IP de administración del clúster (https://172.17.12.153)[].
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["Gestión de clústeres mediante System Manager (versiones de 9.0 a 9.6)"]
+
++
+https://docs.netapp.com/us-en/ontap/index.html#about-ontap-system-manager["Administrador del sistema de ONTAP (versión 9.7 y posterior)"]
+
+
+
+. Arranque la siguiente controladora y únase a ella al clúster, siguiendo las indicaciones.
+. Confirme que los nodos están configurados en el modo de alta disponibilidad:
++
+`storage failover show -fields mode`
+
++
+Si no es así, debe configurar el modo de alta disponibilidad en cada nodo y a continuación, reinicie los nodos:
+
++
+`storage failover modify -mode ha -node localhost`
+
++
+[]
+====
+
+NOTE: El estado de configuración esperado de la alta disponibilidad y la conmutación por error del almacenamiento es el siguiente:
+
+** El modo DE ALTA DISPONIBILIDAD está configurado, pero la conmutación al nodo de respaldo del almacenamiento no está habilitada.
+** Se deshabilita la funcionalidad DE toma de control DE ALTA DISPONIBILIDAD.
+** Las interfaces de ALTA DISPONIBILIDAD están desconectadas.
+** El modo DE ALTA DISPONIBILIDAD, la conmutación al respaldo del almacenamiento y las interfaces se configuran más adelante en el proceso.
+
+
+====
+. Confirme que tiene cuatro puertos configurados como interconexiones del clúster:
++
+`network port show`
+
++
+Las interfaces IP de MetroCluster no están configuradas en este momento y no aparecen en el resultado del comando.
+
++
+En el ejemplo siguiente se muestran dos puertos de clúster en node_A_1:
+
++
+[listing]
+----
+cluster_A::*> network port show -role cluster
+
+
+
+Node: node_A_1
+
+                                                                       Ignore
+
+                                                  Speed(Mbps) Health   Health
+
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+
+e4a       Cluster      Cluster          up   9000  auto/40000 healthy  false
+
+e4e       Cluster      Cluster          up   9000  auto/40000 healthy  false
+
+
+Node: node_A_2
+
+                                                                       Ignore
+
+                                                  Speed(Mbps) Health   Health
+
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+
+e4a       Cluster      Cluster          up   9000  auto/40000 healthy  false
+
+e4e       Cluster      Cluster          up   9000  auto/40000 healthy  false
+
+
+4 entries were displayed.
+----
+. Repita estos pasos en el clúster de partners.
+
+
+.Qué hacer a continuación
+Vuelva a la interfaz de línea de comandos de ONTAP y complete la configuración de MetroCluster realizando las tareas siguientes.

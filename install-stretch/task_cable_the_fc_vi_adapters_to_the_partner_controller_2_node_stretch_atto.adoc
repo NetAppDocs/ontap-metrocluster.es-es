@@ -1,0 +1,34 @@
+---
+permalink: install-stretch/task_cable_the_fc_vi_adapters_to_the_partner_controller_2_node_stretch_atto.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, controllers 
+summary: Los adaptadores FC-VI de cada controlador se deben conectar directamente a su compañero. 
+---
+= Cableado de las controladoras entre sí
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los adaptadores de FC-VI de cada controladora deben cablearse directamente a su compañero.
+
+.Pasos
+. Conecte el cable de los puertos FC-VI.
++
+image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[cableado mcc controlador fc vi al compañero]
+
++
+La ilustración anterior es una representación típica del cableado necesario. Los puertos FC-VI específicos varían según el módulo de la controladora.
+
++
+** Los módulos de controladoras A300 y FAS8200 de AFF se pueden solicitar con una de las dos opciones para la conectividad FC-VI:
++
+*** Los puertos internos 0e y 0f configurados en modo FC-VI.
+*** Puertos 1a y 1b en una tarjeta FC-VI en la ranura 1.
+
+
+** Los módulos de controladora de los sistemas de almacenamiento A700 y FAS9000 de AFF utilizan cuatro puertos FC-VI cada uno.
+
+
+

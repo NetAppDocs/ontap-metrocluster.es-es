@@ -1,0 +1,168 @@
+---
+permalink: disaster-recovery/task_reassign_roots_mcfc.html 
+sidebar: sidebar 
+keywords: reassign, ownership, nvram, system, id, replaced 
+summary: Si uno o ambos módulos de controladora o tarjetas NVRAM se sustituyeron en el centro de recuperación ante desastres, debe reasignar los discos pertenecientes a los agregados raíz a los módulos de controladora de sustitución. 
+---
+= Reasignar la propiedad de disco para agregados raíz a módulos de controladora de reemplazo (configuraciones de FC de MetroCluster)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si se reemplazaron uno o ambos módulos de controladora o tarjetas NVRAM en el centro de recuperación ante desastres, el ID del sistema ha cambiado y debe reasignar los discos que pertenecen a los agregados raíz a los módulos de controladora de reemplazo.
+
+.Acerca de esta tarea
+Debido a que los nodos están en modo de conmutación y la reparación se ha realizado, solo los discos que contienen los agregados raíz de la agrupación 1 del sitio de desastre se reasignarán en esta sección. Son los únicos discos que aún pertenecen al ID de sistema antiguo de este momento.
+
+En esta sección, se proporcionan ejemplos de configuraciones de dos y cuatro nodos. En el caso de configuraciones de dos nodos, puede ignorar las referencias al segundo nodo en cada sitio. Para configuraciones de ocho nodos, debe tener en cuenta los nodos adicionales en el segundo grupo de recuperación ante desastres. En los ejemplos se da por sentado lo siguiente:
+
+* El sitio A es el sitio de recuperación tras desastres.
++
+** Se ha sustituido Node_A_1.
+** Se reemplazó Node_A_2.
++
+Presente solo en configuraciones MetroCluster de cuatro nodos.
+
+
+
+* El sitio B es el sitio superviviente.
++
+** El nodo B_1 está en buen estado.
+** El nodo B_2 está en buen estado.
++
+Presente solo en configuraciones MetroCluster de cuatro nodos.
+
+
+
+
+
+Los ID del sistema anteriores y nuevos se identificaron en link:task_replace_hardware_and_boot_new_controllers.html#determining-the-system-ids-and-vlan-ids-of-the-old-controller-modules["Determinación de los ID de sistema de los módulos de controlador de sustitución"].
+
+Los ejemplos de este procedimiento utilizan controladoras con los siguientes ID de sistema:
+
+|===
+
+
+| Número de nodos | Nodo | ID original del sistema | Nuevo ID del sistema 
+
+
+.4+| Cuatro  a| 
+Node_a_1
+ a| 
+4068741258
+ a| 
+1574774970
+
+
+
+ a| 
+Node_A_2
+ a| 
+4068741260
+ a| 
+1574774991
+
+
+
+ a| 
+Node_B_1
+ a| 
+4068741254
+ a| 
+sin cambios
+
+
+
+ a| 
+Node_B_2
+ a| 
+4068741256
+ a| 
+sin cambios
+
+
+
+ a| 
+Dos
+ a| 
+Node_a_1
+ a| 
+4068741258
+ a| 
+1574774970
+
+|===
+.Pasos
+. Con el nodo de repuesto en modo de mantenimiento, reasigne los discos del agregado raíz:
++
+`disk reassign -s old-system-ID -d new-system-ID`
+
++
+[listing]
+----
+*> disk reassign -s 4068741258 -d 1574774970
+----
+. Vea los discos para confirmar el cambio de propiedad de los discos de agregado raíz del grupo 1 del sitio de desastre al nodo de sustitución:
++
+`disk show`
+
++
+La salida puede mostrar más o menos discos, dependiendo del número de discos que haya en el agregado raíz y si alguno de estos discos ha fallado y ha sido sustituido. Si se reemplazaron los discos, los discos de la piscina 0 no aparecerán en la salida.
+
++
+Los discos de agregado raíz pool1 del sitio de desastre se deben asignar al nodo de sustitución.
+
++
+[listing]
+----
+*> disk show
+Local System ID: 1574774970
+
+  DISK             OWNER                POOL   SERIAL NUMBER   HOME                DR HOME
+------------       -------------        -----  -------------   -------------       -------------
+sw_A_1:6.126L19    node_A_1(1574774970) Pool0  serial-number   node_A_1(1574774970)
+sw_A_1:6.126L3     node_A_1(1574774970) Pool0  serial-number   node_A_1(1574774970)
+sw_A_1:6.126L7     node_A_1(1574774970) Pool0  serial-number   node_A_1(1574774970)
+sw_B_1:6.126L8     node_A_1(1574774970) Pool1  serial-number   node_A_1(1574774970)
+sw_B_1:6.126L24    node_A_1(1574774970) Pool1  serial-number   node_A_1(1574774970)
+sw_B_1:6.126L2     node_A_1(1574774970) Pool1  serial-number   node_A_1(1574774970)
+
+*> aggr status
+         Aggr State           Status
+ node_A_1_root online          raid_dp, aggr
+                               mirror degraded
+                               64-bit
+*>
+----
+. Vea el estado del agregado:
++
+`aggr status`
+
++
+La salida puede mostrar más o menos discos, dependiendo del número de discos que haya en el agregado raíz y si alguno de estos discos ha fallado y ha sido sustituido. Si se reemplazaron los discos, los discos de la piscina 0 no aparecerán en la salida.
+
++
+[listing]
+----
+*> aggr status
+          Aggr State           Status
+  node_A_1_root online          raid_dp, aggr
+                                mirror degraded
+                                64-bit
+*>
+----
+. Elimine el contenido de los discos del buzón:
++
+`mailbox destroy local`
+
+. Si el agregado no está en línea, conectarlo:
++
+`aggr online aggr_name`
+
+. Detenga el nodo para mostrar el símbolo del sistema del CARGADOR:
++
+`halt`
+
+

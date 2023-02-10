@@ -1,0 +1,28 @@
+---
+permalink: upgrade/task_disconnect_the_exist_dr_group_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, disconnect, existing, dr, group, fabric 
+summary: Debe desconectar los módulos de controladora existentes de los switches de FC en la estructura. 
+---
+= Desconectar el grupo de recuperación ante desastres existente de la estructura
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe desconectar los módulos de controladora existentes de los switches de FC en la estructura.
+
+.Acerca de esta tarea
+Esta tarea debe realizarse en cada sitio MetroCluster.
+
+.Pasos
+. Deshabilite los puertos HBA que conectan los módulos de controladora existentes a la estructura de switches sometido a mantenimiento:
++
+`storage port disable -node _node-name_ -port _port-number_`
+
+. En los switches FC locales, quite los cables de los puertos de los puentes HBA, FC-VI y ATTO del módulo de la controladora existente.
++
+Debe etiquetar los cables para facilitar la identificación cuando los vuelva a conectar. Solo los puertos ISL deben permanecer conectados mediante cable.
+
+

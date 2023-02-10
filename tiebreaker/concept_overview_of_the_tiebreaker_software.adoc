@@ -1,0 +1,147 @@
+---
+permalink: tiebreaker/concept_overview_of_the_tiebreaker_software.html 
+sidebar: sidebar 
+keywords: helpful, understand, netapp, metrocluster, tiebreaker, software, distinguish, failure, monitor, configuration, cli, setting, operation, overview, software, detect, site, intersite, connectivity, disaster, type, detection, time, man, page 
+summary: Resulta útil comprender qué es el software MetroCluster Tiebreaker de NetApp y cómo distingue entre tipos de errores para que pueda supervisar sus configuraciones de MetroCluster de forma eficiente. La interfaz de línea de comandos de Tiebreaker para gestionar la configuración y supervisar el estado y las operaciones de las configuraciones de MetroCluster. 
+---
+= Descripción general del software Tiebreaker
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Resulta útil comprender qué es el software MetroCluster Tiebreaker de NetApp y cómo distingue entre tipos de errores para que pueda supervisar sus configuraciones de MetroCluster de forma eficiente. La interfaz de línea de comandos de Tiebreaker para gestionar la configuración y supervisar el estado y las operaciones de las configuraciones de MetroCluster.
+
+
+
+== Detección de errores con el software Tiebreaker de MetroCluster de NetApp
+
+El software Tierbreaker reside en un host Linux. Solo necesita el software Tierbreaker si desea supervisar dos clústeres y el estado de conectividad entre ellos desde un tercer sitio. Esto permite a cada partner de un clúster distinguir entre un fallo de ISL, cuando los enlaces entre sitios están inactivos, y un fallo del sitio.
+
+Después de instalar el software Tiebreaker en un host de Linux, puede configurar los clústeres en una configuración de MetroCluster para supervisar las condiciones de desastre.
+
+
+
+== Cómo detecta el software Tiebreaker los fallos de sitios
+
+El software MetroCluster Tiebreaker de NetApp comprueba la accesibilidad de los nodos de una configuración de MetroCluster y el clúster para determinar si se ha producido un error del sitio. El software Tierbreaker también activa una alerta en determinadas condiciones.
+
+
+
+=== Componentes supervisados por el software Tiebreaker
+
+El software Tierbreaker supervisa cada controladora en la configuración de MetroCluster estableciendo conexiones redundantes a través de varias rutas hasta una LIF de gestión de nodos y la LIF de gestión de clúster, ambas alojadas en la red IP.
+
+El software Tiebreaker supervisa los siguientes componentes en la configuración de MetroCluster:
+
+* Mediante interfaces de nodos locales
+* A través de las interfaces designadas por el clúster
+* Sobrevivir a clústeres para evaluar si tiene conectividad al sitio de desastre (interconexión NV, almacenamiento y interconexión en clústeres entre iguales)
+
+
+Cuando se produzca una pérdida de conexión entre el software Tiebreaker y todos los nodos del clúster y el propio clúster, el software de tiebreaker lo declarará como "'no accesible'". La detección de un fallo de conexión tarda entre tres y cinco segundos. Si no se puede acceder a un clúster desde el software Tiebreaker, el clúster superviviente (el clúster que aún es accesible) debe indicar que todos los enlaces al clúster de partners se hayan separado antes de que el software de tiebreaker active una alerta.
+
+
+NOTE: Todos los enlaces se secan si el clúster superviviente deja de poder comunicarse con el clúster en el sitio de desastre mediante FC (interconexión de NV y almacenamiento) y interconexión en clústeres entre iguales.
+
+
+
+=== Escenarios de fallos durante los cuales el software Tiebreaker activa una alerta
+
+El software Tierbreaker activa una alerta cuando el clúster (todos los nodos) en el sitio de desastre está inactivo o no es accesible y el clúster en el sitio superviviente indica el estado "'AllLinksSevered'".
+
+El software Tierbreaker no activa una alerta (o la alerta es vetada) en las siguientes situaciones:
+
+* En una configuración MetroCluster de ocho nodos, si un par de alta disponibilidad en el sitio de desastre está inactivo
+* En un cluster con todos los nodos en el sitio de desastre inactivo, un par de ha en el sitio superviviente, y el cluster en el sitio superviviente indica el estado "'AllLinksSevered'"
++
+El software Tierbreaker activa una alerta, pero ONTAP vetará esta alerta. En esta situación, también se puede vetar un cambio manual
+
+* Cualquier situación en la que el software Tiebreaker pueda llegar al menos a un nodo o a la interfaz de clúster en el sitio de desastre o al sitio que aún haya supervivencia puede llegar a cualquier nodo del sitio de desastre mediante FC (interconexión de NV y almacenamiento) o mediante interconexión de clústeres entre iguales
+
+
+.Información relacionada
+link:concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html["Riesgos y limitaciones del uso de MetroCluster Tiebreaker en el modo activo"]
+
+
+
+== Cómo detecta el software Tiebreaker fallos de conectividad entre sitios
+
+El software MetroCluster Tiebreaker le avisa si se ha perdido toda conectividad entre los sitios.
+
+
+
+=== Tipos de rutas de red
+
+Según la configuración, existen tres tipos de rutas de red entre los dos clústeres en una configuración de MetroCluster:
+
+* *Red FC (presente en configuraciones MetroCluster conectadas a la estructura)*
++
+Este tipo de red está compuesto por dos estructuras de switch de FC redundantes. Cada estructura de switches tiene dos switches FC, con un switch de cada estructura de switches ubicados conjuntamente con un clúster. Cada clúster tiene dos switches FC, uno de cada estructura de switches. Todos los nodos tienen conectividad FC (interconexión NV e iniciador FCP) con cada uno de los switches FC coubicados. Los datos se replican de un clúster a través del ISL.
+
+* *Red de interconexión de clústeres*
++
+Este tipo de red se compone de una ruta de red IP redundante entre los dos clústeres de. La red de paridad de clústeres ofrece la conectividad que se requiere para reflejar la configuración de la máquina virtual de almacenamiento (SVM). La configuración de todas las SVM de un clúster se refleja en el clúster de partners.
+
+* *Red IP (presente en las configuraciones IP de MetroCluster)*
++
+Este tipo de red está compuesta por dos redes de switch IP redundantes. Cada red tiene dos switches IP, con un switch de cada estructura de switches ubicados conjuntamente con un clúster. Cada clúster tiene dos switches IP, uno en cada estructura de switches. Todos los nodos tienen conectividad con cada uno de los switches FC coubicados. Los datos se replican de un clúster a través del ISL.
+
+
+
+
+
+=== Supervisión de la conectividad entre sitios
+
+El software Tierbreaker recupera regularmente el estado de conectividad entre sitios desde los nodos. Si se pierde la conectividad de interconexión NV y la interconexión en clústeres en relación de paridad no responde a los pings, los clústeres asumen que estos están aislados y que el software Tiebreaker activa una alerta como "'AllLinksSevered'". Si un cluster identifica el estado "'AllLinksSevered'" y el otro cluster no es accesible a través de la red, entonces el software tiebreaker activa una alerta como "líder".
+
+
+
+== El grado de influencia de los diferentes tipos de desastres sobre el tiempo de detección del software Tiebreaker
+
+Para una mejor planificación de la recuperación ante desastres, el software MetroCluster Tiebreaker lleva cierto tiempo en la detección de un desastre. En este tiempo se ha empleado el "tiempo de detección de ruedas no rusas". El software MetroCluster Tiebreaker detecta el desastre del sitio en 30 segundos desde el momento del desastre y activa la operación de recuperación de desastres para informarle sobre el desastre.
+
+El tiempo de detección también depende del tipo de desastre y puede superar los 30 segundos en algunos escenarios, conocidos principalmente como "'desastres en marcha". Los principales tipos de desastre rotativas son los siguientes:
+
+* Pérdida de potencia
+* Pánico
+* Detener o reiniciar
+* Pérdida de switches FC en el sitio de desastre
+
+
+
+
+=== Pérdida de potencia
+
+El software Tierbreaker activa inmediatamente una alerta cuando el nodo deja de funcionar. Cuando se produce una pérdida de alimentación, se detienen todas las conexiones y actualizaciones, como interconexión de clústeres entre iguales, interconexión de NV y disco de buzón. El tiempo que se tarda entre el clúster en quedar inaccesible, la detección del desastre y el activador, incluido el tiempo silencioso predeterminado de 5 segundos, no debe superar los 30 segundos.
+
+
+
+=== Pánico
+
+El software Tierbreaker activa una alerta cuando la conexión de interconexión NV entre los sitios está inactiva y el sitio que queda indica el estado "'AllLinksSevered'". Esto solo ocurre una vez completado el proceso coredump. En esta situación, el tiempo que se tarda entre el clúster en quedar inalcanzable y la detección de un desastre puede ser mayor o aproximadamente igual al tiempo transcurrido para el proceso de volcado de núcleo. En muchos casos, el tiempo de detección es superior a 30 segundos.
+
+Si un nodo detiene el funcionamiento, pero no genera un archivo para el proceso de coredump, el tiempo de detección no debe ser superior a 30 segundos.
+
+
+
+=== Detener o reiniciar
+
+El software Tiebreaker activa una alerta únicamente cuando el nodo está inactivo y el sitio superviviente indica el estado de "'AllLinksSevered'". El tiempo que se tarda entre el clúster en quedar inaccesible y la detección de un desastre podría ser superior a 30 segundos. En esta situación, el tiempo necesario para detectar un desastre depende del tiempo que se tarda en apagarse los nodos del sitio de desastres.
+
+
+
+=== Pérdida de switches FC en el sitio desastre (configuración de MetroCluster estructural)
+
+El software Tierbreaker activa una alerta cuando un nodo deja de funcionar. Si se pierden switches de FC, el nodo intenta recuperar la ruta a un disco durante unos 30 segundos. Durante este tiempo, el nodo está activo y responde en la red de paridad. Cuando los dos switches FC están inactivos y no se puede recuperar la ruta a un disco, el nodo produce un error de conmutación por error de multidisco y se detiene. El tiempo transcurrido entre el fallo del switch FC y el número de veces que se producen errores de MultiDiskFailure en los nodos es de aproximadamente 30 segundos más. Estos 30 segundos adicionales deben añadirse al tiempo de detección de desastres.
+
+
+
+== Acerca de la CLI de tiebreaker y las páginas de manual
+
+La CLI de Tiebreaker proporciona comandos que permiten configurar de forma remota el software de tiebreaker y supervisar las configuraciones de MetroCluster.
+
+El símbolo del sistema de la CLI se representa como MetroCluster Tiebreaker de NetApp:.
+
+Las páginas de manual están disponibles en la interfaz de línea de comandos introduciendo el nombre del comando correspondiente en el símbolo del sistema.

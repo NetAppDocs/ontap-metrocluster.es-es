@@ -1,0 +1,148 @@
+---
+permalink: install-fc/task_reset_the_cisco_fc_switch_to_factory_defaults.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, reset, cisco, fc, switch, factory, defaults 
+summary: Antes de instalar una nueva versión de software y RCF, debe borrar la configuración del conmutador Cisco y realizar la configuración básica. 
+---
+= Restablecer el switch Cisco FC a los valores predeterminados de fábrica
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar una nueva versión de software y RCF, debe borrar la configuración del conmutador Cisco y realizar la configuración básica.
+
+.Acerca de esta tarea
+Debe repetir estos pasos en cada uno de los switches FC de la configuración de la estructura de MetroCluster.
+
+
+NOTE: Los resultados que se muestran son para los switches IP de Cisco; sin embargo, estos pasos también se aplican a los switches FC de Cisco.
+
+.Pasos
+. Restablezca el interruptor a los valores predeterminados de fábrica:
++
+.. Borrar la configuración existente: +
+`*write erase*`
+.. Vuelva a cargar el software del interruptor: +
+`*reload*`
++
+El sistema se reinicia e introduce el asistente de configuración. Durante el arranque, si recibe el aviso Anular provisión automática y continuar con la configuración normal?(yes/no)[n], debe responder `*yes*` para continuar.
+
+.. En el asistente de configuración, introduzca los ajustes básicos del switch:
++
+*** Contraseña de administrador
+*** Nombre del switch
+*** Configuración de gestión fuera de banda
+*** Pasarela predeterminada
+*** Servicio SSH (agente de soporte remoto).
++
+Después de completar el asistente de configuración, el conmutador se reinicia.
+
+
+
+.. Cuando se le solicite, introduzca el nombre de usuario y la contraseña para iniciar sesión en el conmutador.
++
+En el ejemplo siguiente se muestran las indicaciones y respuestas del sistema al iniciar sesión en el conmutador. Los soportes angulares (`*<<<*`) muestra dónde se introduce la información.
+
++
+[listing]
+----
+---- System Admin Account Setup ----
+Do you want to enforce secure password standard (yes/no) [y]:y  **<<<**
+
+    Enter the password for "admin": password  **<<<**
+  Confirm the password for "admin": password  **<<<**
+         ---- Basic System Configuration Dialog VDC: 1 ----
+
+This setup utility will guide you through the basic configuration of
+the system. Setup configures only enough connectivity for management
+of the system.
+
+Please register Cisco Nexus3000 Family devices promptly with your
+supplier. Failure to register may affect response times for initial
+service calls. Nexus3000 devices must be registered to receive
+entitled support services.
+
+Press Enter at anytime to skip a dialog. Use ctrl-c at anytime
+to skip the remaining dialogs.
+----
+.. Introduzca información básica en el siguiente conjunto de avisos, incluidos el nombre del switch, la dirección de administración y la puerta de enlace, e introduzca `*rsa*` Para la clave SSH, como se muestra en el ejemplo:
++
+[listing]
+----
+Would you like to enter the basic configuration dialog (yes/no): yes
+  Create another login account (yes/no) [n]:
+  Configure read-only SNMP community string (yes/no) [n]:
+  Configure read-write SNMP community string (yes/no) [n]:
+  Enter the switch name : switch-name **<<<**
+  Continue with Out-of-band (mgmt0) management configuration? (yes/no) [y]:
+    Mgmt0 IPv4 address : management-IP-address  **<<<**
+    Mgmt0 IPv4 netmask : management-IP-netmask  **<<<**
+  Configure the default gateway? (yes/no) [y]: y **<<<**
+    IPv4 address of the default gateway : gateway-IP-address  **<<<**
+  Configure advanced IP options? (yes/no) [n]:
+  Enable the telnet service? (yes/no) [n]:
+  Enable the ssh service? (yes/no) [y]: y  **<<<**
+    Type of ssh key you would like to generate (dsa/rsa) [rsa]: rsa **<<<**
+    Number of rsa key bits <1024-2048> [1024]:
+  Configure the ntp server? (yes/no) [n]:
+  Configure default interface layer (L3/L2) [L2]:
+  Configure default switchport interface state (shut/noshut) [noshut]: shut **<<<**
+  Configure CoPP system profile (strict/moderate/lenient/dense) [strict]:
+----
++
+El conjunto final de prompt completa la configuración:
+
++
+[listing]
+----
+The following configuration will be applied:
+  password strength-check
+  switchname IP_switch_A_1
+vrf context management
+ip route 0.0.0.0/0 10.10.99.1
+exit
+  no feature telnet
+  ssh key rsa 1024 force
+  feature ssh
+  system default switchport
+  system default switchport shutdown
+  copp profile strict
+interface mgmt0
+ip address 10.10.99.10 255.255.255.0
+no shutdown
+
+Would you like to edit the configuration? (yes/no) [n]:
+
+Use this configuration and save it? (yes/no) [y]:
+2017 Jun 13 21:24:43 A1 %$ VDC-1 %$ %COPP-2-COPP_POLICY: Control-Plane is protected with policy copp-system-p-policy-strict.
+
+[########################################] 100%
+Copy complete.
+
+User Access Verification
+IP_switch_A_1 login: admin
+Password:
+Cisco Nexus Operating System (NX-OS) Software
+.
+.
+.
+IP_switch_A_1#
+----
+
+
+. Guarde la configuración:
++
+[listing]
+----
+IP_switch_A_1# copy running-config startup-config
+----
+. Reinicie el conmutador y espere a que se vuelva a cargar:
++
+[listing]
+----
+IP_switch_A_1# reload
+----
+. Repita los pasos anteriores en los otros tres switches de la configuración de estructura MetroCluster.
+

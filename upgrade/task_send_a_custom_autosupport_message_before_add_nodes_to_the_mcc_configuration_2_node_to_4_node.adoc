@@ -1,0 +1,32 @@
+---
+permalink: upgrade/task_send_a_custom_autosupport_message_before_add_nodes_to_the_mcc_configuration_2_node_to_4_node.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, send, custom, autosupport, message, add, nodes, configuration 
+summary: Debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que se está realizando mantenimiento. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción. 
+---
+= Enviar un mensaje de AutoSupport personalizado antes de añadir nodos a la configuración de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que se está realizando mantenimiento. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción.
+
+.Acerca de esta tarea
+Esta tarea debe realizarse en cada sitio MetroCluster.
+
+.Pasos
+. Inicie sesión en el clúster en Site_A.
+. Invoque un mensaje de AutoSupport que indique el inicio del mantenimiento:
++
+`system node autosupport invoke -node * -type all -message MAINT=__maintenance-window-in-hours__`
+
++
+La `maintenance-window-in-hours` el parámetro especifica la longitud de la ventana de mantenimiento y puede ser un máximo de 72 horas. Si completa el mantenimiento antes de que haya transcurrido el tiempo, puede utilizar el siguiente comando para indicar que el periodo de mantenimiento ha finalizado:
+
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+. Repita este paso en el sitio del partner.
+

@@ -1,0 +1,164 @@
+---
+permalink: upgrade/task_assign_disk_ownership_to_non_aff_systems_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, assign, disk, ownership, aff, systems 
+summary: Si los nodos MetroCluster no tienen los discos correctamente asignados, o si utiliza bandejas de discos DS460C en su configuración, debe asignar discos a cada uno de los nodos de la configuración de MetroCluster de bandeja a bandeja. Creará una configuración en la que cada nodo tenga el mismo número de discos en sus pools de discos locales y remotos. 
+---
+= Asignación de la propiedad de disco en sistemas que no son AFF
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si los nodos MetroCluster no tienen los discos correctamente asignados, o si utiliza bandejas de discos DS460C en su configuración, debe asignar discos a cada uno de los nodos de la configuración de MetroCluster de bandeja a bandeja. Creará una configuración en la que cada nodo tenga el mismo número de discos en sus pools de discos locales y remotos.
+
+.Acerca de esta tarea
+Las controladoras de almacenamiento deben estar en modo de mantenimiento.
+
+Si su configuración no incluye bandejas de discos DS460C, esta tarea no es necesaria si los discos se han asignado correctamente cuando se han recibido de fábrica.
+
+[NOTE]
+====
+El pool 0 siempre contiene los discos que se encuentran en el mismo lugar que el sistema de almacenamiento propietario.
+
+El pool 1 siempre contiene los discos remotos para el sistema de almacenamiento propietario de estos.
+
+====
+Si su configuración incluye bandejas de discos DS460C, debe asignar manualmente los discos con las siguientes directrices para cada cajón de 12 discos:
+
+|===
+
+
+| Asigne estos discos en el cajón... | Para este nodo y pool... 
+
+
+ a| 
+0 - 2
+ a| 
+Pool del nodo local 0
+
+
+
+ a| 
+3 - 5
+ a| 
+Pool del nodo del partner de ALTA DISPONIBILIDAD 0
+
+
+
+ a| 
+6 - 8
+ a| 
+El partner de recuperación ante desastres del pool del nodo local 1
+
+
+
+ a| 
+9 - 11
+ a| 
+Partner de recuperación ante desastres del pool del partner de alta disponibilidad 1
+
+|===
+Este patrón de asignación de discos garantiza que un agregado se vea mínimo afectado si un cajón se desconecta.
+
+.Pasos
+. Si no lo ha hecho, arranque cada sistema en modo de mantenimiento.
+. Asigne las bandejas de discos a los nodos ubicados en el primer sitio (sitio A):
++
+Las bandejas de discos en el mismo sitio que el nodo están asignadas al pool 0 y las bandejas de discos ubicadas en el sitio del partner se asignan al pool 1.
+
++
+Debe asignar un mismo número de bandejas a cada pool.
+
++
+.. En el primer nodo, asigne de forma sistemática las bandejas de discos locales al pool 0 y las bandejas de discos remotas al pool 1:
++
+`disk assign -shelf _local-switch-name:shelf-name.port_ -p _pool_`
+
++
+Si la controladora de almacenamiento Controller_A_1 tiene cuatro bandejas, emita los siguientes comandos:
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_A_1:1-4.shelf1 -p 0
+*> disk assign -shelf FC_switch_A_1:1-4.shelf2 -p 0
+
+*> disk assign -shelf FC_switch_B_1:1-4.shelf1 -p 1
+*> disk assign -shelf FC_switch_B_1:1-4.shelf2 -p 1
+----
+.. Repita el proceso para el segundo nodo del sitio local, asignando sistemáticamente las bandejas de discos locales al pool 0 y las bandejas de discos remotos al pool 1:
++
+`disk assign -shelf _local-switch-name:shelf-name.port_ -p _pool_`
+
++
+Si la controladora de almacenamiento Controller_A_2 tiene cuatro bandejas, emita los siguientes comandos:
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_A_1:1-4.shelf3 -p 0
+*> disk assign -shelf FC_switch_B_1:1-4.shelf4 -p 1
+
+*> disk assign -shelf FC_switch_A_1:1-4.shelf3 -p 0
+*> disk assign -shelf FC_switch_B_1:1-4.shelf4 -p 1
+----
+
+
+. Asigne las bandejas de discos a los nodos ubicados en el segundo sitio (sitio B):
++
+Las bandejas de discos en el mismo sitio que el nodo están asignadas al pool 0 y las bandejas de discos ubicadas en el sitio del partner se asignan al pool 1.
+
++
+Debe asignar un mismo número de bandejas a cada pool.
+
++
+.. En el primer nodo del centro remoto, asigne de forma sistemática sus bandejas de discos locales al pool 0 y sus bandejas de discos remotas al pool 1:
++
+`disk assign -shelf _local-switch-nameshelf-name_ -p _pool_`
+
++
+Si la controladora de almacenamiento Controller_B_1 tiene cuatro bandejas, emita los siguientes comandos:
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_B_1:1-5.shelf1 -p 0
+*> disk assign -shelf FC_switch_B_1:1-5.shelf2 -p 0
+
+*> disk assign -shelf FC_switch_A_1:1-5.shelf1 -p 1
+*> disk assign -shelf FC_switch_A_1:1-5.shelf2 -p 1
+----
+.. Repita el proceso para el segundo nodo del sitio remoto, asignando sistemáticamente sus bandejas de discos locales al pool 0 y sus bandejas de discos remotas al pool 1:
++
+`disk assign -shelf _shelf-name_ -p _pool_`
+
++
+Si la controladora de almacenamiento Controller_B_2 tiene cuatro bandejas, emita los siguientes comandos:
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_B_1:1-5.shelf3 -p 0
+*> disk assign -shelf FC_switch_B_1:1-5.shelf4 -p 0
+
+*> disk assign -shelf FC_switch_A_1:1-5.shelf3 -p 1
+*> disk assign -shelf FC_switch_A_1:1-5.shelf4 -p 1
+----
+
+
+. Confirme las asignaciones de bandejas:
++
+`storage show shelf`
+
+. Salir del modo de mantenimiento:
++
+`halt`
+
+. Mostrar el menú de inicio:
++
+`boot_ontap menu`
+
+. En cada nodo, seleccione la opción *4* para inicializar todos los discos.
+

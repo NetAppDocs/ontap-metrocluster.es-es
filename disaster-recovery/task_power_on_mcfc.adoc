@@ -1,0 +1,143 @@
+---
+permalink: disaster-recovery/task_power_on_mcfc.html 
+sidebar: sidebar 
+keywords: power, sas, storage, direct, attached, configuration, fabric 
+summary: Debe encender los componentes de MetroCluster en el sitio de desastres, cuando esté listo para prepararse para la conmutación de estado. 
+---
+= Encender el equipo en el sitio de recuperación ante desastres
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe encender los componentes de MetroCluster en el sitio de desastres, cuando esté listo para prepararse para la conmutación de estado. Además, también debe reconectar las conexiones de almacenamiento SAS en configuraciones MetroCluster de conexión directa y habilitar puertos de enlace no entre switches en configuraciones MetroCluster conectadas a la estructura.
+
+.Antes de empezar
+Ya debe haber sustituido y cableado los componentes de MetroCluster exactamente como los antiguos.
+
+link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+
+link:../install-stretch/concept_considerations_differences.html["Instalación y configuración de MetroCluster con ampliación"]
+
+.Acerca de esta tarea
+En los ejemplos de este procedimiento se asume lo siguiente:
+
+* El sitio A es el sitio de recuperación tras desastres.
++
+** Se ha sustituido FC_switch_A_1.
+** Se ha sustituido FC_switch_A_2.
+
+
+* El sitio B es el sitio superviviente.
++
+** FC_switch_B_1 está en buen estado.
+** FC_switch_B_2 está en buen estado.
+
+
+
+
+Los switches FC solo están presentes en las configuraciones MetroCluster estructural.
+
+.Pasos
+. En una configuración MetroCluster con ampliación que utilice el cableado SAS (y que no exista estructura de switch FC ni puentes de FC a SAS), conecte todo el almacenamiento, incluido el almacenamiento remoto, en ambos sitios.
++
+La controladora en el sitio de desastres debe seguir apagada o en el símbolo del sistema del CARGADOR.
+
+. En el sitio superviviente, se debe deshabilitar la asignación automática de disco:
++
+`storage disk option modify -autoassign off *`
+
++
+[listing]
+----
+cluster_B::> storage disk option modify -autoassign off *
+2 entries were modified.
+----
+. En el sitio superviviente, se debe confirmar que la asignación automática de disco está desactivada:
++
+`storage disk option show`
+
++
+[listing]
+----
+cluster_B::> storage disk option show
+Node     BKg. FW. Upd.  Auto Copy   Auto Assign  Auto Assign Policy
+--------  -------------  -----------  -----------  ------------------
+node_B_1       on            on          off             default
+node_B_2       on            on          off             default
+2 entries were displayed.
+
+ cluster_B::>
+----
+. Encienda las bandejas de discos en el sitio de recuperación ante desastres y asegúrese de que todos los discos estén en funcionamiento.
+. En una configuración MetroCluster de conexión a puente o de conexión a estructura, active todos los puentes de FC a SAS del sitio de desastre.
+. Si se reemplazaron los discos, deje las controladoras encendidas o en el aviso DEL CARGADOR.
+. En una configuración MetroCluster estructural, habilite los puertos que no sean ISL en los switches FC.
++
+|===
+
+
+| Si el proveedor del switch es... | Después, use estos pasos para habilitar los puertos... 
+
+
+ a| 
+Brocade
+ a| 
+.. Habilite de forma persistente los puertos conectados a los puentes FC a SAS: `portpersistentenable port-number`
++
+En el siguiente ejemplo, los puertos 6 y 7 están habilitados:
+
++
+[listing]
+----
+FC_switch_A_1:admin> portpersistentenable 6
+FC_switch_A_1:admin> portpersistentenable 7
+
+FC_switch_A_1:admin>
+----
+.. Habilite de forma persistente los puertos conectados a los HBA y a los adaptadores de FC-VI: `portpersistentenable port-number`
++
+En el siguiente ejemplo, los puertos 6 y 7 están habilitados:
+
++
+[listing]
+----
+FC_switch_A_1:admin> portpersistentenable 1
+FC_switch_A_1:admin> portpersistentenable 2
+FC_switch_A_1:admin> portpersistentenable 4
+FC_switch_A_1:admin> portpersistentenable 5
+FC_switch_A_1:admin>
+----
++
+
+NOTE: Para los sistemas A700 y FAS9000 de AFF, debe habilitar de forma persistente los cuatro puertos FC-VI mediante el comando switchcfgpersistentenable.
+
+.. Repita los subpasos a y b para el segundo switch FC del sitio superviviente.
+
+
+
+
+ a| 
+Cisco
+ a| 
+.. Introduzca el modo de configuración de la interfaz y, a continuación, habilite los puertos con el comando no apagado.
++
+En el ejemplo siguiente, el puerto fc1/36 está deshabilitado:
+
++
+[listing]
+----
+FC_switch_A_1# conf t
+FC_switch_A_1(config)# interface fc1/36
+FC_switch_A_1(config)# no shut
+FC_switch_A_1(config-if)# end
+FC_switch_A_1# copy running-config startup-config
+----
+.. Compruebe que el puerto del switch esté activado: `show interface brief`
+.. Repita los mismos pasos a y b en el resto de puertos conectados a los puentes FC-SAS, los HBA y los adaptadores FC-VI.
+.. Repita los subpasos a, b y c para el segundo conmutador FC del sitio superviviente.
+
+
+|===
+

@@ -1,0 +1,21 @@
+---
+permalink: upgrade/task_boot_the_exist_controller_module.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, boot, existing, controller, module 
+summary: Debe arrancar el módulo de la controladora existente en ONTAP. 
+---
+= Arrancar el módulo de la controladora existente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe arrancar el módulo de la controladora existente en ONTAP.
+
+.Pasos
+. En el aviso del CARGADOR, arranque el módulo de la controladora existente en ONTAP:
++
+`boot_ontap`
+
+

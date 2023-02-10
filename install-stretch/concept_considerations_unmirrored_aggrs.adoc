@@ -1,0 +1,49 @@
+---
+permalink: install-stretch/concept_considerations_unmirrored_aggrs.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, unmirrored, aggregates, crs, svm, san 
+summary: Si la configuración incluye agregados no reflejados, debe tener en cuenta los posibles problemas de acceso tras las operaciones de conmutación. 
+---
+= Consideraciones que tener en cuenta al utilizar agregados no reflejados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Consideraciones que tener en cuenta al utilizar agregados no reflejados
+
+Si la configuración incluye agregados no reflejados, debe tener en cuenta los posibles problemas de acceso que se producen a continuación de las operaciones de conmutación.
+
+
+
+== Consideraciones sobre los agregados no reflejados al realizar tareas de mantenimiento que requieren apagado y encendido
+
+Si está realizando una conmutación de sitios negociada por motivos de mantenimiento que requieran un apagado de alimentación de todo el sitio, primero debe desconectar manualmente todos los agregados no reflejados propiedad del sitio de desastre.
+
+Si no desconecta ningún agregado no reflejado, los nodos del sitio superviviente podrían desaparecer debido a un alarma de varios discos. Esto podría suceder si la conmutación de agregados no reflejados se desconecta o no se encuentra, debido a la pérdida de conectividad al almacenamiento en el centro de recuperación ante desastres. Esto es el resultado de un apagado de encendido o una pérdida de ISL.
+
+
+
+== Consideraciones sobre los agregados no reflejados y los espacios de nombres jerárquicos
+
+Si utiliza espacios de nombres jerárquicos, debe configurar la ruta de unión de modo que todos los volúmenes de esa ruta estén en agregados reflejados o solo en agregados no reflejados. La configuración de una combinación de agregados no reflejados y reflejados en la ruta de unión puede impedir el acceso a los agregados no reflejados después de la operación de conmutación.
+
+
+
+== Consideraciones sobre los agregados no reflejados, el volumen de metadatos de CRS y los volúmenes raíz de la SVM de datos
+
+El volumen de metadatos del servicio de replicación de configuración (CRS) y los volúmenes raíz de la SVM de datos deben estar en un agregado reflejado. No se pueden mover estos volúmenes a un agregado no reflejado. Si se encuentran en un agregado que no está reflejado, las operaciones de conmutación de sitios y conmutación de estado negociadas son vetadas. El comando MetroCluster check proporciona una advertencia si este es el caso.
+
+
+
+== Consideraciones sobre agregados y SVM no reflejados
+
+Las instancias de SVM solo deben configurarse en agregados reflejados o solo en agregados no reflejados. La configuración de una combinación de agregados no reflejados y sin mirroring puede provocar una operación de conmutación por cierre que supere los 120 segundos y provocar una interrupción de los datos si los agregados no reflejados no se encuentran en línea.
+
+
+
+== Consideraciones sobre agregados y SAN no reflejados
+
+En las versiones de ONTAP anteriores a 9.9.1, no se debe ubicar un LUN en un agregado no reflejado. Configurar un LUN en un agregado no reflejado puede provocar una operación de conmutación por encima de 120 segundos y una interrupción del servicio de los datos.

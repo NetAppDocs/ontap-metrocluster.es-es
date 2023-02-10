@@ -1,0 +1,76 @@
+---
+permalink: transition/concept_example_naming_in_this_procedure_mcc_ip_transition.html 
+sidebar: sidebar 
+keywords: procedure, example, name, throughout, identify, dr, group, node, switch, naming 
+summary: Este procedimiento usa nombres de ejemplo de todos los para identificar los grupos de recuperación ante desastres, los nodos y los switches implicados. 
+---
+= Ejemplo de nomenclatura de este procedimiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este procedimiento usa nombres de ejemplo de todos los para identificar los grupos de recuperación ante desastres, los nodos y los switches implicados.
+
+[cols="1,2,2"]
+|===
+
+
+| Grupos de recuperación ante desastres | Cluster_A en el sitio_A | Cluster_B en el sitio_B 
+
+
+ a| 
+dr_Group_1-FC
+ a| 
+* Node_a_1-FC
+* Node_A_2-FC
+
+ a| 
+* Node_B_1-FC
+* Node_B_2-FC
+
+
+
+
+ a| 
+dr_Group_2-IP
+ a| 
+* Node_a_3-IP
+* Node_a_4-IP
+
+ a| 
+* Node_B_3-IP
+* Node_B_4-IP
+
+
+
+
+ a| 
+Interruptores
+ a| 
+Switches iniciales (si está conectada a la estructura:)
+
+* Switch_A_1-FC
+* Switch_A_2-FC
+
+
+Switches IP de MetroCluster:
+
+* Switch_A_1-IP
+* Switch_A_2-IP
+
+ a| 
+Switches iniciales (si se trata de una configuración conectada a la estructura):
+
+* Switch_B_1-FC
+* Switch_B_2-FC
+
+
+Switches IP de MetroCluster:
+
+* Switch_B_1-IP
+* Switch_B_2-IP
+
+
+|===

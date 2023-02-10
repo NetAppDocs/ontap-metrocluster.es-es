@@ -1,0 +1,18 @@
+---
+permalink: install-ip/task_sw_config_gather_info.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, gather information 
+summary: Debe recopilar las direcciones IP necesarias para los módulos de la controladora antes de comenzar el proceso de configuración. 
+---
+= Obteniendo información obligatoria
+:allow-uri-read: 
+
+
+[role="lead"]
+Debe recopilar las direcciones IP necesarias para los módulos de la controladora antes de comenzar el proceso de configuración.
+
+Puede usar estos vínculos para descargar archivos csv y rellenar las tablas con la información específica del sitio.
+
+link:../media/metrocluster_ip_setup_worksheet_site-a.csv["Hoja de trabajo para la configuración de IP de MetroCluster, site_A"]
+
+link:../media/metrocluster_ip_setup_worksheet_site-b.csv["Hoja de trabajo para la configuración de IP de MetroCluster, site_B"]

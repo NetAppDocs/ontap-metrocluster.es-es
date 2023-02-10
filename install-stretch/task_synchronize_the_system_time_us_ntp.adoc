@@ -1,0 +1,37 @@
+---
+permalink: install-stretch/task_synchronize_the_system_time_us_ntp.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, synchronize, system, time, ntp 
+summary: 'Cada clúster necesita su propio servidor de protocolo de tiempo de red \(NTP\) para sincronizar el tiempo entre los nodos y sus clientes. Puede utilizar el cuadro de diálogo Edit DateTime de System Manager para configurar el servidor NTP.' 
+---
+= Sincronización de la hora del sistema mediante NTP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cada clúster necesita su propio servidor de protocolo de tiempo de redes (NTP) para sincronizar la hora entre los nodos y sus clientes. Puede utilizar el cuadro de diálogo Edit DateTime de System Manager para configurar el servidor NTP.
+
+Compruebe que ha descargado e instalado System Manager. System Manager está disponible en el sitio de soporte de NetApp.
+
+* No se puede modificar la configuración de la zona horaria de un nodo con errores o del nodo asociado después de producirse la toma de control.
+* Cada clúster de la configuración de MetroCluster FC debe tener sus propios servidores o servidores NTP separados que utilizan los nodos y (si hay) puentes de FC a SAS en ese sitio MetroCluster.
++
+Si utiliza el software MetroCluster Tiebreaker, también debe tener su propio servidor NTP separado.
+
+
+
+.Pasos
+. En la página de inicio, haga doble clic en el sistema de almacenamiento adecuado.
+. Expanda la jerarquía *Cluster* en el panel de navegación izquierdo.
+. En el panel de navegación, haga clic en *Configuración* > *Herramientas del sistema* > *Fecha y hora*.
+. Haga clic en *Editar*.
+. Seleccione la zona horaria.
+. Especifique las direcciones IP de los servidores de hora y, a continuación, haga clic en *Agregar*.
++
+Debe añadir un servidor NTP a la lista de servidores de hora. El controlador de dominio puede ser un servidor autorizado.
+
+. Haga clic en *Aceptar*.
+. Compruebe los cambios realizados en los ajustes de fecha y hora en la ventana Fecha y hora.
+

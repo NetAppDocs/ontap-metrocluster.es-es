@@ -1,0 +1,53 @@
+---
+permalink: install-ip/concept_considerations_layer_3.html 
+sidebar: sidebar 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+summary: 'A partir de ONTAP 9.9.1, las configuraciones de IP de MetroCluster se pueden implementar con conexiones de back-end enrutadas por IP (capa 3).' 
+---
+= Consideraciones sobre las redes de área amplia de capa 3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+A partir de ONTAP 9.9.1, las configuraciones de IP de MetroCluster se pueden implementar con conexiones de back-end enrutadas por IP (capa 3).
+
+Los switches back-end de MetroCluster están conectados a la red IP enrutada, ya sea directamente a los routers (como se muestra en el siguiente ejemplo simplificado) o a través de otros switches intermedios.
+
+image::../media/mcc_layer3_backend.png[mcc layer3 back-end]
+
+
+NOTE: NetApp solo admite switches validados por NetApp. NetApp ha probado y vendido estos switches. Se enumeran en la link:https://mysupport.netapp.com/NOW/products/interoperability["Herramienta de matriz de interoperabilidad de NetApp (IMT)"] y en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Cableado de los switches IP"].
+
+El entorno de MetroCluster está configurado y cableado como configuración IP de MetroCluster estándar, tal y como se describe en link:concept_parts_of_an_ip_mcc_configuration_mcc_ip.html["Configure los componentes de hardware de MetroCluster"]. Al realizar el procedimiento de instalación y cableado, debe realizar los pasos específicos de la configuración de capa 3:
+
+* Los conmutadores MetroCluster se pueden conectar directamente al router o a uno o varios conmutadores intermedios. La VLAN debe ampliarse al dispositivo de puerta de enlace.
+* Utilice la `-gateway` Parámetro para configurar la dirección de interfaz IP de MetroCluster (MCC-IP) con una dirección de puerta de enlace IP.
+
+
+Al configurar enrutadores y direcciones IP de puerta de enlace, asegúrese de que se cumplen los siguientes requisitos:
+
+* En cada nodo, dos interfaces no pueden tener la misma dirección IP de pasarela.
+* Las interfaces correspondientes de las parejas de ha de cada sitio deben tener la misma dirección IP de pasarela.
+* Las interfaces correspondientes de un nodo y sus partners DR y AUX no pueden tener la misma dirección IP de la puerta de enlace.
+* Las interfaces correspondientes de un nodo y sus partners DR y AUX deben tener el mismo ID de VLAN.
+
+
+Las VLAN de MetroCluster deben extenderse desde el switch Edge MetroCluster al router de la puerta de enlace para que el tráfico MetroCluster llegue a la puerta de enlace (consulte el diagrama mostrado anteriormente). Los identificadores de VLAN para las VLAN de MetroCluster deben ser los mismos en cada sitio. Sin embargo, las subredes pueden ser diferentes.
+
+Utilice los archivos RCF creados por la herramienta RcfFileGenerator. La red entre los nodos MetroCluster y el enrutador de puerta de enlace debe proporcionar los mismos identificadores de VLAN que los establecidos en el archivo RCF.
+
+
+
+== Requisitos de la red enrutada por IP
+
+La red enrutada por IP debe cumplir con los siguientes requisitos:
+
+* link:../install-ip/concept_considerations_isls.html#basic-metrocluster-isl-requirements["Requisitos básicos de ISL de MetroCluster"]
+* link:../install-ip/concept_considerations_isls.html#isl-requirements-in-shared-layer-2-networks["Requisitos ISL en redes de capa 2 compartidas"]
+* link:../install-ip/concept_considerations_layer_2.html#required-settings-on-intermediate-switches["Ajustes necesarios en los interruptores intermedios"]
+* El enrutamiento dinámico no es compatible con el tráfico MetroCluster.
+* Solo se admiten configuraciones MetroCluster de cuatro nodos (dos nodos en cada sitio).
+* Se necesitan dos subredes en cada sitio MetroCluster: Una en cada red.
+* No se admite la asignación de IP automática.
+

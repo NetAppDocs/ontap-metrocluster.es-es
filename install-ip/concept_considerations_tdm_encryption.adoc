@@ -1,0 +1,51 @@
+---
+permalink: install-ip/concept_considerations_tdm_encryption.html 
+sidebar: sidebar 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+summary: Debe tener en cuenta algunas consideraciones para el uso de equipos de multiplexación en la configuración IP de MetroCluster. 
+---
+= Uso de TDM/xWDM y equipo de cifrado con configuraciones MetroCluster IP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe tener en cuenta algunas consideraciones para el uso de equipos de multiplexación en la configuración IP de MetroCluster.
+
+Estas consideraciones solo se aplican a los switches y los enlaces de entorno de administración dedicados de MetroCluster directos, no a los enlaces compartidos con tráfico que no sea de MetroCluster.
+
+La herramienta Hardware Universe proporciona algunas notas acerca de los requisitos que debe cumplir el equipo TDM/xWDM para trabajar con una configuración de IP de MetroCluster.
+
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+
+
+== Uso del cifrado en WDM o dispositivos de cifrado externos
+
+Cuando se utiliza el cifrado en dispositivos WDM en la configuración de IP de MetroCluster, el entorno debe cumplir los siguientes requisitos:
+
+* Los dispositivos de cifrado externos o el equipo DWDM deben haber sido certificados por el proveedor con el conmutador en cuestión.
++
+La certificación debe abarcar el modo de funcionamiento (como enlaces y cifrado).
+
+* La latencia y la fluctuación globales e integrales, incluido el cifrado, no pueden superar el máximo indicado en la IMT o en este documento.
+
+
+
+
+== Consideraciones sobre SFP
+
+Los SFP o QSFP compatibles con el proveedor de equipos son compatibles con los ISL de MetroCluster. Los SFP y QSFP pueden adquirirse a través de NetApp o del proveedor de equipos.
+
+
+
+== Consideraciones sobre ISL
+
+Los ISL de una estructura deben tener la misma velocidad y longitud.
+
+Los ISL de una estructura deben tener la misma topología. Por ejemplo, todos deberían ser enlaces directos o, si la configuración utiliza WDM, todos deberían utilizar WDM.
+
+Si comparte ISL con una red que no sea MetroCluster, debe seguir las directrices de la sección link:concept_considerations_layer_2.html["Consideraciones para compartir redes privadas de capa 2"].
+
+La diferencia máxima soportada en la distancia entre el tejido 1 y el tejido 2 es de 20 km

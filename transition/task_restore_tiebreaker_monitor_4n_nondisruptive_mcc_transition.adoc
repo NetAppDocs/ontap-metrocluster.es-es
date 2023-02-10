@@ -1,0 +1,38 @@
+---
+permalink: transition/task_restore_tiebreaker_monitor_4n_nondisruptive_mcc_transition.html 
+sidebar: sidebar 
+keywords: completing, complete, transition, metrocluster, configuration, resume, monitor, tiebreaker, mediator, utility, restoring, restore 
+summary: Una vez finalizada la transición de la configuración de MetroCluster, puede reanudar la supervisión con tiebreaker o con la utilidad Mediator. 
+---
+= Restaurar la supervisión de tiebreaker o de Mediator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una vez finalizada la transición de la configuración de MetroCluster, puede reanudar la supervisión con tiebreaker o con la utilidad Mediator.
+
+. Utilice el procedimiento adecuado para su configuración.
++
+[cols="1,3"]
+|===
+
+
+| Si está usando... | Utilice este procedimiento 
+
+
+ a| 
+Tiebreaker
+ a| 
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["Adición de configuraciones de MetroCluster"]
+
+
+
+ a| 
+Mediador
+ a| 
+Enlace:./install-ip/concept_mediator_requirements.html #configuring-the-ontap-mediador-servicio-from-a-metrocluster-ip[Configurar el servicio mediador de ONTAP desde una configuración IP de MetroCluster]
+
+|===
+

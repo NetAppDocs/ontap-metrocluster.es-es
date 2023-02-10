@@ -1,0 +1,103 @@
+---
+section: install-stretch
+title: Instale una configuración de MetroCluster con ampliación
+entries:
+- title: Descripción general
+  url: "/install-stretch/index.html"
+- title: Prepare la instalación de MetroCluster
+  entries:
+  - title: Diferencias entre las configuraciones de ONTAP MetroCluster
+    url: "/install-stretch/concept_considerations_differences.html"
+  - title: Conexión de clústeres entre iguales
+    url: "/install-stretch/concept_considerations_peering.html"
+  - title: Consideraciones que tener en cuenta al utilizar agregados no reflejados
+    url: "/install-stretch/concept_considerations_unmirrored_aggrs.html"
+  - title: Uso del firewall en sitios de MetroCluster
+    url: "/install-stretch/concept_considerations_firewalls.html"
+- title: Elija el procedimiento de instalación correcto para su configuración
+  url: "/install-stretch/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html"
+- title: Conecte mediante cable una configuración de MetroCluster elástica de dos
+    nodos conectada a SAS
+  entries:
+  - title: Descripción general
+    url: "/install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_sas.html"
+  - title: Parte de una configuración de MetroCluster con ampliación de dos nodos
+      conectada a SAS
+    url: "/install-stretch/concept_parts_of_a_two_node_sas_attached_stretch_mcc_configuration.html"
+  - title: Componentes de hardware de MetroCluster y directrices de nomenclatura necesarias
+      para configuraciones de ampliación conectadas a SAS de dos nodos
+    url: "/install-stretch/concept_required_mcc_components_and_example_names_for_two_node_sas_attached_stretch_configurations_mcc.html"
+  - title: Instale y cablee los componentes del MetroCluster para configuraciones
+      elásticas de dos nodos conectadas a SAS
+    entries:
+    - title: Descripción general
+      url: "/install-stretch/reference_sas_optical_mc_configuring_a_stretch_mcc_system_with_sas_disk_shelves_and_sas_optical_cables.html"
+    - title: Los componentes de hardware están en rack
+      url: "/install-stretch/task_rack_the_hardware_components_2_node_stretch_sas.html"
+    - title: Conecte los cables de las controladoras entre sí y las bandejas de almacenamiento
+      url: "/install-stretch/task_cable_the_controllers_to_each_other_and_the_storage_shelves.html"
+    - title: Conecte los cables de las conexiones de clústeres entre iguales
+      url: "/install-stretch/task_cable_the_cluster_peering_connections.html"
+    - title: Cablee las conexiones de gestión y datos
+      url: "/install-stretch/task_cable_the_management_and_data_connections.html"
+- title: Conecte mediante cable una configuración de MetroCluster elástico de dos
+    nodos con conexión a puente
+  entries:
+  - title: Descripción general
+    url: "/install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_atto.html"
+  - title: Partes de una configuración de MetroCluster con ampliación de dos nodos
+      y conexión a puente
+    url: "/install-stretch/concept_parts_of_a_two_node_mcc_configuration_using_fc_to_sas_bridges.html"
+  - title: Componentes de hardware y convenciones de nomenclatura de MetroCluster
+      necesarios para configuraciones de ampliación conectadas a puente de dos nodos
+    url: "/install-stretch/concept_required_mcc_components_and_naming_conventions_for_two_node_bridge_attached_stretch_configurations_mcc.html"
+  - title: Hoja de trabajo de recopilación de información para los puentes FC a SAS
+    url: "/install-stretch/reference_information_gathering_worksheet_for_fc_to_sas_bridges_2_node_atto.html"
+  - title: Instale y cablee los componentes del MetroCluster
+    entries:
+    - title: Los componentes de hardware están en rack
+      url: "/install-stretch/task_rack_the_hardware_components_mcc_2_node_stretch_atto.html"
+    - title: Conecte los cables de las controladoras entre sí
+      url: "/install-stretch/task_cable_the_fc_vi_adapters_to_the_partner_controller_2_node_stretch_atto.html"
+    - title: Conecte los cables de las conexiones de clústeres entre iguales
+      url: "/install-stretch/task_cable_the_cluster_peering_connections.html"
+    - title: Cablee las conexiones de gestión y datos
+      url: "/install-stretch/task_cable_the_management_and_data_connections.html"
+  - title: Instale los puentes de FC a SAS y las bandejas de discos SAS
+    url: "/install-stretch/task_fb_new_install.html"
+- title: Configure el software MetroCluster en ONTAP
+  url: "/install-stretch/concept_configuring_the_mcc_software_in_ontap.html"
+- title: Consideraciones sobre el uso de IP virtual y el protocolo de puerta de enlace
+    de borde con una configuración de MetroCluster
+  url: "/install-stretch/concept_considerations_for_using_virtual_ip_and_border_gateway_protocol_with_a_mcc_configuration.html"
+- title: Pruebe la configuración de MetroCluster
+  url: "/install-stretch/task_test_the_mcc_configuration.html"
+- title: Conexiones en configuraciones de MetroCluster con ampliación con LUN de cabina
+  entries:
+  - title: Descripción general
+    url: "/install-stretch/concept_stretch_mcc_configuration_with_array_luns.html"
+  - title: Ejemplo de una configuración de MetroCluster con ampliación con LUN de
+      cabina
+    url: "/install-stretch/reference_example_of_a_stretch_mcc_configuration_with_array_luns.html"
+  - title: Ejemplos de configuraciones MetroCluster con ampliación de dos nodos con
+      discos y LUN de cabina
+    url: "/install-stretch/reference_examples_of_two_node_stretch_mcc_configurations_with_disks_and_array_luns.html"
+  - title: Ejemplo de una configuración MetroCluster con ampliación con cabinas de
+      almacenamiento E-Series
+    url: "/install-stretch/reference_example_of_a_stretch_mcc_configuration_with_e_series_storage_arrays.html"
+- title: Consideraciones que tener en cuenta al eliminar las configuraciones de MetroCluster
+  url: "/install-stretch/concept_considerations_when_removing_mcc_configurations.html"
+- title: Cómo utilizar Active IQ Unified Manager y System Manager de ONTAP para llevar
+    a cabo tareas de configuración y supervisión
+  entries:
+  - title: Descripción general
+    url: "/install-stretch/concept_using_the_oncommand_management_tools_for_further_configuration_and_monitoring.html"
+  - title: Sincronización de la hora del sistema mediante NTP
+    url: "/install-stretch/task_synchronize_the_system_time_us_ntp.html"
+- title: Consideraciones que tener en cuenta al utilizar ONTAP en una configuración
+    de MetroCluster
+  url: "/install-stretch/concept_considerations_when_using_ontap_in_a_mcc_configuration.html"
+- title: Pasar de una configuración de MetroCluster con ampliación a otra FAS
+  url: "/install-stretch/task_upgrade_the_configuration_to_fabric_attached_mcc.html"
+- title: Dónde encontrar información adicional
+  url: "/install-stretch/reference_where_to_find_additional_information_icg.html"

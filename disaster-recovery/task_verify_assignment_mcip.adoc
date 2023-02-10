@@ -1,0 +1,91 @@
+---
+permalink: disaster-recovery/task_verify_assignment_mcip.html 
+sidebar: sidebar 
+keywords: verify, adp, verify, drives, pool, automatically, assign 
+summary: En los sistemas configurados para ADP, debe verificar que las unidades en un pool 0 se hayan asignado automáticamente. 
+---
+= Verificación de la asignación automática o de la asignación manual de unidades del pool 0
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En los sistemas configurados para ADP, debe verificar que las unidades en un pool 0 se hayan asignado automáticamente. En los sistemas que no están configurados para ADP, debe asignar manualmente las unidades del pool 0.
+
+
+
+== Verificación de la asignación de unidades del pool 0 en sistemas ADP en el sitio de desastre (sistemas IP de MetroCluster)
+
+Si las unidades se han sustituido en el sitio de desastres y el sistema está configurado para ADP, debe comprobar que las unidades remotas estén visibles para los nodos y que se hayan asignado correctamente.
+
+.Paso
+. Verifique que las unidades del pool 0 se asignen automáticamente:
++
+`disk show`
+
++
+En el siguiente ejemplo, para un sistema AFF A800 sin bandejas externas, se asignó automáticamente un cuarto (8 unidades) al nodo_A_1 y un cuarto se asignó automáticamente al nodo_A_2. Las unidades restantes serán unidades remotas (pool1) para node_B_1 y node_B_2.
+
++
+[listing]
+----
+cluster_A::*> disk show
+                 Usable     Disk      Container           Container
+Disk             Size       Shelf Bay Type    Type        Name      Owner
+---------------- ---------- ----- --- ------- ----------- --------- --------
+node_A_1:0n.12   1.75TB     0     12  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.13   1.75TB     0     13  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.14   1.75TB     0     14  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.15   1.75TB     0     15  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.16   1.75TB     0     16  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.17   1.75TB     0     17  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.18   1.75TB     0     18  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.19   1.75TB     0     19  SSD-NVM shared      -         node_A_1
+node_A_2:0n.0    1.75TB     0     0   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.1    1.75TB     0     1   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.2    1.75TB     0     2   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.3    1.75TB     0     3   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.4    1.75TB     0     4   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.5    1.75TB     0     5   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.6    1.75TB     0     6   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.7    1.75TB     0     7   SSD-NVM shared      -         node_A_2
+node_A_2:0n.24   -          0     24  SSD-NVM unassigned  -         -
+node_A_2:0n.25   -          0     25  SSD-NVM unassigned  -         -
+node_A_2:0n.26   -          0     26  SSD-NVM unassigned  -         -
+node_A_2:0n.27   -          0     27  SSD-NVM unassigned  -         -
+node_A_2:0n.28   -          0     28  SSD-NVM unassigned  -         -
+node_A_2:0n.29   -          0     29  SSD-NVM unassigned  -         -
+node_A_2:0n.30   -          0     30  SSD-NVM unassigned  -         -
+node_A_2:0n.31   -          0     31  SSD-NVM unassigned  -         -
+node_A_2:0n.36   -          0     36  SSD-NVM unassigned  -         -
+node_A_2:0n.37   -          0     37  SSD-NVM unassigned  -         -
+node_A_2:0n.38   -          0     38  SSD-NVM unassigned  -         -
+node_A_2:0n.39   -          0     39  SSD-NVM unassigned  -         -
+node_A_2:0n.40   -          0     40  SSD-NVM unassigned  -         -
+node_A_2:0n.41   -          0     41  SSD-NVM unassigned  -         -
+node_A_2:0n.42   -          0     42  SSD-NVM unassigned  -         -
+node_A_2:0n.43   -          0     43  SSD-NVM unassigned  -         -
+32 entries were displayed.
+----
+
+
+
+
+== Asignar unidades de pool 0 en sistemas que no son de ADP en el sitio de desastre (configuraciones IP de MetroCluster)
+
+Si las unidades se han sustituido en el sitio de desastres y el sistema no está configurado para ADP, debe asignar manualmente nuevas unidades al pool 0.
+
+.Acerca de esta tarea
+Para los sistemas ADP, las unidades se asignan automáticamente.
+
+.Pasos
+. En uno de los nodos de sustitución en el sitio de desastre, reasigne las unidades del pool 0 del nodo:
++
+`storage disk assign -n number-of-replacement disks -p 0`
+
++
+Este comando asigna las unidades recién añadidas (y no propiedad) en el sitio de desastre. Debe asignar la misma cantidad y tamaño (o mayor) de unidades que el nodo tenía antes del desastre. La `storage disk assign` la página man contiene más información sobre cómo realizar una asignación de unidades más granular.
+
+. Repita el paso del otro nodo de repuesto en el sitio de desastre.
+

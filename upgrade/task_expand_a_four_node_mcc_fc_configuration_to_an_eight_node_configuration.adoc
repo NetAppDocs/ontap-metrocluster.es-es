@@ -1,0 +1,37 @@
+---
+permalink: upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, expand, four, node, eight, configuration 
+summary: Para ampliar una configuración FC MetroCluster de cuatro nodos a una configuración FC MetroCluster de ocho nodos, se deben añadir dos controladoras a cada clúster para formar un segundo par de alta disponibilidad en cada sitio MetroCluster y, a continuación, ejecutar la operación de configuración de FC MetroCluster. 
+---
+= Expandir una configuración FC MetroCluster de cuatro nodos a una configuración de ocho nodos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para ampliar una configuración FC MetroCluster de cuatro nodos a una configuración FC MetroCluster de ocho nodos, se deben añadir dos controladoras a cada clúster para formar un segundo par de alta disponibilidad en cada sitio MetroCluster y, a continuación, ejecutar la operación de configuración de FC MetroCluster.
+
+.Acerca de esta tarea
+* Los nodos deben ejecutar ONTAP 9 en una configuración de FC de MetroCluster.
++
+Este procedimiento no es compatible con versiones anteriores de ONTAP ni con configuraciones IP de MetroCluster.
+
+* La configuración de FC de MetroCluster existente debe ser correcta.
+* El equipo que va a agregar debe estar soportado y cumplir todos los requisitos descritos en link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+* Para acomodar las nuevas controladoras y los nuevos puentes, debe haber disponibles puertos de switch FC.
+* Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
+* Este procedimiento sólo se aplica a las configuraciones de MetroCluster FC.
+* Este procedimiento no genera interrupciones y tarda aproximadamente un día en completarse (excepto en el rack y la pila) cuando los discos se ponen a cero.
+
+
+Antes de realizar este procedimiento, la configuración de FC de MetroCluster consta de cuatro nodos, con un par de alta disponibilidad en cada sitio:
+
+image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
+
+Una vez finalizado este procedimiento, la configuración de MetroCluster FC está compuesta por dos pares de alta disponibilidad en cada sitio:
+
+image::../media/mcc_dr_groups_8_node.gif[mcc grupos dr de 8 nodos]
+
+Ambos sitios deben ser ampliados igualmente. Una configuración FC de MetroCluster no puede consistir en un número desigual de nodos.

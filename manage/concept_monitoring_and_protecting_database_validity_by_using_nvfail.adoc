@@ -1,0 +1,159 @@
+---
+permalink: manage/concept_monitoring_and_protecting_database_validity_by_using_nvfail.html 
+sidebar: sidebar 
+keywords: monitor, protect, file, system, consistency, nvfail, parameter, volume, modify, enable, detect, nonvolatile, nvram, switchover, recover, impact, access, nfs, volume, lun, command, monitor, data, loss, event, access 
+summary: 'El parámetro -nvfail del comando volume modify permite que ONTAP detecte inconsistencias de RAM no volátil (NVRAM) cuando el sistema arranca o después de una operación de conmutación. También le avisa y protege al sistema contra el acceso y la modificación de los datos hasta que el volumen se puede recuperar manualmente.' 
+---
+= Supervisión y protección de la consistencia del sistema de archivos con la opción NVFAIL
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `-nvfail` parámetro de `volume modify` El comando permite que ONTAP detecte inconsistencias en la RAM no volátil (NVRAM) cuando el sistema arranca o después de una operación de conmutación. También le avisa y protege al sistema contra el acceso y la modificación de los datos hasta que el volumen se puede recuperar manualmente.
+
+Si ONTAP detecta algún problema, las instancias de la base de datos o del sistema de archivos dejan de responder o de cerrarse. A continuación, ONTAP envía mensajes de error a la consola para alertarle de que comprueba el estado de la base de datos o el sistema de archivos. Puede habilitar NVFAIL para advertir a los administradores de bases de datos de incoherencias de NVRAM entre los nodos en clúster que puedan poner en peligro la validez de la base de datos.
+
+Después de la pérdida de datos de NVRAM durante la recuperación tras fallos o el arranque, los clientes NFS no pueden acceder a los datos de ninguno de los nodos hasta que se borra el estado NVFAIL. Los clientes CIFS no se ven afectados.
+
+
+
+== Cómo afecta el acceso NVFAIL a volúmenes o LUN de NFS
+
+El estado NVFAIL se establece cuando ONTAP detecta errores de NVRAM durante el arranque, cuando se produce una operación de conmutación de sitios MetroCluster o durante una operación de toma de control de alta disponibilidad si la opción NVFAIL se establece en el volumen. Si no se detectan errores durante el inicio, el servicio de archivos se inicia normalmente. Sin embargo, si se detectan errores de NVRAM o el procesamiento NVFAIL se aplica a una conmutación de desastre, ONTAP detiene las instancias de bases de datos de responder.
+
+Al activar la opción NVFAIL, se lleva a cabo uno de los procesos descritos en la siguiente tabla durante el arranque:
+
+|===
+
+
+| Si... | Realice lo siguiente... 
+
+
+ a| 
+ONTAP no detecta ningún error de NVRAM
+ a| 
+El servicio de archivos se inicia normalmente.
+
+
+
+ a| 
+ONTAP detecta errores de NVRAM
+ a| 
+* ONTAP devuelve un error de identificador de archivo obsoleto (ESTALE) a los clientes NFS que intentan acceder a la base de datos, lo que provoca que la aplicación deje de responder, se bloquee o se apague.
++
+A continuación, ONTAP envía un mensaje de error a la consola del sistema y al archivo de registro.
+
+* Cuando se reinicia la aplicación, los archivos se ponen a disposición de los clientes CIFS incluso si no se comprueba que son válidos.
++
+Para clientes NFS, los archivos siguen sin estar accesibles hasta que se restablece el `in-nvfailed-state` opción en el volumen afectado.
+
+
+
+
+
+ a| 
+Si se utiliza uno de los siguientes parámetros:
+
+* `dr-force-nvfail` la opción de volumen está configurada
+* `force-nvfail-all` la opción del comando switchover está establecida.
+
+ a| 
+Puede anular la definición del `dr-force-nvfail` Opción después de la conmutación, si el administrador no espera forzar el procesamiento NVFAIL para posibles operaciones de conmutación ante desastres futuras. Para clientes NFS, los archivos siguen sin estar accesibles hasta que se restablece el `in-nvfailed-state` opción en el volumen afectado.
+
+
+NOTE: Con el `force-nvfail-all` la opción provoca el `dr-force-nvfail` Opción que se puede establecer en todos los volúmenes de recuperación ante desastres procesados durante la conmutación de recuperación ante desastres.
+
+
+
+ a| 
+ONTAP detecta errores de NVRAM en un volumen que contiene LUN
+ a| 
+Las LUN de ese volumen se desconectan. La `in-nvfailed-state` Debe borrarse la opción del volumen; de esta forma, se debe borrar el atributo NVFAIL para las LUN; para ello, cada LUN se conecta al volumen afectado. Puede realizar los pasos para comprobar la integridad de las LUN y recuperar la LUN a partir de una copia Snapshot o un backup según sea necesario. Después de que se recuperan todos los LUN del volumen, el `in-nvfailed-state` se borra la opción del volumen afectado.
+
+|===
+
+
+== Comandos para supervisar eventos de pérdida de datos
+
+Si habilita la opción NVFAIL, recibirá una notificación cuando se produce un bloqueo del sistema causado por incoherencias de NVRAM o un cambio de MetroCluster.
+
+De forma predeterminada, el parámetro NVFAIL no está habilitado.
+
+[cols="1,2"]
+|===
+
+
+| Si desea... | Se usa este comando... 
+
+
+ a| 
+Cree un volumen nuevo con la función NVFAIL
+ a| 
+`volume create -nvfail on`
+
+
+
+ a| 
+Habilite el elemento NVFAIL en un volumen existente
+ a| 
+`volume modify`
+
+*Nota:* usted establece el `-nvfail` Opción de "activar" para habilitar el valor NVFAIL en el volumen creado.
+
+
+
+ a| 
+Muestre si la función NVFAIL está habilitada actualmente para un volumen especificado
+ a| 
+`volume show`
+
+*Nota:* usted establece el `-fields` El parámetro a "nvfail" para mostrar el atributo NVFAIL para un volumen especificado.
+
+|===
+.Información relacionada
+Consulte la página de manual de cada comando para obtener más información.
+
+
+
+== Acceder a volúmenes con el estado NVFAIL después de una conmutación de sitios
+
+Después de una conmutación de sitios, debe borrar el estado NVFAIL restableciendo el `-in-nvfailed-state` parámetro de `volume modify` para eliminar la restricción de clientes a acceder a los datos.
+
+.Antes de empezar
+La base de datos o el sistema de archivos no deben estar en ejecución ni intentar acceder al volumen afectado.
+
+.Acerca de esta tarea
+Ajuste `-in-nvfailed-state` el parámetro requiere un privilegio de nivel avanzado.
+
+.Paso
+. Recupere el volumen mediante el comando volume modify con el parámetro -in-nvfailed-state establecido en FALSE.
+
+
+.Después de terminar
+Para obtener instrucciones acerca de cómo examinar la validez del archivo de base de datos, consulte la documentación del software de base de datos específico.
+
+Si su base de datos utiliza LUN, revise los pasos para hacer que las LUN sean accesibles para el host después de un fallo de NVRAM.
+
+.Información relacionada
+link:../manage/concept_monitoring_and_protecting_database_validity_by_using_nvfail.html["Supervisión y protección de la consistencia del sistema de archivos con el error NVFAIL"]
+
+
+
+== Recuperar las LUN con estados NVFAIL después de cambiar
+
+Después de una conmutación de sitios, el host ya no tiene acceso a los datos de las LUN que tienen el estado NVFAIL. Debe realizar una serie de acciones antes de que la base de datos tenga acceso a los LUN.
+
+.Antes de empezar
+La base de datos no debe estar en ejecución.
+
+.Pasos
+. Borre el estado NVFAIL en el volumen de influencia que aloja las LUN mediante el restablecimiento del `-in-nvfailed-state` parámetro de `volume modify` comando.
+. Conectar las LUN afectadas.
+. Examine las LUN para detectar incoherencias de datos y solutelas.
++
+Esto puede implicar la recuperación o la recuperación basada en host que se realiza en la controladora de almacenamiento mediante SnapRestore.
+
+. Conectar la aplicación de base de datos después de recuperar las LUN.
+

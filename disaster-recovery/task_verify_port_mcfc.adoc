@@ -1,0 +1,73 @@
+---
+permalink: disaster-recovery/task_verify_port_mcfc.html 
+sidebar: sidebar 
+keywords: verify, port, environmental, metrocluster, configuration 
+summary: Debe configurar las variables de entorno en el nodo y, a continuación, apagarlo para preparar la configuración de MetroCluster. 
+---
+= Verificación de la configuración de puerto (solo configuraciones de MetroCluster FC)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe configurar las variables de entorno en el nodo y, a continuación, apagarlo para preparar la configuración de MetroCluster.
+
+.Acerca de esta tarea
+Este procedimiento se realiza con los módulos de la controladora de repuesto en modo de mantenimiento.
+
+Los pasos para comprobar la configuración de los puertos solo son necesarios en los sistemas en los que se utilizan puertos FC o CNA en modo iniciador.
+
+.Pasos
+. En modo de mantenimiento, restaure la configuración de puerto de FC:
++
+`ucadmin modify -m fc -t initiatoradapter_name`
+
++
+Si solo desea usar uno de un par de puertos en la configuración del iniciador, introduzca un nombre de adaptador preciso.
+
+. Realice una de las siguientes acciones, según su configuración:
++
+|===
+
+
+| Si la configuración del puerto FC es... | Realice lo siguiente... 
+
+
+ a| 
+Lo mismo para ambos puertos
+ a| 
+Respuesta "'y'" cuando el sistema lo solicite, porque la modificación de un puerto de un par de puertos también modifica el otro puerto.
+
+
+
+ a| 
+Diferente
+ a| 
+.. Responda «'n'» cuando el sistema lo solicite.
+.. Restaure la configuración de puerto de FC:
+
+
+`ucadmin modify -m fc -t initiator|targetadapter_name`
+
+|===
+. Salir del modo de mantenimiento:
++
+`halt`
+
++
+Después de emitir el comando, espere hasta que el sistema se detenga en el símbolo del sistema del CARGADOR.
+
+. Vuelva a arrancar el nodo en modo de mantenimiento para que los cambios de configuración surtan efecto:
++
+`boot_ontap maint`
+
+. Verifique los valores de las variables:
++
+`ucadmin show`
+
+. Salga del modo de mantenimiento y muestre el aviso del CARGADOR:
++
+`halt`
+
+

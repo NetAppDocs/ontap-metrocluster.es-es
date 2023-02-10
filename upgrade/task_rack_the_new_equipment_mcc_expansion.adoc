@@ -1,0 +1,18 @@
+---
+permalink: upgrade/task_rack_the_new_equipment_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, rack, new, equipment 
+summary: Debe montar en rack el equipo de los nuevos nodos. 
+---
+= Montaje del nuevo equipo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe montar en rack el equipo de los nuevos nodos.
+
+.Pasos
+. Utilice el procedimiento descrito en link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"] Para montar en rack los nuevos sistemas de almacenamiento, bandejas de discos y puentes FC a SAS.
+

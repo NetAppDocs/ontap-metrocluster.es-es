@@ -1,0 +1,36 @@
+---
+permalink: disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html 
+sidebar: sidebar 
+keywords: controller, failure, extend, module, side, dr, group, metrocluster, configuration, single, controller, two-node, replace, equipment, reassign, equipment, ownership, drive, disaster, recover, multi-controller, storage 
+summary: 'Si el fallo de la controladora se extiende a todos los módulos de controladora de un lado a un grupo de recuperación ante desastres en una configuración MetroCluster \(incluida una sola controladora en una configuración MetroCluster de dos nodos\) o se ha sustituido el almacenamiento, debe sustituir el equipo y reasignar la propiedad de las unidades para recuperarse de un desastre.' 
+---
+= Recuperación tras un error del almacenamiento o de varias controladoras
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si el fallo de una controladora se extiende a todos los módulos de controladora de un lado a un grupo de recuperación ante desastres en una configuración MetroCluster (incluida una sola controladora en una configuración MetroCluster de dos nodos) o se ha sustituido el almacenamiento, debe sustituir el equipo y reasignar la propiedad de las unidades para recuperarse de un desastre.
+
+* Es necesario revisar los procedimientos de recuperación disponibles antes de decidir utilizar este procedimiento.
++
+link:concept_choosing_the_correct_recovery_procedure_parent_concept.html["Elección del procedimiento de recuperación correcto"]
+
+* El sitio de recuperación ante desastres debe estar cerrado.
++
+link:task_perform_a_forced_switchover_after_a_disaster.html#fencing-off-the-disaster-site["Esgrima fuera del lugar del desastre"].
+
+* La conmutación debe haberse realizado.
++
+link:task_perform_a_forced_switchover_after_a_disaster.html#performing-a-forced-switchover["Realizar un cambio forzado"].
+
+* Las unidades de reemplazo y los módulos de controladora deben ser nuevos y no deben tener asignada la propiedad previamente.
+* En los ejemplos de este procedimiento se muestran configuraciones de dos o cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos de recuperación ante desastres), debe tener en cuenta cualquier error y realizar la tarea de recuperación necesaria en los módulos de controladora adicionales.
+
+
+Este procedimiento utiliza el siguiente flujo de trabajo:
+
+image::../media/workflow_smoking_crater_recovery.png[flujo de trabajo que fuma recuperación de cráteres]
+
+Este procedimiento se puede usar cuando se realizó la recuperación en un sistema que estaba en transición media cuando se produjo el error. En ese caso, deberá llevar a cabo los pasos adecuados al preparar la conmutación de regreso, tal como se indica en el procedimiento.

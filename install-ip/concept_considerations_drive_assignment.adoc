@@ -1,0 +1,691 @@
+---
+permalink: install-ip/concept_considerations_drive_assignment.html 
+sidebar: sidebar 
+keywords: drive auto-assignment, drive, adp, advanced disk partitioning, root disk, unmirrored root, data partition, root partition, shelf-by-shelf, AFF A320, AFF A220, AFF A250, AFF A300, AFF A400, AFF A700, AFF A800, FAS2750, FAS8200, FAS500f, FAS9000 
+summary: 'A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten nuevas instalaciones con sistemas AFF que utilizan ADP (partición avanzada de unidades).' 
+---
+= Consideraciones sobre la asignación automática de unidades y los sistemas ADP en ONTAP 9.4 y versiones posteriores
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten nuevas instalaciones con sistemas AFF que utilizan ADP (partición avanzada de unidades). En la mayoría de las configuraciones, las particiones y la asignación de discos se realizan automáticamente durante la configuración inicial de los sitios MetroCluster.
+
+ONTAP 9.4 y versiones posteriores incluyen los siguientes cambios para la compatibilidad con ADP:
+
+* Las asignaciones de discos del pool 0 se realizan de fábrica.
+* La raíz sin reflejar se crea de fábrica.
+* La asignación de particiones de datos se realiza en las instalaciones del cliente durante el procedimiento de configuración.
+* En la mayoría de los casos, la asignación y partición de unidades se realiza automáticamente durante los procedimientos de configuración.
+
+
+
+NOTE: Al actualizar de ONTAP 9.4 a 9.5, el sistema reconoce las asignaciones de discos existentes.
+
+
+
+== Partición automática
+
+ADP se realiza automáticamente durante la configuración inicial de la plataforma.
+
+
+NOTE: A partir de ONTAP 9.5, la asignación automática de discos debe habilitarse con el comando `storage disk option modify -autoassign on`.
+
+Se pueden particionar un máximo de 96 unidades automáticamente durante la instalación. Se pueden añadir unidades adicionales después de la instalación inicial.
+
+
+
+== Cómo funciona la asignación automática de bandeja a bandeja
+
+Si hay cuatro bandejas externas por sitio, cada bandeja se asigna a un nodo diferente y a un pool diferente, como se muestra en el ejemplo siguiente:
+
+* Todos los discos del site_A-shelf_1 se asignan automáticamente al pool 0 de node_A_1
+* Todos los discos de site_A-shelf_3 se asignan automáticamente al pool 0 de node_A_2
+* Todos los discos del site_B-shelf_1 se asignan automáticamente al pool 0 de node_B_1
+* Todos los discos del site_B-shelf_3 se asignan automáticamente al pool 0 de node_B_2
+* Todos los discos del site_B-shelf_2 se asignan automáticamente al pool 1 de node_A_1
+* Todos los discos del site_B-shelf_4 se asignan automáticamente al pool 1 de node_A_2
+* Todos los discos del site_A-shelf_2 se asignan automáticamente al pool 1 de node_B_1
+* Todos los discos del site_A-shelf_4 se asignan automáticamente al pool 1 de node_B_2
+
+
+
+
+== Cómo completar bandejas parcialmente completas
+
+Si la configuración utiliza bandejas que no están completamente ocupadas (tienen bahías de unidades vacías), debe distribuir las unidades de manera uniforme en toda la bandeja, según la política de asignación de discos. La política de asignación de discos depende del número de bandejas que haya en cada sitio MetroCluster.
+
+Si utiliza una sola bandeja en cada sitio (o solo la bandeja interna de un sistema AFF A800), los discos se asignan mediante una normativa de cuarto de bandeja. Si la bandeja no se llena por completo, instale las unidades de forma equitativa en todos los trimestres.
+
+En la siguiente tabla se muestra un ejemplo de cómo colocar 24 discos en una bandeja interna de 48 unidades. También se muestra la propiedad de las unidades.
+
+|===
+
+
+| Las 48 bahías de unidad se dividen en cuatro trimestres: | Instalar seis unidades en las primeras seis bahías de cada trimestre... 
+
+
+ a| 
+Trimestre 1: Bahías 0-11
+ a| 
+Bahías 0-5
+
+
+
+ a| 
+Trimestre 2: Bahías 12-23
+ a| 
+Bahías 12-17
+
+
+
+ a| 
+Trimestre 3: Bahías 24-35
+ a| 
+Bahías 24-29
+
+
+
+ a| 
+Trimestre 4: Bahías 36-48
+ a| 
+Bahías 36-41
+
+|===
+Si utiliza dos bandejas en cada sitio, los discos se asignan con una normativa de media bandeja. Si las bandejas no se rellenan completamente, instale las unidades igualmente desde cualquiera de los extremos de la bandeja.
+
+Por ejemplo, si está instalando 12 unidades en una bandeja de 24 unidades, instale unidades en las bahías 0-5 y 18-23.
+
+
+
+== Asignación de unidades manual (ONTAP 9.5)
+
+En ONTAP 9.5, se requiere la asignación manual de unidades en los sistemas con las siguientes configuraciones de bandeja:
+
+* Tres bandejas externas por sitio.
++
+Dos bandejas se asignan automáticamente con una política de asignación de media bandeja, pero la tercera debe asignarse manualmente.
+
+* Más de cuatro bandejas por sitio y el número total de bandejas externas no es un múltiplo de cuatro.
++
+Las bandejas adicionales por encima del múltiplo de cuatro quedan sin asignar y las unidades deben asignarse de forma manual. Por ejemplo, si hay cinco bandejas externas en el sitio, se debe asignar manualmente la bandeja cinco.
+
+
+
+Solo es necesario asignar manualmente una sola unidad en cada bandeja no asignada. El resto de las unidades de la bandeja se asignan automáticamente.
+
+
+
+== Asignación de unidades manual (ONTAP 9.4)
+
+En ONTAP 9.4, se requiere la asignación manual de unidades en los sistemas con las siguientes configuraciones de bandeja:
+
+* Hay menos de cuatro bandejas externas por sitio.
++
+Las unidades deben asignarse manualmente para garantizar la asignación simétrica de las unidades, en la que cada pool tiene un mismo número de unidades.
+
+* Más de cuatro bandejas externas por sitio y el número total de bandejas externas no es un múltiplo de cuatro.
++
+Las bandejas adicionales por encima del múltiplo de cuatro quedan sin asignar y las unidades deben asignarse de forma manual.
+
+
+
+Al asignar manualmente unidades, debe asignar discos de forma simétrica, con un mismo número de unidades asignadas a cada pool. Por ejemplo, si la configuración tiene dos bandejas de almacenamiento en cada sitio, debería una bandeja al par de alta disponibilidad local y una bandeja al par de alta disponibilidad remoto:
+
+* Asigne la mitad de los discos en site_A-shelf_1 al pool 0 de node_A_1.
+* Asigne la mitad de los discos en site_A-shelf_1 al pool 0 de node_A_2.
+* Asigne la mitad de los discos en site_A-shelf_2 al pool 1 de node_B_1.
+* Asigne la mitad de los discos en site_A-shelf_2 al pool 1 de node_B_2.
+* Asigne la mitad de los discos en site_B-shelf_1 al pool 0 de node_B_1.
+* Asigne la mitad de los discos en site_B-shelf_1 al pool 0 de node_B_2.
+* Asigne la mitad de los discos en site_B-shelf_2 al pool 1 de node_A_1.
+* Asigne la mitad de los discos en site_B-shelf_2 al pool 1 de node_A_2.
+
+
+
+
+== Agregar bandejas a una configuración existente
+
+La asignación automática de unidades admite la adición simétrica de bandejas a una configuración existente.
+
+Cuando se añaden nuevas bandejas, el sistema aplica la misma política de asignación a las bandejas recién añadidas. Por ejemplo, con una sola bandeja por sitio, si se añade una bandeja adicional, los sistemas aplicarán las reglas de asignación de trimestres a la nueva bandeja.
+
+.Información relacionada
+link:concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["Componentes de MetroCluster IP y convenciones de nomenclatura necesarias"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+
+
+
+== Diferencias de asignación de discos y ADP por sistema en las configuraciones de IP de MetroCluster
+
+El funcionamiento de la partición avanzada de unidades (ADP) y la asignación automática de discos en las configuraciones IP de MetroCluster varía según el modelo del sistema.
+
+
+NOTE: En los sistemas que utilizan ADP, los agregados se crean utilizando particiones en las que cada unidad se divide en particiones P1, P2 y P3. El agregado raíz se crea utilizando particiones P3.
+
+Debe cumplir los límites de MetroCluster para la cantidad máxima de unidades compatibles y otras directrices.
+
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+
+
+=== Asignación de ADP y disco en sistemas AFF A320
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+48 unidades
+ a| 
+Las unidades de cada bandeja externa se dividen en dos grupos iguales (mitades). Cada media bandeja se asigna automáticamente a un pool aparte.
+ a| 
+El par de alta disponibilidad local usa una bandeja. La segunda bandeja la utiliza el par de alta disponibilidad remoto.
+
+Las particiones de cada bandeja se utilizan para crear el agregado raíz. Cada uno de los dos complejos del agregado raíz incluye las siguientes particiones::
++
+--
+* Ocho particiones de datos
+* Dos particiones de paridad
+* Dos particiones de repuesto
+
+
+--
+
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+24 unidades
+ a| 
+Las unidades se dividen en cuatro grupos iguales. Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye las siguientes particiones:
+
+* Tres particiones para datos
+* Dos particiones de paridad
+* Una partición de repuesto
+
+
+|===
+
+
+=== Asignación de ADP y discos en sistemas AFF A220
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+Solo unidades internas
+ a| 
+Las unidades internas se dividen en cuatro grupos iguales. Cada grupo se asigna automáticamente a un pool independiente y cada pool se asigna a una controladora independiente de la configuración.
+
+
+NOTE: La mitad de las unidades internas quedan sin asignar antes de configurar MetroCluster.
+ a| 
+El par de alta disponibilidad local utiliza dos trimestres. El par de alta disponibilidad remoto utiliza los otros dos trimestres.
+
+El agregado raíz incluye las siguientes particiones en cada complejo:
+
+* Tres particiones para datos
+* Dos particiones de paridad
+* Una partición de repuesto
+
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+16 unidades internas
+ a| 
+Las unidades se dividen en cuatro grupos iguales. Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+
+Dos trimestres de una bandeja pueden tener el mismo pool. El pool se selecciona de acuerdo con el nodo al que pertenece el trimestre:
+
+* Si es propiedad del nodo local, se utiliza pool0.
+* Si es propiedad del nodo remoto, se utiliza pool1.
+
+
+Por ejemplo: Una bandeja con trimestres de primer al cuarto trimestre puede tener las siguientes asignaciones:
+
+* Q1: Node_A_1 pool0
+* Q2: Node_A_2 pool0
+* Q3: Nodo_B_1 pool1
+* 4Q4:nodo_B_2 pool1
+
+
+
+NOTE: La mitad de las unidades internas quedan sin asignar antes de configurar MetroCluster.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye las siguientes particiones:
+
+* Dos particiones para datos
+* Dos particiones de paridad
+* Sin repuestos
+
+
+|===
+
+
+=== Asignación de discos y ADP en sistemas AFF A250
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+48 unidades
+ a| 
+Las unidades de cada bandeja externa se dividen en dos grupos iguales (mitades). Cada media bandeja se asigna automáticamente a un pool aparte.
+ a| 
+El par de alta disponibilidad local usa una bandeja. La segunda bandeja la utiliza el par de alta disponibilidad remoto.
+
+Las particiones de cada bandeja se utilizan para crear el agregado raíz. El agregado raíz incluye las siguientes particiones en cada complejo:
+
+* Ocho particiones de datos
+* Dos particiones de paridad
+* Dos particiones de repuesto
+
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+solo 16 unidades internas
+ a| 
+Las unidades se dividen en cuatro grupos iguales. Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye las siguientes particiones:
+
+* Dos particiones para datos
+* Dos particiones de paridad
+* No hay particiones de repuesto
+
+
+|===
+
+
+=== Asignación de discos y ADP en sistemas AFF A300
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+48 unidades
+ a| 
+Las unidades de cada bandeja externa se dividen en dos grupos iguales (mitades). Cada media bandeja se asigna automáticamente a un pool aparte.
+ a| 
+El par de alta disponibilidad local usa una bandeja. La segunda bandeja la utiliza el par de alta disponibilidad remoto.
+
+Las particiones de cada bandeja se utilizan para crear el agregado raíz. El agregado raíz incluye las siguientes particiones en cada complejo:
+
+* Ocho particiones de datos
+* Dos particiones de paridad
+* Dos particiones de repuesto
+
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+24 unidades
+ a| 
+Las unidades se dividen en cuatro grupos iguales. Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye las siguientes particiones:
+
+* Tres particiones para datos
+* Dos particiones de paridad
+* Una partición de repuesto
+
+
+|===
+
+
+=== Asignación de ADP y disco en sistemas AFF A400
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+96 unidades
+ a| 
+Las unidades se asignan automáticamente de bandeja en bandeja.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye:
+
+* 20 particiones para datos
+* Dos particiones de paridad
+* Dos particiones de repuesto
+
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+24 unidades
+ a| 
+Las unidades se dividen en cuatro grupos iguales (trimestres). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye:
+
+* Tres particiones para datos
+* Dos particiones de paridad
+* Una partición de repuesto
+
+
+|===
+
+
+=== Asignación de ADP y discos en sistemas A700 de AFF
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+96 unidades
+ a| 
+Las unidades se asignan automáticamente de bandeja en bandeja.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye:
+
+* 20 particiones para datos
+* Dos particiones de paridad
+* Dos particiones de repuesto
+
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+24 unidades
+ a| 
+Las unidades se dividen en cuatro grupos iguales (trimestres). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye:
+
+* Tres particiones para datos
+* Dos particiones de paridad
+* Una partición de repuesto
+
+
+|===
+
+
+=== Asignación de ADP y discos en sistemas AFF A800
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para agregado raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+Unidades internas y 96 unidades externas
+ a| 
+Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente. Las unidades de las bandejas externas se asignan automáticamente de bandeja en bandeja, con todas las unidades de cada bandeja asignadas a uno de los cuatro nodos de la configuración de MetroCluster.
+ a| 
+El agregado raíz se crea con 12 particiones raíz en la bandeja interna.
+
+Cada uno de los dos complejos del agregado raíz incluye:
+
+* Ocho particiones de datos
+* Dos particiones de paridad
+* Dos particiones de repuesto
+
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+solo 24 unidades internas
+ a| 
+Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente.
+ a| 
+El agregado raíz se crea con 12 particiones raíz en la bandeja interna.
+
+Cada uno de los dos complejos del agregado raíz incluye:
+
+* Tres particiones para datos
+* Dos particiones de paridad
+* Una partición de repuesto
+
+
+|===
+
+
+=== Asignación de discos y ADP en sistemas AFF A900
+
+|===
+
+
+| Pautas | Bandejas por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+96 unidades
+ a| 
+Las unidades se asignan automáticamente de bandeja en bandeja.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye:
+
+* 20 particiones para datos
+* Dos particiones de paridad
+* Dos particiones de repuesto
+
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+24 unidades
+ a| 
+Las unidades se dividen en cuatro grupos iguales (trimestres). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+Cada uno de los dos complejos del agregado raíz incluye:
+
+* Tres particiones para datos
+* Dos particiones de paridad
+* Una partición de repuesto
+
+
+|===
+
+
+=== Asignación de discos en sistemas FAS2750
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+24 unidades internas y 24 unidades externas
+ a| 
+Los estantes internos y externos se dividen en dos mitades iguales. Cada mitad se asigna automáticamente a un pool diferente
+ a| 
+No aplicable
+
+
+
+ a| 
+Unidades compatibles mínimas (por sitio) (configuración de alta disponibilidad activa/pasiva)
+ a| 
+Solo unidades internas
+ a| 
+Se requiere asignación manual
+ a| 
+No aplicable
+
+|===
+
+
+=== Asignación de discos en los sistemas FAS8200
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+48 unidades
+ a| 
+Las unidades de las bandejas externas se dividen en dos grupos iguales (mitades). Cada media bandeja se asigna automáticamente a un pool aparte.
+ a| 
+No aplicable
+
+
+
+ a| 
+Unidades compatibles mínimas (por sitio) (configuración de alta disponibilidad activa/pasiva)
+ a| 
+24 unidades
+ a| 
+Se requiere asignación manual.
+ a| 
+No aplicable
+
+|===
+
+
+=== Asignación de discos en sistemas FAS500f
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+48 unidades
+ a| 
+Las unidades se asignan automáticamente de bandeja en bandeja.
+ a| 
+No aplicable
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+24 unidades
+ a| 
+Las unidades se dividen en cuatro grupos iguales. Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+No aplicable
+
+|===
+
+
+=== Asignación de discos en los sistemas FAS9000
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+96 unidades
+ a| 
+Las unidades se asignan automáticamente de bandeja en bandeja.
+ a| 
+No aplicable
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+48 unidades
+ a| 
+Las unidades de las bandejas se dividen en dos grupos iguales (mitades). Cada media bandeja se asigna automáticamente a un pool aparte.
+ a| 
+Unidades compatibles mínimas (por sitio) (configuración de alta disponibilidad activa/pasiva)
+
+|===
+
+
+=== Asignación de discos en sistemas FAS9500
+
+|===
+
+
+| Pautas | Bandejas por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+ a| 
+Unidades mínimas recomendadas (por sitio)
+ a| 
+96 unidades
+ a| 
+Las unidades se asignan automáticamente de bandeja en bandeja.
+ a| 
+No aplicable
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+24 unidades
+ a| 
+Las unidades se dividen en cuatro grupos iguales (trimestres). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+Unidades compatibles mínimas (por sitio) (configuración de alta disponibilidad activa/pasiva)
+
+|===

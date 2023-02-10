@@ -1,0 +1,65 @@
+---
+permalink: maintain/reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, requirements, interfaces, fibrebridge, bridges, manage, configures 
+summary: Puede utilizar la combinación de un puerto serie, Telnet y FTP para administrar los puentes FiberBridge en lugar de las interfaces de administración recomendadas. El sistema debe cumplir los requisitos de la interfaz correspondiente antes de instalar los puentes. 
+---
+= Requisitos para utilizar otras interfaces para configurar y gestionar puentes FiberBridge
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar la combinación de un puerto serie, Telnet y FTP para administrar los puentes FiberBridge en lugar de las interfaces de administración recomendadas. El sistema debe cumplir los requisitos de la interfaz correspondiente antes de instalar los puentes.
+
+Puede utilizar un puerto serie o Telnet para configurar el puente y el puerto de administración Ethernet 1 y para administrar el puente. Puede utilizar FTP para actualizar el firmware del puente.
+
+
+NOTE: El _ATTO FiberBridge Installation and Operation Manual_ de su puente de modelos contiene más información acerca de las interfaces de administración.
+
+Puede acceder a este documento en el sitio web de ATTO usando el enlace proporcionado en la página ATTO Fiberbridge Description.
+
+
+
+== Puerto serie
+
+Al utilizar el puerto serie para configurar y administrar un puente, y para configurar el puerto de administración Ethernet 1, el sistema debe cumplir los siguientes requisitos:
+
+* Un cable serie (que se conecta desde el puerto serie de puente a un puerto serie (COM) en el equipo que está utilizando para la instalación)
++
+El puerto serie del puente es RJ-45 y tiene el mismo pin-out que los controladores.
+
+* Un programa de emulación de terminal como Hyperterminal, TeraTerm o PuTTY para acceder a la consola
++
+El programa de terminal debe ser capaz de registrar la salida de pantalla en un archivo.
+
+
+
+
+
+== Telnet
+
+Al utilizar Telnet para configurar y administrar un puente, el sistema debe cumplir los siguientes requisitos:
+
+* Un cable serie (que se conecta desde el puerto serie de puente a un puerto serie (COM) en el equipo que está utilizando para la instalación)
++
+El puerto serie del puente es RJ-45 y tiene el mismo pin-out que los controladores.
+
+* (Recomendado) un nombre de usuario y una contraseña no predeterminados (para acceder al puente)
+* Un programa de emulación de terminal como Hyperterminal, TeraTerm o PuTTY para acceder a la consola
++
+El programa de terminal debe ser capaz de registrar la salida de pantalla en un archivo.
+
+* Una dirección IP, máscara de subred e información de puerta de enlace para el puerto de administración Ethernet 1 en cada puente
+
+
+
+
+== FTP
+
+Al utilizar FTP para actualizar el firmware de puente, el sistema debe cumplir los siguientes requisitos:
+
+* Un cable Ethernet estándar (que se conecta desde el puerto 1 de administración Ethernet puente a la red)
+* (Recomendado) un nombre de usuario y una contraseña no predeterminados (para acceder al puente)
+

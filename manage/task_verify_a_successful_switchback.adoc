@@ -1,0 +1,85 @@
+---
+permalink: manage/task_verify_a_successful_switchback.html 
+sidebar: sidebar 
+keywords: perform, switchback, aggregate, storage, virtual, machine, svm, switch, back, online, verify, successful 
+summary: 'Después de llevar a cabo la conmutación de estado, querrá confirmar que todos los agregados y las máquinas virtuales de almacenamiento \(SVM\) hayan vuelto a conectarse y estén en línea.' 
+---
+= Verificación de una conmutación de regreso exitosa
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de llevar a cabo la conmutación de estado, querrá confirmar que todos los agregados y las máquinas virtuales de almacenamiento (SVM) hayan vuelto a conectarse y estén en línea.
+
+. Compruebe que los agregados de datos conmutados están conmutados de nuevo:
++
+`storage aggregate show`
+
++
+En el siguiente ejemplo, aggr_b2 en el nodo B2 ha vuelto a activarse:
+
++
+[listing]
+----
+node_B_1::> storage aggregate show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2    227.1GB   227.1GB    0% online       0 node_B_2   raid_dp,
+                                                                   mirrored,
+                                                                   normal
+----
+. Compruebe que todas las SVM sincronizada en destino del clúster superviviente estén inactivas (y que muestran un estado de administrador de «parada») y que las SVM sincronizada en origen del clúster de desastre estén en funcionamiento:
++
+`vserver show -subtype sync-source`
+
++
+[listing]
+----
+node_B_1::> vserver show -subtype sync-source
+                               Admin      Root                       Name    Name
+Vserver     Type    Subtype    State      Volume     Aggregate       Service Mapping
+----------- ------- ---------- ---------- ---------- ----------      ------- -------
+...
+vs1a        data    sync-source
+                               running    vs1a_vol   node_B_2        file    file
+                                                                     aggr_b2
+
+node_A_1::> vserver show -subtype sync-destination
+                               Admin      Root                         Name    Name
+Vserver            Type    Subtype    State      Volume     Aggregate  Service Mapping
+-----------        ------- ---------- ---------- ---------- ---------- ------- -------
+...
+cluster_A-vs1a-mc  data    sync-destination
+                                      stopped    vs1a_vol   sosb_      file    file
+                                                                       aggr_b2
+----
++
+Los agregados de sincronización-destino de la configuración de MetroCluster adjuntan automáticamente el sufijo "'-mc'" a su nombre para ayudar a identificarlos.
+
+. Confirme que las operaciones de conmutación de estado han sido realizadas correctamente mediante el `metrocluster operation show` comando.
++
+|===
+
+
+| Si el resultado del comando muestra... | Realice lo siguiente... 
+
+
+ a| 
+Que el estado de la operación de conmutación de estado sea correcto.
+ a| 
+El proceso de conmutación de estado ha finalizado y puede continuar con el funcionamiento del sistema.
+
+
+
+ a| 
+Que la operación de regreso o la operación de continuación de regreso del agente es parcialmente exitosa.
+ a| 
+Realice la corrección sugerida que se proporciona en el resultado del `metrocluster operation show` comando.
+
+|===
+
+
+Debe repetir las secciones anteriores para realizar la rotación en la dirección opuesta. Si Site_A hizo una conmutación de Site_B, haga que Site_B haga una conmutación de Site_A.

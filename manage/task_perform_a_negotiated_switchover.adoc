@@ -1,0 +1,95 @@
+---
+permalink: manage/task_perform_a_negotiated_switchover.html 
+sidebar: sidebar 
+keywords: negotiate, switchover, clean, shut, down, partner, site, operation, metrocluster, perform 
+summary: Una conmutación de sitios negociada cierra limpiamente los procesos del sitio del partner y, a continuación, conmuta las operaciones del sitio del partner. Puede utilizar una conmutación de sitios negociada para realizar mantenimiento en un sitio de MetroCluster o para probar la funcionalidad de conmutación. 
+---
+= Realización de una conmutación negociada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una conmutación de sitios negociada cierra limpiamente los procesos del sitio del partner y, a continuación, conmuta las operaciones del sitio del partner. Puede utilizar una conmutación de sitios negociada para realizar mantenimiento en un sitio de MetroCluster o para probar la funcionalidad de conmutación.
+
+* Todos los cambios de configuración anteriores deben completarse antes de ejecutar una operación de conmutación de estado.
++
+Esto significa evitar la competencia con las operaciones de conmutación de sitios o conmutación de estado negociadas.
+
+* Todos los nodos inactivos anteriormente se deben arrancar y quórum del clúster.
++
+La _referencia de administración del sistema_ contiene más información sobre el quórum de clúster en la sección "'quórum de comprensión y épsilon'".
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Administración del sistema"]
+
+* La red de interconexión de clústeres entre iguales debe estar disponible en ambos sitios.
+* Todos los nodos de la configuración MetroCluster deben ejecutar la misma versión del software ONTAP.
+* La opción replication.create_data_protection_rels.enable debe establecerse en EN AMBOS sitios de una configuración de MetroCluster antes de crear una nueva relación de SnapMirror.
+* Para una configuración MetroCluster de dos nodos, no se debe crear una nueva relación de SnapMirror durante una actualización cuando hay versiones de ONTAP que no coinciden entre los sitios.
+* Para una configuración MetroCluster de cuatro nodos, las versiones de ONTAP sin discrepancias entre los sitios no son compatibles.
+
+
+El sitio de recuperación puede tardar varias horas en poder llevar a cabo la operación de conmutación de estado.
+
+El comando MetroCluster switchover conmuta por los nodos de todos los grupos de recuperación ante desastres en la configuración de MetroCluster. Por ejemplo, en una configuración MetroCluster de ocho nodos, conmuta a los nodos en ambos grupos de recuperación ante desastres.
+
+Mientras se prepara y ejecuta una conmutación de sitios negociada, no debe realizar cambios de configuración en el clúster ni realizar ninguna operación de toma de control o devolución.
+
+Para configuraciones de FC de MetroCluster:
+
+* Los agregados reflejados permanecerán en estado normal si es posible acceder al almacenamiento remoto.
+* Los agregados reflejados se degradarán después de la conmutación de intercambio negociada si se pierde el acceso al almacenamiento remoto.
+* Los agregados no reflejados ubicados en el sitio de desastre dejan de estar disponibles si se pierde el acceso al almacenamiento remoto. Esto puede producir una interrupción del servicio de la controladora.
+
+
+Para configuraciones IP de MetroCluster:
+
+
+NOTE: Antes de realizar tareas de mantenimiento, debe eliminar la supervisión si la configuración de MetroCluster se supervisa con tiebreaker o la utilidad Mediator.link:../maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html["Elimine la supervisión del Mediador ONTAP o tiebreaker antes de realizar tareas de mantenimiento"]
+
+* Para ONTAP 9.4 y versiones anteriores:
++
+** Los agregados reflejados se degradarán después de la conmutación negociada.
+
+
+* Para ONTAP 9.5 y posteriores:
++
+** Los agregados reflejados permanecerán en estado normal si es posible acceder al almacenamiento remoto.
+** Los agregados reflejados se degradarán después de la conmutación de intercambio negociada si se pierde el acceso al almacenamiento remoto.
+
+
+* Para ONTAP 9.8 y posteriores:
++
+** Los agregados no reflejados ubicados en el sitio de desastre dejan de estar disponibles si se pierde el acceso al almacenamiento remoto. Esto puede producir una interrupción del servicio de la controladora.
++
+... Utilice la ejecución de comprobación de MetroCluster, la visualización de comprobación de MetroCluster y los comandos show de comprobación de MetroCluster-replication para asegurarse de que no haya actualizaciones de la configuración en curso o pendientes. Emita estos comandos desde el sitio que permanecerán activos y operativos.
+... Desde el sitio que permanecerá en funcionamiento, implemente el cambio: `metrocluster switchover`
++
+La operación puede tardar varios minutos en completarse.
+
+... Supervise la finalización de la conmutación: `metrocluster operation show`
++
+[listing]
+----
+cluster_A::*> metrocluster operation show
+  Operation: Switchover
+ Start time: 10/4/2012 19:04:13
+      State: in-progress
+   End time: -
+     Errors:
+
+cluster_A::*> metrocluster operation show
+  Operation: Switchover
+ Start time: 10/4/2012 19:04:13
+      State: successful
+   End time: 10/4/2012 19:04:22
+     Errors: -
+----
+... Restablecer cualquier configuración de SnapMirror o SnapVault.
+
+
+
+
+

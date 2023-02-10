@@ -1,0 +1,27 @@
+---
+permalink: install-fc/concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, local, ha, pairs, configuration, illustration 
+summary: En configuraciones MetroCluster de ocho o cuatro nodos, cada sitio consta de controladoras de almacenamiento configuradas como uno o dos pares de alta disponibilidad. Esto permite una redundancia local de modo que si falla una controladora de almacenamiento, su partner de alta disponibilidad local puede hacer el relevo. Estos fallos pueden gestionarse sin una operación de conmutación de sitios MetroCluster. 
+---
+= Una ilustración de los pares de alta disponibilidad locales en una configuración MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En configuraciones MetroCluster de ocho o cuatro nodos, cada sitio consta de controladoras de almacenamiento configuradas como uno o dos pares de alta disponibilidad. Esto permite una redundancia local de modo que si falla una controladora de almacenamiento, su partner de alta disponibilidad local puede hacer el relevo. Estos fallos pueden gestionarse sin una operación de conmutación de sitios MetroCluster.
+
+Las operaciones locales de conmutación por error y devolución del servicio de alta disponibilidad se realizan con los comandos de conmutación por error del almacenamiento, del mismo modo que una configuración que no sea de MetroCluster.
+
+image::../media/mcc_hw_architecture_local_ha.gif[mcc hw architecture, ha local]
+
+.Información relacionada
+link:concept_illustration_of_redundant_fc_to_sas_bridges.html["Ilustración de los puentes FC a SAS redundantes"]
+
+link:concept_redundant_fc_switch_fabrics.html["Estructuras de switches FC redundantes"]
+
+link:concept_cluster_peering_network_mcc.html["Ilustración de la red de paridad de clústeres"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["Conceptos de ONTAP"^]

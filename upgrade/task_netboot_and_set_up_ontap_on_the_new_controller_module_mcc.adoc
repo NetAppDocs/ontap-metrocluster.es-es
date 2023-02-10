@@ -1,0 +1,217 @@
+---
+permalink: upgrade/task_netboot_and_set_up_ontap_on_the_new_controller_module_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, netboot, set, up, ontap, new, controller, module 
+summary: Debe realizar una secuencia específica de pasos para reiniciar el sistema operativo ONTAP en el nuevo módulo de la controladora al añadir módulos de la controladora a una configuración de MetroCluster existente. 
+---
+= Netbooting y configuración de ONTAP en el nuevo módulo de controlador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe realizar una secuencia específica de pasos para reiniciar el sistema operativo ONTAP en el nuevo módulo de la controladora al añadir módulos de la controladora a una configuración de MetroCluster existente.
+
+.Acerca de esta tarea
+* Esta tarea se inicia en el aviso DEL CARGADOR del nuevo módulo de la controladora.
+* Esta tarea incluye la inicialización de discos.
++
+La cantidad de tiempo que se necesita para inicializar los discos depende del tamaño de los discos.
+
+* El sistema asigna automáticamente dos discos al nuevo módulo de controlador.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+
+
+
+.Pasos
+. En el aviso del CARGADOR, configure la dirección IP del nuevo módulo de controladora en función de la disponibilidad de DHCP:
++
+[cols="1,3"]
+|===
+
+
+| Si DHCP es... | Después, introduzca el siguiente comando... 
+
+
+ a| 
+Disponible
+ a| 
+`*ifconfig e0M -auto*`
+
+
+
+ a| 
+No disponible
+ a| 
+`ifconfig e0M -addr=__filer_addr__ -mask=__netmask__ -gw=__gateway__ -dns=__dns_addr__ -domain=__dns_domain__`
+
+`_filer_addr_` Es la dirección IP del sistema de almacenamiento.
+
+`_netmask_` es la máscara de red del sistema de almacenamiento.
+
+`_gateway_` es la puerta de enlace del sistema de almacenamiento.
+
+`_dns_addr_` Es la dirección IP de un servidor de nombres en la red.
+
+`_dns_domain_` Es el nombre de dominio del sistema de nombres de dominio (DNS). Si utiliza este parámetro opcional, no necesita un nombre de dominio completo en la URL del servidor para reiniciar el sistema; solo necesita el nombre de host del servidor.
+
+
+NOTE: Es posible que sean necesarios otros parámetros para la interfaz. Para obtener más detalles, use la `help ifconfig` En el símbolo del sistema del CARGADOR.
+
+|===
+. En el símbolo del sistema del CARGADOR, netboot el nodo nuevo:
++
+[cols="1,3"]
+|===
+
+
+| Durante... | Emita este comando... 
+
+
+ a| 
+SISTEMAS DE LAS SERIES FAS2200, FAS2500, FAS3200, FAS6200 Y FAS/AFF8000
+ a| 
+`netboot http://__web_server_ip/path_to_web-accessible_directory__/netboot/kernel`
+
+
+
+ a| 
+Todos los demás sistemas
+ a| 
+`netboot http://__web_server_ip/path_to_web-accessible_directory__/<ontap_version>_image.tgz`
+
+|===
++
+La `_path_to_the_web-accessible_directory_` es la ubicación de la descarga `<ontap_version>_image.tgz` archivo.
+
+. Seleccione la opción *instalar primero el nuevo software* en el menú que se muestra.
++
+Esta opción del menú descarga e instala la nueva imagen de ONTAP en el dispositivo de arranque.
+
++
+** Debe introducir «'y'» cuando se le solicite el mensaje de que este procedimiento no se admite para la actualización sin interrupciones en un par de alta disponibilidad.
+** Deberá introducir «'y'» cuando se le avise de que este proceso sustituye el software existente de ONTAP por otro nuevo.
+** Debe introducir la ruta de acceso de la siguiente manera cuando se le solicite la URL del archivo image.tgz:
++
+`http://__path_to_the_web-accessible_directory__/image.tgz`
+
+
+
+. Introduzca «'y'» cuando se le solicite en relación con la actualización o sustitución no disruptiva del software.
+. Introduzca la ruta de acceso al archivo image.tgz cuando se le solicite la URL del paquete.
++
+[listing]
+----
+What is the URL for the package? `http://path_to_web-accessible_directory/image.tgz`
+----
+. Introduzca «'n'» para omitir la recuperación de copia de seguridad cuando se le solicite restaurar la configuración de copia de seguridad.
++
+[listing]
+----
+****************************************************************
+*             Restore Backup Configuration                     *
+*  This procedure only applies to storage controllers that     *
+*  are configured as an HA pair.                               *
+*                                                              *
+*  Choose Yes to restore the "varfs" backup configuration      *
+*  from the SSH server.  Refer to the Boot Device Replacement  *
+*  guide for more details.                                     *
+*  Choose No to skip the backup recovery and return to the     *
+*  boot menu.                                                  *
+****************************************************************
+
+Do you want to restore the backup configuration
+now? {y|n} `n`
+----
+. Introduzca «'y'» cuando se le solicite reiniciar ahora.
++
+[listing]
+----
+The node must be rebooted to start using the newly installed software. Do you want to
+reboot now? {y|n} `y`
+----
+. Si es necesario, seleccione la opción *limpiar configuración e inicializar todos los discos* después de que el nodo haya arrancado.
++
+Dado que está configurando un nuevo módulo de controlador y los discos del nuevo módulo de controlador están vacíos, puede responder "'y'" cuando el sistema le avisa de que se borrarán todos los discos.
+
++
+
+NOTE: La cantidad de tiempo necesaria para inicializar discos depende del tamaño de sus discos y de su configuración.
+
+. Una vez inicializados los discos y se inicia el Asistente de configuración de clúster, configure el nodo:
++
+Introduzca la información de LIF de gestión de nodos en la consola.
+
+. Inicie sesión en el nodo e introduzca el `cluster setup` y, a continuación, introduzca «'join'» cuando se le solicite unirse al cluster.
++
+[listing]
+----
+Do you want to create a new cluster or join an existing cluster? {create, join}: `join`
+----
+. Responda a las preguntas restantes según corresponda a su sitio.
++
+La link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["Configuración de ONTAP"^] La versión de ONTAP contiene detalles adicionales.
+
+. Si el sistema está en una configuración de clúster sin switch de dos nodos, cree las interfaces de clúster en el nodo existente mediante el comando network interface create para crear LIF de clúster en los puertos del clúster.
++
+Lo siguiente es un comando de ejemplo para crear una LIF de clúster en uno de los puertos de clúster del nodo. El parámetro -auto configura la LIF para utilizar una dirección IP local de enlace.
+
++
+[listing]
+----
+cluster_A::> network interface create -vserver Cluster -lif clus1 -role cluster -home-node node_A_1 -home-port e1a -auto true
+----
+. Tras completar la configuración, compruebe que el nodo esté en buen estado y que pueda participar en el clúster:
++
+`cluster show`
+
++
+En el siguiente ejemplo se muestra un clúster después de unirle el segundo nodo (cluster1-02):
+
++
+[listing]
+----
+cluster_A::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node_A_1              true    true
+node_A_2              true    true
+----
++
+Puede acceder al Asistente de configuración de clúster para cambiar cualquiera de los valores introducidos para la SVM de administrador o la SVM de nodo mediante el comando cluster setup.
+
+. Confirme que tiene cuatro puertos configurados como interconexiones del clúster:
++
+`network port show`
+
++
+En el siguiente ejemplo se muestra el resultado de dos módulos de controladora en cluster_A:
+
++
+[listing]
+----
+cluster_A::> network port show
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- ------------
+node_A_1
+       **e0a       Cluster      Cluster          up       9000  auto/1000
+       e0b       Cluster      Cluster          up       9000  auto/1000**
+       e0c       Default      Default          up       1500  auto/1000
+       e0d       Default      Default          up       1500  auto/1000
+       e0e       Default      Default          up       1500  auto/1000
+       e0f       Default      Default          up       1500  auto/1000
+       e0g       Default      Default          up       1500  auto/1000
+node_A_2
+       **e0a       Cluster      Cluster          up       9000  auto/1000
+       e0b       Cluster      Cluster          up       9000  auto/1000**
+       e0c       Default      Default          up       1500  auto/1000
+       e0d       Default      Default          up       1500  auto/1000
+       e0e       Default      Default          up       1500  auto/1000
+       e0f       Default      Default          up       1500  auto/1000
+       e0g       Default      Default          up       1500  auto/1000
+14 entries were displayed.
+----
+

@@ -1,0 +1,46 @@
+---
+permalink: install-stretch/task_cable_a_fibrebridge_7600n_or_7500n_bridge_fb_new_install_cable_7500_pangolin.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, fibrebridge, iom3, iom6, modules, shelves, bridge 
+summary: Después de configurar el puente, puede iniciar el cableado del sistema. El puente FibreBridge 7600N o 7500N utiliza conectores mini-SAS y admite bandejas que utilizan módulos IOM6 o IOM3. 
+---
+= Cableado de un puente FibreBridge 7600N o 7500N con bandejas utilizando módulos IOM6 o IOM3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de configurar el puente, puede iniciar el cableado del sistema. El puente FibreBridge 7600N o 7500N utiliza conectores mini-SAS y admite bandejas que utilizan módulos IOM6 o IOM3.
+
+Los módulos IOM3 no son compatibles con puentes FibreBridge 7600N.
+
+En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).
+
+.Pasos
+. Conecte en cadena las bandejas en cada pila.
++
+.. Para la primera pila de bandejas, conecte un puerto cuadrado de la primera bandeja al puerto SAS A en FibreBridge A.
+.. Para la primera pila de bandejas, conecte el puerto circular IOM B de la última bandeja al puerto SAS A en FibreBridge B.
++
+La _Guía de instalación y mantenimiento_ del modelo de estante proporciona información detallada sobre las bandejas de conexión en cadena.
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["Guía de instalación y servicio de bandejas de discos SAS para DS4243, DS2246, DS4486 y DS4246"^]
+
++
+En la siguiente ilustración, se muestra un conjunto de puentes cableados a una pila de bandejas:
+
++
+image::../media/mcc_cabling_bridge_and_sas_stack_with_7500n_and_single_stack.gif[puente de cableado mcc y pila sas con 7500n y pila única]
+
+
+
+. Para pilas de bandejas adicionales, repita los pasos anteriores con el siguiente puerto SAS disponible en los puentes FibreBridge. Utilice el puerto B para una segunda pila, el puerto C para una tercera pila y el puerto D para una cuarta pila.
++
+La siguiente ilustración muestra cuatro pilas conectadas a un par de puentes FibreBridge 7600N o 7500N.
+
++
+image::../media/mcc_cabling_bridge_and_sas_stack_with_7500n_four_stacks.gif[puente de cableado mcc y pila sas con cuatro pilas 7500n]
+
+

@@ -1,0 +1,50 @@
+---
+permalink: manage/task_heal_the_root_aggregates_after_negotiated_switchover.html 
+sidebar: sidebar 
+keywords: data, aggregate, heal, root, preparation, switchback, operation, negotiate, switchover 
+summary: Una vez que los agregados de datos hayan sido sanados, debe recuperar los agregados raíz como preparación para la operación de conmutación de estado. 
+---
+= Reparación de los agregados raíz después de un cambio negociado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una vez que los agregados de datos hayan sido sanados, debe recuperar los agregados raíz como preparación para la operación de conmutación de estado.
+
+La fase de agregados de datos del proceso de reparación de MetroCluster debe haberse completado correctamente.
+
+.Pasos
+. Vuelva a cambiar los agregados reflejados ejecutando el comando MetroCluster heal -Phase root-aggregates.
++
+[listing]
+----
+cluster_A::> metrocluster heal -phase root-aggregates
+[Job 137] Job succeeded: Heal Root Aggregates is successful
+----
++
+Si se vetó la reparación, se tiene la opción de volver a emitir el comando MetroCluster Heal con el parámetro --override-vetoes. Si utiliza este parámetro opcional, el sistema anula cualquier vetoo suave que impida la operación de reparación.
+
+. Para confirmar que la operación de curación se ha completado, ejecute el comando MetroCluster operation show en el clúster en buen estado:
++
+[listing]
+----
+
+cluster_A::> metrocluster operation show
+  Operation: heal-root-aggregates
+      State: successful
+ Start Time: 7/29/2014 20:54:41
+   End Time: 7/29/2014 20:54:42
+     Errors: -
+----
+. Compruebe y quite los discos con errores que pertenezcan al sitio de desastres emitiendo el siguiente comando en el sitio correcto: `disk show -broken`
+. Encienda o arranque cada módulo de la controladora en el sitio de recuperación ante desastres.
++
+Si el sistema muestra el aviso del CARGADOR, ejecute el `boot_ontap` comando.
+
+. Tras arrancar los nodos, compruebe que los agregados raíz se han duplicado.
++
+Si existen ambos complejos, se producirá una resincronización automáticamente si los complejos no están sincronizados. Si se produce un error en un complejo, es necesario destruir ese complejo y volver a crear el reflejo mediante el comando mirror -agregateAggregate-name para restablecer la relación de mirroring.
+
+

@@ -1,0 +1,80 @@
+---
+permalink: upgrade/task_apply_the_rcf_files_and_recable_the_switches.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, apply, rcf, files, recable, switches 
+summary: Debe aplicar los archivos RCF para volver a configurar la división en zonas y acomodar los nuevos nodos. 
+---
+= Recuperar y reconfigurar los interruptores
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe aplicar los archivos RCF para volver a configurar la división en zonas y acomodar los nuevos nodos.
+
+Si no puede utilizar los archivos RCF para configurar los conmutadores, deberá configurarlos manualmente. Consulte:
+
+* link:../install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["Configurar manualmente los switches FC de Brocade"]
+* link:../install-fc/task_fcsw_cisco_configure_a_cisco_switch_supertask.html["Configure los switches Cisco FC manualmente"]
+
+
+.Pasos
+. Busque los archivos RCF para su configuración.
++
+Debe utilizar los archivos RCF para una configuración de ocho nodos y que coincida con el modelo de switch.
+
+. Aplique los archivos RCF, siguiendo las instrucciones de la página de descarga, ajustando la configuración de ISL según sea necesario.
+. Asegúrese de que se ha guardado la configuración del switch.
+. Reinicie los switches FC.
+. Conecte los cables entre los switches FC existentes y los nuevos puentes FC a SAS, utilizando la distribución de cableado que ha creado previamente.
++
+El uso del puerto del switch FC debe coincidir con el uso de ocho nodos de MetroCluster que se describe en link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"] Para poder utilizar los archivos de configuración de referencia (RCF).
+
+. Compruebe que los puertos están en línea usando el comando correcto para su switch.
++
+|===
+
+
+| Proveedor de switches | Comando 
+
+
+ a| 
+Brocade
+ a| 
+demostración de conmutación
+
+
+
+ a| 
+Cisco
+ a| 
+muestra el resumen de la interfaz
+
+|===
+. Utilice el procedimiento descrito en link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"] Para cablear los puertos FC-VI de las controladoras existentes o nuevas, utilice la distribución de cableado que ha creado previamente.
++
+El uso del puerto del switch FC debe coincidir con el uso de ocho nodos de MetroCluster que se describe en link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"] Para poder utilizar los archivos de configuración de referencia (RCF).
+
+. Desde los nodos existentes, compruebe que los puertos FC-VI estén en línea:
++
+`metrocluster interconnect adapter show`
+
++
+`metrocluster interconnect mirror show`
+
+. Conecte los puertos de HBA de las controladoras actuales y nuevas.
+. En los módulos de controladora existentes, habilite e-habilite los puertos conectados a la estructura del switch que está realizando mantenimiento:
++
+`storage port enable -node _node-name_ -port _port-ID_`
+
+. Inicie las nuevas controladoras y arranque en modo de mantenimiento:
++
+`boot_ontap maint`
+
+. Confirmar que sólo el nuevo grupo de recuperación ante desastres puede ver el almacenamiento que utilizará los nuevos módulos de la controladora.
++
+Ninguno de los almacenamientos que utiliza el otro grupo de recuperación ante desastres debería estar visible.
+
+. Vuelva al principio de este proceso para conectar el segundo tejido del conmutador.
+

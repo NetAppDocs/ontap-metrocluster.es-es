@@ -1,0 +1,42 @@
+---
+permalink: upgrade/task_mirror_the_root_aggregates_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, mirror, root, aggregate 
+summary: Para proporcionar protección de datos, debe reflejar los agregados raíz. 
+---
+= Mirroring de los agregados raíz
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para proporcionar protección de datos, debe reflejar los agregados raíz.
+
+De forma predeterminada, el agregado raíz se crea como agregado de tipo RAID-DP. Puede cambiar el agregado raíz de RAID-DP a agregado de tipo RAID4. El siguiente comando modifica el agregado raíz para el agregado de tipo RAID4:
+
+[listing]
+----
+storage aggregate modify –aggregate aggr_name -raidtype raid4
+----
+
+NOTE: En los sistemas que no son ADP, el tipo RAID del agregado se puede modificar desde el RAID-DP predeterminado a RAID4 antes o después de la duplicación del agregado.
+
+.Pasos
+. Reflejar el agregado raíz:
++
+`storage aggregate mirror _aggr_name_`
+
++
+El siguiente comando refleja el agregado raíz para Controller_A_1:
+
++
+[listing]
+----
+controller_A_1::> storage aggregate mirror aggr0_controller_A_1
+----
++
+Esto refleja el agregado, por lo que consta de un complejo local y un complejo remoto ubicado en el sitio remoto de MetroCluster.
+
+. Repita el paso anterior para cada nodo de la configuración MetroCluster.
+

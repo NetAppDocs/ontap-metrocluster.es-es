@@ -1,0 +1,727 @@
+---
+permalink: disaster-recovery/task_replace_hardware_and_boot_new_controllers.html 
+sidebar: sidebar 
+keywords: hardware, component, replace, individual, replacement, installation, guide, replacing, controller, booting, new 
+summary: Si es necesario sustituir los componentes de hardware, deberá sustituirlos con sus guías individuales de instalación y sustitución de hardware. 
+---
+= Reemplazar hardware e arrancar nuevas controladoras
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Sustitución del hardware en el centro de recuperación ante desastres
+
+Si es necesario sustituir los componentes de hardware, deberá sustituirlos con sus guías individuales de instalación y sustitución de hardware.
+
+.Antes de empezar
+Las controladoras de almacenamiento deben estar apagadas o permanecer detenida (mostrar el símbolo del sistema del CARGADOR).
+
+.Pasos
+. Sustituya los componentes según sea necesario.
++
+
+NOTE: En este paso, puede reemplazar y cablear los componentes exactamente como se cablearon antes del desastre. No debe encender los componentes.
+
++
+|===
+
+
+| Si va a sustituir... | Realice estos pasos... | Usando estas guías... 
+
+
+ a| 
+Switches FC en una configuración MetroCluster FC
+ a| 
+.. Instale los nuevos switches.
+.. Conecte los cables de los enlaces ISL. No encienda los switches FC en este momento.
+
+| link:../maintain/index.html["Mantener componentes de MetroCluster"] 
+
+
+ a| 
+Switches IP en una configuración de IP de MetroCluster
+ a| 
+.. Instale los nuevos switches.
+.. Conecte los cables de los enlaces ISL. No encienda los switches IP en este momento.
+
+ a| 
+link:../install-ip/concept_considerations_differences.html["Instalación y configuración de IP de MetroCluster: Diferencias entre las configuraciones de ONTAP MetroCluster"]
+
+
+
+ a| 
+Bandejas de discos
+ a| 
+.. Instale las bandejas de discos y los discos.
++
+*** Los paquetes de bandejas de discos deben tener la misma configuración que en el sitio superviviente.
+*** Los discos pueden tener el mismo tamaño o más, pero deben ser del mismo tipo (SAS o SATA).
+
+
+.. Conecte el cable de las bandejas de discos a las bandejas adyacentes dentro de la pila y al puente de FC a SAS. No encienda las bandejas de discos en este momento.
+
+| link:http://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^] 
+
+
+ a| 
+Cables SAS
+ a| 
+.. Instale los cables nuevos. No encienda las bandejas de discos en este momento.
+
+ a| 
+link:http://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+
+
+
+ a| 
+Puentes FC a SAS en una configuración FC MetroCluster
+ a| 
+.. Instale los puentes FC-a-SAS.
+.. Conecte los cables entre los puentes FC y SAS.
++
+Cablearlos a los switches FC o a los módulos de la controladora, según el tipo de configuración MetroCluster.
+
++
+No encienda los puentes FC-a-SAS actualmente.
+
+
+ a| 
+link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+
+link:../install-stretch/concept_considerations_differences.html["Instalación y configuración de MetroCluster con ampliación"]
+
+
+
+ a| 
+Módulos de controladora
+ a| 
+.. Instale los nuevos módulos de la controladora:
++
+*** Los módulos de controladoras deben ser del mismo modelo que los que se sustituyen.
++
+Por ejemplo, deben sustituirse 8080 módulos de controlador por 8080 módulos de controlador.
+
+*** Los módulos de controladoras no deben haber formado parte previamente de ningún clúster en la configuración de MetroCluster o de ninguna configuración de clúster existente anteriormente.
++
+En caso afirmativo, debe establecer los valores predeterminados y realizar un proceso "'wipeconfig'".
+
+*** Asegúrese de que todas las tarjetas de interfaz de red (como Ethernet o FC) se encuentren en las mismas ranuras utilizadas en los módulos de la controladora anteriores.
+
+
+.. Conecte el cable de los nuevos módulos del controlador exactamente igual que los antiguos.
++
+Los puertos que conectan el módulo de controlador al almacenamiento (ya sea mediante las conexiones a los switches IP o FC, los puentes FC a SAS o directamente) deben ser los mismos que los que se usan antes del desastre.
+
++
+No encienda los módulos de la controladora en este momento.
+
+
+ a| 
+link:http://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+
+|===
+. Compruebe que todos los componentes se cablean correctamente para la configuración.
++
+** link:../install-ip/using_rcf_generator.html["Configuración de IP de MetroCluster"]
+** link:../install-fc/task_fmc_mcc_transition_cable_the_new_mcc_controllers_to_the_exist_fc_fabrics.html["Configuración estructural de MetroCluster"]
+
+
+
+
+
+
+== Determinar los ID del sistema y los ID de VLAN de los módulos de controladora anteriores
+
+Después de haber sustituido todo el hardware en el sitio de desastres, debe determinar los ID del sistema de los módulos de controladora sustituidos. Necesita los ID de sistema antiguos cuando reasigna los discos a los nuevos módulos de controladora. Si los sistemas son AFF A220, AFF A250, AFF A400, AFF A800, FAS2750 Los modelos FAS500f, FAS8300 o FAS8700 también deben determinar los identificadores de VLAN que utilizan las interfaces IP de MetroCluster.
+
+.Antes de empezar
+Todos los equipos del centro de desastres deben estar apagados.
+
+.Acerca de esta tarea
+En esta conversación, se proporcionan ejemplos de configuraciones de dos y cuatro nodos. Para configuraciones de ocho nodos, debe tener en cuenta cualquier error en los nodos adicionales del segundo grupo de recuperación ante desastres.
+
+Para una configuración MetroCluster de dos nodos, puede ignorar las referencias al segundo módulo de controladora en cada sitio.
+
+Los ejemplos de este procedimiento se basan en las siguientes suposiciones:
+
+* El sitio A es el sitio de recuperación tras desastres.
+* Node_A_1 ha fallado y se está reemplazando por completo.
+* Node_A_2 ha fallado y se está reemplazando por completo.
++
+El nodo _A_2 está presente únicamente en una configuración MetroCluster de cuatro nodos.
+
+* El sitio B es el sitio superviviente.
+* El nodo B_1 está en buen estado.
+* El nodo B_2 está en buen estado.
++
+El nodo B_2 está presente únicamente en una configuración MetroCluster de cuatro nodos.
+
+
+
+Los módulos del controlador tienen los siguientes ID originales del sistema:
+
+|===
+
+
+| Número de nodos en la configuración de MetroCluster | Nodo | ID original del sistema 
+
+
+ a| 
+Cuatro
+ a| 
+Node_a_1
+ a| 
+4068741258
+
+
+
+ a| 
+Node_A_2
+ a| 
+4068741260
+
+
+
+ a| 
+Node_B_1
+ a| 
+4068741254
+
+
+
+ a| 
+Node_B_2
+ a| 
+4068741256
+
+
+
+ a| 
+Dos
+ a| 
+Node_a_1
+ a| 
+4068741258
+
+
+
+ a| 
+Node_B_1
+ a| 
+4068741254
+
+|===
+.Pasos
+. En el sitio superviviente, se muestran los ID de sistema de los nodos en la configuración MetroCluster.
++
+|===
+
+
+| Número de nodos en la configuración de MetroCluster | Utilice este comando 
+
+
+ a| 
+Cuatro u ocho
+ a| 
+`metrocluster node show -fields node-systemid,ha-partner-systemid,dr-partner-systemid,dr-auxiliary-systemid`
+
+
+
+ a| 
+Dos
+ a| 
+`metrocluster node show -fields node-systemid,dr-partner-systemid`
+
+|===
++
+En este ejemplo de una configuración MetroCluster de cuatro nodos, se recuperan los siguientes ID del sistema antiguos:
+
++
+** Node_a_1: 4068741258
+** Node_A_2: 4068741260
++
+Los discos que son propiedad de los módulos de controladora anteriores siguen siendo propiedad de estos ID de sistema.
+
++
+[listing]
+----
+metrocluster node show -fields node-systemid,ha-partner-systemid,dr-partner-systemid,dr-auxiliary-systemid
+
+dr-group-id cluster    node      node-systemid ha-partner-systemid dr-partner-systemid dr-auxiliary-systemid
+----------- ---------- --------  ------------- ------ ------------ ------ ------------ ------ --------------
+1           Cluster_A  Node_A_1  4068741258    4068741260          4068741254          4068741256
+1           Cluster_A  Node_A_2  4068741260    4068741258          4068741256          4068741254
+1           Cluster_B  Node_B_1  -             -                   -                   -
+1           Cluster_B  Node_B_2  -             -                   -                   -
+4 entries were displayed.
+----
+
+
++
+En este ejemplo de configuración MetroCluster de dos nodos, se recupera el siguiente ID de sistema antiguo:
+
++
+** Node_a_1: 4068741258
++
+Este ID de sistema sigue siendo propiedad de los discos propiedad del módulo de controladora anterior.
+
++
+[listing]
+----
+metrocluster node show -fields node-systemid,dr-partner-systemid
+
+dr-group-id cluster    node      node-systemid dr-partner-systemid
+----------- ---------- --------  ------------- ------------
+1           Cluster_A  Node_A_1  4068741258    4068741254
+1           Cluster_B  Node_B_1  -             -
+2 entries were displayed.
+----
+
+
+. Para las configuraciones IP de MetroCluster que utilizan el servicio Mediator de ONTAP, obtenga la dirección IP del servicio Mediator de ONTAP:
++
+`storage iscsi-initiator show -node * -label mediator`
+
+. Si los sistemas son modelos AFF A220, AFF A400, FAS2750, FAS8300 o FAS8700, Determine los identificadores de VLAN:
++
+`metrocluster interconnect show`
+
++
+Los identificadores de VLAN se incluyen en el nombre del adaptador que se muestra en la columna Adapter de la salida.
+
++
+En este ejemplo, los ID de VLAN son 120 y 130:
+
++
+[listing]
+----
+metrocluster interconnect show
+                          Mirror   Mirror
+                  Partner Admin    Oper
+Node Partner Name Type    Status   Status  Adapter Type   Status
+---- ------------ ------- -------- ------- ------- ------ ------
+Node_A_1 Node_A_2 HA      enabled  online
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+         Node_B_1 DR      enabled  online
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+         Node_B_2 AUX     enabled  offline
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+Node_A_2 Node_A_1 HA      enabled  online
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+         Node_B_2 DR      enabled  online
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+         Node_B_1 AUX     enabled  offline
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+12 entries were displayed.
+----
+
+
+
+
+== Aislamiento de las unidades de reemplazo del sitio superviviente (configuraciones IP de MetroCluster)
+
+Debe aislar todas las unidades de reemplazo bajando las conexiones de iniciador iSCSI de MetroCluster de los nodos supervivientes.
+
+.Acerca de esta tarea
+Este procedimiento solo es necesario en las configuraciones de MetroCluster IP.
+
+.Pasos
+. Desde el símbolo del sistema del nodo superviviente, cambie al nivel de privilegio avanzado:
++
+`set -privilege advanced`
+
++
+Debe responder con `y` cuando se le solicite que continúe en el modo avanzado y vea el indicador del modo avanzado (*).
+
+. Desconecte los iniciadores iSCSI de los dos nodos supervivientes del grupo DR:
++
+`storage iscsi-initiator disconnect -node surviving-node -label *`
+
++
+Este comando debe emitirse dos veces, una vez por cada uno de los nodos supervivientes.
+
++
+En el ejemplo siguiente se muestran los comandos para desconectar los iniciadores del sitio B:
+
++
+[listing]
+----
+site_B::*> storage iscsi-initiator disconnect -node node_B_1 -label *
+site_B::*> storage iscsi-initiator disconnect -node node_B_2 -label *
+----
+. Vuelva al nivel de privilegio de administrador:
++
+`set -privilege admin`
+
+
+
+
+
+== Borrar la configuración en un módulo del controlador
+
+[role="lead"]
+Antes de utilizar un nuevo módulo de controladora en la configuración de MetroCluster, debe borrar la configuración existente.
+
+.Pasos
+. Si es necesario, detenga el nodo para mostrar el símbolo del sistema del CARGADOR:
++
+`halt`
+
+. En el símbolo del sistema del CARGADOR, establezca las variables de entorno en los valores predeterminados:
++
+`set-defaults`
+
+. Guarde el entorno:
++
+`saveenv`
+
+. En el símbolo del sistema del CARGADOR, inicie el menú de arranque:
++
+`boot_ontap menu`
+
+. En el símbolo del sistema del menú de inicio, borre la configuración:
++
+`wipeconfig`
+
++
+Responda `yes` a la solicitud de confirmación.
+
++
+El nodo se reinicia y el menú de arranque se muestra de nuevo.
+
+. En el menú de inicio, seleccione la opción *5* para arrancar el sistema en modo de mantenimiento.
++
+Responda `yes` a la solicitud de confirmación.
+
+
+
+
+
+== Netarrancando los nuevos módulos del controlador
+
+Si los nuevos módulos de controladora tienen una versión de ONTAP diferente de la versión de los módulos de controladora supervivientes, debe reiniciar el sistema los nuevos módulos de la controladora.
+
+.Antes de empezar
+* Debe tener acceso a un servidor HTTP.
+* Debe tener acceso al sitio de soporte de NetApp para descargar los archivos del sistema necesarios para la plataforma y la versión del software ONTAP que se ejecuten en él.
++
+https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"^]
+
+
+
+.Pasos
+. Acceda a https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
+. Descargue el software ONTAP adecuado desde la sección de descarga de software del sitio de soporte de NetApp y almacene el archivo ontap-version_image.tgz en un directorio accesible desde la web.
+. Vaya al directorio accesible a Internet y compruebe que los archivos que necesita están disponibles.
++
+|===
+
+
+| Si el modelo de plataforma... | Realice lo siguiente... 
+
+
+| Sistemas de la serie FAS/AFF8000 | Extraiga el contenido del archivo ontap-version_image.tgzfile en el directorio de destino: Tar -zxvf ontap-version_image.tgz NOTA: Si va a extraer el contenido en Windows, utilice 7-Zip o WinRAR para extraer la imagen para reiniciar el sistema. El listado de directorios debe contener una carpeta para reiniciar el sistema con un archivo de kernel:netboot/kernel 
+
+
+| Todos los demás sistemas | Su listado de directorio debe contener una carpeta para reiniciar el sistema con un archivo de kernel: ontap-version_image.tgz no necesita extraer el archivo de ontap-version_image.tgz. 
+|===
+. En el símbolo del sistema del CARGADOR, configure la conexión para reiniciar el sistema para una LIF de gestión:
++
+** Si el direccionamiento IP es DHCP, configure la conexión automática:
++
+`ifconfig e0M -auto`
+
+** Si el direccionamiento IP es estático, configure la conexión manual:
++
+`ifconfig e0M -addr=ip_addr -mask=netmask` `-gw=gateway`
+
+
+
+. Reiniciar el sistema.
++
+** Si la plataforma es un sistema de la serie 80xx, utilice este comando:
++
+`netboot \http://web_server_ip/path_to_web-accessible_directory/netboot/kernel`
+
+** Si la plataforma es cualquier otro sistema, utilice el siguiente comando:
++
+`netboot \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
+
+
+
+. En el menú de inicio, seleccione la opción *(7) instale primero el nuevo software* para descargar e instalar la nueva imagen de software en el dispositivo de arranque.
++
+ Disregard the following message: "This procedure is not supported for Non-Disruptive Upgrade on an HA pair". It applies to nondisruptive upgrades of software, not to upgrades of controllers.
+. Si se le solicita que continúe el procedimiento, introduzca `y`Y cuando se le solicite el paquete, escriba la dirección URL del archivo de imagen: `\http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
++
+....
+Enter username/password if applicable, or press Enter to continue.
+....
+. No olvide entrar `n` para omitir la recuperación de backup cuando observe un símbolo del sistema similar a lo siguiente:
++
+....
+Do you want to restore the backup configuration now? {y|n}
+....
+. Reinicie introduciendo `y` cuando vea un símbolo del sistema similar a lo siguiente:
++
+....
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+....
+. En el menú Inicio, seleccione *opción 5* para acceder al modo de mantenimiento.
+. Si tiene una configuración MetroCluster de cuatro nodos, repita este procedimiento en el otro módulo de la controladora nuevo.
+
+
+
+
+== Determinación de los ID de sistema de los módulos de controlador de sustitución
+
+Después de haber sustituido todo el hardware en el centro de desastres, debe determinar el ID del sistema del módulo o módulos de la controladora de almacenamiento recién instalados.
+
+.Acerca de esta tarea
+Debe realizar este procedimiento con los módulos de la controladora de repuesto en modo de mantenimiento.
+
+En esta sección, se proporcionan ejemplos de configuraciones de dos y cuatro nodos. En el caso de configuraciones de dos nodos, puede ignorar las referencias al segundo nodo en cada sitio. Para configuraciones de ocho nodos, debe tener en cuenta los nodos adicionales en el segundo grupo de recuperación ante desastres. En los ejemplos se da por sentado lo siguiente:
+
+* El sitio A es el sitio de recuperación tras desastres.
+* Se ha sustituido Node_A_1.
+* Se reemplazó Node_A_2.
++
+Presente solo en configuraciones MetroCluster de cuatro nodos.
+
+* El sitio B es el sitio superviviente.
+* El nodo B_1 está en buen estado.
+* El nodo B_2 está en buen estado.
++
+Presente solo en configuraciones MetroCluster de cuatro nodos.
+
+
+
+Los ejemplos de este procedimiento utilizan controladoras con los siguientes ID de sistema:
+
+|===
+
+
+| Número de nodos en la configuración de MetroCluster | Nodo | ID original del sistema | Nuevo ID del sistema | Se emparejará con este nodo como partner de recuperación ante desastres 
+
+
+ a| 
+Cuatro
+ a| 
+Node_a_1
+ a| 
+4068741258
+ a| 
+1574774970
+ a| 
+Node_B_1
+
+
+
+ a| 
+Node_A_2
+ a| 
+4068741260
+ a| 
+1574774991
+ a| 
+Node_B_2
+
+
+
+ a| 
+Node_B_1
+ a| 
+4068741254
+ a| 
+sin cambios
+ a| 
+Node_a_1
+
+
+
+ a| 
+Node_B_2
+ a| 
+4068741256
+ a| 
+sin cambios
+ a| 
+Node_A_2
+
+
+
+ a| 
+Dos
+ a| 
+Node_a_1
+ a| 
+4068741258
+ a| 
+1574774970
+ a| 
+Node_B_1
+
+
+
+ a| 
+Node_B_1
+ a| 
+4068741254
+ a| 
+sin cambios
+ a| 
+Node_a_1
+
+|===
+
+NOTE: En una configuración de MetroCluster de cuatro nodos, el sistema determina las asociaciones de recuperación ante desastres emparejando el nodo con el ID de sistema más bajo en site_A y el nodo con el ID de sistema más bajo en site_B. Dado que cambian los ID del sistema, los pares de DR pueden ser diferentes después de que se completen las sustituciones de controladoras de los que eran antes del desastre.
+
+En el ejemplo anterior:
+
+* Node_A_1 (1574774970) se emparejará con Node_B_1 (4068741254)
+* Node_A_2 (1574774991) se emparejará con Node_B_2 (4068741256)
+
+
+.Pasos
+. Con el nodo en modo de mantenimiento, muestre el ID de sistema local del nodo en cada nodo: `disk show`
++
+En el ejemplo siguiente, el nuevo ID del sistema local es 1574774970:
+
++
+[listing]
+----
+*> disk show
+ Local System ID: 1574774970
+ ...
+----
+. En el segundo nodo, repita el paso anterior.
++
+
+NOTE: Este paso no es necesario en una configuración MetroCluster de dos nodos.
+
++
+En el ejemplo siguiente, el nuevo ID del sistema local es 1574774991:
+
++
+[listing]
+----
+*> disk show
+ Local System ID: 1574774991
+ ...
+----
+
+
+
+
+== Verificación del estado de los componentes de la configuración de alta disponibilidad
+
+En una configuración MetroCluster, el estado ha-config del módulo de la controladora y los componentes del chasis debe configurarse en "mcc" o "mcc-2n" para que se arranque correctamente.
+
+.Antes de empezar
+El sistema debe estar en modo de mantenimiento.
+
+.Acerca de esta tarea
+Esta tarea debe realizarse en cada módulo de controlador nuevo.
+
+.Pasos
+. En el modo de mantenimiento, muestre el estado de alta disponibilidad del módulo de controladora y el chasis:
++
+`ha-config show`
+
++
+El estado de alta disponibilidad correcto depende de la configuración de la MetroCluster.
+
++
+|===
+
+
+| Número de controladoras en la configuración de MetroCluster | El estado DE ALTA DISPONIBILIDAD de todos los componentes debería ser... 
+
+
+ a| 
+Configuración FC MetroCluster de ocho o cuatro nodos
+ a| 
+mcc
+
+
+
+ a| 
+Configuración MetroCluster FC de dos nodos
+ a| 
+mcc-2n
+
+
+
+ a| 
+Configuración de IP de MetroCluster
+ a| 
+mccip
+
+|===
+. Si el estado del sistema mostrado del controlador no es correcto, configure el estado de alta disponibilidad para el módulo del controlador:
++
+|===
+
+
+| Número de controladoras en la configuración de MetroCluster | Comando 
+
+
+ a| 
+Configuración FC MetroCluster de ocho o cuatro nodos
+ a| 
+`ha-config modify controller mcc`
+
+
+
+ a| 
+Configuración MetroCluster FC de dos nodos
+ a| 
+`ha-config modify controller mcc-2n`
+
+
+
+ a| 
+Configuración de IP de MetroCluster
+ a| 
+`ha-config modify controller mccip`
+
+|===
+. Si el estado del sistema mostrado del chasis no es correcto, establezca el estado de alta disponibilidad para el chasis:
++
+|===
+
+
+| Número de controladoras en la configuración de MetroCluster | Comando 
+
+
+ a| 
+Configuración FC MetroCluster de ocho o cuatro nodos
+ a| 
+`ha-config modify chassis mcc`
+
+
+
+ a| 
+Configuración MetroCluster FC de dos nodos
+ a| 
+`ha-config modify chassis mcc-2n`
+
+
+
+ a| 
+Configuración de IP de MetroCluster
+ a| 
+`ha-config modify chassis mccip`
+
+|===
+. Repita estos pasos en el otro nodo de repuesto.
+

@@ -1,0 +1,14 @@
+---
+permalink: install-fc/concept_planning_for_a_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, plan, array, luns 
+summary: La creación de un plan detallado para la configuración de MetroCluster le ayuda a comprender los requisitos específicos para una configuración de MetroCluster que utiliza LUN en cabinas de almacenamiento. La instalación de una configuración de MetroCluster implica la conexión y configuración de varios dispositivos, que pueden realizar diferentes personas. Por lo tanto, el plan también le ayuda a comunicarse con otras personas involucradas en la instalación. 
+---
+= Planificación de una configuración de MetroCluster con LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La creación de un plan detallado para la configuración de MetroCluster le ayuda a comprender los requisitos específicos para una configuración de MetroCluster que utiliza LUN en cabinas de almacenamiento. La instalación de una configuración de MetroCluster implica la conexión y configuración de varios dispositivos, que pueden realizar diferentes personas. Por lo tanto, el plan también le ayuda a comunicarse con otras personas involucradas en la instalación.

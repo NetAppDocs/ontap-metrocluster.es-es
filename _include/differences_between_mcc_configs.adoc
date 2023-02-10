@@ -1,0 +1,227 @@
+= Compatibilidad con sistemas de cabinas All SAN en las configuraciones MetroCluster
+:allow-uri-read: 
+
+
+Las distintas configuraciones de MetroCluster tienen diferencias clave en los componentes necesarios.
+
+En todas las configuraciones, cada uno de los dos sitios MetroCluster se configura como un clúster ONTAP. En una configuración MetroCluster de dos nodos, cada nodo se configura como un clúster de un solo nodo.
+
+|===
+
+
+| Función | Configuraciones de IP 2+| Configuraciones de FAS conectadas 2+| Configuraciones de ampliación 
+
+
+|  |  | *Cuatro u ocho nodos* | *Dos nodos* | *De dos nodos conectados a puente* | *Dos nodos de conexión directa* 
+
+
+ a| 
+Número de controladoras
+ a| 
+Cuatro u ocho*
+ a| 
+Cuatro u ocho
+ a| 
+Dos
+ a| 
+Dos
+ a| 
+Dos
+
+
+
+ a| 
+Utiliza una estructura de almacenamiento de switch FC
+ a| 
+No
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Utiliza una estructura de almacenamiento de switch IP
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Utiliza puentes FC a SAS
+ a| 
+No
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+
+
+
+ a| 
+Utiliza almacenamiento SAS de conexión directa
+ a| 
+Sí (solo con conexión local)
+ a| 
+No
+ a| 
+No
+ a| 
+No
+ a| 
+Sí
+
+
+
+ a| 
+Es compatible con ADP
+ a| 
+Sí (a partir de ONTAP 9.4)
+ a| 
+No
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Compatible con la alta disponibilidad local
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Compatible con la conmutación automática sin planificar de ONTAP (AUSO)
+ a| 
+No
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
+Admite agregados no reflejados
+ a| 
+Sí (a partir de ONTAP 9.8)
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
+Compatible con LUN de cabina
+ a| 
+No
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
+Compatible con Mediador ONTAP
+ a| 
+Sí (a partir de ONTAP 9.7)
+ a| 
+No
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Compatible con MetroCluster Tiebreaker
+ a| 
+Sí (no en combinación con Mediador ONTAP)
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+| Soportes <<Compatibilidad con sistemas de cabinas All SAN en las configuraciones MetroCluster,Cabinas All SAN>>  a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+|===
+*Importante*
+
+Tenga en cuenta las siguientes consideraciones en cuanto a las configuraciones IP de MetroCluster de ocho nodos:
+
+* Las configuraciones de ocho nodos son compatibles a partir de ONTAP 9.9.1.
+* Solo se admiten los switches MetroCluster validados por NetApp (solicitados a NetApp).
+* No se admiten las configuraciones que utilizan conexiones de back-end enrutadas por IP (capa 3).
+* No se admiten las configuraciones que utilizan redes privadas de capa 2 compartidas.
+* No se admiten las configuraciones que utilizan un switch compartido Cisco 9336C-FX2.
+
+
+
+
+== Compatibilidad con sistemas de cabinas All SAN en las configuraciones MetroCluster
+
+Algunas de las cabinas All SAN (ASAS) son compatibles con las configuraciones MetroCluster. En la documentación de MetroCluster, la información de los modelos AFF se aplica al sistema ASA correspondiente. Por ejemplo, toda la información de cableado y de otro tipo para el sistema AFF A400 también se aplica al sistema ASA AFF A400.
+
+Las configuraciones de plataforma admitidas se enumeran en la https://hwu.netapp.com["Hardware Universe de NetApp"].

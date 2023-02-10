@@ -1,0 +1,16 @@
+---
+permalink: upgrade/task_zone_for_the_new_controller_ports_in_a_fabric_attached_mcc_configuration_four_node_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, zone, controller, fabric, attached, ports, add 
+summary: 'La división en zonas de switches de FC debe acomodar las nuevas conexiones de la controladora. Si utilizó los archivos de configuración de referencia \(RCF\) suministrados por NetApp para configurar los switches, la división en zonas está preconfigurada y no necesita realizar cambios.' 
+---
+= La división en zonas de los puertos de la controladora nuevos cuando se añade un módulo de controladora en una configuración MetroCluster estructural
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La división en zonas de switches de FC debe acomodar las nuevas conexiones de la controladora. Si utilizó los archivos de configuración de referencia (RCF, reference Configuration files) suministrados por NetApp para configurar los switches, la división en zonas está preconfigurada y no es necesario realizar ningún cambio.
+
+Si configuró manualmente los switches de FC, debe asegurarse de que la división en zonas sea correcta para las conexiones del iniciador desde los nuevos módulos de la controladora. Consulte las secciones sobre la división en zonas en link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"].

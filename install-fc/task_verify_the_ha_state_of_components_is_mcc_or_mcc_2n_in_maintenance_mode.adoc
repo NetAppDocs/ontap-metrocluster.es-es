@@ -1,0 +1,118 @@
+---
+permalink: install-fc/task_verify_the_ha_state_of_components_is_mcc_or_mcc_2n_in_maintenance_mode.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, verify, ha, state, components, maintenance, mode 
+summary: 'Al configurar un sistema de almacenamiento en una configuración MetroCluster, debe asegurarse de que el estado de alta disponibilidad \(ha\) del módulo de la controladora y los componentes del chasis es mcc o mcc-2n, de modo que estos componentes se inicien correctamente.' 
+---
+= Verificación y configuración del estado de alta disponibilidad de los componentes en modo de mantenimiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al configurar un sistema de almacenamiento en una configuración MetroCluster, debe asegurarse de que el estado de alta disponibilidad del módulo de controladora y los componentes de chasis es "mcc" o "mcc-2n", de modo que estos componentes se inicien correctamente.
+
+.Antes de empezar
+El sistema debe estar en modo de mantenimiento.
+
+.Acerca de esta tarea
+Esta tarea no es necesaria en los sistemas que se reciben de fábrica.
+
+.Pasos
+. En el modo de mantenimiento, muestre el estado de alta disponibilidad del módulo de controladora y el chasis:
++
+`ha-config show`
+
++
+El estado de alta disponibilidad correcto depende de la configuración de la MetroCluster.
+
++
+|===
+
+
+| Número de controladoras en la configuración de MetroCluster | El estado DE ALTA DISPONIBILIDAD de todos los componentes debería ser... 
+
+
+ a| 
+Configuración FC MetroCluster de ocho o cuatro nodos
+ a| 
+mcc
+
+
+
+ a| 
+Configuración MetroCluster FC de dos nodos
+ a| 
+mcc-2n
+
+
+
+ a| 
+Configuración de IP de MetroCluster
+ a| 
+mccip
+
+|===
+. Si el estado del sistema mostrado del controlador no es correcto, configure el estado de alta disponibilidad para el módulo del controlador:
++
+|===
+
+
+| Número de controladoras en la configuración de MetroCluster | Comando 
+
+
+ a| 
+Configuración FC MetroCluster de ocho o cuatro nodos
+ a| 
+`ha-config modify controller mcc`
+
+
+
+ a| 
+Configuración MetroCluster FC de dos nodos
+ a| 
+`ha-config modify controller mcc-2n`
+
+
+
+ a| 
+Configuración de IP de MetroCluster
+ a| 
+`ha-config modify controller mccip`
+
+|===
+. Si el estado del sistema mostrado del chasis no es correcto, establezca el estado de alta disponibilidad para el chasis:
++
+|===
+
+
+| Número de controladoras en la configuración de MetroCluster | Comando 
+
+
+ a| 
+Configuración FC MetroCluster de ocho o cuatro nodos
+ a| 
+`ha-config modify chassis mcc`
+
+
+
+ a| 
+Configuración MetroCluster FC de dos nodos
+ a| 
+`ha-config modify chassis mcc-2n`
+
+
+
+ a| 
+Configuración de IP de MetroCluster
+ a| 
+`ha-config modify chassis mccip`
+
+|===
+. Arrancar el nodo en ONTAP:
++
+`boot_ontap`
+
+. Repita estos pasos en cada nodo de la configuración de MetroCluster.
+

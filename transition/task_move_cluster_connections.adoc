@@ -1,0 +1,508 @@
+---
+permalink: transition/task_move_cluster_connections.html 
+sidebar: sidebar 
+keywords: transition, cluster connections 
+summary: Después de revisar todos los requisitos y prepararse para la transición, debe ejecutar el procedimiento de transición. Debe realizar cada tarea en orden, completando todos los pasos de cada tarea antes de pasar a la siguiente. No debe conectar las controladoras nuevas ni las bandejas de almacenamiento a la configuración existente hasta que se indique. 
+---
+= Mueva las conexiones del clúster local
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe mover las interfaces de clúster de la configuración de MetroCluster FC a los switches IP.
+
+
+
+== Mueva las conexiones del clúster en los nodos FC de MetroCluster
+
+[role="lead"]
+Debe mover las conexiones del clúster de los nodos FC de MetroCluster a los switches IP. Los pasos dependen de si se utilizan los switches IP existentes o si se utilizan nuevos switches IP.
+
+Debe realizar esta tarea en ambos sitios MetroCluster.
+
+
+
+=== Qué conexiones mover
+
+En la siguiente tarea se asume un módulo de controladora que utiliza dos puertos para las conexiones del clúster. Algunos modelos de módulos de controladora utilizan cuatro o más puertos para la conexión del clúster. En ese caso, a efectos de este ejemplo, los puertos se dividen en dos grupos, alternando puertos entre los dos grupos
+
+En la siguiente tabla se muestran los puertos de ejemplo utilizados en esta tarea.
+
+|===
+
+
+| Número de conexiones del clúster en el módulo de la controladora | Agrupar puertos A | Puertos del grupo B. 
+
+
+ a| 
+Dos
+ a| 
+e0a
+ a| 
+e0b
+
+
+
+ a| 
+Cuatro
+ a| 
+e0a, e0c
+ a| 
+e0b y e0d
+
+|===
+* Los puertos del grupo A se conectan al conmutador local_x_1-IP.
+* Los puertos del grupo B se conectan al conmutador local_x_2-IP.
+
+
+La siguiente tabla muestra a qué puertos del switch se conectan los nodos FC. Para el switch BES-53248 de Broadcom, el uso del puerto depende del modelo de los nodos IP de MetroCluster.
+
+|===
+
+
+| Modelo de switch | Modelo de nodo IP de MetroCluster | Puertos del switch | Se conecta a. 
+
+
+.2+| Cisco 3132Q-V, 3232C o 9336C-FX2 .2+| Cualquiera  a| 
+5
+ a| 
+La interfaz del clúster local en el nodo FC
+
+
+
+ a| 
+6
+ a| 
+La interfaz del clúster local en el nodo FC
+
+
+
+.6+| Broadcom BES-53248  a| 
+FAS500f/A250
+ a| 
+1 - 6
+ a| 
+La interfaz del clúster local en el nodo FC
+
+
+
+ a| 
+FAS8200/A300
+ a| 
+3, 4, 9, 10, 11, 12
+ a| 
+La interfaz del clúster local en el nodo FC
+
+
+
+ a| 
+FAS8300/A400/FAS8700
+ a| 
+1 - 6
+ a| 
+La interfaz del clúster local en el nodo FC
+
+|===
+
+
+=== Mover las conexiones del clúster local cuando se utilizan nuevos switches IP
+
+Si utiliza switches IP nuevos, debe mover físicamente las conexiones de clúster de los nodos FC de MetroCluster existentes a los switches nuevos.
+
+. Mueva las conexiones De Un clúster de Un grupo de nodos FC de MetroCluster a los nuevos switches IP.
++
+Utilice los puertos descritos en <<Qué conexiones mover>>.
+
++
+.. Desconecte todos los puertos De grupo A del switch o, si la configuración de FC de MetroCluster era un clúster sin switches, desconéctelos del nodo asociado.
+.. Desconecte los puertos Del grupo A del nodo_A_1-FC y del nodo_A_2-FC.
+.. Conecte los puertos Del grupo A de node_A_1-FC a los puertos del switch para el nodo FC en switch_A_1-IP
+.. Conecte los puertos Del grupo A de node_A_2-FC a los puertos del switch para el nodo FC en switch_A_1-IP
+
+
+. Compruebe que todos los puertos del clúster estén activos:
++
+`network port show -ipspace Cluster`
+
++
+....
+cluster_A::*> network port show -ipspace Cluster
+
+Node: node_A_1-FC
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node_A_2-FC
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+
+cluster_A::*>
+....
+. Compruebe que los enlaces entre switches (ISL) entre sitios estén activos y que los puertos-canales estén operativos:
++
+`show interface brief`
+
++
+En el siguiente ejemplo, los puertos ISL “eth1/15” a “eth1/20” se configuran como “PO10” para el enlace de sitio remoto y “eth1/7” a “eth1/8” se configuran como “PO1” para el ISL de clúster local. El estado de “eth1/15” a “eth1/20”, “eth1/7” a “eth1/8”, “PO10” y “PO1” debe ser “hacia arriba”.
+
++
+[listing]
+----
+IP_switch_A_1# show interface brief
+
+--------------------------------------------------------------
+Port   VRF          Status   IP Address        Speed      MTU
+--------------------------------------------------------------
+mgmt0  --            up        100.10.200.20    1000      1500
+--------------------------------------------------------------------------------
+Ethernet     VLAN   Type Mode    Status     Reason              Speed    Port
+Interface                                    Ch #
+--------------------------------------------------------------------------------
+
+...
+
+Eth1/7        1     eth  trunk    up        none                100G(D)    1
+Eth1/8        1     eth  trunk    up        none                100G(D)    1
+
+...
+
+Eth1/15       1     eth  trunk    up        none                100G(D)    10
+Eth1/16       1     eth  trunk    up        none                100G(D)    10
+Eth1/17       1     eth  trunk    up        none                100G(D)    10
+Eth1/18       1     eth  trunk    up        none                100G(D)    10
+Eth1/19       1     eth  trunk    up        none                100G(D)    10
+Eth1/20       1     eth  trunk    up        none                100G(D)    10
+
+--------------------------------------------------------------------------------
+Port-channel VLAN  Type Mode   Status   Reason         Speed    Protocol
+Interface
+--------------------------------------------------------------------------------
+Po1          1     eth  trunk   up      none            a-100G(D) lacp
+Po10         1     eth  trunk   up      none            a-100G(D) lacp
+Po11         1     eth  trunk   down    No operational  auto(D)   lacp
+                                        members
+IP_switch_A_1#
+----
+. Compruebe que todas las interfaces se muestran como verdaderas en la columna "'is Home'":
++
+`network interface show -vserver cluster`
+
++
+Esto puede tardar varios minutos en completarse.
+
++
+....
+cluster_A::*> network interface show -vserver cluster
+
+            Logical      Status     Network          Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node_A_1_FC_clus1
+                       up/up      169.254.209.69/16  node_A_1_FC   e0a     true
+            node_A_1-FC_clus2
+                       up/up      169.254.49.125/16  node_A_1-FC   e0b     true
+            node_A_2-FC_clus1
+                       up/up      169.254.47.194/16  node_A_2-FC   e0a     true
+            node_A_2-FC_clus2
+                       up/up      169.254.19.183/16  node_A_2-FC   e0b     true
+
+4 entries were displayed.
+
+cluster_A::*>
+....
+. Realice los pasos anteriores en ambos nodos (node_A_1-FC y node_A_2-FC) para mover los puertos del grupo B de las interfaces del clúster.
+. Repita los pasos anteriores en el clúster del partner «'cluster_B'».
+
+
+
+
+=== Mover las conexiones del clúster local cuando se reutilizan switches IP existentes
+
+Si va a reutilizar conmutadores IP existentes, debe actualizar el firmware, reconfigurar los conmutadores con los archivos de configuración de referencia (RCF) correctos y mover las conexiones a los puertos correctos un conmutador cada vez.
+
+Esta tarea sólo es necesaria si los nodos FC están conectados a switches IP existentes y se están reutilizando los switches.
+
+. Desconecte las conexiones del clúster local que se conectan a switch_A_1_IP
++
+.. Desconecte los puertos Del grupo A del switch IP existente.
+.. Desconecte los puertos ISL en switch_A_1_IP.
++
+Puede ver las instrucciones de instalación y configuración de la plataforma para ver el uso de puerto del clúster.
+
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["Sistemas AFF A320: Instalación y configuración"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["Instrucciones de instalación y configuración de los sistemas AFF A220/FAS2700"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["Instrucciones de instalación y configuración de los sistemas AFF A800"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["Instrucciones de instalación y configuración de los sistemas AFF A300"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["Instrucciones de instalación y configuración de los sistemas FAS8200"^]
+
+
+
+. Vuelva a configurar switch_A_1_IP mediante los archivos RCF generados para la combinación y transición de la plataforma.
++
+Siga los pasos del procedimiento para su proveedor de switches desde _MetroCluster IP Installation and Configuration_:
+
++
+link:../install-ip/concept_considerations_differences.html["Instalación y configuración de IP de MetroCluster"]
+
++
+.. Si es necesario, descargue e instale el nuevo firmware del switch.
++
+Debe usar el firmware más reciente compatible con los nodos IP de MetroCluster.
+
++
+*** link:../install-ip/task_switch_config_broadcom.html["Descarga e instalación del software EFOS del conmutador Broadcom"]
+*** link:../install-ip/task_switch_config_cisco.html["Descargar e instalar el software del switch Cisco NX-OS"]
+
+
+.. Prepare los switches IP para la aplicación de los nuevos archivos RCF.
++
+*** link:../install-ip/task_switch_config_broadcom.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"] **
+*** link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_switch_config_broadcom.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"]
+
+
+.. Descargue e instale el archivo IP RCF en función del proveedor del switch.
++
+*** link:../install-ip/task_switch_config_broadcom.html["Descarga e instalación de los archivos Broadcom IP RCF"]
+*** link:../install-ip/task_switch_config_cisco.html["Descarga e instalación de los archivos Cisco IP RCF"]
+
+
+
+
+. Vuelva a conectar los puertos Del grupo A a switch_A_1_IP.
++
+Utilice los puertos descritos en <<Qué conexiones mover>>.
+
+. Compruebe que todos los puertos del clúster estén activos:
++
+`network port show -ipspace cluster`
+
++
+....
+Cluster-A::*> network port show -ipspace cluster
+
+Node: node_A_1_FC
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node_A_2_FC
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+
+Cluster-A::*>
+....
+. Compruebe que todas las interfaces están en su puerto de inicio:
++
+`network interface show -vserver Cluster`
+
++
+....
+Cluster-A::*> network interface show -vserver Cluster
+
+            Logical      Status     Network          Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node_A_1_FC_clus1
+                       up/up      169.254.209.69/16  node_A_1_FC   e0a     true
+            node_A_1_FC_clus2
+                       up/up      169.254.49.125/16  node_A_1_FC   e0b     true
+            node_A_2_FC_clus1
+                       up/up      169.254.47.194/16  node_A_2_FC   e0a     true
+            node_A_2_FC_clus2
+                       up/up      169.254.19.183/16  node_A_2_FC   e0b     true
+
+4 entries were displayed.
+
+Cluster-A::*>
+....
+. Repita todos los pasos anteriores en switch_A_2_IP.
+. Vuelva a conectar los puertos ISL del clúster local.
+. Repita los pasos anteriores en Site_B para el conmutador B_1_IP y el conmutador B_2_IP.
+. Conecte los ISL remotos entre los sitios.
+
+
+
+
+== Verificar que las conexiones del clúster se han movido y que el clúster esté en buen estado
+
+Para garantizar que la conectividad sea adecuada y que la configuración esté lista para continuar con el proceso de transición, debe comprobar que las conexiones de clúster se han movido correctamente, se han reconocido los switches de clúster y que el clúster esté en buen estado.
+
+. Compruebe que todos los puertos del clúster estén en funcionamiento:
++
+`network port show -ipspace Cluster`
+
++
+....
+Cluster-A::*> network port show -ipspace Cluster
+
+Node: Node-A-1-FC
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: Node-A-2-FC
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+
+Cluster-A::*>
+....
+. Compruebe que todas las interfaces están en su puerto de inicio:
++
+`network interface show -vserver Cluster`
+
++
+Esto puede tardar varios minutos en completarse.
+
++
+En el siguiente ejemplo se muestra que todas las interfaces se muestran como verdaderas en la columna "'is Home'".
+
++
+....
+Cluster-A::*> network interface show -vserver Cluster
+
+            Logical      Status     Network          Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            Node-A-1_FC_clus1
+                       up/up      169.254.209.69/16  Node-A-1_FC   e0a     true
+            Node-A-1-FC_clus2
+                       up/up      169.254.49.125/16  Node-A-1-FC   e0b     true
+            Node-A-2-FC_clus1
+                       up/up      169.254.47.194/16  Node-A-2-FC   e0a     true
+            Node-A-2-FC_clus2
+                       up/up      169.254.19.183/16  Node-A-2-FC   e0b     true
+
+4 entries were displayed.
+
+Cluster-A::*>
+....
+. Compruebe que los nodos detectan ambos switches IP locales:
++
+`network device-discovery show -protocol cdp`
+
++
+....
+Cluster-A::*> network device-discovery show -protocol cdp
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+Node-A-1-FC
+           /cdp
+            e0a    Switch-A-3-IP             1/5/1             N3K-C3232C
+            e0b    Switch-A-4-IP             0/5/1             N3K-C3232C
+Node-A-2-FC
+           /cdp
+            e0a    Switch-A-3-IP             1/6/1             N3K-C3232C
+            e0b    Switch-A-4-IP             0/6/1             N3K-C3232C
+
+4 entries were displayed.
+
+Cluster-A::*>
+....
+. En el switch de IP, compruebe que los nodos IP de MetroCluster se hayan detectado mediante ambos switches IP locales:
++
+`show cdp neighbors`
+
++
+Debe realizar este paso en cada conmutador.
+
++
+Este ejemplo muestra cómo comprobar que los nodos se han detectado en Switch-A-3-IP.
+
++
+....
+(Switch-A-3-IP)# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+Node-A-1-FC         Eth1/5/1       133    H         FAS8200       e0a
+Node-A-2-FC         Eth1/6/1       133    H         FAS8200       e0a
+Switch-A-4-IP(FDO220329A4)
+                    Eth1/7         175    R S I s   N3K-C3232C    Eth1/7
+Switch-A-4-IP(FDO220329A4)
+                    Eth1/8         175    R S I s   N3K-C3232C    Eth1/8
+Switch-B-3-IP(FDO220329B3)
+                    Eth1/20        173    R S I s   N3K-C3232C    Eth1/20
+Switch-B-3-IP(FDO220329B3)
+                    Eth1/21        173    R S I s   N3K-C3232C    Eth1/21
+
+Total entries displayed: 4
+
+(Switch-A-3-IP)#
+....
++
+Este ejemplo muestra cómo comprobar que los nodos se han detectado en Switch-A-4-IP.
+
++
+....
+(Switch-A-4-IP)# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+Node-A-1-FC         Eth1/5/1       133    H         FAS8200       e0b
+Node-A-2-FC         Eth1/6/1       133    H         FAS8200       e0b
+Switch-A-3-IP(FDO220329A3)
+                    Eth1/7         175    R S I s   N3K-C3232C    Eth1/7
+Switch-A-3-IP(FDO220329A3)
+                    Eth1/8         175    R S I s   N3K-C3232C    Eth1/8
+Switch-B-4-IP(FDO220329B4)
+                    Eth1/20        169    R S I s   N3K-C3232C    Eth1/20
+Switch-B-4-IP(FDO220329B4)
+                    Eth1/21        169    R S I s   N3K-C3232C    Eth1/21
+
+Total entries displayed: 4
+
+(Switch-A-4-IP)#
+....
+

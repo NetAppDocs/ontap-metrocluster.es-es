@@ -1,0 +1,36 @@
+---
+permalink: install-fc/reference_example_of_cabling_array_luns_to_fc_switches_in_an_eight_node_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cabling, storage, array, ports, fc, switches, eight, node 
+summary: En una configuración de MetroCluster con LUN de cabina, debe conectar los puertos de la cabina de almacenamiento que forman un par de puertos redundante a switches FC alternativos. 
+---
+= Ejemplo de cableado de los puertos de la cabina de almacenamiento a switches FC en una configuración MetroCluster de ocho nodos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En una configuración de MetroCluster con LUN de cabina, debe conectar los puertos de la cabina de almacenamiento que forman un par de puertos redundante a switches FC alternativos.
+
+Una configuración MetroCluster de ocho nodos consta de dos grupos de recuperación ante desastres de cuatro nodos. El primer grupo DR consta de los siguientes nodos:
+
+* Controller_A_1
+* Controller_A_2
+* Controller_B_1
+* Controller_B_2
+
+
+El segundo grupo DR consta de los siguientes nodos:
+
+* Controller_A_3
+* Controller_A_4
+* Controller_B_3
+* Controller_B_4
+
+
+Para conectar los puertos de la cabina del primer grupo de recuperación ante desastres, se pueden usar ejemplos de cableado para una configuración MetroCluster de cuatro nodos para el primer grupo de recuperación ante desastres.
+
+link:reference_example_of_cabling_array_luns_to_fc_switches_in_a_four_node_mcc_configuration.html["Ejemplo de cableado de los puertos de la cabina de almacenamiento a switches FC en una configuración MetroCluster de cuatro nodos"]
+
+Para conectar los puertos de la cabina del segundo grupo DR, siga los mismos ejemplos y extrapolar los puertos FC-VI y los puertos iniciadores de FC que pertenecen a las controladoras del segundo grupo DR.

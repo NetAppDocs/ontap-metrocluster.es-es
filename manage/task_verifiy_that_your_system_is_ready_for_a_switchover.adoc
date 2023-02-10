@@ -1,0 +1,44 @@
+---
+permalink: manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html 
+sidebar: sidebar 
+keywords: simulate, option, preview, result, switchover, operation, verification, check, precondition, succesful, verify, ready, example 
+summary: Puede utilizar la opción -Simulate para obtener una vista previa de los resultados de una operación de switchover. Una comprobación de verificación proporciona una forma de verificar que se cumplen la mayoría de las condiciones previas para una ejecución correcta antes de iniciar la operación. 
+---
+= Verificación de que el sistema está listo para una conmutación de sitios
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el `-simulate` opción para obtener una vista previa de los resultados de una operación de switchover. Una comprobación de verificación proporciona una forma de verificar que se cumplen la mayoría de las condiciones previas para una ejecución correcta antes de iniciar la operación. Emita estos comandos desde el sitio que permanecerán activos y operativos:
+
+. Configure el nivel de privilegio en Advanced: `set -privilege advanced`
+. Desde el sitio que permanecerá activo y operativo, simule una operación de conmutación: `metrocluster switchover -simulate`
+. Revise el resultado que se devuelve.
++
+La salida muestra si cualquier vetoo impediría una operación de switchover. Cada vez que realiza una operación de MetroCluster, debe verificar un conjunto de criterios para el éxito de la operación. Un "vehículo" es un mecanismo para prohibir la operación si uno o más de los criterios no se cumplen. Hay dos tipos de veto: Un veto «a menudo» y un veto «duro». Puede anular un veto blando, pero no un veto duro. Por ejemplo, para realizar una conmutación de sitios negociada en una configuración MetroCluster de cuatro nodos, un criterio es que todos los nodos están en buen estado. Suponga que un nodo está inactivo y que lo recibió su partner de alta disponibilidad. La operación de switchover será difícil de vetar porque es un criterio difícil que todos los nodos deben estar en buen estado. Debido a que se trata de un veto duro, no se puede anular el veto.
+
++
+
+IMPORTANT: Es mejor no anular ningún veto.
+
+
+
+
+
+== Ejemplo: Resultados de verificación
+
+El ejemplo siguiente muestra los errores que se encuentran en una simulación de una operación de switchover:
+
+[listing]
+----
+cluster4::*> metrocluster switchover -simulate
+
+[Job 126] Preparing the cluster for the switchover operation...
+[Job 126] Job failed: Failed to prepare the cluster for the switchover
+operation. Use the "metrocluster operation show" command to view detailed error
+information. Resolve the errors, then try the command again.
+----
+
+NOTE: Los procesos de conmutación de sitios y conmutación de estado negociados fallarán hasta que se sustituyan todos los discos que fallen. Puede realizar una recuperación ante desastres después de sustituir los discos con errores. Si desea ignorar la advertencia sobre los discos que han fallado, puede añadir un veto suave para el cambio negociado y la conmutación de regreso.

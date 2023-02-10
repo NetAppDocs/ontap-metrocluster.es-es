@@ -1,0 +1,22 @@
+---
+section: tiebreaker
+title: Instalar y configurar tiebreaker para MetroCluster
+entries:
+- title: Descripción general del software Tiebreaker
+  url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
+- title: Instale el software Tiebreaker
+  url: "/tiebreaker/task_install_the_tiebreaker_software.html"
+- title: Configure el software Tiebreaker
+  url: "/tiebreaker/concept_configuring_the_tiebreaker_software.html"
+- title: Configurar los ajustes de SNMP para el software Tiebreaker
+  url: "/tiebreaker/task_configure_snmp_setts_for_tiebreaker_software.html"
+- title: Supervise la configuración de MetroCluster
+  url: "/tiebreaker/concept_monitoring_the_mcc_configuration.html"
+- title: Riesgos y limitaciones del uso de MetroCluster Tiebreaker en el modo activo
+  url: "/tiebreaker/concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html"
+- title: Requisitos de firewall para MetroCluster Tiebreaker
+  url: "/tiebreaker/reference_firewall_requirements_for_mcc_tiebreaker.html"
+- title: Archivos de registro de eventos de MetroCluster Tiebreaker
+  url: "/tiebreaker/concept-mcc-tiebreaker-event-logs.html"
+- title: Dónde encontrar información adicional
+  url: "/tiebreaker/reference_where_to_find_additional_information_tb_icg.html"

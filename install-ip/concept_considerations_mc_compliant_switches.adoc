@@ -1,0 +1,459 @@
+---
+permalink: install-ip/concept_considerations_mc_compliant_switches.html 
+sidebar: sidebar 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant 
+summary: 'Los switches MetroCluster IP que aparecen como switches compatibles en el link:https://hwu.netapp.com/["Hardware Universe de NetApp"^] Y los proporciona NetApp están validados por NetApp. A partir de ONTAP 9.7, las configuraciones de IP de MetroCluster pueden utilizar switches compatibles con MetroCluster. Estos son switches que no están validados por NetApp pero cumplen con las especificaciones de NetApp. Sin embargo, NetApp no ofrece servicios de soporte, solución de problemas ni configuración para ningún switch no validado.' 
+---
+= Consideraciones para usar switches compatibles con MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los switches MetroCluster IP que aparecen como switches compatibles en el link:https://hwu.netapp.com/["Hardware Universe de NetApp"^] Y los proporciona NetApp están validados por NetApp. A partir de ONTAP 9.7, las configuraciones de IP de MetroCluster pueden utilizar switches compatibles con MetroCluster. Estos son switches que no están validados por NetApp pero cumplen con las especificaciones de NetApp. Sin embargo, NetApp no ofrece servicios de soporte, solución de problemas ni configuración para ningún switch no validado.
+
+
+
+== Switches validados por NetApp
+
+Un switch es validado por NetApp si cumple con todos los siguientes requisitos:
+
+* NetApp proporciona el switch como parte de la configuración IP de MetroCluster
+* El conmutador se muestra en la link:https://hwu.netapp.com/["Hardware Universe de NetApp"^] Como conmutador admitido en “MetroCluster a través de conexiones IP”
+* El switch solo se utiliza para conectar controladoras IP de MetroCluster y, en algunas configuraciones, bandejas de unidades NS224
+* El switch se configura usando el RCF proporcionado por NetApp (archivo de configuración de referencia)
+
+
+Cualquier switch que no cumpla estos criterios *no* es un switch validado por NetApp.
+
+
+
+== Switches compatibles con MetroCluster
+
+Un switch compatible con MetroCluster no está validado por NetApp, pero puede utilizarse en una configuración de IP de MetroCluster si cumple los siguientes requisitos y directrices de configuración.
+
+
+NOTE: NetApp no ofrece servicios de soporte, solución de problemas ni configuración para ningún switch compatible con MetroCluster no validado.
+
+
+
+== Requisitos generales para los switches conformes a la normativa MetroCluster
+
+Los requisitos muestran cómo configurar switches que cumplen con MetroCluster sin usar archivos de configuración de referencia (RCF).
+
+* Los switches que se conectan a los nodos de MetroCluster pueden portar tráfico que no sea de MetroCluster.
+* Solo se pueden usar las plataformas que ofrezcan puertos dedicados para las interconexiones de clúster sin switch con un switch compatible con MetroCluster. No se pueden utilizar plataformas como FAS2750 y AFF A220 debido a que el tráfico MetroCluster y el tráfico de interconexión de MetroCluster comparten los mismos puertos de red.
++
+El switch compatible con MetroCluster no debe utilizarse para las conexiones de clúster locales.
+
+* La interfaz IP de MetroCluster se puede conectar a cualquier puerto de switch que se pueda configurar de acuerdo con los requisitos.
+* La velocidad de los puertos del switch debe ser de 25 Gbps para las plataformas FAS8200 y AFF A300, y, al menos, 40 Gbps para el resto de plataformas (40 Gbps o 100 Gbps).
+* Se necesitan cuatro switches IP, dos para cada estructura del switch.
+* Los ISL deben tener 10 Gbps o más, y su tamaño debe ser adecuado para la carga de la configuración de MetroCluster.
+* La configuración de MetroCluster debe estar conectada a dos redes. Las interfaces MetroCluster no pueden conectarse a la misma red ni al mismo switch. Cada nodo MetroCluster debe estar conectado a dos switches de red.
+* La red debe cumplir los siguientes requisitos:
++
+** link:../install-ip/concept_considerations_isls.html#basic-metrocluster-isl-requirements["Requisitos básicos de ISL de MetroCluster"]
+** link:../install-ip/concept_considerations_isls.html#isl-requirements-in-shared-layer-2-networks["Requisitos ISL en redes de capa 2 compartidas"]
+** link:../install-ip/concept_considerations_layer_2.html#required-settings-on-intermediate-switches["Ajustes necesarios en los interruptores intermedios"]
+
+
+* En las configuraciones de IP de MetroCluster mediante switches compatibles con MetroCluster, no se permite revertir a ONTAP 9.6 o una versión anterior.
+* La MTU de 9216 debe configurarse en todos los switches que lleven tráfico IP de MetroCluster.
+
+
+
+
+== Requisitos de switch y cableado para switches compatibles con MetroCluster
+
+* Los switches deben admitir la calidad de servicio/clasificación del tráfico.
+* Los conmutadores deben admitir la notificación explícita de congestión (ECN).
+* Los switches deben admitir políticas de equilibrio de carga de puerto-vlan de L4 para conservar el orden en la ruta.
+* Los interruptores deben ser compatibles con el control de flujo L2 (L2FC).
+* Los cables que conectan los nodos a los switches deben adquirirse en NetApp. Los cables que suministremos deben ser compatibles con el proveedor de switches.
+
+
+
+
+== Limitaciones a los switches conformes con MetroCluster
+
+No se puede utilizar ninguna configuración o función que requiera que las conexiones del clúster local estén conectadas a un switch. Por ejemplo, no pueden utilizarse las siguientes configuraciones ni procedimientos con un switch compatible con MetroCluster:
+
+* Configuraciones MetroCluster de ocho nodos
+* Transición de las configuraciones FC de MetroCluster a IP de MetroCluster
+* Actualizar una configuración IP de MetroCluster de cuatro nodos
+
+
+
+
+== Velocidades de red específicas de la plataforma y modos de puerto de switch para switches compatibles con MetroCluster
+
+La tabla siguiente proporciona velocidades de red específicas de la plataforma y modos de puerto de switch para switches compatibles con MetroCluster. Debe configurar el modo de puerto del switch como se indica en la tabla.
+
+
+NOTE: Los valores que faltan indican que la plataforma no se puede utilizar con un switch compatible con MetroCluster.
+
+|===
+
+
+| Plataforma | Velocidad de red (Gbps) | Modo de puerto del switch 
+
+
+ a| 
+AFF A900
+ a| 
+100
+ a| 
+modo troncal
+
+
+
+ a| 
+A800 de AFF
+ a| 
+40 o 100
+ a| 
+modo de acceso
+
+
+
+ a| 
+A700 de AFF
+ a| 
+40
+ a| 
+modo de acceso
+
+
+
+ a| 
+AFF A400
+ a| 
+40 o 100
+ a| 
+modo troncal
+
+
+
+ a| 
+AFF A320
+ a| 
+100
+ a| 
+modo de acceso
+
+
+
+ a| 
+AFF A300
+ a| 
+25
+ a| 
+modo de acceso
+
+
+
+ a| 
+AFF A250
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+AFF A220
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+FAS9000
+ a| 
+40
+ a| 
+modo de acceso
+
+
+
+ a| 
+FAS9500
+ a| 
+100
+ a| 
+modo troncal
+
+
+
+ a| 
+FAS8700
+ a| 
+100
+ a| 
+modo troncal
+
+
+
+ a| 
+FAS8300
+ a| 
+40 o 100
+ a| 
+modo troncal
+
+
+
+ a| 
+FAS8200
+ a| 
+25
+ a| 
+modo de acceso
+
+
+
+ a| 
+FAS2750
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+FAS500f
+ a| 
+-
+ a| 
+-
+
+|===
+
+
+== Supuestos para los ejemplos
+
+Los ejemplos proporcionados son válidos para los switches Cisco NX31xx y NX32xx. Si se utilizan otros switches, estos comandos pueden usarse como guía, pero los comandos pueden ser diferentes. Si una función que se muestra en los ejemplos no está disponible en el switch, significa que éste no cumple con los requisitos mínimos y no se puede utilizar para implementar una configuración de MetroCluster. Esto es así en todo switch que esté conectando una configuración de MetroCluster y en todos los switches de la ruta entre esos switches.
+
+* Los puertos ISL tienen 15 y 16 años y funcionan a una velocidad de 40 Gbps.
+* La VLAN en la red 1 es 10 y la VLAN en la red 2 es 20. Es posible que se muestren ejemplos solo para una red.
+* La interfaz MetroCluster está conectada al puerto 9 de cada switch y funciona a una velocidad de 100 Gbps.
+* El contexto completo de los ejemplos no está definido ni se muestra. Es posible que deba introducir más información de configuración, como el perfil, la VLAN o la interfaz, para ejecutar los comandos.
+
+
+
+
+== Configuración genérica del switch
+
+Debe configurarse una VLAN en cada red. El ejemplo muestra cómo configurar una VLAN en la red 10.
+
+Ejemplo:
+
+[listing]
+----
+# vlan 10
+----
+Debe establecerse la política de equilibrio de carga de modo que se conserve el orden.
+
+Ejemplo:
+
+[listing]
+----
+# port-channel load-balance src-dst ip-l4port-vlan
+----
+Es necesario configurar los mapas de acceso y clases, que asignan el tráfico RDMA y iSCSI a las clases correspondientes.
+
+Todo el tráfico TCP hacia y desde el puerto 65200 se asigna a la clase de almacenamiento (iSCSI). Todo el tráfico TCP hacia y desde el puerto 10006 se asigna a la clase RDMA.
+
+Ejemplo:
+
+[listing]
+----
+
+ip access-list storage
+  10 permit tcp any eq 65200 any
+  20 permit tcp any any eq 65200
+ip access-list rdma
+  10 permit tcp any eq 10006 any
+  20 permit tcp any any eq 10006
+
+class-map type qos match-all storage
+  match access-group name storage
+class-map type qos match-all rdma
+  match access-group name rdma
+----
+Debe configurar la política de entrada. La directiva de entrada asigna el tráfico según lo clasificado a los diferentes grupos de CDS. En este ejemplo, el tráfico RDMA se asigna al grupo COS 5 y el tráfico iSCSI se asigna al grupo COS 4.
+
+Ejemplo:
+
+[listing]
+----
+
+policy-map type qos MetroClusterIP_Ingress
+class rdma
+  set dscp 40
+  set cos 5
+  set qos-group 5
+class storage
+  set dscp 32
+  set cos 4
+  set qos-group 4
+----
+Debe configurar la directiva de salida en el conmutador. La directiva de salida asigna el tráfico a las colas de salida. En este ejemplo, el tráfico RDMA se asigna a la cola 5 y el tráfico iSCSI se asigna a la cola 4.
+
+Ejemplo:
+
+[listing]
+----
+
+policy-map type queuing MetroClusterIP_Egress
+class type queuing c-out-8q-q7
+  priority level 1
+class type queuing c-out-8q-q6
+  priority level 2
+class type queuing c-out-8q-q5
+  priority level 3
+  random-detect threshold burst-optimized ecn
+class type queuing c-out-8q-q4
+  priority level 4
+  random-detect threshold burst-optimized ecn
+class type queuing c-out-8q-q3
+  priority level 5
+class type queuing c-out-8q-q2
+  priority level 6
+class type queuing c-out-8q-q1
+  priority level 7
+class type queuing c-out-8q-q-default
+  bandwidth remaining percent 100
+  random-detect threshold burst-optimized ecn
+----
+Puede que necesite configurar un switch que tenga tráfico MetroCluster en un ISL, pero no se conecte a ninguna interfaz MetroCluster. En este caso, el tráfico ya está clasificado y sólo debe asignarse a la cola adecuada. En el siguiente ejemplo, todo el tráfico COS5 se asigna a la clase RDMA, y todo el tráfico COS4 se asigna a la clase iSCSI. Tenga en cuenta que esto afectará *todo* del tráfico COS5 y COS4, no sólo el tráfico MetroCluster. Si sólo desea asignar el tráfico de MetroCluster, debe utilizar los mapas de clases anteriores para identificar el tráfico mediante los grupos de acceso.
+
+Ejemplo:
+
+[listing]
+----
+
+class-map type qos match-all rdma
+  match cos 5
+class-map type qos match-all storage
+  match cos 4
+----
+
+
+== Configurar los ISL
+
+Puede configurar un puerto de modo de "enlace" cuando establece una VLAN permitida.
+
+Hay dos comandos, uno a *establecer* la lista de VLAN permitidas y uno a *agregar* a la lista de VLAN permitidas existentes.
+
+Puede *establecer* las VLAN permitidas como se muestra en el ejemplo.
+
+Ejemplo:
+
+[listing]
+----
+switchport trunk allowed vlan 10
+----
+Puede *agregar* una VLAN a la lista permitida, como se muestra en el ejemplo.
+
+Ejemplo:
+
+[listing]
+----
+switchport trunk allowed vlan add 10
+----
+En el ejemplo, Port-Channel 10 está configurado para VLAN 10.
+
+Ejemplo:
+
+[listing]
+----
+
+interface port-channel10
+switchport mode trunk
+switchport trunk allowed vlan 10
+mtu 9216
+service-policy type queuing output MetroClusterIP_Egress
+----
+Los puertos ISL deben configurarse como parte de un puerto-canal y deben asignarse las colas de salida, como se muestra en el ejemplo.
+
+Ejemplo:
+
+[listing]
+----
+
+interface eth1/15-16
+switchport mode trunk
+switchport trunk allowed vlan 10
+no lldp transmit
+no lldp receive
+mtu 9216
+channel-group 10 mode active
+service-policy type queuing output MetroClusterIP_Egress
+no shutdown
+----
+
+
+== Configurar los puertos del nodo
+
+Es posible que tenga que configurar el puerto del nodo en modo de arranque. En este ejemplo, los puertos 25 y 26 están configurados en modo de arranque de 4 x 25 Gbps.
+
+Ejemplo:
+
+[listing]
+----
+interface breakout module 1 port 25-26 map 25g-4x
+----
+Es posible que deba configurar la velocidad del puerto de la interfaz MetroCluster. El ejemplo muestra cómo configurar la velocidad en "auto".
+
+Ejemplo:
+
+[listing]
+----
+speed auto
+----
+El ejemplo siguiente muestra cómo corregir la velocidad a 40 Gbps.
+
+Ejemplo:
+
+[listing]
+----
+speed 40000
+----
+Es posible que deba configurar la interfaz. En el ejemplo siguiente, la velocidad de la interfaz se establece en "auto".
+
+El puerto está en modo de acceso en VLAN 10, MTU está establecido en 9216 y la política de entrada de MetroCluster está asignada.
+
+Ejemplo:
+
+[listing]
+----
+
+interface eth1/9
+description MetroCluster-IP Node Port
+speed auto
+switchport access vlan 10
+spanning-tree port type edge
+spanning-tree bpduguard enable
+mtu 9216
+flowcontrol receive on
+flowcontrol send on
+service-policy type qos input MetroClusterIP_Ingress
+no shutdown
+----
+En los puertos de 25 Gbps, es posible que sea necesario establecer el ajuste FEC en "OFF", como se muestra en el ejemplo.
+
+Ejemplo:
+
+[listing]
+----
+fec off
+----
+
+NOTE: Siempre debe ejecutar este comando *después de* la interfaz está configurada. Es posible que sea necesario insertar un módulo transceptor para que funcione el comando.

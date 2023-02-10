@@ -1,0 +1,1756 @@
+---
+permalink: maintain/task_fb_hot_add_stack_of_shelves_and_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, add, stack, sas, disk, shelves, bridges, system 
+summary:  
+---
+= Adición en caliente de una pila de bandejas de discos SAS y puentes a un sistema MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede añadir en caliente (agregar de forma no disruptiva) una pila completa, incluidos los puentes, al sistema MetroCluster. Debe haber puertos disponibles en los switches FC y actualizar la división en zonas del switch para reflejar los cambios.
+
+.Acerca de esta tarea
+* Este procedimiento se puede utilizar para agregar una pila con puentes FibreBridge 7500N o 6500N.
+* Este procedimiento se redacta suponiendo que está utilizando las interfaces de gestión de puentes recomendadas: La GUI de ATTO ExpressNAV y la utilidad ATTO Quickav.
++
+** La GUI de ATTO ExpressNAV se utiliza para configurar y administrar un puente y para actualizar el firmware del puente. Puede utilizar la utilidad ATTO Quickav para configurar el puerto 1 de gestión de Ethernet de puente.
+** Puede utilizar otras interfaces de gestión si es necesario. Estas opciones incluyen el uso de un puerto serie o Telnet para configurar y administrar un puente, configurar el puerto de administración Ethernet 1 y utilizar FTP para actualizar el firmware del puente. Si elige alguna de estas interfaces de gestión, su sistema debe cumplir con los requisitos aplicables en link:reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.html["Otras interfaces de gestión de puentes"]
+
+
+
+
+
+
+== Preparar la adición en caliente de una pila de bandejas de discos SAS y puentes
+
+Para preparar la adición en caliente de una pila de bandejas de discos SAS y un par de puentes hay que descargar documentos, así como el firmware de la unidad de discos y de la bandeja de discos.
+
+.Antes de empezar
+* El sistema debe ser una configuración compatible y debe ejecutar una versión compatible de ONTAP.
++
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+
+* Todas las unidades de disco y bandejas de discos del sistema deben ejecutar la versión de firmware más reciente.
++
+Es posible que desee actualizar el firmware del disco y de la bandeja en toda la configuración de MetroCluster antes de añadir bandejas.
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["Actualización, reversión o degradación"^]
+
+* Cada switch FC debe tener un puerto FC disponible para que un puente se conecte a él.
++
+
+NOTE: Es posible que deba actualizar el switch FC según la compatibilidad del switch de FC.
+
+* El equipo que está usando para configurar los puentes debe estar ejecutando un explorador web compatible con ATTO para usar la GUI ExpressNAV de ATTO: Internet Explorer 8 o 9, o Mozilla Firefox 3.
++
+Las Notas de la versión de producto _ATTO_ tienen una lista actualizada de exploradores web admitidos. Puede acceder a este documento utilizando la información de los pasos.
+
+
+
+.Pasos
+. Descargue o consulte los siguientes documentos desde el sitio de soporte de NetApp:
++
+** https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+** La _Guía de instalación y mantenimiento_ correspondiente al modelo de bandeja de discos.
+
+
+. Descargue contenido del sitio web de ATTO y del sitio web de NetApp:
++
+.. Vaya a la página Descripción de ATTO FiberBridge.
+.. Con el enlace de la página Descripción de ATTO FiberBridge, acceda al sitio web de ATTO y descargue los siguientes pasos:
++
+*** _Manual de instalación y operación de ATTO FiberBridge_ para su modelo de puente.
+*** Utilidad ATTO Quickav (al ordenador que está utilizando para la configuración).
+
+
+.. Vaya a la página de descarga del firmware de ATTO FiberBridge haciendo clic en *continuar* al final de la página Descripción de ATTO FiberBridge y, a continuación, siga los pasos siguientes:
++
+*** Descargue el archivo de firmware del puente como se indica en la página de descarga.
++
+En este paso, sólo está completando la parte de descarga de las instrucciones proporcionadas en los enlaces. Se actualiza el firmware en cada puente más tarde, cuando se le indique hacerlo en link:task_fb_hot_add_stack_of_shelves_and_bridges.html["Adición en caliente de la pila de bandejas"] sección.
+
+*** Haga una copia de la página de descarga del firmware de ATTO FiberBridge y las notas de la versión para poder consultarla más adelante.
+
+
+
+
+. Descargue el firmware de disco y de bandeja de discos más reciente y haga una copia de la parte de instalación de las instrucciones de referencia más adelante.
++
+Todas las bandejas de discos en la configuración MetroCluster (tanto las bandejas nuevas como las existentes) deben ejecutar la misma versión de firmware.
+
++
+
+NOTE: En este paso, sólo está completando la parte de descarga de las instrucciones proporcionadas en los enlaces y realizando una copia de las instrucciones de instalación. Se actualiza el firmware en cada disco y bandeja de discos más tarde, cuando se le indique hacerlo en la link:task_fb_hot_add_stack_of_shelves_and_bridges.html["Adición en caliente de la pila de bandejas"] sección.
+
++
+.. Descargue el firmware del disco y haga una copia de las instrucciones del firmware del disco para consultarla más adelante.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+
+.. Descargue el firmware de la bandeja de discos y haga una copia de las instrucciones del firmware de la bandeja de discos para referencia posterior.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+
+
+
+. Recopile el hardware y la información necesaria para usar las interfaces de gestión de puentes recomendadas: La GUI de ATTO ExpressNAV y la utilidad ATTO Quickav:
++
+.. Adquiera un cable Ethernet estándar para conectarse desde el puerto 1 de gestión Ethernet puente a la red.
+.. Determine un nombre de usuario y una contraseña no predeterminados para acceder a los puentes.
++
+Se recomienda cambiar el nombre de usuario y la contraseña predeterminados.
+
+.. Obtenga una dirección IP, una máscara de subred y la información de puerta de enlace para el puerto de administración Ethernet 1 en cada puente.
+.. Desactive los clientes VPN en el equipo que esté utilizando para la instalación.
++
+Los clientes activos de VPN hacen que falle la exploración de navegación rápida para puentes.
+
+
+
+. Adquirir cuatro tornillos para cada puente para montar firmemente los soportes "'L'" del puente en la parte delantera del bastidor.
++
+Las aberturas de los soportes del puente "'L'" cumplen con el estándar del bastidor ETA-310-X para bastidores de 19 pulgadas (482.6 mm).
+
+. Si es necesario, actualice la división en zonas del switch de FC para acomodar los nuevos puentes que se están agregando a la configuración.
++
+Si utiliza los archivos de configuración de referencia proporcionados por NetApp, se han creado zonas para todos los puertos, por lo que no es necesario realizar ninguna actualización de la división en zonas. Debe haber una zona de almacenamiento para cada puerto del switch que se conecte a los puertos FC del puente.
+
+
+
+
+
+== Adición en caliente de una pila de bandejas de discos SAS y puentes
+
+Puede añadir en caliente una pila de bandejas de discos SAS y puentes para aumentar la capacidad de los puentes.
+
+El sistema debe cumplir todos los requisitos para añadir en caliente una pila de bandejas de discos SAS y puentes.
+
+link:task_fb_hot_add_stack_of_shelves_and_bridges.html["Preparar la adición en caliente de una pila de bandejas de discos SAS y puentes"]
+
+* La adición en caliente de una pila de bandejas de discos SAS y puentes es un procedimiento no disruptivo si se cumplen todos los requisitos de interoperabilidad.
++
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+
++
+link:concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html["Uso de la herramienta de matriz de interoperabilidad para encontrar información de MetroCluster"]
+
+* La alta disponibilidad multivía es la única configuración compatible para los sistemas MetroCluster que utilizan puentes.
++
+Ambos módulos de controladora deben tener acceso a través de los puentes que llevan a las bandejas de discos en cada pila.
+
+* Debe añadir en caliente un número igual de bandejas de discos en cada sitio.
+* Si va a utilizar la gestión en banda del puente en lugar de la administración IP, se pueden omitir los pasos para configurar el puerto Ethernet y la configuración IP, como se indica en los pasos correspondientes.
+
+
+
+NOTE: A partir de ONTAP 9.8, el `storage bridge` el comando se sustituye por `system bridge`. Los siguientes pasos muestran el `storage bridge` Pero si ejecuta ONTAP 9.8 o una versión posterior, el `system bridge` el comando es preferido.
+
+
+IMPORTANT: Si inserta un cable SAS en el puerto incorrecto, al quitar el cable de un puerto SAS, debe esperar al menos 120 segundos antes de enchufar el cable a un puerto SAS diferente. Si no lo hace, el sistema no reconocerá que el cable se ha movido a otro puerto.
+
+.Pasos
+. Puesta a tierra apropiadamente usted mismo.
+. Desde la consola de cualquiera de los módulos de controlador, compruebe si el sistema tiene activada la asignación automática de discos:
++
+`storage disk option show`
+
++
+La columna asignación automática indica si la asignación automática de disco está habilitada.
+
++
+[listing]
+----
+
+Node        BKg. FW. Upd.  Auto Copy   Auto Assign  Auto Assign Policy
+----------  -------------  ----------  -----------  ------------------
+node_A_1             on           on           on           default
+node_A_2             on           on           on           default
+2 entries were displayed.
+----
+. Deshabilite los puertos del switch para la nueva pila.
+. Si está configurando para la gestión en banda, conecte un cable desde el puerto serie RS-232 de FibreBridge al puerto serie (COM) en un ordenador personal.
++
+La conexión en serie se utilizará para la configuración inicial y, a continuación, la gestión en banda a través de ONTAP y los puertos FC pueden utilizarse para supervisar y gestionar el puente.
+
+. Si se configura para la administración de IP, configure el puerto de administración de Ethernet 1 para cada puente siguiendo el procedimiento descrito en la sección 2.0 del manual de instalación y funcionamiento de _ATTO FibreBridge_ para el modelo de puente.
++
+En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en banda para acceder al puente a través de los puertos FC en lugar del puerto Ethernet. A partir de ONTAP 9.8, solo se admite la gestión en banda y queda obsoleta la gestión de SNMP.
+
++
+Al ejecutar el sistema Quickav para configurar un puerto de gestión Ethernet, sólo se configura el puerto de gestión Ethernet conectado mediante el cable Ethernet. Por ejemplo, si también desea configurar el puerto 2 de gestión de Ethernet, deberá conectar el cable Ethernet al puerto 2 y ejecutar el sistema de navegación rápida.
+
+. Configure el puente.
++
+Si ha recuperado la información de configuración del puente antiguo, utilice la información para configurar el puente nuevo.
+
++
+Asegúrese de tomar nota del nombre de usuario y la contraseña que usted designe.
+
++
+El _ATTO FiberBridge Installation and Operation Manual_ de su modelo de puente contiene la información más actualizada sobre los comandos disponibles y cómo usarlos.
+
++
+
+NOTE: No configure la sincronización de tiempo en ATTO FibreBridge 7600N o 7500N. La sincronización de tiempo de ATTO FibreBridge 7600N o 7500N se establece en la hora del clúster después de que ONTAP descubra el puente. También se sincroniza periódicamente una vez al día. La zona horaria utilizada es GMT y no se puede cambiar.
+
++
+.. Si se configura para la administración de IP, configure los valores de IP del puente.
++
+Para configurar la dirección IP sin la utilidad Quickav, debe tener una conexión en serie con FiberBridge.
+
++
+Si utiliza la CLI, debe ejecutar los siguientes comandos:
+
++
+`set ipaddress mp1 _ip-address_`
+
++
+`set ipsubnetmask mp1 _subnet-mask_`
+
++
+`set ipgateway mp1 x.x.x.x`
+
++
+`set ipdhcp mp1 disabled`
+
++
+`set ethernetspeed mp1 1000`
+
+.. Configure el nombre del puente.
++
+Cada uno de los puentes debería tener un nombre único dentro de la configuración de MetroCluster.
+
++
+Nombres de puente de ejemplo para un grupo de pila en cada sitio:
+
++
+*** bridge_A_1a
+*** puente_a_1b
+*** bridge_B_1a
+*** bridge_B_1b Si utiliza la CLI, debe ejecutar el siguiente comando:
++
+`set bridgename _bridgename_`
+
+
+
+.. Si ejecuta ONTAP 9.4 o una versión anterior, active SNMP en el puente: +
+`set SNMP enabled`
++
+En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en banda para acceder al puente a través de los puertos FC en lugar del puerto Ethernet. A partir de ONTAP 9.8, solo se admite la gestión en banda y queda obsoleta la gestión de SNMP.
+
+
+
+. Configurar los puertos FC de puente.
++
+.. Configurar la velocidad/velocidad de datos de los puertos FC de puente.
++
+La velocidad de datos FC admitida depende de su puente de modelos.
+
++
+*** El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.
+*** El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.
+*** El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.
++
+
+NOTE: La velocidad de FCDataRate que seleccione se limita a la velocidad máxima admitida tanto por el puente como por el conmutador al que se conecta el puerto de puente. Las distancias de cableado no deben superar las limitaciones de SFP y otro hardware.
+
++
+Si utiliza la CLI, debe ejecutar el siguiente comando:
+
++
+`set FCDataRate _port-number port-speed_`
+
+
+
+.. Si va a configurar un puente FibreBridge 7500N o 6500N, configure el modo de conexión que el puerto utiliza para ptp.
++
+
+NOTE: El ajuste FCConnMode no es necesario al configurar un puente FibreBridge 7600N.
+
++
+Si utiliza la CLI, debe ejecutar el siguiente comando:
+
++
+`set FCConnMode _port-number_ ptp`
+
+.. Si está configurando un puente FibreBridge 7600N o 7500N, debe configurar o deshabilitar el puerto FC2.
++
+*** Si está utilizando el segundo puerto, debe repetir los subpasos anteriores para el puerto FC2.
+*** Si no utiliza el segundo puerto, debe desactivar el puerto: +
+`FCPortDisable _port-number_`
+
+
+.. Si está configurando un puente FibreBridge 7600N o 7500N, desactive los puertos SAS sin utilizar: +
+`SASPortDisable _sas-port_`
++
+
+NOTE: Los puertos SAS A a D están habilitados de manera predeterminada. Debe deshabilitar los puertos SAS que no se están utilizando. Si solo se utiliza el puerto SAS A, deben deshabilitarse los puertos SAS B, C y D.
+
+
+
+. Asegurar el acceso al puente y guardar la configuración del puente.
++
+.. Desde el símbolo del sistema del controlador, compruebe el estado de los puentes:
++
+`storage bridge show`
+
++
+La salida muestra qué puente no está asegurado.
+
+.. Compruebe el estado de los puertos del puente no seguro: +
+`info`
++
+La salida muestra el estado de los puertos Ethernet MP1 y MP2.
+
+.. Si el puerto Ethernet MP1 está activado, ejecute el siguiente comando: +
+`set EthernetPort mp1 disabled`
++
+
+NOTE: Si el puerto Ethernet MP2 también está activado, repita el subpaso anterior para el puerto MP2.
+
+.. Guarde la configuración del puente.
++
+Debe ejecutar los siguientes comandos:
+
++
+`SaveConfiguration`
+
++
+`FirmwareRestart`
+
++
+Se le solicitará que reinicie el puente.
+
+
+
+. Actualice el firmware de FiberBridge en cada puente.
++
+Si el nuevo puente es del mismo tipo que el puente asociado, actualice el mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte la sección "actualización del firmware en un puente FibreBridge" en _MetroCluster Maintenance_.
+
+. [[paso 10-cable-shelves-puentes]]Conecte las bandejas de discos a los puentes:
++
+.. Conecte en cadena las bandejas de discos en cada pila.
++
+La _Installation Guide_ del modelo de bandeja de discos proporciona información detallada sobre las bandejas de discos en cadena.
+
+.. Para cada pila de bandejas de discos, conecte el cable IOM A de la primera bandeja al puerto SAS A en FibreBridge A y, a continuación, conecte el cable IOM B de la última bandeja al puerto SAS A en FibreBridge B.
++
+link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+
++
+link:../install-stretch/concept_considerations_differences.html["Instalación y configuración de MetroCluster con ampliación"]
+
++
+Cada puente tiene un camino hacia su pila de bandejas de discos; el puente A se conecta al lado A de la pila a través de la primera bandeja y el puente B se conecta al lado B de la pila a través de la última bandeja.
+
++
+
+NOTE: El puerto B del puente SAS está deshabilitado.
+
+
+
+. [[paso 11-Verify-each-bridge-detect]]Compruebe que cada puente puede detectar todas las unidades de disco y bandejas de disco a las que está conectado el puente.
++
+[cols="30,70"]
+|===
+
+
+| Si utiliza... | Realice lo siguiente... 
+
+
+ a| 
+GUI DE ATTO ExpressNAV
+ a| 
+.. En un explorador web compatible, introduzca la dirección IP de un puente en el cuadro del explorador.
++
+Se te lleva a la página de inicio de ATTO FiberBridge, que tiene un enlace.
+
+.. Haga clic en el vínculo e introduzca su nombre de usuario y la contraseña que ha designado al configurar el puente.
++
+La página de estado de ATTO FiberBridge aparece con un menú a la izquierda.
+
+.. Haga clic en *Avanzado* en el menú.
+.. Ver los dispositivos conectados: +
+`sastargets`
+.. Haga clic en *Enviar*.
+
+
+
+
+ a| 
+Conexión de puerto serie
+ a| 
+Ver los dispositivos conectados:
+
+`sastargets`
+
+|===
++
+La salida muestra los dispositivos (discos y bandejas de discos) a los que está conectado el puente. Las líneas de salida están numeradas secuencialmente para que pueda contar rápidamente los dispositivos.
+
++
+
+NOTE: Si la respuesta de texto truncada aparece al principio de la salida, puede utilizar Telnet para conectarse al puente y, a continuación, ver toda la salida mediante el `sastargets` comando.
+
++
+La siguiente salida muestra que hay 10 discos conectados:
+
++
+[listing]
+----
+Tgt VendorID ProductID        Type        SerialNumber
+  0 NETAPP   X410_S15K6288A15 DISK        3QP1CLE300009940UHJV
+  1 NETAPP   X410_S15K6288A15 DISK        3QP1ELF600009940V1BV
+  2 NETAPP   X410_S15K6288A15 DISK        3QP1G3EW00009940U2M0
+  3 NETAPP   X410_S15K6288A15 DISK        3QP1EWMP00009940U1X5
+  4 NETAPP   X410_S15K6288A15 DISK        3QP1FZLE00009940G8YU
+  5 NETAPP   X410_S15K6288A15 DISK        3QP1FZLF00009940TZKZ
+  6 NETAPP   X410_S15K6288A15 DISK        3QP1CEB400009939MGXL
+  7 NETAPP   X410_S15K6288A15 DISK        3QP1G7A900009939FNTT
+  8 NETAPP   X410_S15K6288A15 DISK        3QP1FY0T00009940G8PA
+  9 NETAPP   X410_S15K6288A15 DISK        3QP1FXW600009940VERQ
+----
+. Compruebe que el resultado del comando muestra que el puente está conectado a todos los discos y bandejas de discos adecuados de la pila.
++
+[cols="30,70"]
+|===
+
+
+| Si la salida es... | Realice lo siguiente... 
+
+
+ a| 
+Correcto
+ a| 
+Repetición <<step11-verify-each-bridge-detect,Paso 11>> por cada puente restante.
+
+
+
+ a| 
+No es correcto
+ a| 
+.. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <<step10-cable-shelves-bridges,Paso 10>>.
+.. Repetición <<step11-verify-each-bridge-detect,Paso 11>>.
+
+
+|===
+. Si va a configurar una configuración MetroCluster estructural, conecte los cables de cada puente a los switches FC locales mediante el cableado que se muestra en la tabla para la configuración, el modelo de switch y el modelo de puente de FC a SAS:
++
+
+NOTE: Los switches de Brocade y Cisco utilizan distintos números de puertos, tal y como se muestra en las siguientes tablas.
+
++
+** En los switches Brocade, el primer puerto está numerado como «'0».
+** En los switches Cisco, el primer puerto está numerado como «'1'».
++
+|===
+
+
+13+| Configuraciones que utilizan FibreBridge 7500N o 7600N con los dos puertos FC (FC1 y FC2) 
+
+
+13+| GRUPO DR 1 
+
+
+3+|  2+| Brocade 6505 2+| Brocade 6510, Brocade DCX 8510-8 2+| Brocade 6520 2+| Brocade G620, Brocade G620-1, Brocade G630, Brocade G630-1 2+| Brocade G720 
+
+
+2+| Componente | Puerto | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+8
+ a| 
+-
+ a| 
+8
+ a| 
+-
+ a| 
+8
+ a| 
+-
+ a| 
+8
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+bridge_x_1B
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+11
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+11
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_2B
+ a| 
+FC1
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+18
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+18
+
+
+
+ a| 
+bridge_x_3B
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+19
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+19
+
+
+
+ a| 
+Apilar y
+ a| 
+bridge_x_ya
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+20
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+20
+
+
+
+ a| 
+bridge_x_yb
+ a| 
+FC1
+ a| 
+15
+ a| 
+-
+ a| 
+15
+ a| 
+-
+ a| 
+15
+ a| 
+-
+ a| 
+15
+ a| 
+-
+ a| 
+21
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+--
+
+-- a| 
+15
+ a| 
+--
+
+-- a| 
+15
+ a| 
+--
+
+-- a| 
+15
+ a| 
+-
+ a| 
+15
+ a| 
+-
+ a| 
+21
+
+
+
+ a| 
+
+NOTE: Se pueden conectar puentes adicionales a los puertos 16, 17, 20 y 21 en los conmutadores G620, G630, G620-1 y G630-1.
+
+|===
++
+|===
+
+
+11+| Configuraciones que utilizan FibreBridge 7500N o 7600N con los dos puertos FC (FC1 y FC2) 
+
+
+11+| GRUPO DR 2 
+
+
+3+|  2+| Brocade G620, Brocade G620-1, Brocade G630, Brocade G630-1 2+| Brocade 6510, Brocade DCX 8510-8 2+| Brocade 6520 2+| Brocade G720 
+
+
+2+| Componente | Puerto | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 | Interruptor 1 | interruptor 2 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_51a
+ a| 
+FC1
+ a| 
+26
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+56
+ a| 
+-
+ a| 
+32
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+26
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+56
+ a| 
+-
+ a| 
+32
+
+
+
+ a| 
+bridge_x_51b
+ a| 
+FC1
+ a| 
+27
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+57
+ a| 
+-
+ a| 
+33
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+27
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+57
+ a| 
+-
+ a| 
+33
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_52a
+ a| 
+FC1
+ a| 
+30
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+58
+ a| 
+-
+ a| 
+34
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+30
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+58
+ a| 
+-
+ a| 
+34
+
+
+
+ a| 
+bridge_x_52b
+ a| 
+FC1
+ a| 
+31
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+59
+ a| 
+-
+ a| 
+35
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+31
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+59
+ a| 
+-
+ a| 
+35
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_53a
+ a| 
+FC1
+ a| 
+32
+ a| 
+-
+ a| 
+36
+ a| 
+-
+ a| 
+60
+ a| 
+-
+ a| 
+36
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+36
+ a| 
+-
+ a| 
+60
+ a| 
+-
+ a| 
+36
+
+
+
+ a| 
+bridge_x_53b
+ a| 
+FC1
+ a| 
+33
+ a| 
+-
+ a| 
+37
+ a| 
+-
+ a| 
+61
+ a| 
+-
+ a| 
+37
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+37
+ a| 
+-
+ a| 
+61
+ a| 
+-
+ a| 
+37
+
+
+
+ a| 
+Apilar y
+ a| 
+bridge_x_5ya
+ a| 
+FC1
+ a| 
+34
+ a| 
+-
+ a| 
+38
+ a| 
+-
+ a| 
+62
+ a| 
+-
+ a| 
+38
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+38
+ a| 
+-
+ a| 
+62
+ a| 
+-
+ a| 
+38
+
+
+
+ a| 
+bridge_x_5yb
+ a| 
+FC1
+ a| 
+35
+ a| 
+-
+ a| 
+39
+ a| 
+-
+ a| 
+63
+ a| 
+-
+ a| 
+39
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+39
+ a| 
+-
+ a| 
+63
+ a| 
+-
+ a| 
+39
+
+
+
+ a| 
+
+NOTE: Se pueden conectar puentes adicionales a los puertos 36 - 39 en los conmutadores G620, G630, G620-1 y G-630-1.
+
+|===
++
+|===
+
+
+12+| Configuraciones que utilizan puentes FibreBridge 6500N o FibreBridge 7500N o 7600N utilizando sólo un puerto FC (FC1 o FC2) 
+
+
+12+| GRUPO DR 1 
+
+
+2+|  2+| Brocade 6505 2+| Brocade 6510, Brocade DCX 8510-8 2+| Brocade 6520 2+| Brocade G620, Brocade G620-1, Brocade G630, Brocade G630-1 2+| Brocade G720 
+
+
+| Componente | Puerto | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 | Interruptor 1 | Interruptor 2 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+-
+ a| 
+8
+ a| 
+-
+ a| 
+8
+ a| 
+-
+ a| 
+8
+ a| 
+-
+ a| 
+8
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+11
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+11
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+Apilar y
+ a| 
+bridge_x_ya
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+bridge_x_yb
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+11
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+
+NOTE: Se pueden conectar puentes adicionales a los puertos 12 - 17, 20 y 21 en los conmutadores G620, G630, G620-1 y G630-1. Se pueden conectar puentes adicionales a los puertos 16 - 17, 20 y 21 interruptores G720.
+
+|===
++
+|===
+
+
+10+| Configuraciones que utilizan puentes FibreBridge 6500N o FibreBridge 7500N o 7600N utilizando sólo un puerto FC (FC1 o FC2) 
+
+
+10+| GRUPO DR 2 
+
+
+2+|  2+| Brocade G720 2+| Brocade G620, Brocade G620-1, Brocade G630, Brocade G630-1 2+| Brocade 6510, Brocade DCX 8510-8 2+| Brocade 6520 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_51a
+ a| 
+32
+ a| 
+-
+ a| 
+26
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+56
+ a| 
+-
+
+
+
+ a| 
+bridge_x_51b
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+26
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+56
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_52a
+ a| 
+33
+ a| 
+-
+ a| 
+27
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+57
+ a| 
+-
+
+
+
+ a| 
+bridge_x_52b
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+27
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+57
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_53a
+ a| 
+34
+ a| 
+-
+ a| 
+30
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+58
+ a| 
+-
+
+
+
+ a| 
+puente_x_54b
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+30
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+58
+
+
+
+ a| 
+Apilar y
+ a| 
+bridge_x_ya
+ a| 
+35
+ a| 
+-
+ a| 
+31
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+59
+ a| 
+-
+
+
+
+ a| 
+bridge_x_yb
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+31
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+59
+
+
+
+ a| 
+
+NOTE: Se pueden conectar puentes adicionales a los puertos 32 a 39 en los switches G620, G630, G620-1 y G630-1. Se pueden conectar puentes adicionales a los puertos 36 a 39 interruptores G720.
+
+|===
+
+
+. Si va a configurar un sistema MetroCluster con conexión en puente, conecte cada puente a los módulos del controlador:
++
+.. Conecte el puerto FC 1 del puente a un puerto FC de 16 GB o 8 GB en el módulo de la controladora de cluster_A.
+.. Conecte el puerto FC 2 del puente al puerto FC de la misma velocidad del módulo de controladora en cluster_A.
+.. Repita estos subpasos en otros puentes posteriores hasta que se hayan cableado todos los puentes.
+
+
+. Actualice el firmware de la unidad de disco a la versión más reciente desde la consola del sistema:
++
+`disk_fw_update`
+
++
+Debe ejecutar este comando en ambos módulos de la controladora.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+
+. Actualice el firmware de la bandeja de discos a la versión más reciente mediante las instrucciones para el firmware descargado.
++
+Puede ejecutar los comandos en el procedimiento desde la consola del sistema de cualquier módulo de la controladora.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+
+. Si el sistema no tiene activada la asignación automática de discos, asigne la propiedad de la unidad de disco.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+
++
+
+NOTE: Si va a dividir la propiedad de una única pila de bandejas de discos entre varios módulos de controladora, debe deshabilitar la asignación automática de discos en ambos nodos del clúster (`storage disk option modify -autoassign off *`) antes de asignar la propiedad de disco; de lo contrario, al asignar cualquier unidad de disco individual, las unidades de disco restantes se pueden asignar automáticamente al mismo módulo de controladora y pool.
+
++
+
+NOTE: No se deben añadir unidades de disco a agregados o volúmenes hasta que se haya actualizado el firmware de la unidad de disco y la bandeja de discos, y se hayan completado los pasos de verificación de esta tarea.
+
+. Habilite los puertos del switch para la nueva pila.
+. Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
++
+.. Compruebe si el sistema es multipathed: +
+`node run -node _node-name_ sysconfig -a`
+.. Compruebe si hay alertas de estado en ambos clústeres: +
+`system health alert show`
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal: +
+`metrocluster show`
+.. Realice una comprobación de MetroCluster: +
+`metrocluster check run`
+.. Mostrar los resultados del control MetroCluster: +
+`metrocluster check show`
+.. Compruebe si hay alguna alerta de estado en los interruptores (si está presente): +
+`storage switch show`
+.. Ejecute Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+
+.. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
+
+
+. Si corresponde, repita este procedimiento para el sitio del partner.
+
+
+.Información relacionada
+link:concept_in_band_management_of_the_fc_to_sas_bridges.html["Gestión en banda de los puentes FC a SAS"]

@@ -1,0 +1,32 @@
+---
+permalink: disaster-recovery/task_verify_storage_mcfc.html 
+sidebar: sidebar 
+keywords: verify, storage, configuration 
+summary: Debe confirmar que todo el almacenamiento esté visible de los nodos supervivientes. 
+---
+= Verificación de la configuración de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe confirmar que todo el almacenamiento esté visible de los nodos supervivientes.
+
+.Pasos
+. Confirmar que todos los componentes de almacenamiento del centro de desastres son los mismos en cantidad y tipo en el centro superviviente.
++
+El sitio superviviente y el sitio de desastre deben tener el mismo número de pilas de bandejas de discos, bandejas de discos y discos. En una configuración MetroCluster de conexión a puente o de conexión a estructura, los sitios deben tener el mismo número de puentes FC a SAS.
+
+. Confirmar que todos los discos que se han sustituido en el centro de recuperación ante desastres no son propiedad:
++
+`run local disk show-n`
+
++
+Los discos deben aparecer como sin propiedad.
+
+. Si no se han sustituido los discos, confirme que todos están presentes:
++
+`disk show`
+
+

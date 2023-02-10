@@ -1,0 +1,54 @@
+---
+permalink: install-stretch/task_rack_the_hardware_components_mcc_2_node_stretch_atto.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, rack, harware, components 
+summary: Si no ha recibido el equipo ya instalado en armarios, debe montar los componentes en rack. 
+---
+= Acumular en rack los componentes de hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si no ha recibido el equipo ya instalado en armarios, debe montar los componentes en rack.
+
+Esta tarea debe realizarse en los dos sitios MetroCluster.
+
+.Pasos
+. Planifique la colocación de los componentes de MetroCluster.
++
+El espacio en rack depende del modelo de plataforma de las controladoras de almacenamiento, los tipos de switch y el número de pilas de bandejas de discos de la configuración.
+
+. Puesta a tierra apropiadamente usted mismo.
+. Instale las controladoras de almacenamiento en el rack o armario.
++
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+
+. Instale las bandejas de discos, enciúdeles a encender y configure los ID de bandeja.
++
+** Debe apagar y encender cada bandeja de discos.
+** Los ID de bandeja deben ser únicos para cada bandeja de discos SAS dentro de cada grupo de recuperación ante desastres MetroCluster (incluidos ambos sitios).
+
+
+. Instale cada puente FC-a-SAS:
++
+.. Fije los soportes "'L'" de la parte frontal del puente a la parte delantera del bastidor (empotrado) con los cuatro tornillos.
++
+Las aberturas de los soportes del puente "'L'" cumplen con el estándar del bastidor ETA-310-X para bastidores de 19 pulgadas (482.6 mm).
+
++
+Para obtener más información y una ilustración de la instalación, consulte el manual de instalación y funcionamiento de _ATTO FibreBridge para el modelo_ de puente.
+
+.. Conecte cada puente a una fuente de alimentación que proporcione una conexión a tierra correcta.
+.. Encienda cada puente.
++
+
+NOTE: Para obtener la máxima resiliencia, los puentes conectados a la misma pila de bandejas de discos deben conectarse a diferentes fuentes de alimentación.
+
++
+El LED Bridge Ready puede tardar hasta 30 segundos en iluminarse, lo que indica que el puente ha completado su secuencia de prueba automática de encendido.
+
+
+
+

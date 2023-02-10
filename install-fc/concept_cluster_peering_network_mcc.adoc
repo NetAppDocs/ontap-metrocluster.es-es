@@ -1,0 +1,33 @@
+---
+permalink: install-fc/concept_cluster_peering_network_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, illustration, cluster, peering, network 
+summary: 'Los dos clústeres de la configuración de MetroCluster tienen una relación entre iguales a través de una red de clústeres proporcionada por el cliente. Cluster peering admite el mirroring síncrono de equipos virtuales de almacenamiento \(SVM, antes conocidos como Vserver\) entre estos sitios.' 
+---
+= Ilustración de la red de paridad de clústeres
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los dos clústeres de la configuración de MetroCluster tienen una relación entre iguales a través de una red de clústeres proporcionada por el cliente. Cluster peering admite el mirroring síncrono de máquinas virtuales de almacenamiento (SVM, antes denominadas Vserver) entre sitios.
+
+Las LIF de interconexión de clústeres deben configurarse en cada nodo de la configuración de MetroCluster y los clústeres deben configurarse para paridad. Los puertos con las LIF de interconexión de clústeres están conectados a la red de paridad de clústeres proporcionada por el cliente. La replicación de la configuración de SVM se realiza en esta red a través del servicio de replicación de configuración.
+
+image::../media/mcc_hw_architecture_cluster_peering.gif[mcc hw architecture cluster peering]
+
+.Información relacionada
+link:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html["Una ilustración de los pares de alta disponibilidad locales en una configuración MetroCluster"]
+
+link:concept_illustration_of_redundant_fc_to_sas_bridges.html["Ilustración de los puentes FC a SAS redundantes"]
+
+link:concept_redundant_fc_switch_fabrics.html["Estructuras de switches FC redundantes"]
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
+
+link:concept_considerations_peering.html["Consideraciones que tener en cuenta al configurar la relación de clústeres entre iguales"]
+
+link:task_cable_the_cluster_peering_connections.html["Conectar el cableado de las conexiones de los clústeres entre iguales"]
+
+link:concept_configure_the_mcc_software_in_ontap.html["Una relación entre iguales de los clústeres"]

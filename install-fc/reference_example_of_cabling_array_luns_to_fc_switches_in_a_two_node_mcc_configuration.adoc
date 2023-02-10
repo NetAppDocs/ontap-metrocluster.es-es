@@ -1,0 +1,131 @@
+---
+permalink: install-fc/reference_example_of_cabling_array_luns_to_fc_switches_in_a_two_node_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cabling, array, ports, fc, switches, two, node 
+summary: En una configuración de MetroCluster con LUN de cabina, debe conectar los puertos de la cabina de almacenamiento que forman un par de puertos redundante a switches FC alternativos. 
+---
+= Ejemplo de cableado de los puertos de la cabina de almacenamiento a switches FC en una configuración MetroCluster de dos nodos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En una configuración de MetroCluster con LUN de cabina, debe conectar los puertos de la cabina de almacenamiento que forman un par de puertos redundante a switches FC alternativos.
+
+En la siguiente ilustración, se muestran las conexiones entre las cabinas de almacenamiento y los switches FC en una configuración MetroCluster de dos nodos conectada a estructura con LUN de cabina:
+
+image::../media/two_node_fabric_attached_mcc_configuration.gif[configuración de mcc conectado a estructura de dos nodos]
+
+Las conexiones entre los puertos de la cabina de almacenamiento y los puertos del switch FC son similares para variantes FAS y ampliación de configuraciones MetroCluster de dos nodos con LUN de cabina.
+
+[NOTE]
+====
+Si planea utilizar discos además de los LUN de cabina en la configuración de MetroCluster, debe utilizar los puertos del switch especificados para la configuración con discos.
+
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
+
+====
+En la ilustración, los pares de puertos de cabina redundantes para ambos sitios son los siguientes:
+
+* Cabina de almacenamiento en el sitio A:
++
+** Puertos 1A y 2A
+** Puertos 1B y 2B
+
+
+* Cabina de almacenamiento en el sitio B:
++
+** Puertos 1A' y 2A'
+** Puertos 1B' y 2B'
+
+
+
+
+FC_switch_A_1 en el sitio A y FC_switch_B_1 en el sitio B están conectados al formulario de estructura_1. De forma similar, FC_switch_A_2 en el sitio A y FC_switch_B_2 están conectados al formato Fabric_2.
+
+En la siguiente tabla, se enumeran las conexiones entre los puertos de la cabina de almacenamiento y los switches de FC para la ilustración MetroCluster de ejemplo:
+
+|===
+
+
+| Puertos LUN de cabina | Puertos del switch FC | Estructuras de conmutador 
+
+
+3+| *Sitio A* 
+
+
+ a| 
+1A
+ a| 
+FC_switch_A_1, puerto 9
+ a| 
+estructura_1
+
+
+
+ a| 
+2 A
+ a| 
+FC_switch_A_2, puerto 10
+ a| 
+estructura_2
+
+
+
+ a| 
+1B
+ a| 
+FC_switch_A_1, puerto 10
+ a| 
+estructura_1
+
+
+
+ a| 
+2B
+ a| 
+FC_switch_A_2, puerto 9
+ a| 
+estructura_2
+
+
+
+3+| *Sitio B* 
+
+
+ a| 
+1 A'
+ a| 
+FC_switch_B_1, puerto 9
+ a| 
+estructura_1
+
+
+
+ a| 
+2 A'
+ a| 
+FC_switch_B_2, puerto 10
+ a| 
+estructura_2
+
+
+
+ a| 
+1B'
+ a| 
+FC_switch_B_1, puerto 10
+ a| 
+estructura_1
+
+
+
+ a| 
+2B'
+ a| 
+FC_switch_B_2, puerto 9
+ a| 
+estructura_2
+
+|===

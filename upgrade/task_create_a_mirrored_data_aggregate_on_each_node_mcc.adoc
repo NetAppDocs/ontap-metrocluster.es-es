@@ -1,0 +1,79 @@
+---
+permalink: upgrade/task_create_a_mirrored_data_aggregate_on_each_node_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, create, mirrored, data, aggregate, node 
+summary: Debe crear un agregado de datos reflejados en cada nodo del grupo de recuperación ante desastres. 
+---
+= Crear un agregado de datos reflejados en cada nodo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe crear un agregado de datos reflejados en cada nodo del grupo de recuperación ante desastres.
+
+.Acerca de esta tarea
+* Debe conocer qué unidades se utilizarán en el nuevo agregado.
+* Si tiene varios tipos de unidades en el sistema (almacenamiento heterogéneo), debe comprender cómo puede asegurarse de seleccionar el tipo de unidad correcto.
+* Las unidades son propiedad de un nodo específico; cuando se crea un agregado, todas las unidades de ese agregado deben ser propiedad del mismo nodo, que se convierte en el nodo inicial para ese agregado.
++
+En los sistemas que utilizan ADP, los agregados se crean utilizando particiones en las que cada unidad se divide en particiones P1, P2 y P3.
+
+* Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+
+
+
+.Pasos
+. Mostrar una lista de repuestos disponibles:
++
+`storage disk show -spare -owner _node_name_`
+
+. Cree el agregado:
++
+`storage aggregate create -mirror true`
+
++
+Si ha iniciado sesión en el clúster en la interfaz de gestión del clúster, puede crear un agregado en cualquier nodo del clúster. Para garantizar que el agregado se ha creado en un nodo concreto, utilice `-node` especifique o especifique las unidades que son propiedad de ese nodo.
+
++
+Puede especificar las siguientes opciones:
+
++
+** Nodo principal del agregado (es decir, el nodo al que pertenece el agregado en un funcionamiento normal)
+** Lista de unidades específicas que se añadirán al agregado
+** Cantidad de unidades que se incluirán
++
+
+NOTE: En la configuración mínima admitida, en la que haya disponible una cantidad limitada de unidades, debe utilizar la opción force-small-aggregate para permitir la creación de un agregado de tres discos RAID-DP.
+
+** Estilo de suma de comprobación que se utilizará para el agregado
+** El tipo de unidades que se van a utilizar
+** El tamaño de las unidades que se van a utilizar
+** Conduzca la velocidad que se va a utilizar
+** Tipo de RAID para grupos RAID en el agregado
+** Cantidad máxima de unidades que se pueden incluir en un grupo RAID
+** Si se permiten unidades con RPM diferentes
++
+Para obtener más información acerca de estas opciones, consulte `storage aggregate create` página de manual.
+
++
+El siguiente comando crea un agregado con 10 discos:
+
++
+[listing]
+----
+cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_1 -mirror true
+[Job 15] Job is queued: Create aggr1_node_A_1.
+[Job 15] The job is starting.
+[Job 15] Job succeeded: DONE
+----
+
+
+. Compruebe el grupo RAID y las unidades del nuevo agregado:
++
+`storage aggregate show-status -aggregate _aggregate-name_`
+
+

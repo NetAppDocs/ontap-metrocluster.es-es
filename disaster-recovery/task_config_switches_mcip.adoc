@@ -1,0 +1,153 @@
+---
+permalink: disaster-recovery/task_config_switches_mcip.html 
+sidebar: sidebar 
+keywords: metrocluster, ip, configuration, switchback, operation 
+summary: Debe configurar los switches IP que se hayan sustituido. 
+---
+= Configuración de los switches IP (configuraciones de MetroCluster IP)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe configurar los switches IP que se hayan sustituido.
+
+.Acerca de esta tarea
+Esta tarea se aplica únicamente a las configuraciones IP de MetroCluster.
+
+Esto se debe hacer en ambos switches. Compruebe tras configurar el primer switch que el acceso al almacenamiento en el sitio superviviente no se ve afectado.
+
+
+NOTE: No debe continuar con el segundo switch si el acceso al almacenamiento del sitio superviviente se ve afectado.
+
+.Pasos
+. Consulte link:../install-ip/concept_considerations_differences.html["Instalación y configuración de IP de MetroCluster: : Diferencias entre las configuraciones de ONTAP MetroCluster"] para conocer los procedimientos para el cableado y la configuración de un conmutador de sustitución.
++
+Puede utilizar los procedimientos de las siguientes secciones:
+
++
+** Cableado de los switches IP
+** Configurar los switches IP
+
+
+. Si los ISL se deshabilitaron en el sitio superviviente, se deben habilitar los ISL y comprobar que los ISL están en línea.
++
+.. Habilite las interfaces ISL en el primer switch:
++
+`no shutdown`
+
++
+Los siguientes ejemplos muestran los comandos para un switch IP de Broadcom o un switch IP de Cisco.
+
++
+|===
+
+
+| Proveedor de switches | Comandos 
+
+
+ a| 
+Broadcom
+ a| 
+[listing]
+----
+(IP_Switch_A_1)> enable
+(IP_switch_A_1)# configure
+(IP_switch_A_1)(Config)# interface 0/13-0/16
+(IP_switch_A_1)(Interface 0/13-0/16 )# no shutdown
+(IP_switch_A_1)(Interface 0/13-0/16 )# exit
+(IP_switch_A_1)(Config)# exit
+----
+
+
+ a| 
+Cisco
+ a| 
+[listing]
+----
+IP_switch_A_1# conf t
+IP_switch_A_1(config)# int eth1/15-eth1/20
+IP_switch_A_1(config)# no shutdown
+IP_switch_A_1(config)# copy running startup
+IP_switch_A_1(config)# show interface brief
+----
+|===
+.. Habilite las interfaces ISL en el switch del partner:
++
+`no shutdown`
+
++
+Los siguientes ejemplos muestran los comandos para un switch IP de Broadcom o un switch IP de Cisco.
+
++
+|===
+
+
+| Proveedor de switches | Comandos 
+
+
+ a| 
+Broadcom
+ a| 
+[listing]
+----
+(IP_Switch_A_2)> enable
+(IP_switch_A_2)# configure
+(IP_switch_A_2)(Config)# interface 0/13-0/16
+(IP_switch_A_2)(Interface 0/13-0/16 )# no shutdown
+(IP_switch_A_2)(Interface 0/13-0/16 )# exit
+(IP_switch_A_2)(Config)# exit
+----
+
+
+ a| 
+Cisco
+ a| 
+[listing]
+----
+IP_switch_A_2# conf t
+IP_switch_A_2(config)# int eth1/15-eth1/20
+IP_switch_A_2(config)# no shutdown
+IP_switch_A_2(config)# copy running startup
+IP_switch_A_2(config)# show interface brief
+----
+|===
+.. Compruebe que las interfaces están habilitadas:
++
+`show interface brief`
+
++
+En el siguiente ejemplo, se muestra el resultado de un switch de Cisco.
+
++
+[listing]
+----
+IP_switch_A_2(config)# show interface brief
+
+--------------------------------------------------------
+Port VRF Status IP Address Speed MTU
+--------------------------------------------------------
+mt0 -- up 10.10.99.10 100 1500
+--------------------------------------------------------
+Ethernet    VLAN Type Mode    Status Reason Speed   Port
+Interface                                           Ch
+#
+--------------------------------------------------------
+.
+.
+.
+Eth1/15    10   eth   access  up     none   40G(D)  --
+Eth1/16    10   eth   access  up     none   40G(D)  --
+Eth1/17    10   eth   access  down   none   auto(D) --
+Eth1/18    10   eth   access  down   none   auto(D) --
+Eth1/19    10   eth   access  down   none   auto(D) --
+Eth1/20    10   eth   access  down   none   auto(D) --
+.
+.
+.
+IP_switch_A_2#
+----
+
+
+

@@ -1,0 +1,44 @@
+---
+permalink: upgrade/task_add_a_new_controller_to_each_cluster_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, add, new, controller, module, cluster 
+summary: Debe agregar un nuevo módulo de controlador a cada sitio, creando un par de alta disponibilidad en cada sitio. Este es un proceso de varios pasos que implica cambios de hardware y software que deben realizarse en el orden correcto en cada instalación. 
+---
+= Agregando un nuevo módulo de controladora a cada clúster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe agregar un nuevo módulo de controlador a cada sitio, creando un par de alta disponibilidad en cada sitio. Este es un proceso de varios pasos que implica cambios de hardware y software que deben realizarse en el orden correcto en cada instalación.
+
+.Acerca de esta tarea
+* NetApp debe recibir el nuevo módulo de controlador como parte del kit de actualización.
++
+Debe verificar que las tarjetas PCIe del nuevo módulo de controladora sean compatibles y compatibles con el nuevo módulo de controladora.
+
++
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+* Su sistema debe tener una ranura vacía disponible para el nuevo módulo de controladora cuando actualice a un par de alta disponibilidad de chasis único (un par de alta disponibilidad en el que ambos módulos de controladora residen en el mismo chasis).
++
+
+NOTE: Esta configuración no es compatible con todos los sistemas. Las plataformas con configuraciones de chasis único compatibles con ONTAP 9 son AFF A300, FAS8200, FAS8300, AFF A400, AFF80xx, FAS8020, FAS8060, FAS8080 Y FAS9000.
+
+* Debe tener espacio en rack y cables para el nuevo módulo de controladora cuando actualice a un par de alta disponibilidad de chasis doble (un par de alta disponibilidad en el que los módulos de controladoras residen en un chasis separado).
++
+
+NOTE: Esta configuración no es compatible con todos los sistemas.
+
+* Es necesario conectar cada módulo de la controladora a la red de gestión a través de su puerto e0a o, si su sistema tiene uno, puede conectarse al puerto e0M como puerto de administración.
+* Estas tareas deben repetirse en cada sitio.
+* Los módulos de controlador preexistentes se denominan módulos de controlador _existing_.
++
+Los ejemplos de este procedimiento tienen el indicador de consola `existing_ctlr>`.
+
+* Los módulos del controlador que se están agregando se denominan módulos del controlador _new_; los ejemplos de este procedimiento tienen el indicador de comandos de la consola `new_ctlr>`.
+* Esta tarea utiliza el siguiente flujo de trabajo:
+
+
+image::../media/workflow_mcc_2_to_4_node_expansion_adding_nodes.gif[flujo de trabajo de ampliación de 2 a 4 nodos de mcc adición de nodos]

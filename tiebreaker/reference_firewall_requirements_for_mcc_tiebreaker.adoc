@@ -1,0 +1,121 @@
+---
+permalink: tiebreaker/reference_firewall_requirements_for_mcc_tiebreaker.html 
+sidebar: sidebar 
+keywords: metrocluster, tiebreaker, port, communicate, specific, service, firewall, requirement 
+summary: MetroCluster Tiebreaker utiliza varios puertos para comunicarse con servicios específicos. 
+---
+= Requisitos de firewall para MetroCluster Tiebreaker
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster Tiebreaker utiliza varios puertos para comunicarse con servicios específicos.
+
+En la siguiente tabla se enumeran los puertos que debe permitir en el firewall:
+
+|===
+
+
+| Puerto/servicios | Origen | Destino | Específico 
+
+
+ a| 
+443 / TCP
+ a| 
+Tiebreaker
+ a| 
+Internet
+ a| 
+Envío de mensajes de AutoSupport a NetApp
+
+
+
+ a| 
+22 / TCP
+ a| 
+Host de gestión
+ a| 
+Tiebreaker
+ a| 
+Gestión de tiebreaker
+
+
+
+ a| 
+443 / TCP
+ a| 
+Tiebreaker
+ a| 
+LIF de gestión de clústeres
+ a| 
+Comunicaciones seguras al clúster a través de HTTP (SSL)
+
+
+
+ a| 
+22 / TCP
+ a| 
+Tiebreaker
+ a| 
+LIF de gestión de clústeres
+ a| 
+Comunicaciones seguras al clúster a través de SSH
+
+
+
+ a| 
+443 / TCP
+ a| 
+Tiebreaker
+ a| 
+LIF de gestión de nodos
+ a| 
+Comunicaciones seguras al nodo a través de HTTP (SSL)
+
+
+
+ a| 
+22 / TCP
+ a| 
+Tiebreaker
+ a| 
+LIF de gestión de nodos
+ a| 
+Comunicaciones seguras al nodo a través de SSH
+
+
+
+ a| 
+162 / UDP
+ a| 
+Tiebreaker
+ a| 
+Host de captura SNMP
+ a| 
+Se utiliza para enviar notificaciones de alerta de capturas de SNMP
+
+
+
+ a| 
+ICMP (ping)
+ a| 
+Tiebreaker
+ a| 
+LIF de gestión de clústeres
+ a| 
+Compruebe si se puede acceder a la IP del clúster
+
+
+
+ a| 
+ICMP (ping)
+ a| 
+Tiebreaker
+ a| 
+LIF de gestión de nodos
+ a| 
+Compruebe si se puede acceder a la IP del nodo
+
+|===

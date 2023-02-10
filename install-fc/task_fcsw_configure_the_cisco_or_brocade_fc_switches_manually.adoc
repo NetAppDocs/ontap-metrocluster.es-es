@@ -1,0 +1,14 @@
+---
+permalink: install-fc/task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, configure, brocade, switches, manually 
+summary: Los procedimientos y comandos de configuración del switch son diferentes, dependiendo del proveedor del switch. 
+---
+= Configuración manual de los switches FC de Cisco o Brocade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los procedimientos y comandos de configuración del switch son diferentes, dependiendo del proveedor del switch.

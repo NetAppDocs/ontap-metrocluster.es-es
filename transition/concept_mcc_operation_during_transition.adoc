@@ -1,0 +1,26 @@
+---
+permalink: transition/concept_mcc_operation_during_transition.html 
+sidebar: sidebar 
+keywords: notice, alert, message, transition, alert, safe, ignore, tool, transition 
+summary: Puede observar mensajes de alerta durante la transición. Estas alertas se pueden ignorar con seguridad. Además, algunas herramientas no están disponibles durante la transición. 
+---
+= Mensajes de alerta y soporte de herramientas durante la transición
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede observar mensajes de alerta durante la transición. Estas alertas se pueden ignorar con seguridad. Además, algunas herramientas no están disponibles durante la transición.
+
+* ARS puede estar alerta durante la transición.
++
+Estas alertas pueden ignorarse y deben desaparecer una vez que haya terminado la transición.
+
+* Unified Manager de OnCommand puede alertar durante la transición.
++
+Estas alertas pueden ignorarse y deben desaparecer una vez que haya terminado la transición.
+
+* Config Advisor no es compatible durante la transición.
+* System Manager no es compatible durante la transición.
+

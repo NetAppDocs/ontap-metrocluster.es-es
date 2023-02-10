@@ -1,0 +1,170 @@
+---
+permalink: disaster-recovery/task_prepare_the_nodes_for_switchback_in_a_mixed_configuration.html 
+sidebar: sidebar 
+keywords: perform, certain, task, prepare, metrocluster, ip, fc, configuration, switchback, recovery, during, transition, mix 
+summary: Debe llevar a cabo ciertas tareas para preparar la configuración mixta de IP de MetroCluster y FC para la operación de conmutación de estado. Este procedimiento solo se aplica a configuraciones que han encontrado un error durante el proceso de transición de FC a IP de MetroCluster. 
+---
+= Preparación para la conmutación de estado en una configuración mixta (recuperación durante la transición)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe llevar a cabo ciertas tareas para preparar la configuración mixta de IP de MetroCluster y FC para la operación de conmutación de estado. Este procedimiento solo se aplica a configuraciones que han encontrado un error durante el proceso de transición de FC a IP de MetroCluster.
+
+.Acerca de esta tarea
+Este procedimiento solo se debe usar cuando se realizó la recuperación en un sistema que estaba en transición media cuando se produjo el fallo.
+
+En esta situación, MetroCluster es una configuración mixta:
+
+* Un grupo de recuperación ante desastres se compone de nodos FC de MetroCluster conectados a la estructura.
++
+Debe ejecutar los pasos de recuperación del FC de MetroCluster en estos nodos.
+
+* Un grupo de recuperación ante desastres consta de nodos IP de MetroCluster.
++
+En estos nodos debe ejecutar los pasos de recuperación IP de MetroCluster.
+
+
+
+.Pasos
+Realice los pasos en el siguiente orden.
+
+. Prepare los nodos FC para su conmutación de estado realizando las siguientes tareas en el orden:
++
+.. link:task_verify_port_mcfc.html["Verificación de la configuración de puerto (solo configuraciones de MetroCluster FC)"]
+.. link:task_cfg_bridges_mcfc.html["Configuración de los puentes FC a SAS (solo configuraciones de FC de MetroCluster)"]
+.. link:task_cfg_switches_mcfc.html["Configuración de los switches FC (solo configuraciones de MetroCluster FC)"]
+.. link:task_verify_storage_mcfc.html["Verificación de la configuración de almacenamiento"] (Estos pasos solo deben realizarse en las unidades sustituidas de los nodos FC de MetroCluster).
+.. link:task_power_on_mcfc.html["Encender el equipo en el sitio de recuperación ante desastres"] (Estos pasos solo deben realizarse en las unidades sustituidas de los nodos FC de MetroCluster).
+.. link:task_assign_ownership_mcfc.html["Asignación de propiedad de unidades sustituidas"] (Estos pasos solo deben realizarse en las unidades sustituidas de los nodos FC de MetroCluster).
+.. Siga los pasos de link:task_reassign_roots_mcfc.html["Reasignar la propiedad de disco para agregados raíz a módulos de controladora de reemplazo (configuraciones de FC de MetroCluster)"], hasta e incluyendo el paso para emitir el comando de destrucción de buzón.
+.. Destruir el complejo local (complejo 0) del agregado raíz:
++
+`aggr destroy plex-id`
+
+.. Si el aggr raíz no está conectado, trátelo en línea.
+
+
+. Arrancar los nodos FC de MetroCluster.
++
+Debe realizar estos pasos en ambos nodos FC de MetroCluster.
+
++
+.. Mostrar el menú de inicio:
++
+`boot_ontap menu`
+
+.. En el menú de inicio, seleccione la opción 6, *Actualizar flash desde backup config*.
+.. Responda `y` en el siguiente símbolo del sistema:
++
+`This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?: y`
+
++
+El sistema se iniciará dos veces, la segunda vez para cargar la nueva configuración.
+
++
+
+NOTE: Si no ha borrado el contenido de la NVRAM de una controladora de reemplazo utilizada, podría ver una alerta con el siguiente mensaje: `PANIC: NVRAM contents are invalid...` Si esto ocurre, repita estos subpasos para arrancar el sistema en el prompt de ONTAP. Entonces necesita hacerlo <<Reset-the-boot-recovery,Restablezca la recuperación de arranque y los bootargs rdb_corrupt>>
+
+
+
+. Reflejar el agregado raíz en el complejo 0:
++
+Debe realizar estos pasos en ambos nodos FC de MetroCluster.
+
++
+.. Asigne tres discos pool0 al nuevo módulo de controlador.
+.. Duplicar el complejo de agrupación root 1:
++
+`aggr mirror root-aggr-name`
+
+.. Asigne discos sin propietario a pool0 en el nodo local
+
+
+. Vuelva al modo de mantenimiento.
++
+Debe realizar estos pasos en ambos nodos FC de MetroCluster.
+
++
+.. Detenga el nodo:
++
+`halt`
+
+.. Arrancar el nodo en Mantenimiento:
++
+`mode:boot_ontap maint`
+
+
+
+. Elimine el contenido de los discos del buzón:
++
+`mailbox destroy local`
+
++
+Debe realizar estos pasos en ambos nodos FC de MetroCluster.
+
+. Detenga los nodos: +
+`halt`
+. Tras arrancar los nodos, compruebe el estado del nodo:
++
+`metrocluster node show`
+
++
+[listing]
+----
+siteA::*> metrocluster node show
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     siteA
+              wmc66-a1           configured     enabled   waiting for switchback recovery
+              wmc66-a2           configured     enabled   waiting for switchback recovery
+      siteB
+              wmc66-b1           configured     enabled   switchover completed
+              wmc66-b2           configured     enabled   switchover completed
+2     siteA
+              wmc55-a1           -              -         -
+              wmc55-a2           unreachable    -         -
+      siteB
+              wmc55-b1           configured     enabled   switchover completed
+              wmc55-b2           configured
+----
+. Prepare los nodos IP de MetroCluster para su conmutación de estado realizando las tareas en link:task_prepare_for_switchback_in_a_mcc_ip_configuration_supertask.html["Preparación para regresar en una configuración IP de MetroCluster"] hasta e incluye link:task_delete_plexes_mcip.html["Eliminación de complejos fallidos propiedad del sitio superviviente (configuraciones IP de MetroCluster)"].
+. En los nodos FC de MetroCluster, realice los pasos del link:task_heal_restore_mcfc.html["Realizar la reparación y restauración de reflejos de agregados (configuraciones FC de MetroCluster)"].
+. En los nodos IP de MetroCluster, realice los pasos descritos en link:task_heal_restore_mcip.html["Realizar la reparación y restauración de agregados (configuraciones de IP de MetroCluster)"].
+. Continúe con las tareas restantes del proceso de recuperación, empezando por link:task_complete_recovery.html#reestablishing-object-stores-for-fabricpool-configurations["Restablecer almacenes de objetos para configuraciones de FabricPool"].
+
+
+
+
+=== [[Reset-the-boot-recovery]]reinicie los arranques boot_recovery y rdb_corrupt
+
+[role="lead"]
+Si es necesario, puede restablecer el boot_recovery y rdb_corrupt_bootargs
+
+.Pasos
+. Detenga el nodo de nuevo en el símbolo del sistema del CARGADOR:
++
+[listing]
+----
+node_A_1::*> halt -node _node-name_
+----
+. Compruebe si se han configurado los siguientes bootargs:
++
+[listing]
+----
+LOADER> printenv bootarg.init.boot_recovery
+LOADER> printenv bootarg.rdb_corrupt
+----
+. Si se ha establecido un valor en bootarg, desconconfigúrelo y arranque ONTAP:
++
+[listing]
+----
+LOADER> unsetenv bootarg.init.boot_recovery
+LOADER> unsetenv bootarg.rdb_corrupt
+LOADER> saveenv
+LOADER> bye
+----
+

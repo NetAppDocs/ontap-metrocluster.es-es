@@ -1,0 +1,40 @@
+---
+permalink: install-stretch/task_fb_new_install_cable_6500.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, fibrebridge, disk, shelves, iom6, iom3, modules 
+summary: Después de configurar el puente, puede iniciar el cableado del nuevo sistema. El puente FibreBridge 6500N utiliza conectores QSFP. 
+---
+= Cableado de un puente FibreBridge 6500N con bandejas de discos mediante módulos IOM6 o IOM3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de configurar el puente, puede iniciar el cableado del nuevo sistema. El puente FibreBridge 6500N utiliza conectores QSFP.
+
+Encienda y espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector del cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).
+
+El puente FibreBridge 6500N no admite bandejas de discos que utilicen un módulo IOM12.
+
+.Pasos
+. Conecte en cadena las bandejas de discos en cada pila.
++
+Para obtener información acerca de las bandejas de discos en cadena, consulte la _Guía de instalación y mantenimiento_ del modelo de bandeja de discos.
+
+. Para cada pila de bandejas de discos, conecte el IOM un puerto cuadrado de la primera bandeja al puerto SAS A en FibreBridge A.
+. Para cada pila de bandejas de discos, conecte el puerto circular IOM B de la última bandeja al puerto SAS A en FibreBridge B.
++
+Cada puente tiene un camino hacia su pila de bandejas de discos. El puente A se conecta al lado A de la pila a través de la primera balda, y el puente B se conecta al lado B de la pila a través de la última balda.
+
++
+
+NOTE: El puente del puerto SAS B está deshabilitado.
+
++
+En la siguiente ilustración, se muestra un conjunto de puentes cableados a una pila de cuatro bandejas de discos:
+
++
+image::../media/mcc_cabling_bridge_and_sas_stack.gif[puente de cableado mcc y pila sas]
+
+

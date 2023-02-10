@@ -1,0 +1,16 @@
+---
+permalink: install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_sas.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, two, node, sas, attached, configuration 
+summary: Los componentes de MetroCluster deben instalarse físicamente, cablearse y configurarse en ambos sitios geográficos. Los pasos son ligeramente diferentes para un sistema con bandejas de discos nativas, en lugar de un sistema con LUN de cabina. 
+---
+= Cableado de una configuración de MetroCluster ampliado con conexión a SAS de dos nodos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los componentes de MetroCluster deben instalarse físicamente, cablearse y configurarse en ambos sitios geográficos. Los pasos son ligeramente diferentes para un sistema con bandejas de discos nativas, en lugar de un sistema con LUN de cabina.
+
+image::../media/workflow_hardware_installation_and_configuration_2_node_sas_attached.gif[flujo de trabajo instalación y configuración del hardware con conexión sas de 2 nodos]

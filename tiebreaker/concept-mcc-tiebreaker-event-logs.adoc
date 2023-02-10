@@ -1,0 +1,32 @@
+---
+permalink: tiebreaker/concept-mcc-tiebreaker-event-logs.html 
+sidebar: sidebar 
+keywords: metrocluster, tiebreaker, actions, events, event, log files, files, logs, file 
+summary: Las actividades de tiebreaker para MetroCluster se registran en archivos de registro de eventos. 
+---
+= Archivos de registro de eventos para MetroCluster Tiebreaker
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El archivo de registro de eventos contiene un registro de todas las acciones que realiza el software MetroCluster Tiebreaker.
+
+El software Tierbreaker realiza las siguientes acciones:
+
+* Detecta desastres del sitio
+* Detecta cambios de configuración relacionados con la base de datos, otros monitores Tiebreaker o el software de tiebreaker de MetroCluster
+* Detecta conexiones y desconexiones SSH
+* Detecta las configuraciones de MetroCluster
+
+
+Estas acciones se registran en el archivo de registro de eventos con el siguiente formato:
+
+módulo id de subproceso de nivel de registro/gravedad de marca de hora
+
+....
+2022-09-07 06:14:30,797 INFO  [MCCTBCommandServer-16] [SslSupport] Successfully initiated SSL context. Protocol used is TLSv1.3.
+2022-09-07 06:14:34,137 INFO  [MCCTBCommandServer-16] [DataBase] Successfully read MCCTB database.
+2022-09-07 06:14:34,137 INFO  [MCCTBCommandServer-16] [ConfigurationMonitor] Debug mode disabled.
+....

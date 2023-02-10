@@ -1,0 +1,137 @@
+---
+permalink: maintain/task_replace_a_shelf_nondisruptively_in_a_stretch_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, shelf, nondisruptively, stretch, configuration 
+summary: Puede sustituir bandejas de discos sin interrupciones en una configuración de MetroCluster con ampliación por una bandeja de discos completamente llena o un chasis de bandeja de discos y transferir componentes de la bandeja que va a quitar. 
+---
+= Reemplazar una bandeja de forma no disruptiva en una configuración MetroCluster con ampliación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede sustituir bandejas de discos sin interrupciones en una configuración de MetroCluster con ampliación por una bandeja de discos completamente llena o un chasis de bandeja de discos y transferir componentes de la bandeja que va a quitar.
+
+El modelo de bandeja de discos que está instalando debe cumplir con los requisitos del sistema de almacenamiento especificados en link:https://hwu.netapp.com["Hardware Universe"^], Que incluye los modelos de bandeja admitidos, los tipos de unidad de disco admitidos, el número máximo de bandejas de discos en una pila y las versiones de ONTAP compatibles.
+
+.Pasos
+. Puesta a tierra apropiadamente usted mismo.
+. Identifique todos los agregados y volúmenes que tienen discos del bucle que contiene la bandeja que desea reemplazar y anote el nombre del plex afectado.
++
+Puede que cualquiera de los nodos contenga discos del bucle de la bandeja afectada y de los agregados de host o los volúmenes de host.
+
+. Elija una de las dos opciones siguientes en función del escenario de reemplazo que esté planificando.
++
+** Si va a sustituir una bandeja de discos completa, incluido el chasis de la bandeja, los discos y los módulos de I/o (IOM), realice las acciones correspondientes tal como se describe en la tabla siguiente:
++
+|===
+
+
+| Situación | Acción 
+
+
+ a| 
+El plex afectado contiene menos discos de la bandeja afectada.
+ a| 
+Sustituya los discos uno por uno de la bandeja afectada por repuestos de otra bandeja.
+
+
+NOTE: Puede desconectar el complejo después de realizar la sustitución del disco.
+
+
+
+ a| 
+El plex afectado contiene más discos de los que están en la bandeja afectada.
+ a| 
+Desconectar el complejo y después borrar el complejo.
+
+
+
+ a| 
+El plex afectado tiene cualquier disco de la bandeja afectada.
+ a| 
+Desconectar el complejo, pero no borrarlo.
+
+|===
+** Si solo va a sustituir el chasis de la bandeja de discos y ningún otro componente, realice los siguientes pasos:
++
+... Sin conexión los plex afectados de la controladora en el que están alojados:
++
+`aggregate offline`
+
+... Compruebe que los complejos están sin conexión:
++
+`aggregate status -r`
+
+
+
+
+
+. Identifique los puertos SAS de la controladora a los que está conectado el bucle de bandeja afectado y deshabilite los puertos SAS de ambas controladoras del sitio:
++
+`storage port disable -node _node_name_ -port _SAS_port_`
+
++
+El bucle de bandeja afectado está conectado a ambas ubicaciones.
+
+. Espere a que ONTAP reconozca que falta el disco.
++
+.. Compruebe que falta el disco:
++
+`sysconfig -a` o. `sysconfig -r`
+
+
+
+. Apague el interruptor de alimentación de la bandeja de discos.
+. Desconecte todos los cables de alimentación de la bandeja de discos.
+. Realice un registro de los puertos desde los que se desenchufan los cables para que pueda cablear la nueva bandeja de discos del mismo modo.
+. Desconecte y quite los cables que conectan la bandeja de discos a las otras bandejas de discos o al sistema de almacenamiento.
+. Quite la bandeja de discos del rack.
++
+Para que la bandeja de discos sea más ligera y fácil de maniobrar, retire las fuentes de alimentación y la IOM. Si va a instalar un chasis de bandeja de discos, retire también las unidades de disco o los soportes. De lo contrario, evite extraer unidades de disco o soportes si es posible, ya que un manejo excesivo puede causar daños internos en la unidad.
+
+. Instale y fije la bandeja de discos de repuesto en los soportes de soporte y el rack.
+. Si instaló un chasis de bandeja de discos, reinstale los suministros de alimentación y el IOM.
+. Vuelva a configurar la pila de bandejas de discos conectando todos los cables a los puertos de la bandeja de discos de reemplazo exactamente como se configuraron en la bandeja de discos que se quitó.
+. Encienda la bandeja de discos de reemplazo y espere a que las unidades de disco se acelere.
+. Cambie el ID de bandeja de discos a un ID único de 0 a 98.
+. Habilite cualquier puerto SAS que haya deshabilitado anteriormente .
++
+.. Espere a que ONTAP reconozca que los discos están insertados.
+.. Compruebe que estén insertados los discos:
++
+`sysconfig -a` o. `sysconfig -r`
+
+
+
+. Si va a sustituir la bandeja de discos completa (chasis de bandeja de discos, discos, IOM), realice los siguientes pasos:
++
+
+NOTE: Si solo va a sustituir el chasis de la bandeja de discos y ningún otro componente, vaya al paso 19.
+
++
+.. Determine si la asignación automática de discos está activada (activada).
++
+`storage disk option modify -autoassign`
+
++
+La asignación de discos se realizará automáticamente.
+
+.. Si la asignación automática de disco no está habilitada, asigne la propiedad de disco manualmente.
+
+
+. Vuelva a mover los complejos en línea:
++
+`aggregate online _plex name_`
+
+. Vuelva a crear todos los complejos que se hayan eliminado mediante mirroring del agregado.
+. Supervise los complejos cuando empiecen a sincronizar:
++
+`aggregate status -r <aggregate name>`
+
+. Compruebe que el sistema de almacenamiento funciona del modo esperado:
++
+`system health alert show`
+
+

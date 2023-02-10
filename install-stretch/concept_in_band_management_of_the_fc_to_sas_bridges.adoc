@@ -1,0 +1,31 @@
+---
+permalink: install-stretch/concept_in_band_management_of_the_fc_to_sas_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, in, band, management, fc, sas, bridges 
+summary: A partir de ONTAP 9.5 con puentes FibreBridge 7500N o 7600N, la gestión en banda de los puentes es compatible como alternativa a la gestión IP de los puentes. A partir de ONTAP 9.8, la gestión fuera de banda queda obsoleta. 
+---
+= Gestión en banda de los puentes FC a SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.5 con puentes FibreBridge 7500N o 7600N, se admite la gestión en banda de los puentes como alternativa a la gestión IP de los puentes. A partir de ONTAP 9.8, la gestión fuera de banda queda obsoleta.
+
+
+NOTE: A partir de ONTAP 9.8, el `*storage bridge*` el comando se sustituye por el `*system bridge*` comando. Los siguientes pasos muestran el `*storage bridge*` Pero si ejecuta ONTAP 9.8 o una versión posterior, el `*system bridge*` el comando es preferido.
+
+Cuando se utiliza la gestión en banda, los puentes se pueden gestionar y supervisar desde la CLI de ONTAP a través de la conexión FC al puente. No se requiere acceso físico al puente a través de los puertos Ethernet del puente, lo que reduce la vulnerabilidad de seguridad del puente.
+
+La disponibilidad de la gestión en banda de los puentes depende de la versión de ONTAP:
+
+* A partir de ONTAP 9.8, los puentes se gestionan a través de conexiones en banda por defecto y la gestión fuera de banda de los puentes a través de SNMP está obsoleta.
+* ONTAP 9.5 a 9.7: Se admite la gestión en banda o la gestión SNMP fuera de banda.
+* Antes de ONTAP 9.5, solo se admite la gestión SNMP fuera de banda.
+
+
+Los comandos de la CLI puente se pueden emitir desde la interfaz ONTAP `storage bridge run-cli -name _bridge-name_ -command _bridge-command-name_` En la interfaz de ONTAP.
+
+
+NOTE: Se recomienda el uso de la gestión en banda con acceso IP desactivado para mejorar la seguridad limitando la conectividad física del puente.

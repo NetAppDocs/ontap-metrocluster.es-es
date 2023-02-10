@@ -1,0 +1,75 @@
+---
+permalink: upgrade/task_change_the_ha_config_setts_mcc_add_a_2nd_controller.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, change, ha, config, sett, existing, new, controller, modules 
+summary: Al expandir una configuración de MetroCluster, debe actualizar la configuración de alta disponibilidad del módulo de la controladora existente y el nuevo módulo de la controladora. También debe determinar el ID del sistema del nuevo módulo de controlador. 
+---
+= Cambiar la configuración de alta disponibilidad en los módulos de la controladora nuevos y existentes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al expandir una configuración de MetroCluster, debe actualizar la configuración de alta disponibilidad del módulo de la controladora existente y el nuevo módulo de la controladora. También debe determinar el ID del sistema del nuevo módulo de controlador.
+
+.Acerca de esta tarea
+Esta tarea se realiza en modo de mantenimiento tanto en los módulos de la controladora existente como en los nuevos.
+
+.Pasos
+. Cambie la configuración de alta disponibilidad del módulo de controladora existente:
++
+.. Visualice la configuración de alta disponibilidad del módulo de la controladora y el chasis existentes:
++
+`ha-config show`
+
++
+La configuración ha-config es «mcc-2n» para todos los componentes porque el módulo de la controladora estaba en una configuración MetroCluster de dos nodos.
+
+.. Cambie el ajuste ha-config del módulo de controlador existente a "mcc": +
+`ha-config modify controller mcc`
+.. Cambie el ajuste ha-config del chasis existente a «mcc»:
++
+`ha-config modify chassis mcc`
+
+.. Recupere el ID del sistema del módulo de controlador existente:
++
+`sysconfig`
+
++
+Anote el ID del sistema. Lo necesita cuando establece el ID de partner en el nuevo módulo de la controladora.
+
+.. Salga del modo de mantenimiento para volver al aviso del CARGADOR:
++
+`halt`
+
+
+
+. Cambie la configuración de alta disponibilidad y recupere el ID del sistema del nuevo módulo de la controladora:
++
+.. Si el nuevo módulo de controladora no está en modo de mantenimiento, arranque en modo de mantenimiento:
++
+`boot_ontap maint`
+
+.. Cambie el ajuste ha-config del nuevo módulo de controlador a «mcc»:
++
+`ha-config modify controller mcc`
+
+.. Cambie la configuración de alta disponibilidad del nuevo chasis a mcc:
++
+`ha-config modify chassis mcc`
+
+.. Recupere el ID del sistema del nuevo módulo de controlador:
++
+`sysconfig`
+
++
+Anote el ID del sistema. Lo necesita cuando establece el ID de socio y asigna discos al nuevo módulo de controlador.
+
+.. Salga del modo de mantenimiento para volver al aviso del CARGADOR:
++
+`halt`
+
+
+
+

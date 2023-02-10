@@ -1,0 +1,16 @@
+---
+permalink: install-stretch/reference_example_of_a_stretch_mcc_configuration_with_e_series_storage_arrays.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, example, stretch, configuraiton, e, series, storage, arrays 
+summary: En una configuración de MetroCluster con ampliación y LUN de cabina de almacenamiento E-Series, puede conectar directamente las controladoras de almacenamiento y las cabinas de almacenamiento. A diferencia de otros LUN de cabina, no se necesitan switches FC. 
+---
+= Ejemplo de una configuración MetroCluster con ampliación con cabinas de almacenamiento E-Series
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En una configuración de MetroCluster con ampliación y LUN de cabina de almacenamiento E-Series, puede conectar directamente las controladoras de almacenamiento y las cabinas de almacenamiento. A diferencia de otros LUN de cabina, no se necesitan switches FC.
+
+La link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Direct_Attach_support_for_Stretch_MetroCluster_Configuration_with_NetApp_E-Series_array["Compatibilidad de la conexión directa para la configuración de MetroCluster con ampliación con la cabina E-Series de NetApp"] El artículo de la base de conocimientos proporciona ejemplos de configuraciones con LUN de cabina E-Series.

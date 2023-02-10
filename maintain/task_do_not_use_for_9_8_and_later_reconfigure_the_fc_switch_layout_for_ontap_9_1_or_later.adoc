@@ -1,0 +1,229 @@
+---
+permalink: maintain/task_do_not_use_for_9_8_and_later_reconfigure_the_fc_switch_layout_for_ontap_9_1_or_later.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, reconfigure, fc, switch, layout, configured 
+summary: 'Si el diseño del switch FC existente se configuró antes de ONTAP 9.1, debe volver a configurar el diseño del puerto y aplicar los últimos archivos de configuración de referencia (RCF). Este procedimiento sólo se aplica a las configuraciones de MetroCluster FC.' 
+---
+= Cambiar la configuración de un switch de FC configurado antes de ONTAP 9.x.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si el diseño del switch FC existente se configuró antes de ONTAP 9.1, debe volver a configurar el diseño del puerto y aplicar los últimos archivos de configuración de referencia (RCF). Este procedimiento sólo se aplica a las configuraciones de MetroCluster FC.
+
+.Antes de empezar
+Debe identificar los switches de FC presentes en el dominio de la estructura.
+
+Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
+
+Debe realizar esta tarea si su distribución existente del switch de FC se configuró antes de ONTAP 9.1. Es _not_ obligatorio si está actualizando desde un diseño de switch existente configurado para ONTAP 9.1 o posterior.
+
+.Acerca de esta tarea
+Este procedimiento no genera interrupciones y tarda aproximadamente cuatro horas en completarse (excepto en el rack y la pila) cuando los discos se ponen a cero.
+
+
+
+== Enviar un mensaje de AutoSupport personalizado antes de reconfigurar los switches
+
+Antes de reconfigurar los switches, debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que se está realizando el mantenimiento. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción.
+
+Esta tarea debe realizarse en cada sitio MetroCluster.
+
+.Pasos
+. Inicie sesión en el clúster.
+. Invoque un mensaje de AutoSupport que indique el inicio del mantenimiento:
++
+`system node autosupport invoke -node * -type all -message MAINT=__maintenance-window-in-hours__*`
+
++
+la ventana de mantenimiento en horas especifica la longitud de la ventana de mantenimiento, con un máximo de 72 horas. Si el mantenimiento se completa antes de que haya transcurrido el tiempo, puede invocar un mensaje de AutoSupport que indique el final del período de mantenimiento:
+
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+. Repita estos pasos en el sitio para partners.
+
+
+
+
+== Comprobación del estado de la configuración de MetroCluster
+
+Debe comprobar el estado de la configuración de MetroCluster para verificar que funciona correctamente.
+
+.Pasos
+. Compruebe que los componentes de MetroCluster están en buen estado:
++
+`metrocluster check run`
+
++
+[listing]
+----
+cluster_A::*> metrocluster check run
+
+----
++
+La operación se ejecuta en segundo plano.
+
+. Después del `metrocluster check run` la operación finaliza, se ejecuta `metrocluster check show` para ver los resultados.
++
+Después de unos cinco minutos, se muestran los siguientes resultados:
+
++
+[listing]
+----
+-----------
+cluster_A::*> metrocluster check show
+
+Last Checked On: 4/7/2019 21:15:05
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          warning
+clusters            ok
+connections         not-applicable
+volumes             ok
+7 entries were displayed.
+----
+. Para comprobar el estado de la operación de comprobación de MetroCluster en ejecución, utilice el comando:
++
+`metrocluster operation history show -job-id 38`
+
+. Compruebe que no hay alertas de estado:
++
+`system health alert show`
+
+
+
+
+
+== Comprobación de errores de configuración de MetroCluster
+
+Puede utilizar la herramienta Config Advisor disponible en el sitio de soporte de NetApp para comprobar si hay errores comunes de configuración.
+
+Config Advisor es una herramienta de validación de configuración y comprobación del estado. Puede implementarlo tanto en sitios seguros como en sitios no seguros para la recopilación de datos y el análisis del sistema.
+
+
+NOTE: El soporte para Config Advisor es limitado y solo está disponible en línea.
+
+. Descargue la herramienta Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+
+. Ejecute Config Advisor, revise el resultado y siga sus recomendaciones para solucionar cualquier problema.
+
+
+
+
+== Desactivación persistente de los switches
+
+Debe deshabilitar los switches en la estructura de forma persistente para poder modificar su configuración.
+
+Los switches se desactivan ejecutando los comandos en la línea de comandos del switch, los comandos que se utilizan para este número no son comandos de la ONTAP.
+
+.Pasos
+. Desactive el interruptor de forma persistente:
++
+** Use el siguiente comando para deshabilitar un switch de Brocade de forma persistente:
++
+`FC_switch_A_1:admin> switchCfgPersistentDisable`
+
+** Use el siguiente comando para deshabilitar un switch de Cisco de forma persistente:
++
+`vsan [vsna #] suspend`
+
+
+
+
+
+
+
+== Determinando la disposición del nuevo cableado
+
+Debe determinar el cableado de los módulos de controladora nuevos y de todas las bandejas de discos nuevas a los switches FC existentes.
+
+Esta tarea debe realizarse en cada sitio MetroCluster.
+
+.Pasos
+. Uso https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"^] Para determinar la distribución de cableado del tipo de switch, se usa el uso de puertos para una configuración MetroCluster de ocho nodos.
++
+El uso del puerto del switch FC debe coincidir con el uso descrito en la guía para poder utilizar los archivos de configuración de referencia (RCF).
+
++
+
+NOTE: No utilice este procedimiento si el cableado no puede utilizar RCF.
+
+
+
+
+
+== Aplicación de archivos RCF y presentación de los conmutadores
+
+Debe aplicar los archivos de configuración de referencia (RCF) adecuados para volver a configurar los switches de modo que se adapten a los nuevos nodos. Después de aplicar los archivos RCF, puede recuperar los conmutadores.
+
+El uso del puerto del switch FC debe coincidir con el uso descrito en la https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"^] De modo que se puedan utilizar los RCF.
+
+.Pasos
+. Busque los archivos RCF para su configuración.
++
+Debe utilizar los archivos RCF que coincidan con su modelo de conmutador.
+
+. Aplique los archivos RCF siguiendo las instrucciones de la página Descargar y ajuste la configuración de ISL según sea necesario.
+. Compruebe que se ha guardado la configuración del switch.
+. Conecte los dos puentes FC-a-SAS a los switches FC utilizando la disposición de cableado que creó en la sección "Extracción del nuevo diseño de cableado".
+. Compruebe que los puertos están en línea:
++
+** En el caso de los switches Brocade, utilice `switchshow` comando.
+** En el caso de los switches Cisco, utilice `show interface brief` comando.
+
+
+. Conecte el cable de los puertos FC-VI de las controladoras a los switches.
+. Desde los nodos existentes, compruebe que los puertos FC-VI estén en línea:
++
+`metrocluster interconnect adapter show`
+
++
+`metrocluster interconnect mirror show`
+
+
+
+
+
+== Active los switches de forma persistente
+
+Debe habilitar los switches en la estructura de forma persistente.
+
+.Pasos
+. Active el interruptor de forma persistente:
++
+** En el caso de los switches Brocade, utilice `switchCfgPersistentenable` comando.
+** En el caso de los switches de Cisco, utilice el no `suspend` comando. El siguiente comando habilita de forma persistente un switch Brocade:
++
+[listing]
+----
+FC_switch_A_1:admin> switchCfgPersistentenable
+----
++
+El siguiente comando habilita un switch de Cisco:
+
++
+[listing]
+----
+vsan [vsna #]no suspend
+----
+
+
+
+
+
+
+== Verificación de la conmutación de sitios, el reparación y la conmutación de estado
+
+Debe verificar las operaciones de conmutación de sitios, reparación y conmutación de estado de la configuración de MetroCluster.
+
+. Utilice los procedimientos para la conmutación negociada, la reparación y la conmutación de estado que se describen en https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["Gestión y recuperación ante desastres de MetroCluster"^].
+

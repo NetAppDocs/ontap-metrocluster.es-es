@@ -1,0 +1,209 @@
+---
+permalink: install-ip/task_sw_config_assign_pool0.html 
+sidebar: sidebar 
+keywords: metrocluster, controller, assign drives, pool 0, disk assign 
+summary: Si no recibió los sistemas preconfigurados de fábrica, es posible que tenga que asignar manualmente el pool 0 unidades. Según el modelo de plataforma y si el sistema está utilizando ADP, debe asignar manualmente unidades al pool 0 para cada nodo de la configuración IP de MetroCluster. El procedimiento que utilice dependerá de la versión de ONTAP que esté utilizando. 
+---
+= Asignar manualmente unidades al pool 0
+:allow-uri-read: 
+
+
+[role="lead"]
+Si no recibió los sistemas preconfigurados de fábrica, es posible que tenga que asignar manualmente el pool 0 unidades. Según el modelo de plataforma y si el sistema está utilizando ADP, debe asignar manualmente unidades al pool 0 para cada nodo de la configuración IP de MetroCluster. El procedimiento que utilice dependerá de la versión de ONTAP que esté utilizando.
+
+
+
+== Asignar manualmente unidades para un pool 0 (ONTAP 9.4 y posterior)
+
+Si el sistema no ha sido preconfigurado de fábrica y no cumple con los requisitos de la asignación automática de unidades, debe asignar manualmente las unidades del pool 0.
+
+.Acerca de esta tarea
+Este procedimiento se aplica a configuraciones que ejecuten ONTAP 9.4 o posterior.
+
+Para determinar si su sistema requiere la asignación manual de discos, debe revisar link:concept_considerations_drive_assignment.html["Consideraciones sobre la asignación automática de unidades y los sistemas ADP en ONTAP 9.4 y versiones posteriores"].
+
+Estos pasos se realizan en el modo de mantenimiento. El procedimiento debe realizarse en cada nodo de la configuración.
+
+Los ejemplos de esta sección se basan en las siguientes suposiciones:
+
+* Node_A_1 y Node_A_2 tienen unidades en:
++
+** Site_A-shelf_1 (local)
+** Site_B-shelf_2 (remoto)
+
+
+* Node_B_1 y Node_B_2 poseen unidades en:
++
+** Site_B-shelf_1 (local)
+** Site_A-shelf_2 (remoto)
+
+
+
+
+.Pasos
+. Mostrar el menú de inicio:
++
+`boot_ontap menu`
+
+. Seleccione la opción 9a y responda `no` cuando se le solicite.
++
+La siguiente pantalla muestra el indicador del menú de inicio:
+
++
+[listing]
+----
+
+Please choose one of the following:
+
+(1) Normal Boot.
+(2) Boot without /etc/rc.
+(3) Change password.
+(4) Clean configuration and initialize all disks.
+(5) Maintenance mode boot.
+(6) Update flash from backup config.
+(7) Install new software first.
+(8) Reboot node.
+(9) Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? 9a
+
+...
+
+########## WARNING: AGGREGATES WILL BE DESTROYED ##########
+This is a disruptive operation that applies to all the disks
+that are attached and visible to this node.
+
+Before proceeding further, make sure that:
+
+The aggregates visible from this node do not contain
+data that needs to be preserved.
+This option (9a) has been executed or will be executed
+on the HA partner node (and DR/DR-AUX partner nodes if
+applicable), prior to reinitializing any system in the
+HA-pair or MetroCluster configuration.
+The HA partner node (and DR/DR-AUX partner nodes if
+applicable) is currently waiting at the boot menu.
+Do you want to abort this operation (yes/no)? no
+----
+. Cuando se reinicie el nodo, pulse Ctrl-C cuando se le solicite que muestre el menú de inicio y, a continuación, seleccione la opción *modo de mantenimiento boot*.
+. En el modo de mantenimiento, asigne manualmente unidades a los agregados locales en el nodo:
++
+`disk assign _disk-id_ -p 0 -s _local-node-sysid_`
+
++
+Las unidades se deben asignar de forma simétrica, por lo que cada nodo tiene un mismo número de unidades. Los siguientes pasos son para una configuración con dos bandejas de almacenamiento en cada sitio.
+
++
+.. Al configurar node_A_1, asigne unidades manualmente de la ranura 0 a 11 a la piscina 0 del nodo A1 desde site_A-shelf_1.
+.. Al configurar node_A_2, asigne unidades manualmente de la ranura 12 a la 23 a la piscina 0 del nodo A2 desde site_A-shelf_1.
+.. Al configurar node_B_1, asigne unidades manualmente de la ranura 0 a 11 a la piscina 0 del nodo B1 desde site_B-shelf_1.
+.. Al configurar el nodo B_2, asigne unidades manualmente de la ranura 12 a la 23 a la piscina 0 del nodo B2 desde site_B-shelf_1.
+
+
+. Salir del modo de mantenimiento:
++
+`halt`
+
+. Mostrar el menú de inicio:
++
+`boot_ontap menu`
+
+. Repita estos pasos en los otros nodos de la configuración IP de MetroCluster.
+. Seleccione la opción *4* en el menú de inicio de ambos nodos y deje que el sistema arranque.
+. Vaya a. link:task_sw_config_setup_ontap.html["Configurar ONTAP"].
+
+
+
+
+== Asignar manualmente unidades para el pool 0 (ONTAP 9.3)
+
+Si tiene al menos dos bandejas de discos para cada nodo, utiliza la funcionalidad de asignación automática de ONTAP para asignar automáticamente los discos locales (pool 0).
+
+.Acerca de esta tarea
+Mientras el nodo se encuentra en modo de mantenimiento, primero debe asignar un solo disco de las bandejas adecuadas al pool 0. ONTAP asigna automáticamente el resto de los discos de la bandeja al mismo pool. Esta tarea no es necesaria en los sistemas recibidos de fábrica, que tienen el pool 0 para contener el agregado raíz preconfigurado.
+
+Este procedimiento se aplica a configuraciones que ejecuten ONTAP 9.3.
+
+Este procedimiento no es necesario si ha recibido de fábrica la configuración de MetroCluster. Los nodos de fábrica están configurados con discos de pool 0 y agregados raíz.
+
+Este procedimiento solo se puede utilizar si tiene al menos dos bandejas de discos en cada nodo, lo que permite la asignación automática de discos a nivel de bandeja. Si no puede utilizar la asignación automática en el nivel de bandeja, debe asignar manualmente los discos locales para que cada nodo tenga un pool local de discos (pool 0).
+
+Estos pasos se deben realizar en modo de mantenimiento.
+
+En los ejemplos de esta sección se asumen las siguientes bandejas de discos:
+
+* Node_A_1 posee discos en:
++
+** Site_A-shelf_1 (local)
+** Site_B-shelf_2 (remoto)
+
+
+* Node_A_2 está conectado a:
++
+** Site_A-shelf_3 (local)
+** Site_B-shelf_4 (remoto)
+
+
+* El nodo B_1 está conectado a:
++
+** Site_B-shelf_1 (local)
+** Site_A-shelf_2 (remoto)
+
+
+* El nodo B_2 está conectado a:
++
+** Site_B-shelf_3 (local)
+** Site_A-shelf_4 (remoto)
+
+
+
+
+.Pasos
+. Asigne manualmente un único disco para el agregado raíz de cada nodo:
++
+`disk assign _disk-id_ -p 0 -s _local-node-sysid_`
+
++
+La asignación manual de estos discos permite a la función de asignación automática de ONTAP asignar el resto de discos de cada bandeja.
+
++
+.. En node_A_1, asigne manualmente un disco desde local site_A-shelf_1 al pool 0.
+.. En node_A_2, asigne manualmente un disco desde local site_A-shelf_3 al pool 0.
+.. En node_B_1, asigne manualmente un disco desde local site_B-shelf_1 al pool 0.
+.. En node_B_2, asigne manualmente un disco desde local site_B-shelf_3 al pool 0.
+
+
+. Arranque cada nodo en el sitio A, mediante la opción 4 en el menú de arranque:
++
+Debe completar este paso en un nodo antes de continuar al siguiente nodo.
+
++
+.. Salir del modo de mantenimiento:
++
+`halt`
+
+.. Mostrar el menú de inicio:
++
+`boot_ontap menu`
+
+.. Seleccione la opción 4 en el menú de inicio y continúe.
+
+
+. Arranque cada nodo en el sitio B mediante la opción 4 en el menú de arranque:
++
+Debe completar este paso en un nodo antes de continuar al siguiente nodo.
+
++
+.. Salir del modo de mantenimiento:
++
+`halt`
+
+.. Mostrar el menú de inicio:
++
+`boot_ontap menu`
+
+.. Seleccione la opción 4 en el menú de inicio y continúe.
+
+
+

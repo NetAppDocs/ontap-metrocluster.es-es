@@ -1,0 +1,123 @@
+---
+permalink: upgrade/task_implement_the_mcc_configuration_mcc_refresh_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, implement, configuration 
+summary: Debe ejecutar el comando MetroCluster configure -refresh TRUE para iniciar la protección de datos en los nodos que se añadieron a una configuración de MetroCluster. 
+---
+= Implementar la configuración de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe ejecutar el `metrocluster configure -refresh true` Comando para iniciar la protección de datos en los nodos que se añadieron a una configuración de MetroCluster.
+
+.Acerca de esta tarea
+Emita el `metrocluster configure -refresh true` Comando una vez en uno de los nodos recién añadidos, para actualizar la configuración de MetroCluster. No es necesario emitir el comando en cada uno de los sitios o nodos.
+
+La `metrocluster configure -refresh true` El comando empareja automáticamente los dos nodos con el ID de sistema más bajo de cada uno de los dos clústeres como socios de recuperación ante desastres (DR). En una configuración MetroCluster de cuatro nodos, existen dos pares de recuperación ante desastres asociados. El segundo par DR se crea a partir de los dos nodos con ID de sistema superiores.
+
+.Pasos
+. Actualice la configuración de MetroCluster:
++
+.. Entre en el modo de privilegio avanzado:
++
+`set -privilege advanced`
+
+.. Actualice la configuración de MetroCluster en uno de los nodos nuevos: +
+`metrocluster configure -refresh true`
++
+En el ejemplo siguiente se muestra la configuración de MetroCluster actualizada en ambos grupos de recuperación ante desastres:
+
++
+[listing]
+----
+controller_A_2::*> metrocluster configure -refresh true
+
+[Job 726] Job succeeded: Configure is successful.
+----
++
+[listing]
+----
+controller_A_4::*> metrocluster configure -refresh true
+
+[Job 740] Job succeeded: Configure is successful.
+----
+.. Volver al modo de privilegios de administrador:
++
+`set -privilege admin`
+
+
+
+. Compruebe el estado de la red en el sitio A:
++
+`network port show`
+
++
+En el ejemplo siguiente se muestra el uso de puerto de red en una configuración de MetroCluster de cuatro nodos:
+
++
+[listing]
+----
+cluster_A::> network port show
+                                                          Speed (Mbps)
+Node   Port      IPspace   Broadcast Domain Link   MTU    Admin/Oper
+------ --------- --------- ---------------- ----- ------- ------------
+controller_A_1
+       e0a       Cluster   Cluster          up     9000  auto/1000
+       e0b       Cluster   Cluster          up     9000  auto/1000
+       e0c       Default   Default          up     1500  auto/1000
+       e0d       Default   Default          up     1500  auto/1000
+       e0e       Default   Default          up     1500  auto/1000
+       e0f       Default   Default          up     1500  auto/1000
+       e0g       Default   Default          up     1500  auto/1000
+controller_A_2
+       e0a       Cluster   Cluster          up     9000  auto/1000
+       e0b       Cluster   Cluster          up     9000  auto/1000
+       e0c       Default   Default          up     1500  auto/1000
+       e0d       Default   Default          up     1500  auto/1000
+       e0e       Default   Default          up     1500  auto/1000
+       e0f       Default   Default          up     1500  auto/1000
+       e0g       Default   Default          up     1500  auto/1000
+14 entries were displayed.
+----
+. Compruebe la configuración de MetroCluster en ambos sitios de la configuración de MetroCluster:
++
+.. Verifique la configuración desde el sitio A:
++
+`metrocluster show`
+
++
+[listing]
+----
+cluster_A::> metrocluster show
+
+Configuration: IP fabric
+
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_A         Configuration state configured
+                          Mode                normal
+Remote: cluster_B         Configuration state configured
+                          Mode                normal
+----
+.. Verifique la configuración desde el sitio B: +
+`metrocluster show`
++
+[listing]
+----
+cluster_B::> metrocluster show
+
+Configuration: IP fabric
+
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                normal
+Remote: cluster_A         Configuration state configured
+                          Mode                normal
+----
+
+
+

@@ -1,0 +1,70 @@
+---
+permalink: maintain/task_secur_or_unsecur_a_fibrebridge_bridge.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, secure, unsecure, fibrebridge, bridge 
+summary: Para deshabilitar fácilmente los protocolos Ethernet potencialmente no seguros en un puente, comenzando con ONTAP 9.5 puede proteger el puente. Esto desactiva los puertos Ethernet del puente. También puede volver a habilitar el acceso Ethernet. 
+---
+= Asegurar o desfijar el puente FiberBridge
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para deshabilitar fácilmente los protocolos Ethernet potencialmente no seguros en un puente, comenzando con ONTAP 9.5 puede proteger el puente. De esta forma se desactivan los puertos Ethernet del puente. También puede volver a habilitar el acceso Ethernet.
+
+* Al fijar el puente se desactivan los protocolos y servicios de telnet y otros puertos IP (FTP, ExpressNAV, ICMP o navegación rápida) en el puente.
+* Este procedimiento usa la administración fuera de banda mediante el indicador ONTAP, que está disponible a partir de ONTAP 9.5.
++
+Puede emitir los comandos desde la CLI de bridge si no utiliza la gestión fuera de banda.
+
+* La `*unsecurebridge*` El comando se puede utilizar para volver a habilitar los puertos Ethernet.
+* En ONTAP 9.7 y versiones anteriores, ejecute el `*securebridge*` El comando del ATTO FiberBridge podría no actualizar correctamente el estado del puente en el clúster asociado. Si esto ocurre, ejecute el `*securebridge*` del clúster de partners.
+
+
+
+NOTE: A partir de ONTAP 9.8, el `*storage bridge*` el comando se sustituye por `*system bridge*`. Los siguientes pasos muestran el `*storage bridge*` Pero si ejecuta ONTAP 9.8 o una versión posterior, el `*system bridge*` el comando es preferido.
+
+.Pasos
+. Desde el símbolo del sistema de ONTAP del clúster que contiene el puente, asegure el puente o desasegure.
++
+El siguiente comando asegura bridge_A_1:
+
++
+[listing]
+----
+cluster_A> storage bridge run-cli -bridge bridge_A_1 -command securebridge
+----
++
+El siguiente comando desasegura bridge_A_1:
+
++
+[listing]
+----
+cluster_A> storage bridge run-cli -bridge bridge_A_1 -command unsecurebridge
+----
+. En el símbolo del sistema ONTAP del clúster que contiene el puente, guarde la configuración de puente:
++
+`*storage bridge run-cli -bridge _bridge-name_ -command saveconfiguration*`
+
++
+El siguiente comando asegura bridge_A_1:
+
++
+[listing]
+----
+cluster_A> storage bridge run-cli -bridge bridge_A_1 -command saveconfiguration
+----
+. Desde el símbolo del sistema de ONTAP del clúster que contiene el puente, reinicie el firmware del puente:
++
+`*storage bridge run-cli -bridge _bridge-name_ -command firmwarerestart*`
+
++
+El siguiente comando asegura bridge_A_1:
+
++
+[listing]
+----
+cluster_A> storage bridge run-cli -bridge bridge_A_1 -command firmwarerestart
+----
+

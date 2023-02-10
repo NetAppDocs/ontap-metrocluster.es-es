@@ -1,0 +1,83 @@
+---
+section: transition
+title: Transición de FC de MetroCluster a IP de MetroCluster
+entries:
+- title: Elija el procedimiento de transición
+  url: "/transition/concept_choosing_your_transition_procedure_mcc_transition.html"
+- title: Realizar la transición de forma no disruptiva de un FC de MetroCluster a
+    una configuración IP de MetroCluster (ONTAP 9.8 y posterior)
+  entries:
+  - title: Descripción general
+    url: "/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html"
+  - title: Preparar la transición de una configuración de IP de MetroCluster FC a
+      MetroCluster
+    entries:
+    - title: Requisitos para la transición de FC a IP sin interrupciones
+      url: "/transition/concept_requirements_for_fc_to_ip_transition_mcc.html"
+    - title: Cómo afecta la transición a los componentes de hardware de MetroCluster
+      url: "/transition/concept_how_transition_impacts_the_mcc_hardware_components.html"
+    - title: Flujo de trabajo para una transición de MetroCluster sin interrupciones
+      url: "/transition/concept_transition_workflow_fc_to_ip_transition.html"
+    - title: Consideraciones sobre los switches IP
+      url: "/transition/concept_considerations_for_using_existing_ip_switches.html"
+    - title: Operaciones de conmutación de sitios, reparación y conmutación de estado
+        durante una transición no disruptiva
+      url: "/transition/concept_switchover_and_switchback_operations_during_transition.html"
+    - title: Mensajes de alerta y soporte de herramientas durante la transición
+      url: "/transition/concept_mcc_operation_during_transition.html"
+    - title: Ejemplo de nomenclatura de este procedimiento
+      url: "/transition/concept_example_naming_in_this_procedure_mcc_ip_transition.html"
+  - title: Transición de las configuraciones FC de MetroCluster a IP de MetroCluster
+    entries:
+    - title: Compruebe el estado de la configuración de MetroCluster
+      url: "/transition/task_verify_mcc_health_fc_to_ip.html"
+    - title: Elimine la configuración existente del tiebreaker o del otro software
+        de supervisión
+      url: "/transition/task_remove_tiebreaker_4n_transition.html"
+    - title: Generar y aplicar RCF a los nuevos conmutadores IP
+      url: "/transition/task_apply_rcfs.html"
+    - title: Mueva las conexiones del clúster local
+      url: "/transition/task_move_cluster_connections.html"
+    - title: Prepare las controladoras IP de MetroCluster
+      url: "/transition/task_prepare_ip_controllers_4n_transition.html"
+    - title: Configure MetroCluster para la transición
+      url: "/transition/task_configure_transition.html"
+    - title: Transfiera los datos a las bandejas de unidades nuevas
+      url: "/transition/task_move_data_to_new_drive_shelves.html"
+    - title: Quite las controladoras FC de MetroCluster
+      url: "/transition/task_remove_mc_fc_controllers.html"
+    - title: Complete la transición
+      url: "/transition/task_complete_transition.html"
+  - title: Envíe un mensaje personalizado de AutoSupport tras el mantenimiento
+    url: "/transition/task_send_a_custom_autosupport_message_after_maintenance_4n_nondisruptive_mcc_transition.html"
+  - title: Restaure la supervisión de tiebreaker o de Mediator
+    url: "/transition/task_restore_tiebreaker_monitor_4n_nondisruptive_mcc_transition.html"
+- title: Realizar la transición sin interrupciones de un MetroCluster FC de dos nodos
+    a una configuración IP de MetroCluster de cuatro nodos (ONTAP 9.8 y posterior)
+  entries:
+  - title: Descripción general
+    url: "/transition/task_disruptively_transition_from_a_two_node_mcc_fc_to_a_four_node_mcc_ip_configuration.html"
+  - title: Ejemplo de nomenclatura de este procedimiento
+    url: "/transition/concept_example_naming_in_this_procedure_2n_mcc_transition_disruptive.html"
+  - title: Prepárese para una transición de FC a IP sin interrupciones
+    url: "/transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html"
+  - title: Realice la transición de los nodos FC de MetroCluster
+    url: "/transition/task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html"
+  - title: Conecte los módulos de controladora IP de MetroCluster
+    url: "/transition/task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html"
+  - title: Configure los nodos nuevos y complete la transición
+    url: "/transition/task_configure_the_new_nodes_and_complete_transition.html"
+  - title: Devolver el sistema a su funcionamiento normal
+    url: "/transition/task_return_the_system_to_normal_operation_2n_mcc_transition_supertask.html"
+- title: Realizar una transición sin interrupciones de FC de MetroCluster a IP de
+    MetroCluster cuando retire bandejas de almacenamiento (ONTAP 9.8 y versiones posteriores).
+  url: "/transition/task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.html"
+- title: Realizar una transición sin interrupciones cuando no se admiten bandejas
+    existentes en nuevas controladoras (ONTAP 9.8 y versiones posteriores)
+  url: "/transition/task_disruptively_transition_when_exist_shelves_are_not_supported_on_new_controllers.html"
+- title: Mueva una carga de trabajo SAN FC de los nodos IP de MetroCluster FC a MetroCluster
+  url: "/transition/task_move_an_fc_san_workload_from_mcc_fc_to_mcc_ip_nodes.html"
+- title: Mueva hosts iSCSI de Linux de nodos FC de MetroCluster a nodos IP de MetroCluster
+  url: "/transition/task_move_linux_iscsi_hosts_from_mcc_fc_to_mcc_ip_nodes.html"
+- title: Dónde encontrar información adicional
+  url: "/transition/reference_where_to_find_additional_information_mcc_ug.html"

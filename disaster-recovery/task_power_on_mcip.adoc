@@ -1,0 +1,26 @@
+---
+permalink: disaster-recovery/task_power_on_mcip.html 
+sidebar: sidebar 
+keywords: power, ip, disaster, site, configuration 
+summary: Debe encender las bandejas de discos y los componentes de switches IP de MetroCluster en el sitio de recuperación ante desastres. 
+---
+= Encendido del equipo en el sitio de recuperación ante desastres (configuraciones de IP de MetroCluster)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe encender las bandejas de discos y los componentes de switches IP de MetroCluster en el sitio de recuperación ante desastres. Los módulos de la controladora del sitio de desastres permanecen en el aviso del CARGADOR.
+
+.Acerca de esta tarea
+En los ejemplos de este procedimiento se asume lo siguiente:
+
+* El sitio A es el sitio de recuperación tras desastres.
+* El sitio B es el sitio superviviente.
+
+
+.Pasos
+. Encienda las bandejas de discos en el sitio de recuperación ante desastres y asegúrese de que todos los discos estén en funcionamiento.
+. Si no están encendidos, encienda los switches IP de MetroCluster.
+

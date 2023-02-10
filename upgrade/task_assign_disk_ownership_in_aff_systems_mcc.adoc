@@ -1,0 +1,113 @@
+---
+permalink: upgrade/task_assign_disk_ownership_in_aff_systems_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, assign, disk, ownership, aff, systems 
+summary: 'Si utiliza sistemas AFF en una configuración con agregados reflejados y los nodos no tienen los discos \(SSD\) correctamente asignados, debe asignar la mitad de los discos de cada bandeja a un nodo local y la otra mitad de los discos a su nodo asociado de alta disponibilidad. Debe crear una configuración en la que cada nodo tenga el mismo número de discos en sus pools de discos locales y remotos.' 
+---
+= Asignación de propiedad de disco en sistemas AFF
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza sistemas AFF en una configuración con agregados reflejados y los nodos no tienen los discos (SSD) asignados correctamente, debe asignar la mitad de los discos de cada bandeja a un nodo local y la otra mitad de los discos a su nodo asociado de alta disponibilidad. Debe crear una configuración en la que cada nodo tenga el mismo número de discos en sus pools de discos locales y remotos.
+
+.Acerca de esta tarea
+Las controladoras de almacenamiento deben estar en modo de mantenimiento.
+
+Esto no se aplica a configuraciones que tengan agregados no reflejados, una configuración activa/pasiva o que tengan un número desigual de discos en pools locales y remotos.
+
+Esta tarea no es necesaria si los discos se asignaron correctamente cuando se recibieron de fábrica.
+
+
+NOTE: El pool 0 siempre contiene los discos que se encuentran en el mismo sitio que el sistema de almacenamiento propietario de ellos, mientras que el Pool 1 siempre contiene los discos remotos para el sistema de almacenamiento propietario de estos.
+
+.Pasos
+. Si no lo ha hecho, arranque cada sistema en modo de mantenimiento.
+. Asigne los discos a los nodos ubicados en el primer sitio (sitio A):
++
+Debe asignar un número igual de discos a cada pool.
+
++
+.. En el primer nodo, asigne sistemáticamente la mitad de los discos de cada bandeja al pool 0 y la otra mitad al pool del partner de alta disponibilidad 0: +
+`disk assign -disk _disk-name_ -p _pool_ -n _number-of-disks_`
++
+Si la controladora de almacenamiento Controller_A_1 tiene cuatro bandejas, cada una con 8 SSD, emita los siguientes comandos:
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_A_1:1-4.shelf1 -p 0 -n 4
+*> disk assign -shelf FC_switch_A_1:1-4.shelf2 -p 0 -n 4
+
+*> disk assign -shelf FC_switch_B_1:1-4.shelf1 -p 1 -n 4
+*> disk assign -shelf FC_switch_B_1:1-4.shelf2 -p 1 -n 4
+----
+.. Repita el proceso para el segundo nodo del sitio local, asignando sistemáticamente la mitad de los discos de cada bandeja al pool 1 y la otra mitad al pool 1 del partner de alta disponibilidad 1: +
+`disk assign -disk _disk-name_ -p _pool_`
++
+Si la controladora de almacenamiento Controller_A_1 tiene cuatro bandejas, cada una con 8 SSD, emita los siguientes comandos:
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_A_1:1-4.shelf3 -p 0 -n 4
+*> disk assign -shelf FC_switch_B_1:1-4.shelf4 -p 1 -n 4
+
+*> disk assign -shelf FC_switch_A_1:1-4.shelf3 -p 0 -n 4
+*> disk assign -shelf FC_switch_B_1:1-4.shelf4 -p 1 -n 4
+----
+
+
+. Asigne los discos a los nodos ubicados en el segundo sitio (sitio B):
++
+Debe asignar un número igual de discos a cada pool.
+
++
+.. En el primer nodo del centro remoto, asigne sistemáticamente la mitad de los discos de cada bandeja al pool 0 y la otra mitad al pool 0 del partner de alta disponibilidad: +
+`disk assign -disk _disk-name_ -p _pool_`
++
+Si la controladora de almacenamiento Controller_B_1 tiene cuatro bandejas, cada una con 8 SSD, emita los siguientes comandos:
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_B_1:1-5.shelf1 -p 0 -n 4
+*> disk assign -shelf FC_switch_B_1:1-5.shelf2 -p 0 -n 4
+
+*> disk assign -shelf FC_switch_A_1:1-5.shelf1 -p 1 -n 4
+*> disk assign -shelf FC_switch_A_1:1-5.shelf2 -p 1 -n 4
+----
+.. Repita el proceso para el segundo nodo del sitio remoto, asignando sistemáticamente la mitad de los discos de cada bandeja al pool 1 y la otra mitad al pool del partner de alta disponibilidad 1:
++
+`disk assign -disk _disk-name_ -p _pool_`
+
++
+Si la controladora de almacenamiento Controller_B_2 tiene cuatro bandejas, cada una con 8 SSD, emita los siguientes comandos:
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_B_1:1-5.shelf3 -p 0 -n 4
+*> disk assign -shelf FC_switch_B_1:1-5.shelf4 -p 0 -n 4
+
+*> disk assign -shelf FC_switch_A_1:1-5.shelf3 -p 1 -n 4
+*> disk assign -shelf FC_switch_A_1:1-5.shelf4 -p 1 -n 4
+----
+
+
+. Confirme las asignaciones de discos:
++
+`storage show disk`
+
+. Salir del modo de mantenimiento:
++
+`halt`
+
+. Mostrar el menú de inicio:
++
+`boot_ontap menu`
+
+. En cada nodo, seleccione la opción *4* para inicializar todos los discos.
+

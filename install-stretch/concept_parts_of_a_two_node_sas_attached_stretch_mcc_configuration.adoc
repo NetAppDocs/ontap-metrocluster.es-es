@@ -1,0 +1,44 @@
+---
+permalink: install-stretch/concept_parts_of_a_two_node_sas_attached_stretch_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, parts, two, node, sas, attached, configuration 
+summary: La configuración de conexión SAS de MetroCluster de dos nodos requiere varias partes, incluidos dos clústeres de un solo nodo en los que las controladoras de almacenamiento están conectadas directamente al almacenamiento mediante cables SAS. 
+---
+= Parte de una configuración de MetroCluster con ampliación de dos nodos conectada a SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configuración de conexión SAS de MetroCluster de dos nodos requiere varias partes, incluidos dos clústeres de un solo nodo en los que las controladoras de almacenamiento están conectadas directamente al almacenamiento mediante cables SAS.
+
+La configuración de MetroCluster incluye los siguientes elementos de hardware clave:
+
+* Controladoras de almacenamiento
++
+Las controladoras de almacenamiento se conectan directamente al almacenamiento mediante cables SAS.
+
++
+Cada controladora de almacenamiento está configurada como partner de recuperación ante desastres para una controladora de almacenamiento en el centro del partner.
+
++
+** Los cables SAS de cobre se pueden utilizar para distancias más cortas.
+** Los cables SAS ópticos se pueden utilizar para distancias más largas.
++
+
+NOTE: En sistemas que utilizan LUN de cabina E-Series, las controladoras de almacenamiento se pueden conectar directamente a las cabinas de almacenamiento E-Series. Para otros LUN de cabina, se necesitan conexiones mediante switches FC.
+
++
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+
++
+En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
+
+
+
+* Red de conexión de clústeres entre iguales
++
+La red de paridad de clústeres ofrece conectividad para el mirroring de la configuración de la máquina virtual de almacenamiento (SVM). La configuración de todas las SVM de un clúster se refleja en el clúster de partners.
+
+

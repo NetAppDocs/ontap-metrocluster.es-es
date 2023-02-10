@@ -1,0 +1,30 @@
+---
+permalink: install-stretch/task_cable_the_cluster_peering_connections.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, custer, peering, connections 
+summary: Debe conectar los puertos del módulo de la controladora utilizados para la interconexión de clústeres de manera que tengan conectividad con el clúster en el sitio de socios. 
+---
+= Conectar el cableado de las conexiones de los clústeres entre iguales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe conectar los puertos del módulo de la controladora utilizados para la interconexión de clústeres de manera que tengan conectividad con el clúster en el sitio del partner.
+
+Esta tarea debe realizarse en cada módulo del controlador de la configuración de MetroCluster.
+
+Se deben utilizar al menos dos puertos en cada módulo de controlador para la conexión de clústeres entre iguales.
+
+El ancho de banda mínimo recomendado para los puertos y la conectividad de red es de 1 GbE.
+
+.Pasos
+. Identifique y conecte al menos dos puertos para la conexión de clústeres entre iguales y compruebe que tengan conectividad de red con el clúster de socios.
++
+La relación de clústeres entre iguales puede realizarse en puertos dedicados o en puertos de datos. El uso de puertos dedicados proporciona un rendimiento mayor para el tráfico de paridad de clústeres.
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
+
+

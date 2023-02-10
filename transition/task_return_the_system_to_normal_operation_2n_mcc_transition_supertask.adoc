@@ -1,0 +1,94 @@
+---
+permalink: transition/task_return_the_system_to_normal_operation_2n_mcc_transition_supertask.html 
+sidebar: sidebar 
+keywords: perform, final, configuration, return, metrocluster, normal, operation, system, verify, assign, drive, transition, install, license, module, complete, completing, node, send, custom, autosupport, message, maintenance 
+summary: Debe realizar los pasos de configuración finales y devolver la configuración de MetroCluster a su funcionamiento normal. 
+---
+= Devolver el sistema a su funcionamiento normal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe realizar los pasos de configuración finales y devolver la configuración de MetroCluster a su funcionamiento normal.
+
+
+
+== Verificación del funcionamiento de MetroCluster y asignación de unidades después de la transición
+
+[role="lead"]
+Debe verificar que MetroCluster funciona correctamente y asignar unidades al segundo par de nodos nuevos (node_A_2-IP y node_B_2-IP).
+
+. Confirme que el tipo de configuración de MetroCluster es la estructura IP: `metrocluster show`
+. Realice una comprobación de MetroCluster.
++
+.. Emita el siguiente comando: `metrocluster check run`
+.. Mostrar los resultados de la comprobación de MetroCluster: `metrocluster check show`
+
+
+. Confirmar que se ha configurado el grupo DR con los nodos IP de MetroCluster: `metrocluster node show`
+. Cree y replique agregados de datos adicionales para las controladoras node_A_2-IP y node_B_2-IP en cada sitio según sea necesario.
+
+
+
+
+== Instalación de licencias para el nuevo módulo de controlador
+
+[role="lead"]
+Debe añadir licencias para el nuevo módulo de controladora para todos los servicios ONTAP que requieran licencias estándar (de bloqueo de nodo). Para funciones con licencias estándar, cada nodo del clúster debe tener su propia clave para la función.
+
+Si quiere información detallada sobre las licencias, consulte el artículo de la base de conocimientos 3013749: Información general y referencias de licencias de Data ONTAP 8.2 en el sitio de soporte de NetApp y _System Administration Reference_.
+
+. Si es necesario, obtenga las claves de licencia del nodo nuevo en el sitio de soporte de NetApp en la sección My Support, en las licencias de software.
++
+Para obtener más información acerca de los reemplazos de licencia, consulte el artículo de Knowledge base link:https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/AFF_Series/Post_Motherboard_Replacement_Process_to_update_Licensing_on_a_AFF_FAS_system["Proceso de sustitución posterior a la placa base para actualizar las licencias en un sistema AFF/FAS."^]
+
+. Ejecute el siguiente comando para instalar cada clave de licencia: `system license add -license-code license_key`
++
+La clave_licencia tiene una longitud de 28 dígitos.
+
++
+Repita este paso con cada licencia estándar (bloqueo de nodo) requerida.
+
+
+
+
+
+== Completando la configuración de los nodos
+
+[role="lead"]
+Existen varios pasos de configuración que se pueden realizar antes de completar los procedimientos. Algunos de estos pasos son opcionales.
+
+. Configure el Service Processor: `system service-processor network modify`
+. Configure AutoSupport en los nodos nuevos: `system node autosupport modify`
+. Puede cambiar el nombre de las controladoras de forma opcional como parte de la transición. Se utiliza el siguiente comando para cambiar el nombre de una controladora: `system node rename -node <old-name> -newname <new-name>`
++
+La operación de cambio de nombre puede tardar unos minutos en completarse. Confirme que todos los cambios de nombre se han propagado a cada nodo antes de continuar con otros pasos mediante el comando system show -fields node.
+
+. Configure un servicio de supervisión como desee.
++
+link:../install-ip/concept_considerations_mediator.html["Consideraciones para Mediator"]
+
++
+enlace:../install-ip/concept_mediator_requirements.html
+
++
+link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Instalación y configuración del software Tiebreaker"]
+
+
+
+
+
+== Envío de un mensaje de AutoSupport personalizado tras el mantenimiento
+
+[role="lead"]
+Después de completar la transición, debe enviar un mensaje de AutoSupport que indique el final del mantenimiento para que se pueda reanudar la creación automática de casos.
+
+. Para reanudar la generación automática de casos de soporte, envíe un mensaje de AutoSupport para indicar que se ha completado el mantenimiento.
++
+.. Emita el siguiente comando: `system node autosupport invoke -node * -type all -message MAINT=end`
+.. Repita el comando en el clúster de partners.
+
+
+

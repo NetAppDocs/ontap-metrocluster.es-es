@@ -1,0 +1,319 @@
+---
+permalink: manage/concept_monitoring_the_mcc_configuration.html 
+sidebar: sidebar 
+keywords: ontap, metrocluster, command, active, iq, unified, manager, oncommand, unified, monitor, health, software, state, component, operation, check, configuration, configuration, detect, failure, netapp, tiebreaker, software 
+summary: 'Puede usar comandos de ONTAP MetroCluster y Active IQ Unified Manager (anteriormente Unified Manager de OnCommand) para supervisar el estado de varios componentes de software y el estado de las operaciones de MetroCluster.' 
+---
+= Supervisar la configuración de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar comandos de ONTAP MetroCluster y Active IQ Unified Manager (anteriormente Unified Manager de OnCommand) para supervisar el estado de varios componentes de software y el estado de las operaciones de MetroCluster.
+
+
+
+== Comprobar la configuración de MetroCluster
+
+Puede comprobar que los componentes y las relaciones de la configuración de MetroCluster funcionan correctamente. Debe hacer una comprobación después de la configuración inicial y después de realizar cualquier cambio en la configuración de MetroCluster. También debe hacer una comprobación antes de una operación de conmutación negociada (planificada) o de conmutación de estado.
+
+.Acerca de esta tarea
+Si la `metrocluster check run` el comando se emite dos veces en un corto tiempo en uno de los clústeres o en ambos, se puede producir un conflicto y es posible que el comando no recopile todos los datos. Posteriormente `metrocluster check show` los comandos no muestran el resultado esperado.
+
+.Pasos
+. Compruebe la configuración:
++
+`metrocluster check run`
+
++
+El comando se ejecuta como un trabajo en segundo plano y es posible que no se complete inmediatamente.
+
++
+[listing]
+----
+cluster_A::> metrocluster check run
+The operation has been started and is running in the background. Wait for
+it to complete and run "metrocluster check show" to view the results. To
+check the status of the running metrocluster check operation, use the command,
+"metrocluster operation history show -job-id 2245"
+----
+. Mostrar resultados más detallados de los más recientes `metrocluster check run` comando:
++
+`metrocluster check aggregate show`
+
++
+`metrocluster check cluster show`
+
++
+`metrocluster check config-replication show`
+
++
+`metrocluster check lif show`
+
++
+`metrocluster check node show`
+
++
+La `metrocluster check show` los comandos muestran los resultados de los más recientes `metrocluster check run` comando. Siempre debe ejecutar el `metrocluster check run` antes de utilizar el `metrocluster check show` comandos para que la información mostrada sea actual.
+
++
+En el siguiente ejemplo se muestra el `metrocluster check aggregate show` Resultado del comando para una configuración de MetroCluster de cuatro nodos en buen estado:
+
++
+[listing]
+----
+cluster_A::> metrocluster check aggregate show
+
+Last Checked On: 8/5/2014 00:42:58
+
+Node                  Aggregate                  Check                      Result
+---------------       --------------------       ---------------------      ---------
+controller_A_1        controller_A_1_aggr0
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_1_aggr1
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_1_aggr2
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+
+
+controller_A_2        controller_A_2_aggr0
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_2_aggr1
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_2_aggr2
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+
+18 entries were displayed.
+----
++
+En el siguiente ejemplo se muestra el `metrocluster check cluster show` Resultado del comando para una configuración de MetroCluster de cuatro nodos en buen estado. Indica que los clústeres están listos para ejecutar una conmutación de sitios negociada, si es necesario.
+
++
+[listing]
+----
+Last Checked On: 9/13/2017 20:47:04
+
+Cluster               Check                           Result
+--------------------- ------------------------------- ---------
+mccint-fas9000-0102
+                      negotiated-switchover-ready     not-applicable
+                      switchback-ready                not-applicable
+                      job-schedules                   ok
+                      licenses                        ok
+                      periodic-check-enabled          ok
+mccint-fas9000-0304
+                      negotiated-switchover-ready     not-applicable
+                      switchback-ready                not-applicable
+                      job-schedules                   ok
+                      licenses                        ok
+                      periodic-check-enabled          ok
+10 entries were displayed.
+----
+
+
+
+
+== Comandos para comprobar y supervisar la configuración de MetroCluster
+
+Hay comandos específicos de la ONTAP para supervisar la configuración de MetroCluster y comprobar las operaciones de la MetroCluster.
+
+
+
+=== Comandos para comprobar las operaciones de MetroCluster
+
+|===
+
+
+| Si desea... | Se usa este comando... 
+
+
+ a| 
+Realizar una comprobación de las operaciones de MetroCluster.
+
+*Nota:* este comando no debe utilizarse como el único comando para la validación del sistema de funcionamiento previo a la recuperación ante desastres.
+ a| 
+`metrocluster check run`
+
+
+
+ a| 
+Vea los resultados de la última comprobación de las operaciones de MetroCluster.
+ a| 
+`metrocluster show`
+
+
+
+ a| 
+Vea los resultados de la comprobación de la replicación de la configuración entre los sitios.
+ a| 
+`metrocluster check config-replication show metrocluster check config-replication show-aggregate-eligibility`
+
+
+
+ a| 
+Ver resultados de la comprobación de la configuración del nodo.
+ a| 
+`metrocluster check node show`
+
+
+
+ a| 
+Vea los resultados de la comprobación en la configuración de agregados.
+ a| 
+`metrocluster check aggregate show`
+
+
+
+ a| 
+Ver los errores de ubicación de LIF en la configuración de MetroCluster.
+ a| 
+`metrocluster check lif show`
+
+|===
+
+
+=== Comandos para supervisar la interconexión de MetroCluster
+
+|===
+
+
+| Si desea... | Se usa este comando... 
+
+
+ a| 
+Muestre el estado de mirroring de alta disponibilidad y recuperación ante desastres e información para los nodos MetroCluster del clúster.
+ a| 
+`metrocluster interconnect mirror show`
+
+|===
+
+
+=== Comandos para supervisar las SVM de MetroCluster
+
+|===
+
+
+| Si desea... | Se usa este comando... 
+
+
+ a| 
+Ver todas las SVM de ambos sitios en la configuración de MetroCluster.
+ a| 
+`metrocluster vserver show`
+
+|===
+
+
+== Uso del tiebreaker para MetroCluster o del Mediador ONTAP para supervisar la configuración
+
+Consulte link:../install-ip/concept_considerations_mediator.html["Diferencias entre Mediador de ONTAP y tiebreaker de MetroCluster"] Comprender las diferencias entre estos dos métodos para supervisar la configuración de MetroCluster e iniciar una conmutación automática.
+
+Utilice estos vínculos para instalar y configurar tiebreaker o Mediator:
+
+* link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Instalar y configurar el software Tiebreaker de MetroCluster"]
+* enlace:../install-ip/concept_mediator_requirements.html
+
+
+
+
+== Cómo detecta el software MetroCluster Tiebreaker de NetApp los fallos
+
+El software Tierbreaker reside en un host Linux. Solo necesita el software Tierbreaker si desea supervisar dos clústeres y el estado de conectividad entre ellos desde un tercer sitio. Esto permite a cada partner de un clúster distinguir entre un fallo de ISL, cuando los enlaces entre sitios están inactivos, y un fallo del sitio.
+
+Después de instalar el software Tiebreaker en un host de Linux, puede configurar los clústeres en una configuración de MetroCluster para supervisar las condiciones de desastre.
+
+
+
+=== Cómo detecta el software Tiebreaker fallos de conectividad entre sitios
+
+El software MetroCluster Tiebreaker le avisa si se ha perdido toda conectividad entre los sitios.
+
+
+
+==== Tipos de rutas de red
+
+Según la configuración, existen tres tipos de rutas de red entre los dos clústeres en una configuración de MetroCluster:
+
+* *Red FC (presente en configuraciones MetroCluster conectadas a la estructura)*
++
+Este tipo de red está compuesto por dos estructuras de switch de FC redundantes. Cada estructura de switches tiene dos switches FC, con un switch de cada estructura de switches ubicados conjuntamente con un clúster. Cada clúster tiene dos switches FC, uno de cada estructura de switches. Todos los nodos tienen conectividad FC (interconexión NV e iniciador FCP) con cada switch IP coubicado. Los datos se replican de un clúster a través del ISL.
+
+* *Red de interconexión de clústeres*
++
+Este tipo de red se compone de una ruta de red IP redundante entre los dos clústeres de. La red de paridad de clústeres ofrece la conectividad que se requiere para reflejar la configuración de la máquina virtual de almacenamiento (SVM). La configuración de todas las SVM de un clúster se refleja en el clúster de partners.
+
+* *Red IP (presente en las configuraciones IP de MetroCluster)*
++
+Este tipo de red está compuesta por dos redes de switch IP redundantes. Cada red tiene dos switches IP, con un switch de cada estructura de switches ubicados conjuntamente con un clúster. Cada clúster tiene dos switches IP, uno en cada estructura de switches. Todos los nodos tienen conectividad con cada uno de los switches FC coubicados. Los datos se replican de un clúster a través del ISL.
+
+
+
+
+
+==== Supervisión de la conectividad entre sitios
+
+El software Tierbreaker recupera regularmente el estado de conectividad entre sitios desde los nodos. Si se pierde la conectividad de interconexión NV y la interconexión en clústeres entre iguales no responde a los ping, los clústeres asumen que estos sitios están aislados y que el software Tiebreaker activa una alerta como "AllLinksSevered". Si un clúster identifica el estado "AllLinksSevered" y no se puede acceder al otro clúster a través de la red, el software Tiebreaker activa una alerta como "desastre".
+
+
+
+=== Cómo detecta el software Tiebreaker los fallos de sitios
+
+El software MetroCluster Tiebreaker de NetApp comprueba la accesibilidad de los nodos de una configuración de MetroCluster y el clúster para determinar si se ha producido un error del sitio. El software Tierbreaker también activa una alerta en determinadas condiciones.
+
+
+
+==== Componentes supervisados por el software Tiebreaker
+
+El software Tierbreaker supervisa cada controladora en la configuración de MetroCluster estableciendo conexiones redundantes a través de varias rutas hasta una LIF de gestión de nodos y la LIF de gestión de clúster, ambas alojadas en la red IP.
+
+El software Tiebreaker supervisa los siguientes componentes en la configuración de MetroCluster:
+
+* Mediante interfaces de nodos locales
+* A través de las interfaces designadas por el clúster
+* Sobrevivir a clústeres para evaluar si tiene conectividad al sitio de desastre (interconexión NV, almacenamiento y interconexión en clústeres entre iguales)
+
+
+Cuando se produzca una pérdida de conexión entre el software Tiebreaker y todos los nodos del clúster y el propio clúster, el software de tiebreaker lo declarará como "'no accesible'". La detección de un fallo de conexión tarda entre tres y cinco segundos. Si no se puede acceder a un clúster desde el software Tiebreaker, el clúster superviviente (el clúster que aún es accesible) debe indicar que todos los enlaces al clúster de partners se hayan separado antes de que el software de tiebreaker active una alerta.
+
+
+NOTE: Todos los enlaces se secan si el clúster superviviente deja de poder comunicarse con el clúster en el sitio de desastre mediante FC (interconexión de NV y almacenamiento) y interconexión en clústeres entre iguales.
+
+
+
+==== Escenarios de fallos durante los cuales el software Tiebreaker activa una alerta
+
+El software Tierbreaker activa una alerta cuando el clúster (todos los nodos) en el sitio de desastre está inactivo o es inaccesible y el clúster en el sitio superviviente indica el estado "AllLinksSevered".
+
+El software Tierbreaker no activa una alerta (o la alerta es vetada) en las siguientes situaciones:
+
+* En una configuración MetroCluster de ocho nodos, si un par de alta disponibilidad en el sitio de desastre está inactivo
+* En un clúster con todos los nodos inactivos del sitio de recuperación ante desastres, un par de alta disponibilidad situado en el sitio superviviente y el clúster del sitio superviviente indica el estado «AllLinksSevered»
++
+El software Tierbreaker activa una alerta, pero ONTAP vetará esta alerta. En esta situación, también se puede vetar un cambio manual
+
+* Cualquier situación en la que el software Tiebreaker pueda llegar al menos a un nodo o a la interfaz de clúster en el sitio de desastre o al sitio que aún haya supervivencia puede llegar a cualquier nodo del sitio de desastre mediante FC (interconexión de NV y almacenamiento) o mediante interconexión de clústeres entre iguales
+
+
+
+
+=== Cómo admite el Mediador ONTAP la conmutación automática no planificada
+
+El Mediador ONTAP almacena información de estado sobre los nodos MetroCluster en buzones ubicados en el host del Mediador. Los nodos MetroCluster pueden utilizar esta información para supervisar el estado de sus socios DR e implementar una conmutación automática no planificada asistida por Mediador (MAUSO) en caso de un desastre.
+
+Cuando un nodo detecta un fallo de sitio que requiere una conmutación, se realizan los pasos necesarios para confirmar que la conmutación es adecuada y, de ser así, realiza la conmutación.
+
+MAUSO sólo se inicia si la duplicación SyncMirror y la duplicación DR de la caché no volátil de cada nodo están funcionando y las cachés y réplicas se sincronizan en el momento del fallo.

@@ -1,0 +1,138 @@
+---
+permalink: install-ip/concept_mediator_requirements.html 
+sidebar: sidebar 
+keywords: ontap, mediator, service, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, mtu size, packet loss, bandwidth, firewall, rhel, centos, linux, revert, kernal, upgrade, latency 
+summary: A partir de ONTAP 9.7, el servicio Mediator de ONTAP puede ayudar a la configuración IP de MetroCluster a realizar una conmutación automática no planificada proporcionando un repositorio físicamente independiente para la información de estado. 
+---
+= Prepare la instalación del servicio Mediador ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Su entorno debe cumplir ciertos requisitos.
+
+Los siguientes requisitos se aplican a un grupo de recuperación ante desastres (grupo de recuperación ante desastres). Más información acerca de link:concept_parts_of_an_ip_mcc_configuration_mcc_ip.html#disaster-recovery-dr-groups["Grupos de recuperación ante desastres"].
+
+* Si tiene previsto actualizar su versión de Linux, hágalo antes de instalar el servicio Mediador de ONTAP más actual.
+* El servicio Mediator de ONTAP y el software MetroCluster Tiebreaker no deben utilizarse con la misma configuración de MetroCluster.
+* El Mediador ONTAP debe instalarse en un host LINUX en una ubicación independiente de los sitios MetroCluster.
++
+La conectividad entre el Mediador ONTAP y cada sitio debe ser de dos dominios de fallo diferentes.
+
+* El servicio Mediator de ONTAP puede admitir hasta cinco configuraciones MetroCluster simultáneamente.
+* ONTAP 9.7 y versiones posteriores admiten conmutación automática sin planificar.
+
+
+
+
+== Requisitos de red para utilizar Mediator en una configuración MetroCluster
+
+Para instalar el servicio Mediator de ONTAP en una configuración de MetroCluster, debe asegurarse de que la configuración cumple varios requisitos de red.
+
+* Latencia
++
+Latencia máxima de menos de 75 ms (RTT).
+
++
+La fluctuación no debe ser superior a 5 ms.
+
+* MTU
++
+El tamaño de MTU debe ser al menos 1400.
+
+* Pérdida de paquetes
++
+Para el tráfico TCP y el protocolo de mensajes de control de Internet (ICMP), la pérdida de paquetes debe ser inferior al 0.01 %.
+
+* Ancho de banda
++
+El vínculo entre el servicio Mediator y un grupo DR debe tener al menos 20 Mbps de ancho de banda.
+
+* Conectividad independiente
++
+Se requiere una conectividad independiente entre cada sitio y el Mediador ONTAP. Un fallo en una instalación no debe interrumpir la conectividad de IP entre las otras dos instalaciones que no se ven afectadas.
+
+
+
+
+
+== Requisitos del host para el Mediador ONTAP en una configuración MetroCluster
+
+Debe asegurarse de que la configuración cumpla con varios requisitos del host.
+
+* ONTAP Mediator debe instalarse en un sitio externo que esté físicamente separado de los dos clústeres de ONTAP.
+* Mediator de ONTAP es compatible con un número máximo de cinco configuraciones MetroCluster.
+* ONTAP Mediator no requiere más que los requisitos mínimos del sistema operativo host para CPU y memoria (RAM).
+* Además de los requisitos mínimos del sistema operativo host, debe haber disponible al menos 30 GB de espacio adicional en disco utilizable.
++
+** Cada grupo de recuperación ante desastres requiere hasta 200 MB de espacio en disco.
+
+
+
+
+
+
+== Requisitos de firewall para ONTAP Mediator
+
+ONTAP Mediator utiliza una serie de puertos para comunicarse con servicios específicos.
+
+Si está utilizando un firewall de terceros:
+
+* El acceso HTTPS debe estar habilitado.
+* Debe configurarse para permitir el acceso a los puertos 31784 y 3260.
++
+Cuando se utiliza el firewall predeterminado de Red Hat o CentOS, el firewall se configura automáticamente durante la instalación de Mediator.
+
+
+
+En la siguiente tabla se enumeran los puertos que debe permitir en el firewall:
+
+
+NOTE: El puerto iSCSI solo se requiere en una configuración de IP de MetroCluster.
+
+|===
+
+
+| Puerto/servicios | Origen | Destino | Específico 
+
+
+ a| 
+31784 tcp
+ a| 
+Interfaces de gestión de clústeres ONTAP
+ a| 
+Servidor web de Mediador ONTAP
+ a| 
+API DE REST (HTTPS)
+
+
+
+ a| 
+3260 tcp
+ a| 
+Clúster de ONTAP (LIF de datos o LIF de gestión de datos)
+ a| 
+Destinos iSCSI del mediador de ONTAP
+ a| 
+Conexión de datos iSCSI para buzones
+
+|===
+
+
+== Directrices para actualizar el Mediador ONTAP en una configuración MetroCluster
+
+Si va a actualizar el Mediador de ONTAP debe cumplir con los requisitos de la versión de Linux y seguir las directrices de la actualización.
+
+* El servicio Mediator puede actualizarse desde una versión inmediatamente anterior a la versión actual.
+* Todas las versiones de Mediator son compatibles con las configuraciones IP de MetroCluster que ejecutan ONTAP 9.7 o posterior.
+
+
+link:https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"^]
+
+
+
+== Después de la actualización
+
+Una vez finalizada la actualización del Mediator y del sistema operativo, debe emitir el `storage iscsi-initiator show` Comando para confirmar que las conexiones del Mediador están en funcionamiento.

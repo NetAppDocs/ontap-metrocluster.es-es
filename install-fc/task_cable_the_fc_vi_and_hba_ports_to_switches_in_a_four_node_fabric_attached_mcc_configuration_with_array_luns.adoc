@@ -1,0 +1,138 @@
+---
+permalink: install-fc/task_cable_the_fc_vi_and_hba_ports_to_switches_in_a_four_node_fabric_attached_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, fc, vi, hba, ports, four, node, array, luns 
+summary: Si va a configurar una configuración MetroCluster estructural de cuatro nodos con LUN de cabina, debe cablear los puertos FC-VI y los puertos HBA a los puertos del switch. 
+---
+= Cableado de los puertos FC-VI y HBA en una configuración MetroCluster estructural de cuatro nodos con LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si va a configurar una configuración MetroCluster estructural de cuatro nodos con LUN de cabina, debe cablear los puertos FC-VI y los puertos HBA a los puertos del switch.
+
+.Acerca de esta tarea
+* Debe repetir esta tarea para cada controladora en ambos sitios de MetroCluster.
+* Si planea utilizar discos además de los LUN de cabina en la configuración de MetroCluster, debe usar los puertos HBA y los puertos del switch especificados para la configuración con discos.
++
+** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
+** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0"]
+
+
+
+
+.Pasos
+. Conecte los puertos FC-VI de cada controladora a los puertos de los switches FC alternativos.
++
+En el siguiente ejemplo, se muestran las conexiones entre los puertos FC-VI y los puertos del switch en el sitio A:
+
++
+image::../media/four_node_mcc_fc_vi_switch_connections.gif[cuatro conexiones del conmutador fc vi de mcc de cuatro nodos]
+
+. Ejecute el cableado de controladora a switch en ambos sitios MetroCluster.
++
+Debe garantizar la redundancia en las conexiones de la controladora a los switches. Por lo tanto, para cada controladora de un sitio, debe asegurarse de que ambos puertos HBA del mismo par de puertos estén conectados a switches FC alternativos.
+
++
+En el siguiente ejemplo, se muestran las conexiones entre los puertos HBA y los puertos del switch en el sitio A:
+
++
+image::../media/four_node_mcc_hba_switch_connections.gif[cuatro conexiones del switch hba mcc de nodo]
+
++
+En la siguiente tabla, se enumeran las conexiones entre los puertos HBA en Controller_A_1 y los puertos del switch de FC en la ilustración:
+
++
+|===
+
+
+| Puertos HBA | Puertos del switch 
+
+
+2+| *Par de puertos* 
+
+
+ a| 
+Puerto a
+ a| 
+FC_switch_A_1, puerto 2
+
+
+
+ a| 
+Puerto d
+ a| 
+FC_switch_A_2, puerto 3
+
+
+
+2+| *Par de puertos* 
+
+
+ a| 
+Puerto b
+ a| 
+FC_switch_A_2, puerto 2
+
+
+
+ a| 
+Puerto c
+ a| 
+FC_switch_A_1, puerto 3
+
+|===
++
+En la siguiente tabla, se enumeran las conexiones entre los puertos HBA en Controller_A_2 y los puertos del switch de FC en la ilustración:
+
++
+|===
+
+
+| Puertos HBA | Puertos del switch 
+
+
+2+| *Par de puertos* 
+
+
+ a| 
+Puerto a
+ a| 
+FC_switch_A_1, puerto 5
+
+
+
+ a| 
+Puerto d
+ a| 
+FC_switch_A_2, puerto 6
+
+
+
+2+| *Par de puertos* 
+
+
+ a| 
+Puerto b
+ a| 
+FC_switch_A_2, puerto 5
+
+
+
+ a| 
+Puerto c
+ a| 
+FC_switch_A_1, puerto 6
+
+|===
+
+
+.Después de terminar
+Debe cablear los ISL entre los switches FC entre los sitios MetroCluster.
+
+.Información relacionada
+Cuando conecta sistemas ONTAP a switches FC para configurar una configuración MetroCluster con LUN de cabina, es necesario conectar puertos FC-VI y HBA de cada controladora a puertos del switch específicos.
+
+link:concept_switch_ports_required_for_a_eight_node_mcc_configuration_with_array_luns.html["Puertos del switch necesarios para una configuración de MetroCluster con LUN de cabina"]

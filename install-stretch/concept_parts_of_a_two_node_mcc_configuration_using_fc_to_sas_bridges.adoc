@@ -1,0 +1,48 @@
+---
+permalink: install-stretch/concept_parts_of_a_two_node_mcc_configuration_using_fc_to_sas_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, parts, two, node, bridge, stretch, configuration 
+summary: A medida que planifique la configuración de MetroCluster, debe comprender las partes de la configuración y cómo trabajan conjuntamente. 
+---
+= Partes de una configuración de MetroCluster con ampliación de dos nodos y conexión a puente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A medida que planifique la configuración de MetroCluster, debe comprender las partes de la configuración y cómo trabajan conjuntamente.
+
+La configuración de MetroCluster incluye los siguientes elementos de hardware clave:
+
+* Controladoras de almacenamiento
++
+Las controladoras de almacenamiento no están conectadas directamente al sistema de almacenamiento, sino a puentes FC a SAS. Las controladoras de almacenamiento se conectan entre sí por cables FC entre los adaptadores FC-VI de cada controladora.
+
++
+Cada controladora de almacenamiento está configurada como partner de recuperación ante desastres para una controladora de almacenamiento en el centro del partner.
+
+* Puentes FC a SAS
++
+Los puentes de FC a SAS conectan las pilas de almacenamiento SAS a los puertos del iniciador de FC de las controladoras, por lo que proporcionan un puente entre los dos protocolos.
+
+* Red de conexión de clústeres entre iguales
++
+La red de paridad de clústeres ofrece conectividad para el mirroring de la configuración de la máquina virtual de almacenamiento (SVM). La configuración de todas las SVM de un clúster se refleja en el clúster de partners.
+
+
+
+En la siguiente ilustración, se muestra una vista simplificada de la configuración de MetroCluster. En algunas conexiones, una sola línea representa varias conexiones redundantes entre los componentes. No se muestran las conexiones de red de datos y gestión.
+
+image::../media/mcc_hardware_architecture_both_clusters_2_node_atto.gif[arquitectura de hardware de mcc ambos clústeres 2 nodos atto]
+
+* La configuración consta de dos clústeres de un solo nodo.
+* Cada sitio tiene una o varias pilas de almacenamiento SAS.
++
+
+NOTE: Las bandejas SAS en las configuraciones MetroCluster no son compatibles con el cableado ACP.
+
++
+Se admiten pilas de almacenamiento adicionales, pero solo se muestra una en cada sitio.
+
+

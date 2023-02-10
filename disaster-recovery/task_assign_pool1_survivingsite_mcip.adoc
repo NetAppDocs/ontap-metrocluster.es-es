@@ -1,0 +1,32 @@
+---
+permalink: disaster-recovery/task_assign_pool1_survivingsite_mcip.html 
+sidebar: sidebar 
+keywords: adp, system, assign, surviving, site 
+summary: En el sitio superviviente, es necesario asignar manualmente las unidades remotas ubicadas en el sitio de desastre al pool de los nodos supervivientes 1. 
+---
+= Asignación de unidades del pool 1 en el sitio superviviente (configuraciones IP de MetroCluster)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si las unidades se han sustituido en el sitio de desastres y el sistema no está configurado para ADP, en el sitio superviviente deberá asignar manualmente las unidades remotas ubicadas en el sitio de desastre al pool 1 de los nodos supervivientes. Debe identificar la cantidad de unidades que se asignarán.
+
+.Acerca de esta tarea
+Para los sistemas ADP, las unidades se asignan automáticamente.
+
+.Paso
+. En el sitio superviviente, asigne las unidades de pool 1 (remotas) del primer nodo: `storage disk assign -n number-of-replacement disks -p 1 0m*`
++
+Este comando asigna las unidades recién añadidas y no propiedad del sitio de desastre.
+
++
+El siguiente comando asigna 22 unidades:
+
++
+[listing]
+----
+cluster_B::> storage disk assign -n 22 -p 1 0m*
+----
+

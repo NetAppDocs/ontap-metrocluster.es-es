@@ -1,0 +1,52 @@
+---
+permalink: install-fc/reference_supported_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, supported, array, luns 
+summary: Puede configurar una configuración de MetroCluster con LUN de cabina. Se admiten tanto las configuraciones con ampliación como las conectadas a la estructura. Los sistemas AFF no son compatibles con los LUN de cabina. 
+---
+= Configuración de MetroCluster compatible con LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar una configuración de MetroCluster con LUN de cabina. Se admiten tanto las configuraciones con ampliación como las conectadas a la estructura. Los sistemas AFF no son compatibles con los LUN de cabina.
+
+Las funciones admitidas en las configuraciones de MetroCluster varían según los tipos de configuración. En la siguiente tabla se enumeran las funciones admitidas en los diferentes tipos de configuraciones de MetroCluster con LUN de cabina:
+
+|===
+
+
+.2+| Función 3+| Configuraciones FAS | Configuraciones de ampliación 
+
+
+| Ocho nodos | Cuatro nodos | Dos nodos | Dos nodos 
+
+
+ a| 
+Número de controladoras
+ a| 
+Ocho
+ a| 
+Cuatro
+ a| 
+Dos
+ a| 
+Dos
+
+
+
+| Utiliza una estructura de almacenamiento de switch FC | Sí | Sí | Sí | Sí 
+
+
+| Utiliza puentes FC a SAS | Sí | Sí | Sí | Sí 
+
+
+| Compatible con la alta disponibilidad local | Sí | Sí | No | No 
+
+
+| Admite el cambio automático | Sí | Sí | Sí | Sí 
+|===
+.Información relacionada
+link:concept_considerations_differences.html["Diferencias entre las configuraciones de ONTAP MetroCluster"]

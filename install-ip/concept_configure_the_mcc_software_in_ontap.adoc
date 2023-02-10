@@ -1,0 +1,16 @@
+---
+permalink: install-ip/concept_configure_the_mcc_software_in_ontap.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, ontap, node-level, configuration, node, site, relationship, configuring, configure, 
+summary: Debe configurar cada nodo en la configuración de MetroCluster en ONTAP, incluidas las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. También debe implementar la relación de MetroCluster entre los dos sitios. 
+---
+= Configuración del software MetroCluster en ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe configurar cada nodo en la configuración de MetroCluster en ONTAP, incluidas las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. También debe implementar la relación de MetroCluster entre los dos sitios.
+
+image::../media/workflow_mcc_ip_high_level_node_and_cluster_configuration_software.svg[workflow mcc ip de alto nivel de nodo y software de configuración de clúster]

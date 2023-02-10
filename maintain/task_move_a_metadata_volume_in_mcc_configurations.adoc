@@ -1,0 +1,116 @@
+---
+permalink: maintain/task_move_a_metadata_volume_in_mcc_configurations.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, move, metadata, volume, configuration 
+summary: En una configuración de MetroCluster, se puede mover un volumen de metadatos de un agregado a otro. Puede ser conveniente mover un volumen de metadatos cuando el agregado de origen se decomisione o no se refleja, o por otros motivos que hacen que el agregado no sea elegible. 
+---
+= Mover un volumen de metadatos en configuraciones de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En una configuración de MetroCluster, se puede mover un volumen de metadatos de un agregado a otro. Puede ser conveniente mover un volumen de metadatos cuando el agregado de origen se decomisione o no se refleja, o por otros motivos que hacen que el agregado no sea elegible.
+
+* Para realizar esta tarea, debe tener privilegios de administrador de clúster.
+* El agregado objetivo debe tener mirroring y no debe estar en el estado degradado.
+* El espacio disponible en el agregado de destino debe ser más grande que el volumen de metadatos que se mueve.
+
+
+.Pasos
+. Configure el nivel de privilegio en Advanced:
++
+`*set -privilege advanced*`
+
+. Identifique el volumen de metadatos que se debe mover:
++
+`*volume show MDV_CRS**`
+
++
+[listing]
+----
+Cluster_A::*> volume show MDV_CRS*
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+Cluster_A
+          MDV_CRS_14c00d4ac9f311e7922800a0984395f1_A
+                       Node_A_1_aggr1
+                                    online     RW         10GB     9.50GB    5%
+Cluster_A
+          MDV_CRS_14c00d4ac9f311e7922800a0984395f1_B
+                       Node_A_2_aggr1
+                                    online     RW         10GB     9.50GB    5%
+Cluster_A
+          MDV_CRS_15035e66c9f311e7902700a098439625_A
+                       Node_B_1_aggr1
+                                    -          RW            -          -     -
+Cluster_A
+          MDV_CRS_15035e66c9f311e7902700a098439625_B
+                       Node_B_2_aggr1
+                                    -          RW            -          -     -
+4 entries were displayed.
+
+Cluster_A::>
+----
+. Identifique un agregado objetivo apto:
++
+`*metrocluster check config-replication show-aggregate-eligibility*`
+
++
+El siguiente comando identifica los agregados en cluster_A que pueden optar a los volúmenes de metadatos del host:
+
++
+[listing]
+----
+
+Cluster_A::*> metrocluster check config-replication show-aggregate-eligibility
+
+Aggregate Hosted Config Replication Vols Host Addl Vols Comments
+------------ ------------------------------------------ -------------- --------
+Node_A_1_aggr0 - false Root Aggregate
+Node_A_2_aggr0 - false Root Aggregate
+Node_A_1_aggr1 MDV_CRS_1bc7134a5ddf11e3b63f123478563412_A true -
+Node_A_2_aggr1 MDV_CRS_1bc7134a5ddf11e3b63f123478563412_B true -
+Node_A_1_aggr2 - true
+Node_A_2_aggr2 - true
+Node_A_1_Aggr3 - false Unable to determine available space of aggregate
+Node_A_1_aggr5 - false Unable to determine mirror configuration
+Node_A_2_aggr6 - false Mirror configuration does not match requirement
+Node_B_1_aggr4 - false NonLocal Aggregate
+----
++
+
+NOTE: En el ejemplo anterior, Node_A_1_aggr2 y Node_A_2_aggr2 son elegibles.
+
+. Inicie la operación de movimiento de volúmenes:
++
+`*volume move start -vserver _svm_name_ -volume _metadata_volume_name_ -destination-aggregate _destination_aggregate_name_*`
+
++
+El siguiente comando mueve el volumen de metadatos `MDV_CRS_14c00d4ac9f311e7922800a0984395f1` de `aggregate Node_A_1_aggr1` para `aggregate Node_A_1_aggr2`:
+
++
+[listing]
+----
+Cluster_A::*> volume move start -vserver svm_cluster_A -volume MDV_CRS_14c00d4ac9f311e7922800a0984395f1
+-destination-aggregate aggr_cluster_A_02_01
+
+Warning: You are about to modify the system volume
+         "MDV_CRS_9da04864ca6011e7b82e0050568be9fe_A".  This may cause severe
+         performance or stability problems.  Do not proceed unless directed to
+         do so by support.  Do you want to proceed? {y|n}: y
+[Job 109] Job is queued: Move "MDV_CRS_9da04864ca6011e7b82e0050568be9fe_A" in Vserver
+"svm_cluster_A" to aggregate "aggr_cluster_A_02_01".
+Use the "volume move show -vserver svm_cluster_A -volume
+MDV_CRS_9da04864ca6011e7b82e0050568be9fe_A" command to view the status of this operation.
+----
+. Compruebe el estado de la operación de movimiento de volúmenes:
++
+`*volume move show -volume vol_constituent_name*`
+
+. Vuelva al nivel de privilegio de administrador:
++
+`*set -privilege admin*`
+
+

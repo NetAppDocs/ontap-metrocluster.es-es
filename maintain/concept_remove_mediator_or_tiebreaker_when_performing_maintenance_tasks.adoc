@@ -1,0 +1,79 @@
+---
+permalink: maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, maintenance, service, tiebreaker, mediator, ontap mediator 
+summary: Las configuraciones que utilizan el software de supervisión Tiebreaker o Mediator deben tener el software sin configurar antes del mantenimiento 
+---
+= Elimine la supervisión del Mediador ONTAP o tiebreaker antes de realizar tareas de mantenimiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de realizar tareas de mantenimiento, debe eliminar la supervisión si la configuración de MetroCluster se supervisa con tiebreaker o la utilidad Mediator.
+
+Las tareas de mantenimiento incluyen actualizar la plataforma de la controladora, actualizar ONTAP y realizar una conmutación de sitios y conmutación de estado negociadas.
+
+.Pasos
+. Recopile el resultado del siguiente comando:
++
+`storage iscsi-initiator show`
+
+. Elimine la configuración de MetroCluster existente de tiebreaker, Mediator u otro software que pueda iniciar la conmutación.
++
+|===
+
+
+| Si está usando... | Utilice este procedimiento... 
+
+
+ a| 
+Tiebreaker
+ a| 
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["Eliminar las configuraciones de MetroCluster"] En el _MetroCluster Tiebreaker Contenido de instalación y configuración_
+
+
+
+ a| 
+Mediador
+ a| 
+Ejecute el siguiente comando desde el símbolo del sistema de ONTAP:
+
+`metrocluster configuration-settings mediator remove`
+
+
+
+ a| 
+Aplicaciones de terceros
+ a| 
+Consulte la documentación del producto.
+
+|===
+. Después de completar el mantenimiento de la configuración de MetroCluster, puede reanudar la supervisión con tiebreaker o la utilidad Mediator.
++
+|===
+| Si está usando... | Utilice este procedimiento 
+
+
+ a| 
+Tiebreaker
+ a| 
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["Adición de configuraciones de MetroCluster"] En la sección _MetroCluster Tiebreaker instalación y configuración_.
+
+
+
+ a| 
+Mediador
+ a| 
+link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["Configuración del servicio Mediador ONTAP desde una configuración IP de MetroCluster"] En la sección _MetroCluster IP Installation and Configuration_.
+
+
+
+ a| 
+Aplicaciones de terceros
+ a| 
+Consulte la documentación del producto.
+
+|===
+

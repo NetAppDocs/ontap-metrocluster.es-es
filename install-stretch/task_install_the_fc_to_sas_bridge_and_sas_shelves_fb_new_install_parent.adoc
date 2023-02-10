@@ -1,0 +1,41 @@
+---
+permalink: install-stretch/task_install_the_fc_to_sas_bridge_and_sas_shelves_fb_new_install_parent.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, install, fc, sas, bridge, shelves 
+summary: Después de asegurarse de que el sistema cumple todos los requisitos de la sección “preparación para la instalación”, puede instalar el sistema nuevo. 
+---
+= Instalar el puente FC-a-SAS y las bandejas SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de asegurarse de que el sistema cumple todos los requisitos de la sección "'preparación para la instalación'", puede instalar su nuevo sistema.
+
+* La configuración del disco y de la bandeja en ambos sitios debe ser idéntica.
++
+Si se utiliza un agregado no reflejado, la configuración de disco y bandeja en cada sitio puede ser diferente.
+
++
+
+NOTE: Todos los discos del grupo de recuperación ante desastres (DR) deben usar el mismo tipo de conexión y ser visibles para todos los nodos del grupo de recuperación ante desastres, con independencia de los discos que se utilicen para agrupaciones duplicadas o no duplicadas.
+
+* Los requisitos de conectividad del sistema para distancias máximas para bandejas de discos, switches FC y dispositivos de cinta de respaldo que usan cables de fibra óptica multimodo de 50 micras también se aplican a los puentes FibreBridge.
++
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+* No se admite una combinación de módulos IOM12 y módulos IOM3 dentro de la misma pila de almacenamiento. Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila de almacenamiento si el sistema ejecuta una versión admitida de ONTAP.
+
+
+[NOTE]
+====
+ACP en banda es compatible sin cableado adicional en las siguientes bandejas y puente FibreBridge 7500N o 7600N:
+
+* IOM12 (DS460C) detrás de un puente 7500N o 7600N con ONTAP 9.2 y posterior
+* IOM12 (DS212C y DS224C) detrás de un puente 7500N o 7600N con ONTAP 9.1 y posterior
+
+
+====
+
+NOTE: Las bandejas SAS en las configuraciones MetroCluster no son compatibles con el cableado ACP.

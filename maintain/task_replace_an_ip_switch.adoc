@@ -1,0 +1,122 @@
+---
+permalink: maintain/task_replace_an_ip_switch.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, ip, switch 
+summary: 'Es posible que deba sustituir un switch con errores o actualizar o degradar un switch. El nuevo conmutador puede ser el mismo que el antiguo cuando un conmutador ha fallado, o puede cambiar el tipo de conmutador \(actualizar o degradar el conmutador\).' 
+---
+= Reemplazar un switch IP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que deba sustituir un switch con errores o actualizar o degradar un switch. El nuevo conmutador puede ser el mismo que el antiguo cuando un conmutador ha fallado, o puede cambiar el tipo de conmutador (actualizar o degradar el conmutador).
+
+Si desea sustituir un conmutador defectuoso con el mismo tipo de conmutador, sólo tiene que sustituir el conmutador defectuoso. Si desea actualizar o degradar un switch, debe ajustar dos switches que estén en la misma red. Dos switches se encuentran en la misma red si se conectan a un enlace entre switches (ISL) y no están ubicados en el mismo sitio. Por ejemplo, la Red 1 incluye IP_switch_A_1 y IP_switch_B_1. Network 2 incluye IP_switch_A_2 e IP_switch_B_2 como se muestra en el diagrama siguiente:
+
+image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[interconexión ip de arquitectura de hardware ip de mcc]
+
+Este procedimiento se aplica cuando se utilizan switches validados por NetApp. Si utiliza switches compatibles con MetroCluster, consulte al proveedor de switches.
+
+Si actualiza o degrada las redes, debe repetir este procedimiento para la segunda red.
+
+.Pasos
+. Compruebe el estado de la configuración.
++
+.. Compruebe que la MetroCluster esté configurada y en modo normal de cada clúster: `*metrocluster show*`
++
+[listing]
+----
+cluster_A::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+Remote: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+----
+.. Compruebe que el mirroring está habilitado en cada nodo: `*metrocluster node show*`
++
+[listing]
+----
+cluster_A::> metrocluster node show
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              node_A_1       configured     enabled   normal
+      cluster_B
+              node_B_1       configured     enabled   normal
+2 entries were displayed.
+----
+.. Compruebe que los componentes de MetroCluster sean los mismos en buen estado: `*metrocluster check run*`
++
+[listing]
+----
+cluster_A::> metrocluster check run
+
+Last Checked On: 10/1/2014 16:03:37
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+4 entries were displayed.
+
+Command completed. Use the "metrocluster check show -instance" command or sub-commands in "metrocluster check" directory for detailed results.
+To check if the nodes are ready to do a switchover or switchback operation, run "metrocluster switchover -simulate" or "metrocluster switchback -simulate", respectively.
+----
+.. Compruebe que no hay alertas de estado: `*system health alert show*`
+
+
+. Configure el nuevo interruptor antes de instalarlo.
++
+
+NOTE: Si está actualizando o degradando los switches, debe configurar todos los switches de la red.
+
++
+Siga los pasos de la sección _Configuración de los switches IP_ del link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Instalación y configuración de IP de MetroCluster."]
+
++
+Asegúrese de aplicar el archivo RCF correcto para switch _A_1, _A_2, _B_1 o _B_2. Si el nuevo conmutador es el mismo que el antiguo, deberá aplicar el mismo archivo RCF.
+
++
+Si actualiza o degrada un conmutador, aplique el último archivo RCF admitido para el nuevo conmutador.
+
+. Ejecute el comando Port show para ver información acerca de los puertos de red:
++
+`*network port show*`
+
+. Desconecte las conexiones ISL del conmutador remoto que se conectan al conmutador antiguo.
++
+Debe desconectar las conexiones ISL de los puertos en IP_switch_A_1 que se conectan a IP_switch_B_1.
+
+. Apague el interruptor, retire los cables y retire físicamente IP_switch_B_1.
+. Instale el nuevo interruptor.
++
+Conecte primero el nuevo conmutador (incluidos los ISL) de acuerdo con los pasos de la sección _cableando los conmutadores IP_ del link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Instalación y configuración de IP de MetroCluster"].
+
++
+[NOTE]
+====
+Los puertos utilizados pueden ser diferentes de los del switch antiguo si el tipo de switch es diferente. Si va a actualizar o cambiar a una versión anterior de los switches, realice *NO* el cableado de los ISL locales. Sólo conecte los cables ISL locales si va a actualizar o a cambiar la versión anterior de los switches de la segunda red y los dos switches de un sitio son del mismo tipo.
+
+====
+. Encienda el interruptor o los interruptores.
++
+Si el nuevo interruptor es el mismo, encienda el nuevo interruptor. Si está actualizando o degradando los interruptores, encienda ambos interruptores. La configuración puede funcionar con dos switches diferentes en cada centro hasta que se actualice la segunda red.
+
+. Verifique que la configuración de MetroCluster esté en buen estado repitiendo el paso 1.
++
+Si va a actualizar o a cambiar a una versión anterior de los switches de la primera red, es posible que haya algunas alertas relacionadas con la agrupación en clúster local.
+
++
+
+NOTE: Si actualiza o degrada las redes, repita todos los pasos para la segunda red.
+
+

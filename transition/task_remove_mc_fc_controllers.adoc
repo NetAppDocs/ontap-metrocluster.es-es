@@ -1,0 +1,268 @@
+---
+permalink: transition/task_remove_mc_fc_controllers.html 
+sidebar: sidebar 
+keywords: Generating and applying RCFs to the new IP switches, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+summary: Para preparar la configuración para la transición, añada los nodos nuevos a la configuración de MetroCluster existente y, a continuación, mueva los datos a los nuevos nodos. 
+---
+= Quitar las controladoras FC MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe realizar tareas de limpieza y eliminar los módulos de la controladora antiguos de la configuración de MetroCluster.
+
+. Para evitar la generación automática de casos de soporte, envíe un mensaje de AutoSupport para indicar que está en curso el mantenimiento.
++
+.. Emita el siguiente comando: `system node autosupport invoke -node * -type all -message MAINT=maintenance-window-in-hours`
++
+la ventana de mantenimiento en horas especifica la longitud de la ventana de mantenimiento, con un máximo de 72 horas. Si el mantenimiento se completa antes de que haya transcurrido el tiempo, puede invocar un mensaje de AutoSupport que indique el final del período de mantenimiento:``system node autosupport invoke -node * -type all -message MAINT=end``
+
+.. Repita el comando en el clúster de partners.
+
+
+. Identificar los agregados alojados en la configuración de MetroCluster FC que se deben eliminar.
++
+En este ejemplo, los siguientes agregados de datos están alojados en MetroCluster FC cluster_B y se deben eliminar: aggr_data_a1 y aggr_data_a2.
+
++
+
+NOTE: Debe realizar los pasos para identificar, desconectar y eliminar los agregados de datos en ambos clústeres. El ejemplo solo es para un clúster.
+
++
+....
+cluster_B::> aggr show
+
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+aggr0_node_A_1-FC
+           349.0GB   16.83GB   95% online       1 node_A_1-FC      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_2-FC
+           349.0GB   16.83GB   95% online       1 node_A_2-FC      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_3-IP
+           467.6GB   22.63GB   95% online       1 node_A_3-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_3-IP
+           467.6GB   22.62GB   95% online       1 node_A_4-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a1
+            1.02TB    1.02TB    0% online       0 node_A_1-FC      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a2
+            1.02TB    1.02TB    0% online       0 node_A_2-FC      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a3
+            1.37TB    1.35TB    1% online       3 node_A_3-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a4
+            1.25TB    1.24TB    1% online       2 node_A_4-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+8 entries were displayed.
+
+cluster_B::>
+....
+. Compruebe si los agregados de datos de los nodos FC tienen volúmenes MDV_aud y elimínelos antes de eliminar los agregados.
++
+Debe eliminar los volúmenes MDV_aud ya que no se pueden mover.
+
+. Desconecte cada uno de los agregados de datos y, a continuación, elimínelos:
++
+.. Desconectar el agregado: `storage aggregate offline -aggregate aggregate-name`
++
+En el siguiente ejemplo se muestra el agregado aggr_data_a1 que se desconecta:
+
++
+....
+cluster_B::> storage aggregate offline -aggregate aggr_data_a1
+
+Aggregate offline successful on aggregate: aggr_data_a1
+....
+.. Elimine el agregado: `storage aggregate delete -aggregate aggregate-name`
++
+Puede destruir el complejo cuando se le solicite.
+
++
+En el ejemplo siguiente se muestra el agregado aggr_data_a1 que se está eliminando.
+
++
+....
+cluster_B::> storage aggregate delete -aggregate aggr_data_a1
+Warning: Are you sure you want to destroy aggregate "aggr_data_a1"? {y|n}: y
+[Job 123] Job succeeded: DONE
+
+cluster_B::>
+....
+
+
+. Identificar el grupo de recuperación ante desastres FC de MetroCluster que se debe quitar.
++
+En el siguiente ejemplo, los nodos FC de MetroCluster se encuentran en el grupo de recuperación ante desastres '1', y es éste el grupo que debe eliminarse.
+
++
+....
+cluster_B::> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1-FC        configured     enabled   normal
+              node_A_2-FC        configured     enabled   normal
+      cluster_B
+              node_B_1-FC        configured     enabled   normal
+              node_B_2-FC        configured     enabled   normal
+2     cluster_A
+              node_A_3-IP        configured     enabled   normal
+              node_A_4-IP        configured     enabled   normal
+      cluster_B
+              node_B_3-IP        configured     enabled   normal
+              node_B_3-IP        configured     enabled   normal
+8 entries were displayed.
+
+cluster_B::>
+....
+. Mueva la LIF de gestión del clúster de un nodo FC de MetroCluster a un nodo IP de MetroCluster: `cluster_B::> network interface migrate -vserver svm-name -lif cluster_mgmt -destination-node node-in-metrocluster-ip-dr-group -destination-port available-port`
+. Cambie el nodo de inicio y el puerto de inicio de la LIF de gestión de clústeres: `cluster_B::> network interface modify -vserver svm-name -lif cluster_mgmt -service-policy default-management -home-node node-in-metrocluster-ip-dr-group -home-port lif-port`
+. Mueva épsilon de un nodo FC MetroCluster a un nodo IP MetroCluster:
++
+.. Identifique qué nodo tiene actualmente épsilon: `cluster show -fields epsilon`
++
+....
+cluster_B::> cluster show -fields epsilon
+node             epsilon
+---------------- -------
+node_A_1-FC      true
+node_A_2-FC      false
+node_A_1-IP      false
+node_A_2-IP      false
+4 entries were displayed.
+....
+.. Establezca épsilon en FALSE en el nodo FC de MetroCluster (nodo_A_1-FC): `cluster modify -node fc-node -epsilon false`
+.. Establezca épsilon en true en el nodo IP de MetroCluster (nodo_A_1-IP): `cluster modify -node ip-node -epsilon true`
+.. Compruebe que épsilon se ha movido al nodo correcto: `cluster show -fields epsilon`
++
+....
+cluster_B::> cluster show -fields epsilon
+node             epsilon
+---------------- -------
+node_A_1-FC      false
+node_A_2-FC      false
+node_A_1-IP      true
+node_A_2-IP      false
+4 entries were displayed.
+....
+
+
+. En cada clúster, quite el grupo de recuperación ante desastres que contiene los nodos antiguos de la configuración de FC de MetroCluster.
++
+Este paso debe ejecutarse en ambos clústeres de uno en uno.
+
++
+....
+cluster_B::> metrocluster remove-dr-group -dr-group-id 1
+
+Warning: Nodes in the DR group that are removed from the MetroCluster
+         configuration will lose their disaster recovery protection.
+
+         Local nodes "node_A_1-FC, node_A_2-FC" will be removed from the
+         MetroCluster configuration. You must repeat the operation on the
+         partner cluster "cluster_B" to remove the remote nodes in the DR group.
+Do you want to continue? {y|n}: y
+
+Info: The following preparation steps must be completed on the local and partner
+      clusters before removing a DR group.
+
+      1. Move all data volumes to another DR group.
+      2. Move all MDV_CRS metadata volumes to another DR group.
+      3. Delete all MDV_aud metadata volumes that may exist in the DR group to
+      be removed.
+      4. Delete all data aggregates in the DR group to be removed. Root
+      aggregates are not deleted.
+      5. Migrate all data LIFs to home nodes in another DR group.
+      6. Migrate the cluster management LIF to a home node in another DR group.
+      Node management and inter-cluster LIFs are not migrated.
+      7. Transfer epsilon to a node in another DR group.
+
+      The command is vetoed ifthe preparation steps are not completed on the
+      local and partner clusters.
+Do you want to continue? {y|n}: y
+[Job 513] Job succeeded: Remove DR Group is successful.
+
+cluster_B::>
+....
+. Compruebe que los nodos están listos para quitarse de los clústeres.
++
+Este paso debe ejecutarse en ambos clústeres.
+
++
+
+NOTE: En este momento, el `metrocluster node show` El comando solo muestra los nodos FC de MetroCluster locales y ya no muestra los nodos que forman parte del clúster de partners.
+
++
+....
+cluster_B::> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1-FC        ready to configure
+                                                -         -
+              node_A_2-FC        ready to configure
+                                                -         -
+2     cluster_A
+              node_A_3-IP        configured     enabled   normal
+              node_A_4-IP        configured     enabled   normal
+      cluster_B
+              node_B_3-IP        configured     enabled   normal
+              node_B_4-IP        configured     enabled   normal
+6 entries were displayed.
+
+cluster_B::>
+....
+. Deshabilite la recuperación tras fallos de almacenamiento para los nodos FC de MetroCluster.
++
+Debe realizar este paso en cada nodo.
+
++
+....
+cluster_A::> storage failover modify -node node_A_1-FC -enabled false
+cluster_A::> storage failover modify -node node_A_2-FC -enabled false
+cluster_A::>
+....
+. Ununa los nodos FC de MetroCluster de los clústeres: `cluster unjoin -node node-name`
++
+Debe realizar este paso en cada nodo.
+
++
+....
+cluster_A::> cluster unjoin -node node_A_1-FC
+
+Warning: This command will remove node "node_A_1-FC"from the cluster. You must
+         remove the failover partner as well. After the node is removed, erase
+         its configuration and initialize all disks by usingthe "Clean
+         configuration and initialize all disks (4)" option from the boot menu.
+Do you want to continue? {y|n}: y
+[Job 553] Job is queued: Cluster remove-node of Node:node_A_1-FC with UUID:6c87de7e-ff54-11e9-8371
+[Job 553] Checking prerequisites
+[Job 553] Cleaning cluster database
+[Job 553] Job succeeded: Node remove succeeded
+If applicable, also remove the node's HA partner, and then clean its configuration and initialize all disks with the boot menu.
+Run "debug vreport show" to address remaining aggregate or volume issues.
+
+cluster_B::>
+....
+. Apague los módulos de controladora FC de MetroCluster y las bandejas de almacenamiento.
+. Desconecte y quite los módulos de controladora FC de MetroCluster y las bandejas de almacenamiento.
+

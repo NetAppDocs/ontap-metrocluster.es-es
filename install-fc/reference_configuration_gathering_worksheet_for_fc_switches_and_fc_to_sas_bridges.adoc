@@ -1,0 +1,18 @@
+---
+permalink: install-fc/reference_configuration_gathering_worksheet_for_fc_switches_and_fc_to_sas_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, configuration, worksheets, fc, switches, sas, bridges 
+summary: Antes de empezar a configurar los sitios MetroCluster, debe recopilar la información de configuración necesaria. 
+---
+= Hojas de datos de configuración para los switches FC y los puentes FC a SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de empezar a configurar los sitios MetroCluster, puede utilizar las siguientes hojas de cálculo para registrar la información del sitio:
+
+link:media/MetroCluster-FC_setup_worksheet_site-A.csv["Planta de una hoja de trabajo"]
+
+link:media/MetroCluster-FC_setup_worksheet_site-B.csv["Hoja de trabajo de la planta B."]

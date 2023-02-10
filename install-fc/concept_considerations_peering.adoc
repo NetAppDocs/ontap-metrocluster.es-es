@@ -1,0 +1,110 @@
+---
+permalink: install-fc/concept_considerations_peering.html 
+sidebar: sidebar 
+keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa 
+summary: Al preparar la instalación de MetroCluster, debe comprender la arquitectura de hardware de MetroCluster y los componentes necesarios. 
+---
+= Conexión de clústeres entre iguales
+:allow-uri-read: 
+
+
+[role="lead"]
+Cada sitio de MetroCluster se configura como un par para su sitio de partner. Debe estar familiarizado con los requisitos previos y las directrices para configurar las relaciones de paridad. Esto es importante a la hora de decidir si se deben utilizar puertos compartidos o dedicados para esas relaciones.
+
+.Información relacionada
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
+
+
+
+== Requisitos previos para la relación de clústeres entre iguales
+
+Antes de configurar cluster peering, debe confirmar que se cumple la conectividad entre el puerto, la dirección IP, la subred, el firewall y los requisitos de nomenclatura de clústeres.
+
+
+
+=== Requisitos de conectividad
+
+Todas las LIF de interconexión de clústeres del clúster local deben poder comunicarse con todas las LIF de interconexión de clústeres del clúster remoto.
+
+Aunque no es necesario, generalmente es más fácil configurar las direcciones IP que se usan para las LIF de interconexión de clústeres de la misma subred. Las direcciones IP pueden residir en la misma subred que las LIF de datos, o en una subred diferente. La subred que se utiliza en cada clúster debe cumplir los siguientes requisitos:
+
+* La subred debe tener suficientes direcciones IP disponibles para asignar a una LIF de interconexión de clústeres por nodo.
++
+Por ejemplo, en un clúster de cuatro nodos, la subred que se usa para la comunicación entre clústeres debe tener cuatro direcciones IP disponibles.
+
+
+
+Cada nodo debe tener una LIF de interconexión de clústeres con una dirección IP en la red de interconexión de clústeres.
+
+Las LIF entre clústeres pueden tener una dirección IPv4 o IPv6.
+
+
+NOTE: ONTAP 9 le permite migrar las redes entre iguales de IPv4 a IPv6 de forma opcional, lo que permite que ambos protocolos estén presentes simultáneamente en las LIF de interconexión de clústeres. En las versiones anteriores, todas las relaciones de interconexión de clústeres de todo un clúster eran IPv4 o IPv6. Esto significaba que el cambio de protocolos era un evento que podía provocar interrupciones.
+
+
+
+=== Requisitos de puertos
+
+Se pueden usar puertos dedicados para la comunicación entre clústeres o para compartir puertos que usa la red de datos. Los puertos deben cumplir con los siguientes requisitos:
+
+* Todos los puertos que se utilizan para comunicarse con un clúster remoto determinado deben estar en el mismo espacio IP.
++
+Se pueden utilizar varios espacios IP para establecer la misma relación entre iguales con varios clústeres. La conectividad de malla completa en par sólo se requiere dentro de un espacio IP.
+
+* El dominio de retransmisión utilizado para la comunicación entre clústeres debe incluir al menos dos puertos por nodo para que la comunicación entre clústeres se pueda conmutar por error de un puerto a otro.
++
+Los puertos que se añaden a un dominio de retransmisión pueden ser puertos de red físicos, VLAN o grupos de interfaces (ifgrps).
+
+* Todos los puertos deben estar cableadas.
+* Todos los puertos deben estar en buen estado.
+* La configuración de MTU de los puertos debe ser coherente.
+
+
+
+
+=== Requisitos del firewall
+
+Los firewalls y la política de firewall de interconexión de clústeres deben permitir los siguientes protocolos:
+
+* Servicio ICMP
+* TCP a las direcciones IP de todas las LIF de interconexión de clústeres en los puertos 10000, 11104 y 11105
+* HTTPS bidireccional entre las LIF de interconexión de clústeres
+
+
+La política predeterminada de firewall de interconexión de clústeres permite el acceso a través del protocolo HTTPS y desde todas las direcciones IP (0.0.0.0/0). Puede modificar o reemplazar la política si es necesario.
+
+
+
+== Consideraciones que tener en cuenta al utilizar puertos dedicados
+
+Cuando se determina si se usa un puerto dedicado para la replicación entre clústeres es la solución de red entre clústeres correcta, se deben tener en cuenta las configuraciones y requisitos como el tipo de LAN, el ancho de banda WAN disponible, el intervalo de replicación, la tasa de cambio y el número de puertos.
+
+Tenga en cuenta los siguientes aspectos de la red para determinar si la mejor solución de interconexión de clústeres es usar un puerto dedicado:
+
+* Si la cantidad de ancho de banda WAN disponible es similar a la de los puertos LAN y el intervalo de replicación es tal que la replicación se realiza mientras hay actividad de cliente normal, debe dedicar puertos Ethernet para la replicación entre clústeres para evitar la contención entre la replicación y los protocolos de datos.
+* Si el uso de red generado por los protocolos de datos (CIFS, NFS e iSCSI) supera el 50 % de la utilización de la red, dedique puertos para la replicación para que no disminuya el rendimiento si se produce un fallo en un nodo.
+* Cuando se utilizan puertos físicos de 10 GbE o más rápidos para datos y replicación, puede crear puertos VLAN para la replicación y dedicar los puertos lógicos para la replicación entre clústeres.
++
+El ancho de banda del puerto se comparte entre todas las VLAN y el puerto base.
+
+* Tenga en cuenta la tasa de cambio de los datos, el intervalo de replicación y si la cantidad de datos que se debe replicar en cada intervalo requieren un ancho de banda suficiente. Esto puede provocar una contención con protocolos de datos si se comparten puertos de datos.
+
+
+
+
+== Consideraciones que tener en cuenta al compartir puertos de datos
+
+Cuando determinar si compartir un puerto de datos para la replicación entre clústeres es la solución de red entre clústeres correcta, debe tener en cuenta las configuraciones y requisitos como el tipo de LAN, el ancho de banda WAN disponible, el intervalo de replicación, la tasa de cambio y el número de puertos.
+
+Tenga en cuenta los siguientes aspectos de la red para determinar si compartir puertos de datos es la mejor solución de conectividad entre clústeres:
+
+* Para una red de alta velocidad, como una red Ethernet de 40 GB (40 GbE), puede haber disponible una cantidad suficiente de ancho de banda LAN local para realizar la replicación en los mismos puertos de 40 GbE que se usan para el acceso a datos.
++
+En muchos casos, el ancho de banda WAN disponible es mucho menor que el ancho de banda LAN de 10 GbE.
+
+* Es posible que todos los nodos del clúster tengan que replicar datos y compartir el ancho de banda WAN disponible, lo que hace que sea más aceptable el uso compartido de los puertos de datos.
+* El uso compartido de puertos para datos y replicación elimina los números de puertos adicionales necesarios para dedicar puertos para la replicación.
+* El tamaño máximo de la unidad de transmisión (MTU) de la red de replicación será el mismo tamaño que el que se utilizó en la red de datos.
+* Tenga en cuenta la tasa de cambio de los datos, el intervalo de replicación y si la cantidad de datos que se debe replicar en cada intervalo requieren un ancho de banda suficiente. Esto puede provocar una contención con protocolos de datos si se comparten puertos de datos.
+* Cuando se comparten puertos de datos para la replicación entre clústeres, las LIF interconexión de clústeres se pueden migrar a cualquier otro puerto que admita la interconexión de clústeres en el mismo nodo para controlar el puerto de datos específico que se usa para la replicación.
+

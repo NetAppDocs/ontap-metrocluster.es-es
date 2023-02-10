@@ -1,0 +1,196 @@
+---
+permalink: maintain/task_fb_hot_add_a_disk_shelf_install_7500n.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, add, disk, shelf 
+summary: Puede añadir una bandeja de discos en activo cuando desee aumentar el almacenamiento sin reducir el rendimiento. 
+---
+= Añadir en caliente una bandeja de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede añadir una bandeja de discos en activo cuando desee aumentar el almacenamiento sin reducir el rendimiento.
+
+* El sistema debe cumplir todos los requisitos de link:task_fb_hot_add_shelf_prepare_7500n.html["Preparar la adición en caliente de bandejas de discos SAS"].
+* El entorno debe satisfacer una de las siguientes situaciones para añadir una bandeja en caliente:
++
+** Tiene dos puentes FibreBridge 7500N conectados a una pila de bandejas de discos SAS.
+** Dispone de un puente FibreBridge 7500N y un puente FibreBridge 6500N conectado a una pila de bandejas de discos SAS.
+** Tiene dos puentes FibreBridge 6500N conectados a una pila de bandejas de discos SAS.
+
+
+* Este procedimiento sirve para añadir de forma activa una bandeja de discos a la última bandeja de discos de una pila.
++
+Este procedimiento se escribe suponiendo que la última bandeja de discos de una pila está conectada desde el IOM A al puente A y de IOM B al puente B.
+
+* Se trata de un procedimiento no disruptivo.
+* Debe añadir en caliente un número igual de bandejas de discos en cada sitio.
+* Si va a añadir más de una bandeja de discos en activo, debe añadir una bandeja de discos en activo a la vez.
++
+
+NOTE: Cada par de puentes FibreBridge 7500N o 7600N puede soportar hasta cuatro pilas.
+
+
+
+
+IMPORTANT: Para añadir una bandeja de discos en caliente, es necesario actualizar el firmware de las unidades de disco en la bandeja de discos en activo ejecutando el `storage disk firmware update` comando en modo avanzado. La ejecución de este comando puede provocar interrupciones si el firmware en las unidades de disco existentes en el sistema es una versión anterior.
+
+
+IMPORTANT: Si inserta un cable SAS en el puerto incorrecto, al quitar el cable de un puerto SAS, debe esperar al menos 120 segundos antes de enchufar el cable a un puerto SAS diferente. Si no lo hace, el sistema no reconocerá que el cable se ha movido a otro puerto.
+
+.Pasos
+. Puesta a tierra apropiadamente usted mismo.
+. Compruebe la conectividad de la bandeja de discos desde la consola del sistema de cualquier controladora:
++
+`*sysconfig -v*`
+
++
+La salida es similar a la siguiente:
+
++
+** Cada puente de una línea independiente y debajo de cada puerto FC al que está visible; por ejemplo, agregar en caliente una bandeja de discos a un conjunto de puentes FibreBridge 7500N resulta en la siguiente salida:
++
+[listing]
+----
+FC-to-SAS Bridge:
+cisco_A_1-1:9.126L0: ATTO  FibreBridge7500N 2.10  FB7500N100189
+cisco_A_1-2:1.126L0: ATTO  FibreBridge7500N 2.10  FB7500N100162
+----
+** Cada bandeja de discos en una línea separada bajo cada puerto FC al que se encuentra visible:
++
+[listing]
+----
+Shelf   0: IOM6  Firmware rev. IOM6 A: 0173 IOM6 B: 0173
+Shelf   1: IOM6  Firmware rev. IOM6 A: 0173 IOM6 B: 0173
+----
+** Cada unidad de disco en una línea separada debajo de cada puerto FC al que se puede ver:
++
+[listing]
+----
+cisco_A_1-1:9.126L1   : NETAPP   X421_HCOBD450A10 NA01 418.0GB (879097968 520B/sect)
+cisco_A_1-1:9.126L2   : NETAPP   X421_HCOBD450A10 NA01 418.0GB (879097968 520B/sect)
+----
+
+
+. Compruebe si el sistema tiene la asignación automática de discos habilitada desde la consola de cualquiera de las controladoras:
++
+`*storage disk option show*`
+
++
+La directiva de asignación automática se muestra en la columna asignación automática.
+
++
+[listing]
+----
+
+Node        BKg. FW. Upd.  Auto Copy   Auto Assign  Auto Assign Policy
+----------  -------------  ----------  -----------  ------------------
+node_A_1             on           on           on           default
+node_A_2             on           on           on           default
+2 entries were displayed.
+----
+. Si el sistema no tiene la asignación automática de disco habilitada o si las unidades de disco de la misma pila son propiedad de ambas controladoras, asigne unidades de disco a los pools adecuados.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+
++
+[NOTE]
+====
+Si va a dividir una única pila de bandejas de discos entre dos controladoras, la asignación automática de discos debe deshabilitarse antes de asignar la propiedad de disco; de lo contrario, cuando asigna cualquier unidad de disco única, las unidades de disco restantes pueden asignarse automáticamente a la misma controladora y a un pool.
+
+La `storage disk option modify -node _node-name_ -autoassign off` el comando deshabilita la asignación automática de discos.
+
+====
++
+
+NOTE: Las unidades de disco no deben añadirse a agregados o volúmenes hasta que se haya actualizado el firmware de la unidad de disco y de la bandeja de discos.
+
+. Actualice el firmware de la bandeja de discos a la versión más reciente mediante las instrucciones para el firmware descargado.
++
+Puede ejecutar los comandos en el procedimiento desde la consola del sistema de cualquier controladora.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"]
+
+. Instale y cablee la bandeja de discos:
++
+Tenga en cuenta las siguientes consideraciones:
+
++
+** Para puentes FibreBridge 6500N:
++
+Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde.en el caso de las bandejas de discos, se inserta un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).
+
+** Para puentes FibreBridge 7500N:
++
+No fuerce un conector en un puerto. Los cables mini-SAS están codificados; cuando están orientados correctamente a un puerto SAS, el cable SAS hace clic en su lugar y el LED LNK de puerto SAS de la bandeja de discos se ilumina en verde. Para las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia arriba (en la parte superior del conector).
+
++
+... Instale la bandeja de discos, enciela y configure el ID de bandeja.
++
+La _Guía de instalación_ del modelo de bandejas de discos proporciona información detallada sobre la instalación de bandejas de discos.
+
++
+
+NOTE: Debe apagar y encender la bandeja de discos y mantener los ID de bandeja únicos para cada bandeja de discos SAS dentro de todo el sistema de almacenamiento.
+
+... Desconecte el cable SAS del puerto IOM B de la última bandeja de la pila y vuelva a conectarlo al mismo puerto en la nueva bandeja.
++
+El otro extremo de este cable permanece conectado al puente B.
+
+... Conecte en cadena la bandeja de discos nueva mediante el cableado de los nuevos puertos IOM de la bandeja (de IOM a e IOM B) a los últimos puertos IOM de la bandeja (de IOM a e IOM B).
+
+
+
+
++
+La _Installation Guide_ del modelo de bandeja de discos proporciona información detallada sobre las bandejas de discos en cadena.
+
+. Actualice el firmware de la unidad de disco a la versión más reciente desde la consola del sistema.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"]
+
++
+.. Cambie al nivel de privilegio avanzado: +
+`*set -privilege advanced*`
++
+Debe responder con `*y*` cuando se le solicite que continúe en el modo avanzado y vea el símbolo del sistema del modo avanzado (*>).
+
+.. Actualice el firmware de la unidad de disco a la versión más reciente desde la consola del sistema: +
+`*storage disk firmware update*`
+.. Vuelva al nivel de privilegio de administrador: +
+`*set -privilege admin*`
+.. Repita los mismos pasos anteriores en la otra controladora.
+
+
+. Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
++
+.. Compruebe si el sistema es multivía:
++
+`*node run -node _node-name_ sysconfig -a*`
+
+.. Compruebe si hay alertas de estado en ambos clústeres: +
+`*system health alert show*`
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal: +
+`*metrocluster show*`
+.. Realice una comprobación de MetroCluster: +
+`*metrocluster check run*`
+.. Mostrar los resultados de la comprobación de MetroCluster:
++
+`*metrocluster check show*`
+
+.. Compruebe si hay alertas de estado en los switches (si existen):
++
+`*storage switch show*`
+
+.. Ejecute Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
+
+.. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
+
+
+. Si va a añadir más de una bandeja de discos en activo, repita los pasos anteriores para cada bandeja de discos que va a añadir en caliente.
+

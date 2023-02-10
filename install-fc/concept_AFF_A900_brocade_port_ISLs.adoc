@@ -1,0 +1,58 @@
+---
+permalink: install-fc/concept_AFF_A900_brocade_port_ISLs.html 
+sidebar: sidebar 
+keywords: AFF, A900, ONTAP, FAS, Brocade, ISL, metrocluster 
+summary: En la siguiente tabla se muestra el uso del puerto ISL para los switches Brocade en un sistema AFF A900. 
+---
+= AFF A900 o FAS9500: Uso de puertos Brocade para ISL en una configuración MetroCluster que ejecute ONTAP 9.10.1 o posterior
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+La siguiente tabla muestra el uso de puertos ISL para los switches Brocade en un sistema AFF A900 o FAS9500.
+
+
+NOTE: Los sistemas AFF A900 y FAS9500 admiten ocho ISL. Se admiten ocho ISL en Brocade 6510, G620, G620-1, G630, G630-1, Y los interruptores G720.
+
+|===
+| Modelo de switch | Puerto ISL | Puerto del switch 
+
+
+ a| 
+6510, G620, G620-1, G630, G630-1, G720
+| ISL1 | 40 
+
+
+| ISL2 | 41 
+
+
+| ISL3 | 42 
+
+
+| ISL4 | 43 
+
+
+| ISL5 | 44 
+
+
+| SL6 | 45 
+
+
+| ISL7 | 46 
+
+
+| ISL8 | 47 
+
+
+.4+| 6505,G610 | ISL1 | 20 
+
+
+| ISL2 | 21 
+
+
+| ISL3 | 22 
+
+
+| ISL4 | 23 
+|===

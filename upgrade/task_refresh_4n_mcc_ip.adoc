@@ -1,0 +1,171 @@
+---
+permalink: upgrade/task_refresh_4n_mcc_ip.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, autosupport 
+summary: 'A partir de ONTAP 9.8, puede actualizar las controladoras y el almacenamiento en una configuración IP de MetroCluster de cuatro nodos ampliando la configuración para convertirse en una configuración temporal de ocho nodos y eliminar el grupo antiguo de recuperación ante desastres (DR).' 
+---
+= Actualizar una configuración IP de MetroCluster de cuatro nodos (ONTAP 9.8 y versiones posteriores)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.8, puede actualizar las controladoras y el almacenamiento en una configuración IP de MetroCluster de cuatro nodos ampliando la configuración para convertirse en una configuración temporal de ocho nodos y eliminar el grupo antiguo de recuperación ante desastres (DR).
+
+.Acerca de esta tarea
+* Este procedimiento se admite en sistemas que ejecutan ONTAP 9.8 y versiones posteriores.
+* Si va a actualizar los switches IP, deben actualizarse antes de realizar este procedimiento de actualización.
+* Las referencias a "nodos antiguos" significan los nodos que desea reemplazar.
+* Solo puede actualizar modelos de plataforma específicos mediante este procedimiento en una configuración MetroCluster FC.
++
+** Para obtener información acerca de las combinaciones de actualización de plataforma compatibles, consulte la tabla de actualización de IP de MetroCluster en link:../upgrade/concept_choosing_tech_refresh_mcc.html#supported-metrocluster-ip-tech-refresh-combinations["Seleccione un método de actualización del sistema"].
+
+
+
+
+.Pasos
+. Recopile información de los nodos antiguos.
++
+En este momento, la configuración de cuatro nodos aparece como se muestra en la siguiente imagen:
+
++
+image::../media/mcc_dr_group_a.png[mcc dr grupo a]
+
+. Para evitar la generación automática de casos de soporte, envíe un mensaje de AutoSupport para indicar que la actualización está en curso.
++
+.. Emita el siguiente comando: +
+`system node autosupport invoke -node * -type all -message "MAINT=10h Upgrading _old-model_ to _new-model"_`
++
+En el ejemplo siguiente se especifica una ventana de mantenimiento de 10 horas. Es posible que desee permitir tiempo adicional dependiendo de su plan.
+
++
+Si el mantenimiento se completa antes de que haya transcurrido el tiempo, puede invocar un mensaje de AutoSupport que indique el final del período de mantenimiento:
+
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+.. Repita el comando en el clúster de partners.
+
+
+. Elimine la configuración de MetroCluster existente de tiebreaker, Mediator u otro software que pueda iniciar la conmutación.
++
+[cols="2*"]
+|===
+
+
+| Si está usando... | Utilice este procedimiento... 
+
+
+ a| 
+Tiebreaker
+ a| 
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["Eliminar las configuraciones de MetroCluster"] En la _MetroCluster Tiebreaker Installation and Configuration Guide_
+
+
+
+ a| 
+Mediador
+ a| 
+Ejecute el siguiente comando desde el símbolo del sistema de ONTAP:
+
+`metrocluster configuration-settings mediator remove`
+
+
+
+ a| 
+Aplicaciones de terceros
+ a| 
+Consulte la documentación del producto.
+
+|===
+. Realice todos los pasos de link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["Expandir una configuración IP de MetroCluster de cuatro nodos a una configuración de ocho nodos"] para añadir los nodos nuevos y el almacenamiento a la configuración.
++
+Una vez completado el procedimiento de expansión, la configuración aparece como se muestra en la siguiente imagen:
+
++
+image::../media/mcc_dr_group_b.png[mcc dr grupo b]
+
+. Mueva los volúmenes CRS.
++
+Siga los pasos de link:../maintain/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"].
+
+. Mueva los datos de los nodos antiguos a los nuevos mediante los siguientes procedimientos en https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/home.html["Otros procedimientos de plataforma: Guía exprés de actualización del hardware de la controladora"^]
++
+.. Realice todos los pasos de http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["Crear un agregado y mover volúmenes a los nuevos nodos"^].
++
+
+NOTE: Puede optar por reflejar el agregado cuando o después de crearlo.
+
+.. Realice todos los pasos de http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["Traslado de LIF de datos no SAN y LIF de administración del clúster a los nuevos nodos"].
+
+
+. Siga los pasos del procedimiento para quitar el grupo de recuperación ante desastres antiguo.
++
+link:concept_removing_a_disaster_recovery_group.html["Eliminación de un grupo de recuperación ante desastres"]
+
++
+Después de eliminar el antiguo grupo de recuperación ante desastres (grupo de recuperación ante desastres uno), la configuración se muestra como se muestra en la siguiente imagen:
+
++
+image::../media/mcc_dr_group_d.png[mcc dr grupo d]
+
+. Confirmar el modo operativo de la configuración de MetroCluster y realizar una comprobación de MetroCluster.
++
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal:
++
+`metrocluster show`
+
+.. Confirme que se muestran todos los nodos esperados:
++
+`metrocluster node show`
+
+.. Emita el siguiente comando:
++
+`metrocluster check run`
+
+.. Mostrar los resultados de la comprobación de MetroCluster:
++
+`metrocluster check show`
+
+
+
+. Restaure la supervisión si es necesario, siguiendo el procedimiento para su configuración.
++
+[cols="2*"]
+|===
+
+
+| Si está usando... | Utilice este procedimiento 
+
+
+ a| 
+Tiebreaker
+ a| 
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["Adición de configuraciones de MetroCluster"] En _MetroCluster Tiebreaker instalación y configuración_.
+
+
+
+ a| 
+Mediador
+ a| 
+Link:../install-ip/concept_mediator_requirements.html [Configuración del servicio Mediador ONTAP desde una configuración IP de MetroCluster] en _MetroCluster instalación y configuración_.
+
+
+
+ a| 
+Aplicaciones de terceros
+ a| 
+Consulte la documentación del producto.
+
+|===
+. Para reanudar la generación automática de casos de soporte, envíe un mensaje de AutoSupport para indicar que se ha completado el mantenimiento.
++
+.. Emita el siguiente comando:
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+.. Repita el comando en el clúster de partners.
+
+
+

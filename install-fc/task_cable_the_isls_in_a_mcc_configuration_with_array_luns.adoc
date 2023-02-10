@@ -1,0 +1,437 @@
+---
+permalink: install-fc/task_cable_the_isls_in_a_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, isl, array, luns 
+summary: 'Debe conectar los switches FC a través de los sitios mediante vínculos Inter-Switch \(ISL\) para formar estructuras de switches en la configuración de MetroCluster con LUN de cabina.' 
+---
+= Cableado de los ISL en una configuración MetroCluster con LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe conectar los switches FC a través de los sitios mediante enlaces Inter-Switch (ISL) para formar las estructuras de switches de la configuración MetroCluster con las LUN de cabina.
+
+.Pasos
+. Conecte los switches de cada sitio al ISL o ISL, utilizando el cableado de la tabla que corresponda a su configuración y modelo de switch.
++
+Los números de puertos del switch que se pueden usar para los ISL de FC son los siguientes:
+
++
+|===
+
+
+| Modelo de switch | Puerto ISL | Puerto del switch 
+
+
+ a| 
+Brocade 6520
+ a| 
+Puerto ISL 1
+ a| 
+23
+
+
+
+ a| 
+Puerto ISL 2
+ a| 
+47
+
+
+
+ a| 
+Puerto ISL 3
+ a| 
+71
+
+
+
+ a| 
+Puerto ISL 4
+ a| 
+95
+
+
+
+ a| 
+Brocade 6505
+ a| 
+Puerto ISL 1
+ a| 
+20
+
+
+
+ a| 
+Puerto ISL 2
+ a| 
+21
+
+
+
+ a| 
+Puerto ISL 3
+ a| 
+22
+
+
+
+ a| 
+Puerto ISL 4
+ a| 
+23
+
+
+
+ a| 
+Brocade 6510 y Brocade DCX 8510-8
+ a| 
+Puerto ISL 1
+ a| 
+40
+
+
+
+ a| 
+Puerto ISL 2
+ a| 
+41
+
+
+
+ a| 
+Puerto ISL 3
+ a| 
+42
+
+
+
+ a| 
+Puerto ISL 4
+ a| 
+43
+
+
+
+ a| 
+Puerto ISL 5
+ a| 
+44
+
+
+
+ a| 
+Puerto ISL 6
+ a| 
+45
+
+
+
+ a| 
+Puerto ISL 7
+ a| 
+46
+
+
+
+ a| 
+Puerto ISL 8
+ a| 
+47
+
+
+
+ a| 
+Brocade 7810
+ a| 
+Puerto ISL 1
+ a| 
+ge2 (10 Gbps)
+
+
+
+ a| 
+Puerto ISL 2
+ a| 
+Ge3 (10 Gbps)
+
+
+
+ a| 
+Puerto ISL 3
+ a| 
+ge4 (10 Gbps)
+
+
+
+ a| 
+Puerto ISL 4
+ a| 
+Ge5 (10 Gbps)
+
+
+
+ a| 
+Puerto ISL 5
+ a| 
+Ge6 (10 Gbps)
+
+
+
+ a| 
+Puerto ISL 6
+ a| 
+G7 (10 Gbps)
+
+
+
+ a| 
+Brocade 7840
+
+*Nota*: El conmutador Brocade 7840 admite dos puertos ve de 40 Gbps o hasta cuatro puertos ve de 10 Gbps por switch para la creación de FCIP ISL.
+ a| 
+Puerto ISL 1
+ a| 
+Ge0 (40 Gbps) o ge2 (10 Gbps)
+
+
+
+ a| 
+Puerto ISL 2
+ a| 
+ge1 (40 Gbps) o ge3 (10 Gbps)
+
+
+
+ a| 
+Puerto ISL 3
+ a| 
+G10 (10 Gbps)
+
+
+
+ a| 
+Puerto ISL 4
+ a| 
+Ge11 (10 Gbps)
+
+
+
+ a| 
+Brocade G610
+ a| 
+Puerto ISL 1
+ a| 
+20
+
+
+
+ a| 
+Puerto ISL 2
+ a| 
+21
+
+
+
+ a| 
+Puerto ISL 3
+ a| 
+22
+
+
+
+ a| 
+Puerto ISL 4
+ a| 
+23
+
+
+
+ a| 
+BROCADE G620, G620-1, G630, G630-1, G720
+ a| 
+Puerto ISL 1
+ a| 
+40
+
+
+
+ a| 
+Puerto ISL 2
+ a| 
+41
+
+
+
+ a| 
+Puerto ISL 3
+ a| 
+42
+
+
+
+ a| 
+Puerto ISL 4
+ a| 
+43
+
+
+
+ a| 
+Puerto ISL 5
+ a| 
+44
+
+
+
+ a| 
+Puerto ISL 6
+ a| 
+45
+
+
+
+ a| 
+Puerto ISL 7
+ a| 
+46
+
+
+
+ a| 
+Puerto ISL 8
+ a| 
+47
+
+
+
+3+|  
+
+
+| Modo de conmutación l | Puerto ISL | Puerto del switch 
+
+
+.4+| Cisco 9396S  a| 
+ISL 1
+ a| 
+44
+
+
+
+ a| 
+ISL 2
+ a| 
+48
+
+
+
+ a| 
+ISL 3
+ a| 
+92
+
+
+
+ a| 
+ISL 4
+ a| 
+96
+
+
+
+ a| 
+Cisco 9250i con licencia de 24 puertos
+ a| 
+ISL 1
+ a| 
+12
+
+
+
+ a| 
+ISL 2
+ a| 
+16
+
+
+
+ a| 
+ISL 3
+ a| 
+20
+
+
+
+ a| 
+ISL 4
+ a| 
+24
+
+
+
+ a| 
+Cisco 9148S
+ a| 
+ISL 1
+ a| 
+20
+
+
+
+ a| 
+ISL 2
+ a| 
+24
+
+
+
+ a| 
+ISL 3
+ a| 
+44
+
+
+
+ a| 
+ISL 4
+ a| 
+48
+
+
+
+.4+| Cisco 9132T  a| 
+ISL 1
+ a| 
+Módulo MDS 1, puerto 13
+
+
+
+ a| 
+ISL 2
+ a| 
+Módulo MDS 1, puerto 14
+
+
+
+ a| 
+ISL 3
+ a| 
+Módulo MDS 1, puerto 15
+
+
+
+ a| 
+ISL 4
+ a| 
+Módulo MDS 1, puerto 16
+
+
+
+3+| * El switch Cisco 9250i utiliza los puertos FCIP para el ISL. Existen ciertas limitaciones y procedimientos para usar los puertos FCIP. 
+
+
+3+| Los puertos 40 a 48 son puertos de 10 GbE y no se utilizan en la configuración de MetroCluster. 
+|===
+

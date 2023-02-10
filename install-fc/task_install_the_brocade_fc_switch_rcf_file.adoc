@@ -1,0 +1,303 @@
+---
+permalink: install-fc/task_install_the_brocade_fc_switch_rcf_file.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, brocade, fc, switch, rcf, file 
+summary: Al configurar un switch FC de Brocade, puede instalar los archivos de configuración del switch que proporcionen la configuración completa del switch para determinadas configuraciones. 
+---
+= Instalación del archivo RCF del switch FC de Brocade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al configurar un switch FC de Brocade, puede instalar los archivos de configuración del switch que proporcionen la configuración completa del switch para determinadas configuraciones.
+
+.Acerca de esta tarea
+Estos pasos deben repetirse en cada uno de los switches FC de Brocade en la configuración de estructura de MetroCluster.
+
+.Pasos
+. Inicie el proceso de descarga y configuración:
++
+`configDownload`
+
++
+Responda a las indicaciones como se muestra en el siguiente ejemplo.
+
++
+[listing]
+----
+FC_switch_A_1:admin> configDownload
+Protocol (scp, ftp, sftp, local) [ftp]:
+Server Name or IP Address [host]: <user input>
+User Name [user]:<user input>
+Path/Filename [<home dir>/config.txt]:path to configuration file
+Section (all|chassis|switch [all]): all
+.
+.
+.
+Do you want to continue [y/n]: y
+Password: <user input>
+----
++
+Después de introducir la contraseña, el switch descarga y ejecuta el archivo de configuración.
+
+. Active el interruptor de forma persistente:
++
+`switchcfgpersistentenable`
+
++
+El ejemplo muestra cómo habilitar de forma persistente FC switch_A_1.
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchcfgpersistentenable
+----
+. Confirme que el archivo de configuración ha establecido el dominio del switch:
++
+`switchShow`
+
++
+A cada switch se le asigna un número de dominio diferente en función del archivo de configuración utilizado por el conmutador.
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchShow
+switchName: FC_switch_A_1
+switchType: 109.1
+switchState: Online
+switchMode: Native
+switchRole: Subordinate
+switchDomain: 5
+----
+. Compruebe que el conmutador tiene asignado el valor de dominio correcto, tal como se indica en la tabla siguiente.
++
+|===
+
+
+| Estructura | Conmutador | Dominio del switch 
+
+
+ a| 
+1
+ a| 
+A_1
+ a| 
+5
+
+
+
+ a| 
+B_1
+ a| 
+7
+
+
+
+ a| 
+2
+ a| 
+A_2
+ a| 
+6
+
+
+
+ a| 
+B_2
+ a| 
+8
+
+|===
+. Cambie la velocidad del puerto:
++
+`portcfgspeed`
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfgspeed port number port speed
+----
++
+De manera predeterminada, todos los puertos están configurados para funcionar a 16 Gbps. Puede cambiar la velocidad del puerto por los siguientes motivos:
+
++
+** La velocidad de los puertos del switch de interconexión debe cambiarse cuando se utiliza un adaptador FC-VI de 8 Gbps y la velocidad del puerto del switch debe configurarse a 8 Gbps.
+** La velocidad de los puertos del switch debe cambiarse cuando se utiliza un adaptador HBA de 8 Gbps para ATTO FibreBridge 6500N.
+** La velocidad de los puertos ISL se debe cambiar cuando el ISL no puede ejecutarse a 16 Gbps.
+
+
+. Calcule la distancia ISL.
++
+Debido al comportamiento del FC-VI, debe establecer la distancia en 1.5 veces la distancia real con un mínimo de 10 (LE). La distancia para el ISL se calcula de la siguiente manera, redondeada hasta el siguiente kilómetro completo: 1.5 × distancia real = distancia.
+
++
+Si la distancia es de 3 km, entonces 1.5 × 3 km = 4.5. Esto es menor que 10; por lo tanto, debe establecer el ISL en el nivel DE distancia LE.
+
++
+La distancia es de 20 km y, a continuación, de 1.5 × 20 km = 30. Debe configurar el ISL en el nivel de distancia LS.
+
+. Establezca la distancia para cada puerto ISL:
++
+`portcfglongdistance _port level vc_link_init_ -distance _distance_value_`
+
++
+un valor vc_link_init de 1 utiliza la palabra de relleno "ARB" de forma predeterminada. El valor 0 utiliza la palabra de relleno "IDLE". El valor requerido puede variar en función del enlace que utilice. En este ejemplo, se establece el valor predeterminado y se supone que la distancia es de 20 km Por lo tanto, el ajuste es "30" con un valor vc_link_init de "1", y el puerto ISL es "21".
+
++
+Ejemplo: LS
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfglongdistance 21 LS 1 -distance 30
+----
++
+Ejemplo: LE
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfglongdistance 21 LE 1
+----
+. Compruebe si la dirección IP está configurada correctamente:
++
+`ipAddrshow`
+
++
+[listing]
+----
+FC_switch_A_1:admin> ipAddrshow
+----
++
+Puede configurar la dirección IP si es necesario:
+
++
+`ipAddrSet`
+
+. Configure la zona horaria del símbolo del sistema del switch:
++
+`tstimezone --interactive`
+
++
+Deberá responder a las indicaciones según sea necesario.
+
++
+[listing]
+----
+FC_switch_A_1:admin>  tstimezone --interactive
+----
+. Reinicie el switch:
++
+`reboot`
+
++
+El ejemplo muestra cómo reiniciar el switch de FC _A_1.
+
++
+[listing]
+----
+FC_switch_A_1:admin> reboot
+----
+. Verifique el ajuste de distancia:
++
+`portbuffershow`
+
++
+El ajuste de distancia DE LE aparece como 10 km
+
++
+[listing]
+----
+FC_Switch_A_1:admin> portbuffershow
+User Port Lx   Max/Resv Buffer Needed  Link     Remaining
+Port Type Mode Buffers  Usage  Buffers Distance Buffers
+---- ---- ---- ------- ------ ------- --------- ----------
+...
+21    E    -      8      67     67      30 km
+22    E    -      8      67     67      30 km
+...
+23    -    8      0       -      -      466
+----
+. Vuelva a conectar los cables ISL a los puertos en los switches donde se quitaron.
++
+Los cables ISL se desconectaron cuando se restableció la configuración de fábrica a la configuración predeterminada.
+
++
+link:task_reset_the_brocade_fc_switch_to_factory_defaults.html["Restablecer los valores predeterminados de fábrica del switch FC de Brocade"]
+
+. Valide la configuración.
++
+.. Compruebe que los switches forman una estructura:
++
+`switchshow`
+
++
+En el ejemplo siguiente se muestra el resultado de una configuración que utiliza ISL en los puertos 20 y 21.
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchshow
+switchName: FC_switch_A_1
+switchType: 109.1
+switchState:Online
+switchMode: Native
+switchRole: Subordinate
+switchDomain:       5
+switchId:   fffc01
+switchWwn:  10:00:00:05:33:86:89:cb
+zoning:             OFF
+switchBeacon:       OFF
+
+Index Port Address Media Speed State  Proto
+===========================================
+...
+20   20  010C00   id    16G  Online FC  LE E-Port  10:00:00:05:33:8c:2e:9a "FC_switch_B_1" (downstream)(trunk master)
+21   21  010D00   id    16G  Online FC  LE E-Port  (Trunk port, master is Port 20)
+...
+----
+.. Confirmar la configuración de los fabrics:
++
+`fabricshow`
+
++
+[listing]
+----
+FC_switch_A_1:admin> fabricshow
+   Switch ID   Worldwide Name      Enet IP Addr FC IP Addr Name
+-----------------------------------------------------------------
+1: fffc01 10:00:00:05:33:86:89:cb 10.10.10.55  0.0.0.0    "FC_switch_A_1"
+3: fffc03 10:00:00:05:33:8c:2e:9a 10.10.10.65  0.0.0.0   >"FC_switch_B_1"
+----
+.. Compruebe que los ISL funcionan:
++
+`islshow`
+
++
+[listing]
+----
+FC_switch_A_1:admin> islshow
+----
+.. Confirme que la división en zonas se ha replicado correctamente:
++
+`cfgshow`+
+`zoneshow`
+
++
+Ambos resultados deberían mostrar la misma información de configuración y la misma información de división en zonas para ambos switches.
+
+.. Si se utiliza una conexión troncal, confirme la conexión:
++
+`trunkShow`
+
++
+[listing]
+----
+FC_switch_A_1:admin> trunkshow
+----
+
+
+

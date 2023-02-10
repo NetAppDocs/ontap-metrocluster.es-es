@@ -1,0 +1,26 @@
+---
+permalink: manage/task_heal_the_configuration_in_a_mcc_fc_configuration_supertask.html 
+sidebar: sidebar 
+keywords: switchover, perform, heal, operation, restore, metrocluster, functionality, fc, configuration 
+summary: Después de una conmutación, debe ejecutar las operaciones de reparación en un orden específico para restaurar la funcionalidad de MetroCluster. 
+---
+= Reparar la configuración en una configuración de MetroCluster FC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de una conmutación, debe ejecutar las operaciones de reparación en un orden específico para restaurar la funcionalidad de MetroCluster.
+
+* Se debe haber realizado la conmutación y el sitio superviviente debe estar sirviendo datos.
+* Los nodos del sitio de desastres deben estar detenido o apagados.
++
+No deben arrancarse completamente durante el proceso de curación.
+
+* El almacenamiento en el centro de recuperación ante desastres debe ser accesible (las bandejas se han encendido, son funcionales y están accesibles).
+* En las configuraciones de MetroCluster conectadas a la estructura, los vínculos entre switches (ISL) deben estar funcionando.
+* En configuraciones MetroCluster de cuatro nodos, los nodos del sitio superviviente no deben estar en estado de conmutación por error de alta disponibilidad (todos los nodos deben estar activos y en ejecución para cada par de alta disponibilidad).
+
+
+La operación de reparación debe realizarse primero en los agregados de datos y, después, en los agregados raíz.

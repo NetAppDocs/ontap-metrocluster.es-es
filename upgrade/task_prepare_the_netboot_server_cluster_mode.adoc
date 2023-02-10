@@ -1,0 +1,70 @@
+---
+permalink: upgrade/task_prepare_the_netboot_server_cluster_mode.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, prepare, netboot, server, download, image 
+summary: Cuando esté listo para preparar el servidor para reiniciar el sistema, debe descargar la imagen para reiniciar el sistema ONTAP correcta desde el sitio de soporte de NetApp al servidor para reiniciar el sistema y anotar la dirección IP. 
+---
+= Preparación del servidor para reiniciar el sistema para descargar la imagen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando esté listo para preparar el servidor para reiniciar el sistema, debe descargar la imagen para reiniciar el sistema ONTAP correcta desde el sitio de soporte de NetApp al servidor para reiniciar el sistema y anotar la dirección IP.
+
+.Acerca de esta tarea
+* Debe poder acceder a un servidor HTTP desde el sistema antes y después de agregar el nuevo módulo de controlador.
+* Debe tener acceso al sitio de soporte de NetApp para descargar los archivos del sistema necesarios para la plataforma y la versión de ONTAP.
++
+https://mysupport.netapp.com/site/global/dashboard["Sitio de soporte de NetApp"]
+
+* Los dos módulos de controladora de la pareja de alta disponibilidad deben ejecutar la misma versión de ONTAP.
+
+
+.Pasos
+. Descargue el software ONTAP adecuado de la sección de descarga de software del sitio de soporte de NetApp y almacene el `<ontap_version>_image.tgz` archivo en un directorio accesible a través de la web.
++
+La `<ontap_version>_image.tgz` archivo se utiliza para realizar un arranque desde red del sistema.
+
+. Cambie al directorio accesible a la Web y compruebe que los archivos que necesita están disponibles.
++
+|===
+
+
+| Durante... | Realice lo siguiente... 
+
+
+ a| 
+SISTEMAS DE LAS SERIES FAS2200, FAS2500, FAS3200, FAS6200 Y FAS/AFF8000
+ a| 
+Extraiga el contenido del archivo <ontap_version>_image.tgz en el directorio de destino:
+
+`tar -zxvf <ontap_version>_image.tgz`
+
+
+NOTE: Si va a extraer el contenido en Windows, utilice 7-Zip o WinRAR para extraer la imagen netboot.
+
+El listado de directorios debe contener una carpeta netboot con un archivo de kernel:
+
+`netboot/kernel`
+
+
+
+ a| 
+Todos los demás sistemas
+ a| 
+La lista de directorios debe contener el siguiente archivo:
+
+`<ontap_version>_image.tgz`
+
+
+NOTE: No es necesario extraer el contenido del archivo.
+
+|===
+. Determine la dirección IP del módulo de controladora existente.
++
+Esta dirección se denomina más adelante en este procedimiento como `_ip-address-of-existing controller_`.
+
+. Ping `_ip-address-of-existing controller_` Para verificar que se puede acceder a la dirección IP.
+

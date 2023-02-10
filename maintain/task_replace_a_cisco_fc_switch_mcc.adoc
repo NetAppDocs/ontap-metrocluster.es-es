@@ -1,0 +1,453 @@
+---
+permalink: maintain/task_replace_a_cisco_fc_switch_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, cisco, fc, switch 
+summary: Debe utilizar pasos específicos de Cisco para reemplazar un switch FC de Cisco con fallos. 
+---
+= Reemplazar un switch Cisco FC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe utilizar pasos específicos de Cisco para reemplazar un switch FC de Cisco con fallos.
+
+.Antes de empezar
+Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
+
+.Acerca de esta tarea
+Este procedimiento no es disruptivo y tarda aproximadamente dos horas en completarse.
+
+En los ejemplos de este procedimiento, FC_switch_A_1 es el conmutador en buen estado y FC_switch_B_1 es el conmutador dañado. El uso del puerto del switch en los ejemplos se muestra en la siguiente tabla:
+
+|===
+
+
+| Función | Puertos 
+
+
+ a| 
+Conexiones FC-VI
+ a| 
+1, 4
+
+
+
+ a| 
+Conexiones HBA
+ a| 
+2, 3, 5, 6
+
+
+
+ a| 
+Conexiones de puente FC a SAS
+ a| 
+7, 8
+
+
+
+ a| 
+Conexiones ISL
+ a| 
+36, 40
+
+|===
+Los ejemplos muestran dos puentes FC a SAS. Si tiene más, debe deshabilitar y, posteriormente, habilitar los puertos adicionales.
+
+El uso del puerto del switch debe seguir las asignaciones recomendadas.
+
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0"]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
+
+
+.Pasos
+. Deshabilite los puertos ISL del switch Healthy para cercar el switch deteriorado.
++
+Estos pasos se realizan en el interruptor en buen estado.
+
++
+.. Entrar en el modo de configuración: +
+`conf t`
+.. Deshabilite los puertos ISL en el switch saludable con el `interface` y.. `shut` comandos.
++
+[listing]
+----
+FC_switch_A_1# conf t
+FC_switch_A_1(config)# interface fc1/36
+FC_switch_A_1(config)# shut
+FC_switch_A_1(config)# interface fc1/40
+FC_switch_A_1(config)# shut
+----
+.. Salga del modo de configuración y copie la configuración en la configuración de inicio.
++
+[listing]
+----
+FC_switch_A_1(config)# end
+FC_switch_A_1# copy running-config startup-config
+FC_switch_A_1#
+----
+
+
+. Cierre la barrera de los puertos FC-VI y HBA del switch dañado (si todavía se está ejecutando).
++
+Estos pasos se realizan en el interruptor dañado.
+
++
+.. Entrar al modo de configuración:
++
+`conf t`
+
+.. Si el switch dañado sigue en funcionamiento, desactive los puertos FC-VI y HBA del switch afectado con la interfaz y los comandos de apagado.
++
+[listing]
+----
+FC_switch_B_1(config)# interface fc1/1
+FC_switch_B_1(config)# shut
+FC_switch_B_1(config)# interface fc1/4
+FC_switch_B_1(config)# shut
+FC_switch_B_1(config)# interface fc1/2-3
+FC_switch_B_1(config)# shut
+FC_switch_B_1(config)# interface fc1/5-6
+FC_switch_B_1(config)# shut
+----
+.. Salga del modo de configuración y copie la configuración en la configuración de inicio.
++
+[listing]
+----
+FC_switch_B_1(config)# end
+FC_switch_B_1# copy running-config startup-config
+FC_switch_B_1#
+----
+
+
+. Si el interruptor dañado sigue en funcionamiento, determine el WWN del conmutador:
++
+`show wwn switch`
+
++
+[listing]
+----
+FC_switch_B_1# show wwn switch
+Switch WWN is 20:00:54:7f:ee:e3:86:50
+FC_switch_B_1#
+----
+. Arranque y preconfigure el interruptor de sustitución antes de instalarlo físicamente.
++
+En este momento, el switch de reemplazo no está cableado a la configuración de MetroCluster. Los puertos ISL del switch del partner están deshabilitados (en modo apagado) y sin conexión.
+
++
+.. Encienda el interruptor de sustitución y deje que arranque.
+.. Compruebe la versión de firmware del switch de reemplazo para confirmar que coincide con la versión de otros switches de FC:
++
+`show version`
+
+.. Configure el conmutador de sustitución según se describe en la _Guía de instalación y configuración de MetroCluster_, omitiendo la sección ""Configuración de la división en zonas en un conmutador de Cisco FC".
++
+link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+
++
+Configurará la división en zonas más adelante en este procedimiento.
+
+.. Deshabilite los puertos FC-VI, HBA y almacenamiento en el switch de reemplazo.
++
+[listing]
+----
+FC_switch_B_1# conf t
+FC_switch_B_1(config)# interface fc1/1
+FC_switch_B_1(config)# shut
+FC_switch_B_1(config)# interface fc1/4
+FC_switch_B_1(config)# shut
+FC_switch_B_1(config)# interface fc1/2-3
+FC_switch_B_1(config)# shut
+FC_switch_B_1(config)# interface fc1/5-6
+FC_switch_B_1(config)# shut
+FC_switch_B_1(config)# interface fc1/7-8
+FC_switch_B_1(config)# shut
+FC_switch_B_1# copy running-config startup-config
+FC_switch_B_1#
+----
+
+
+. Sustituya físicamente el interruptor dañado:
++
+.. Apague el interruptor dañado.
+.. Apague el interruptor de sustitución.
+.. Descablear y retirar el interruptor dañado, observando con cuidado qué cables están conectados a qué puertos.
+.. Instale el interruptor de sustitución en el rack.
+.. Conecte el cable del interruptor de sustitución exactamente cuando el interruptor dañado se cableó.
+.. Encienda el interruptor de sustitución.
+
+
+. Habilite los puertos ISL en el switch de reemplazo.
++
+[listing]
+----
+FC_switch_B_1# conf t
+FC_switch_B_1(config)# interface fc1/36
+FC_switch_B_1(config)# no shut
+FC_switch_B_1(config)# end
+FC_switch_B_1# copy running-config startup-config
+FC_switch_B_1(config)# interface fc1/40
+FC_switch_B_1(config)# no shut
+FC_switch_B_1(config)# end
+FC_switch_B_1#
+----
+. Compruebe que los puertos ISL del switch de reemplazo estén activos:
++
+`show interface brief`
+
+. Ajuste la división en zonas del switch de reemplazo para que coincida con la configuración de MetroCluster:
++
+.. Distribuya la información de división en zonas desde la estructura en buen estado.
++
+En este ejemplo, se ha sustituido FC_switch_B_1 y se recupera la información de la división en zonas de FC_switch_A_1:
+
++
+[listing]
+----
+FC_switch_A_1(config-zone)# zoneset distribute full vsan 10
+FC_switch_A_1(config-zone)# zoneset distribute full vsan 20
+FC_switch_A_1(config-zone)# end
+----
+.. En el switch de sustitución, compruebe que la información de división en zonas se ha recuperado correctamente del switch en buen estado:
++
+`show zone`
+
++
+[listing]
+----
+FC_switch_B_1# show zone
+zone name FC-VI_Zone_1_10 vsan 10
+  interface fc1/1 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/4 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/1 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/4 swwn 20:00:54:7f:ee:b8:24:c0
+
+zone name STOR_Zone_1_20_25A vsan 20
+  interface fc1/2 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/3 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/5 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/6 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/2 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/3 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/5 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/6 swwn 20:00:54:7f:ee:b8:24:c0
+
+zone name STOR_Zone_1_20_25B vsan 20
+  interface fc1/2 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/3 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/5 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/6 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/2 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/3 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/5 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/6 swwn 20:00:54:7f:ee:b8:24:c0
+FC_switch_B_1#
+----
+.. Busque las WWN de los switches.
++
+En este ejemplo, las dos WWN de switch son las siguientes:
+
++
+*** FC_switch_A_1: 20:00:54:7f:ee:b8:24:c0
+*** FC_switch_B_1: 20:00:54:7f:ee:c6:80:78
+
+
+
+
++
+[listing]
+----
+FC_switch_B_1# show wwn switch
+Switch WWN is 20:00:54:7f:ee:c6:80:78
+FC_switch_B_1#
+
+FC_switch_A_1# show wwn switch
+Switch WWN is 20:00:54:7f:ee:b8:24:c0
+FC_switch_A_1#
+----
++
+.. Quite los miembros de la zona que no pertenecen a las WWN del conmutador de los dos conmutadores.
++
+En este ejemplo, "'no hay interfaz de miembro'" en el resultado muestra que los siguientes miembros no están asociados con el WWN de switch de ninguno de los switches de la estructura y deben eliminarse:
+
++
+*** Nombre de zona FC-VI_Zone_1_10 vsan 10
++
+**** interfaz fc1 20:00:54:7f:ee:e3:86:50
+**** interfaz fc1/2 20:00:54:7f:ee:e3:86:50
+
+
+*** Nombre de zona STOR_Zone_1_20_25A vsan 20
++
+**** interfaz fc1/5 20:00:54:7f:ee:e3:86:50
+**** interfaz fc1/8 20:00:54:7f:ee:e3:86:50
+**** interfaz fc1/9 20:00:54:7f:ee:e3:86:50
+**** interfaz fc1/10 20:00:54:7f:ee:e3:86:50
+**** interfaz fc1/11 20:00:54:7f:ee:e3:86:50
+
+
+*** Nombre de zona STOR_Zone_1_20_25B vsan 20
++
+**** interfaz fc1/8 20:00:54:7f:ee:e3:86:50
+**** interfaz fc1/9 20:00:54:7f:ee:e3:86:50
+**** interfaz fc1/10 20:00:54:7f:ee:e3:86:50
+**** Interfaz fc1/11 20:00:54:7f:ee:e3:86:50 el siguiente ejemplo muestra la eliminación de estas interfaces:
++
+[listing]
+----
+
+ FC_switch_B_1# conf t
+ FC_switch_B_1(config)# zone name FC-VI_Zone_1_10 vsan 10
+ FC_switch_B_1(config-zone)# no member interface fc1/1 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/2 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# zone name STOR_Zone_1_20_25A vsan 20
+ FC_switch_B_1(config-zone)# no member interface fc1/5 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/8 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/9 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/10 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/11 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# zone name STOR_Zone_1_20_25B vsan 20
+ FC_switch_B_1(config-zone)# no member interface fc1/8 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/9 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/10 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/11 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# save running-config startup-config
+ FC_switch_B_1(config-zone)# zoneset distribute full 10
+ FC_switch_B_1(config-zone)# zoneset distribute full 20
+ FC_switch_B_1(config-zone)# end
+ FC_switch_B_1# copy running-config startup-config
+----
+
+
+
+
+.. Agregue los puertos del conmutador de sustitución a las zonas.
++
+Todo el cableado del interruptor de sustitución debe ser el mismo que en el interruptor dañado:
+
++
+[listing]
+----
+
+ FC_switch_B_1# conf t
+ FC_switch_B_1(config)# zone name FC-VI_Zone_1_10 vsan 10
+ FC_switch_B_1(config-zone)# member interface fc1/1 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/2 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# zone name STOR_Zone_1_20_25A vsan 20
+ FC_switch_B_1(config-zone)# member interface fc1/5 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/8 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/9 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/10 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/11 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# zone name STOR_Zone_1_20_25B vsan 20
+ FC_switch_B_1(config-zone)# member interface fc1/8 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/9 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/10 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/11 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# save running-config startup-config
+ FC_switch_B_1(config-zone)# zoneset distribute full 10
+ FC_switch_B_1(config-zone)# zoneset distribute full 20
+ FC_switch_B_1(config-zone)# end
+ FC_switch_B_1# copy running-config startup-config
+----
+.. Compruebe que la división en zonas esté correctamente configurada:
++
+`show zone`
+
++
+El siguiente ejemplo de salida muestra las tres zonas:
+
++
+[listing]
+----
+
+ FC_switch_B_1# show zone
+   zone name FC-VI_Zone_1_10 vsan 10
+     interface fc1/1 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/2 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/1 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/2 swwn 20:00:54:7f:ee:b8:24:c0
+
+   zone name STOR_Zone_1_20_25A vsan 20
+     interface fc1/5 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/8 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/9 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/10 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/11 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/8 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/9 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/10 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/11 swwn 20:00:54:7f:ee:b8:24:c0
+
+   zone name STOR_Zone_1_20_25B vsan 20
+     interface fc1/8 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/9 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/10 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/11 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/5 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/8 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/9 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/10 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/11 swwn 20:00:54:7f:ee:b8:24:c0
+ FC_switch_B_1#
+----
+.. Habilite la conectividad con el almacenamiento y las controladoras.
++
+En el ejemplo siguiente se muestra el uso del puerto:
+
++
+[listing]
+----
+FC_switch_A_1# conf t
+FC_switch_A_1(config)# interface fc1/1
+FC_switch_A_1(config)# no shut
+FC_switch_A_1(config)# interface fc1/4
+FC_switch_A_1(config)# shut
+FC_switch_A_1(config)# interface fc1/2-3
+FC_switch_A_1(config)# shut
+FC_switch_A_1(config)# interface fc1/5-6
+FC_switch_A_1(config)# shut
+FC_switch_A_1(config)# interface fc1/7-8
+FC_switch_A_1(config)# shut
+FC_switch_A_1# copy running-config startup-config
+FC_switch_A_1#
+----
+
+
+. Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
++
+.. Compruebe si el sistema es multivía:
++
+`node run -node _node-name_ sysconfig -a`
+
+.. Compruebe si hay alertas de estado en ambos clústeres:
++
+`system health alert show`
+
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal:
++
+`metrocluster show`
+
+.. Realizar una comprobación de MetroCluster:
++
+`metrocluster check run`
+
+.. Mostrar los resultados de la comprobación de MetroCluster:
++
+`metrocluster check show`
+
+.. Compruebe si hay alertas de estado en los switches (si existen):
++
+`storage switch show`
+
+.. Ejecute Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
+
+.. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
+
+
+

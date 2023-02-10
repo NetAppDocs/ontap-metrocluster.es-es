@@ -1,0 +1,41 @@
+---
+permalink: transition/concept_how_transition_impacts_the_mcc_hardware_components.html 
+sidebar: sidebar 
+keywords: complete, completing, transition, procedure, key, component, exist, metrocluster, configuration, replace, reconfigure, impact, hardware, component 
+summary: Tras completar el procedimiento de transición, se han sustituido o reconfigurado los componentes clave de la configuración de MetroCluster existente. 
+---
+= Cómo afecta la transición a los componentes de hardware de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tras completar el procedimiento de transición, se han sustituido o reconfigurado los componentes clave de la configuración de MetroCluster existente.
+
+* *Módulos de controlador*
++
+Los módulos de controladora existentes se sustituyen por nuevos módulos de controladora. Los módulos de controlador existentes se retirará al final de los procedimientos de transición.
+
+* *Estantes de almacenamiento*
++
+Los datos se mueven de las bandejas antiguas a las nuevas bandejas. Las bandejas antiguas se decomisionan al final de los procedimientos de transición.
+
+* *MetroCluster (back-end) y conmutadores de cluster*
++
+La funcionalidad del switch de entorno de administración ha sido sustituida por la estructura de switches IP. Si la configuración de MetroCluster FC incluía switches FC y puentes de FC a SAS, se decomisionan al final de este procedimiento.
+
++
+Si la configuración de MetroCluster FC utilizó switches de clúster para la interconexión de clúster, en algunos casos se pueden reutilizar para proporcionar la estructura de switches IP back-end. Los switches de clúster reutilizados deben reconfigurarse con RCF específicos de la plataforma y del switch. procedimientos.
+
++
+Si la configuración de MetroCluster FC no utilizaba switches de clúster, se han añadido nuevos switches IP para proporcionar la estructura de switches back-end.
+
++
+link:concept_considerations_for_using_existing_ip_switches.html["Consideraciones sobre los switches IP"]
+
+* *Red de interconexión de clústeres*
++
+La red de paridad de clústeres proporcionada por el cliente se puede utilizar para la nueva configuración de IP de MetroCluster. Cluster peering se configura en los nodos IP de MetroCluster, como parte del procedimiento de transición.
+
+

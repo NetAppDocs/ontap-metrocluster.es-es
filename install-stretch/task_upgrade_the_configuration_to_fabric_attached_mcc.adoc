@@ -1,0 +1,66 @@
+---
+permalink: install-stretch/task_upgrade_the_configuration_to_fabric_attached_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, transition, stretch, fabric, attacjed, configuration 
+summary: En una configuración MetroCluster estructural, los nodos se encuentran en diferentes ubicaciones. Esta diferencia geográfica aumenta la protección contra desastres. Para pasar de una configuración MetroCluster de ampliación a una configuración estructural, debe añadir switches FC y, en caso necesario, puentes de FC a SAS a la configuración. 
+---
+= Pasar de una configuración de MetroCluster con ampliación a otra FAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En una configuración MetroCluster estructural, los nodos se encuentran en diferentes ubicaciones. Esta diferencia geográfica aumenta la protección contra desastres. Para pasar de una configuración MetroCluster de ampliación a una configuración estructural, debe añadir switches FC y, en caso necesario, puentes de FC a SAS a la configuración.
+
+* Debe deshabilitar la conmutación automática de sitios en ambos clústeres ejecutando el `metrocluster modify -auto-switchover-failure-domain auto-disabled` comando.
+* Debe haber apagado los nodos.
++
+Este procedimiento es disruptivo.
+
+
+
+Es necesario realizar la transición de la configuración de MetroCluster en ambos sitios. Después de actualizar la configuración de MetroCluster, es necesario habilitar la conmutación automática de sitios en los dos clústeres. También debe validar la configuración ejecutando el `metrocluster check run` comando.
+
+Este procedimiento ofrece una descripción general de los pasos necesarios. Para conocer los pasos detallados, debe consultar secciones específicas de la link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]. No es necesario realizar una instalación y configuración completas.
+
+.Pasos
+. Prepare la actualización revisando detenidamente la sección "preparación de la instalación de MetroCluster" del link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"].
+. Instalar, cablear y configurar los switches necesarios y los puentes FC a SAS.
++
+
+NOTE: Debe utilizar los procedimientos en la sección "cableado de una configuración de MetroCluster estructural" del link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"].
+
+. Actualice la configuración de MetroCluster mediante los siguientes pasos.
++
+No utilice los procedimientos descritos en la sección "Configuración del software MetroCluster en ONTAP" que se encuentra en el enlace https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html[Fabric-attached instalación y configuración de MetroCluster].
+
++
+.. Entre en el modo de privilegio avanzado: +
+`*set -privilege advanced*`
+.. Actualice la configuración de MetroCluster: +
+`*metrocluster configure -refresh true*`
++
+El siguiente comando actualiza la configuración del MetroCluster en todos los nodos del grupo DR que contiene Controller_A_1:
+
++
+[listing]
+----
+controller_A_1::*> metrocluster configure -refresh true
+[Job 009] Job succeeded: Configure is successful.
+----
+.. Vuelva al modo de privilegio admin: +
+`*set -privilege admin*`
+
+
+. Compruebe la configuración de MetroCluster en busca de errores y compruebe que esté operativa.
++
+Debe utilizar los procedimientos de las siguientes secciones del link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]:
+
++
+** Comprobación de errores de configuración de MetroCluster con Config Advisor
+** Verificación del funcionamiento de la alta disponibilidad local
+** Verificación de la conmutación de sitios, el reparación y la conmutación de estado
+
+
+

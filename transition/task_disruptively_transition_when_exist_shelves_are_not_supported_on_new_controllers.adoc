@@ -1,0 +1,511 @@
+---
+permalink: transition/task_disruptively_transition_when_exist_shelves_are_not_supported_on_new_controllers.html 
+sidebar: sidebar 
+keywords: start, ontap, disruptive, transition, two-node, metrocluster, fc, configuration, data, exist, drive, shelves, shelf, ip, node, requirement, support, workflow, preparing, prepare, controller, module, controller, migrate 
+summary: A partir de ONTAP 9.8, se puede realizar una transición sin interrupciones de una configuración MetroCluster FC de dos nodos y mover datos desde las bandejas de unidades existentes aunque las bandejas de almacenamiento existentes no sean compatibles con los nuevos nodos IP de MetroCluster. 
+---
+= Realizar la transición sin interrupciones cuando no se admiten bandejas existentes en nuevas controladoras (ONTAP 9.8 y versiones posteriores)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.8, se puede realizar una transición sin interrupciones de una configuración MetroCluster FC de dos nodos y mover datos desde las bandejas de unidades existentes aunque las bandejas de almacenamiento existentes no sean compatibles con los nuevos nodos IP de MetroCluster.
+
+* Este procedimiento solo se debe utilizar si los modelos de bandeja de almacenamiento existentes no son compatibles con los nuevos modelos de plataforma IP de MetroCluster.
+* Este procedimiento se admite en sistemas que ejecutan ONTAP 9.8 y versiones posteriores.
+* Este procedimiento es disruptivo.
+* Este procedimiento solo se aplica a una configuración MetroCluster FC de dos nodos.
++
+Si tiene una configuración FC MetroCluster de cuatro nodos, consulte link:concept_choosing_your_transition_procedure_mcc_transition.html["Cómo elegir el procedimiento de transición"].
+
+* Debe cumplir con todos los requisitos y seguir todos los pasos del procedimiento.
+
+
+
+
+== Requisitos para la transición cuando no se admiten bandejas en los nuevos nodos
+
+Antes de iniciar el proceso de transición, debe asegurarse de que la configuración cumpla los requisitos.
+
+.Antes de empezar
+* La configuración existente debe ser una configuración de MetroCluster con ampliación o conectada a la estructura de dos nodos, y todos los nodos deben ejecutar ONTAP 9.8 o una versión posterior.
++
+Los nuevos módulos de controladora IP de MetroCluster deben ejecutar la misma versión de ONTAP 9.8.
+
+* Las plataformas nuevas y existentes deben ser una combinación que admita la transición.
++
+link:concept_supported_platforms_for_transition.html["Plataformas compatibles para realizar transiciones sin interrupciones"]
+
+* Debe cumplir con todos los requisitos y el cableado tal y como se describe en link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"].
+* Las nuevas bandejas de almacenamiento que se proporcionan con las nuevas controladoras (node_A_1-IP, node_A_2-IP, node_B_1-IP y node_B_2-IP) deben ser compatibles con las controladoras antiguas (node_A_1-FC y node_B_1-FC).
++
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
+
+* Los nuevos modelos de plataforma IP de MetroCluster * no admiten las bandejas de almacenamiento antiguas.
++
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
+
+* En función de los discos de repuesto disponibles en las bandejas existentes, deben añadirse unidades adicionales.
++
+Esto puede requerir bandejas de unidades adicionales.
+
++
+Debe tener entre 14 y 18 unidades adicionales para cada controladora:
+
++
+** Tres unidades pool0
+** Tres unidades de pool1
+** Dos unidades de repuesto
+** De seis a diez unidades para el volumen del sistema
+
+
+* Debe asegurarse de que la configuración, incluidos los nuevos nodos, no supere los límites de plataformas para la configuración, incluidos el número de unidades, la capacidad de tamaño del agregado raíz, etc.
++
+Esta información está disponible para cada modelo de plataforma en _NetApp Hardware Universe_.
+
++
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+* Debe tener acceso remoto a la consola para los seis nodos desde el sitio de MetroCluster o planificar el viaje entre los sitios según lo requiera el procedimiento.
+
+
+
+
+== Flujo de trabajo para una transición disruptiva cuando las bandejas no son compatibles con las nuevas controladoras
+
+Si los modelos de bandejas existentes no son compatibles con los modelos de plataforma nuevos, debe conectar las nuevas bandejas a la configuración anterior, mover los datos a las nuevas bandejas y, a continuación, efectuar la transición a la nueva configuración.
+
+Mientras se prepara para la transición, planee el viaje entre los sitios. Tenga en cuenta que, una vez montados en rack y cableados, se necesita acceso mediante terminal en serie a los nodos. El acceso de Service Processor no está disponible hasta que se configuren los nodos.
+
+image::../media/workflow_2n_transition_old_shelves_not_supported.png[no se admite el flujo de trabajo 2n realizar la transición de bandejas antiguas]
+
+
+
+== Preparación de los nuevos módulos de la controladora
+
+Debe borrar la configuración y la propiedad de disco de los nuevos módulos de la controladora y de las nuevas bandejas de almacenamiento.
+
+.Pasos
+. Lleve a cabo todos los pasos de la con las nuevas bandejas de almacenamiento conectadas a los nuevos módulos de controladora IP de MetroCluster link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#preparing-the-metrocluster-ip-controllers["Preparar las controladoras IP de MetroCluster"].
+. Desconecte las nuevas bandejas de almacenamiento de los nuevos módulos de controladora IP de MetroCluster.
+
+
+
+
+== Conectar las bandejas de discos nuevas a las controladoras FC MetroCluster existentes
+
+Debe asociar las bandejas de unidades nuevas a los módulos de controladoras existentes antes de pasar a una configuración IP de MetroCluster.
+
+.Acerca de esta tarea
+En la siguiente ilustración, se muestran las nuevas bandejas conectadas a la configuración de MetroCluster FC.
+
+image::../media/transition_2n_unsupported_old_new_shelves_to_old_controllers.png[transición 2n bandejas nuevas antiguas no compatibles con controladoras antiguas]
+
+.Pasos
+. Deshabilite la asignación automática de disco en node_A_1-FC y node_A_2-FC:
++
+`disk option modify -node _node-name_ -autoassign off`
+
++
+Este comando se debe emitir en cada nodo.
+
++
+La asignación automática de discos se deshabilita para evitar la asignación de las bandejas que se van a añadir a node_A_1-FC y node_B_1-FC. Como parte de la transición, los discos son necesarios para los nodos node_A_1-IP y node_B_2-IP y, si se permite la asignación automática, la propiedad del disco se deberá eliminar más adelante antes de poder asignar los discos a node_A_1-IP y node_B_2-IP.
+
+. Conecte las nuevas bandejas a los nodos FC de MetroCluster existentes mediante puentes FC a SAS, si es necesario.
++
+Consulte los requisitos y procedimientos en link:../maintain/task_hot_add_a_sas_disk_shelf_in_a_direct_attached_mcc_configuration_us_sas_optical_cables.html["Añadir almacenamiento en caliente a una configuración FC de MetroCluster"]
+
+
+
+
+
+== Migrar agregados raíz y mover datos a las nuevas bandejas de discos
+
+Debe mover los agregados raíz de las bandejas de unidades antiguas a las nuevas bandejas de unidades que utilizarán los nodos de IP de MetroCluster.
+
+.Acerca de esta tarea
+Esta tarea se realiza antes de la transición de los nodos existentes (node_A_1-FC y node_B_1-FC).
+
+.Pasos
+. Realice una conmutación de sitios negociada desde el nodo de la controladora node_B_1-FC:
++
+`metrocluster switchover`
+
+. Realice los agregados Wheal y recupere los pasos raíz de la recuperación de node_B_1-FC:
++
+`metrocluster heal -phase aggregates`
+
++
+`metrocluster heal -phase root-aggregates`
+
+. Controladora de arranque node_A_1-FC:
++
+`boot_ontap`
+
+. Asigne discos sin propietario de las bandejas nuevas a los pools adecuados para Controller node_A_1-FC:
++
+.. Identifique los discos de las bandejas:
++
+`disk show -shelf pool_0_shelf -fields container-type,diskpathnames`
+
++
+`disk show -shelf pool_1_shelf -fields container-type,diskpathnames`
+
+.. Introduzca el modo local para que los comandos se ejecuten en el nodo local:
++
+`run local`
+
+.. Asigne los discos:
++
+`disk assign disk1disk2disk3disk… -p 0`
+
++
+`disk assign disk4disk5disk6disk… -p 1`
+
+.. Salir del modo local:
++
+`exit`
+
+
+
+. Cree un nuevo agregado reflejado para convertirse en el nuevo agregado raíz para la controladora node_A_1-FC:
++
+.. Configure el modo de privilegio en Advanced:
++
+`set priv advanced`
+
+.. Cree el agregado:
++
+`aggregate create -aggregate new_aggr -disklist disk1, disk2, disk3,… -mirror-disklist disk4disk5, disk6,… -raidtypesame-as-existing-root -force-small-aggregate true aggr show -aggregate new_aggr -fields percent-snapshot-space`
+
++
+Si el valor porcentual del espacio de Snapshot es inferior al 5 %, debe aumentarlo hasta un valor superior al 5 %:
+
++
+`aggr modify new_aggr -percent-snapshot-space 5`
+
+.. Configure el modo de privilegio de nuevo en admin:
++
+`set priv admin`
+
+
+
+. Confirme que el nuevo agregado se ha creado correctamente:
++
+`node run -node local sysconfig -r`
+
+. Cree los backups de configuración de nodo y clúster:
++
+
+NOTE: Cuando los backups se crean durante la conmutación de sitios, el clúster reconoce el estado de conmutación al nodo de recuperación. Debe asegurarse de que la copia de seguridad y la carga de la configuración del sistema es correcta como sin esta copia de seguridad es *no* posible reformar la configuración de MetroCluster entre clusters.
+
++
+.. Cree el backup del clúster:
++
+`system configuration backup create -node local -backup-type cluster -backup-name _cluster-backup-name_`
+
+.. Comprobar la creación de backup del clúster
++
+`job show -id job-idstatus`
+
+.. Cree el backup de nodo:
++
+`system configuration backup create -node local -backup-type node -backup-name _node-backup-name_`
+
+.. Compruebe si hay backups de clústeres y nodos:
++
+`system configuration backup show`
+
++
+Puede repetir el comando hasta que se muestren ambos backups en el resultado.
+
+
+
+. Haga copias de los backups.
++
+Los backups deben almacenarse en una ubicación separada porque se perderán de forma local cuando se inicie el nuevo volumen raíz.
+
++
+Puede cargar las copias de seguridad en un servidor FTP o HTTP, o bien copiar las copias de seguridad mediante `scp` comandos.
+
++
+[cols="1,3"]
+|===
+
+
+| Proceso | Pasos 
+
+
+ a| 
+*Cargue la copia de seguridad en el servidor FTP o HTTP*
+ a| 
+.. Cargue el backup del clúster:
++
+`system configuration backup upload -node local -backup _cluster-backup-name_ -destination URL`
+
+.. Cargue el backup de nodo:
++
+`system configuration backup upload -node local -backup _node-backup-name_ -destination URL`
+
+
+
+
+
+ a| 
+*Copie las copias de seguridad en un servidor remoto utilizando Secure Copy*
+ a| 
+Desde el servidor remoto, utilice los siguientes comandos scp:
+
+.. Copie el backup del clúster:
++
+`scp diagnode-mgmt-FC:/mroot/etc/backups/config/cluster-backup-name.7z .`
+
+.. Copie el backup del nodo:
++
+`scp diag@node-mgmt-FC:/mroot/etc/backups/config/node-backup-name.7z .`
+
+
+
+|===
+. Detener nodo_A_1-FC:
++
+`halt -node local -ignore-quorum-warnings true`
+
+. Nodo de arranque_A_1-FC al modo de mantenimiento:
++
+`boot_ontap maint`
+
+. En el modo de mantenimiento, realice los cambios necesarios para configurar el agregado como raíz:
++
+.. Establezca la normativa de alta disponibilidad en cfo:
++
+`aggr options new_aggr ha_policy cfo`
+
++
+Responda «'sí» cuando se le solicite continuar.
+
++
+[listing]
+----
+Are you sure you want to proceed (y/n)?
+----
+.. Establezca el nuevo agregado como raíz:
++
+`aggr options new_aggr root`
+
+.. Detenga el aviso del CARGADOR:
++
+`halt`
+
+
+
+. Arranque el controlador y realice una copia de seguridad de la configuración del sistema.
++
+El nodo arranca en modo de recuperación cuando se detecta el nuevo volumen raíz
+
++
+.. Arranque la controladora:
++
+`boot_ontap`
+
+.. Inicie sesión y realice una copia de seguridad de la configuración.
++
+Cuando inicie sesión, verá la siguiente advertencia:
+
++
+[listing]
+----
+Warning: The correct cluster system configuration backup must be restored. If a backup
+from another cluster or another system state is used then the root volume will need to be
+recreated and NGS engaged for recovery assistance.
+----
+.. Entre en el modo de privilegio avanzado:
++
+`set -privilege advanced`
+
+.. Realice una copia de seguridad de la configuración del clúster en un servidor:
++
+`system configuration backup download -node local -source URL of server/cluster-backup-name.7z`
+
+.. Realice una copia de seguridad de la configuración del nodo en un servidor:
++
+`system configuration backup download -node local -source URL of server/node-backup-name.7z`
+
+.. Volver al modo admin:
++
+`set -privilege admin`
+
+
+
+. Compruebe el estado del clúster:
++
+.. Emita el siguiente comando:
++
+`cluster show`
+
+.. Configure el modo de privilegio en Advanced:
++
+`set -privilege advanced`
+
+.. Compruebe los detalles de configuración del clúster:
++
+`cluster ring show`
+
+.. Vuelva al nivel de privilegio de administrador:
++
+`set -privilege admin`
+
+
+
+. Confirmar el modo operativo de la configuración de MetroCluster y realizar una comprobación de MetroCluster.
++
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal:
++
+`metrocluster show`
+
+.. Confirme que se muestran todos los nodos esperados:
++
+`metrocluster node show`
+
+.. Emita el siguiente comando:
++
+`metrocluster check run`
+
+.. Mostrar los resultados de la comprobación de MetroCluster:
++
+`metrocluster check show`
+
+
+
+. Realice una conmutación de estado desde el nodo de la controladora B_1-FC:
++
+`metrocluster switchback`
+
+. Compruebe el funcionamiento de la configuración de MetroCluster:
++
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal:
++
+`metrocluster show`
+
+.. Realizar una comprobación de MetroCluster:
++
+`metrocluster check run`
+
+.. Mostrar los resultados de la comprobación de MetroCluster:
++
+`metrocluster check show`
+
+
+
+. Añada el nuevo volumen raíz a la base de datos de ubicaciones de volumen.
++
+.. Configure el modo de privilegio en Advanced:
++
+`set -privilege advanced`
+
+.. Añada el volumen al nodo:
++
+`volume add-other-volumes –node node_A_1-FC`
+
+.. Vuelva al nivel de privilegio de administrador:
++
+`set -privilege admin`
+
+
+
+. Compruebe que el volumen está visible y que tiene mroot.
++
+.. Mostrar los agregados:
++
+`storage aggregate show`
+
+.. Compruebe que el volumen raíz tiene mroot:
++
+`storage aggregate show -fields has-mroot`
+
+.. Muestre los volúmenes:
++
+`volume show`
+
+
+
+. Cree un nuevo certificado de seguridad para volver a habilitar el acceso a System Manager:
++
+`security certificate create -common-name _name_ -type server -size 2048`
+
+. Repita los pasos anteriores para migrar los agregados de las bandejas propiedad de node_A_1-FC.
+. Realice una limpieza.
++
+Debe realizar los siguientes pasos en node_A_1-FC y node_B_1-FC para quitar el volumen raíz y el agregado raíz antiguos.
+
++
+.. Elimine el volumen raíz antiguo:
++
+`run local`
+
++
+`vol offline old_vol0`
+
++
+`vol destroy old_vol0`
+
++
+`exit`
+
++
+`volume remove-other-volume -vserver node_name -volume old_vol0`
+
+.. Elimine el agregado raíz original:
++
+`aggr offline -aggregate old_aggr0_site`
+
++
+`aggr delete -aggregate old_aggr0_site`
+
+
+
+. Migre los volúmenes de datos a agregados en las nuevas controladoras, un volumen a la vez.
++
+Consulte http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["Crear un agregado y mover volúmenes a los nuevos nodos"^]
+
+. Retire las bandejas antiguas realizando todos los pasos de link:task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.html["Retirada de las bandejas del nodo_A_1-FC y nodo_A_2-FC"].
+
+
+
+
+== La transición de la configuración
+
+Debe seguir el procedimiento de transición detallado.
+
+.Acerca de esta tarea
+En los pasos siguientes se le dirigirá a otros temas. Debe realizar los pasos de cada tema en el orden indicado.
+
+.Pasos
+. Planear asignación de puertos.
++
+Realice todos los pasos de link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#mapping-ports-from-the-metrocluster-fc-nodes-to-the-metrocluster-ip-nodes["Asignar los puertos de los nodos FC de MetroCluster a los nodos IP de MetroCluster"].
+
+. Prepare las controladoras IP de MetroCluster.
++
+Realice todos los pasos de link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#preparing-the-metrocluster-ip-controllers["Preparar las controladoras IP de MetroCluster"].
+
+. Compruebe el estado de la configuración de MetroCluster.
++
+Realice todos los pasos de link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#verifying-the-health-of-the-metrocluster-fc-configuration["Comprobación del estado de la configuración de MetroCluster FC"].
+
+. Prepare y quite los nodos FC de MetroCluster existentes.
++
+Realice todos los pasos de link:../transition/task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html["Cambiar los nodos FC de MetroCluster"].
+
+. Añada los nodos IP de MetroCluster nuevos.
++
+Realice todos los pasos de link:task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html["Conexión de los módulos de la controladora IP de MetroCluster"].
+
+. Complete la transición y la configuración inicial de los nuevos nodos IP de MetroCluster.
++
+Realice todos los pasos de link:task_configure_the_new_nodes_and_complete_transition.html["Configurar los nodos nuevos y completar la transición"].
+
+

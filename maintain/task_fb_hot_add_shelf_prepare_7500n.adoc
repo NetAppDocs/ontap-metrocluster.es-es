@@ -1,0 +1,60 @@
+---
+permalink: maintain/task_fb_hot_add_shelf_prepare_7500n.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, prepare, hot, add, sas, disk, shelves 
+summary: Para preparar la adición en caliente de una bandeja de discos SAS es necesario descargar los documentos, así como el firmware de la unidad de disco y de la bandeja de discos. 
+---
+= Preparar la adición en caliente de bandejas de discos SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para preparar la adición en caliente de una bandeja de discos SAS es necesario descargar los documentos, así como el firmware de la unidad de disco y de la bandeja de discos.
+
+* El sistema debe ser una configuración compatible y debe ejecutar una versión compatible de ONTAP.
+* Todas las unidades de disco y bandejas de discos del sistema deben ejecutar la versión de firmware más reciente.
++
+Es posible que desee actualizar el firmware del disco y de la bandeja en toda la configuración de MetroCluster antes de añadir bandejas.
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["Actualización, reversión o degradación"]
+
+
+
+
+NOTE: Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila si el sistema ejecuta una versión admitida de ONTAP. Para determinar si su versión de ONTAP admite la mezcla de bandejas, Consulte la herramienta de matriz de interoperabilidad (IMT).https://mysupport.netapp.com/NOW/products/interoperability[NetApp Interoperability] Si la versión de ONTAP no es compatible y no puede actualizar o degradar los módulos IOM en la pila existente o en la nueva bandeja que debe añadirse a una combinación compatible de módulos IOM, debe realizar una de las siguientes acciones:
+
+* Inicie una nueva pila en un nuevo puerto SAS (si lo admite el par de puente).
+* Inicie una nueva pila en un par de puente adicional.
+
+
+.Pasos
+. Descargue o consulte los siguientes documentos desde el sitio de soporte de NetApp:
++
+** https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+** El _Guía de instalación_ correspondiente al modelo de bandeja de discos.
+
+
+. Compruebe que la bandeja de discos que desea añadir en caliente es compatible.
++
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+
+. Descargue el firmware de disco y de bandeja de discos más reciente:
++
+
+NOTE: En este paso, sólo está completando la parte de descarga de las instrucciones proporcionadas en los enlaces. Debe seguir los pasos que se encuentran en link:task_fb_hot_add_a_disk_shelf_install_7500n.html["Añadir en caliente una bandeja de discos"] sección para instalar la bandeja de discos.
+
++
+.. Descargue el firmware del disco y haga una copia de las instrucciones del firmware del disco para consultarla más adelante.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"]
+
+.. Descargue el firmware de la bandeja de discos y haga una copia de las instrucciones del firmware de la bandeja de discos para referencia posterior.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"]
+
+
+
+

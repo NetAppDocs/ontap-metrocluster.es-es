@@ -1,0 +1,67 @@
+---
+permalink: upgrade/concept_choosing_an_upgrade_method_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, choose, upgrade, refresh, method 
+summary: El procedimiento de actualización o actualización que utilice dependerá del modelo de plataforma, el ámbito de la actualización y el tipo de configuración de MetroCluster. 
+---
+= Empezar desde aquí: Elija entre la actualización de la controladora, la actualización del sistema o la ampliación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Según el alcance de la actualización del equipo, debe elegir un procedimiento de actualización de la controladora, un procedimiento de actualización del sistema o un procedimiento de ampliación.
+
+* Los procedimientos de actualización de la controladora se aplican únicamente a los módulos de la controladora. Las controladoras se sustituyen por un nuevo modelo de controladora.
++
+Los modelos de bandejas de almacenamiento no se actualizan.
+
++
+** En procedimientos de conmutación de sitios y conmutación de estado, la operación de conmutación de sitios de MetroCluster se usa para proporcionar servicios no disruptivos a los clientes, mientras que los módulos de la controladora del clúster de partners se actualizan.
+** En un procedimiento de actualización de controladoras basado en ARL, las operaciones de reubicación de agregados se utilizan para mover datos de la configuración anterior de forma no disruptiva a la nueva configuración actualizada.
+
+
+* Los procedimientos de actualización se aplican a las controladoras y las bandejas de almacenamiento.
++
+En los procedimientos de actualización, se añaden nuevas controladoras y bandejas a la configuración de la MetroCluster y se crea un segundo grupo de recuperación ante desastres. A continuación, los datos se migran sin interrupciones a los nuevos nodos.
+
++
+A continuación, se retiran las controladoras originales.
+
+* Los procedimientos de expansión añaden controladoras y bandejas adicionales a la configuración de MetroCluster sin eliminar ninguna.
++
+El procedimiento que utilice dependerá del tipo de MetroCluster y del número de controladoras existentes.
+
+
+
+[cols="2,5"]
+|===
+
+
+| Tipo de actualización | Vaya a... 
+
+
+ a| 
+Actualización de la controladora
+ a| 
+link:../upgrade/concept_choosing_controller_upgrade_mcc.html["Elija un procedimiento de actualización de la controladora"]
+
+
+
+ a| 
+Actualización del sistema
+ a| 
+link:../upgrade/concept_choosing_tech_refresh_mcc.html["Elija un procedimiento de actualización del sistema"]
+
+
+
+ a| 
+Expansión
+ a| 
+* link:../upgrade/task_expand_a_two_node_mcc_fc_configuration_to_a_four_node_fc_configuration_supertask.html["MetroCluster de dos nodos a cuatro"]
+* link:../upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html["FC MetroCluster de cuatro nodos a ocho"]
+* link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["MetroCluster IP de cuatro nodos a ocho"]
+
+
+|===

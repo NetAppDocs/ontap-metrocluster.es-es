@@ -1,0 +1,266 @@
+---
+permalink: maintain/task_replace_a_brocade_fc_switch_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, brocade, fc, switch 
+summary: Debe utilizar este procedimiento específico de Brocade para reemplazar un switch con fallos. 
+---
+= Reemplazar un switch FC de Brocade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe utilizar este procedimiento específico de Brocade para reemplazar un switch con fallos.
+
+Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
+
+En los siguientes ejemplos, FC_switch_A_1 es el switch en buen estado y FC_switch_B_1 es el switch dañado. El uso del puerto del switch en los ejemplos se muestra en la siguiente tabla:
+
+|===
+
+
+| Conexiones de puertos | Puertos 
+
+
+ a| 
+Conexiones FC-VI
+ a| 
+0, 3
+
+
+
+ a| 
+Conexiones HBA
+ a| 
+1, 2, 4, 5
+
+
+
+ a| 
+Conexiones de puente FC a SAS
+ a| 
+6, 7
+
+
+
+ a| 
+Conexiones ISL
+ a| 
+10, 11
+
+|===
+Los ejemplos muestran dos puentes FC a SAS. Si tiene más, debe deshabilitar y, posteriormente, habilitar los puertos adicionales.
+
+
+NOTE: Este procedimiento no es disruptivo y tarda aproximadamente dos horas en completarse.
+
+El uso del puerto del switch debe seguir las asignaciones recomendadas.
+
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0"]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
+
+
+.Pasos
+. Cierre la barrera del switch sometido a sustitución deshabilitando los puertos ISL del switch saludable en la estructura y los puertos FC-VI y HBA del switch dañado (si el switch dañado sigue funcionando):
++
+.. Deshabilite los puertos ISL en el switch en buen estado de cada puerto:
++
+`portcfgpersistentdisable _port-number_`
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfgpersistentdisable 10
+FC_switch_A_1:admin> portcfgpersistentdisable 11
+----
+.. Si el switch dañado sigue operativo, desactive los puertos FC-VI y HBA de ese switch para cada puerto:
++
+`portcfgpersistentdisable _port-number_`
+
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentdisable 0
+FC_switch_B_1:admin> portcfgpersistentdisable 1
+FC_switch_B_1:admin> portcfgpersistentdisable 2
+FC_switch_B_1:admin> portcfgpersistentdisable 3
+FC_switch_B_1:admin> portcfgpersistentdisable 4
+FC_switch_B_1:admin> portcfgpersistentdisable 5
+----
+
+
+. Si el interruptor dañado sigue en funcionamiento, recoja la salida del `switchshow` comando.
++
+[listing]
+----
+FC_switch_B_1:admin> switchshow
+    switchName: FC_switch_B_1
+    switchType: 71.2
+    switchState:Online
+    switchMode: Native
+    switchRole: Subordinate
+    switchDomain:       2
+    switchId:   fffc01
+    switchWwn:  10:00:00:05:33:86:89:cb
+    zoning:             OFF
+    switchBeacon:       OFF
+----
+. Inicie y preconfigure el nuevo conmutador antes de instalarlo físicamente:
++
+.. Encienda el nuevo interruptor y deje que arranque.
+.. Compruebe la versión de firmware del switch para confirmar que coincide con la versión de otros switches de FC:
++
+`firmwareShow`
+
+.. Configure el nuevo switch como se describe en _instalación y configuración de MetroCluster, pero omita el procedimiento ""Configuración de la división en zonas en switches FC de Brocade".
++
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+
++
+Puede configurar la división en zonas más adelante en este procedimiento.
+
++
+
+NOTE: En este momento, el nuevo switch no está cableado a la configuración de MetroCluster.
+
+.. Deshabilite los puertos FC-VI, HBA y almacenamiento en el switch nuevo y los puertos conectados a los puentes FC-SAS.
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentdisable 0
+FC_switch_B_1:admin> portcfgpersistentdisable 1
+FC_switch_B_1:admin> portcfgpersistentdisable 2
+FC_switch_B_1:admin> portcfgpersistentdisable 3
+FC_switch_B_1:admin> portcfgpersistentdisable 4
+FC_switch_B_1:admin> portcfgpersistentdisable 5
+
+FC_switch_B_1:admin> portcfgpersistentdisable 6
+FC_switch_B_1:admin> portcfgpersistentdisable 7
+----
+
+
+. Sustituya físicamente el interruptor:
++
+.. Apague el switch FC dañado.
+.. Apague el switch FC de repuesto.
+.. Descablear y retirar el interruptor dañado, observando con cuidado qué cables están conectados a qué puertos.
+.. Instale el interruptor de sustitución en el rack.
+.. Conecte el interruptor de sustitución exactamente como se cableó el interruptor antiguo.
+.. Encienda el nuevo switch FC.
+
+
+. Si desea habilitar el cifrado ISL, complete las tareas correspondientes en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"].
++
+Si habilita el cifrado ISL, debe completar las siguientes tareas:
+
++
+** Deshabilite la estructura virtual
+** Establezca la carga útil
+** Defina la directiva de autenticación
+** Habilite el cifrado ISL en switches de Brocade
+
+
+. Complete la configuración del nuevo switch:
++
+.. Habilite los ISL:
++
+`portcfgpersistentenable _port-number_`
+
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 10
+FC_switch_B_1:admin> portcfgpersistentenable 11
+----
+.. En el switch de reemplazo (FC_switch_B_1 en el ejemplo), verifique que los ISL estén en línea:
++
+`switchshow`
+
++
+[listing]
+----
+FC_switch_B_1:admin> switchshow
+switchName: FC_switch_B_1
+switchType: 71.2
+switchState:Online
+switchMode: Native
+switchRole: Principal
+switchDomain:       4
+switchId:   fffc03
+switchWwn:  10:00:00:05:33:8c:2e:9a
+zoning:             OFF
+switchBeacon:       OFF
+
+Index Port Address Media Speed State  Proto
+==============================================
+...
+10   10    030A00 id   16G     Online  FC E-Port 10:00:00:05:33:86:89:cb "FC_switch_A_1"
+11   11    030B00 id   16G     Online  FC E-Port 10:00:00:05:33:86:89:cb "FC_switch_A_1" (downstream)
+...
+----
+.. Habilite los puertos de almacenamiento que se conectan a los puentes de FC.
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 6
+FC_switch_B_1:admin> portcfgpersistentenable 7
+----
+.. Habilite los puertos de almacenamiento, HBA y FC-VI.
++
+En el ejemplo siguiente se muestran los comandos utilizados para habilitar los puertos que conectan los adaptadores de HBA:
+
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 1
+FC_switch_B_1:admin> portcfgpersistentenable 2
+FC_switch_B_1:admin> portcfgpersistentenable 4
+FC_switch_B_1:admin> portcfgpersistentenable 5
+----
++
+En el ejemplo siguiente se muestran los comandos utilizados para habilitar los puertos que conectan los adaptadores de FC-VI:
+
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 0
+FC_switch_B_1:admin> portcfgpersistentenable 3
+----
+
+
+. Compruebe que los puertos están en línea:
++
+`switchshow`
+
+. Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
++
+.. Compruebe si el sistema es multivía:
++
+`node run -node _node-name_ sysconfig -a`
+
+.. Compruebe si hay alertas de estado en ambos clústeres:
++
+`system health alert show`
+
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal:
++
+`metrocluster show`
+
+.. Realizar una comprobación de MetroCluster:
++
+`metrocluster check run`
+
+.. Mostrar los resultados de la comprobación de MetroCluster:
++
+`metrocluster check show`
+
+.. Compruebe si hay alertas de estado en los switches (si existen):
++
+`storage switch show`
+
+.. Ejecución https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Config Advisor"].
+.. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
+
+
+

@@ -1,0 +1,54 @@
+---
+permalink: upgrade/task_enable_storage_failover_both_controller_modules_and_set_cluster_ha.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, enable, storage, failover, both, controller, module, cluster, ha 
+summary: Después de agregar nuevos módulos de controladoras a la configuración de MetroCluster, debe habilitar la conmutación por error de almacenamiento en ambos módulos de controladoras y habilitar la alta disponibilidad de clúster de forma independiente. 
+---
+= Habilitar la conmutación por error del almacenamiento en los dos módulos de la controladora y permitir la alta disponibilidad de clúster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de agregar nuevos módulos de controladoras a la configuración de MetroCluster, debe habilitar la conmutación por error de almacenamiento en ambos módulos de controladoras y habilitar la alta disponibilidad de clúster de forma independiente.
+
+.Antes de empezar
+La configuración de MetroCluster debe haberse actualizado previamente con la `metrocluster configure -refresh true` comando.
+
+.Acerca de esta tarea
+Esta tarea debe realizarse en cada sitio MetroCluster.
+
+.Pasos
+. Habilitar la recuperación tras fallos de almacenamiento:
++
+`storage failover modify -enabled true -node _existing-node-name_`
+
++
+El único comando permite la recuperación tras fallos de almacenamiento en ambos módulos de controladora.
+
+. Compruebe que la recuperación tras fallos del almacenamiento está activada:
++
+`storage failover show`
+
++
+La salida debe ser similar a la siguiente:
+
++
+[listing]
+----
+
+Node           Partner        Possible State Description
+-------------- -------------- -------- ----------------------
+old-ctlr        new-ctlr      true      Connected to new-ctlr
+new-ctlr        old-ctlr      true      Connected to old-ctlr
+2 entries were displayed.
+----
+. Habilitar clúster de alta disponibilidad:
++
+`cluster ha modify -configured true`
+
++
+La alta disponibilidad del clúster (ha) debe configurarse en un clúster si solo contiene dos nodos y difiere de la alta disponibilidad proporcionada por la recuperación tras fallos del almacenamiento.
+
+

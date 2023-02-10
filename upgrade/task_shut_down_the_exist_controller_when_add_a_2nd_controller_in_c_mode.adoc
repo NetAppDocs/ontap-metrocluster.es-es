@@ -1,0 +1,58 @@
+---
+permalink: upgrade/task_shut_down_the_exist_controller_when_add_a_2nd_controller_in_c_mode.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, shut, down, existing, controller, module 
+summary: Debe realizar un apagado correcto del módulo de controlador existente para verificar que todos los datos se han escrito en el disco. También debe desconectar los suministros de alimentación. 
+---
+= Apagar el módulo de la controladora existente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe realizar un apagado correcto del módulo de controlador existente para verificar que todos los datos se han escrito en el disco. También debe desconectar los suministros de alimentación.
+
+.Acerca de esta tarea
+--
+
+IMPORTANT: Debe realizar un apagado correcto del sistema antes de sustituir los componentes del sistema para evitar perder datos no escritos en la NVRAM o NVMEM.
+
+--
+.Pasos
+. Detenga el nodo del símbolo del sistema del módulo de controladora existente:
++
+`halt local -inhibit-takeover true`
+
++
+Si se le solicita que continúe con el procedimiento de detención, introduzca `y` Cuando se le solicite y espere hasta que el sistema se detenga en el símbolo del sistema del CARGADOR.
+
++
+En un sistema 80xx, el LED NVRAM se encuentra en el módulo del controlador a la derecha de los puertos de red, marcados con un símbolo de batería.
+
++
+Este LED parpadea si hay datos sin escribir en la NVRAM. Si este LED parpadea en ámbar después de introducir el comando halt, tiene que reiniciar el sistema y volver a detenerlo.
+
+. Si usted no está ya conectado a tierra, correctamente tierra usted mismo.
+. Apague las fuentes de alimentación y desconecte la alimentación, utilizando el método correcto para su sistema y tipo de fuente de alimentación:
++
+|===
+
+
+| Si su sistema utiliza... | Realice lo siguiente... 
+
+
+ a| 
+Fuentes de alimentación de CA
+ a| 
+Desenchufe los cables de alimentación de la fuente de alimentación y, a continuación, extraiga los cables de alimentación.
+
+
+
+ a| 
+Fuentes de alimentación CC
+ a| 
+Retire la alimentación de la fuente de CC y, a continuación, retire los cables de CC, si es necesario.
+
+|===
+

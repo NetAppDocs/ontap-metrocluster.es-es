@@ -1,0 +1,67 @@
+---
+permalink: install-ip/task_sw_config_differences.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, ontap, node-level, configuration, node, site, relationship, configuring, configure, similarities, difference, 
+summary: La configuración de los nodos de cada clúster en una configuración de MetroCluster es similar a la de los nodos de un clúster estándar. 
+---
+= Similitudes y diferencias entre configuraciones estándar de clústeres y MetroCluster
+:allow-uri-read: 
+
+
+[role="lead"]
+La configuración de los nodos de cada clúster en una configuración de MetroCluster es similar a la de los nodos de un clúster estándar.
+
+La configuración de MetroCluster se basa en dos clústeres estándar. Físicamente, la configuración debe ser simétrica, en la que cada nodo tenga la misma configuración de hardware y todos los componentes de MetroCluster deben cablearse y configurarse. Sin embargo, la configuración de software básica para los nodos de una configuración MetroCluster es la misma que para los nodos de un clúster estándar.
+
+|===
+
+
+| Paso de configuración | Configuración de clúster estándar | Configuración de MetroCluster 
+
+
+ a| 
+Configure LIF de gestión, clúster y datos en cada nodo.
+2+| Lo mismo en ambos tipos de clústeres 
+
+
+ a| 
+Configure el agregado raíz.
+2+| Lo mismo en ambos tipos de clústeres 
+
+
+ a| 
+Configure el clúster en un nodo del clúster.
+2+| Lo mismo en ambos tipos de clústeres 
+
+
+ a| 
+Una el otro nodo al clúster.
+2+| Lo mismo en ambos tipos de clústeres 
+
+
+ a| 
+Crear un agregado raíz reflejado.
+ a| 
+Opcional
+ a| 
+Obligatorio
+
+
+
+ a| 
+Conectar los clústeres en relación de paridad.
+ a| 
+Opcional
+ a| 
+Obligatorio
+
+
+
+ a| 
+Habilite la configuración de MetroCluster.
+ a| 
+No aplicable
+ a| 
+Obligatorio
+
+|===

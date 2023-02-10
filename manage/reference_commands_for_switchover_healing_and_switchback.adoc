@@ -1,0 +1,70 @@
+---
+permalink: manage/reference_commands_for_switchover_healing_and_switchback.html 
+sidebar: sidebar 
+keywords: ontap, command, perform, metrocluster, disaster, recovery, process, switchover, heal, switchback 
+summary: Hay comandos específicos de la ONTAP para realizar los procesos de recuperación ante desastres de la MetroCluster. 
+---
+= Comandos para conmutación de sitios, reparación y conmutación de estado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hay comandos específicos de la ONTAP para realizar los procesos de recuperación ante desastres de la MetroCluster.
+
+[cols="1,2"]
+|===
+
+
+| Si desea... | Se usa este comando... 
+
+
+ a| 
+Compruebe que la conmutación se puede realizar sin errores ni vetos.
+ a| 
+`metrocluster switchover -simulate` + en el nivel de privilegio avanzado
+
+
+
+ a| 
+Verifique que la rotación se puede realizar sin errores ni vetos.
+ a| 
+`metrocluster switchback -simulate` + en el nivel de privilegio avanzado
+
+
+
+ a| 
+Cambie a los nodos del partner (conmutación negociada).
+ a| 
+`metrocluster switchover`
+
+
+
+ a| 
+Cambie a los nodos del partner (conmutación forzada).
+ a| 
+`metrocluster switchover -forced-on-disaster true`
+
+
+
+ a| 
+Realizar la reparación del agregado de datos.
+ a| 
+`metrocluster heal -phase aggregates`
+
+
+
+ a| 
+Realizar la reparación de agregados raíz.
+ a| 
+`metrocluster heal -phase root-aggregates`
+
+
+
+ a| 
+Vuelva a los nodos principales.
+ a| 
+`metrocluster switchback`
+
+|===

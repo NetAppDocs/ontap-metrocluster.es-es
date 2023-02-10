@@ -1,0 +1,238 @@
+---
+permalink: install-stretch/task_configure_the_fc_to_sas_bridges_fb_new_install_configure.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, configuration, fc, sas, bridges 
+summary: Antes de cablear el modelo de los puentes FC-a-SAS, debe configurar los ajustes en el software FibreBridge. 
+---
+= Configurar los puentes de FC a SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de cablear el modelo de los puentes FC-a-SAS, debe configurar los ajustes en el software FibreBridge.
+
+.Acerca de esta tarea
+Debe decidir si va a utilizar la gestión en banda de los puentes.
+
+
+NOTE: A partir de ONTAP 9.8, el `storage bridge` el comando se sustituye por `system bridge`. Los siguientes pasos muestran el `storage bridge` comando. Sin embargo, si utiliza ONTAP 9.8 o una versión posterior, el `system bridge` el comando es preferido.
+
+Si va a utilizar la gestión en banda del puente en lugar de la administración IP, se pueden omitir los pasos para configurar el puerto Ethernet y la configuración IP.
+
+.Pasos
+. Si está configurando para la gestión en banda, conecte un cable desde el puerto serie RS-232 de FibreBridge al puerto serie (COM) en un ordenador personal.
++
+La conexión serie se utilizará para la configuración inicial. A continuación, se puede utilizar la gestión en banda a través de ONTAP y los puertos FC para supervisar y gestionar el puente.
+
+. Si configura para la gestión de IP, conecte el puerto 1 de administración Ethernet de cada puente a la red mediante un cable Ethernet.
++
+En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en banda para acceder al puente a través de los puertos FC en lugar del puerto Ethernet. A partir de ONTAP 9.8, solo se admite la gestión en banda y queda obsoleta la gestión de SNMP.
+
++
+El puerto de administración Ethernet 1 permite descargar rápidamente el firmware del puente (mediante las interfaces de gestión ATTO ExpressNAV o FTP) y recuperar archivos principales y extraer registros.
+
+. Si se configura para la administración de IP, configure el puerto de administración de Ethernet 1 para cada puente siguiendo el procedimiento descrito en la sección 2.0 del manual de instalación y funcionamiento de _ATTO FibreBridge_ para el modelo de puente.
++
+En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en banda para acceder al puente a través de los puertos FC en lugar del puerto Ethernet. A partir de ONTAP 9.8, solo se admite la gestión en banda y queda obsoleta la gestión de SNMP.
+
++
+Al ejecutar el sistema Quickav para configurar un puerto de gestión Ethernet, sólo se configura el puerto de gestión Ethernet conectado mediante el cable Ethernet. Por ejemplo, si también desea configurar el puerto 2 de gestión de Ethernet, deberá conectar el cable Ethernet al puerto 2 y ejecutar el sistema de navegación rápida.
+
+. Configure el puente.
++
+Debe tomar nota del nombre de usuario y la contraseña que usted designe.
+
++
+
+NOTE: No configure la sincronización de tiempo en ATTO FibreBridge 7600N o 7500N. La sincronización de tiempo de ATTO FibreBridge 7600N o 7500N se establece en la hora del clúster después de que ONTAP descubra el puente. También se sincroniza periódicamente una vez al día. La zona horaria utilizada es GMT y no se puede cambiar.
+
++
+.. Si se configura para la administración de IP, configure los valores de IP del puente.
++
+En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en banda para acceder al puente a través de los puertos FC en lugar del puerto Ethernet. A partir de ONTAP 9.8, solo se admite la gestión en banda y queda obsoleta la gestión de SNMP.
+
++
+Para configurar la dirección IP sin la utilidad Quickav, debe tener una conexión en serie con FiberBridge.
+
++
+Si utiliza la CLI, debe ejecutar los siguientes comandos:
+
++
+`set ipaddress mp1 _ip-address_`
+
++
+`set ipsubnetmask mp1 _subnet-mask_`
+
++
+`set ipgateway mp1 x.x.x.x`
+
++
+`set ipdhcp mp1 disabled`
+
++
+`set ethernetspeed mp1 1000`
+
+.. Configure el nombre del puente.
++
+Cada uno de los puentes debería tener un nombre único dentro de la configuración de MetroCluster.
+
++
+Nombres de puente de ejemplo para un grupo de pila en cada sitio:
+
++
+*** bridge_A_1a
+*** puente_a_1b
+*** bridge_B_1a
+*** puente_B_1b
++
+Si utiliza la CLI, debe ejecutar el siguiente comando:
+
++
+`set bridgename _bridgename_`
+
+
+
+.. Si ejecuta ONTAP 9.4 o una versión anterior, active SNMP en el puente: +
+`set SNMP enabled`
++
+En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en banda para acceder al puente a través de los puertos FC en lugar del puerto Ethernet. A partir de ONTAP 9.8, solo se admite la gestión en banda y queda obsoleta la gestión de SNMP.
+
+
+
+. Configurar los puertos FC de puente.
++
+.. Configurar la velocidad/velocidad de datos de los puertos FC de puente.
++
+La velocidad de datos FC admitida depende de su puente de modelos.
+
++
+*** El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.
+*** El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.
+*** El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.
++
+
+NOTE: La velocidad FCDataRate que seleccione se limita a la velocidad máxima admitida tanto por el puente como por el puerto FC del módulo de controlador al que se conecta el puerto de puente. Las distancias de cableado no deben superar las limitaciones de SFP y otro hardware.
+
++
+--
+Si utiliza la CLI, debe ejecutar el siguiente comando:
+
+`set FCDataRate _port-numberport-speed_`
+
+--
+
+
+.. Si va a configurar un puente FibreBridge 7500N o 6500N, configure el modo de conexión que el puerto utiliza para ptp.
++
+
+NOTE: El ajuste FCConnMode no es necesario al configurar un puente FibreBridge 7600N.
+
++
+--
+Si utiliza la CLI, debe ejecutar el siguiente comando:
+
+`set FCConnMode _port-number_ ptp`
+
+--
+.. Si está configurando un puente FibreBridge 7600N o 7500N, debe configurar o deshabilitar el puerto FC2.
++
+*** Si está utilizando el segundo puerto, debe repetir los subpasos anteriores para el puerto FC2.
+*** Si no utiliza el segundo puerto, debe desactivar el puerto: +
+`FCPortDisable port-number`
++
+En el ejemplo siguiente se muestra la deshabilitación del puerto de FC 2:
+
++
+[listing]
+----
+FCPortDisable 2
+
+Fibre Channel Port 2 has been disabled.
+----
+
+
+.. Si está configurando un puente FibreBridge 7600N o 7500N, desactive los puertos SAS sin utilizar: +
+`SASPortDisable _sas-port_`
++
+
+NOTE: Los puertos SAS A a D están habilitados de manera predeterminada. Debe deshabilitar los puertos SAS que no se están utilizando.
+
++
+Si solo se utiliza el puerto SAS A, deben deshabilitarse los puertos SAS B, C y D. En el ejemplo siguiente se muestra la deshabilitación del puerto SAS B. Debe deshabilitar los puertos SAS C y D de igual modo:
+
++
+....
+SASPortDisable b
+
+SAS Port B has been disabled.
+....
+
+
+. Asegurar el acceso al puente y guardar la configuración del puente. Elija una opción de abajo dependiendo de la versión de ONTAP que su sistema esté ejecutando.
++
+|===
+
+
+| Versión de ONTAP | Pasos 
+
+
+ a| 
+*ONTAP 9.5 o posterior*
+ a| 
+.. Ver el estado de los puentes: `storage bridge show`
++
+La salida muestra qué puente no está asegurado.
+
+.. Asegurar el puente: +
+`securebridge`
+
+
+
+
+ a| 
+*ONTAP 9.4 o anterior*
+ a| 
+.. Ver el estado de los puentes: `storage bridge show`
++
+La salida muestra qué puente no está asegurado.
+
+.. Compruebe el estado de los puertos del puente no seguro:
++
+`info`
+
++
+La salida muestra el estado de los puertos Ethernet MP1 y MP2.
+
+.. Si el puerto Ethernet MP1 está activado, ejecute:
++
+`set EthernetPort mp1 disabled`
+
++
+Si el puerto Ethernet MP2 también está activado, repita el subpaso anterior para el puerto MP2.
+
+.. Guarde la configuración del puente.
++
+Debe ejecutar los siguientes comandos:
+
++
+`SaveConfiguration`
+
++
+`FirmwareRestart`
+
++
+Se le solicitará que reinicie el puente.
+
+
+
+|===
+. Una vez finalizada la configuración de MetroCluster, utilice el `flashimages` Comando para comprobar su versión del firmware de FiberBridge y, si los puentes no están utilizando la última versión compatible, actualice el firmware en todos los puentes de la configuración.
++
+link:../maintain/index.html["Mantener componentes de MetroCluster"]
+
+
+
+.Información relacionada
+link:concept_in_band_management_of_the_fc_to_sas_bridges.html["Gestión en banda de los puentes FC a SAS"]

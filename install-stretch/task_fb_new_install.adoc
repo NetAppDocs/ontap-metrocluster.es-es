@@ -1,0 +1,26 @@
+---
+permalink: install-stretch/task_fb_new_install.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, fc, sas, bridge, disk, shelf 
+summary: Puede instalar y cablear los puentes de ATTO FiberBridge y las bandejas de discos SAS cuando agregue nuevo almacenamiento a la configuración. 
+---
+= Instalar puentes de FC a SAS y bandejas de discos SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede instalar y cablear los puentes de ATTO FiberBridge y las bandejas de discos SAS cuando agregue nuevo almacenamiento a la configuración.
+
+Para los sistemas recibidos de fábrica, los puentes FC a SAS están preconfigurados y no requieren configuración adicional.
+
+En este procedimiento se asume que está utilizando las interfaces de gestión de puentes recomendadas: La GUI de ATTO ExpressNAV y la utilidad de ATTO Quickav.
+
+Utilice la GUI de ATTO ExpressNAV para configurar y administrar un puente y actualizar el firmware del puente. Puede utilizar la utilidad ATTO Quickav para configurar el puerto 1 de gestión de Ethernet de puente.
+
+En su lugar, puede utilizar otras interfaces de administración, si es necesario, como un puerto serie o Telnet para configurar y administrar un puente y configurar el puerto de administración Ethernet 1 y FTP para actualizar el firmware del puente.
+
+Este procedimiento utiliza el siguiente flujo de trabajo:
+
+image::../media/workflow_bridge_installation_and_configuration.gif[instalación y configuración del puente de flujo de trabajo]

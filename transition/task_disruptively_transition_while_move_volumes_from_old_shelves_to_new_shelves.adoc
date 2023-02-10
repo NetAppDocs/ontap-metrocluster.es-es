@@ -1,0 +1,272 @@
+---
+permalink: transition/task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.html 
+sidebar: sidebar 
+keywords: start, ontap, disruptive, transition, two-node, metrocluster, fc, configuration, four-node, two-node, retire, storage, shelves, shelf, procedure, exist, drive, requirement, retiring, workflow, moving, data, move, retiring, retire, migrate, migrating, root, aggregate, 
+summary: A partir de ONTAP 9.8, se puede realizar la transición de una configuración FC MetroCluster de dos nodos a una configuración IP de MetroCluster de cuatro nodos y retirar las bandejas de almacenamiento existentes. En el procedimiento se incluyen pasos para mover datos de las bandejas de unidades existentes a la nueva configuración y luego retirar las bandejas antiguas. 
+---
+= Realizar una transición sin interrupciones de MetroCluster FC a MetroCluster IP cuando retire bandejas de almacenamiento (ONTAP 9.8 y versiones posteriores).
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.8, se puede realizar la transición de una configuración FC MetroCluster de dos nodos a una configuración IP de MetroCluster de cuatro nodos y retirar las bandejas de almacenamiento existentes. En el procedimiento se incluyen pasos para mover datos de las bandejas de unidades existentes a la nueva configuración y luego retirar las bandejas antiguas.
+
+* Este procedimiento se utiliza cuando va a retirar las bandejas de almacenamiento existentes y mover todos los datos a las nuevas bandejas de la configuración de IP de MetroCluster.
+* Los modelos de bandeja de almacenamiento existentes deben ser compatibles con los nodos IP de MetroCluster nuevos.
+* Este procedimiento se admite en sistemas que ejecutan ONTAP 9.8 y versiones posteriores.
+* Este procedimiento es disruptivo.
+* Este procedimiento solo se aplica a una configuración MetroCluster FC de dos nodos.
++
+Si tiene una configuración FC MetroCluster de cuatro nodos, consulte link:concept_choosing_your_transition_procedure_mcc_transition.html["Cómo elegir el procedimiento de transición"].
+
+* Debe cumplir con todos los requisitos y seguir todos los pasos del procedimiento.
+
+
+
+
+== Requisitos para la transición cuando se retiran las bandejas antiguas
+
+Antes de iniciar el proceso de transición, debe asegurarse de que la configuración FC de MetroCluster existente cumpla con los requisitos.
+
+* Debe ser una configuración de MetroCluster con ampliación o conectada a la estructura de dos nodos y todos los nodos deben ejecutar ONTAP 9.8 o una versión posterior.
++
+Los nuevos módulos de controladora IP de MetroCluster deben ejecutar la misma versión de ONTAP 9.8.
+
+* Las plataformas nuevas y existentes deben ser una combinación que admita la transición.
++
+link:concept_supported_platforms_for_transition.html["Plataformas compatibles para realizar transiciones sin interrupciones"]
+
+* Debe cumplir todos los requisitos y el cableado tal y como se describe en _MetroCluster Installation and Configuration Guides_.
++
+link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+
+
+
+La nueva configuración también debe cumplir con los siguientes requisitos:
+
+* Los nuevos modelos de plataforma IP de MetroCluster deben admitir los modelos anteriores de bandejas de almacenamiento.
++
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
+
+* En función de los discos de repuesto disponibles en las bandejas existentes, deben añadirse unidades adicionales.
++
+Esto puede requerir bandejas de unidades adicionales.
+
++
+Debe tener entre 14 y 18 unidades adicionales para cada controladora:
+
++
+** Tres unidades en el pool 0
+** Tres unidades de pool 1
+** Dos unidades de repuesto
+** De seis a diez unidades para el volumen del sistema
+
+
+* Debe asegurarse de que la configuración, incluidos los nuevos nodos, no supere los límites de plataformas para la configuración, incluidos el número de unidades, la capacidad de tamaño del agregado raíz, etc.
++
+Esta información está disponible para cada modelo de plataforma en https://hwu.netapp.com["Hardware Universe de NetApp"^]
+
+
+
+Debe tener acceso remoto a la consola para los seis nodos desde el sitio de MetroCluster o planificar el viaje entre los sitios según lo requiera el procedimiento.
+
+
+
+== Flujo de trabajo para realizar una transición disruptiva a la hora de mover datos y retirar bandejas de almacenamiento antiguas
+
+Debe seguir el flujo de trabajo específico para garantizar que la transición se realice correctamente.
+
+Mientras se prepara para la transición, planee el viaje entre los sitios. Tenga en cuenta que, una vez montados en rack y cableados, se necesita acceso mediante terminal en serie a los nodos. El acceso de Service Processor no está disponible hasta que se configuren los nodos.
+
+image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[flujo de trabajo 2n transición de datos a nuevas bandejas]
+
+
+
+== La transición de la configuración
+
+Debe seguir el procedimiento de transición detallado.
+
+.Acerca de esta tarea
+En los siguientes pasos se le dirigirá a otros procedimientos. Debe realizar los pasos de cada procedimiento de referencia en el orden indicado.
+
+.Pasos
+. Planear la asignación de puertos mediante los pasos de link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#mapping-ports-from-the-metrocluster-fc-nodes-to-the-metrocluster-ip-nodes["Asignar los puertos de los nodos FC de MetroCluster a los nodos IP de MetroCluster"].
+. Prepare las controladoras IP de MetroCluster siguiendo los pasos de link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#preparing-the-metrocluster-ip-controllers["Preparar las controladoras IP de MetroCluster"].
+. Compruebe el estado de la configuración de MetroCluster FC.
++
+Siga los pasos de link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#verifying-the-health-of-the-metrocluster-fc-configuration["Comprobación del estado de la configuración de MetroCluster FC"].
+
+. Recopile información de la configuración de MetroCluster FC.
++
+Siga los pasos de link:task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html#gathering-information-from-the-existing-controller-modules-before-the-transition["Recopilación de información de los módulos de controladoras existentes antes de la transición"].
+
+. Elimine la supervisión de tiebreaker, si es necesario.
++
+Siga los pasos de link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#verifying-the-health-of-the-metrocluster-fc-configuration["Eliminar la configuración existente del tiebreaker o de otro software de supervisión"].
+
+. Prepare y quite los nodos FC de MetroCluster existentes.
++
+Siga los pasos de link:task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html["Cambiar los nodos FC de MetroCluster"].
+
+. Conecte los nuevos nodos IP de MetroCluster.
++
+Siga los pasos de link:task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html["Conexión de los módulos de la controladora IP de MetroCluster"].
+
+. Configure los nuevos nodos IP de MetroCluster y complete la transición.
++
+Siga los pasos de link:task_configure_the_new_nodes_and_complete_transition.html["Configurar los nodos nuevos y completar la transición"].
+
+
+
+
+
+== Migrando los agregados raíz
+
+Una vez finalizada la transición, migre los agregados raíz existentes restantes de la configuración FC de MetroCluster a nuevas bandejas en la configuración IP de MetroCluster.
+
+.Acerca de esta tarea
+En esta tarea, se mueven los agregados raíz para node_A_1-FC y node_B_1-FC a bandejas de disco que pertenecen a las nuevas controladoras IP de MetroCluster:
+
+.Pasos
+. Asigne discos de pool 0 en la nueva bandeja de almacenamiento local a la controladora que se esté migrando la raíz (por ejemplo, si se está migrando la raíz del nodo_A_1-FC, asigne discos de pool 0 en la nueva bandeja a node_A_1-IP)
++
+Tenga en cuenta que la migración _elimina y no vuelve a crear el mirror raíz_, por lo que no es necesario asignar los discos del pool 1 antes de emitir el comando Migrate
+
+. Configure el modo de privilegio en Advanced:
++
+`set priv advanced`
+
+. Migre el agregado raíz:
++
+`system node migrate-root -node node-name -disklist disk-id1,disk-id2,diskn -raid-type raid-type`
+
++
+** Nombre-nodo es el nodo al que se va a migrar el agregado raíz.
+** El identificador de disco identifica los discos del pool 0 en la nueva bandeja.
+** El tipo de RAID suele ser el mismo que el tipo de RAID del agregado raíz existente.
+** Puede usar el comando `job show -idjob-id-instance` para comprobar el estado de migración, donde job-id es el valor proporcionado cuando se emite el comando migrate-root.
++
+Por ejemplo, si el agregado raíz de node_A_1-FC consistía en tres discos con RAID_dp, se usaría el siguiente comando para migrar root a una nueva bandeja 11:
+
++
+[listing]
+----
+system node migrate-root -node node_A_1-IP -disklist 3.11.0,3.11.1,3.11.2 -raid-type raid_dp
+----
+
+
+. Espere hasta que se complete la operación de migración y el nodo se reinicie automáticamente.
+. Asigne discos del pool 1 para el agregado raíz en una bandeja nueva conectada directamente al clúster remoto.
+. Replique el agregado raíz migrado.
+. Espere a que el agregado raíz finalice de nuevo la resincronización.
++
+Puede usar el comando Storage Aggregate show para comprobar el estado de la sincronización de los agregados.
+
+. Repita estos pasos para el otro agregado raíz.
+
+
+
+
+== Migración de los agregados de datos
+
+Cree agregados de datos en las nuevas bandejas y utilice el traslado de volúmenes para transferir los volúmenes de datos de las bandejas anteriores a los agregados en las nuevas bandejas.
+
+. Mueva los volúmenes de datos a agregados en las nuevas controladoras, de un volumen a la vez.
++
+http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["Crear un agregado y mover volúmenes a los nuevos nodos"^]
+
+
+
+
+
+== Retirada de las bandejas del nodo_A_1-FC y nodo_A_2-FC
+
+Se retiran las bandejas de almacenamiento antiguas de la configuración original de FC de MetroCluster. Estas bandejas eran originalmente propiedad de node_A_1-FC y node_A_2-FC.
+
+. Identifique los agregados de las bandejas anteriores en cluster_B que se deben eliminar.
++
+En este ejemplo, los siguientes agregados de datos están alojados en MetroCluster FC cluster_B y se deben eliminar: aggr_data_a1 y aggr_data_a2.
+
++
+
+NOTE: Debe realizar los pasos para identificar, desconectar y eliminar los agregados de datos en las bandejas. El ejemplo solo es para un clúster.
+
++
+[listing]
+----
+cluster_B::> aggr show
+
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+aggr0_node_A_1-FC
+           349.0GB   16.83GB   95% online       1 node_A_1-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_2-IP
+           349.0GB   16.83GB   95% online       1 node_A_2-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+...
+8 entries were displayed.
+
+cluster_B::>
+----
+. Compruebe si los agregados de datos tienen volúmenes MDV_aud y elimínelos antes de eliminar los agregados.
++
+Debe eliminar los volúmenes MDV_aud ya que no se pueden mover.
+
+. Desconecte cada uno de los agregados y, a continuación, elimínelos:
++
+.. Desconectar el agregado:
++
+`storage aggregate offline -aggregate aggregate-name`
+
++
+En el siguiente ejemplo, se muestra el nodo agregado B_1_aggr0 que se desconecta:
+
++
+[listing]
+----
+cluster_B::> storage aggregate offline -aggregate node_B_1_aggr0
+
+Aggregate offline successful on aggregate: node_B_1_aggr0
+----
+.. Elimine el agregado:
++
+`storage aggregate delete -aggregate aggregate-name`
+
++
+Puede destruir el complejo cuando se le solicite.
+
++
+En el ejemplo siguiente se muestra el agregado node_B_1_aggr0 que se está eliminando.
+
++
+[listing]
+----
+cluster_B::> storage aggregate delete -aggregate node_B_1_aggr0
+Warning: Are you sure you want to destroy aggregate "node_B_1_aggr0"? {y|n}: y
+[Job 123] Job succeeded: DONE
+
+cluster_B::>
+----
+
+
+. Después de eliminar todos los agregados, apague, desconecte y quite las bandejas.
+. Repita los pasos anteriores para retirar las bandejas cluster_A.
+
+
+
+
+== Completar la transición
+
+Si se quitan los módulos de controladora antiguos, puede completar el proceso de transición.
+
+.Paso
+. Complete el proceso de transición.
++
+Siga los pasos de link:task_return_the_system_to_normal_operation_2n_mcc_transition_supertask.html["Devolver el sistema a su funcionamiento normal"].
+
+

@@ -1,0 +1,40 @@
+---
+permalink: install-ip/task_sw_config_configure_mediator.html 
+sidebar: sidebar 
+keywords: metrocluster ip, ontap, mediator, tiebreaker 
+summary: Puede descargar e instalar en un tercer sitio ya sea el software MetroCluster Tiebreaker o, a partir de ONTAP 9.7, el Mediador de ONTAP. 
+---
+= Configuración del software MetroCluster Tiebreaker o Mediator de ONTAP
+:allow-uri-read: 
+
+
+[role="lead"]
+Puede descargar e instalar en un tercer sitio ya sea el software MetroCluster Tiebreaker o, a partir de ONTAP 9.7, el Mediador de ONTAP.
+
+.Antes de empezar
+Debe tener un host Linux disponible que tenga conectividad de red a ambos clústeres en la configuración de MetroCluster. Los requisitos específicos se encuentran en la documentación de tiebreaker para MetroCluster o Mediator de ONTAP.
+
+Si se conecta a una instancia existente de tiebreaker o de Mediador de ONTAP, necesitará el nombre de usuario, la contraseña y la dirección IP del servicio tiebreaker o Mediator.
+
+Si debe instalar una nueva instancia del Mediador de ONTAP, siga las instrucciones para instalar y configurar el software.
+
+link:concept_mediator_requirements.html["Configuración del servicio Mediator de ONTAP para conmutación automática no planificada"]
+
+Si debe instalar una nueva instancia del software Tiebreaker, siga el link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["instrucciones para instalar y configurar el software"].
+
+.Acerca de esta tarea
+No puede utilizar tanto el software MetroCluster Tiebreaker como el Mediator de ONTAP con la misma configuración de MetroCluster.
+
+link:../install-ip/concept_considerations_mediator.html["Consideraciones sobre el uso de Mediator ONTAP o tiebreaker para MetroCluster"]
+
+.Paso
+. Configure el servicio Mediator de ONTAP o el software Tiebreaker:
++
+** Si está utilizando una instancia existente del Mediador ONTAP, agregue el servicio Mediador ONTAP a ONTAP:
++
+`metrocluster configuration-settings mediator add -mediator-address ip-address-of-mediator-host`
+
+** Si utiliza el software Tiebreaker, consulte link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Documentación de tiebreaker"].
+
+
+

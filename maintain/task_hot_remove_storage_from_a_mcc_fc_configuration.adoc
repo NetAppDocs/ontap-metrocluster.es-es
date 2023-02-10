@@ -1,0 +1,146 @@
+---
+permalink: maintain/task_hot_remove_storage_from_a_mcc_fc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, remove, storage, fc, configuration 
+summary: Puede quitar bandejas de unidades en caliente, y quitar físicamente las bandejas que han retirado los agregados de las unidades, de una configuración FC de MetroCluster que está en funcionamiento y sirviendo datos. Puede quitar en caliente una o varias bandejas de cualquier parte dentro de una pila de bandejas o quitar una pila de bandejas. 
+---
+= Quitar almacenamiento en caliente de una configuración FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede quitar bandejas de unidades en caliente, quitar físicamente las bandejas que han retirado los agregados de las unidades, de una configuración FC de MetroCluster que está en funcionamiento y sirviendo datos. Puede quitar en caliente una o varias bandejas de cualquier parte dentro de una pila de bandejas o quitar una pila de bandejas.
+
+* El sistema debe ser una configuración de alta disponibilidad multivía, multivía, alta disponibilidad de ruta cuádruple o ruta cuádruple.
+* En una configuración MetroCluster FC de cuatro nodos, el par de alta disponibilidad local no puede estar en estado de toma de control.
+* Debe haber quitado ya todos los agregados de las unidades de las bandejas que va a quitar.
++
+
+IMPORTANT: Si se intenta realizar este procedimiento en configuraciones FC que no son de MetroCluster con agregados en la bandeja que se está quitando, puede provocar una falla en el sistema con una alerta de varias unidades.
+
++
+La eliminación de agregados implica dividir los agregados reflejados en las bandejas que se van a eliminar y volver a crear los agregados reflejados con otro conjunto de unidades.
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+
+* Debe haber quitado la propiedad de la unidad después de quitar los agregados de las unidades de las bandejas que desea quitar.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+
+* Si se van a quitar una o varias bandejas de una pila, se debe haber calculado la distancia para omitir las bandejas que se están quitando.
++
+Si los cables actuales no son lo suficientemente largos, necesitará disponer de cables más largos.
+
+
+
+Esta tarea se aplica a las siguientes configuraciones de FC de MetroCluster:
+
+* Configuraciones MetroCluster FC de conexión directa, en las que las bandejas de almacenamiento están conectadas directamente a las controladoras de almacenamiento con cables SAS
+* Configuraciones FC de MetroCluster conectadas a estructura o conectadas a puente, en las que las bandejas de almacenamiento se conectan mediante puentes FC a SAS
+
+
+.Pasos
+. Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
++
+.. Compruebe si el sistema es multipathed: +
+`*node run -node _node-name_ sysconfig -a*`
+.. Compruebe si hay alertas de estado en ambos clústeres:
++
+`*system health alert show*`
+
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal: +
+`*metrocluster show*`
+.. Realizar una comprobación de MetroCluster:
++
+`*metrocluster check run*`
+
+.. Mostrar los resultados de la comprobación de MetroCluster:
++
+`*metrocluster check show*`
+
+.. Compruebe si hay alertas de estado en los switches (si existen):
++
+`*storage switch show*`
+
+.. Ejecute Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
+
+.. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
+
+
+. Configure el nivel de privilegio en Advanced:
++
+`*set -privilege advanced*`
+
+. Compruebe que no hay ninguna unidad de buzón en las bandejas:
+`*storage failover mailbox-disk show*`
+. Retire la bandeja de acuerdo con los pasos del escenario correspondiente.
++
+|===
+
+
+| Situación | Pasos 
+
+
+ a| 
+Para eliminar un agregado cuando la bandeja contiene ambos tipos de agregados, no reflejados o ambos...
+ a| 
+.. Utilice la `storage aggregate delete -aggregate _aggregate name_` comando para quitar el agregado.
+.. Utilice el procedimiento estándar para eliminar la propiedad de todas las unidades de esa bandeja y, a continuación, quite físicamente la bandeja.
++
+Siga las instrucciones de la _Guía de servicio_ de bandejas de discos SAS correspondiente a su modelo de bandeja para quitar las bandejas en caliente.
+
+
+
+
+
+ a| 
+Para quitar un complejo de un agregado reflejado, debe desmontar el agregado.
+ a| 
+.. Identifique el complejo que desea quitar con el `run -node local sysconfig -r` comando.
++
+En el siguiente ejemplo, puede identificar el complejo desde la línea `Plex /dpg_mcc_8020_13_a1_aggr1/plex0`. En este caso, el complejo que se debe especificar es «'plex0'».
+
++
+[listing]
+----
+dpgmcc_8020_13_a1a2::storage aggregate> run -node local sysconfig -r
+*** This system has taken over dpg-mcc-8020-13-a1
+Aggregate dpg_mcc_8020_13_a1_aggr1 (online, raid_dp, mirrored) (block checksums)
+  Plex /dpg_mcc_8020_13_a1_aggr1/plex0 (online, normal, active, pool0)
+    RAID group /dpg_mcc_8020_13_a1_aggr1/plex0/rg0 (normal, block checksums)
+      RAID Disk Device                          HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)    Phys (MB/blks)
+      --------- ------                          ------------- ---- ---- ---- ----- --------------    --------------
+      dparity   mcc-cisco-8Gb-fab-2:1-1.126L16  0c    32  15  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+      parity    mcc-cisco-8Gb-fab-2:1-1.126L18  0c    32  17  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+      data      mcc-cisco-8Gb-fab-2:1-1.126L19  0c    32  18  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+      data      mcc-cisco-8Gb-fab-2:1-1.126L21  0c    32  20  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+      data      mcc-cisco-8Gb-fab-2:1-1.126L22  0c    32  21  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+
+  Plex /dpg_mcc_8020_13_a1_aggr1/plex1 (online, normal, active, pool1)
+    RAID group /dpg_mcc_8020_13_a1_aggr1/plex1/rg0 (normal, block checksums)
+
+      RAID Disk Device                          HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)    Phys (MB/blks)
+      --------- ------                          ------------- ---- ---- ---- ----- --------------    --------------
+      dparity   mcc-cisco-8Gb-fab-3:1-1.126L37  0d    34  10  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+      parity    mcc-cisco-8Gb-fab-3:1-1.126L14  0d    33  13  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+      data      mcc-cisco-8Gb-fab-3:1-1.126L41  0d    34  14  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+      data      mcc-cisco-8Gb-fab-3:1-1.126L15  0d    33  14  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+      data      mcc-cisco-8Gb-fab-3:1-1.126L45  0d    34  18  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+----
+.. Utilice la `storage aggregate plex delete -aggregate _aggr_name_ -plex _plex_name_` mando para la extracción del complejo.
++
+plex define el nombre del complejo, como «'plex3'» o «'plex6'».
+
+.. Utilice el procedimiento estándar para eliminar la propiedad de todas las unidades de esa bandeja y, a continuación, quite físicamente la bandeja.
++
+Siga las instrucciones de la _Guía de servicio_ de bandejas de discos SAS correspondiente a su modelo de bandeja para quitar las bandejas en caliente.
+
+
+
+|===
+

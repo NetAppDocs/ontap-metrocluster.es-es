@@ -1,0 +1,221 @@
+---
+permalink: install-fc/concept_required_mcc_components_and_naming_conventions_fabric_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, required, fc, components, naming, conventions 
+summary: Cuando planifique la configuración de MetroCluster FC, debe comprender los componentes de hardware y software necesarios y compatibles. Para mayor comodidad y claridad, también debe comprender las convenciones de nomenclatura que se utilizan para los componentes en ejemplos de la documentación. Por ejemplo, un sitio se denomina Sitio A y el otro se denomina Sitio B. 
+---
+= Componentes y convenciones de nomenclatura de MetroCluster FC necesarios
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando planifique la configuración de MetroCluster FC, debe comprender los componentes de hardware y software necesarios y compatibles. Para mayor comodidad y claridad, también debe comprender las convenciones de nomenclatura que se utilizan para los componentes en ejemplos de la documentación. Por ejemplo, un sitio se denomina Sitio A y el otro se denomina Sitio B.
+
+
+
+== Software y hardware compatibles
+
+El hardware y el software deben ser compatibles con la configuración FC de MetroCluster.
+
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+Al usar sistemas AFF, todos los módulos de controladora de la configuración MetroCluster deben configurarse como sistemas AFF.
+
+
+NOTE: Los switches de almacenamiento MetroCluster no admiten SFP de onda larga. Para obtener una tabla de PESA compatibles, consulte el Informe técnico de MetroCluster.
+
+
+
+== Redundancia del hardware en la configuración de MetroCluster FC
+
+Debido a la redundancia del hardware en la configuración FC de MetroCluster, hay dos componentes cada uno en cada sitio. Los sitios son asignados arbitrariamente las letras A y B y los componentes individuales son asignados arbitrariamente los números 1 y 2.
+
+
+
+== Requisito para dos clústeres ONTAP
+
+La configuración MetroCluster FC conectada a la estructura requiere dos clústeres ONTAP, uno en cada sitio MetroCluster.
+
+La nomenclatura debe ser única en la configuración de MetroCluster.
+
+Nombres de ejemplo:
+
+* Sitio A: Cluster_A
+* Centro B: Cluster_B
+
+
+
+
+== Requisito para cuatro switches FC
+
+La configuración de MetroCluster FC conectada a la estructura requiere cuatro switches FC (modelos compatibles con Brocade o Cisco).
+
+Los cuatro switches forman dos estructuras de almacenamiento de switches que proporcionan el ISL entre cada uno de los clústeres de la configuración FC de MetroCluster.
+
+La nomenclatura debe ser única en la configuración de MetroCluster.
+
+
+
+== Requisito de dos, cuatro u ocho módulos de controladora
+
+La configuración de MetroCluster FC estructural requiere dos, cuatro u ocho módulos de controladora.
+
+En una configuración MetroCluster de cuatro o ocho nodos, los módulos de controladora de cada sitio forman uno o dos pares de alta disponibilidad. Cada módulo de controladora tiene un partner de recuperación ante desastres en la otra ubicación.
+
+Los módulos del controlador deben cumplir con los siguientes requisitos:
+
+* La nomenclatura debe ser única en la configuración de MetroCluster.
+* Todos los módulos de controladora de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP.
+* Todos los módulos de controladora de un grupo de recuperación ante desastres deben ser del mismo modelo.
++
+Sin embargo, en configuraciones con dos grupos de recuperación ante desastres, cada grupo de recuperación ante desastres puede consistir en modelos de módulo de controladora diferentes.
+
+* Todos los módulos de controladoras de un grupo de recuperación ante desastres deben utilizar la misma configuración FC-VI.
++
+Algunos módulos de controladora admiten dos opciones para la conectividad FC-VI:
+
++
+** Puertos FC-VI integrados
+** No se admite una tarjeta FC-VI en la ranura 1 una mezcla de un módulo de controladora que utiliza puertos FC-VI internos y otra que utiliza una tarjeta FC-VI complementaria. Por ejemplo, si un nodo utiliza una configuración FC-VI integrada, los demás nodos del grupo DR también deben utilizar la configuración de FC-VI integrada.
+
+
+
+
+Nombres de ejemplo:
+
+* Centro A: Controller_A_1
+* Centro B: Controller_B_1
+
+
+
+
+== Requisito para cuatro switches de interconexión de clúster
+
+La configuración de MetroCluster FC con conexión a la estructura requiere cuatro switches de interconexión de clúster (si no utiliza clústeres de dos nodos sin switch)
+
+Estos switches proporcionan comunicación de clúster entre los módulos de la controladora de cada clúster. Los switches no son necesarios si los módulos de controladora de cada sitio están configurados como un clúster sin switch de dos nodos.
+
+
+
+== Requisito de los puentes FC a SAS
+
+La configuración MetroCluster FC conectada a la estructura requiere un par de puentes FC a SAS para cada grupo de pilas de bandejas SAS.
+
+
+NOTE: Los puentes FibreBridge 6500N no se admiten en configuraciones que ejecuten ONTAP 9.8 y posteriores.
+
+* Los puentes FibreBridge 7600N o 7500N admiten hasta cuatro pilas SAS.
+* Los puentes FibreBridge 6500N solo admiten una pila SAS.
+* Cada pila puede utilizar distintos modelos de IOM.
++
+No se admite una combinación de módulos IOM12 y módulos IOM3 dentro de la misma pila de almacenamiento. Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila de almacenamiento si el sistema ejecuta una versión admitida de ONTAP.
+
++
+Los módulos IOM compatibles dependen de la versión de ONTAP que esté ejecutando.
+
+* La nomenclatura debe ser única en la configuración de MetroCluster.
+
+
+Los nombres sugeridos utilizados como ejemplos en esta guía identifican el módulo de controlador y la pila a la que se conecta el puente, como se muestra a continuación.
+
+
+
+== Requisitos de pool y unidad (compatible como mínimo)
+
+Se recomiendan ocho bandejas de discos SAS (cuatro bandejas en cada sitio) para permitir la propiedad de los discos por bandeja.
+
+La configuración de MetroCluster requiere la configuración mínima en cada sitio:
+
+* Cada nodo tiene al menos un pool local y un pool remoto en el sitio.
++
+Por ejemplo, en una configuración MetroCluster de cuatro nodos con dos nodos en cada sitio, se necesitan cuatro pools en cada sitio.
+
+* Al menos siete unidades en cada pool.
++
+En una configuración MetroCluster de cuatro nodos con un único agregado de datos reflejados por nodo, la configuración mínima requiere 24 discos en el sitio.
+
+
+
+En la configuración mínima compatible, cada pool tiene la siguiente distribución de unidades:
+
+* Tres unidades raíz
+* Tres unidades de datos
+* Una unidad de repuesto
+
+
+En una configuración mínima compatible, se necesita al menos una bandeja por sitio.
+
+Las configuraciones de MetroCluster son compatibles con RAID-DP y RAID4.
+
+
+
+== Consideraciones sobre la ubicación de la unidad para bandejas parcialmente ocupadas
+
+Para conseguir la asignación automática correcta de unidades cuando se utilizan bandejas que se han rellenado a la mitad (12 unidades en una bandeja de 24 unidades), las unidades se deben ubicar en las ranuras 0-5 y 18-23.
+
+En una configuración con una bandeja parcialmente ocupada, las unidades deben distribuirse de forma uniforme en los cuatro cuadrantes de la bandeja.
+
+
+
+== Mezcla módulos IOM12 e IOM 6 en una pila
+
+Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la herramienta de matriz de interoperabilidad (IMT) para ver si la versión de ONTAP admite la combinación de bandejas. https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilidad de NetApp"]
+
+Para obtener más información sobre la mezcla de estantes, consulte: https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"]
+
+
+
+== Convenciones de nomenclatura de puentes
+
+Los puentes utilizan el siguiente ejemplo de nombre:
+
+`bridge_site_stack grouplocation in pair`
+
+|===
+
+
+| Esta parte del nombre... | Identifica... | Los posibles valores son los siguientes: 
+
+
+ a| 
+sitio
+ a| 
+Sitio en el que reside físicamente el par puente.
+ a| 
+A o B
+
+
+
+ a| 
+grupo de pilas
+ a| 
+Número del grupo de pilas al que se conecta el par de puente.
+
+* Los puentes FibreBridge 7600N o 7500N admiten hasta cuatro pilas en el grupo de pilas.
++
+El grupo de pilas no puede contener más de 10 bandejas de almacenamiento.
+
+* Los puentes FibreBridge 6500N sólo admiten una pila única en el grupo de pilas.
+
+ a| 
+1, 2, etc.
+
+
+
+ a| 
+ubicación en pareja
+ a| 
+Puente dentro del par de puente.un par de puentes se conectan a un grupo de pila específico.
+ a| 
+a o b
+
+|===
+Nombres de puente de ejemplo para un grupo de pila en cada sitio:
+
+* bridge_A_1a
+* puente_a_1b
+* bridge_B_1a
+* puente_B_1b
+

@@ -1,0 +1,246 @@
+---
+permalink: maintain/task_hot_add_a_stack_to_exist_7500n_pair.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, add, stack, sas, disk, shelves, existing, pair, fibrebridge, bridge 
+summary: Puede agregar en caliente una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7500N que tengan puertos disponibles. 
+---
+= Adición en caliente de una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7500N
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede agregar en caliente una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7500N que tengan puertos disponibles.
+
+.Antes de empezar
+* Debe haber descargado el firmware más reciente de la bandeja de discos y la bandeja de discos.
+* Todas las bandejas de discos de la configuración MetroCluster (bandejas existentes) deben ejecutar la misma versión de firmware. Si uno o varios de los discos o bandejas no están ejecutando la versión de firmware más reciente, actualice el firmware antes de conectar los discos o bandejas nuevos.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+
+* Los puentes FibreBridge 7500N deben estar conectados y tener puertos SAS disponibles.
+
+
+.Acerca de esta tarea
+Este procedimiento se redacta suponiendo que está utilizando las interfaces de gestión de puentes recomendadas: La GUI de ATTO ExpressNAV y la utilidad ATTO Quickav.
+
+Puede utilizar la GUI de ATTO ExpressNAV para configurar y administrar un puente y actualizar el firmware del puente. Puede utilizar la utilidad ATTO Quickav para configurar el puerto 1 de gestión de Ethernet de puente.
+
+Puede utilizar otras interfaces de gestión si es necesario. Estas opciones incluyen el uso de un puerto serie o Telnet para configurar y administrar un puente y configurar el puerto de administración Ethernet 1, y el uso de FTP para actualizar el firmware del puente. Si elige alguna de estas interfaces de gestión, debe cumplir con los requisitos aplicables en link:reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.html["Otras interfaces de gestión de puentes"].
+
+
+IMPORTANT: Si inserta un cable SAS en el puerto incorrecto, al quitar el cable de un puerto SAS, debe esperar al menos 120 segundos antes de enchufar el cable a un puerto SAS diferente. Si no lo hace, el sistema no reconocerá que el cable se ha movido a otro puerto.
+
+.Pasos
+. Puesta a tierra apropiadamente usted mismo.
+. En la consola de cualquiera de las controladoras, compruebe que el sistema tiene habilitada la asignación automática de discos:
++
+`storage disk option show`
+
++
+La columna asignación automática indica si la asignación automática de disco está habilitada.
+
++
+[listing]
+----
+
+Node        BKg. FW. Upd.  Auto Copy   Auto Assign  Auto Assign Policy
+----------  -------------  ----------  -----------  ------------------
+node_A_1             on           on           on           default
+node_A_2             on           on           on           default
+2 entries were displayed.
+----
+. Deshabilite los puertos del switch para la nueva pila.
+. Actualice el firmware de FiberBridge en cada puente.
++
+Si el nuevo puente es del mismo tipo que el puente asociado, actualice el mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte la sección "actualización del firmware en un puente FibreBridge" en la _Guía de mantenimiento de MetroCluster_.
+
+. En cada puente del par, habilite el puerto SAS que se conectará a la nueva pila:
++
+`SASPortEnable _port-letter_`
+
++
+Debe utilizarse el mismo puerto SAS (B, C o D) en ambos puentes.
+
+. Guarde la configuración y reinicie cada puente:
++
+`SaveConfiguration Restart`
+
+. Conecte los cables de las bandejas de discos a los puentes:
++
+.. Conecte en cadena las bandejas de discos en cada pila.
++
+La _Guía de instalación y mantenimiento_ del modelo de bandeja de discos proporciona información detallada sobre las bandejas de discos en cadena.
+
+.. Para cada pila de bandejas de discos, conecte el cable IOM A de la primera bandeja al puerto SAS A en FibreBridge A y, a continuación, conecte el cable IOM B de la última bandeja al puerto SAS A en FibreBridge B
++
+link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+
++
+link:../install-stretch/concept_considerations_differences.html["Instalación y configuración de MetroCluster con ampliación"]
+
++
+Cada puente tiene un camino hacia su pila de bandejas de discos; el puente A se conecta al lado A de la pila a través de la primera bandeja y el puente B se conecta al lado B de la pila a través de la última bandeja.
+
++
+
+NOTE: El puerto B del puente SAS está deshabilitado.
+
+
+
+. Verifique que cada puente pueda detectar todas las unidades de disco y bandejas de discos a las que está conectado el puente.
++
+[cols="30,70"]
+|===
+
+
+| Si utiliza... | Realice lo siguiente... 
+
+
+ a| 
+GUI DE ATTO ExpressNAV
+ a| 
+.. En un explorador web compatible, introduzca la dirección IP de un puente en el cuadro del explorador.
++
+Se te lleva a la página de inicio de ATTO FiberBridge, que tiene un enlace.
+
+.. Haga clic en el vínculo e introduzca su nombre de usuario y la contraseña que ha designado al configurar el puente.
++
+La página de estado de ATTO FiberBridge aparece con un menú a la izquierda.
+
+.. Haga clic en *Avanzado* en el menú.
+.. Ver los dispositivos conectados:
++
+`sastargets`
+
+.. Haga clic en *Enviar*.
+
+
+
+
+ a| 
+Conexión de puerto serie
+ a| 
+Ver los dispositivos conectados:
+
+`sastargets`
+
+|===
++
+La salida muestra los dispositivos (discos y bandejas de discos) a los que está conectado el puente. Las líneas de salida están numeradas secuencialmente para que pueda contar rápidamente los dispositivos.
+
++
+
+NOTE: Si el texto "esponse truncada" aparece al principio de la salida, puede utilizar Telnet para conectarse al puente y, a continuación, ver toda la salida utilizando la `sastargets` comando.
+
++
+La siguiente salida muestra que hay 10 discos conectados:
+
++
+[listing]
+----
+Tgt VendorID ProductID        Type        SerialNumber
+  0 NETAPP   X410_S15K6288A15 DISK        3QP1CLE300009940UHJV
+  1 NETAPP   X410_S15K6288A15 DISK        3QP1ELF600009940V1BV
+  2 NETAPP   X410_S15K6288A15 DISK        3QP1G3EW00009940U2M0
+  3 NETAPP   X410_S15K6288A15 DISK        3QP1EWMP00009940U1X5
+  4 NETAPP   X410_S15K6288A15 DISK        3QP1FZLE00009940G8YU
+  5 NETAPP   X410_S15K6288A15 DISK        3QP1FZLF00009940TZKZ
+  6 NETAPP   X410_S15K6288A15 DISK        3QP1CEB400009939MGXL
+  7 NETAPP   X410_S15K6288A15 DISK        3QP1G7A900009939FNTT
+  8 NETAPP   X410_S15K6288A15 DISK        3QP1FY0T00009940G8PA
+  9 NETAPP   X410_S15K6288A15 DISK        3QP1FXW600009940VERQ
+----
+. Compruebe que el resultado del comando muestra que el puente está conectado a todos los discos y bandejas de discos adecuados de la pila.
++
+[cols="30,70"]
+|===
+
+
+| Si la salida es... | Realice lo siguiente... 
+
+
+ a| 
+Correcto
+ a| 
+Repita el paso anterior para cada puente restante.
+
+
+
+ a| 
+No es correcto
+ a| 
+.. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo el paso para cablear las bandejas de discos a los puentes.
+.. Repita el paso anterior para cada puente restante.
+
+
+|===
+. Actualice el firmware de la unidad de disco a la versión más reciente desde la consola del sistema:
++
+`disk_fw_update`
+
++
+Este comando debe ejecutarse en ambas controladoras.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+
+. Actualice el firmware de la bandeja de discos a la versión más reciente mediante las instrucciones para el firmware descargado.
++
+Puede ejecutar los comandos en el procedimiento desde la consola del sistema de cualquier controladora.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+
+. Si el sistema no tiene activada la asignación automática de discos, asigne la propiedad de la unidad de disco.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+
++
+
+NOTE: Si va a dividir la propiedad de una única pila de bandejas de discos en varias controladoras, debe deshabilitar la asignación automática de discos (`storage disk option modify -autoassign off *` desde ambos nodos del clúster) antes de asignar la propiedad de disco; de lo contrario, cuando se asigna cualquier unidad de disco única, las unidades de disco restantes pueden asignarse automáticamente a la misma controladora y al mismo pool.
+
++
+
+NOTE: No se deben añadir unidades de disco a agregados o volúmenes hasta que se haya actualizado el firmware de la unidad de disco y la bandeja de discos, y se hayan completado los pasos de verificación de esta tarea.
+
+. Habilite los puertos del switch para la nueva pila.
+. Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
++
+.. Compruebe si el sistema es multivía:
++
+`node run -node _node-name_ sysconfig -a`
+
+.. Compruebe si hay alertas de estado en ambos clústeres:
++
+`system health alert show`
+
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal:
++
+`metrocluster show`
+
+.. Realizar una comprobación de MetroCluster:
++
+`metrocluster check run`
+
+.. Mostrar los resultados de la comprobación de MetroCluster:
++
+`metrocluster check show`
+
+.. Compruebe si hay alertas de estado en los switches (si existen):
++
+`storage switch show`
+
+.. Ejecute Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+
+.. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
+
+
+. Si corresponde, repita este procedimiento para el sitio del partner.
+

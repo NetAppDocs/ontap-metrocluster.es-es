@@ -1,0 +1,172 @@
+---
+permalink: maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, upgrade, downgrade, firmware, brocade, fc, switch 
+summary: Para actualizar o degradar el firmware en un switch FC de Brocade, debe utilizar comandos específicos de Brocade para deshabilitar el switch, realizar y verificar el cambio de firmware, y reiniciar y volver a habilitar el switch. 
+---
+= Actualizar o degradar el firmware en un switch FC de Brocade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para actualizar o degradar el firmware en un switch FC de Brocade, debe utilizar comandos específicos de Brocade para deshabilitar el switch, realizar y verificar el cambio de firmware, y reiniciar y volver a habilitar el switch.
+
+* Debe tener los archivos de firmware.
+* El sistema debe estar correctamente cableado.
+* Todas las rutas a las bandejas de almacenamiento deben estar disponibles.
+* Las pilas de la bandeja de discos deben ser estables.
+* La estructura del switch de FC debe estar en buen estado.
+* No puede haber componentes defectuosos en el sistema.
+* El sistema debe estar funcionando con normalidad.
+* Debe tener la contraseña de administrador y el acceso a un servidor FTP o SCP.
+
+
+La estructura del switch está deshabilitada durante una actualización o degradación de firmware, y la configuración de MetroCluster se basa en la segunda estructura para continuar el funcionamiento.
+
+Esta tarea se debe realizar en cada una de las estructuras del switch sucesivamente de modo que todos los conmutadores ejecuten la misma versión de firmware.
+
+
+NOTE: Este procedimiento no es disruptivo y tarda aproximadamente una hora en completarse.
+
+.Pasos
+. Inicie sesión en cada uno de los switches de la estructura.
++
+Los ejemplos de los siguientes pasos utilizan el conmutador `FC_switch_A_1`.
+
+. Deshabilite cada uno de los switches de la estructura:
++
+`*switchCfgPersistentDisable*`
+
++
+Si este comando no está disponible, ejecute el `switchDisable` comando.
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchCfgPersistentDisable
+----
+. Descargue la versión de firmware deseada:
++
+`*firmwareDownload*`
+
++
+Cuando se le solicite el nombre del archivo, debe especificar el subdirectorio o la ruta relativa al archivo de firmware.
+
++
+Puede ejecutar el `firmwareDownload` comando al mismo tiempo en ambos switches, pero debe permitir que el firmware se descargue y se commit correctamente antes de pasar al paso siguiente.
+
++
+[listing]
+----
+FC_switch_A_1:admin> firmwaredownload
+Server Name or IP Address: 10.64.203.188
+User Name: test
+File Name: v7.3.1b
+Network Protocol(1-auto-select, 2-FTP, 3-SCP, 4-SFTP) [1]: 2
+Password:
+Server IP: 10.64.203.188, Protocol IPv4
+Checking system settings for firmwaredownload...
+System settings check passed.
+----
+. Compruebe que el firmware se ha descargado y asignado a ambas particiones:
++
+`*firmwareShow*`
+
++
+El siguiente ejemplo muestra que la descarga de firmware se completa a medida que se actualizan ambas imágenes:
+
++
+[listing]
+----
+FC_switch_A_1:admin> firmwareShow
+Appl     Primary/Secondary Versions
+
+------------------------------------------
+
+FOS      v7.3.1b
+
+         v7.3.1b
+----
+. Reinicie los switches:
++
+`*reboot*`
+
++
+Algunas versiones de firmware realizan automáticamente una operación havoot una vez finalizada la descarga de firmware. Es necesario reiniciar en este paso incluso si se ha realizado el reinicio.
+
++
+[listing]
+----
+FC_switch_A_1:admin> reboot
+----
+. Compruebe si el nuevo firmware es para un nivel de firmware intermedio o para una versión final especificada.
++
+Si la descarga es para el nivel de firmware intermedio, realice los dos pasos anteriores hasta que se instale la versión especificada.
+
+. Habilite los interruptores:
++
+`*switchCfgPersistentEnable*`
+
++
+Si este comando no está disponible, el conmutador debe estar en el `enabled` estado después del `reboot` se ejecuta el comando.
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchCfgPersistentEnable
+----
+. Compruebe que los interruptores están en línea y que todos los dispositivos están correctamente conectados:
++
+`*switchShow*`
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchShow
+----
+. Compruebe que la información de uso del búfer para un grupo de puertos o todos los grupos de puertos del switch se muestra correctamente:
++
+`*portbuffershow*`
+
++
+[listing]
+----
+FC_switch_A_1:admin> portbuffershow
+----
+. Compruebe que la configuración actual de un puerto se muestra correctamente:
++
+`*portcfgshow*`
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfgshow
+----
++
+Verifique los valores de los puertos, como la velocidad, el modo, la conexión de enlaces, el cifrado, Y compresión, en la salida Inter-Switch Link (ISL). Compruebe que la configuración del puerto no se haya visto afectada por la descarga del firmware.
+
+. Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
++
+.. Compruebe si el sistema es multipathed: +
+`*node run -node _node-name_ sysconfig -a*`
+.. Compruebe si hay alertas de estado en ambos clústeres: +
+`*system health alert show*`
+.. Confirme la configuración del MetroCluster y que el modo operativo es normal: +
+`*metrocluster show*`
+.. Realice una comprobación de MetroCluster: +
+`*metrocluster check run*`
+.. Mostrar los resultados del control MetroCluster: +
+`*metrocluster check show*`
+.. Compruebe si hay alguna alerta de estado en los interruptores (si está presente): +
+`*storage switch show*`
+.. Ejecute Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
+
+.. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
+
+
+. Espere 15 minutos antes de repetir este procedimiento para la segunda estructura del switch.
+

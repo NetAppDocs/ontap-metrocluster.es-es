@@ -1,0 +1,163 @@
+---
+permalink: install-fc/task_fmc_mcc_transition_cable_the_new_mcc_controllers_to_the_exist_fc_fabrics.html 
+sidebar: sidebar 
+keywords: cabling, metrocluster, fabric, installation, fc, controllers 
+summary: En cada controladora de la configuración de Clustered ONTAP MetroCluster, los adaptadores de FC-VI y los HBA deben cablearse a puertos específicos de los switches FC existentes. 
+---
+= Cableado de las nuevas controladoras MetroCluster a las estructuras FC existentes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En cada controladora de la configuración de Clustered ONTAP MetroCluster, los adaptadores de FC-VI y los HBA deben cablearse a puertos específicos de los switches FC existentes.
+
+.Pasos
+. Conecte los puertos FC-VI y HBA de acuerdo con la tabla siguiente:
++
+|===
+
+
+2+| Centro a 2+| Centro B 
+
+
+| Conectar este sitio un componente y puerto... | Puerto FC_switch_A_1... | Conectar este componente y puerto del sitio B... | Puerto FC_switch_B_1... 
+
+
+ a| 
+Controller_a_1 puerto FC-VI 1
+ a| 
+32
+ a| 
+Controller_B_1 Puerto FC-VI 1
+ a| 
+32
+
+
+
+ a| 
+Puerto 1 de HBA Controller_A_1
+ a| 
+33
+ a| 
+Puerto 1 de HBA Controller_B_1
+ a| 
+33
+
+
+
+ a| 
+Puerto HBA Controller_A_1 2
+ a| 
+34
+ a| 
+Puerto HBA 2 de Controller_B_1
+ a| 
+34
+
+
+
+ a| 
+Controller_A_2 Puerto FC-VI 1
+ a| 
+35
+ a| 
+Controller_B_2 Puerto 1 FC-VI
+ a| 
+35
+
+
+
+ a| 
+HBA Controller_A_2 1
+ a| 
+36
+ a| 
+Controladora_B_2 HBA 1
+ a| 
+36
+
+
+
+ a| 
+HBA Controller_A_2
+ a| 
+37
+ a| 
+Controller_B_2 HBA 2
+ a| 
+37
+
+|===
+. Conecte los cables de cada puente FC-SAS en la primera estructura del switch a los switches FC.
++
+El número de puentes varía en función del número de pilas de almacenamiento SAS.
+
++
+|===
+
+
+2+| Centro a 2+| Centro B 
+
+
+| Conectar este sitio un puente... | Puerto FC_switch_A_1... | Conectar este puente del Site B... | Puerto FC_switch_B_1... 
+
+
+ a| 
+bridge_A_1_38
+ a| 
+38
+ a| 
+bridge_B_1_38
+ a| 
+38
+
+
+
+ a| 
+bridge_A_1_39
+ a| 
+39
+ a| 
+bridge_B_1_39
+ a| 
+39
+
+|===
+. Conecte los cables de cada puente de la segunda estructura del switch a los switches de FC.
++
+El número de puentes varía en función del número de pilas de almacenamiento SAS.
+
++
+|===
+
+
+2+| Centro a 2+| Centro B 
+
+
+| Conectar este sitio un puente... | Puerto FC_switch_A_2... | Conectar este puente del Site B... | Puerto FC_switch_B_2... 
+
+
+ a| 
+bridge_A_2_38
+ a| 
+38
+ a| 
+bridge_B_2_38
+ a| 
+38
+
+
+
+ a| 
+bridge_A_2_39
+ a| 
+39
+ a| 
+bridge_B_2_39
+ a| 
+39
+
+|===
+

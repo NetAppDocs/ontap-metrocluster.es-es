@@ -1,0 +1,132 @@
+---
+permalink: install-ip/reference_where_to_find_additional_information_mccip_icg.html 
+sidebar: sidebar 
+keywords: metrocluster, ip, configuration, operation, netapp, documentation, additional, information, miscellaneous, guide 
+summary: Puede obtener más información sobre la configuración y el funcionamiento de MetroCluster IP en documentación de NetApp. 
+---
+= Dónde encontrar información adicional
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede obtener más información acerca de la configuración de MetroCluster.
+
+
+
+== MetroCluster e información variada
+
+|===
+
+
+| Información | Asunto 
+
+
+ a| 
+link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+ a| 
+* Arquitectura MetroCluster FAS
+* Cableado de la configuración
+* Configurar los puentes de FC a SAS
+* Configurar los switches FC
+* Configurar MetroCluster en ONTAP
+
+
+
+
+ a| 
+link:../install-stretch/concept_considerations_differences.html["Instalación y configuración de MetroCluster con ampliación"]
+ a| 
+* Ampliación de la arquitectura de MetroCluster
+* Cableado de la configuración
+* Configurar los puentes de FC a SAS
+* Configurar MetroCluster en ONTAP
+
+
+
+
+ a| 
+link:../manage/index.html["Gestión de MetroCluster"]
+ a| 
+* Configuración de MetroCluster
+* Conmutación de sitios, reparación y conmutación de estado
+
+
+
+
+ a| 
+link:../disaster-recovery/concept_dr_workflow.html["Recuperación ante desastres"]
+ a| 
+* Recuperación tras siniestros
+* Cambio forzado
+* Recuperación de un fallo del almacenamiento o de varias controladoras
+
+
+
+
+ a| 
+link:../maintain/index.html["Mantenimiento de MetroCluster"]
+ a| 
+* Directrices de mantenimiento en una configuración de MetroCluster FC
+* Procedimientos de sustitución o actualización de hardware y actualización del firmware para puentes FC a SAS y switches FC
+* Añadir en caliente una bandeja de discos en una configuración FC MetroCluster estructural o con ampliación
+* Eliminación en caliente de una bandeja de discos en una configuración FC MetroCluster estructural o con ampliación
+* Sustituir el hardware en un sitio de desastre en una configuración FC de MetroCluster estructural o con ampliación
+* Expandir una configuración de FC de MetroCluster con estructura de dos nodos o con ampliación a una configuración MetroCluster de cuatro nodos.
+* Expandir una configuración de FC de MetroCluster con estructura de cuatro nodos o con ampliación a una configuración FC de MetroCluster de ocho nodos.
+
+
+
+
+ a| 
+link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["Actualización y ampliación de MetroCluster"]
+ a| 
+* Actualizar o actualizar una configuración de MetroCluster
+* Ampliar una configuración de MetroCluster mediante la adición de nodos adicionales
+
+
+
+
+ a| 
+link:../transition/concept_choosing_your_transition_procedure_mcc_transition.html["Transición a MetroCluster"]
+ a| 
+* Realizar la transición de una configuración de MetroCluster FC a una configuración de IP de MetroCluster
+
+
+
+
+ a| 
+link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Actualización, transición y ampliación de MetroCluster"]
+ a| 
+* Supervisión de la configuración de MetroCluster con el software MetroCluster Tiebreaker
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems/["Documentación de AFF y FAS"^]
+
+*Nota:* los procedimientos estándar de mantenimiento de la bandeja de almacenamiento se pueden utilizar con las configuraciones IP de MetroCluster.
+ a| 
+* Añadir en caliente una bandeja de discos
+* Extracción en caliente de una bandeja de discos
+
+
+
+
+ a| 
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["Transición basada en copias"^]
+ a| 
+* Transición de datos de sistemas de almacenamiento 7-Mode a sistemas de almacenamiento en clúster
+
+
+
+
+ a| 
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["Conceptos de ONTAP"^]
+ a| 
+* Cómo funcionan los agregados reflejados
+
+
+|===

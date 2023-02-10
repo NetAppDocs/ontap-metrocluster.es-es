@@ -1,0 +1,59 @@
+---
+permalink: maintain/concept_using_fibrebridge_7500n_bridges_in_mcc_configurations.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, support, fibrebridge, configurations 
+summary: El puente FibreBridge 7500N es compatible como sustituto del puente FibreBridge 6500N o cuando se añade nuevo almacenamiento a la configuración de MetroCluster. Las configuraciones admitidas tienen requisitos de división en zonas y restricciones con respecto al uso de los puertos FC del puente y los límites de pila y bandeja de almacenamiento. 
+---
+= Compatibilidad con puentes FibreBridge 7500N en configuraciones MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El puente FibreBridge 7500N es compatible como sustituto del puente FibreBridge 6500N o cuando se añade nuevo almacenamiento a la configuración de MetroCluster. Las configuraciones compatibles tienen requisitos de división en zonas y restricciones respecto al uso de puertos FC del puente y los límites de bandejas de almacenamiento y pila.
+
+
+NOTE: Los puentes FibreBridge 6500N no se admiten en configuraciones que ejecuten ONTAP 9.8 y posteriores.
+
+[cols="27,19,27,27"]
+|===
+| Caso de uso | ¿Es necesario cambiar la división en zonas? | Restricciones | Procedimiento 
+
+
+ a| 
+Sustitución de un puente FibreBridge 6500N sencillo con un puente FibreBridge 7500N sencillo
+ a| 
+No
+ a| 
+El puente FibreBridge 7500N debe configurarse exactamente igual que el puente FibreBridge 6500N, usando un solo puerto FC y acoplando a una sola pila. No se debe utilizar el segundo puerto FC de FibreBridge 7500N.
+ a| 
+link:task_replace_a_sle_fc_to_sas_bridge.html["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"]
+
+
+
+ a| 
+Consolidación de múltiples pilas mediante la sustitución de múltiples pares de puentes FibreBridge 6500N por un par de puentes FibreBridge 7500N
+ a| 
+Sí
+ a| 
+En este caso, puede retirar los puentes FibreBridge 6500N fuera de servicio y sustituirlos por un único par de puentes FibreBridge 7500N.cada par de puentes FibreBridge 7500N o 7600N puede admitir hasta cuatro pilas.
+
+Al final del procedimiento, tanto la parte superior como la inferior de las pilas deben conectarse a los puertos correspondientes de los puentes FibreBridge 7500N.
+ a| 
+link:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.html["Sustitución de un par de puentes FibreBridge 6500N con puentes 7600N o 7500N"]
+
+
+
+ a| 
+Añadir nuevo almacenamiento mediante la adición de un nuevo par de puentes FibreBridge 7500N
+ a| 
+Sí
+
+Debe añadir zonas de almacenamiento para cada puerto FC de los nuevos puentes.
+ a| 
+Debe tener puertos disponibles en la estructura de switch FC (en una configuración MetroCluster estructural) o en las controladoras de almacenamiento (en una configuración MetroCluster con ampliación).cada par de puentes FibreBridge 7500N o 7600N puede admitir hasta cuatro pilas.
+ a| 
+link:task_fb_hot_add_stack_of_shelves_and_bridges.html["Adición en caliente de una pila de bandejas de discos SAS y puentes a un sistema MetroCluster"]
+
+|===

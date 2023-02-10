@@ -1,0 +1,588 @@
+---
+permalink: install-ip/task_switch_config_cisco.html 
+sidebar: sidebar 
+keywords: ip, switch, configuring, configure, factory defaults, cisco, MACsec encryption, 9336C, 9336, forward error correction, fec 
+summary: Debe configurar los switches IP de Cisco para que se usen como interconexión de clúster y para la conectividad IP de MetroCluster back-end. 
+---
+= Configuración de switches Cisco IP
+:allow-uri-read: 
+
+
+[role="lead"]
+Debe configurar los switches IP de Cisco para que se usen como interconexión de clúster y para la conectividad IP de MetroCluster back-end.
+
+.Acerca de esta tarea
+Varios de los procedimientos de esta sección son procedimientos independientes y sólo necesita ejecutar los que se dirigen o son relevantes para su tarea.
+
+
+
+== Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco
+
+[role="lead"]
+Antes de instalar cualquier archivo RCF, debe borrar la configuración del conmutador Cisco y realizar la configuración básica. Este procedimiento es necesario cuando desea volver a instalar el mismo archivo RCF después de que se haya producido un error en la instalación anterior, o si desea instalar una nueva versión de un archivo RCF.
+
+.Acerca de esta tarea
+* Debe repetir estos pasos en cada uno de los switches IP de la configuración de IP de MetroCluster.
+* Debe estar conectado al conmutador mediante la consola serie.
+* Esta tarea restablece la configuración de la red de gestión.
+
+
+.Pasos
+. Restablezca el interruptor a los valores predeterminados de fábrica:
++
+.. Borrar la configuración existente:
++
+`write erase`
+
+.. Vuelva a cargar el software del conmutador:
++
+`reload`
+
++
+El sistema se reinicia e introduce el asistente de configuración. Durante el arranque, si recibe el mensaje "'Anular provisión automática y continuar con la configuración normal? (sí/no)[n]`", you should respond `yes` para continuar.
+
+.. En el asistente de configuración, introduzca los ajustes básicos del switch:
++
+*** Contraseña de administrador
+*** Nombre del switch
+*** Configuración de gestión fuera de banda
+*** Pasarela predeterminada
+*** Servicio SSH (RSA)
++
+Después de completar el asistente de configuración, el conmutador se reinicia.
+
+
+
+.. Cuando se le solicite, introduzca el nombre de usuario y la contraseña para iniciar sesión en el conmutador.
++
+El ejemplo siguiente muestra las indicaciones y respuestas del sistema al configurar el conmutador. Los soportes angulares (`<<<`) muestra dónde se introduce la información.
+
++
+[listing]
+----
+---- System Admin Account Setup ----
+Do you want to enforce secure password standard (yes/no) [y]:y  **<<<**
+
+    Enter the password for "admin": password
+  Confirm the password for "admin": password
+         ---- Basic System Configuration Dialog VDC: 1 ----
+
+This setup utility will guide you through the basic configuration of
+the system. Setup configures only enough connectivity for management
+of the system.
+
+Please register Cisco Nexus3000 Family devices promptly with your
+supplier. Failure to register may affect response times for initial
+service calls. Nexus3000 devices must be registered to receive
+entitled support services.
+
+Press Enter at anytime to skip a dialog. Use ctrl-c at anytime
+to skip the remaining dialogs.
+----
++
+Debe introducir información básica en el siguiente conjunto de avisos, incluidos el nombre del switch, la dirección de administración y la puerta de enlace, y seleccionar SSH con RSA.
+
++
+[listing]
+----
+Would you like to enter the basic configuration dialog (yes/no): yes
+  Create another login account (yes/no) [n]:
+  Configure read-only SNMP community string (yes/no) [n]:
+  Configure read-write SNMP community string (yes/no) [n]:
+  Enter the switch name : switch-name **<<<**
+  Continue with Out-of-band (mgmt0) management configuration? (yes/no) [y]:
+    Mgmt0 IPv4 address : management-IP-address  **<<<**
+    Mgmt0 IPv4 netmask : management-IP-netmask  **<<<**
+  Configure the default gateway? (yes/no) [y]: y **<<<**
+    IPv4 address of the default gateway : gateway-IP-address  **<<<**
+  Configure advanced IP options? (yes/no) [n]:
+  Enable the telnet service? (yes/no) [n]:
+  Enable the ssh service? (yes/no) [y]: y  **<<<**
+    Type of ssh key you would like to generate (dsa/rsa) [rsa]: rsa **<<<**
+    Number of rsa key bits <1024-2048> [1024]:
+  Configure the ntp server? (yes/no) [n]:
+  Configure default interface layer (L3/L2) [L2]:
+  Configure default switchport interface state (shut/noshut) [noshut]: shut **<<<**
+  Configure CoPP system profile (strict/moderate/lenient/dense) [strict]:
+----
++
+El conjunto final de avisos completa la configuración:
+
++
+[listing]
+----
+The following configuration will be applied:
+  password strength-check
+  switchname IP_switch_A_1
+vrf context management
+ip route 0.0.0.0/0 10.10.99.1
+exit
+  no feature telnet
+  ssh key rsa 1024 force
+  feature ssh
+  system default switchport
+  system default switchport shutdown
+  copp profile strict
+interface mgmt0
+ip address 10.10.99.10 255.255.255.0
+no shutdown
+
+Would you like to edit the configuration? (yes/no) [n]:
+
+Use this configuration and save it? (yes/no) [y]:
+2017 Jun 13 21:24:43 A1 %$ VDC-1 %$ %COPP-2-COPP_POLICY: Control-Plane is protected with policy copp-system-p-policy-strict.
+
+[########################################] 100%
+Copy complete.
+
+User Access Verification
+IP_switch_A_1 login: admin
+Password:
+Cisco Nexus Operating System (NX-OS) Software
+.
+.
+.
+IP_switch_A_1#
+----
+
+
+. Guarde la configuración:
++
+[listing]
+----
+ IP_switch-A-1# copy running-config startup-config
+----
+. Reinicie el conmutador y espere a que se vuelva a cargar:
++
+[listing]
+----
+ IP_switch-A-1# reload
+----
+. Repita los pasos anteriores en los otros tres switches de la configuración IP de MetroCluster.
+
+
+
+
+== Descargar e instalar el software del switch Cisco NX-OS
+
+Debe descargar el archivo del sistema operativo del conmutador y el archivo RCF en cada switch de la configuración IP de MetroCluster.
+
+.Acerca de esta tarea
+Esta tarea requiere software de transferencia de archivos, como FTP, TFTP, SFTP o SCP para copiar los archivos en los switches.
+
+Estos pasos deben repetirse en cada switch IP de la configuración de IP de MetroCluster.
+
+Debe utilizar la versión de software del switch compatible.
+
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+.Pasos
+. Descargue el archivo de software NX-OS admitido.
++
+https://software.cisco.com/download/home["Descarga de software de Cisco"]
+
+. Copie el software del conmutador en el conmutador:
++
+`copy sftp://root@server-ip-address/tftpboot/NX-OS-file-name bootflash: vrf management`
+
++
+En este ejemplo, el archivo nxos.7.0.3.I4.6.bin se copia desde el servidor SFTP 10.10.99.99 en el bootflash local:
+
++
+[listing]
+----
+IP_switch_A_1# copy sftp://root@10.10.99.99/tftpboot/nxos.7.0.3.I4.6.bin bootflash: vrf management
+root@10.10.99.99's password: password
+sftp> progress
+Progress meter enabled
+sftp> get   /tftpboot/nxos.7.0.3.I4.6.bin  /bootflash/nxos.7.0.3.I4.6.bin
+Fetching /tftpboot/nxos.7.0.3.I4.6.bin to /bootflash/nxos.7.0.3.I4.6.bin
+/tftpboot/nxos.7.0.3.I4.6.bin                 100%  666MB   7.2MB/s   01:32
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+----
+. Verifique en cada switch que los archivos NX-OS del switch estén presentes en el directorio bootflash de cada switch:
++
+`dir bootflash:`
+
++
+El ejemplo siguiente muestra que los archivos están presentes en IP_switch_A_1:
+
++
+[listing]
+----
+IP_switch_A_1# dir bootflash:
+                  .
+                  .
+                  .
+  698629632    Jun 13 21:37:44 2017  nxos.7.0.3.I4.6.bin
+                  .
+                  .
+                  .
+
+Usage for bootflash://sup-local
+ 1779363840 bytes used
+13238841344 bytes free
+15018205184 bytes total
+IP_switch_A_1#
+----
+. Instale el software del conmutador:
++
+`install all nxos bootflash:nxos.version-number.bin`
+
++
+El conmutador se volverá a cargar (reiniciar) automáticamente después de instalar el software del conmutador.
+
++
+En el ejemplo siguiente se muestra la instalación del software en IP_switch_A_1:
+
++
+[listing]
+----
+IP_switch_A_1# install all nxos bootflash:nxos.7.0.3.I4.6.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.7.0.3.I4.6.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.7.0.3.I4.6.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.7.0.3.I4.6.bin.
+[####################] 100% -- SUCCESS       [####################] 100%            -- SUCCESS
+
+Performing module support checks.            [####################] 100%            -- SUCCESS
+
+Notifying services about system upgrade.     [####################] 100%            -- SUCCESS
+
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  default upgrade is not hitless
+
+
+
+Images will be upgraded according to following table:
+Module       Image   Running-Version(pri:alt)         New-Version   Upg-Required
+------  ----------   ------------------------  ------------------   ------------
+     1        nxos                7.0(3)I4(1)         7.0(3)I4(6)   yes
+     1        bios         v04.24(04/21/2016)  v04.24(04/21/2016)   no
+
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] y
+
+
+Install is in progress, please wait.
+
+Performing runtime checks.         [####################] 100%    -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+IP_switch_A_1#
+----
+. Espere a que el conmutador se vuelva a cargar y, a continuación, inicie sesión en el conmutador.
++
+Cuando el conmutador haya reiniciado, aparecerá el mensaje de inicio de sesión:
+
++
+[listing]
+----
+User Access Verification
+IP_switch_A_1 login: admin
+Password:
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2017, Cisco and/or its affiliates.
+All rights reserved.
+.
+.
+.
+MDP database restore in progress.
+IP_switch_A_1#
+
+The switch software is now installed.
+----
+. Compruebe que se ha instalado el software del conmutador: +
+`show version`
++
+El siguiente ejemplo muestra el resultado:
+
++
+[listing]
+----
+IP_switch_A_1# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2017, Cisco and/or its affiliates.
+All rights reserved.
+.
+.
+.
+
+Software
+  BIOS: version 04.24
+  NXOS: version 7.0(3)I4(6)   **<<< switch software version**
+  BIOS compile time:  04/21/2016
+  NXOS image file is: bootflash:///nxos.7.0.3.I4.6.bin
+  NXOS compile time:  3/9/2017 22:00:00 [03/10/2017 07:05:18]
+
+
+Hardware
+  cisco Nexus 3132QV Chassis
+  Intel(R) Core(TM) i3- CPU @ 2.50GHz with 16401416 kB of memory.
+  Processor Board ID FOC20123GPS
+
+  Device name: A1
+  bootflash:   14900224 kB
+  usb1:               0 kB (expansion flash)
+
+Kernel uptime is 0 day(s), 0 hour(s), 1 minute(s), 49 second(s)
+
+Last reset at 403451 usecs after  Mon Jun 10 21:43:52 2017
+
+  Reason: Reset due to upgrade
+  System version: 7.0(3)I4(1)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+IP_switch_A_1#
+----
+. Repita estos pasos en los tres switches IP restantes de la configuración IP de MetroCluster.
+
+
+
+
+== Descarga e instalación de los archivos Cisco IP RCF
+
+Debe descargar el archivo RCF en cada switch de la configuración IP de MetroCluster.
+
+.Acerca de esta tarea
+Esta tarea requiere software de transferencia de archivos, como FTP, TFTP, SFTP o SCP para copiar los archivos en los switches.
+
+Estos pasos deben repetirse en cada switch IP de la configuración de IP de MetroCluster.
+
+Debe utilizar la versión de software del switch compatible.
+
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+Existen cuatro archivos RCF, uno para cada uno de los cuatro conmutadores de la configuración IP de MetroCluster. Debe utilizar los archivos RCF correctos para el modelo de conmutador que esté utilizando.
+
+|===
+
+
+| Conmutador | Archivo RCF 
+
+
+ a| 
+IP_switch_A_1
+ a| 
+NX3232_v1.80_Switch-A1.txt
+
+
+
+ a| 
+IP_switch_A_2
+ a| 
+NX3232_v1.80_Switch-A2.txt
+
+
+
+ a| 
+IP_switch_B_1
+ a| 
+NX3232_v1.80_Switch-B1.txt
+
+
+
+ a| 
+IP_switch_B_2
+ a| 
+NX3232_v1.80_Switch-B2.txt
+
+|===
+.Pasos
+. Descargue los archivos RCF IP de MetroCluster.
++
+
+NOTE: No se admiten las modificaciones realizadas en los archivos RCF después de la descarga.
+
+. Copie los archivos RCF en los conmutadores:
++
+.. Copie los archivos RCF en el primer conmutador:
++
+`copy sftp://root@FTP-server-IP-address/tftpboot/switch-specific-RCF bootflash: vrf management`
+
++
+En este ejemplo, el archivo NX3232_v1.80_Switch-A1.txt RCF se copia desde el servidor SFTP en 10.10.99.99 al bootflash local. Debe utilizar la dirección IP del servidor TFTP/SFTP y el nombre del archivo RCF que necesita instalar.
+
++
+[listing]
+----
+IP_switch_A_1# copy sftp://root@10.10.99.99/tftpboot/NX3232_v1.80_Switch-A1.txt bootflash: vrf management
+root@10.10.99.99's password: password
+sftp> progress
+Progress meter enabled
+sftp> get   /tftpboot/NX3232_v1.80_Switch-A1.txt /bootflash/NX3232_v1.80_Switch-A1.txt
+Fetching /tftpboot/NX3232_v1.80_Switch-A1.txt to /bootflash/NX3232_v1.80_Switch-A1.txt
+/tftpboot/NX3232_v1.80_Switch-A1.txt          100% 5141     5.0KB/s   00:00
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+IP_switch_A_1#
+----
+.. Repita el subpaso anterior para cada uno de los otros tres conmutadores, asegurándose de copiar el archivo RCF correspondiente al conmutador correspondiente.
+
+
+. Compruebe en cada switch que el archivo RCF está presente en el directorio bootflash de cada switch:
++
+`dir bootflash:`
+
++
+El ejemplo siguiente muestra que los archivos están presentes en IP_switch_A_1:
+
++
+[listing]
+----
+IP_switch_A_1# dir bootflash:
+                  .
+                  .
+                  .
+5514    Jun 13 22:09:05 2017  NX3232_v1.80_Switch-A1.txt
+                  .
+                  .
+                  .
+
+Usage for bootflash://sup-local
+1779363840 bytes used
+13238841344 bytes free
+15018205184 bytes total
+IP_switch_A_1#
+----
+. Configure las regiones de TCAM en los switches Cisco 3132Q-V y Cisco 3232C.
++
+
+NOTE: Evite este paso si no tiene switches Cisco 3132Q-V o Cisco 3232C.
+
++
+.. En el conmutador Cisco 3132Q-V, establezca las siguientes regiones de TCAM:
++
+[listing]
+----
+conf t
+hardware access-list tcam region span 0
+hardware access-list tcam region racl 256
+hardware access-list tcam region e-racl 256
+hardware access-list tcam region qos 256
+----
+.. En el switch Cisco 3232C, establezca las siguientes regiones de TCAM:
++
+[listing]
+----
+conf t
+hardware access-list tcam region span 0
+hardware access-list tcam region racl-lite 0
+hardware access-list tcam region racl 256
+hardware access-list tcam region e-racl 256
+hardware access-list tcam region qos 256
+----
+.. Después de configurar las regiones de TTAM, guarde la configuración y vuelva a cargar el interruptor:
++
+[listing]
+----
+copy running-config startup-config
+reload
+----
+
+
+. Copie el archivo RCF correspondiente del bootflash local a la configuración en ejecución de cada switch:
++
+`copy bootflash:switch-specific-RCF.txt running-config`
+
+. Copie los archivos RCF de la configuración en ejecución a la configuración de inicio de cada switch:
++
+`copy running-config startup-config`
+
++
+Debería ver una salida similar a la siguiente:
+
++
+[listing]
+----
+IP_switch_A_1# copy bootflash:NX3232_v1.80_Switch-A1.txt running-config
+IP_switch-A-1# copy running-config startup-config
+----
+. Vuelva a cargar el interruptor:
++
+`reload`
+
++
+[listing]
+----
+IP_switch_A_1# reload
+----
+. Repita los pasos anteriores en los otros tres switches de la configuración IP de MetroCluster.
+
+
+
+
+== Configuración de la corrección de errores de reenvío para sistemas que utilizan conectividad de 25 Gbps
+
+Si el sistema está configurado con conectividad de 25 Gbps, debe establecer manualmente el parámetro Reenviar corrección de error (Fec) en OFF después de aplicar el archivo RCF. El archivo RCF no aplica esta configuración.
+
+.Acerca de esta tarea
+Los puertos de 25 Gbps se deben cablear antes de ejecutar este procedimiento.
+
+link:port_usage_3232c_9336c.html["Asignaciones de puertos de la plataforma para los switches Cisco 3232C o Cisco 9336C"]
+
+Esta tarea sólo se aplica a plataformas que utilizan conectividad de 25 Gbps:
+
+* AFF A300
+* FAS 8200
+* FAS 500f
+* AFF A250
+
+
+Esta tarea debe realizarse en los cuatro switches de la configuración de IP de MetroCluster.
+
+.Pasos
+. Establezca el parámetro fec en OFF en cada puerto de 25 Gbps conectado a un módulo de controlador y, a continuación, copie la configuración en ejecución a la configuración de inicio:
++
+.. Entrar al modo de configuración: `config t`
+.. Especifique la interfaz de 25 Gbps para configurar: `interface interface-ID`
+.. Establecer Fec como desactivado: `fec off`
+.. Repita los pasos anteriores para cada puerto de 25 Gbps del conmutador.
+.. Salir del modo de configuración: `exit`
++
+El siguiente ejemplo muestra los comandos para la interfaz ethernet1/25/1 en el conmutador IP_switch_A_1:
+
++
+[listing]
+----
+IP_switch_A_1# conf t
+IP_switch_A_1(config)# interface Ethernet1/25/1
+IP_switch_A_1(config-if)# fec off
+IP_switch_A_1(config-if)# exit
+IP_switch_A_1(config-if)# end
+IP_switch_A_1# copy running-config startup-config
+----
+
+
+. Repita el paso anterior en los otros tres switches de la configuración IP de MetroCluster.
+

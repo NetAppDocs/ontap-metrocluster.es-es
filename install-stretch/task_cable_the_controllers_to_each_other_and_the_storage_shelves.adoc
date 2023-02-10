@@ -1,0 +1,44 @@
+---
+permalink: install-stretch/task_cable_the_controllers_to_each_other_and_the_storage_shelves.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, controllers, storage, shelves 
+summary: Los adaptadores FC-VI de la controladora se deben conectar directamente entre sí. Los puertos SAS de la controladora deben cablearse con las pilas de almacenamiento local y remoto. 
+---
+= Cableado de las controladoras entre sí y las bandejas de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los adaptadores FC-VI de la controladora se deben conectar directamente entre sí. Los puertos SAS de la controladora deben cablearse con las pilas de almacenamiento local y remoto.
+
+Esta tarea debe realizarse en los dos sitios MetroCluster.
+
+.Pasos
+. Conecte el cable de los puertos FC-VI.
++
+image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[cableado mcc controlador fc vi al compañero]
+
++
+La ilustración anterior es una conexión de cable representativa típica. Los puertos FC-VI específicos varían en función del módulo de la controladora.
+
++
+** Los módulos de controladoras FAS8200 y AFF A300 se pueden pedir con una de las dos opciones para la conectividad FC-VI:
++
+*** Los puertos internos 0e y 0f se configuran en modo FC-VI.
+*** Los puertos 1a y 1b de una tarjeta FC-VI se van a la ranura 1.
+
+
+** Los módulos de controladora de los sistemas de almacenamiento A700 y FAS9000 de AFF utilizan cuatro puertos FC-VI cada uno.
+** Los módulos de controladora de sistemas de almacenamiento AFF A400 y FAS8300 utilizan los puertos FC-VI 2a y 2b.
+
+
+. Conecte el cable de los puertos SAS.
++
+En la siguiente ilustración se muestran las conexiones. Su uso de puerto puede ser diferente en función de los puertos SAS y FC-VI disponibles en el módulo de la controladora.
+
++
+image::../media/mcc_two_node_optical_sas_space_configuration.png[mcc configuración de dos nodos de espacio sas óptico]
+
+

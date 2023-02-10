@@ -1,0 +1,55 @@
+---
+permalink: install-fc/concept_considerations_firewalls.html 
+sidebar: sidebar 
+keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa 
+summary: Al preparar la instalación de MetroCluster, debe comprender la arquitectura de hardware de MetroCluster y los componentes necesarios. 
+---
+= Uso del firewall en sitios de MetroCluster
+:allow-uri-read: 
+
+
+
+
+== Consideraciones sobre el uso del firewall en sitios MetroCluster
+
+Si utiliza un firewall en un sitio de MetroCluster, debe garantizar el acceso a los puertos correspondientes.
+
+La siguiente tabla muestra el uso de puertos TCP/UDP en un firewall externo colocado entre dos sitios MetroCluster.
+
+|===
+
+
+| Tipo de tráfico | Puerto/servicios 
+
+
+ a| 
+Conexión de clústeres entre iguales
+ a| 
+11104 / TCP
+
+11105 / TCP
+
+
+
+ a| 
+System Manager de ONTAP
+ a| 
+443 / TCP
+
+
+
+ a| 
+LIF de interconexión de clústeres IP de MetroCluster
+ a| 
+65200 / TCP
+
+10006 / TCP y UDP
+
+
+
+ a| 
+Asistencia de hardware
+ a| 
+4444 / TCP
+
+|===

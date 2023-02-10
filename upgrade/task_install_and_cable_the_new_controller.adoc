@@ -1,0 +1,96 @@
+---
+permalink: upgrade/task_install_and_cable_the_new_controller.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, install, cable, new, controller, module 
+summary: Debe instalar físicamente el nuevo módulo de controladora en el chasis y, a continuación, cablearlo. 
+---
+= Instalación y cableado del nuevo módulo de controlador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe instalar físicamente el nuevo módulo de controladora en el chasis y, a continuación, cablearlo.
+
+.Pasos
+. Si tiene un módulo de expansión de I/o (IOXM) en su sistema y están creando un par de alta disponibilidad de chasis único, debe descablear y quitar el IOXM.
++
+A continuación, puede utilizar el compartimento vacío para el nuevo módulo de controlador. Sin embargo, la nueva configuración no tendrá las I/o adicionales que proporciona el IOXM.
+
+. Instale físicamente el nuevo módulo de controlador y, si es necesario, ventiladores adicionales:
++
+|===
+
+
+| Si va a agregar un módulo de controladora... | Realice estos pasos... 
+
+
+ a| 
+A una bahía vacía para crear un par de alta disponibilidad de chasis único y el sistema pertenece a una de las siguientes plataformas:
+ a| 
+.. Retire la placa vacía de la parte posterior del chasis que cubre el compartimento vacío que contendrá el nuevo módulo de controlador.
+.. Empuje suavemente el módulo del controlador hasta la mitad en el chasis.
++
+Para evitar que el módulo del controlador se inicie automáticamente, no lo coloque por completo en el chasis hasta más adelante en este procedimiento.
+
+
+
+
+
+ a| 
+En un chasis independiente de su partner de alta disponibilidad para crear un par de alta disponibilidad de chasis doble cuando la configuración existente se encuentra en una configuración de módulo Controller-IOX.
+
+** FAS8200
+** 80xx
+
+ a| 
+Instale el nuevo sistema en el rack o armario del sistema.
+
+|===
+. Conecte mediante cable las conexiones de red del clúster, según sea necesario:
++
+.. Identifique los puertos en el módulo de controladora para las conexiones del clúster.
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["Sistemas AFF A320: Instalación y configuración"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["Instrucciones de instalación y configuración de los sistemas AFF A220/FAS2700"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["Instrucciones de instalación y configuración de los sistemas AFF A800"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["Instrucciones de instalación y configuración de los sistemas AFF A300"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["Instrucciones de instalación y configuración de los sistemas FAS8200"^]
+
+.. Si va a configurar un clúster de switches, identifique los puertos que va a utilizar en los switches de red de clúster.
++
+Consulte la Guía de configuración de switches de Clustered Data ONTAP para switches Cisco_, _NetApp 10G Cluster-Mode Switch Guía de instalación_ o _NetApp 1G Cluster-Mode Switch Guía de instalación_, en función de los switches que esté utilizando.
+
+.. Conecte los cables a los puertos del clúster:
+
+
++
+|===
+
+
+| Si el clúster es... | Realice lo siguiente... 
+
+
+ a| 
+Clúster de dos nodos sin switches
+ a| 
+Conecte directamente los puertos del clúster del módulo de controladora existente a los puertos del clúster correspondientes en el nuevo módulo de controladora.
+
+
+
+ a| 
+Un clúster de switches
+ a| 
+Conecte los puertos del clúster de cada controladora a los puertos de los switches de red de clúster identificados en el subpaso b.
+
+|===
+

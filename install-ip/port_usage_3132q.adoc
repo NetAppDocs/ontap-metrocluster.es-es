@@ -1,0 +1,32 @@
+---
+permalink: install-ip/port_usage_3132q.html 
+sidebar: sidebar 
+keywords: cabling, cable, component, sip, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure 
+summary: El uso del puerto en una configuración IP de MetroCluster depende del modelo del switch y el tipo de plataforma. 
+---
+= Asignaciones de puertos de la plataforma para los switches Cisco 3132Q-V.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El uso del puerto en una configuración IP de MetroCluster depende del modelo del switch y el tipo de plataforma.
+
+
+
+== Uso de puertos para los sistemas FAS2750 o AFF A220 y un switch Cisco 3132Q-V.
+
+image::../media/mcc_ip_cabling_a_fas2750_or_a220_to_a_cisco_3132q_v_switch.png[cableado ip de mcc: fas2750 o a220 a un switch cisco 3132q v.]
+
+
+
+== Uso de puertos para FAS9000, AFF A700 y un switch Cisco 3132Q-V.
+
+image::../media/mcc_ip_cabling_a_fas9000_or_aff_a700_to_a_cisco_3132q_v_switch.png[cableado ip de mcc: fas9000 o AFF a700 a un switch cisco 3132q v]
+
+
+
+== Uso de puertos para AFF A800 y un switch Cisco 3132Q-V.
+
+image::../media/cabling_an_aff_a800_to_a_cisco_3132q_v_switch.png[cableado de un a800 de AFF a un switch cisco 3132q v.]

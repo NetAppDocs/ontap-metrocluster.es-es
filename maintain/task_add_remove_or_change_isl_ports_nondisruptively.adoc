@@ -1,0 +1,128 @@
+---
+permalink: maintain/task_add_remove_or_change_isl_ports_nondisruptively.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, add, remove, change, isl, ports, nondisruptively 
+summary: Es posible que deba añadir, eliminar o cambiar puertos ISL. Se pueden convertir puertos ISL dedicados a puertos ISL compartidos o cambiar la velocidad de los puertos ISL en un switch. Las islas que viajan a distancias mayores pueden requerir velocidades más bajas para mejorar la calidad. También es posible que tenga que aumentar la velocidad de los puertos ISL para aprovechar las actualizaciones del sistema y agregar ISL a un switch IP de Cisco, si agrega o actualiza hardware. 
+---
+= Adición, eliminación o cambio de puertos ISL sin interrupciones
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que deba añadir, eliminar o cambiar puertos ISL. Se pueden convertir puertos ISL dedicados a puertos ISL compartidos o cambiar la velocidad de los puertos ISL en un switch. Las islas que viajan a distancias mayores pueden requerir velocidades más bajas para mejorar la calidad. También es posible que tenga que aumentar la velocidad de los puertos ISL para aprovechar las actualizaciones del sistema y agregar ISL a un switch IP de Cisco, si agrega o actualiza hardware.
+
+.Acerca de esta tarea
+Si convierte puertos ISL dedicados a puertos ISL compartidos, asegúrese de que los nuevos puertos cumplen con los link:../install-ip/concept_considerations_layer_2.html["Requisitos para los puertos ISL compartidos"].
+
+Debe completar todos los pasos en ambos switches para garantizar la conectividad ISL.
+
+En el siguiente procedimiento se supone que se reemplaza un ISL de 10 GB conectado en el puerto del switch eth1/24/1 con dos ISL de 100 GB que se conectan con los puertos del switch 17 y 18.
+
+.Pasos
+. Deshabilite los puertos ISL de los ISL en ambos switches de la estructura que desea cambiar.
++
+--
+
+NOTE: Solo tiene que deshabilitar los puertos ISL actuales si los mueve a un puerto diferente, o si la velocidad del ISL está cambiando. Si añade un puerto ISL con la misma velocidad que los ISL existentes, vaya al paso 3.
+
+--
++
+Debe introducir solo un comando de configuración para cada línea y presionar Ctrl-Z después de introducir todos los comandos, como se muestra en el siguiente ejemplo:
+
++
+[listing]
+----
+
+switch_A_1# conf t
+switch_A_1(config)# int eth1/24/1
+switch_A_1(config-if)# shut
+switch_A_1(config-if)#
+switch_A_1#
+
+switch_B_1# conf t
+switch_B_1(config)# int eth1/24/1
+switch_B_1(config-if)# shut
+switch_B_1(config-if)#
+switch_B_1#
+----
+. Quite los cables y transceptores existentes.
+. Cambie el puerto ISL según sea necesario.
++
+[cols="30,70"]
+|===
+
+
+| Opción | Paso 
+
+
+ a| 
+Para cambiar la velocidad de un puerto ISL...
+ a| 
+Conecte los nuevos ISL a los puertos designados según sus velocidades. Debe asegurarse de que estos puertos ISL para el switch aparezcan en la lista _MetroCluster IP Installation and Configuration_.
+
+
+
+ a| 
+Para añadir un ISL...
+ a| 
+Inserte QFSP en los puertos que va a agregar como puertos ISL. Asegúrese de que aparecen en la lista _MetroCluster IP Installation and Configuration_ y cablearlos según corresponda.
+
+|===
+. Habilite todos los puertos ISL (si no está habilitado) en ambos switches en la estructura que comienzan con el siguiente comando:
++
+`switch_A_1# conf t`
+
++
+Debe introducir solo un comando de configuración por línea y pulsar Ctrl-Z después de introducir todos los comandos:
+
++
+[listing]
+----
+switch_A_1# conf t
+switch_A_1(config)# int eth1/17
+switch_A_1(config-if)# no shut
+switch_A_1(config-if)# int eth1/18
+switch_A_1(config-if)# no shut
+switch_A_1(config-if)#
+switch_A_1#
+switch_A_1# copy running-config startup-config
+
+switch_B_1# conf t
+switch_B_1(config)# int eth1/17
+switch_B_1(config-if)# no shut
+switch_B_1(config-if)# int eth1/18
+switch_B_1(config-if)# no shut
+switch_B_1(config-if)#
+switch_B_1#
+switch_B_1# copy running-config startup-config
+----
+. Compruebe que se han establecido ISL entre los dos switches:
++
+`switch_A_1# show int eth1/17,eth1/18 brief`
+
++
+Debe ver las interfaces ISL en la salida del comando, como se muestra en el ejemplo siguiente:
+
++
+[listing]
+----
+switch_A_1# show int eth1/17,eth1/18 brief
+--------------------------------------------------------------------------------
+Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
+Interface                                                                                                        Ch #
+--------------------------------------------------------------------------------
+Eth1/17       10         eth     access    up      none                       100G(D) 10
+Eth1/18       10         eth     access    up      none                       100G(D) 10
+
+switch_B_1# show int eth1/17,eth1/18 brief
+--------------------------------------------------------------------------------
+Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
+Interface                                                                                                        Ch #
+--------------------------------------------------------------------------------
+Eth1/17       10         eth     access    up      none                       100G(D) 10
+Eth1/18       10         eth     access    up      none                       100G(D) 10
+----
+. Repita el procedimiento para la tela 2.
+

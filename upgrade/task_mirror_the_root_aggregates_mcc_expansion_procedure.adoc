@@ -1,0 +1,33 @@
+---
+permalink: upgrade/task_mirror_the_root_aggregates_mcc_expansion_procedure.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, mirror, root, aggregate, new, controller 
+summary: Debe reflejar el agregado raíz para proporcionar protección de datos cuando se añade una controladora a una configuración de MetroCluster. 
+---
+= Mirroring del agregado raíz en la nueva controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe reflejar el agregado raíz para proporcionar protección de datos cuando se añade una controladora a una configuración de MetroCluster.
+
+Esta tarea debe realizarse en el nuevo módulo del controlador.
+
+. Reflejar el agregado raíz:
++
+`storage aggregate mirror _aggr_name_`
+
++
+El siguiente comando refleja el agregado raíz para Controller_A_1:
+
++
+[listing]
+----
+controller_A_1::> storage aggregate mirror aggr0_controller_A_1
+----
++
+Esto refleja el agregado, por lo que consta de un complejo local y un complejo remoto ubicado en el sitio remoto de MetroCluster.
+
+

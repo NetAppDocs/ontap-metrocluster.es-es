@@ -1,0 +1,22 @@
+---
+permalink: maintain/concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, interoperability, matrix, tool, information 
+summary: Al configurar la configuración de MetroCluster, puede utilizar la herramienta de interoperabilidad para garantizar el uso de versiones de software y hardware compatibles. 
+---
+= Uso de la herramienta de matriz de interoperabilidad para encontrar información de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al configurar la configuración de MetroCluster, puede utilizar la herramienta de interoperabilidad para garantizar el uso de versiones de software y hardware compatibles.
+
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+
+Después de abrir la matriz de interoperabilidad, puede utilizar el campo solución de almacenamiento para seleccionar la solución de MetroCluster.
+
+Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda.
+
+Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.

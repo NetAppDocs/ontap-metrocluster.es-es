@@ -1,0 +1,23 @@
+---
+permalink: upgrade/task_cable_the_cluster_peering_connections.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, cable, new, controller, modules, cluster, peering, connections 
+summary: Debe conectar el nuevo módulo de controlador a la red de interconexión de clústeres de manera que tenga conectividad con el clúster en el sitio asociado. 
+---
+= Cableado de las conexiones de interconexión de clústeres del nuevo módulo de controlador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe conectar el nuevo módulo de controlador a la red de interconexión de clústeres de manera que tenga conectividad con el clúster en el sitio asociado.
+
+.Acerca de esta tarea
+Se deben utilizar al menos dos puertos en cada módulo de controlador para la conexión de clústeres entre iguales.
+
+El ancho de banda mínimo recomendado para los puertos y la conectividad de red es de 1 GbE.
+
+.Pasos
+. Identifique y conecte al menos dos puertos para la conexión de clústeres entre iguales y compruebe que tengan conectividad de red con el clúster de socios.
+

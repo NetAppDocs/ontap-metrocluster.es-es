@@ -1,0 +1,16 @@
+---
+permalink: maintain/concept_deciding_whether_to_use_this_guide_mcc_service_guide.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, decide, service, guide, firmware, upgrade, hardware replacement, drive, shelf, ip switch, fc switch, bridge, sas cable 
+summary: Puede mantener los componentes de hardware específicos de MetroCluster en la configuración de MetroCluster. 
+---
+= Mantener los componentes de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se pueden utilizar los siguientes procedimientos para mantener los componentes de hardware específicos de MetroCluster en la configuración de MetroCluster.
+
+Los procedimientos de servicio de los sistemas MetroCluster incluyen procedimientos de actualización del firmware y sustitución de hardware para bandejas de unidades, switches IP, switches FC, puentes FC a SAS y cables SAS.

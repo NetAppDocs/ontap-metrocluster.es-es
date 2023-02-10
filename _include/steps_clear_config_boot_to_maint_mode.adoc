@@ -1,0 +1,39 @@
+= 
+:allow-uri-read: 
+
+
+[role="lead"]
+Antes de utilizar un nuevo módulo de controladora en la configuración de MetroCluster, debe borrar la configuración existente.
+
+.Pasos
+. Si es necesario, detenga el nodo para mostrar el símbolo del sistema del CARGADOR:
++
+`halt`
+
+. En el símbolo del sistema del CARGADOR, establezca las variables de entorno en los valores predeterminados:
++
+`set-defaults`
+
+. Guarde el entorno:
++
+`saveenv`
+
+. En el símbolo del sistema del CARGADOR, inicie el menú de arranque:
++
+`boot_ontap menu`
+
+. En el símbolo del sistema del menú de inicio, borre la configuración:
++
+`wipeconfig`
+
++
+Responda `yes` a la solicitud de confirmación.
+
++
+El nodo se reinicia y el menú de arranque se muestra de nuevo.
+
+. En el menú de inicio, seleccione la opción *5* para arrancar el sistema en modo de mantenimiento.
++
+Responda `yes` a la solicitud de confirmación.
+
+

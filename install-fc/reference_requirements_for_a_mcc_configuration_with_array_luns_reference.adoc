@@ -1,0 +1,92 @@
+---
+permalink: install-fc/reference_requirements_for_a_mcc_configuration_with_array_luns_reference.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, requirements, array, luns, mcc 
+summary: Los sistemas ONTAP, las cabinas de almacenamiento y los switches FC utilizados en las configuraciones de MetroCluster deben cumplir con los requisitos de estos tipos de configuraciones. Además, también debe tener en cuenta los requisitos de SyncMirror para las configuraciones de MetroCluster con LUN de cabina. 
+---
+= Requisitos para una configuración de MetroCluster con LUN de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los sistemas ONTAP, las cabinas de almacenamiento y los switches FC utilizados en las configuraciones de MetroCluster deben cumplir con los requisitos de estos tipos de configuraciones. Además, también debe tener en cuenta los requisitos de SyncMirror para las configuraciones de MetroCluster con LUN de cabina.
+
+
+
+== Requisitos para sistemas ONTAP
+
+* Los sistemas ONTAP deben identificarse como compatibles con las configuraciones de MetroCluster.
++
+En la https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp (IMT)"], Puede utilizar el campo solución de almacenamiento para seleccionar la solución MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
+
++
+
+NOTE: Se deben consultar los detalles de alerta asociados con cualquier configuración seleccionada en la matriz de interoperabilidad.
+
+* Todos los sistemas ONTAP en una configuración MetroCluster deben tener el mismo modelo.
+* Los adaptadores de FC-VI deben instalarse en las ranuras adecuadas para cada sistema ONTAP, según el modelo.
++
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+
+
+
+
+== Requisitos para cabinas de almacenamiento
+
+* Las cabinas de almacenamiento deben identificarse como compatibles con las configuraciones de MetroCluster.
++
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+
+* Las cabinas de almacenamiento en la configuración de MetroCluster deben ser asimétricas:
++
+** Las dos cabinas de almacenamiento deben ser de la misma familia de proveedores admitidos y tener instalada la misma versión de firmware.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-ig-es/home.html["Implementación de virtualización FlexArray para almacenamiento E-Series de NetApp"]
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-ig-third/home.html["Implementación de virtualización FlexArray para almacenamiento de terceros"]
+
+** Los tipos de disco (por ejemplo, SATA, SSD o SAS) utilizados para el almacenamiento reflejado deben ser los mismos en ambas cabinas de almacenamiento.
+** Los parámetros para configurar matrices de almacenamiento, como el tipo de RAID y la clasificación por niveles, deben ser los mismos en ambos sitios.
+
+
+
+
+
+
+== Requisitos para los switches FC
+
+* Los switches y el firmware del switch se deben identificar como compatibles con las configuraciones de MetroCluster.
++
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+
+* Cada estructura debe tener dos switches FC.
+* Cada sistema ONTAP debe conectarse al almacenamiento mediante componentes redundantes para que haya redundancia en caso de fallos de dispositivo y de ruta.
+* Los sistemas de almacenamiento A700, FAS9000, AFF A900 y FAS9500 de AFF admiten hasta ocho ISL por estructura. Otros modelos de sistema de almacenamiento admiten hasta cuatro ISL por estructura.
+
+
+Los switches deben utilizar MetroCluster la configuración básica del switch, los ajustes de ISL y las configuraciones FC-VI.
+
+link:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.html["Configuración manual de los switches FC de Cisco o Brocade"]
+
+
+
+== Requisitos de SyncMirror
+
+* Se requiere SyncMirror para una configuración de MetroCluster.
+* Se requieren dos cabinas de almacenamiento separadas, una en cada sitio, para el almacenamiento reflejado.
+* Se requieren dos conjuntos de LUN de cabina.
++
+Se requiere un conjunto para el agregado en la cabina de almacenamiento local (pool0) y es necesario otro conjunto en la cabina de almacenamiento remota para el reflejo del agregado (el otro complejo de la agrupación, pool1).
+
++
+Los LUN de cabina deben tener el mismo tamaño para reflejar el agregado.
+
+* La configuración de MetroCluster también admite agregados no reflejados.
++
+No están protegidos en caso de un desastre en el sitio.
+
+

@@ -1,0 +1,59 @@
+---
+permalink: upgrade/task_power_up_both_controller_modules_and_display_the_loader_prompt_2_node_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, power, up, controller. modules, display, loader, prompt 
+summary: Enciende el módulo de la controladora existente y el nuevo módulo de la controladora para mostrar el aviso del CARGADOR. 
+---
+= Encender ambos módulos de la controladora y mostrar el aviso del CARGADOR
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Enciende el módulo de la controladora existente y el nuevo módulo de la controladora para mostrar el aviso del CARGADOR.
+
+.Pasos
+Encienda los módulos de la controladora e interrumpa el proceso de arranque siguiendo los pasos que se indican para su configuración:
+
+[cols="25,75"]
+|===
+
+
+| Si los módulos de la controladora son... | Realice lo siguiente... 
+
+
+ a| 
+En el mismo chasis
+ a| 
+. Compruebe que el nuevo módulo de controlador está *no* completamente insertado en el compartimento.
++
+El módulo de controladora existente se debe insertar por completo en el compartimento porque nunca se quitó del chasis, pero el nuevo módulo de controladora no debe estar.
+
+. Conecte la alimentación y encienda las fuentes de alimentación para que el módulo de la controladora existente reciba alimentación.
+. Interrumpa el proceso de arranque del módulo de la controladora existente pulsando Ctrl-C.
+. Empuje el nuevo módulo de controlador firmemente en el compartimento.
++
+Cuando está completamente asentado, el nuevo módulo de controlador recibe alimentación y arranca automáticamente.
+
+. Interrumpa el proceso de arranque pulsando Ctrl-C.
+. Apriete el tornillo de mano de la palanca de leva, si existe.
+. Instale el dispositivo de administración de cables, si existe.
+. Conecte los cables al dispositivo de gestión de cables con la correa de gancho y lazo.
+
+
+
+
+ a| 
+En chasis separados
+ a| 
+. Encienda las fuentes de alimentación en el módulo de controladora existente.
+. Interrumpa el proceso de arranque pulsando Ctrl-C.
+. Repita estos pasos para el nuevo módulo de la controladora
+
+
+|===
+Cada módulo de la controladora debe mostrar el aviso del CARGADOR (`LOADER>`, `LOADER-A>`, o. `LOADER-B>`).
+
+
+NOTE: Si no hay un aviso DEL CARGADOR, registre el mensaje de error. Si el sistema muestra el menú de arranque, reinicie e intente interrumpir de nuevo el proceso de arranque.

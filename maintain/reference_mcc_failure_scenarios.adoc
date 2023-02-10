@@ -1,0 +1,111 @@
+---
+permalink: maintain/reference_mcc_failure_scenarios.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, failure, recovery, scenarios 
+summary: Es necesario saber de qué manera la configuración de MetroCluster responde a diferentes eventos de fallo. 
+---
+= Situaciones de fallo y recuperación de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es necesario saber de qué manera la configuración de MetroCluster responde a diferentes eventos de fallo.
+
+
+NOTE: Para obtener información adicional sobre la recuperación de errores de nodos, consulte la sección "elección del procedimiento de recuperación correcto" en la link:../disaster-recovery/concept_dr_workflow.html["Recuperación tras un desastre"].
+
+|===
+
+
+| Evento | Impacto | Recuperación 
+
+
+ a| 
+Fallo de un nodo
+ a| 
+Se activa una conmutación por error.
+ a| 
+La configuración se recupera mediante un sistema de toma de control local. RAID no se ve afectado. Revise los mensajes del sistema y sustituya las FRU con errores si es necesario.
+
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+
+
+
+ a| 
+Dos nodos fallan en un sitio
+ a| 
+Dos nodos solo fallarán si se habilita la conmutación de sitios automatizada en el software MetroCluster Tiebreaker.
+ a| 
+Conmutación de sitios no planificada manual (USO) si la conmutación de sitios automatizada en el software MetroCluster Tiebreaker no está habilitada.
+
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+
+
+
+ a| 
+Interfaz IP de MetroCluster: Fallo de un puerto
+ a| 
+El sistema está degradado. El fallo adicional del puerto afecta al mirroring de alta disponibilidad.
+ a| 
+Se utiliza el segundo puerto. El monitor de estado genera una alerta si el enlace físico al puerto está roto. Revise los mensajes del sistema y sustituya las FRU con errores si es necesario.
+
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+
+
+
+ a| 
+Interfaz IP de MetroCluster: Fallo de ambos puertos
+ a| 
+La funcionalidad de ALTA DISPONIBILIDAD se ve afectada. RAID SyncMirror del nodo deja de sincronizar.
+ a| 
+Se requiere recuperación manual inmediata, ya que no hay toma de control de ha. Revise los mensajes del sistema y sustituya las FRU con errores si es necesario.
+
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+
+
+
+ a| 
+Fallo de un conmutador MetroCluster IP
+ a| 
+Sin impacto. La redundancia se proporciona a través de la segunda red.
+ a| 
+Sustituya el interruptor defectuoso si es necesario.
+
+link:task_replace_an_ip_switch.html["Reemplazar un switch IP"]
+
+
+
+ a| 
+Fallo de dos switches MetroCluster IP que están en la misma red
+ a| 
+Sin impacto. La redundancia se proporciona a través de la segunda red.
+ a| 
+Sustituya el interruptor defectuoso si es necesario.
+
+link:task_replace_an_ip_switch.html["Reemplazar un switch IP"]
+
+
+
+ a| 
+Fallo de dos switches MetroCluster IP que están en un sitio
+ a| 
+RAID SyncMirror del nodo deja de sincronizar. La funcionalidad de ALTA DISPONIBILIDAD se ve afectada y el clúster se queda sin quórum.
+ a| 
+Sustituya el interruptor defectuoso si es necesario.
+
+link:task_replace_an_ip_switch.html["Reemplazar un switch IP"]
+
+
+
+ a| 
+Fallo de dos switches IP de MetroCluster que se encuentran en distintos sitios y no en la misma red (fallo diagonal)
+ a| 
+RAID SyncMirror del nodo deja de sincronizar.
+ a| 
+RAID SyncMirror del nodo deja de sincronizar. Los clústeres y la funcionalidad de alta disponibilidad no se ven afectados. Sustituya el interruptor defectuoso si es necesario.
+
+link:task_replace_an_ip_switch.html["Reemplazar un switch IP"]
+
+|===

@@ -1,0 +1,97 @@
+---
+permalink: install-fc/concept_considerations_isls_mcfc.html 
+sidebar: sidebar 
+keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa, san 
+summary: Debe determinar cuántos ISL se necesitan para cada estructura de switch FC en la configuración MetroCluster. 
+---
+= Consideraciones sobre ISL
+:allow-uri-read: 
+
+
+[role="lead"]
+Debe determinar cuántos ISL se necesitan para cada estructura de switch FC en la configuración MetroCluster. A partir de ONTAP 9.2, en algunos casos, en vez de dedicar switches FC e ISL a cada configuración MetroCluster individual, puede compartir los mismos cuatro switches.
+
+
+
+== Consideraciones de uso compartido de ISL (ONTAP 9.2)
+
+A partir de ONTAP 9.2, se puede utilizar el uso compartido de ISL en los siguientes casos:
+
+* Una configuración MetroCluster de dos y una de cuatro nodos
+* Dos configuraciones MetroCluster de cuatro nodos separadas
+* Dos configuraciones MetroCluster de dos nodos separadas
+* Dos grupos de recuperación ante desastres dentro de una configuración MetroCluster de ocho nodos
+
+
+El número de ISL necesarios entre los switches compartidos depende del ancho de banda de los modelos de plataforma conectados a los switches compartidos.
+
+Tenga en cuenta los siguientes aspectos de la configuración al determinar cuántos ISL se necesitan.
+
+* Los dispositivos que no sean de MetroCluster no deben estar conectados a ninguno de los switches FC que proporcionen la conectividad MetroCluster back-end.
+* El uso compartido de ISL es compatible con todos los switches, excepto los switches Cisco 9250i y Cisco 9148.
+* Todos los nodos deben ejecutar ONTAP 9.2 o una versión posterior.
+* El cableado de switches FC para el uso compartido de ISL es el mismo que para el cableado MetroCluster de ocho nodos.
+* Los archivos RCF para el uso compartido de ISL son los mismos que para el cableado MetroCluster de ocho nodos.
+* Debe verificar que todas las versiones de hardware y software sean compatibles.
++
+https://hwu.netapp.com["Hardware Universe de NetApp"]
+
+* El tamaño de la velocidad y el número de ISL se debe ajustar para admitir la carga de cliente en los dos sistemas MetroCluster.
+* Los ISL de back-end y los componentes de back-end deben estar dedicados únicamente a la configuración de MetroCluster.
+* El ISL debe utilizar una de las velocidades admitidas: 4 Gbps, 8 Gbps, 16 Gbps o 32 Gbps.
+* Los ISL de una estructura deben tener la misma velocidad y longitud.
+* Los ISL de una estructura deben tener la misma topología. Por ejemplo, todos deberían ser enlaces directos, o si el sistema utiliza WDM, todos deberían usar WDM.
+
+
+
+
+== Consideraciones sobre ISL específicas de la plataforma
+
+El número de ISL recomendados es específico del modelo de la plataforma. En la siguiente tabla se muestran los requisitos de ISL para cada estructura por modelo de plataforma. Supone que cada ISL tiene una capacidad de 16 Gbps.
+
+|===
+
+
+| Modelo de plataforma | Número recomendado de ISL por grupo de recuperación ante desastres de cuatro nodos (por estructura de switch) 
+
+
+ a| 
+AFF A900 y FAS9500
+ a| 
+Ocho
+
+
+
+ a| 
+A700 de AFF
+ a| 
+Seis
+
+
+
+ a| 
+FAS9000
+ a| 
+Seis
+
+
+
+ a| 
+8080
+ a| 
+Cuatro
+
+
+
+ a| 
+Todos los demás
+ a| 
+Dos
+
+|===
+Si la estructura de switches admite ocho nodos (o bien una parte de una sola configuración MetroCluster de ocho nodos, o bien dos configuraciones de cuatro nodos que comparten ISL), el número total recomendado de ISL para la estructura es la suma del necesario para cada grupo de recuperación ante desastres de cuatro nodos. Por ejemplo:
+
+* Si el grupo de recuperación ante desastres 1 incluye cuatro sistemas A700 de AFF, requiere seis ISL.
+* Si el grupo de recuperación ante desastres 2 incluye cuatro sistemas FAS8200, requiere dos ISL.
+* El número total de ISL recomendados para la estructura del switch es ocho.
+

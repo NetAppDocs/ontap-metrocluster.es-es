@@ -1709,7 +1709,6 @@
   <block id="d62d7bce1fe91e6c1145e8a56018d13e" category="admonition">En los sistemas configurados para la partición avanzada de unidades (ADP), el tipo de contenedor es "compartido" en lugar de "remoto", como se muestra en el resultado de ejemplo.</block>
   <block id="90041d31025da7832d4e0b6bec8c78d3" category="paragraph"><block ref="a29b6e7e71b2408a7ef70fb423944511" prefix="" category="inline-code"></block></block>
   <block id="566d9f9b7bf49eab87dd8768b654754e" category="section-title">Finalización de la incorporación de los nodos IP de MetroCluster</block>
-  <block id="ab1c45cb56358465162f8f3a812e6fbe" category="list-text">Configure MetroCluster para implementar los cambios:</block>
   <block id="2ab9c070f5e78bc6f7809e89ecd023eb" category="admonition">Debe ejecutarse<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> y *no*<block ref="7b61e46b8e4fceaa3b96a2ac23ad8213" prefix=" " category="inline-code"></block></block>
   <block id="7e6d5ec0a20a9a4499623036df823e6b" category="list-text">Compruebe que los nodos se hayan añadido a su grupo de recuperación ante desastres:</block>
   <block id="a8f0490385b664bc34aae209741dbdce" category="paragraph"><block ref="edf828d9708194065efb37a90089aae4" prefix="" category="inline-code"></block></block>
@@ -12862,4 +12861,8 @@
   <block id="2bb3bf8751f93424124bf84c3e8ad98e" category="list-text">Distribuya la información de división en zonas desde la estructura en buen estado.</block>
   <block id="53561f125f0af30a3d4617446090c985" category="paragraph">En este ejemplo, se ha sustituido FC_switch_B_1 y se recupera la información de la división en zonas de FC_switch_A_1:</block>
   <block id="edaf0f6ad8fb8be02b4e843f9e4f23f3" category="list-text">En el switch de sustitución, compruebe que la información de división en zonas se ha recuperado correctamente del switch en buen estado:</block>
+  <block id="64cdec386f8cc50c2a2ec9316633b629" category="paragraph">Antes de correr<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block>, El modo ha y la duplicación DR no están habilitados y puede que aparezca un mensaje de error relacionado con este comportamiento esperado. Habilite el modo de alta disponibilidad y la duplicación de recuperación ante desastres más adelante cuando ejecute el comando<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> para implementar la configuración.</block>
+  <block id="929a405a00082b7cddc01ac6b47159f6" category="list-text">Configure la MetroCluster en función de si tiene uno o varios agregados de datos:</block>
+  <block id="5ffd33f8dea25274cffabd9b7ab1c36e" category="paragraph">Debe responder con<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> cuando se le pida que continúe en modo avanzado y vea el indicador de modo avanzado (*).</block>
+  <block id="1fd3081a4bf2b2b1ccafeb89c824a5d2" category="admonition">La mejor práctica es tener varios agregados de datos reflejados. Cuando solo hay un agregado con mirroring, hay menos protección, ya que los volúmenes de metadatos se encuentran en el mismo agregado, en lugar de en agregados separados.</block>
 </blocks>

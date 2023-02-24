@@ -1399,7 +1399,7 @@ Esta tarea se realiza en site_B, donde los nodos se han iniciado con agregados r
 
 .. Anule la configuración de puertos para garantizar una ubicación correcta de las LIF:
 +
-`vserver config override -command "network interface modify" -vserver _vserver_name_ -home-port _active_port_after_upgrade_ -lif _lif_name_ -home-node _new_node_name_"`
+`vserver config override -command "network interface modify -vserver _vserver_name_ -home-port _active_port_after_upgrade_ -lif _lif_name_ -home-node _new_node_name_"`
 
 +
 Al introducir la `network interface modify` dentro de `vserver config override` no se puede utilizar la función de tabulación automática. Puede crear el `network interface modify` con la opción de autocompletar y, a continuación, escríbala en la `vserver config override` comando.

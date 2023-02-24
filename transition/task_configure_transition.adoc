@@ -600,22 +600,51 @@ aggr_data_a2
 Debe incorporar el nuevo grupo de recuperación ante desastres a la configuración de MetroCluster y crear agregados de datos reflejados en los nuevos nodos.
 
 .Pasos
-. Configure MetroCluster para implementar los cambios:
+. Configure la MetroCluster en función de si tiene uno o varios agregados de datos:
 +
-`metrocluster configure`
+|===
 
-+
+
+| Si la configuración de MetroCluster tiene... | Realice lo siguiente... 
+
+
+ a| 
+Varios agregados de datos
+ a| 
+Desde el símbolo del sistema de cualquier nodo, configure MetroCluster:
+
+`metrocluster configure _node-name_`
+
 
 NOTE: Debe ejecutarse `metrocluster configure` y *no* `metrocluster configure -refresh true`
 
+
+
+ a| 
+Un único agregado de datos reflejado
+ a| 
+.. Desde el símbolo del sistema de cualquier nodo, cambie al nivel de privilegio avanzado:
 +
-....
-cluster_A::> metrocluster configure
+`set -privilege advanced`
 
-[Job 439] Job succeeded: Configure is successful.
++
+Debe responder con `y` cuando se le pida que continúe en modo avanzado y vea el indicador de modo avanzado (*).
 
-cluster_A::>
-....
+.. Configure la MetroCluster con el `-allow-with-one-aggregate true` parámetro:
++
+`metrocluster configure -allow-with-one-aggregate true _node-name_`
+
+.. Vuelva al nivel de privilegio de administrador:
++
+`set -privilege admin`
+
+
+
+|===
++
+
+NOTE: La mejor práctica es tener varios agregados de datos reflejados. Cuando solo hay un agregado con mirroring, hay menos protección, ya que los volúmenes de metadatos se encuentran en el mismo agregado, en lugar de en agregados separados.
+
 . Compruebe que los nodos se hayan añadido a su grupo de recuperación ante desastres:
 +
 `metrocluster node show`

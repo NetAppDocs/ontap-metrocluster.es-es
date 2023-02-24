@@ -11,6 +11,9 @@ summary: Debe configurar la paridad de los clústeres, reflejar los agregados ra
 [role="lead"]
 Debe configurar la paridad de los clústeres, reflejar los agregados raíz, crear un agregado de datos reflejados y, a continuación, emitir el comando para implementar las operaciones de MetroCluster.
 
+.Acerca de esta tarea
+Antes de correr `metrocluster configure`, El modo ha y la duplicación DR no están habilitados y puede que aparezca un mensaje de error relacionado con este comportamiento esperado. Habilite el modo de alta disponibilidad y la duplicación de recuperación ante desastres más adelante cuando ejecute el comando `metrocluster configure` para implementar la configuración.
+
 
 
 == Deshabilitación de la asignación automática de unidades (si se realiza la asignación manual en ONTAP 9.4)

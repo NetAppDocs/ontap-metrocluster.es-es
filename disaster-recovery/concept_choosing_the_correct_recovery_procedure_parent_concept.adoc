@@ -13,6 +13,8 @@ summary: Después de un fallo en una configuración de MetroCluster, debe selecc
 [role="lead"]
 Después de un fallo en una configuración MetroCluster, debe seleccionar el procedimiento de recuperación correcto. Utilice la siguiente tabla y los ejemplos para seleccionar el procedimiento de recuperación adecuado.
 
+En esta información de esta tabla se asume que la instalación o la transición se ha completado, lo que significa que `metrocluster configure` comando ejecutado correctamente.
+
 |===
 
 
@@ -69,6 +71,20 @@ Se deben omitir todos los pasos para la asignación de unidades.
 link:task_recover_from_a_multi_controller_and_or_storage_failure.html["Recuperación tras un error del almacenamiento o de varias controladoras"]
 
 |===
+
+
+== Escenarios de fallos del módulo de la controladora durante la instalación de MetroCluster
+
+Responder al fallo de un módulo de controladora durante el procedimiento de configuración de MetroCluster depende de si el se produce `metrocluster configure` el comando se ha completado correctamente.
+
+* Si la `metrocluster configure` El comando aún no se ha ejecutado, o se ha producido un error, debe reiniciar el procedimiento de configuración del software MetroCluster desde el principio con un módulo de controlador de repuesto.
++
+
+NOTE: Debe asegurarse de realizar los pasos de link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_restore_defaults.html["Restaurando los valores predeterminados del sistema en un módulo de controlador"] en cada controladora (incluida la controladora de sustitución) para verificar que se ha eliminado la configuración anterior.
+
+* Si la `metrocluster configure` el comando se ha completado correctamente y, a continuación, se ha producido un error en el módulo del controlador; utilice la tabla anterior para determinar el procedimiento de recuperación correcto.
+
+
 
 
 == Escenarios de fallos del módulo de controlador durante la transición de MetroCluster FC a IP

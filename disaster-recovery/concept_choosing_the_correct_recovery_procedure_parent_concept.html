@@ -6142,7 +6142,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 19:45:12 +0000">02/20/2023</time>
+    <time datetime="2023-02-26 02:18:09 +0000">02/26/2023</time>
     
   
 
@@ -6156,6 +6156,9 @@
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>Después de un fallo en una configuración MetroCluster, debe seleccionar el procedimiento de recuperación correcto. Utilice la siguiente tabla y los ejemplos para seleccionar el procedimiento de recuperación adecuado.</p>
+</div>
+<div class="paragraph">
+<p>En esta información de esta tabla se asume que la instalación o la transición se ha completado, lo que significa que <code>metrocluster configure</code> comando ejecutado correctamente.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -6253,6 +6256,36 @@
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="escenarios-de-fallos-del-módulo-de-la-controladora-durante-la-instalación-de-metrocluster">Escenarios de fallos del módulo de la controladora durante la instalación de MetroCluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Responder al fallo de un módulo de controladora durante el procedimiento de configuración de MetroCluster depende de si el se produce <code>metrocluster configure</code> el comando se ha completado correctamente.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si la <code>metrocluster configure</code> El comando aún no se ha ejecutado, o se ha producido un error, debe reiniciar el procedimiento de configuración del software MetroCluster desde el principio con un módulo de controlador de repuesto.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-metrocluster/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Debe asegurarse de realizar los pasos de <a href="https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_restore_defaults.html">"Restaurando los valores predeterminados del sistema en un módulo de controlador"</a> en cada controladora (incluida la controladora de sustitución) para verificar que se ha eliminado la configuración anterior.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Si la <code>metrocluster configure</code> el comando se ha completado correctamente y, a continuación, se ha producido un error en el módulo del controlador; utilice la tabla anterior para determinar el procedimiento de recuperación correcto.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">

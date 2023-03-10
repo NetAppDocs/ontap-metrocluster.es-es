@@ -36,7 +36,7 @@ En la siguiente ilustración, se muestra una configuración de MetroCluster FC. 
 image::../media/mcc_hw_architecture_local_ha.gif[mcc hw architecture, ha local]
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["Configuración de alta disponibilidad"^]
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["Configuración de alta disponibilidad"^]
 
 
 
@@ -225,7 +225,7 @@ Debe estar familiarizado con distintos tipos de errores y desastres para que pue
 Se produce un error en un solo componente del par de alta disponibilidad local.
 
 +
-En una configuración MetroCluster de cuatro nodos, este error podría provocar una toma de control automática o negociada del nodo dañado, según el componente que haya fallado. La recuperación de datos se describe en _High Availability Configuration Guide_.
+En una configuración MetroCluster de cuatro nodos, este error podría provocar una toma de control automática o negociada del nodo dañado, según el componente que haya fallado. Se describe la recuperación de datos en link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["Gestión de parejas de alta disponibilidad"^] .
 
 +
 En una configuración MetroCluster de dos nodos, este fallo provoca una conmutación automática sin planificar (AUSO).
@@ -235,7 +235,7 @@ En una configuración MetroCluster de dos nodos, este fallo provoca una conmutac
 Todos los módulos de controladoras fallan en las instalaciones debido a la pérdida de energía, la sustitución de equipos o ante desastres. Normalmente, las configuraciones de MetroCluster no pueden diferenciar entre fallos y desastres. Sin embargo, el software para testigos, como el software MetroCluster Tiebreaker, puede diferenciarlos entre ellos. Una condición de fallo de controladora en todo el sitio puede provocar una conmutación automática si los enlaces y switches de enlace entre switches (ISL) están en marcha y se puede acceder al almacenamiento.
 
 +
-La _Guía de configuración de alta disponibilidad_ contiene más información acerca de cómo recuperarse de errores de controlador en todo el sitio que no incluyen fallos de controlador, así como errores que incluyen uno o más controladores.
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["Gestión de parejas de alta disponibilidad"^] dispone de más información sobre cómo recuperarse de los fallos de las controladoras en todo el sitio que no incluyen fallos de las controladoras, así como fallos que incluyen una o más controladoras.
 
 * Fallo de ISL
 +
@@ -285,7 +285,7 @@ Como la configuración de MetroCluster de ocho o cuatro nodos está compuesta po
 
 En el caso de configuraciones MetroCluster de cuatro y ocho nodos, los fallos de nodos debido a la caída de la alimentación o la alarma pueden provocar una conmutación automática al nodo de respaldo.
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["Configuración de alta disponibilidad"^]
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["Gestión de parejas de alta disponibilidad"^]
 
 Si se produce un segundo fallo después de una conmutación al respaldo local, el evento de conmutación de MetroCluster proporciona operaciones no disruptivas continuas. Del mismo modo, tras una operación de conmutación, en caso de un segundo fallo en uno de los nodos supervivientes, un evento de conmutación por error local proporciona operaciones no disruptivas continuas. En este caso, el único nodo superviviente sirve datos para los otros tres nodos del grupo DR.
 

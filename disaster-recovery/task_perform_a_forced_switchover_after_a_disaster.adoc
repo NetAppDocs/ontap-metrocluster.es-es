@@ -57,15 +57,16 @@ NOTE: Las configuraciones de SnapMirror y SnapVault se eliminan automáticamente
 La `metrocluster switchover` El comando cambia a través de los nodos de todos los grupos de recuperación ante desastres de la configuración de MetroCluster. Por ejemplo, en una configuración MetroCluster de ocho nodos, conmuta a los nodos en ambos grupos de recuperación ante desastres.
 
 .Pasos
-. Implemente el cambio:
+. Realice la conmutación mediante la ejecución del siguiente comando en el sitio superviviente:
 +
 `metrocluster switchover -forced-on-disaster true`
 
 +
-La operación puede tardar varios minutos en completarse.
+
+NOTE: La operación puede tardar varios minutos en completarse. Puede verificar el progreso mediante el `metrocluster operation show` comando.
 
 . Responda `y` cuando se le solicite que continúe con la conmutación.
-. Compruebe que la conmutación se haya completado correctamente ejecutando el comando MetroCluster operation show.
+. Compruebe que la conmutación se ha completado correctamente ejecutando el `metrocluster operation show` comando.
 +
 ....
 mcc1A::> metrocluster operation show

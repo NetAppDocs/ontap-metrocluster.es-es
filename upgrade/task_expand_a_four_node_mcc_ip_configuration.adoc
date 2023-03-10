@@ -17,11 +17,11 @@ A partir de ONTAP 9.9.1, se pueden añadir cuatro nodos nuevos a la configuraci�
 * Los nodos antiguos y nuevos deben ejecutar la misma versión de ONTAP.
 * Debe asegurarse de que los modelos de plataforma anteriores y nuevos son compatibles con la mezcla de plataformas.
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 * Debe asegurarse de que los modelos de plataforma anterior y nueva sean compatibles con los switches IP.
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 * Los nuevos nodos deben tener suficiente almacenamiento para acomodar los datos de los nodos antiguos, junto con los discos adecuados para los agregados raíz y los discos de repuesto.
 * Este procedimiento no es compatible con los sistemas FAS2750 o AFF A220.
@@ -132,16 +132,16 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descar
 
 . Compruebe que el clúster esté en buen estado:
 +
-`cluster show -vserver Cluster`
+`cluster show`
 
 +
 [listing]
 ----
-cluster_A::> cluster show -vserver Cluster
-Node           Health  Eligibility   Epsilon
--------------- ------  -----------   -------
-node_A_1    true    true          false
-node_A_2    true    true          false
+cluster_A::> cluster show
+Node           Health  Eligibility
+-------------- ------  -----------
+node_A_1       true    true
+node_A_2       true    true
 
 cluster_A::>
 ----
@@ -310,6 +310,93 @@ link:../install-ip/using_rcf_generator.html["Cableado de los switches IP"]
 . En el modo de mantenimiento, emita el comando halt para salir del modo de mantenimiento y, a continuación, emita el comando boot_ontap para arrancar el sistema y acceder a la configuración del clúster.
 +
 No complete el asistente de clúster ni el asistente para nodos en este momento.
+
+
+
+
+
+== Actualice los archivos RCF
+
+[role="lead"]
+Si va a instalar un nuevo firmware de conmutador, debe instalar el firmware del conmutador antes de actualizar el archivo RCF.
+
+.Acerca de esta tarea
+Este procedimiento interrumpe el tráfico del conmutador donde se actualiza el archivo RCF. El tráfico se reanudará una vez que se aplique el nuevo archivo RCF.
+
+.Pasos
+. Compruebe el estado de la configuración.
++
+.. Compruebe que los componentes de MetroCluster están en buen estado:
++
+`metrocluster check run`
+
++
+[listing]
+----
+cluster_A::*> metrocluster check run
+
+----
+
+
++
+La operación se ejecuta en segundo plano.
+
++
+.. Después del `metrocluster check run` la operación finaliza, se ejecuta `metrocluster check show` para ver los resultados.
++
+Después de unos cinco minutos, se muestran los siguientes resultados:
+
++
+[listing]
+----
+-----------
+::*> metrocluster check show
+
+Last Checked On: 4/7/2019 21:15:05
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          warning
+clusters            ok
+connections         not-applicable
+volumes             ok
+7 entries were displayed.
+----
+.. Comprobar el estado de la operación de comprobación de MetroCluster en ejecución:
++
+`metrocluster operation history show -job-id 38`
+
+.. Compruebe que no hay alertas de estado:
++
+`system health alert show`
+
+
+
+. Prepare los switches IP para la aplicación de los nuevos archivos RCF.
++
+Siga los pasos para su proveedor de switches:
+
++
+** link:../install-ip/task_switch_config_broadcom.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"^]
+** link:../install-ip/task_switch_config_cisco.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"^]
+
+
+. Descargue e instale el archivo IP RCF, según el proveedor del switch.
++
+
+NOTE: Actualice los interruptores en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2
+
++
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descarga e instalación de los archivos Broadcom IP RCF"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["Descarga e instalación de los archivos Cisco IP RCF"]
++
+
+NOTE: Si tiene una configuración de red L2 compartida o L3, es posible que deba ajustar los puertos ISL en los switches intermedio/cliente. El modo de puerto de switch puede cambiar del modo de acceso al modo de "tronco". Sólo continúe con la actualización del segundo par de conmutadores (A_2, B_2) si la conectividad de red entre los conmutadores A_1 y B_1 está totalmente operativa y la red está en buen estado.
+
+
 
 
 
@@ -873,6 +960,32 @@ aggr_data_a2
 Debe incorporar el nuevo grupo de recuperación ante desastres a la configuración de MetroCluster y crear agregados de datos reflejados en los nuevos nodos.
 
 .Pasos
+. Actualice la configuración de MetroCluster:
++
+.. Entre en el modo de privilegio avanzado:
++
+`set -privilege advanced`
+
+.. Actualice la configuración de MetroCluster en uno de los nodos nuevos:
++
+`metrocluster configure`
+
++
+En el ejemplo siguiente se muestra la configuración de MetroCluster actualizada en ambos grupos de recuperación ante desastres:
+
++
+[listing]
+----
+cluster_A::*> metrocluster configure -refresh true
+
+[Job 726] Job succeeded: Configure is successful.
+----
+.. Volver al modo de privilegios de administrador:
++
+`set -privilege admin`
+
+
+
 . Crear agregados de datos reflejados en cada uno de los nuevos nodos de MetroCluster:
 +
 `storage aggregate create -aggregate _aggregate-name_ -node _node-name_ -diskcount _no-of-disks_ -mirror true`
@@ -922,32 +1035,6 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ----
-. Actualice la configuración de MetroCluster:
-+
-.. Entre en el modo de privilegio avanzado:
-+
-`set -privilege advanced`
-
-.. Actualice la configuración de MetroCluster en uno de los nodos nuevos:
-+
-`metrocluster configure`
-
-+
-En el ejemplo siguiente se muestra la configuración de MetroCluster actualizada en ambos grupos de recuperación ante desastres:
-
-+
-[listing]
-----
-cluster_A::*> metrocluster configure -refresh true
-
-[Job 726] Job succeeded: Configure is successful.
-----
-.. Volver al modo de privilegios de administrador:
-+
-`set -privilege admin`
-
-
-
 . Compruebe que los nodos se han añadido a su grupo de recuperación ante desastres.
 +
 [listing]
@@ -1016,7 +1103,7 @@ En el siguiente ejemplo se muestra el comando y la salida para mover "MDV_CRS_d6
 +
 [listing]
 ----
-cluster_A::> vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
+cluster_A::*> vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
 
 Warning: You are about to modify the system volume
          "MDV_CRS_d6b0b313ff5611e9837100a098544e51_A". This might cause severe
@@ -1034,16 +1121,12 @@ La siguiente salida muestra que el volumen de MDV se ha movido correctamente.
 +
 [listing]
 ----
-cluster_A::> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+cluster_A::*> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 Vserver     Volume       Aggregate    State      Type       Size  Available Used%
 ---------   ------------ ------------ ---------- ---- ---------- ---------- -----
 cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
                        aggr_a2      online     RW         10GB     9.50GB    0%
 ----
-.. Volver al modo admin:
-+
-`set -privilege admin`
-
 
 
 . Mueva épsilon de un nodo antiguo a un nuevo nodo:
@@ -1055,7 +1138,7 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 +
 [listing]
 ----
-cluster_B::> cluster show -fields epsilon
+cluster_B::*> cluster show -fields epsilon
 node             epsilon
 ---------------- -------
 node_A_1-old      true
@@ -1079,7 +1162,7 @@ node_A_4-new      false
 +
 [listing]
 ----
-cluster_A::> cluster show -fields epsilon
+cluster_A::*> cluster show -fields epsilon
 node             epsilon
 ---------------- -------
 node_A_1-old      false

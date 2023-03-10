@@ -6142,7 +6142,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 19:45:12 +0000">02/20/2023</time>
+    <time datetime="2023-03-10 13:35:10 +0000">03/10/2023</time>
     
   
 
@@ -6166,13 +6166,13 @@
 <li>
 <p>Debe asegurarse de que los modelos de plataforma anteriores y nuevos son compatibles con la mezcla de plataformas.</p>
 <div class="paragraph">
-<p><a href="https://hwu.netapp.com">"Hardware Universe de NetApp"</a></p>
+<p><a href="https://hwu.netapp.com" target="_blank" rel="noopener">"Hardware Universe de NetApp"</a></p>
 </div>
 </li>
 <li>
 <p>Debe asegurarse de que los modelos de plataforma anterior y nueva sean compatibles con los switches IP.</p>
 <div class="paragraph">
-<p><a href="https://hwu.netapp.com">"Hardware Universe de NetApp"</a></p>
+<p><a href="https://hwu.netapp.com" target="_blank" rel="noopener">"Hardware Universe de NetApp"</a></p>
 </div>
 </li>
 <li>
@@ -6361,15 +6361,15 @@
 <li>
 <p>Compruebe que el clúster esté en buen estado:</p>
 <div class="paragraph">
-<p><code>cluster show -vserver Cluster</code></p>
+<p><code>cluster show</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>cluster_A::&gt; cluster show -vserver Cluster
-Node           Health  Eligibility   Epsilon
--------------- ------  -----------   -------
-node_A_1    true    true          false
-node_A_2    true    true          false
+<pre>cluster_A::&gt; cluster show
+Node           Health  Eligibility
+-------------- ------  -----------
+node_A_1       true    true
+node_A_2       true    true
 
 cluster_A::&gt;</pre>
 </div>
@@ -6594,6 +6594,138 @@ cluster_A::&gt;</pre>
 <p>En el modo de mantenimiento, emita el comando halt para salir del modo de mantenimiento y, a continuación, emita el comando boot_ontap para arrancar el sistema y acceder a la configuración del clúster.</p>
 <div class="paragraph">
 <p>No complete el asistente de clúster ni el asistente para nodos en este momento.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="actualice-los-archivos-rcf">Actualice los archivos RCF</h2>
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Si va a instalar un nuevo firmware de conmutador, debe instalar el firmware del conmutador antes de actualizar el archivo RCF.</p>
+</div>
+<div class="paragraph">
+<div class="title">Acerca de esta tarea</div>
+<p>Este procedimiento interrumpe el tráfico del conmutador donde se actualiza el archivo RCF. El tráfico se reanudará una vez que se aplique el nuevo archivo RCF.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Compruebe el estado de la configuración.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Compruebe que los componentes de MetroCluster están en buen estado:</p>
+<div class="paragraph">
+<p><code>metrocluster check run</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster_A::*&gt; metrocluster check run</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La operación se ejecuta en segundo plano.</p>
+</div>
+</li>
+<li>
+<p>Después del <code>metrocluster check run</code> la operación finaliza, se ejecuta <code>metrocluster check show</code> para ver los resultados.</p>
+<div class="paragraph">
+<p>Después de unos cinco minutos, se muestran los siguientes resultados:</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-----------
+::*&gt; metrocluster check show
+
+Last Checked On: 4/7/2019 21:15:05
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          warning
+clusters            ok
+connections         not-applicable
+volumes             ok
+7 entries were displayed.</pre>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Comprobar el estado de la operación de comprobación de MetroCluster en ejecución:</p>
+<div class="paragraph">
+<p><code>metrocluster operation history show -job-id 38</code></p>
+</div>
+</li>
+<li>
+<p>Compruebe que no hay alertas de estado:</p>
+<div class="paragraph">
+<p><code>system health alert show</code></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Prepare los switches IP para la aplicación de los nuevos archivos RCF.</p>
+<div class="paragraph">
+<p>Siga los pasos para su proveedor de switches:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../install-ip/task_switch_config_broadcom.html" target="_blank" rel="noopener">"Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"</a></p>
+</li>
+<li>
+<p><a href="../install-ip/task_switch_config_cisco.html" target="_blank" rel="noopener">"Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Descargue e instale el archivo IP RCF, según el proveedor del switch.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-metrocluster/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Actualice los interruptores en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files">"Descarga e instalación de los archivos Broadcom IP RCF"</a></p>
+</li>
+<li>
+<p><a href="../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files">"Descarga e instalación de los archivos Cisco IP RCF"</a></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-metrocluster/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Si tiene una configuración de red L2 compartida o L3, es posible que deba ajustar los puertos ISL en los switches intermedio/cliente. El modo de puerto de switch puede cambiar del modo de acceso al modo de "tronco". Sólo continúe con la actualización del segundo par de conmutadores (A_2, B_2) si la conectividad de red entre los conmutadores A_1 y B_1 está totalmente operativa y la red está en buen estado.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
 </div>
 </li>
 </ol>
@@ -7265,6 +7397,45 @@ aggr_data_a2
 <div class="title">Pasos</div>
 <ol class="arabic">
 <li>
+<p>Actualice la configuración de MetroCluster:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Entre en el modo de privilegio avanzado:</p>
+<div class="paragraph">
+<p><code>set -privilege advanced</code></p>
+</div>
+</li>
+<li>
+<p>Actualice la configuración de MetroCluster en uno de los nodos nuevos:</p>
+<div class="paragraph">
+<p><code>metrocluster configure</code></p>
+</div>
+<div class="paragraph">
+<p>En el ejemplo siguiente se muestra la configuración de MetroCluster actualizada en ambos grupos de recuperación ante desastres:</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster_A::*&gt; metrocluster configure -refresh true
+
+[Job 726] Job succeeded: Configure is successful.</pre>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Volver al modo de privilegios de administrador:</p>
+<div class="paragraph">
+<p><code>set -privilege admin</code></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
 <p>Crear agregados de datos reflejados en cada uno de los nuevos nodos de MetroCluster:</p>
 <div class="paragraph">
 <p><code>storage aggregate create -aggregate <em>aggregate-name</em> -node <em>node-name</em> -diskcount <em>no-of-disks</em> -mirror true</code></p>
@@ -7321,45 +7492,6 @@ Do you want to continue? {y|n}: y
 
 cluster_A::&gt;</pre>
 </div>
-</div>
-</li>
-<li>
-<p>Actualice la configuración de MetroCluster:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Entre en el modo de privilegio avanzado:</p>
-<div class="paragraph">
-<p><code>set -privilege advanced</code></p>
-</div>
-</li>
-<li>
-<p>Actualice la configuración de MetroCluster en uno de los nodos nuevos:</p>
-<div class="paragraph">
-<p><code>metrocluster configure</code></p>
-</div>
-<div class="paragraph">
-<p>En el ejemplo siguiente se muestra la configuración de MetroCluster actualizada en ambos grupos de recuperación ante desastres:</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>cluster_A::*&gt; metrocluster configure -refresh true
-
-[Job 726] Job succeeded: Configure is successful.</pre>
-</div>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Volver al modo de privilegios de administrador:</p>
-<div class="paragraph">
-<p><code>set -privilege admin</code></p>
-</div>
-</li>
-</ol>
 </div>
 </li>
 <li>
@@ -7446,7 +7578,7 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>cluster_A::&gt; vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
+<pre>cluster_A::*&gt; vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
 
 Warning: You are about to modify the system volume
          "MDV_CRS_d6b0b313ff5611e9837100a098544e51_A". This might cause severe
@@ -7469,22 +7601,12 @@ Warning: You are about to modify the system volume
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>cluster_A::&gt; vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+<pre>cluster_A::*&gt; vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 Vserver     Volume       Aggregate    State      Type       Size  Available Used%
 ---------   ------------ ------------ ---------- ---- ---------- ---------- -----
 cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
                        aggr_a2      online     RW         10GB     9.50GB    0%</pre>
 </div>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Volver al modo admin:</p>
-<div class="paragraph">
-<p><code>set -privilege admin</code></p>
-</div>
-</li>
-</ol>
 </div>
 </li>
 <li>
@@ -7498,7 +7620,7 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>cluster_B::&gt; cluster show -fields epsilon
+<pre>cluster_B::*&gt; cluster show -fields epsilon
 node             epsilon
 ---------------- -------
 node_A_1-old      true
@@ -7531,7 +7653,7 @@ node_A_4-new      false
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>cluster_A::&gt; cluster show -fields epsilon
+<pre>cluster_A::*&gt; cluster show -fields epsilon
 node             epsilon
 ---------------- -------
 node_A_1-old      false

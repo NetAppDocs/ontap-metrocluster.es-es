@@ -16,8 +16,8 @@ entries:
     sitios y conmutación de estado
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
 - title: Controladoras de actualización (A700/FAS9000 de AFF a AFF A900/FAS9500) en
-    un FC de MetroCluster en un FC de MetroCluster mediante conmutación de sitios
-    y conmutación de estado (ONTAP 9.10.1 o posterior)
+    una configuración FC de MetroCluster mediante conmutación de sitios y conmutación
+    de estado (ONTAP 9.10.1 o posterior)
   url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html"
 - title: Actualice controladoras en un FC de MetroCluster de cuatro nodos mediante
     conmutación de sitios y conmutación de estado con comandos de «sustitución de
@@ -68,8 +68,8 @@ entries:
       entries:
       - title: Requisitos previos e instalación
         url: "/upgrade/task_install_and_cable_the_new_controller.html"
-      - title: Conecte los cables de los puertos FC-VI y HBA del nuevo módulo de controlador
-          a los conmutadores FC
+      - title: Conecte los puertos FC-VI y HBA del nuevo módulo de la controladora
+          a los switches FC
         url: "/upgrade/task_cable_the_controller_module_s_fc_vi_hba_ports_to_the_fc_switches_controller_to_fc_sw.html"
       - title: Cableado de las conexiones de interconexión de clústeres del nuevo
           módulo de controlador
@@ -106,8 +106,8 @@ entries:
       url: "/upgrade/task_install_firmware_after_add_a_controller_module.html"
   - title: Actualice la configuración de MetroCluster con nuevas controladoras
     url: "/upgrade/task_refresh_the_mcc_configuration_mcc_configure_refresh.html"
-  - title: Habilite la conmutación por error de almacenamiento en los módulos de la
-      controladora y la alta disponibilidad de clúster
+  - title: Permita la recuperación tras fallos del almacenamiento en los dos módulos
+      de la controladora y habilite la alta disponibilidad de clúster
     url: "/upgrade/task_enable_storage_failover_both_controller_modules_and_set_cluster_ha.html"
   - title: Reinicie las SVM
     url: "/upgrade/task_restart_the_svms.html"

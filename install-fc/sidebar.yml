@@ -54,8 +54,8 @@ entries:
     entries:
     - title: Los componentes de hardware están en rack
       url: "/install-fc/task_rack_the_hardware_components_mcc_fabric_and_ip.html"
-    - title: Conecte los cables de los puertos FC-VI y HBA del nuevo módulo de controlador
-        a los conmutadores FC
+    - title: Conecte los cables de los nuevos puertos FC-VI y HBA de los módulos de
+        la controladora a los switches FC
       url: "/install-fc/task_cable_the_controller_module_s_fc_vi_hba_ports_to_the_fc_switches_controller_to_fc_sw.html"
     - title: Conecte los cables ISL entre los sitios MetroCluster
       url: "/install-fc/task_cable_the_isl_between_the_mcc_sites_fabric_config.html"

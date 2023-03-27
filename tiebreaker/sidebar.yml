@@ -4,6 +4,8 @@ title: Instalar y configurar tiebreaker para MetroCluster
 entries:
 - title: Descripción general del software Tiebreaker
   url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
+- title: Configure el acceso de administrador a ONAPI y SSH
+  url: "/tiebreaker/task_configure_ssh_ontapi.html"
 - title: Instale el software Tiebreaker
   url: "/tiebreaker/task_install_the_tiebreaker_software.html"
 - title: Configure el software Tiebreaker

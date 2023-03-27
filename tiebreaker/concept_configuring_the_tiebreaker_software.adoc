@@ -23,6 +23,7 @@ Después de instalar el software Tiebreaker, debe iniciar su CLI para configurar
 +
 `netapp-metrocluster-tiebreaker-software-cli`
 
+. Después de la instalación y durante el primer inicio, introduzca la contraseña para que el usuario de tiebreaker acceda a la base de datos. Esta es la contraseña que ha especificado para el usuario de la base de datos durante la instalación.
 
 
 
@@ -162,7 +163,7 @@ depuración deshabilitada
 Deshabilita el modo de depuración para el registro
 
 |===
-La CLI de Tiebreaker `update-mcctb-password` se puede utilizar el comando para actualizar la contraseña de usuario.
+En sistemas que ejecutan Tiebreaker 1.4 y anteriores, la interfaz de línea de comandos de Tiebreaker `update-mcctb-password` se puede utilizar el comando para actualizar la contraseña de usuario. Este comando queda obsoleto en Tiebreaker 1.5 y posteriores.
 
 [cols="30,70"]
 |===

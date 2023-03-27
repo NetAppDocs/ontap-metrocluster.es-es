@@ -120,9 +120,9 @@ El software Tierbreaker activa inmediatamente una alerta cuando el nodo deja de 
 
 === Pánico
 
-El software Tierbreaker activa una alerta cuando la conexión de interconexión NV entre los sitios está inactiva y el sitio que queda indica el estado "'AllLinksSevered'". Esto solo ocurre una vez completado el proceso coredump. En esta situación, el tiempo que se tarda entre el clúster en quedar inalcanzable y la detección de un desastre puede ser mayor o aproximadamente igual al tiempo transcurrido para el proceso de volcado de núcleo. En muchos casos, el tiempo de detección es superior a 30 segundos.
+En las configuraciones FC de MetroCluster, el software Tiebreaker activa una alerta cuando la conexión de interconexión de NV entre los sitios está inactiva y el sitio superviviente indica el estado de "'AllLinksSevered'". Esto solo ocurre una vez completado el proceso coredump. En esta situación, el tiempo que se tarda entre el clúster en quedar inalcanzable y la detección de un desastre puede ser mayor o aproximadamente igual al tiempo transcurrido para el proceso de volcado de núcleo. En muchos casos, el tiempo de detección es superior a 30 segundos.
 
-Si un nodo detiene el funcionamiento, pero no genera un archivo para el proceso de coredump, el tiempo de detección no debe ser superior a 30 segundos.
+Si un nodo detiene el funcionamiento, pero no genera un archivo para el proceso de coredump, el tiempo de detección no debe ser superior a 30 segundos. En las configuraciones de IP de MetroCluster, NV detiene la comunicación y el sitio superviviente no conoce el proceso de coredump.
 
 
 

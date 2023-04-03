@@ -20,7 +20,7 @@ Los switches no se pueden utilizar con puertos ISL remotos de diferentes velocid
 +
 Estos puertos requieren una licencia adicional.
 
-. Solo se puede conectar al switch un único MetroCluster de cuatro nodos con sistemas A320.
+. Solo se puede conectar al switch un único MetroCluster de cuatro nodos con sistemas AFF A320.
 +
 Estas funciones que requieren un clúster conmutado no son compatibles con esta configuración, incluidos los procedimientos de transición MetroCluster FC a IP y de actualización tecnológica.
 
@@ -48,25 +48,25 @@ No se admite ninguna configuración o función que requiera que las conexiones d
 
 
 
-== Uso de puertos de switch para sistemas AFF A220 o FAS2750
+== Uso de puertos de switch para sistemas FAS2750, AFF 150 o AFF A220
 
-image::../media/mcc_ip_cabling_a_aff_a220_or_fas2750_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc: AFF a220 o fas2750 a switch broadcom bes 53248]
-
-
-
-== Uso de puertos de switch para sistemas AFF A250 o FAS500f
-
-image::../media/mcc_ip_cabling_a_aff_a250_or_fas500f_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un AFF a250 o fas500f a un switch broadcom bes 53248]
+image::../media/mcc_ip_cabling_a_aff_a150_a220_or_fas2750_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un AFF a150 a220 o fas2750 a un switch broadcom bes 53248]
 
 
 
-== Uso de puertos de switch para el uso combinado de sistemas AFF A250 o FAS500f y AFF A220 o FAS2750
+== Uso de puertos de switch para sistemas FAS500f, AFF C250 o AFF A250
+
+image::../media/mcc_ip_cabling_a_aff_c250_a250_or_fas500f_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un AFF c250 a250 o fas500f a un switch broadcom bes 53248]
+
+
+
+== Uso de puertos de switch para el uso combinado de un AFF A150, FAS2750 o AFF A220 y FAS500f o AFF C250, O sistemas AFF A250
 
 image::../media/mcc_ip_cabling_aff_a250_and_ a220_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc AFF a250 y a220 a un switch broadcom bes 53248]
 
 
 
-== Uso del puerto de switch para sistemas AFF A300 o FAS8200
+== Uso de puertos de switch para sistemas FAS8200 o AFF A300
 
 image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un AFF a300 o fas8200 a un switch broadcom bes 53248]
 
@@ -74,6 +74,6 @@ image::../media/mcc_ip_cabling_a_aff_a320_to_a_broadcom_bes_53248_switch.png[cab
 
 
 
-== Uso de puertos de switch para sistemas AFF A400, FAS8300 o FAS8700
+== Uso de puertos de switch para sistemas FAS8300, AFF C400, AFF A400 o FAS8700
 
 image::../media/mcc_ip_cabling_a_fas8300_a400_or_fas8700_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un fas8300 a400 o fas8700 a un switch broadcom bes 53248]

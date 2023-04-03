@@ -1,5 +1,5 @@
 ---
-permalink: install-fc/concept_configure_the_mcc_software_in_ontap.html 
+permalink: install-fc/task_sw_config_verify_switchover.html 
 sidebar: sidebar 
 keywords: configure, configuring, metrocluster, software, ontap 
 summary: Debe configurar cada nodo en la configuración de MetroCluster en ONTAP, incluidas las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. También debe implementar la relación de MetroCluster entre los dos sitios. Los pasos para sistemas con bandejas de discos nativas son ligeramente diferentes a los de sistemas con LUN de cabina. 

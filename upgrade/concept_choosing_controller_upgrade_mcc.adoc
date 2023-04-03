@@ -29,7 +29,7 @@ Seleccione su plataforma actual en la tabla FC o IP que aparece a continuación.
 
 === Actualizaciones de controladora IP de MetroCluster admitidas
 
-image::../media/metrocluster_ip_upgrade_table.PNG[tabla de actualización de ip de MetroCluster]
+image::../media/metrocluster_ip_upgrade_table_yellowdogdp1.PNG[tabla de actualización ip de MetroCluster yellowdodp1]
 
 * Nota 1: Para esta actualización, utilice el procedimiento link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html["Actualice controladoras de AFF A700/FAS9000 a AFF A900/FAS9500 en una configuración IP de MetroCluster mediante conmutación de sitios y conmutación de estado (ONTAP 9.10.1 o posterior)."]
 
@@ -38,7 +38,7 @@ image::../media/metrocluster_ip_upgrade_table.PNG[tabla de actualización de ip 
 
 === Actualizaciones de controladora FC de MetroCluster admitidas
 
-image::../media/metrocluster_fc_upgrade_table.PNG[tabla de actualización de MetroCluster fc]
+image::../media/metrocluster_fc_upgrade_table_yellowdogp1.PNG[tabla de actualización MetroCluster fc yellowdop1]
 
 * Nota 1: Para actualizar controladores cuando las conexiones FCVI de los nodos FAS8020 o AFF8020 existentes utilicen los puertos 1c y 1d, consulte lo siguientehttps://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Upgrading_controllers_when_FCVI_connections_on_existing_FAS8020_or_AFF8020_nodes_use_ports_1c_and_1d["Artículo de base de conocimientos"^].
 * Nota 2: Las actualizaciones de controladora desde las plataformas AFF A300 o FAS8200 mediante los puertos internos 0e y 0f como conexiones FC-VI solo son compatibles en sistemas que ejecutan ONTAP 9.9.1. o anterior. Si quiere más información, consulte link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1507088["Informe público"^].

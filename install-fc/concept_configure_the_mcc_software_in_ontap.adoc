@@ -2030,12 +2030,12 @@ policy default-intercluster -home-node cluster01-02 -home-port e0e -address 192.
 +
 [role="tabbed-block"]
 ====
-.En ONTAP 9.6 y posteriores
+.ONTAP 9.6 y posteriores
 --
 Ejecute el comando: `network interface show -service-policy default-intercluster`
 
 --
-.En ONTAP 9.5 y anteriores
+.ONTAP 9.5 y anteriores
 --
 Ejecute el comando: `network interface show -role intercluster`
 
@@ -2061,12 +2061,12 @@ cluster01
 +
 [role="tabbed-block"]
 ====
-.En ONTAP 9.6 y posteriores
+.ONTAP 9.6 y posteriores
 --
-Ron el comando: `network interface show -service-policy default-intercluster -failover`
+Ejecute el comando: `network interface show -service-policy default-intercluster -failover`
 
 --
-.En ONTAP 9.5 y anteriores
+.ONTAP 9.5 y anteriores
 --
 Ejecute el comando: `network interface show -role intercluster -failover`
 
@@ -2078,8 +2078,7 @@ Para obtener una sintaxis de comando completa, consulte la página man.
 +
 En el siguiente ejemplo, se muestra que las LIF de interconexión de clústeres "cluster01_icl01" y "cluster01_icl02" en el puerto SVM "e0e" conmutarán al puerto "e0f".
 
-
-
++
 [listing]
 ----
 cluster01::> network interface show -service-policy default-intercluster –failover
@@ -2094,6 +2093,8 @@ cluster01
                             Failover Targets:  cluster01-02:e0e,
                                                cluster01-02:e0f
 ----
+
+
 .Información relacionada
 link:concept_prepare_for_the_mcc_installation.html["Consideraciones que tener en cuenta al utilizar puertos dedicados"]
 
@@ -2139,12 +2140,12 @@ cluster01-02
 +
 [role="tabbed-block"]
 ====
-.En ONTAP 9.6 y posteriores
+.ONTAP 9.6 y posteriores
 --
 Ejecute el comando: `network interface create -vserver _system_SVM_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_ -home-port _port_ -address _port_IP_ -netmask _netmask_`
 
 --
-.En ONTAP 9.5 y anteriores
+.ONTAP 9.5 y anteriores
 --
 Ejecute el comando:
 `network interface create -vserver system_SVM -lif LIF_name -role intercluster -home-node node -home-port port -address port_IP -netmask netmask`
@@ -2170,12 +2171,12 @@ policy default-intercluster -home-node cluster01-02 -home-port e0c -address 192.
 +
 [role="tabbed-block"]
 ====
-.En ONTAP 9.6 y posteriores
+.ONTAP 9.6 y posteriores
 --
 Ejecute el comando: `network interface show -service-policy default-intercluster`
 
 --
-.En ONTAP 9.5 y anteriores
+.ONTAP 9.5 y anteriores
 --
 Ejecute el comando: `network interface show -role intercluster`
 
@@ -2201,12 +2202,12 @@ cluster01
 +
 [role="tabbed-block"]
 ====
-.En ONTAP 9.6 y posteriores
+.ONTAP 9.6 y posteriores
 --
 Ejecute el comando: `network interface show –service-policy default-intercluster -failover`
 
 --
-.En ONTAP 9.5 y anteriores
+.ONTAP 9.5 y anteriores
 --
 Ejecute el comando:
 `network interface show -role intercluster -failover`
@@ -3291,7 +3292,7 @@ NOTE: El soporte para Config Advisor es limitado y solo está disponible en lín
 .Pasos
 . Vaya a la página de descarga de Config Advisor y descargue la herramienta.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
 
 . Ejecute Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 

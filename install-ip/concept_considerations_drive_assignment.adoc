@@ -1,7 +1,7 @@
 ---
 permalink: install-ip/concept_considerations_drive_assignment.html 
 sidebar: sidebar 
-keywords: drive auto-assignment, drive, adp, advanced disk partitioning, root disk, unmirrored root, data partition, root partition, shelf-by-shelf, AFF A320, AFF A220, AFF A250, AFF A300, AFF A400, AFF A700, AFF A800, FAS2750, FAS8200, FAS500f, FAS9000 
+keywords: drive auto-assignment, drive, adp, advanced disk partitioning, root disk, unmirrored root, data partition, root partition, shelf-by-shelf, AFF A320, AFF A220, AFF A250, C250, AFF A300, AFF A400, C400, AFF A700, AFF A800, FAS2750, FAS8200, FAS500f, FAS9000 
 summary: 'A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten nuevas instalaciones con sistemas AFF que utilizan ADP (partición avanzada de unidades).' 
 ---
 = Consideraciones sobre la asignación automática de unidades y los sistemas ADP en ONTAP 9.4 y versiones posteriores
@@ -219,7 +219,7 @@ Cada uno de los dos complejos del agregado raíz incluye las siguientes particio
 |===
 
 
-=== Asignación de ADP y discos en sistemas AFF A220
+=== Asignación de ADP y disco en sistemas AFF A150 y AFF A220
 
 |===
 
@@ -282,7 +282,7 @@ Cada uno de los dos complejos del agregado raíz incluye las siguientes particio
 |===
 
 
-=== Asignación de discos y ADP en sistemas AFF A250
+=== ADP y asignación de discos en los sistemas AFF C250 y AFF A250
 
 |===
 
@@ -368,7 +368,7 @@ Cada uno de los dos complejos del agregado raíz incluye las siguientes particio
 |===
 
 
-=== Asignación de ADP y disco en sistemas AFF A400
+=== Asignación de ADP y disco en los sistemas AFF C400 y AFF A400
 
 |===
 
@@ -450,7 +450,7 @@ Cada uno de los dos complejos del agregado raíz incluye:
 |===
 
 
-=== Asignación de ADP y discos en sistemas AFF A800
+=== ADP y asignación de discos en sistemas AFF C800 y AFF A800
 
 |===
 

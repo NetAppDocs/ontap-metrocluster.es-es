@@ -19,11 +19,11 @@ El uso del puerto en una configuración IP de MetroCluster depende del modelo de
 
 Actualmente, se admiten las siguientes plataformas:
 
-* FAS500f/AFF A250
-* FAS8300 / AFF A400
+* FAS500f / AFF C250 / AFF A250
+* FAS8300 / AFF C400 / AFF A400
 * FAS8700
 * FAS9000/A700 de AFF
-* A800 de AFF
+* AFF C800/AFF A800
 
 
 Actualmente, no se admiten las siguientes plataformas y configuraciones:
@@ -35,34 +35,22 @@ Actualmente, no se admiten las siguientes plataformas y configuraciones:
 .Revise estas consideraciones antes de utilizar las tablas de configuración
 Si realiza cables con varias configuraciones de MetroCluster, siga la tabla correspondiente. Por ejemplo:
 
-* Si conecta dos configuraciones MetroCluster de cuatro nodos del tipo AFF A700, a continuación, conecte el primer MetroCluster que se muestra como 'MetroCluster 1' y el segundo MetroCluster que se muestra como 'MetroCluster 2' en la tabla A700 de AFF.
+* Si conecta dos configuraciones de MetroCluster de cuatro nodos del tipo AFF A700, a continuación, conecte el primer MetroCluster que se muestra como "MetroCluster 1" y el segundo MetroCluster que se muestra como "MetroCluster 2" en la tabla A700 de AFF.
 
 
 
-NOTE: Los puertos 13 y 14 se pueden utilizar en el modo de velocidad nativa que admite 40 Gbps y 100 Gbps, o en el modo de arranque para admitir 4 × 25 Gbps o 4 × 10 Gbps. Si utilizan el modo de velocidad nativo, se representan como puertos 13 y 14. Si utilizan el modo de arranque, 4 × 25 Gbps o 4 × 10 Gbps, entonces se representan como 13s0-3 y 14s0-3.
+NOTE: Los puertos 13 y 14 se pueden utilizar en el modo de velocidad nativa que admite 40 Gbps y 100 Gbps, o en el modo de arranque para admitir 4 × 25 Gbps o 4 × 10 Gbps. Si utilizan el modo de velocidad nativo, se representan como puertos 13 y 14. Si utilizan el modo de arranque, 4 × 25 Gbps o 4 × 10 Gbps, entonces se representan como puertos 13s0-3 y 14s0-3.
 
 En las siguientes secciones se describe el esquema del cableado físico. También puede consultar la https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"] para obtener información detallada sobre el cableado.
 
 
 
-== Uso de puertos de switch para sistemas AFF A250 o FAS500f
+== Uso de puertos de switch para FAS500f, AFF C250 o AFF A250
 
-image::../media/mcc_ip_cabling_A250_MSN2100.png[Cableado ip de mcc A250 MSN2100]
-
-
-
-== Uso de puertos de switch para sistemas AFF A400, FAS8300 o FAS8700
-
-image::../media/mcc_ip_cabling_A400_MSN2100.png[Cableado ip del mcc A400 MSN2100]
+image::../media/mcc_ip_cabling_A250_C250_MSN2100.png[Cableado ip del mcc A250 C250 MSN2100]
 
 
 
-== Uso del puerto del switch para A700 o FAS9000 de AFF
+== Uso de puertos de switch para AFF C400, AFF A400, AFF A700 o FAS9000, FAS8300 o FAS8700 AFF A800
 
-image::../media/mcc_ip_cabling_A700_MSN2100.png[Cableado ip del mcc A700 MSN2100]
-
-
-
-== Uso del puerto del switch para AFF A800
-
-image::../media/mcc_ip_cabling_A800_MSN2100.png[Cableado ip de mcc A800 MSN2100]
+image::../media/mcc_ip_cabling_aff250_400_700_800_cseriesMSN2100.png[Cables ip de mcc 400 700 800 cseriesMSN2100]

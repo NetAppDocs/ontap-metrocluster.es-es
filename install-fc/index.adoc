@@ -14,7 +14,8 @@ summary: Para instalar la configuración de MetroCluster estructural, debe reali
 Para instalar la configuración de MetroCluster estructural, debe realizar una serie de procedimientos en el orden correcto.
 
 * link:../install-fc/concept_considerations_differences.html["Prepárese para la instalación y comprenda todos los requisitos"].
-* link:../install-fc/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html["Elija el procedimiento de instalación correcto"]* link:../install-fc/task_configure_the_mcc_hardware_components_fabric.html["Conecte los cables de los componentes"]
+* link:../install-fc/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html["Elija el procedimiento de instalación correcto"]
+* link:../install-fc/task_configure_the_mcc_hardware_components_fabric.html["Conecte los cables de los componentes"]
 * link:../install-fc/concept_configure_the_mcc_software_in_ontap.html["Configure el software"]
 * link:../install-fc/task_test_the_mcc_configuration.html["Pruebe la configuración"]
 

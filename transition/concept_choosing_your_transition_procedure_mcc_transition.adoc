@@ -17,7 +17,7 @@ En la siguiente tabla se muestran las combinaciones de plataformas compatibles. 
 
 Por ejemplo, se admite la transición de una configuración FC de MetroCluster que consiste en módulos de controladoras AFF8060 a una configuración IP que consta de los módulos de controladoras AFF A400.
 
-image::../media/metrocluster_fc_ip_transition_matrix.png[matriz de transición ip de MetroCluster fc]
+image::../media/metrocluster_fc_ip_transition_matrix_yellowdogp1.png[matriz de transición ip de MetroCluster fc yellowdop1]
 
 * Nota 1: Esta combinación de plataformas requiere ONTAP 9.11.1 o posterior.
 * Nota 2: Debe tener una interfaz de 40 GbE para las interfaces del clúster local en los nodos FC. Esta combinación de plataformas requiere ONTAP 9.12.1 o posterior.

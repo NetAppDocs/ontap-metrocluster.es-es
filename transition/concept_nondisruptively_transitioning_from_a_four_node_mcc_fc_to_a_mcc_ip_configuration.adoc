@@ -2,7 +2,7 @@
 permalink: transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html 
 sidebar: sidebar 
 keywords: nondisruptive, transition, fc, ip 
-summary: A partir de ONTAP 9.8, se admite la transición de datos y cargas de trabajo sin interrupciones de una configuración FC MetroCluster de cuatro nodos existente a una configuración IP nueva de MetroCluster. 
+summary: A partir de ONTAP 9.13.1, puede ejecutar una transición no disruptiva de cargas de trabajo y datos desde una configuración FC de MetroCluster de ocho nodos existente a una nueva configuración de IP de MetroCluster. 
 ---
 = Realizar la transición de forma no disruptiva de un FC de MetroCluster a una configuración IP de MetroCluster (ONTAP 9.8 y posterior)
 :allow-uri-read: 
@@ -11,16 +11,20 @@ summary: A partir de ONTAP 9.8, se admite la transición de datos y cargas de tr
 
 
 [role="lead"]
-A partir de ONTAP 9.8, se admite la transición de datos y cargas de trabajo sin interrupciones de una configuración FC MetroCluster de cuatro nodos existente a una configuración IP nueva de MetroCluster.
+Puede realizar transiciones no disruptivas de cargas de trabajo y datos de una configuración FC de MetroCluster existente a una nueva configuración de IP de MetroCluster.
 
-* Este procedimiento se admite en sistemas que ejecutan ONTAP 9.8 y versiones posteriores.
+A partir de ONTAP 9.13.1, puede ejecutar una transición no disruptiva de cargas de trabajo y datos desde una configuración FC de MetroCluster de ocho nodos existente a una nueva configuración de IP de MetroCluster.
+
+A partir de ONTAP 9,8, puede realizar una transición no disruptiva de cargas de trabajo y datos desde una configuración FC de MetroCluster de cuatro nodos existente a una nueva configuración de IP de MetroCluster.
+
 * Este procedimiento no es disruptivo.
 +
 La configuración de MetroCluster puede continuar sirviendo datos durante la operación.
 
-* Este procedimiento solo se aplica a configuraciones FC de MetroCluster de cuatro nodos.
+* Este procedimiento solo se aplica a configuraciones FC MetroCluster de cuatro y ocho nodos.
 +
 Si tiene una configuración MetroCluster FC de dos nodos, consulte link:concept_choosing_your_transition_procedure_mcc_transition.html["Cómo elegir el procedimiento de transición"].
 
+* Este procedimiento describe los pasos necesarios para realizar la transición de un grupo FC de DR de cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos DR de FC), debe repetir el procedimiento completo para cada grupo de DR de FC.
 * Debe cumplir con todos los requisitos y seguir todos los pasos del procedimiento.
 

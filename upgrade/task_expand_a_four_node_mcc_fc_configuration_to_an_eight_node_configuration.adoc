@@ -35,3 +35,19 @@ Una vez finalizado este procedimiento, la configuración de MetroCluster FC est�
 image::../media/mcc_dr_groups_8_node.gif[mcc grupos dr de 8 nodos]
 
 Ambos sitios deben ser ampliados igualmente. Una configuración FC de MetroCluster no puede consistir en un número desigual de nodos.
+
+
+
+== Combinaciones de plataformas compatibles al agregar un segundo grupo de DR
+
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para las configuraciones de FC MetroCluster de ocho nodos.
+
+[IMPORTANT]
+====
+* Las combinaciones de esta tabla sólo se aplican a configuraciones normales o permanentes de ocho nodos.
+* Las combinaciones de plataformas en esta tabla *NO* se aplican si está utilizando los procedimientos de transición o actualización.
+* Todos los nodos de un grupo de recuperación ante desastres deben tener el mismo tipo y configuración.
+
+
+====
+image::../media/8node_comb_fc.png[Combinaciones de plataforma para configuraciones de 8 nodos]

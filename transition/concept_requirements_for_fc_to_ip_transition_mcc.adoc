@@ -13,7 +13,8 @@ summary: Antes de iniciar el proceso de transición, debe asegurarse de que la c
 [role="lead"]
 Antes de iniciar el proceso de transición, debe asegurarse de que la configuración cumpla los requisitos.
 
-* Debe ser una configuración de cuatro nodos y todos los nodos deben ejecutar ONTAP 9.8 o una versión posterior.
+* Si tiene una configuración de ocho nodos, todos los nodos deben ejecutar ONTAP 9.13.1 o una versión posterior.
+* Si tiene una configuración de cuatro nodos, todos los nodos deben ejecutar ONTAP 9,8 o una versión posterior.
 * Las plataformas nuevas y existentes deben ser una combinación que admita la transición.
 +
 link:concept_choosing_your_transition_procedure_mcc_transition.html["Plataformas compatibles para realizar transiciones sin interrupciones"]

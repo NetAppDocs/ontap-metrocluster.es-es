@@ -1,0 +1,32 @@
+= 
+:allow-uri-read: 
+
+
+Debe comprobar el estado de alta disponibilidad de las controladoras y el chasis y, si es necesario, actualizar el estado para que coincida con la configuración del sistema.
+
+.Pasos
+. En el modo de mantenimiento, muestre el estado de alta disponibilidad del módulo de controladora y el chasis:
++
+`ha-config show`
+
++
+El estado de alta disponibilidad para todos los componentes debe ser `mccip`.
+
+. Si el estado del sistema mostrado de la controladora o el chasis no es correcto, establezca el estado de alta disponibilidad:
++
+`ha-config modify controller mccip`
+
++
+`ha-config modify chassis mccip`
+
+. Detenga el nodo: `halt`
++
+El nodo debe detenerse en la `LOADER>` prompt.
+
+. En cada nodo, compruebe la fecha, la hora y la zona horaria del sistema: `show date`
+. Si es necesario, establezca la fecha en UTC o GMT: `set date <mm/dd/yyyy>`
+. Compruebe la hora utilizando el siguiente comando en el símbolo del sistema del entorno de arranque: `show time`
+. Si es necesario, establezca la hora en UTC o GMT: `set time <hh:mm:ss>`
+. Guarde los ajustes: `saveenv`
+. Recopile variables de entorno: `printenv`
+

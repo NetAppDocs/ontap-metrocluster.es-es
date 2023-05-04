@@ -12,6 +12,10 @@ entries:
     url: "/upgrade/concept_choosing_tech_refresh_mcc.html"
   - title: Seleccione el procedimiento de expansión
     url: "/upgrade/concept_choosing_expansion_method_mcc.html"
+- title: Actualizar controladoras en MetroCluster IP de cuatro nodos mediante conmutación
+    de sitios y conmutación de estado con comandos de sustitución de controladoras
+    del sistema (ONTAP 9.13.1 y versiones posteriores)
+  url: "/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html"
 - title: Actualice las controladoras en FC de MetroCluster mediante conmutación de
     sitios y conmutación de estado
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
@@ -32,8 +36,8 @@ entries:
   url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html"
 - title: Actualice una configuración FC de MetroCluster de cuatro nodos
   url: "/upgrade/task_refresh_4n_mcc_fc.html"
-- title: Actualizar una configuración IP de MetroCluster de cuatro nodos (ONTAP 9.8
-    y posterior)
+- title: Actualizar una configuración IP de MetroCluster de cuatro u ocho nodos (ONTAP
+    9,8 y versiones posteriores)
   url: "/upgrade/task_refresh_4n_mcc_ip.html"
 - title: Expanda una configuración MetroCluster FC de dos nodos con una configuración
     de cuatro nodos
@@ -174,8 +178,7 @@ entries:
     url: "/upgrade/task_send_a_custom_autosupport_message_after_add_nodes_to_the_mcc_configuration.html"
   - title: Verifique la conmutación de sitios, el reparación y la conmutación de estado
     url: "/upgrade/task_verify_switchover_heal_and_switchback.html"
-- title: Expanda una configuración IP de MetroCluster de cuatro nodos a una configuración
-    de ocho nodos
+- title: Expanda una configuración IP de MetroCluster
   url: "/upgrade/task_expand_a_four_node_mcc_ip_configuration.html"
 - title: Quitar un grupo de recuperación ante desastres
   url: "/upgrade/concept_removing_a_disaster_recovery_group.html"

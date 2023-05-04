@@ -19,24 +19,34 @@ El procedimiento de actualización del sistema que utilice dependerá del modelo
 
 image::../media/metrocluster_fc_tech_refresh.png[actualización tecnológica de MetroCluster fc]
 
-* Asegúrese de completar el procedimiento de actualización tecnológica antes de agregar una nueva carga.
+* Debe completar el procedimiento de actualización tecnológica antes de añadir una nueva carga.
 
 
+[NOTE]
+====
+* No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas.
+* Si los límites de la plataforma de destino son inferiores a los límites de MetroCluster, debe volver a configurar el MetroCluster para que sea igual o inferior a los límites de la plataforma de destino antes de agregar los nuevos nodos.
+* Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
 
-NOTE: No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas. Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
 
+====
 
 
 === Compatible con combinaciones de actualización tecnológica de MetroCluster IP
 
-image::../media/metrocluster_ip_tech_refresh_yellowdogp1.png[MetroCluster actualización tecnológica yellowdop1]
+image::../media/metrocluster_techref_ip.png[Combinaciones de actualizaciones tecnológicas IP de MetroCluster]
 
-* Asegúrese de completar el procedimiento de actualización tecnológica antes de agregar una nueva carga.
+* Debe completar el procedimiento de actualización tecnológica antes de añadir una nueva carga.
 
 
+[NOTE]
+====
+* No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas.
+* Si los límites de la plataforma de destino son inferiores a los límites de MetroCluster, debe volver a configurar el MetroCluster para que sea igual o inferior a los límites de la plataforma de destino antes de agregar los nuevos nodos.
+* Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
 
-NOTE: No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas. Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
 
+====
 [cols="2,1,1,2"]
 |===
 | Método de actualización | Tipo de configuración | Versión de ONTAP | Procedimiento 

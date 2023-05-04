@@ -25,9 +25,14 @@ image::../media/metrocluster_fc_ip_transition_matrix_yellowdogp1.png[matriz de t
 * Todos los procedimientos de transición requieren ONTAP 9.8 o posterior a menos que se indique lo contrario en las notas o según lo requiera una plataforma individual.
 
 
+[NOTE]
+====
+* No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas.
+* Si los límites de la plataforma de destino son inferiores a los límites de MetroCluster, debe volver a configurar el MetroCluster para que sea igual o inferior a los límites de la plataforma de destino antes de agregar los nuevos nodos.
+* Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
 
-NOTE: No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas. Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
 
+====
 Debe seleccionar un procedimiento de transición según la configuración existente de FC de MetroCluster.
 
 Un procedimiento de transición reemplaza la estructura de switch FC back-end o la conexión FC-VI con una red de switch IP. El procedimiento exacto depende de la configuración inicial.

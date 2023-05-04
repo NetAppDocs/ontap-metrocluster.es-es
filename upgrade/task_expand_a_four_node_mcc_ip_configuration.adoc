@@ -4,17 +4,22 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, autosupport 
 summary: Puede añadir cuatro nodos nuevos a la configuración IP de MetroCluster como un segundo grupo de recuperación ante desastres. Con esto se crea una configuración MetroCluster de ocho nodos. 
 ---
-= Expandir una configuración IP de MetroCluster de cuatro nodos a una configuración de ocho nodos
+= Ampliación de una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Según la versión de ONTAP, puede ampliar la configuración de IP de MetroCluster añadiendo cuatro nodos nuevos como nuevo grupo de recuperación ante desastres.
+
+A partir de ONTAP 9.13.1, se pueden añadir cuatro nodos nuevos a la configuración de IP de MetroCluster como tercer grupo de recuperación ante desastres. Esto crea una configuración MetroCluster de doce nodos.
+
 A partir de ONTAP 9.9.1, se pueden añadir cuatro nodos nuevos a la configuración IP de MetroCluster como un segundo grupo de recuperación ante desastres. Con esto se crea una configuración MetroCluster de ocho nodos.
 
 .Antes de empezar
 * Los nodos antiguos y nuevos deben ejecutar la misma versión de ONTAP.
+* Este procedimiento describe los pasos necesarios para expandir un grupo de recuperación ante desastres de cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos de DR), debe repetir todo el procedimiento para cada grupo de DR.
 * Debe asegurarse de que los modelos de plataforma anteriores y nuevos son compatibles con la mezcla de plataformas.
 +
 https://hwu.netapp.com["Hardware Universe de NetApp"^]
@@ -64,6 +69,26 @@ dr_group_2-new
 
 
 |===
+
+
+== Combinaciones de plataformas compatibles al agregar un segundo grupo de DR
+
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para las configuraciones IP de ocho nodos.
+
+[IMPORTANT]
+====
+* Las combinaciones de esta tabla sólo se aplican a configuraciones de nodos 8 normales o permanentes.
+* Las combinaciones de plataformas mostradas en esta tabla *NO* se aplican si está utilizando los procedimientos de transición o actualización.
+* Todos los nodos de un grupo de recuperación ante desastres deben tener el mismo tipo y configuración.
+
+
+====
+image::../media/8node_comb_ip.png[Combinaciones de plataforma para configuraciones de 8 nodos]
+
+* *Nota 1*: Se requiere ONTAP 9.9.1 o posterior (o la versión mínima de ONTAP admitida en la plataforma) para estas combinaciones.
+* *Nota 2*: Se requiere ONTAP 9.13.1 o posterior (o la versión mínima de ONTAP admitida en la plataforma) para estas combinaciones.
+
+
 
 
 == Envío de un mensaje de AutoSupport personalizado antes del mantenimiento

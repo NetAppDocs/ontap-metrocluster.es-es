@@ -103,4 +103,5 @@ not-enabled
 
 cluster_B::>
 ....
+. Si tiene una configuración de ocho nodos, debe repetir todo el procedimiento a partir de link:concept_requirements_for_fc_to_ip_transition_mcc.html["Preparar la transición de una configuración de IP de MetroCluster FC a MetroCluster"] Para cada uno de los grupos de recuperación de desastres FC.
 

@@ -46,7 +46,7 @@ No puede utilizar aplicaciones o dispositivos de terceros que puedan activar una
 
 == Cómo admite el Mediador ONTAP la conmutación automática no planificada
 
-El Mediador ONTAP almacena información de estado sobre los nodos MetroCluster en buzones ubicados en el host del Mediador. Los nodos MetroCluster pueden utilizar esta información para supervisar el estado de sus socios DR e implementar una conmutación automática no planificada asistida por Mediador (MAUSO) en caso de un desastre.
+El Mediador ONTAP almacena información de estado sobre los nodos MetroCluster en buzones ubicados en el host del Mediador. Los nodos MetroCluster pueden utilizar esta información para supervisar el estado de sus socios DR e implementar un MAUSO en caso de desastre.
 
 Cuando un nodo detecta un fallo de sitio que requiere una conmutación, se realizan los pasos necesarios para confirmar que la conmutación es adecuada y, de ser así, realiza la conmutación.
 
@@ -54,10 +54,9 @@ Un MAUSO sólo se inicia en los siguientes escenarios:
 
 * El mirroring de SyncMirror y el mirroring de DR de la caché no volátil de cada nodo están funcionando y las cachés y reflejos se sincronizan en el momento de la falla.
 * Ninguno de los nodos del sitio superviviente se encuentra en estado de toma de control.
+* Si se produce un desastre en el sitio. Un desastre en el sitio es un fallo de *todos* nodos en el mismo sitio.
+* A partir de ONTAP 9.13.1, si se cumplen las condiciones anteriores y un fallo de ventilador o hardware inicia un apagado del entorno, por ejemplo, una unidad de suministro de alimentación, una batería NVRAM o un fallo de latido del Service Processor, o una temperatura alta o baja.
 
-
-
-IMPORTANT: Un MAUSO sólo se inicia si se produce un desastre en el sitio. Un desastre en el sitio es un fallo de *todos* nodos en el mismo sitio; sin embargo, hay algunas excepciones.
 
 Un MAUSO se ha *no* iniciado en los siguientes escenarios de apagado:
 
@@ -67,5 +66,4 @@ Un MAUSO se ha *no* iniciado en los siguientes escenarios de apagado:
 ** reiniciar los nodos
 
 
-* Un fallo de ventilador o componentes inicia un apagado (apagado del entorno)
 

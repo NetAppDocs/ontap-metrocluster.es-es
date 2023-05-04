@@ -4,25 +4,67 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, replace, ip, switch 
 summary: 'Es posible que deba sustituir un switch con errores o actualizar o degradar un switch. El nuevo conmutador puede ser el mismo que el antiguo cuando un conmutador ha fallado, o puede cambiar el tipo de conmutador \(actualizar o degradar el conmutador\).' 
 ---
-= Reemplazar un switch IP
+= Sustituya un switch IP o cambie el uso de los switches IP de MetroCluster existentes
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Es posible que deba sustituir un switch con errores o actualizar o degradar un switch. El nuevo conmutador puede ser el mismo que el antiguo cuando un conmutador ha fallado, o puede cambiar el tipo de conmutador (actualizar o degradar el conmutador).
-
-Si desea sustituir un conmutador defectuoso con el mismo tipo de conmutador, sólo tiene que sustituir el conmutador defectuoso. Si desea actualizar o degradar un switch, debe ajustar dos switches que estén en la misma red. Dos switches se encuentran en la misma red si se conectan a un enlace entre switches (ISL) y no están ubicados en el mismo sitio. Por ejemplo, la Red 1 incluye IP_switch_A_1 y IP_switch_B_1. Network 2 incluye IP_switch_A_2 e IP_switch_B_2 como se muestra en el diagrama siguiente:
-
-image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[interconexión ip de arquitectura de hardware ip de mcc]
+Es posible que deba sustituir un switch con errores, actualizar o degradar un switch, o cambiar el uso de switches IP de MetroCluster existentes.
 
 Este procedimiento se aplica cuando se utilizan switches validados por NetApp. Si utiliza switches compatibles con MetroCluster, consulte al proveedor de switches.
 
-Si actualiza o degrada las redes, debe repetir este procedimiento para la segunda red.
+Este procedimiento admite las siguientes conversiones:
+
+* Cambiando el proveedor del switch, el tipo o ambos. El nuevo conmutador puede ser el mismo que el antiguo cuando un conmutador ha fallado, o puede cambiar el tipo de conmutador (actualizar o degradar el conmutador).
++
+Por ejemplo, para expandir una configuración IP de MetroCluster de una configuración individual de cuatro nodos mediante controladoras AFF A400 y switches BES-53248 a una configuración de ocho nodos mediante controladoras AFF A400, debe cambiar los switches a un tipo compatible para la configuración porque los switches BES-53248 no se admiten en la nueva configuración.
+
++
+Si desea reemplazar un interruptor fallido por el mismo tipo de interruptor, solo debe reemplazar el interruptor fallido. Si desea actualizar o degradar un conmutador, debe ajustar dos switches que se encuentren en la misma red. Hay dos switches en la misma red cuando se conectan a un enlace entre switches (ISL) y no se encuentran en el mismo sitio. Por ejemplo, la Red 1 incluye IP_SWITCH_A_1 e IP_SWITCH_B_1, y la Red 2 incluye IP_SWITCH_A_2 e IP_SWITCH_B_2, como se muestra en el diagrama siguiente:
+
++
+image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[interconexión ip de arquitectura de hardware ip de mcc]
+
++
+
+NOTE: Si reemplaza un conmutador o actualiza a diferentes conmutadores, puede preconfigurar los conmutadores instalando el firmware del conmutador y el archivo RCF.
+
+* Convierta una configuración de IP de MetroCluster en una configuración de IP de MetroCluster mediante switches MetroCluster de almacenamiento compartido.
++
+Por ejemplo, si tiene una configuración IP MetroCluster regular con controladoras AFF A700 y desea volver a configurar MetroCluster para conectar las bandejas NS224 a los mismos switches.
+
++
+[NOTE]
+====
+** Si desea añadir o quitar bandejas en una configuración de IP de MetroCluster mediante switches IP de MetroCluster de almacenamiento compartido, siga los pasos de link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_add_shelves_using_shared_storage.html["Añadir bandejas a una IP de MetroCluster mediante switches MetroCluster de almacenamiento compartido"]
+** Es posible que el IP de MetroCluster ya se conecte directamente a bandejas NS224 o a switches de almacenamiento dedicados.
+
+
+====
+
+
+.Hoja de trabajo de uso del puerto
+A continuación se muestra un ejemplo de hoja de datos para convertir una configuración de IP de MetroCluster en una configuración de almacenamiento compartido conectando dos bandejas NS224 con los switches existentes.
+
+Definiciones de hoja de trabajo:
+
+* Configuración existente: El cableado de la configuración de MetroCluster existente.
+* Nueva configuración con NS224 bandejas: La configuración de destino donde los switches se comparten entre el almacenamiento y MetroCluster.
+
+
+Los campos resaltados en esta hoja de trabajo indican lo siguiente:
+
+* Verde: No es necesario cambiar el cableado.
+* Amarillo: Debe mover los puertos con la misma configuración o con otra diferente.
+* Azul: Puertos que son conexiones nuevas.
+
+
+image:../media/mcc_port_usage_workflow.png[""]
 
 .Pasos
-. Compruebe el estado de la configuración.
+. [[ALL_step1]]Compruebe el estado de la configuración.
 +
 .. Compruebe que la MetroCluster esté configurada y en modo normal de cada clúster: `*metrocluster show*`
 +
@@ -76,6 +118,9 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 
 . Configure el nuevo interruptor antes de instalarlo.
 +
+Si está reutilizando los interruptores existentes, vaya a. <<existing_step4,Paso 4>>.
+
++
 
 NOTE: Si está actualizando o degradando los switches, debe configurar todos los switches de la red.
 
@@ -92,31 +137,103 @@ Si actualiza o degrada un conmutador, aplique el último archivo RCF admitido pa
 +
 `*network port show*`
 
-. Desconecte las conexiones ISL del conmutador remoto que se conectan al conmutador antiguo.
+. [[existing_step4]]Desconecte las conexiones del interruptor antiguo.
 +
-Debe desconectar las conexiones ISL de los puertos en IP_switch_A_1 que se conectan a IP_switch_B_1.
 
-. Apague el interruptor, retire los cables y retire físicamente IP_switch_B_1.
-. Instale el nuevo interruptor.
+NOTE: Solo se desconectan las conexiones que no estén utilizando el mismo puerto en las configuraciones nuevas y antiguas. Si utiliza switches nuevos, debe desconectar todas las conexiones.
+
 +
-Conecte primero el nuevo conmutador (incluidos los ISL) de acuerdo con los pasos de la sección _cableando los conmutadores IP_ del link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Instalación y configuración de IP de MetroCluster"].
+Quite las conexiones en el siguiente orden:
 
++
+** Si las interfaces del clúster local están conectadas a un switch:
++
+*** Desconecte las interfaces del clúster local
+*** Desconecte los ISL del clúster local
+
+
+** Desconecte las interfaces IP de MetroCluster
+** Desconecte los ISL de MetroCluster
++
+En el ejemplo <<port_usage_worksheet>>, los interruptores no cambian. Los ISL de MetroCluster se reubican y deben desconectarse. No es necesario desconectar las conexiones marcadas en verde en la hoja de trabajo.
+
+
+
+. Si está utilizando interruptores nuevos, apague el interruptor antiguo, retire los cables y retire físicamente el IP_SWITCH_B_1 antiguo.
++
+Si está reutilizando los interruptores existentes, vaya a. <<existing_step6,Paso 6>>.
+
++
+
+NOTE: No conecte el cable a los nuevos interruptores excepto a la interfaz de administración (si se utiliza).
+
+. [[Existing_step6]]Configure los conmutadores existentes.
++
+Si ya ha configurado previamente los switches, puede omitir este paso.
+
++
+Para configurar los switches existentes, siga los pasos para instalar y actualizar el firmware y los archivos RCF:
+
++
+** link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_upgrade_firmware_on_mcc_ip_switches.html["Actualización del firmware en switches MetroCluster IP"]
+** link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html["Actualice los archivos RCF en switches MetroCluster IP"]
+
+
+. Conecte los cables de los interruptores.
++
+Puede seguir los pasos de la sección _Cableando los conmutadores IP_ en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Instalación y configuración de IP de MetroCluster"].
+
++
+Conecte los cables de los interruptores en el siguiente orden (si es necesario):
+
++
+.. Conecte los cables ISLs al sitio remoto.
+.. Conecte el cable de las interfaces IP de MetroCluster.
+.. Cablee las interfaces del clúster local.
 +
 [NOTE]
 ====
-Los puertos utilizados pueden ser diferentes de los del switch antiguo si el tipo de switch es diferente. Si va a actualizar o cambiar a una versión anterior de los switches, realice *NO* el cableado de los ISL locales. Sólo conecte los cables ISL locales si va a actualizar o a cambiar la versión anterior de los switches de la segunda red y los dos switches de un sitio son del mismo tipo.
+*** Los puertos utilizados pueden ser diferentes de los del switch antiguo si el tipo de switch es diferente. Si va a actualizar o cambiar a una versión anterior de los switches, realice *NO* el cableado de los ISL locales. Solo conecte los cables de los ISL locales si va a actualizar o cambiar a una versión anterior de los switches de la segunda red, y los dos switches de un sitio son del mismo tipo y cableado.
+*** Si va a actualizar Switch-A1 y Switch-B1, debe realizar los pasos 1 a 6 para los switches Switch-A2 y Switch-B2.
+
 
 ====
+
+
+. Finalice el cableado del clúster local.
++
+.. Si las interfaces del clúster local están conectadas a un switch:
++
+... Conecte los cables de los ISL del clúster local.
+
+
+.. Si las interfaces del clúster local están *NOT* conectadas a un switch:
++
+... Utilice la link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched.html["Migrar a un entorno de clúster de NetApp conmutado"] procedimiento para convertir un clúster sin switches en un clúster con switches. Utilice los puertos indicados en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Instalación y configuración de IP de MetroCluster"] O los archivos de cableado RCF para conectar la interfaz del clúster local.
+
+
+
+
 . Encienda el interruptor o los interruptores.
 +
 Si el nuevo interruptor es el mismo, encienda el nuevo interruptor. Si está actualizando o degradando los interruptores, encienda ambos interruptores. La configuración puede funcionar con dos switches diferentes en cada centro hasta que se actualice la segunda red.
 
-. Verifique que la configuración de MetroCluster esté en buen estado repitiendo el paso 1.
+. Repita para comprobar que la configuración de MetroCluster sea correcta <<all_step1,Paso 1>>.
 +
 Si va a actualizar o a cambiar a una versión anterior de los switches de la primera red, es posible que haya algunas alertas relacionadas con la agrupación en clúster local.
 
 +
 
 NOTE: Si actualiza o degrada las redes, repita todos los pasos para la segunda red.
+
+. De manera opcional, mueva las bandejas NS224.
++
+Si va a volver a configurar una configuración IP de MetroCluster que no conecta las bandejas de NS224 a los switches IP de MetroCluster, utilice el procedimiento adecuado para añadir o mover las bandejas NS224:
+
++
+** link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_add_shelves_using_shared_storage.html["Añadir bandejas a una IP de MetroCluster mediante switches MetroCluster de almacenamiento compartido"]
+** link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-storage.html["Migre desde un clúster sin switches con almacenamiento de conexión directa"^]
+** link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-from-switchless-configuration-sat-storage.html["Migre de una configuración sin switches con almacenamiento conectado mediante la reutilización de los switches de almacenamiento"^]
+
 
 

@@ -17,7 +17,7 @@ Esta operación de conmutación de sitios guiada automatizada de MetroCluster se
 
 == Combinaciones de plataformas compatibles
 
-Este procedimiento admite actualizaciones de controladoras de FAS8200 a FAS9500 y de AFF A300 a AFF A900.
+Este procedimiento solo admite las actualizaciones de controladoras de AFF A300 a AFF A900.
 
 Para obtener más información sobre las combinaciones de actualización de plataformas, revise la tabla de actualización IP de MetroCluster en link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-ip-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
 
@@ -88,7 +88,7 @@ En este procedimiento se utilizan los nombres de ejemplo siguientes:
 
 Para preparar la actualización de la controladora, debe realizar comprobaciones previas del sistema y recopilar la información de la configuración.
 
-Antes de que se inicien las comprobaciones previas, si se instala ONTAP Mediator, se detecta y elimina automáticamente. Para confirmar la eliminación, se le pedirá que introduzca un nombre de usuario y una contraseña. Cuando completa la actualización, o si las comprobaciones previas fallan o si elige no continuar con la actualización, debe link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html#reconfigure-ontap-mediator["Reconfigurar manualmente ONTAP Mediator"].
+Antes de que se inicien las comprobaciones previas, si se instala ONTAP Mediator, se detecta y elimina automáticamente. Para confirmar la eliminación, se le pedirá que introduzca un nombre de usuario y una contraseña. Cuando completa la actualización, o si las comprobaciones previas fallan o si elige no continuar con la actualización, debe <<man_reconfig_mediator,Reconfigurar manualmente ONTAP Mediator>>.
 
 En cualquier momento durante la actualización, puede ejecutar el `system controller replace show` o. `system controller replace show-details` Comando del sitio A para comprobar el estado. Si los comandos devuelven un resultado en blanco, espere unos minutos y vuelva a ejecutar el comando.
 
@@ -282,7 +282,7 @@ Para garantizar que la red se reanude correctamente en las nuevas controladoras,
 
 .Acerca de esta tarea
 * Esta tarea se debe realizar en cada uno de los nodos antiguos.
-* Utilizará la información recopilada en <<Preparando la actualización>>.
+* Utilizará la información recopilada en <<Prepare la actualización>>.
 
 
 .Pasos

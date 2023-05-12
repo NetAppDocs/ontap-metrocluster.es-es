@@ -39,7 +39,7 @@ No se admite ninguna configuración o función que requiera que las conexiones d
 ** Por ejemplo, si se conecta:
 +
 *** Dos configuraciones de MetroCluster que constan únicamente de FAS2750/AFF A220 o FAS500f/AFF A250 son, debe seleccionar los grupos de puertos MetroCluster 3 y 4.
-*** Dos configuraciones de MetroCluster donde un MetroCluster sea de tipo FAS2750/AFF A220 y el otro sea FAS500f/AFF A250, debe seleccionar los grupos de puertos 3 y 4 para uno, y los grupos de puertos 1 y 2 para el otro. En la https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"], los campos de lista desplegable 1 y 2 sólo se rellenan con la plataforma admitida después de seleccionar plataformas en los campos de lista desplegable 3 y 4. Consulte link:../install-ip/using_rcf_generator.html["Utilizar las tablas de puertos con la herramienta RcfFileGenerator o varias configuraciones de MetroCluster"] para obtener más información sobre cómo utilizar las tablas de puertos.
+*** Dos configuraciones de MetroCluster donde un MetroCluster sea de tipo FAS2750/AFF A220 y el otro sea FAS500f/AFF A250, debe seleccionar los grupos de puertos 3 y 4 para uno, y los grupos de puertos 1 y 2 para el otro. En la https://["RcfFileGenerator para MetroCluster IP"], los campos de lista desplegable 1 y 2 sólo se rellenan con la plataforma admitida después de seleccionar plataformas en los campos de lista desplegable 3 y 4. Consulte link:../install-ip/using_rcf_generator.html["Utilizar las tablas de puertos con la herramienta RcfFileGenerator o varias configuraciones de MetroCluster"] para obtener más información sobre cómo utilizar las tablas de puertos.
 
 
 

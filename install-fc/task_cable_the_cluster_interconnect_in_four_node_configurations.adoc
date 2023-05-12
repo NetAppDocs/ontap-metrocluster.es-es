@@ -11,7 +11,7 @@ summary: En configuraciones MetroCluster de ocho o cuatro nodos, debe conectar l
 
 
 [role="lead"]
-En configuraciones MetroCluster de ocho o cuatro nodos, debe conectar la interconexión del clúster entre los módulos de la controladora local en cada sitio.
+En configuraciones MetroCluster de ocho o cuatro nodos, debe conectar mediante cable la interconexión de clústeres entre los módulos de la controladora local en cada sitio.
 
 .Acerca de esta tarea
 No es necesaria esta tarea en configuraciones de MetroCluster de dos nodos.
@@ -23,6 +23,6 @@ Esta tarea debe realizarse en los dos sitios MetroCluster.
 
 
 .Información relacionada
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+https://["Centro de documentación de AFF y FAS"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["Gestión de redes y LIF"]
+link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Gestión de redes y LIF"^]

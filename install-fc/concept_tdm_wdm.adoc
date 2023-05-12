@@ -13,7 +13,7 @@ La herramienta Hardware Universe proporciona algunas notas acerca de los requisi
 
 Un ejemplo de estos requisitos es que el equipo TDM/WDM debe admitir la característica de agregación de enlaces (trunking) con las políticas de enrutamiento. El orden de entrega (IOD o OOD) de marcos se mantiene dentro de un conmutador y se determina por la política de enrutamiento que está en vigor.
 
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+https://["Hardware Universe de NetApp"]
 
 En la siguiente tabla se describen las directivas de enrutamiento de las configuraciones que contienen switches Brocade y switches Cisco:
 

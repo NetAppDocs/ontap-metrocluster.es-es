@@ -86,7 +86,7 @@ system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warning
 ** Bandejas de almacenamiento
 
 
-. Espere treinta minutos y, a continuación, encienda todos los controladores.
+. Espere treinta minutos y, a continuación, encienda todas las bandejas de almacenamiento, los switches IP de MetroCluster y las controladoras de almacenamiento.
 . Después de encender las controladoras, compruebe la configuración de MetroCluster en ambos sitios.
 +
 Para verificar la configuración, repita el paso 1.

@@ -52,8 +52,8 @@ Filename : NX3232_v1.80_Switch-A2.txt
 . Para comprobar qué archivos son compatibles con una versión, conmutador y plataforma ONTAP específica, utilice el RcfFileGenerator. Si puede generar el archivo RCF para la configuración que tiene o a la que desea actualizar, se admite.
 . Para verificar que el firmware del switch es compatible, consulte lo siguiente:
 +
-** https://hwu.netapp.com["Hardware Universe"]
-** https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilidad de NetApp"]
+** https://["Hardware Universe"]
+** https://["Interoperabilidad de NetApp"]
 
 
 

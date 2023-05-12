@@ -156,7 +156,7 @@ cluster_B::>
 Los clústeres de la configuración de MetroCluster deben tener una relación entre iguales para que puedan comunicarse entre sí y realizar las operaciones de mirroring de datos esenciales para la recuperación ante desastres de MetroCluster.
 
 .Información relacionada
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
+http://["Configuración exprés de relación entre iguales de clústeres y SVM"]
 
 link:concept_considerations_peering.html#considerations-when-using-dedicated-ports["Consideraciones que tener en cuenta al utilizar puertos dedicados"]
 
@@ -1936,7 +1936,7 @@ Esto refleja el agregado, por lo que consta de un complejo local y un complejo r
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Gestión de almacenamiento lógico"]
+https://["Gestión de almacenamiento lógico"]
 
 
 
@@ -1953,7 +1953,7 @@ En los sistemas que utilizan ADP, los agregados se crean utilizando particiones 
 
 * Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster.
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+https://["Gestión de discos y agregados"]
 
 
 
@@ -2208,7 +2208,7 @@ true`
 Puede usar los procedimientos en la documentación de instalación y configuración para su plataforma y bandejas de discos.
 
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+https://["Centro de documentación de AFF y FAS"]
 
 . Asigne manualmente todos los discos de la bandeja nueva al nodo apropiado:
 +
@@ -2269,7 +2269,7 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+https://["Gestión de discos y agregados"]
 
 
 
@@ -2407,9 +2407,9 @@ mccint-fas9000-0304
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+https://["Gestión de discos y agregados"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["Gestión de redes y LIF"]
+link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Gestión de redes y LIF"^]
 
 
 

@@ -54,7 +54,7 @@ Si los nuevos modelos de plataforma no admiten las bandejas existentes, consulte
 
 * Debe asegurarse de no superar los límites de la plataforma para unidades, etc.
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"^]
+https://["Hardware Universe de NetApp"^]
 
 
 
@@ -86,7 +86,7 @@ Debe tener entre 14 y 18 unidades adicionales cada una para la tercera y cuarta 
 Esta información está disponible para cada modelo de plataforma en _NetApp Hardware Universe_.
 
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"^]
+https://["Hardware Universe de NetApp"^]
 
 
 
@@ -250,7 +250,7 @@ Segundo puerto IP MetroCluster en node_B_1-FC
 El uso del puerto de la controladora depende del modelo de plataforma y del modelo de switch de IP que se usarán en la configuración de IP de MetroCluster. Puede recopilar el uso del puerto de las nuevas plataformas en _Hardware Universe_ de NetApp.
 
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"^]
+https://["Hardware Universe de NetApp"^]
 
 . Si lo desea, registre la información del puerto para node_A_1-FC y node_A_1-IP.
 +
@@ -707,7 +707,7 @@ Esta tarea se realiza en la configuración de MetroCluster FC.
 
 .. Ejecute Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+https://["Descargas de NetApp: Config Advisor"^]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 

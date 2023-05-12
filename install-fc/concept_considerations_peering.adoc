@@ -12,7 +12,7 @@ summary: Al preparar la instalación de MetroCluster, debe comprender la arquite
 Cada sitio de MetroCluster se configura como un par para su sitio de partner. Debe estar familiarizado con los requisitos previos y las directrices para configurar las relaciones de paridad. Esto es importante a la hora de decidir si se deben utilizar puertos compartidos o dedicados para esas relaciones.
 
 .Información relacionada
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
+http://["Configuración exprés de relación entre iguales de clústeres y SVM"]
 
 
 

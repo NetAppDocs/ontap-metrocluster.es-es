@@ -13,7 +13,7 @@ summary: El puente FibreBridge 7600N es compatible con ONTAP 9.5 y versiones pos
 [role="lead"]
 El puente FibreBridge 7600N es compatible con ONTAP 9.5 y versiones posteriores como reemplazo del puente FibreBridge 7500N o 6500N o al agregar nuevo almacenamiento a la configuración de MetroCluster. Los requisitos y restricciones de división en zonas con respecto al uso de los puertos FC del puente son los mismos que los del puente FibreBridge 7500N.
 
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 
 NOTE: Los puentes FibreBridge 6500N no se admiten en configuraciones que ejecuten ONTAP 9.8 y posteriores.

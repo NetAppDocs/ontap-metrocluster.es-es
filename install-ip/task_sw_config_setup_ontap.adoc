@@ -184,13 +184,13 @@ Where is the controller located []: site_A
 ----
 .. Complete la configuración del nodo, pero no cree agregados de datos.
 +
-Puede usar System Manager de ONTAP para dirigir el navegador web a la dirección IP de administración del clúster (https://172.17.12.153)[].
+Puede usar System Manager de ONTAP para dirigir el navegador web a la dirección IP de administración del clúster .
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["Gestión de clústeres mediante System Manager (versiones de 9.0 a 9.6)"]
+https://["Gestión de clústeres mediante System Manager (ONTAP 9,7 y versiones anteriores)"^]
 
 +
-https://docs.netapp.com/us-en/ontap/index.html#about-ontap-system-manager["Administrador del sistema de ONTAP (versión 9.7 y posterior)"]
+https://["Administrador del sistema de ONTAP (versión 9.7 y posterior)"]
 
 
 

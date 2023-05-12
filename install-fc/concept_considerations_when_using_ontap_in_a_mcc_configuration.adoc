@@ -68,7 +68,7 @@ Cuando se activa la conmutación, y si Site_A y site_C no están conectados, deb
 Una vez realizada la conmutación de estado, debe volver a derogar las SVM en site_A (el clúster original) y site_C.
 
 .Información relacionada
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["Gestión de volúmenes de FlexCache"^]
+link:https://docs.netapp.com/us-en/ontap/flexcache/index.html["Gestión de volúmenes de FlexCache con interfaz de línea de comandos"^]
 
 
 
@@ -76,7 +76,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["Gesti
 
 A partir de ONTAP 9.7, las configuraciones de MetroCluster admiten niveles de almacenamiento de FabricPool.
 
-Para obtener información general sobre el uso de FabricPool, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+Para obtener información general sobre el uso de FabricPool, consulte link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Gestión de discos y niveles (agregados)"^].
 
 
 
@@ -95,14 +95,14 @@ Este puede ser el espacio IP predeterminado, o un espacio IP que haya creado una
 === Configuración de un agregado para su uso en una FabricPool duplicada
 
 
-NOTE: Antes de configurar el agregado, debe configurar almacenes de objetos como se describe en "Configuración de almacenes de objetos para FabricPool en una configuración de MetroCluster" en lahttps://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+NOTE: Antes de configurar el agregado, debe configurar almacenes de objetos como se describe en "Configuración de almacenes de objetos para FabricPool en una configuración de MetroCluster" en lahttps://["Gestión de discos y agregados"]
 
 .Pasos
 Para configurar un agregado para su uso en FabricPool:
 
 . Cree el agregado o seleccione uno existente.
 . Refleje el agregado como un agregado reflejado típico en la configuración de MetroCluster.
-. Cree el reflejo de FabricPool con el agregado, tal como se describe en https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
+. Cree el reflejo de FabricPool con el agregado, tal como se describe en https://["Gestión de discos y agregados"]
 +
 .. Asocie un almacén de objetos primario.
 +
@@ -126,7 +126,7 @@ A partir de la versión 9.6 de ONTAP, las configuraciones de MetroCluster admite
 
 == Compatibilidad de grupos de consistencia en las configuraciones de MetroCluster
 
-A partir de ONTAP 9.11.1, https://docs.netapp.com/us-en/ontap/consistency-groups/index.html["grupos de consistencia"^] Son compatibles con las configuraciones de MetroCluster.
+A partir de ONTAP 9.11.1, https://["grupos de consistencia"^] Son compatibles con las configuraciones de MetroCluster.
 
 
 
@@ -158,7 +158,7 @@ Una configuración de cliente LDAP creada en una máquina virtual de almacenamie
 Debe saber cómo se crean y se replican los LIF en una configuración de MetroCluster. También debe conocer el requisito de coherencia para poder tomar las decisiones adecuadas al configurar la red.
 
 .Información relacionada
-* https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["Gestión de redes y LIF"]
+* https://["Gestión de redes y LIF"]
 * Debe tener en cuenta los requisitos para replicar los objetos IPspace en el clúster de partner y para configurar subredes e IPv6 en una configuración de MetroCluster.
 +
 <<ipspace_obj_rep,Requisitos de configuración de subred y replicación de objetos IP>>

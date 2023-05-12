@@ -41,7 +41,7 @@ Si realiza cables con varias configuraciones de MetroCluster, siga la tabla corr
 
 NOTE: Los puertos 13 y 14 se pueden utilizar en el modo de velocidad nativa que admite 40 Gbps y 100 Gbps, o en el modo de arranque para admitir 4 × 25 Gbps o 4 × 10 Gbps. Si utilizan el modo de velocidad nativo, se representan como puertos 13 y 14. Si utilizan el modo de arranque, 4 × 25 Gbps o 4 × 10 Gbps, entonces se representan como puertos 13s0-3 y 14s0-3.
 
-En las siguientes secciones se describe el esquema del cableado físico. También puede consultar la https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"] para obtener información detallada sobre el cableado.
+En las siguientes secciones se describe el esquema del cableado físico. También puede consultar la https://["RcfFileGenerator"] para obtener información detallada sobre el cableado.
 
 
 

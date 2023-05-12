@@ -25,7 +25,7 @@ Los cuatro switches deben estar conectados en dos estructuras de dos switches ca
 * No se pueden utilizar el cifrado o la compresión en la estructura de almacenamiento de Cisco FC. No es compatible con la configuración de MetroCluster.
 
 
-En la https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp (IMT)"], Puede utilizar el campo solución de almacenamiento para seleccionar la solución MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
+En la https://["Herramienta de matriz de interoperabilidad de NetApp (IMT)"], Puede utilizar el campo solución de almacenamiento para seleccionar la solución MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
 
 .Acerca de esta tarea
 El siguiente requisito se aplica a las conexiones de enlace entre switches (ISL):
@@ -55,7 +55,7 @@ Puede configurar sistemas FAS8020, AFF8020, FAS8200 y AFF A300 con dos puertos i
 
 
 .Información relacionada
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+https://["Herramienta de matriz de interoperabilidad de NetApp"]
 
 
 

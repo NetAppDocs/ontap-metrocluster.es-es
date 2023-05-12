@@ -19,7 +19,7 @@ Para preparar la adición en caliente de una bandeja de discos SAS es necesario 
 Es posible que desee actualizar el firmware del disco y de la bandeja en toda la configuración de MetroCluster antes de añadir bandejas.
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["Actualización, reversión o degradación"]
+https://["Actualización, reversión o degradación"]
 
 
 
@@ -33,13 +33,13 @@ NOTE: Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma 
 .Pasos
 . Descargue o consulte los siguientes documentos desde el sitio de soporte de NetApp:
 +
-** https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+** https://["Herramienta de matriz de interoperabilidad de NetApp"]
 ** El _Guía de instalación_ correspondiente al modelo de bandeja de discos.
 
 
 . Compruebe que la bandeja de discos que desea añadir en caliente es compatible.
 +
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+https://["Herramienta de matriz de interoperabilidad de NetApp"]
 
 . Descargue el firmware de disco y de bandeja de discos más reciente:
 +
@@ -49,11 +49,11 @@ NOTE: En este paso, sólo está completando la parte de descarga de las instrucc
 +
 .. Descargue el firmware del disco y haga una copia de las instrucciones del firmware del disco para consultarla más adelante.
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"]
+https://["Descargas de NetApp: Firmware de la unidad de disco"]
 
 .. Descargue el firmware de la bandeja de discos y haga una copia de las instrucciones del firmware de la bandeja de discos para referencia posterior.
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"]
+https://["Descargas de NetApp: Firmware de bandeja de discos"]
 
 
 

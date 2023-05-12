@@ -155,7 +155,7 @@ Cuando se añaden nuevas bandejas, el sistema aplica la misma política de asign
 .Información relacionada
 link:concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["Componentes de MetroCluster IP y convenciones de nomenclatura necesarias"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+https://["Gestión de discos y agregados"^]
 
 
 
@@ -168,7 +168,7 @@ NOTE: En los sistemas que utilizan ADP, los agregados se crean utilizando partic
 
 Debe cumplir los límites de MetroCluster para la cantidad máxima de unidades compatibles y otras directrices.
 
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+https://["Hardware Universe de NetApp"]
 
 
 

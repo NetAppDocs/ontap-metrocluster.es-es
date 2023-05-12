@@ -23,7 +23,7 @@ Si tiene pensado utilizar sólo uno de los puertos FC de los puentes FibreBridge
 +
 Los archivos RCF deben aplicarse a los interruptores correctos.
 
-. Descargue los archivos RCF de los conmutadores desde https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["Descarga de RCF de MetroCluster"] página.
+. Descargue los archivos RCF de los conmutadores desde https://["Descarga de RCF de MetroCluster"] página.
 +
 Los archivos se deben colocar en una ubicación en la que puedan transferirse al conmutador. Hay un archivo separado para cada uno de los cuatro switches que conforman la estructura de dos switches.
 

@@ -64,7 +64,7 @@ Las operaciones locales de conmutación por error y devolución del servicio de 
 image::../media/mcc_ip_hardware_architecture_ha_pairs.gif[arquitectura de hardware ip de mcc pares de alta disponibilidad]
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["Conceptos de ONTAP"]
+https://["Conceptos de ONTAP"]
 
 
 
@@ -98,7 +98,7 @@ Las LIF de interconexión de clústeres deben configurarse en cada nodo de la co
 image::../media/mcc_ip_hardware_architecture_cluster_peering_network.gif[mcc arquitectura de hardware ip red de interconexión de clústeres]
 
 .Información relacionada
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
+http://["Configuración exprés de relación entre iguales de clústeres y SVM"]
 
 link:concept_considerations_peering.html["Consideraciones que tener en cuenta al configurar la relación de clústeres entre iguales"]
 

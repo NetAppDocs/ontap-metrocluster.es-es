@@ -1706,7 +1706,7 @@ ha-config modificar el mccip del chasis
 
 Debe configurar ONTAP en cada módulo de controladora.
 
-Si debe reiniciar el sistema de las nuevas controladoras, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-3370EC34-310E-4F09-829F-F632EC8CDD9B.html["Netarrancando los nuevos módulos del controlador"] En la _MetroCluster Guía de actualización, transición y ampliación_.
+Si debe reiniciar el sistema de las nuevas controladoras, consulte http://["Netarrancando los nuevos módulos del controlador"] En la _MetroCluster Guía de actualización, transición y ampliación_.
 
 
 
@@ -1806,7 +1806,7 @@ Si necesita cambiar cualquiera de los ajustes introducidos para la SVM de admini
 
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["Configuración de software"]
+https://["Configuración de software"]
 
 
 
@@ -1947,7 +1947,7 @@ Debe configurar la paridad de los clústeres, reflejar los agregados raíz, crea
 Los clústeres de la configuración de MetroCluster deben tener una relación entre iguales para que puedan comunicarse entre sí y realizar las operaciones de mirroring de datos esenciales para la recuperación ante desastres de MetroCluster.
 
 .Información relacionada
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
+http://["Configuración exprés de relación entre iguales de clústeres y SVM"]
 
 link:concept_prepare_for_the_mcc_installation.html["Consideraciones que tener en cuenta al utilizar puertos dedicados"]
 
@@ -2596,7 +2596,7 @@ Esto refleja el agregado, por lo que consta de un complejo local y un complejo r
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Gestión de almacenamiento lógico"^]
+https://["Gestión de almacenamiento lógico"^]
 
 
 
@@ -2608,7 +2608,7 @@ Debe crear un agregado de datos reflejados en cada nodo del grupo de recuperaci�
 * Debe conocer qué unidades o LUN de cabina se utilizarán en el nuevo agregado.
 * Si tiene varios tipos de unidades en el sistema (almacenamiento heterogéneo), debe comprender cómo puede asegurarse de seleccionar el tipo de unidad correcto.
 * Las unidades y los LUN de cabina son propiedad de un nodo específico; cuando se crea un agregado, todas las unidades de ese agregado deben ser propiedad del mismo nodo, que se convierte en el nodo inicial para ese agregado.
-* Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster. Consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^].
+* Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster. Consulte https://["Gestión de discos y agregados"^].
 
 
 .Pasos
@@ -2733,7 +2733,7 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+https://["Gestión de discos y agregados"^]
 
 
 
@@ -2802,7 +2802,7 @@ Debe responder con `y` cuando se le pida que continúe en modo avanzado y vea el
 --
 [NOTE]
 ====
-Lo mejor es disponer de varios agregados de datos. Si el primer grupo de recuperación ante desastres tiene un solo agregado y desea añadir un grupo de recuperación ante desastres con un agregado, debe mover el volumen de metadatos fuera del agregado de datos único. Para obtener más información sobre este procedimiento, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/GUID-114DAE6E-F105-4908-ABB1-CE1D7B5C7048.html["Mover un volumen de metadatos en configuraciones de MetroCluster"^].
+Lo mejor es disponer de varios agregados de datos. Si el primer grupo de recuperación ante desastres tiene un solo agregado y desea añadir un grupo de recuperación ante desastres con un agregado, debe mover el volumen de metadatos fuera del agregado de datos único. Para obtener más información sobre este procedimiento, consulte http://["Mover un volumen de metadatos en configuraciones de MetroCluster"^].
 
 ====
 --
@@ -3172,7 +3172,7 @@ Si se muestra el nombre a nivel mundial (WWN) del switch, el monitor de estado O
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Administración del sistema"^]
+https://["Administración del sistema"^]
 
 
 
@@ -3370,9 +3370,9 @@ mccint-fas9000-0304
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+https://["Gestión de discos y agregados"^]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["Gestión de redes y LIF"^]
+https://["Gestión de redes y LIF"^]
 
 
 
@@ -3389,7 +3389,7 @@ NOTE: El soporte para Config Advisor es limitado y solo está disponible en lín
 .Pasos
 . Vaya a la página de descarga de Config Advisor y descargue la herramienta.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+https://["Descargas de NetApp: Config Advisor"^]
 
 . Ejecute Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 
@@ -3500,7 +3500,7 @@ controller_A_2 controller_A_1 true     Connected to controller_A_1
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["Configuración de alta disponibilidad"^]
+https://["Configuración de alta disponibilidad"^]
 
 
 
@@ -3509,7 +3509,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["Conf
 Debe verificar las operaciones de conmutación de sitios, reparación y conmutación de estado de la configuración de MetroCluster.
 
 .Paso
-. Utilice los procedimientos para la conmutación negociada, la reparación y la conmutación de regreso https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["Gestión y recuperación ante desastres de MetroCluster"]
+. Utilice los procedimientos para la conmutación negociada, la reparación y la conmutación de regreso https://["Gestión y recuperación ante desastres de MetroCluster"]
 
 
 
@@ -3524,9 +3524,9 @@ Puede proporcionar una protección adicional para los archivos de backup de conf
 `system configuration backup settings modify URL-of-destination`
 
 +
-https://docs.netapp.com/us-en/ontap/system-admin/config-backup-file-concept.html["Gestión de backups de configuración"^] contiene información adicional.
+https://["Gestión de backups de configuración"^] contiene información adicional.
 
 
 
 .Información relacionada
-https://docs.netapp.com/us-en/ontap/cluster-admin/index.html["Administración de clústeres"^]
+https://["Administración de clústeres"^]

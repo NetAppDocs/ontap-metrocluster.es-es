@@ -32,4 +32,4 @@ image::../media/two_node_mcc_combined_array_luns.gif[mcc de dos nodos lun de cab
 
 NOTE: Si es necesario, también puede utilizar los mismos switches FC para conectar los discos nativos y los LUN de cabina a las controladoras de la configuración MetroCluster.
 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+https://["Instalación y configuración de MetroCluster estructural"]

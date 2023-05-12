@@ -81,7 +81,7 @@ Una vez completada «'9a'», los nodos vuelven automáticamente al menú de inic
 Consulte los procedimientos de instalación y configuración de la controladora para obtener información sobre el cableado.
 
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+https://["Centro de documentación de AFF y FAS"^]
 
 . Conecte los cables de las controladoras a los switches IP como se describe en link:../install-ip/using_rcf_generator.html["Cableado de los switches IP"].
 . Prepare los switches IP para la aplicación de los nuevos archivos RCF.
@@ -199,7 +199,7 @@ MetroCluster Transition: Please confirm if this is the correct value [yes|no]:? 
  a| 
 `security key-manager onboard sync`
 
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["Restauración de las claves de cifrado de gestión de claves incorporadas"^].
+Para obtener más información, consulte https://["Restauración de las claves de cifrado de gestión de claves incorporadas"^].
 
 
 
@@ -208,7 +208,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
  a| 
 `security key-manager key query -node node-name`
 
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["Restauración de claves de cifrado de gestión de claves externas"^].
+Para obtener más información, consulte https://["Restauración de claves de cifrado de gestión de claves externas"^].
 
 |===
 . Si el volumen raíz está cifrado, utilice el procedimiento en link:../transition/task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html#recovering-key-management-if-the-root-volume-is-encrypted["Se recupera la gestión de claves si el volumen raíz se cifra"].
@@ -393,7 +393,7 @@ El espacio IP del clúster y el dominio de retransmisión del clúster son neces
 
 .. Cree espacios IP y asigne puertos de clúster según sea necesario.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-69120CF0-F188-434F-913E-33ACB8751A5D.html["Configurar espacios IP (solo administradores de clúster)"^]
+http://["Configurar espacios IP (solo administradores de clúster)"^]
 
 .. Vea los dominios de retransmisión:
 +
@@ -401,17 +401,17 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-69120CF0-F18
 
 .. Añada cualquier puerto de clúster a un dominio de retransmisión según sea necesario.
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["Agregar o quitar puertos de un dominio de retransmisión"^]
+https://["Agregar o quitar puertos de un dominio de retransmisión"^]
 
 .. Vuelva a crear las VLAN y los grupos de interfaces según sea necesario.
 +
 La pertenencia a la VLAN y al grupo de interfaces puede ser diferente de la del nodo antiguo.
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["Creación de una VLAN"^]
+https://["Creación de una VLAN"^]
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["Combinación de puertos físicos para crear grupos de interfaces"^]
+https://["Combinación de puertos físicos para crear grupos de interfaces"^]
 
 
 
@@ -626,9 +626,9 @@ Si la opción «'9c» no tiene éxito, siga los pasos siguientes para evitar pos
 +
 ** No intente ejecutar la opción 9a.
 ** Desconecte físicamente las bandejas existentes que contienen datos de la configuración original de FC de MetroCluster (shelf_A_1, shelf_A_2, shelf_B_1, shelf_B_2).
-** Póngase en contacto con el soporte técnico, haciendo referencia al artículo de la base de conocimientos https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/MetroCluster_FC_to_IP_transition_-_Option_9c_Failing["Transición de FC a IP de MetroCluster: Fallo en la opción 9c"^].
+** Póngase en contacto con el soporte técnico, haciendo referencia al artículo de la base de conocimientos https://["Transición de FC a IP de MetroCluster: Fallo en la opción 9c"^].
 +
-https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"^]
+https://["Soporte de NetApp"^]
 
 
 
@@ -730,7 +730,7 @@ join
  a| 
 `security key-manager onboard sync`
 
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["Restauración de las claves de cifrado de gestión de claves incorporadas"].
+Para obtener más información, consulte https://["Restauración de las claves de cifrado de gestión de claves incorporadas"].
 
 
 
@@ -739,7 +739,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
  a| 
 `security key-manager key query -node _node-name_`
 
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["Restauración de claves de cifrado de gestión de claves externas"^].
+Para obtener más información, consulte https://["Restauración de claves de cifrado de gestión de claves externas"^].
 
 |===
 . Repita los pasos anteriores en el segundo módulo de controladora nuevo (node_B_2-IP).

@@ -17,7 +17,7 @@ Cuando esté listo para preparar el servidor para reiniciar el sistema, debe des
 * Debe poder acceder a un servidor HTTP desde el sistema antes y después de agregar el nuevo módulo de controlador.
 * Debe tener acceso al sitio de soporte de NetApp para descargar los archivos del sistema necesarios para la plataforma y la versión de ONTAP.
 +
-https://mysupport.netapp.com/site/global/dashboard["Sitio de soporte de NetApp"]
+https://["Sitio de soporte de NetApp"]
 
 * Los dos módulos de controladora de la pareja de alta disponibilidad deben ejecutar la misma versión de ONTAP.
 

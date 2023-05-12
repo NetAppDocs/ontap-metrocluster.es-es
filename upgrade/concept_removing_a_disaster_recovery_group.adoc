@@ -17,7 +17,7 @@ Este procedimiento es compatible con ONTAP 9.8 y versiones posteriores. Para los
 
 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_a_DR-Group_from_a_MetroCluster["Cómo quitar un grupo de recuperación ante desastres de una configuración de MetroCluster"]
 
-https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"]
+https://["Soporte de NetApp"]
 
 Una configuración de ocho nodos incluye ocho nodos organizados como dos grupos de recuperación ante desastres de cuatro nodos.
 
@@ -37,7 +37,7 @@ image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
 .. Prepárese para la eliminación del grupo de recuperación ante desastres, si no lo ha hecho todavía.
 +
 ... Mueva todos los volúmenes de datos a otro grupo de recuperación ante desastres.
-... Mueva todos los volúmenes de metadatos de MDV_CRS a otro grupo de recuperación ante desastres. Siga los pasos del siguiente procedimiento: https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"]
+... Mueva todos los volúmenes de metadatos MDV_CRS a otro grupo de DR siguiendo el link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"] procedimiento.
 ... Elimine todos los volúmenes de metadatos MDV_aud que puedan existir en el grupo de recuperación ante desastres que se va a quitar.
 ... Elimine todos los agregados de datos del grupo de recuperación ante desastres que se van a eliminar, como se muestra en el ejemplo siguiente:
 +

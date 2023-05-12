@@ -48,7 +48,7 @@ La nueva configuración también debe cumplir con los siguientes requisitos:
 
 * Los nuevos modelos de plataforma IP de MetroCluster deben admitir los modelos anteriores de bandejas de almacenamiento.
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"^]
+https://["Hardware Universe de NetApp"^]
 
 * En función de los discos de repuesto disponibles en las bandejas existentes, deben añadirse unidades adicionales.
 +
@@ -66,7 +66,7 @@ Debe tener entre 14 y 18 unidades adicionales para cada controladora:
 
 * Debe asegurarse de que la configuración, incluidos los nuevos nodos, no supere los límites de plataformas para la configuración, incluidos el número de unidades, la capacidad de tamaño del agregado raíz, etc.
 +
-Esta información está disponible para cada modelo de plataforma en https://hwu.netapp.com["Hardware Universe de NetApp"^]
+Esta información está disponible para cada modelo de plataforma en https://["Hardware Universe de NetApp"^]
 
 
 
@@ -175,7 +175,7 @@ Cree agregados de datos en las nuevas bandejas y utilice el traslado de volúmen
 
 . Mueva los volúmenes de datos a agregados en las nuevas controladoras, de un volumen a la vez.
 +
-http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["Crear un agregado y mover volúmenes a los nuevos nodos"^]
+http://["Crear un agregado y mover volúmenes a los nuevos nodos"^]
 
 
 

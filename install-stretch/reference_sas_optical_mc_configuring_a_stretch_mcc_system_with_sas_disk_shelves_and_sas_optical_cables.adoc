@@ -22,7 +22,7 @@ Se deben cumplir los siguientes requisitos generales antes de completar esta tar
 * Antes de la instalación, debe haberse familiarizado con las consideraciones y prácticas recomendadas para la instalación y el cableado de las bandejas de discos del modelo de bandejas de discos.
 * Todos los componentes de MictoCluster deben ser compatibles.
 +
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+https://["Herramienta de matriz de interoperabilidad de NetApp"]
 
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.

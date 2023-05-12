@@ -287,7 +287,7 @@ Debe repetir estos pasos en cada uno de los switches IP de la configuración de 
 .Pasos
 . Genere los archivos NVIDIA RCF para MetroCluster IP.
 +
-.. Descargue el https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"^].
+.. Descargue el https://["RcfFileGenerator para MetroCluster IP"^].
 .. Genere el archivo RCF para su configuración utilizando el RcfFileGenerator para MetroCluster IP.
 .. Desplácese al directorio inicial. Si ha registrado como "cumulus", la ruta de acceso del archivo es `/home/cumulus`.
 +

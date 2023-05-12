@@ -21,7 +21,7 @@ Puede actualizar algunas plataformas con la operación de conmutación de sitios
 
 Para obtener información sobre las combinaciones de actualización de la plataforma compatibles, consulte la tabla de actualización FC de MetroCluster en link:concept_choosing_controller_upgrade_mcc.html#metrocluster-fc-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
 
-Consulte https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Seleccione un método de actualización o actualización"] para procedimientos adicionales.
+Consulte https://["Seleccione un método de actualización o actualización"] para procedimientos adicionales.
 
 
 
@@ -42,7 +42,7 @@ No utilice este procedimiento en configuraciones de cuatro u ocho nodos que ejec
 
 * Sus plataformas originales y nuevas deben ser compatibles y compatibles.
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+https://["Hardware Universe de NetApp"]
 
 +
 
@@ -57,7 +57,7 @@ No se admite el uso de la configuración de MetroCluster con diferentes tipos de
 * Se recomienda la asignación de conexiones de almacenamiento, FC y Ethernet entre los nodos originales y los nodos nuevos por adelantado.
 * Si la plataforma nueva tiene menos ranuras que el sistema original, o si tiene menos puertos o diferentes tipos, puede que necesite agregar un adaptador al nuevo sistema.
 +
-Para obtener más información, consulte https://hwu.netapp.com/["Hardware Universe de NetApp"^]
+Para obtener más información, consulte https://["Hardware Universe de NetApp"^]
 
 
 
@@ -185,7 +185,7 @@ Debe emitir este comando en cada clúster.
 +
 .. Descargue y ejecute Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
+https://["Descargas de NetApp: Config Advisor"]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 
@@ -475,7 +475,7 @@ Debe recopilar el resultado de los siguientes comandos:
 
 . Si los nodos de MetroCluster utilizan el cifrado de volúmenes o agregados, copie información sobre las claves y las Passphrases.
 +
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1677AE0A-FEF7-45FA-8616-885AA3283BCF.html["Realizar un backup manual de la información de gestión de claves incorporada"].
+Para obtener más información, consulte https://["Realizar un backup manual de la información de gestión de claves incorporada"].
 
 +
 .. Si se configuró el gestor de claves incorporado:
@@ -505,7 +505,7 @@ Si la configuración existente se supervisa con la configuración de tiebreaker 
 .Pasos
 . Elimine la configuración de MetroCluster existente del software Tiebreaker.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["Eliminación de las configuraciones de MetroCluster"]
+http://["Eliminación de las configuraciones de MetroCluster"]
 
 . Elimine la configuración de MetroCluster existente de cualquier aplicación de terceros que pueda iniciar la conmutación.
 +
@@ -660,7 +660,7 @@ Todos los LIF de datos, incluidos SAN y NAS, estarán admin arriba y operativame
 Por ejemplo, e0d es un puerto físico de las controladoras antiguas y también está presente en las nuevas controladoras. e0d no se utiliza como puerto de clúster ni de otro modo en las nuevas controladoras.
 
 +
-Para el uso de puertos para los modelos de plataforma, consulte https://hwu.netapp.com/["Hardware Universe de NetApp"]
+Para el uso de puertos para los modelos de plataforma, consulte https://["Hardware Universe de NetApp"]
 
 .. Modifique todas las LIF de datos para utilizar el puerto común como puerto de inicio:
 +
@@ -767,7 +767,7 @@ El espacio en rack depende del modelo de plataforma de los módulos de la contro
 . Puesta a tierra apropiadamente usted mismo.
 . Instale los módulos de la controladora en el rack o armario.
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+https://["Centro de documentación de AFF y FAS"^]
 
 . Si los nuevos módulos de controladoras no vienen con tarjetas FC-VI propias y si las tarjetas FC-VI de controladoras antiguas son compatibles con las nuevas controladoras, intercambie las tarjetas FC-VI e instálelas en las ranuras correctas.
 +
@@ -778,7 +778,7 @@ Consulte link:https://hwu.netapp.com["Hardware Universe de NetApp"^] Para obtene
 No conecte ningún otro cable que esté desconectado de las controladoras antiguas en este momento.
 
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+https://["Centro de documentación de AFF y FAS"^]
 
 . Encienda los nodos nuevos y pulse Ctrl-C cuando se le solicite que muestre el aviso del CARGADOR.
 
@@ -792,7 +792,7 @@ Después de instalar los nodos nuevos, debe reiniciar el sistema para asegurarse
 Esta tarea se realiza en cada uno de los nuevos módulos del controlador.
 
 .Pasos
-. Acceda a https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
+. Acceda a https://["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
 . Descargue el software ONTAP adecuado desde la sección de descarga de software del sitio de soporte de NetApp y almacene el archivo ontap-version_image.tgz en un directorio accesible desde la web.
 . Vaya al directorio accesible a Internet y compruebe que los archivos que necesita están disponibles.
 +
@@ -1331,7 +1331,7 @@ Si alguno de los nodos está en modo de toma de control, realice un retorno al n
 
 .. Añada cualquier puerto a un dominio de retransmisión según sea necesario.
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["Agregar o quitar puertos de un dominio de retransmisión"]
+https://["Agregar o quitar puertos de un dominio de retransmisión"]
 
 .. Agregue el puerto físico que alojará las LIF de interconexión de clústeres en el dominio de retransmisión correspondiente.
 .. Modifique las LIF de interconexión de clústeres para usar el puerto físico nuevo como puerto principal.
@@ -1347,10 +1347,10 @@ link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#peering-the-
 La pertenencia a la VLAN y al grupo de interfaces puede ser diferente de la del nodo antiguo.
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["Creación de una VLAN"^]
+https://["Creación de una VLAN"^]
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["Combinación de puertos físicos para crear grupos de interfaces"^]
+https://["Combinación de puertos físicos para crear grupos de interfaces"^]
 
 
 
@@ -1367,7 +1367,7 @@ Gestión de claves incorporada
  a| 
 `security key-manager onboard sync`
 
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["Restauración de las claves de cifrado de gestión de claves incorporadas"^].
+Para obtener más información, consulte https://["Restauración de las claves de cifrado de gestión de claves incorporadas"^].
 
 
 
@@ -1376,7 +1376,7 @@ Gestión de claves externas
  a| 
 `security key-manager external restore -vserver _SVM_ -node _node_ -key-server _host_name|IP_address:port_ -key-id key_id -key-tag key_tag _node-name_`
 
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["Restauración de claves de cifrado de gestión de claves externas"^].
+Para obtener más información, consulte https://["Restauración de claves de cifrado de gestión de claves externas"^].
 
 |===
 
@@ -1569,5 +1569,5 @@ Después de completar la actualización, debe enviar un mensaje de AutoSupport q
 
 Si la configuración de MetroCluster se ha configurado previamente para la supervisión por parte del software Tiebreaker, puede restaurar la conexión de tiebreaker.
 
-. Utilice los pasos de http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["Adición de configuraciones de MetroCluster"^] En _MetroCluster tiebreaker instalación y configuración_.
+. Utilice los pasos de http://["Adición de configuraciones de MetroCluster"^] En _MetroCluster tiebreaker instalación y configuración_.
 

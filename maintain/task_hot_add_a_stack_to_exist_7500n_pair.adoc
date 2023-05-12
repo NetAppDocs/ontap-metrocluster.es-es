@@ -17,10 +17,10 @@ Puede agregar en caliente una pila de bandejas de discos SAS a un par existente 
 * Debe haber descargado el firmware más reciente de la bandeja de discos y la bandeja de discos.
 * Todas las bandejas de discos de la configuración MetroCluster (bandejas existentes) deben ejecutar la misma versión de firmware. Si uno o varios de los discos o bandejas no están ejecutando la versión de firmware más reciente, actualice el firmware antes de conectar los discos o bandejas nuevos.
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+https://["Descargas de NetApp: Firmware de la unidad de disco"^]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+https://["Descargas de NetApp: Firmware de bandeja de discos"^]
 
 * Los puentes FibreBridge 7500N deben estar conectados y tener puertos SAS disponibles.
 
@@ -187,18 +187,18 @@ No es correcto
 Este comando debe ejecutarse en ambas controladoras.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+https://["Descargas de NetApp: Firmware de la unidad de disco"^]
 
 . Actualice el firmware de la bandeja de discos a la versión más reciente mediante las instrucciones para el firmware descargado.
 +
 Puede ejecutar los comandos en el procedimiento desde la consola del sistema de cualquier controladora.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+https://["Descargas de NetApp: Firmware de bandeja de discos"^]
 
 . Si el sistema no tiene activada la asignación automática de discos, asigne la propiedad de la unidad de disco.
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+https://["Gestión de discos y agregados"^]
 
 +
 
@@ -237,7 +237,7 @@ NOTE: No se deben añadir unidades de disco a agregados o volúmenes hasta que s
 
 .. Ejecute Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+https://["Descargas de NetApp: Config Advisor"^]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 

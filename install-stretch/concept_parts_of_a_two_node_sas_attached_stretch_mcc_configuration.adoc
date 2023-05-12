@@ -30,7 +30,7 @@ Cada controladora de almacenamiento está configurada como partner de recuperaci
 NOTE: En sistemas que utilizan LUN de cabina E-Series, las controladoras de almacenamiento se pueden conectar directamente a las cabinas de almacenamiento E-Series. Para otros LUN de cabina, se necesitan conexiones mediante switches FC.
 
 +
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+https://["Herramienta de matriz de interoperabilidad de NetApp"]
 
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.

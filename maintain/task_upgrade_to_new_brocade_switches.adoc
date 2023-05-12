@@ -20,7 +20,7 @@ Las ilustraciones de los siguientes pasos muestran los interruptores actuales.
 
 * Los switches deben ejecutar el firmware admitido más reciente.
 +
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 * Este procedimiento no es disruptivo y tarda aproximadamente dos horas en completarse.
 * Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
@@ -151,7 +151,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 Los switches deben ejecutar el firmware admitido más reciente.
 
 +
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+https://["Herramienta de matriz de interoperabilidad de NetApp"]
 
 . Simular una operación de switchover:
 +

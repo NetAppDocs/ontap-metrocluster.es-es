@@ -107,7 +107,7 @@ La SVM sincronizada en destino comienza a servir datos del sitio superviviente.
 
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Administración del sistema"^]
+https://["Administración del sistema"^]
 
 
 
@@ -295,7 +295,7 @@ Si se produce un segundo fallo después de una conmutación al respaldo local, e
 
 La transición de FC a IP de MetroCluster implica agregar nodos IP y switches IP de MetroCluster a una configuración FC de MetroCluster existente y, a continuación, retirar los nodos FC de MetroCluster. Dependiendo de la etapa del proceso de transición, las operaciones de conmutación de sitios, reparación y conmutación de estado de MetroCluster utilizan diferentes flujos de trabajo.
 
-Consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-1870FDC4-1774-4604-86A7-5C979C297ADA.html["Operaciones de conmutación de sitios, reparación y conmutación de estado durante la transición"^].
+Consulte http://["Operaciones de conmutación de sitios, reparación y conmutación de estado durante la transición"^].
 
 
 

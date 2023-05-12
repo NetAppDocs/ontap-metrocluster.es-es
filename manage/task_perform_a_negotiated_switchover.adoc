@@ -22,7 +22,7 @@ Esto significa evitar la competencia con las operaciones de conmutación de siti
 La _referencia de administración del sistema_ contiene más información sobre el quórum de clúster en la sección "'quórum de comprensión y épsilon'".
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Administración del sistema"]
+https://["Administración del sistema"]
 
 * La red de interconexión de clústeres entre iguales debe estar disponible en ambos sitios.
 * Todos los nodos de la configuración MetroCluster deben ejecutar la misma versión del software ONTAP.

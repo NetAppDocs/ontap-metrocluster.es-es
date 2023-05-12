@@ -112,7 +112,7 @@ NOTE: El soporte para Config Advisor es limitado y solo está disponible en lín
 
 . Descargue la herramienta Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+https://["Descargas de NetApp: Config Advisor"^]
 
 . Ejecute Config Advisor, revise el resultado y siga sus recomendaciones para solucionar cualquier problema.
 
@@ -149,7 +149,7 @@ Debe determinar el cableado de los módulos de controladora nuevos y de todas la
 Esta tarea debe realizarse en cada sitio MetroCluster.
 
 .Pasos
-. Uso https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"^] Para determinar la distribución de cableado del tipo de switch, se usa el uso de puertos para una configuración MetroCluster de ocho nodos.
+. Uso https://["Instalación y configuración de MetroCluster estructural"^] Para determinar la distribución de cableado del tipo de switch, se usa el uso de puertos para una configuración MetroCluster de ocho nodos.
 +
 El uso del puerto del switch FC debe coincidir con el uso descrito en la guía para poder utilizar los archivos de configuración de referencia (RCF).
 
@@ -165,7 +165,7 @@ NOTE: No utilice este procedimiento si el cableado no puede utilizar RCF.
 
 Debe aplicar los archivos de configuración de referencia (RCF) adecuados para volver a configurar los switches de modo que se adapten a los nuevos nodos. Después de aplicar los archivos RCF, puede recuperar los conmutadores.
 
-El uso del puerto del switch FC debe coincidir con el uso descrito en la https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"^] De modo que se puedan utilizar los RCF.
+El uso del puerto del switch FC debe coincidir con el uso descrito en la https://["Instalación y configuración de MetroCluster estructural"^] De modo que se puedan utilizar los RCF.
 
 .Pasos
 . Busque los archivos RCF para su configuración.
@@ -225,5 +225,5 @@ vsan [vsna #]no suspend
 
 Debe verificar las operaciones de conmutación de sitios, reparación y conmutación de estado de la configuración de MetroCluster.
 
-. Utilice los procedimientos para la conmutación negociada, la reparación y la conmutación de estado que se describen en https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["Gestión y recuperación ante desastres de MetroCluster"^].
+. Utilice los procedimientos para la conmutación negociada, la reparación y la conmutación de estado que se describen en https://["Gestión y recuperación ante desastres de MetroCluster"^].
 

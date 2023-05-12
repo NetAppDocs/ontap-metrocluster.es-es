@@ -32,14 +32,14 @@ Para preparar la adición en caliente de una pila de bandejas de discos SAS y un
 .Antes de empezar
 * El sistema debe ser una configuración compatible y debe ejecutar una versión compatible de ONTAP.
 +
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 * Todas las unidades de disco y bandejas de discos del sistema deben ejecutar la versión de firmware más reciente.
 +
 Es posible que desee actualizar el firmware del disco y de la bandeja en toda la configuración de MetroCluster antes de añadir bandejas.
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["Actualización, reversión o degradación"^]
+https://["Actualización, reversión o degradación"^]
 
 * Cada switch FC debe tener un puerto FC disponible para que un puente se conecte a él.
 +
@@ -55,7 +55,7 @@ Las Notas de la versión de producto _ATTO_ tienen una lista actualizada de expl
 .Pasos
 . Descargue o consulte los siguientes documentos desde el sitio de soporte de NetApp:
 +
-** https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+** https://["Herramienta de matriz de interoperabilidad de NetApp"^]
 ** La _Guía de instalación y mantenimiento_ correspondiente al modelo de bandeja de discos.
 
 
@@ -90,11 +90,11 @@ NOTE: En este paso, sólo está completando la parte de descarga de las instrucc
 +
 .. Descargue el firmware del disco y haga una copia de las instrucciones del firmware del disco para consultarla más adelante.
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+https://["Descargas de NetApp: Firmware de la unidad de disco"^]
 
 .. Descargue el firmware de la bandeja de discos y haga una copia de las instrucciones del firmware de la bandeja de discos para referencia posterior.
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+https://["Descargas de NetApp: Firmware de bandeja de discos"^]
 
 
 
@@ -134,7 +134,7 @@ link:task_fb_hot_add_stack_of_shelves_and_bridges.html["Preparar la adición en 
 
 * La adición en caliente de una pila de bandejas de discos SAS y puentes es un procedimiento no disruptivo si se cumplen todos los requisitos de interoperabilidad.
 +
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 +
 link:concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html["Uso de la herramienta de matriz de interoperabilidad para encontrar información de MetroCluster"]
@@ -1706,18 +1706,18 @@ NOTE: Se pueden conectar puentes adicionales a los puertos 32 a 39 en los switch
 Debe ejecutar este comando en ambos módulos de la controladora.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+https://["Descargas de NetApp: Firmware de la unidad de disco"^]
 
 . Actualice el firmware de la bandeja de discos a la versión más reciente mediante las instrucciones para el firmware descargado.
 +
 Puede ejecutar los comandos en el procedimiento desde la consola del sistema de cualquier módulo de la controladora.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+https://["Descargas de NetApp: Firmware de bandeja de discos"^]
 
 . Si el sistema no tiene activada la asignación automática de discos, asigne la propiedad de la unidad de disco.
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
+https://["Gestión de discos y agregados"^]
 
 +
 
@@ -1744,7 +1744,7 @@ NOTE: No se deben añadir unidades de disco a agregados o volúmenes hasta que s
 `storage switch show`
 .. Ejecute Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+https://["Descargas de NetApp: Config Advisor"^]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 

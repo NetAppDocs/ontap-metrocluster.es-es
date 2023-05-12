@@ -27,7 +27,7 @@ No puede actualizar otros componentes de la configuración, como bandejas de alm
 NOTE: El sistema AFF A900 sólo es compatible con ONTAP 9.10.1 o posterior.
 
 +
-https://hwu.netapp.com/["Hardware Universe de NetApp"^]
+https://["Hardware Universe de NetApp"^]
 
 
 
@@ -62,7 +62,7 @@ La siguiente tabla muestra la matriz de modelos compatible para la actualizació
 |===
 * Durante el procedimiento de actualización, es necesario cambiar la estructura de MetroCluster, incluidos el RCF y los cambios físicos del cableado. Puede realizar los cambios en el cableado y el RCF antes de realizar la actualización del controlador.
 * Este procedimiento de actualización no requiere que no se cambien las conexiones de almacenamiento, FC y Ethernet entre los nodos originales y los nuevos.
-* Durante el procedimiento de actualización, no debe añadir ni quitar otras tarjetas del sistema A700 o FAS9000 de AFF. Para obtener más información, consulte https://hwu.netapp.com/["Hardware Universe de NetApp"^]
+* Durante el procedimiento de actualización, no debe añadir ni quitar otras tarjetas del sistema A700 o FAS9000 de AFF. Para obtener más información, consulte https://["Hardware Universe de NetApp"^]
 
 
 Los nombres de ejemplo siguientes se utilizan en ejemplos y gráficos de este procedimiento:
@@ -195,7 +195,7 @@ Debe emitir este comando en cada clúster.
 +
 .. Descargue y ejecute Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+https://["Descargas de NetApp: Config Advisor"^]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 
@@ -208,7 +208,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descar
 
 La estructura MetroCluster A900 o FAS9500 de AFF requiere dos adaptadores de cuatro puertos FC-VI por nodo, en comparación con un único adaptador FC-VI de cuatro puertos requerido por un A700 de AFF. Antes de iniciar la actualización del controlador al controlador AFF A900 o FAS9500, debe modificar los archivos RCF del conmutador de estructura para admitir la topología de conexión AFF A900 o FAS9500.
 
-. Desde la https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["Página de descarga de archivos RCF de MetroCluster"^], Descargue el archivo RCF correcto para un MetroCluster de estructura AFF A900 o FAS9500 y el modelo de switch que se utiliza en la configuración AFF A700 o FAS9000.
+. Desde la https://["Página de descarga de archivos RCF de MetroCluster"^], Descargue el archivo RCF correcto para un MetroCluster de estructura AFF A900 o FAS9500 y el modelo de switch que se utiliza en la configuración AFF A700 o FAS9000.
 . [[Update-RCF]]Actualice el archivo RCF en los conmutadores a de la estructura, cambie A1 y cambie B1 siguiendo los pasos de link:../disaster-recovery/task_cfg_switches_mcfc.html["Configurar los switches FC"].
 +
 
@@ -317,7 +317,7 @@ Debe emitir este comando en cada clúster.
 +
 .. Descargue y ejecute Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
+https://["Descargas de NetApp: Config Advisor"^]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 
@@ -406,7 +406,7 @@ Debe recopilar el resultado de los siguientes comandos:
 
 . Si los nodos de MetroCluster utilizan el cifrado de volúmenes o agregados, copie información sobre las claves y las Passphrases.
 +
-Para obtener más información, consulte https://docs.netapp.com/us-en/ontap/encryption-at-rest/backup-key-management-information-manual-task.html["Realizar un backup manual de la información de gestión de claves incorporada"^].
+Para obtener más información, consulte https://["Realizar un backup manual de la información de gestión de claves incorporada"^].
 
 +
 .. Si se configuró el gestor de claves incorporado:
@@ -629,9 +629,13 @@ image:../media/drw_a900_move-remove_NVRAM_module.png["Módulo NVS"]
 
 
 
+[NOTE]
+====
+* No transfiera ningún módulo adicional utilizado como dispositivos coredump en el módulo de almacenamiento no volátil AFF A700 de la ranura 6 al módulo NVS AFF A900. No transfiera ninguna pieza del controlador AFF A700 ni de los módulos NVS al módulo del controlador AFF A900.
+* Para actualizaciones de FAS9000 a FAS9500, solo debe transferir módulos Flash Cache en el módulo NVS de FAS9000 al módulo NVS de FAS9500 GB. No transfiera ninguna otra pieza del controlador FAS9000 y los módulos NVS al módulo del controlador FAS9500.
 
-NOTE: Si hay módulos adicionales utilizados como dispositivos coredump en el módulo de almacenamiento no volátil del A700 o FAS9000 de AFF, no los transfiera al sistema NVS AFF A900 o FAS9500. No transfiera ninguna pieza desde el módulo de controlador AFF A700 o A900 y NVS al módulo de controlador AFF A900 o FAS9500.
 
+====
 
 
 == Instale el módulo controlador y los NVS AFF A900 o FAS9500
@@ -770,7 +774,7 @@ Selection (1-11)?
 
 NOTE: Ignore el siguiente mensaje: `This procedure is not supported for Non-Disruptive Upgrade on an HA pair.` Esta nota se aplica a actualizaciones de software ONTAP no disruptivas, y no a actualizaciones de controladoras. Utilice siempre netboot para actualizar el nodo nuevo a la imagen deseada. Si utiliza otro método para instalar la imagen en la nueva controladora, puede que se instale una imagen incorrecta. Este problema se aplica a todas las versiones de ONTAP.
 
-. Si se le solicita que continúe el procedimiento, introduzca `y`, Y cuando se le solicite el paquete, escriba la dirección URL:http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz[]
+. Si se le solicita que continúe el procedimiento, introduzca `y`, Y cuando se le solicite el paquete, escriba la dirección URL:http://[]
 . Lleve a cabo los siguientes pasos para reiniciar el módulo del controlador:
 +
 .. Introduzca `n` para omitir la recuperación del backup cuando aparezca la siguiente solicitud:
@@ -1353,6 +1357,17 @@ Esta tarea se puede realizar en cualquier nodo de la configuración de MetroClus
 .. Mostrar los resultados de la comprobación de MetroCluster:
 +
 `metrocluster check show`
+
++
+Después de ejecutar el `metrocluster check run` y.. `metrocluster check show` comandos, es posible que se muestre un error similar al siguiente ejemplo:
+
++
+[listing]
+----
+Cluster_A:: node_A_1 (non-overridable veto): DR partner NVLog mirroring is not online. Make sure that the links between the two sites are healthy and properly configured.
+----
++
+Este error se produce debido a una discrepancia de la controladora durante el proceso de actualización. Puede ignorar con seguridad el error y continuar con la actualización de los nodos en SITE_A.
 
 
 

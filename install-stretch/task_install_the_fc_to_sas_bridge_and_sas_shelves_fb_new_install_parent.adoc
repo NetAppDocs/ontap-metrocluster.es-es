@@ -23,7 +23,7 @@ NOTE: Todos los discos del grupo de recuperación ante desastres (DR) deben usar
 
 * Los requisitos de conectividad del sistema para distancias máximas para bandejas de discos, switches FC y dispositivos de cinta de respaldo que usan cables de fibra óptica multimodo de 50 micras también se aplican a los puentes FibreBridge.
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+https://["Hardware Universe de NetApp"]
 
 * No se admite una combinación de módulos IOM12 y módulos IOM3 dentro de la misma pila de almacenamiento. Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila de almacenamiento si el sistema ejecuta una versión admitida de ONTAP.
 

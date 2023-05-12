@@ -16,12 +16,12 @@ Antes de instalar un nuevo módulo de controladora, debe configurar los puertos 
 .Acerca de esta tarea
 Si va a crear un clúster de dos nodos sin switch (sin switches de red de clúster), debe habilitar el modo de red de clúster sin switch.
 
-Para obtener información detallada acerca de la configuración de puerto, LIF y red en ONTAP, consulte link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["Gestión de redes"^].
+Para obtener información detallada acerca de la configuración de puerto, LIF y red en ONTAP, consulte link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Gestión de redes"^].
 
 .Pasos
 . Determine qué puertos se deben usar como puertos de clúster del nodo.
 +
-Para obtener una lista de los roles de puerto predeterminados para la plataforma, consulte https://hwu.netapp.com/["Hardware Universe"^]
+Para obtener una lista de los roles de puerto predeterminados para la plataforma, consulte https://["Hardware Universe"^]
 
 +
 El _instrucciones de instalación y configuración_ de la plataforma en el sitio de soporte de NetApp contiene información acerca de los puertos para las conexiones de red de los clústeres.

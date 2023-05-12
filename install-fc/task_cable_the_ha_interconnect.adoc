@@ -25,7 +25,7 @@ Algunos modelos de controladoras de almacenamiento admiten dos controladoras en 
 .Pasos
 . Conecte el cable de alta disponibilidad si el compañero de alta disponibilidad de la controladora de almacenamiento está en un chasis separado.
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+https://["Centro de documentación de AFF y FAS"]
 
 . Si el sitio MetroCluster incluye dos pares de alta disponibilidad, repita los pasos anteriores en el segundo par de alta disponibilidad.
 . Repita esta tarea en el sitio para partners de MetroCluster.

@@ -132,7 +132,7 @@ Si los volúmenes de datos están cifrados, debe restaurar la gestión de claves
  a| 
 `security key-manager onboard sync`
 
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["Restauración de las claves de cifrado de gestión de claves incorporadas"^].
+Para obtener más información, consulte https://["Restauración de las claves de cifrado de gestión de claves incorporadas"^].
 
 
 
@@ -141,7 +141,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
  a| 
 `security key-manager key query -node node-name`
 
-Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["Restauración de claves de cifrado de gestión de claves externas"^].
+Para obtener más información, consulte https://["Restauración de claves de cifrado de gestión de claves externas"^].
 
 |===
 . Si el volumen raíz está cifrado, utilice el procedimiento en link:../transition/task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html#recovering-key-management-if-the-root-volume-is-encrypted["Se recupera la gestión de claves si el volumen raíz se cifra"].

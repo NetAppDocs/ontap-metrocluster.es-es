@@ -716,7 +716,7 @@ NOTE: Los archivos RCF para EFOS versión 3.4.4.6 o posterior 3.4.x.x. La versi�
 .Pasos
 . Genere los archivos RCF de Broadcom para MetroCluster IP.
 +
-.. Descargue el https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"]
+.. Descargue el https://["RcfFileGenerator para MetroCluster IP"]
 .. Genere el archivo RCF para su configuración utilizando el RcfFileGenerator para MetroCluster IP.
 +
 

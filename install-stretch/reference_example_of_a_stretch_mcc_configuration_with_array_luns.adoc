@@ -22,8 +22,8 @@ NOTE: Los módulos de controladoras de los sistemas de almacenamiento FAS9000 ut
 
 Para las configuraciones con LUN de cabina E-Series, puede conectar directamente los LUN de E-Series.
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Direct_Attach_support_for_Stretch_MetroCluster_Configuration_with_NetApp_E-Series_array["Compatibilidad de la conexión directa para la configuración de MetroCluster con ampliación con la cabina E-Series de NetApp"]
+https://["Compatibilidad de la conexión directa para la configuración de MetroCluster con ampliación con la cabina E-Series de NetApp"]
 
 Excepto para conectar los puertos FC-VI, el resto de este procedimiento es para configurar una configuración de MetroCluster con LUN de cabina, que no utilizan LUN de cabina E-Series. Esto requiere switches FC que sean los mismos que para utilizar LUN de cabina en configuraciones estructural.
 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
+https://["Instalación y configuración de MetroCluster estructural"]

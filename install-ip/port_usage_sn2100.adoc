@@ -24,6 +24,7 @@ Actualmente, se admiten las siguientes plataformas:
 * FAS8700
 * FAS9000/A700 de AFF
 * AFF C800/AFF A800
+* FAS9500 / AFF A900
 
 
 Actualmente, no se admiten las siguientes plataformas y configuraciones:
@@ -51,6 +52,6 @@ image::../media/mcc_ip_cabling_A250_C250_MSN2100.png[Cableado ip del mcc A250 C2
 
 
 
-== Uso de puertos de switch para AFF C400, AFF A400, AFF A700 o FAS9000, FAS8300 o FAS8700 AFF A800
+== Uso del puerto del switch para AFF C400, AFF A400, AFF A700, FAS9000, FAS8300, FAS8700, AFF A800, FAS9500 o AFF A900
 
 image::../media/mcc_ip_cabling_aff250_400_700_800_cseriesMSN2100.png[Cables ip de mcc 400 700 800 cseriesMSN2100]

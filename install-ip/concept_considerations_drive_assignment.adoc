@@ -13,12 +13,34 @@ summary: 'A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten 
 [role="lead"]
 A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten nuevas instalaciones con sistemas AFF que utilizan ADP (partición avanzada de unidades). En la mayoría de las configuraciones, las particiones y la asignación de discos se realizan automáticamente durante la configuración inicial de los sitios MetroCluster.
 
-ONTAP 9.4 y versiones posteriores incluyen los siguientes cambios para la compatibilidad con ADP:
+ONTAP 9,4 y versiones posteriores incluyen los siguientes cambios para el soporte de ADP:
 
 * Las asignaciones de discos del pool 0 se realizan de fábrica.
 * La raíz sin reflejar se crea de fábrica.
 * La asignación de particiones de datos se realiza en las instalaciones del cliente durante el procedimiento de configuración.
 * En la mayoría de los casos, la asignación y partición de unidades se realiza automáticamente durante los procedimientos de configuración.
+* Un disco y todas sus particiones deben ser propiedad de nodos en el mismo par de alta disponibilidad (HA). La propiedad de una partición o unidad dentro de una única unidad no puede mezclarse entre el par de alta disponibilidad local y el partner de recuperación ante desastres (DR) o el partner auxiliar de recuperación ante desastres.
++
+Ejemplo de una configuración admitida:
+
++
+|===
+
+
+| Unidad/Partición | Propietario 
+
+
+| Unidad: | `ClusterA-Node01` 
+
+
+| Partición 1: | `ClusterA-Node01` 
+
+
+| Partición 2: | `ClusterA-Node02` 
+
+
+| Partición 3: | `ClusterA-Node01` 
+|===
 
 
 
@@ -31,7 +53,9 @@ NOTE: Al actualizar de ONTAP 9.4 a 9.5, el sistema reconoce las asignaciones de 
 ADP se realiza automáticamente durante la configuración inicial de la plataforma.
 
 
-NOTE: A partir de ONTAP 9.5, la asignación automática de discos debe habilitarse con el comando `storage disk option modify -autoassign on`.
+NOTE: A partir de ONTAP 9,5, la asignación automática de discos debe habilitarse con el `storage disk option modify -autoassign on` comando.
+
+Debe establecer el estado de ha-config en `mccip` antes del aprovisionamiento automático, para asegurarse de que se seleccionan los tamaños de partición correctos para permitir el tamaño de volumen raíz adecuado. Para obtener más información, consulte link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_verify_haconfig.html["Verificación del estado de los componentes de la configuración de alta disponibilidad"].
 
 Se pueden particionar un máximo de 96 unidades automáticamente durante la instalación. Se pueden añadir unidades adicionales después de la instalación inicial.
 

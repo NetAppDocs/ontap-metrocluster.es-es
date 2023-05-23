@@ -19,7 +19,7 @@ Debe aplicar el archivo RCF correcto para la configuración del puente FibreBrid
 
 Si la división en zonas se realiza manualmente, siga la división en zonas utilizada para un puente FibreBridge 6500N o FibreBridge 7500N o 7600N que utilice un puerto FC (FC1 o FC2). En esta situación, se agrega un puerto de iniciador en lugar de dos a cada miembro de la zona por estructura.
 
-Puede cambiar la división en zonas o realizar una actualización de FibreBridge 6500 a FibreBridge 7500 con el procedimiento _Cambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7500N o 7600N del https://["Mantener los componentes de MetroCluster"].
+Puede cambiar la división en zonas o realizar una actualización de FibreBridge 6500 a FibreBridge 7500 con el procedimiento _Cambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7500N o 7600N del https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["Mantener los componentes de MetroCluster"].
 
 En la siguiente tabla se muestran las asignaciones de puertos para los switches de FC cuando se utiliza ONTAP 9.1 y versiones posteriores.
 

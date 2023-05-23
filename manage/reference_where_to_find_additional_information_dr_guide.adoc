@@ -32,7 +32,7 @@ link:../index.html["Documentación de MetroCluster"]
 
 
  a| 
-http://["Informe técnico de NetApp 4375: MetroCluster de NetApp para ONTAP 9.3"^]
+http://www.netapp.com/us/media/tr-4375.pdf["Informe técnico de NetApp 4375: MetroCluster de NetApp para ONTAP 9.3"^]
  a| 
 * Una descripción técnica general de la configuración y el funcionamiento de MetroCluster.
 * Prácticas recomendadas para la configuración de MetroCluster.
@@ -41,7 +41,7 @@ http://["Informe técnico de NetApp 4375: MetroCluster de NetApp para ONTAP 9.3"
 
 
  a| 
-https://["Instalación y configuración de MetroCluster estructural"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["Instalación y configuración de MetroCluster estructural"]
  a| 
 * Arquitectura MetroCluster FAS
 * Cableado de la configuración
@@ -53,7 +53,7 @@ https://["Instalación y configuración de MetroCluster estructural"]
 
 
  a| 
-https://["Instalación y configuración de MetroCluster con ampliación"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-stretch/home.html["Instalación y configuración de MetroCluster con ampliación"]
  a| 
 * Ampliación de la arquitectura de MetroCluster
 * Cableado de la configuración
@@ -64,7 +64,7 @@ https://["Instalación y configuración de MetroCluster con ampliación"]
 
 
  a| 
-http://["Instalación y configuración de IP de MetroCluster"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/home.html["Instalación y configuración de IP de MetroCluster"]
  a| 
 * Arquitectura MetroCluster IP
 * Cableado de la configuración
@@ -82,7 +82,7 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Instalació
 
 
  a| 
-Documentación de Active IQ Unified Manager https://["Documentación de NetApp: Guías de productos y recursos"^]
+Documentación de Active IQ Unified Manager https://www.netapp.com/support-and-training/documentation/["Documentación de NetApp: Guías de productos y recursos"^]
  a| 
 * Supervisar la configuración y el rendimiento de MetroCluster
 
@@ -90,7 +90,7 @@ Documentación de Active IQ Unified Manager https://["Documentación de NetApp: 
 
 
  a| 
-http://["Transición basada en copias"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["Transición basada en copias"]
  a| 
 * Transición de datos de sistemas de almacenamiento 7-Mode a sistemas de almacenamiento en clúster
 

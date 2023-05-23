@@ -13,4 +13,4 @@ summary: Según la versión de ONTAP, es posible añadir en caliente una bandeja
 [role="lead"]
 Según la versión de ONTAP, es posible añadir en caliente una bandeja de discos IOM12 a una pila de bandejas de discos IOM6 en una configuración MetroCluster con conexión a puente.
 
-Para llevar a cabo este procedimiento, consulte https://["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"].
+Para llevar a cabo este procedimiento, consulte https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"].

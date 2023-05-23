@@ -22,19 +22,19 @@ Debe crear nuevos LIF DE SAN en los nodos IP o de destino y conectar hosts antes
 
 . Mueva los volúmenes de datos a agregados en las nuevas controladoras, de un volumen a la vez.
 +
-Utilice el procedimiento descrito en http://["Crear un agregado y mover volúmenes a los nuevos nodos"].
+Utilice el procedimiento descrito en http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["Crear un agregado y mover volúmenes a los nuevos nodos"].
 
 . Cree LIF SAN en los nodos añadidos recientemente.
 +
-Utilice el procedimiento siguiente en http://["Actualizar las rutas de LUN para los nodos nuevos"^].
+Utilice el procedimiento siguiente en http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-expand/GUID-E3BB89AF-6251-4210-A979-130E845BC9A1.html["Actualizar las rutas de LUN para los nodos nuevos"^].
 
 . Compruebe si hay alguna licencia de nodo bloqueado en los nodos FC. Si hay alguna, deberán añadirse a los nodos recién añadidos.
 +
-Utilice el procedimiento siguiente en http://["Agregar licencias bloqueadas por nodo"^].
+Utilice el procedimiento siguiente en http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-expand/GUID-487FAC36-3C5C-4314-B4BD-4253CB67ABE8.html["Agregar licencias bloqueadas por nodo"^].
 
 . Migre los LIF de datos.
 +
-Utilice el procedimiento descrito en  http://["Traslado de LIF de datos no SAN y LIF de administración del clúster a los nuevos nodos"^] Pero *no* realice los dos últimos pasos para migrar LIF de administración de clúster.
+Utilice el procedimiento descrito en  http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["Traslado de LIF de datos no SAN y LIF de administración del clúster a los nuevos nodos"^] Pero *no* realice los dos últimos pasos para migrar LIF de administración de clúster.
 
 
 

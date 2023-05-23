@@ -115,7 +115,7 @@ FC_switch_B_1:admin> switchshow
 
 .. Configure el nuevo switch como se describe en _instalación y configuración de MetroCluster, pero omita el procedimiento ""Configuración de la división en zonas en switches FC de Brocade".
 +
-https://["Instalación y configuración de MetroCluster estructural"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
 
 +
 Puede configurar la división en zonas más adelante en este procedimiento.
@@ -259,7 +259,7 @@ FC_switch_B_1:admin> portcfgpersistentenable 3
 +
 `storage switch show`
 
-.. Ejecución https://["Config Advisor"].
+.. Ejecución https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Config Advisor"].
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 
 

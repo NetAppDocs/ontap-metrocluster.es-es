@@ -199,7 +199,7 @@ Debe emitir este comando en cada clúster. Puede utilizar el `cluster date` para
 +
 .. Descargue y ejecute Config Advisor.
 +
-https://["Descargas de NetApp: Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 
@@ -316,7 +316,7 @@ Debe recopilar el resultado de los siguientes comandos:
 
 . Si el volumen raíz está cifrado, recopile y guarde la clave de acceso usada para Key-Manager:
 `security key-manager backup show`
-. Si los nodos de MetroCluster utilizan el cifrado de volúmenes o agregados, copie información sobre las claves y las Passphrases. Para obtener más información, consulte https://["Realizar un backup manual de la información de gestión de claves incorporada"^].
+. Si los nodos de MetroCluster utilizan el cifrado de volúmenes o agregados, copie información sobre las claves y las Passphrases. Para obtener más información, consulte https://docs.netapp.com/us-en/ontap/encryption-at-rest/backup-key-management-information-manual-task.html["Realizar un backup manual de la información de gestión de claves incorporada"^].
 +
 .. Si se configuró el gestor de claves incorporado: `security key-manager onboard show-backup`+ necesitará la frase de contraseña más adelante en el procedimiento de actualización.
 .. Si está configurada la gestión de claves empresariales (KMIP), ejecute los siguientes comandos:
@@ -614,7 +614,7 @@ Tras intercambiar el módulo de controladoras AFF A900 o FAS9500 y NVS, debe rei
 Debe reiniciar el sistema de las controladoras nuevas, si la versión de ONTAP instalada no es la misma que la versión instalada en las controladoras originales. Tras instalar cada controladora nueva, arranque el sistema desde la imagen de ONTAP 9 almacenada en el servidor web. A continuación, puede descargar los archivos correctos en el dispositivo multimedia de arranque para posteriores arranques del sistema.
 
 .Pasos
-. Acceda a https://["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
+. Acceda a https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
 . [[paso2-download-software]]Descargue el software ONTAP adecuado desde la sección de descarga de software del sitio de soporte de NetApp y almacene el `ontap-version_image.tgz` archivo en un directorio accesible a través de la web.
 . Cambie al directorio accesible a la Web y compruebe que los archivos que necesita están disponibles.
 . Su listado de directorio debe contener <ontap_version>\_image.tgz.
@@ -1237,7 +1237,7 @@ Gestión de claves incorporada
  a| 
 `security key-manager onboard sync`
 
-Para obtener más información, consulte https://["Restauración de las claves de cifrado de gestión de claves incorporadas"^].
+Para obtener más información, consulte https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restauración de las claves de cifrado de gestión de claves incorporadas"^].
 
 
 
@@ -1246,7 +1246,7 @@ Gestión de claves externas
  a| 
 `security key-manager external restore -vserver _SVM_ -node _node_ -key-server _host_name|IP_address:port_ -key-id key_id -key-tag key_tag _node-name_`
 
-Para obtener más información, consulte https://["Restauración de claves de cifrado de gestión de claves externas"^].
+Para obtener más información, consulte https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restauración de claves de cifrado de gestión de claves externas"^].
 
 |===
 . Verifique que todos los puertos estén en un dominio de retransmisión:
@@ -1257,17 +1257,17 @@ Para obtener más información, consulte https://["Restauración de claves de ci
 
 .. Añada cualquier puerto a un dominio de retransmisión según sea necesario.
 +
-https://["Agregar o quitar puertos de un dominio de retransmisión"^]
+https://docs.netapp.com/us-en/ontap/networking/add_or_remove_ports_from_a_broadcast_domain97.html["Agregar o quitar puertos de un dominio de retransmisión"^]
 
 .. Vuelva a crear las VLAN y los grupos de interfaces según sea necesario.
 +
 La pertenencia a la VLAN y al grupo de interfaces puede ser diferente de la del nodo antiguo.
 
 +
-https://["Creación de una VLAN"^]
+https://docs.netapp.com/us-en/ontap/networking/configure_vlans_over_physical_ports.html#create-a-vlan["Creación de una VLAN"^]
 
 +
-https://["Combinación de puertos físicos para crear grupos de interfaces"^]
+https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_interface_groups.html["Combinación de puertos físicos para crear grupos de interfaces"^]
 
 
 

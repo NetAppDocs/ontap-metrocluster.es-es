@@ -28,7 +28,7 @@ La relación de clústeres entre iguales puede realizarse en puertos dedicados o
 
 
 .Información relacionada
-http://["Configuración exprés de relación entre iguales de clústeres y SVM"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
 
 Cada sitio de MetroCluster se configura como un par para su sitio de partner. Debe estar familiarizado con los requisitos previos y las directrices para configurar las relaciones de paridad y para decidir si desea utilizar puertos compartidos o dedicados para dichas relaciones.
 

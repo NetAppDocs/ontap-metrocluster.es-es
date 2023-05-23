@@ -19,7 +19,7 @@ Debe agregar un nuevo módulo de controlador a cada sitio, creando un par de alt
 Debe verificar que las tarjetas PCIe del nuevo módulo de controladora sean compatibles y compatibles con el nuevo módulo de controladora.
 
 +
-https://["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 * Su sistema debe tener una ranura vacía disponible para el nuevo módulo de controladora cuando actualice a un par de alta disponibilidad de chasis único (un par de alta disponibilidad en el que ambos módulos de controladora residen en el mismo chasis).
 +

@@ -19,7 +19,7 @@ Cuando planifique la configuración de MetroCluster FC, debe comprender los comp
 
 El hardware y el software deben ser compatibles con la configuración FC de MetroCluster.
 
-https://["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 Al usar sistemas AFF, todos los módulos de controladora de la configuración MetroCluster deben configurarse como sistemas AFF.
 
@@ -161,9 +161,9 @@ En una configuración con una bandeja parcialmente ocupada, las unidades deben d
 
 == Mezcla módulos IOM12 e IOM 6 en una pila
 
-Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la herramienta de matriz de interoperabilidad (IMT) para ver si la versión de ONTAP admite la combinación de bandejas. https://["Interoperabilidad de NetApp"]
+Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la herramienta de matriz de interoperabilidad (IMT) para ver si la versión de ONTAP admite la combinación de bandejas. https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilidad de NetApp"]
 
-Para obtener más información sobre la mezcla de estantes, consulte: https://["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"]
+Para obtener más información sobre la mezcla de estantes, consulte: https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"]
 
 
 

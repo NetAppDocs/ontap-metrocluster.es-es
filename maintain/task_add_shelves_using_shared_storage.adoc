@@ -82,7 +82,7 @@ Debe verificar el estado y la conectividad de la configuración de MetroCluster 
 
 .. Ejecute Config Advisor.
 +
-https://["Descargas de NetApp: Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 
@@ -397,11 +397,11 @@ Estos pasos deben repetirse en cada switch IP de la configuración de IP de Metr
 
 Debe utilizar la versión de software del switch compatible.
 
-https://["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 . Descargue el archivo de software NX-OS admitido.
 +
-https://["Descarga de software de Cisco"]
+https://software.cisco.com/download/home["Descarga de software de Cisco"]
 
 . Copie el software del conmutador en el conmutador: `+copy sftp://root@server-ip-address/tftpboot/NX-OS-file-name bootflash: vrf management+`
 +
@@ -593,7 +593,7 @@ NOTE: El cifrado MACsec sólo se puede aplicar a los puertos WAN ISL.
 
 === Requisitos de licencia para MACsec
 
-MACsec requiere una licencia de seguridad. Para obtener una explicación completa del esquema de licencias de Cisco NX-OS y de cómo obtener y solicitar licencias, consulte https://["Guía de licencias de Cisco NX-OS"]
+MACsec requiere una licencia de seguridad. Para obtener una explicación completa del esquema de licencias de Cisco NX-OS y de cómo obtener y solicitar licencias, consulte https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["Guía de licencias de Cisco NX-OS"]
 
 
 

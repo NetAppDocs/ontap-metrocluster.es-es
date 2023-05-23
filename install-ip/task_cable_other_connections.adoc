@@ -24,10 +24,10 @@ El ancho de banda mínimo recomendado para los puertos y la conectividad de red 
 La relación de clústeres entre iguales puede realizarse en puertos dedicados o en puertos de datos. El uso de puertos dedicados proporciona un rendimiento mayor para el tráfico de paridad de clústeres.
 
 +
-http://["Configuración exprés de relación entre iguales de clústeres y SVM"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]
 
 . Conecte los puertos de datos y de gestión de la controladora a las redes de datos y gestión en el sitio local.
 +
-Utilice las instrucciones de instalación de la plataforma en https://["Documentación de los sistemas AFF y FAS"].
+Utilice las instrucciones de instalación de la plataforma en https://docs.netapp.com/us-en/ontap-systems/["Documentación de los sistemas AFF y FAS"].
 
 

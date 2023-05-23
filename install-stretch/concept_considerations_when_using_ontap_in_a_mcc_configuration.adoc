@@ -154,7 +154,7 @@ Una configuración de cliente LDAP creada en una máquina virtual de almacenamie
 Debe saber cómo se crean y se replican los LIF en una configuración de MetroCluster. También debe conocer el requisito de coherencia para poder tomar las decisiones adecuadas al configurar la red.
 
 .Información relacionada
-https://["Conceptos de ONTAP"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["Conceptos de ONTAP"^]
 
 
 
@@ -384,7 +384,7 @@ No obstante, una vez que finalice el proceso de conmutación de sitios o conmuta
 
 
 
-Consulte la sección «"replicar la configuración de SVM" en la https://["Protección de datos con la interfaz de línea de comandos"^] Para obtener detalles sobre la configuración de una relación de recuperación ante desastres de SVM.
+Consulte la sección «"replicar la configuración de SVM" en la https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/GUID-983EDECC-A085-46DC-AF11-6FF9C474ABAE.html["Protección de datos con la interfaz de línea de comandos"^] Para obtener detalles sobre la configuración de una relación de recuperación ante desastres de SVM.
 
 
 

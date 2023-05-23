@@ -21,7 +21,7 @@ Estos pasos deben repetirse en cada uno de los switches Cisco FC de la configura
 
 Debe utilizar la versión de software del switch compatible.
 
-https://["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 Existen cuatro archivos RCF, uno para cada uno de los cuatro switches de la configuración de la estructura de MetroCluster. Debe utilizar los archivos RCF correctos para el modelo de conmutador que esté utilizando.
 
@@ -62,7 +62,7 @@ FC_switch_B_2
 NOTE: Los resultados que se muestran son para los switches IP de Cisco; sin embargo, estos pasos también se aplican a los switches FC de Cisco.
 
 .Pasos
-. Descargue los archivos Cisco FC RCF desde https://["Página de descarga de RCF de MetroCluster"].
+. Descargue los archivos Cisco FC RCF desde https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["Página de descarga de RCF de MetroCluster"].
 . Copie los archivos RCF en los conmutadores.
 +
 .. Copie los archivos RCF en el primer conmutador:

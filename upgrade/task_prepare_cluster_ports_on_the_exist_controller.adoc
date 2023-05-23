@@ -21,7 +21,7 @@ Para obtener información detallada acerca de la configuración de puerto, LIF y
 .Pasos
 . Determine qué puertos se deben usar como puertos de clúster del nodo.
 +
-Para obtener una lista de los roles de puerto predeterminados para la plataforma, consulte https://["Hardware Universe"^]
+Para obtener una lista de los roles de puerto predeterminados para la plataforma, consulte https://hwu.netapp.com/["Hardware Universe"^]
 
 +
 El _instrucciones de instalación y configuración_ de la plataforma en el sitio de soporte de NetApp contiene información acerca de los puertos para las conexiones de red de los clústeres.

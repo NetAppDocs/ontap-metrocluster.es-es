@@ -93,7 +93,7 @@ node_A_2             on           on           on           default
 ----
 . Si el sistema no tiene la asignación automática de disco habilitada o si las unidades de disco de la misma pila son propiedad de ambas controladoras, asigne unidades de disco a los pools adecuados.
 +
-https://["Gestión de discos y agregados"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
 
 +
 [NOTE]
@@ -112,7 +112,7 @@ NOTE: Las unidades de disco no deben añadirse a agregados o volúmenes hasta qu
 Puede ejecutar los comandos en el procedimiento desde la consola del sistema de cualquier controladora.
 
 +
-https://["Descargas de NetApp: Firmware de bandeja de discos"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"]
 
 . Instale y cablee la bandeja de discos:
 +
@@ -150,7 +150,7 @@ La _Installation Guide_ del modelo de bandeja de discos proporciona información
 
 . Actualice el firmware de la unidad de disco a la versión más reciente desde la consola del sistema.
 +
-https://["Descargas de NetApp: Firmware de la unidad de disco"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"]
 
 +
 .. Cambie al nivel de privilegio avanzado: +
@@ -187,7 +187,7 @@ Debe responder con `*y*` cuando se le solicite que continúe en el modo avanzado
 
 .. Ejecute Config Advisor.
 +
-https://["Descargas de NetApp: Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 

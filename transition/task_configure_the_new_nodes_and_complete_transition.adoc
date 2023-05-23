@@ -204,7 +204,7 @@ Debe añadir todos los puertos nuevos disponibles en las controladoras nuevas a 
 
 .. Cree espacios IP y asigne puertos de datos según sea necesario.
 +
-http://["Configurar espacios IP (solo administradores de clúster)"^]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-69120CF0-F188-434F-913E-33ACB8751A5D.html["Configurar espacios IP (solo administradores de clúster)"^]
 
 .. Vea los dominios de retransmisión:
 +
@@ -212,17 +212,17 @@ http://["Configurar espacios IP (solo administradores de clúster)"^]
 
 .. Añada cualquier puerto de datos a un dominio de retransmisión según sea necesario.
 +
-https://["Agregar o quitar puertos de un dominio de retransmisión"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["Agregar o quitar puertos de un dominio de retransmisión"^]
 
 .. Vuelva a crear las VLAN y los grupos de interfaces según sea necesario.
 +
 La pertenencia a la VLAN y al grupo de interfaces puede ser diferente de la del nodo antiguo.
 
 +
-https://["Creación de una VLAN"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["Creación de una VLAN"^]
 
 +
-https://["Combinación de puertos físicos para crear grupos de interfaces"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["Combinación de puertos físicos para crear grupos de interfaces"^]
 
 
 

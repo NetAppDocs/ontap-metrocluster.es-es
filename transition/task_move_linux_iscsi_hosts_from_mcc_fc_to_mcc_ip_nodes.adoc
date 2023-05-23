@@ -26,7 +26,7 @@ Para mover conexiones iSCSI, debe configurar conexiones iSCSI nuevas a los nodos
 
 . Cree interfaces iSCSI en los nodos IP de MetroCluster y compruebe la conectividad ping de los clientes iSCSI a las nuevas interfaces IP en los nodos IP de MetroCluster.
 +
-https://["Creación de interfaces de red"^]
+https://docs.netapp.com/us-en/ontap/networking/create_a_lif.html["Creación de interfaces de red"^]
 
 +
 El cliente iSCSI debe acceder a todas las interfaces iSCSI de la SVM.

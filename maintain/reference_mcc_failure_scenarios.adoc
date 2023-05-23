@@ -29,7 +29,7 @@ Se activa una conmutación por error.
  a| 
 La configuración se recupera mediante un sistema de toma de control local. RAID no se ve afectado. Revise los mensajes del sistema y sustituya las FRU con errores si es necesario.
 
-https://["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
 
 
 
@@ -40,7 +40,7 @@ Dos nodos solo fallarán si se habilita la conmutación de sitios automatizada e
  a| 
 Conmutación de sitios no planificada manual (USO) si la conmutación de sitios automatizada en el software MetroCluster Tiebreaker no está habilitada.
 
-https://["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
 
 
 
@@ -51,7 +51,7 @@ El sistema está degradado. El fallo adicional del puerto afecta al mirroring de
  a| 
 Se utiliza el segundo puerto. El monitor de estado genera una alerta si el enlace físico al puerto está roto. Revise los mensajes del sistema y sustituya las FRU con errores si es necesario.
 
-https://["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
 
 
 
@@ -62,7 +62,7 @@ La funcionalidad de ALTA DISPONIBILIDAD se ve afectada. RAID SyncMirror del nodo
  a| 
 Se requiere recuperación manual inmediata, ya que no hay toma de control de ha. Revise los mensajes del sistema y sustituya las FRU con errores si es necesario.
 
-https://["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
 
 
 

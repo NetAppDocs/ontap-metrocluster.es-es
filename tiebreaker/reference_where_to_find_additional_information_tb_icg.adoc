@@ -32,7 +32,7 @@ link:../index.html["Documentación de MetroCluster"]
 
 
  a| 
-http://["Informe técnico de NetApp 4375: MetroCluster de NetApp para ONTAP 9.3"^]
+http://www.netapp.com/us/media/tr-4375.pdf["Informe técnico de NetApp 4375: MetroCluster de NetApp para ONTAP 9.3"^]
  a| 
 * Una descripción técnica general de la configuración y el funcionamiento de MetroCluster.
 * Prácticas recomendadas para la configuración de MetroCluster.
@@ -41,7 +41,7 @@ http://["Informe técnico de NetApp 4375: MetroCluster de NetApp para ONTAP 9.3"
 
 
  a| 
-https://["Instalación y configuración de MetroCluster estructural"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
  a| 
 * Arquitectura MetroCluster FAS
 * Cableado de la configuración
@@ -53,7 +53,7 @@ https://["Instalación y configuración de MetroCluster estructural"]
 
 
  a| 
-https://["Instalación y configuración de MetroCluster con ampliación"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["Instalación y configuración de MetroCluster con ampliación"]
  a| 
 * Ampliación de la arquitectura de MetroCluster
 * Cableado de la configuración
@@ -64,7 +64,7 @@ https://["Instalación y configuración de MetroCluster con ampliación"]
 
 
  a| 
-https://["Instalación y configuración de IP de MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_differences.html["Instalación y configuración de IP de MetroCluster"]
  a| 
 * Arquitectura MetroCluster IP
 * Cableado de la configuración de IP de MetroCluster
@@ -74,7 +74,7 @@ https://["Instalación y configuración de IP de MetroCluster"]
 
 
  a| 
-https://["Mantener los componentes de MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["Mantener los componentes de MetroCluster"]
  a| 
 * Directrices de mantenimiento en una configuración de MetroCluster
 * Procedimientos de sustitución o actualización de hardware y actualización del firmware para puentes FC a SAS y switches FC
@@ -90,7 +90,7 @@ https://["Mantener los componentes de MetroCluster"]
  a| 
 Documentación de Active IQ Unified Manager
 
-https://["Documentación de NetApp: Guías de productos y recursos"^]
+https://docs.netapp.com["Documentación de NetApp: Guías de productos y recursos"^]
  a| 
 * Supervisar la configuración y el rendimiento de MetroCluster
 
@@ -98,7 +98,7 @@ https://["Documentación de NetApp: Guías de productos y recursos"^]
 
 
  a| 
-https://["Transición basada en copias"]
+https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["Transición basada en copias"]
  a| 
 * Transición de datos de sistemas de almacenamiento 7-Mode a sistemas de almacenamiento en clúster
 

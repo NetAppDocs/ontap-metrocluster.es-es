@@ -25,7 +25,7 @@ Es posible que necesite actualizar el firmware de los puentes FiberBridge para a
 * Necesita la contraseña de administrador y acceso a un servidor HTTP.
 * Debe utilizar una versión de firmware compatible.
 +
-https://["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
@@ -53,7 +53,7 @@ NOTE: A partir de ONTAP 9.8, el `storage bridge` el comando se sustituye por `sy
 
 . Vaya a la página ATTO FiberBridge y seleccione el firmware adecuado para su puente.
 +
-https://["Página de descarga del firmware DE ATTO FiberBridge"^]
+https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/downloads-tab["Página de descarga del firmware DE ATTO FiberBridge"^]
 
 . Revise el Contrato de usuario de Precaución/MustRead y End y haga clic en la casilla de verificación para indicar aceptación y continuar.
 . Coloque el archivo de firmware en una ubicación de red a la que los módulos de la controladora puedan acceder a ella.
@@ -269,7 +269,7 @@ Es posible que necesite actualizar el firmware de los puentes FiberBridge para a
 * Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
 * Debe utilizar una versión de firmware compatible.
 +
-https://["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
@@ -298,7 +298,7 @@ NOTE: Este procedimiento no es disruptivo y tarda aproximadamente 30 minutos en 
 
 . Vaya a la página ATTO FiberBridge y seleccione el firmware adecuado para su puente.
 +
-https://["Página de descarga del firmware DE ATTO FiberBridge"^]
+https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/downloads-tab["Página de descarga del firmware DE ATTO FiberBridge"^]
 
 . Revise el Contrato de usuario de Precaución/MustRead y End y haga clic en la casilla de verificación para indicar aceptación y continuar.
 . Descargue el archivo de firmware del puente siguiendo los pasos del 1 al 3 del procedimiento en la página Descarga de firmware de ATTO FiberBridge.

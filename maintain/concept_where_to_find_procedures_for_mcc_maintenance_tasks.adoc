@@ -29,7 +29,7 @@ Ambas
  a| 
 Actualización de software ONTAP
  a| 
-https://["Actualización, reversión o degradación"^]
+https://docs.netapp.com/us-en/ontap/upgrade/index.html["Actualización, reversión o degradación"^]
 
 
 
@@ -43,7 +43,7 @@ Sustitución de FRU (incluidos módulos de controladora, tarjetas PCIe, tarjeta 
 
 NOTE: No es posible mover un módulo de controladora de almacenamiento o una tarjeta NVRAM entre los sistemas de almacenamiento MetroCluster.
  a| 
-https://["Centro de documentación de AFF y FAS"]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
 
 
 
@@ -90,7 +90,7 @@ FC
  a| 
 El resto de procedimientos de mantenimiento de bandejas. Se pueden utilizar los procedimientos estándar.
  a| 
-https://["Mantener bandejas de discos DS460C DS212C y DS212C"^]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["Mantener bandejas de discos DS460C DS212C y DS212C"^]
 
 
 
@@ -99,9 +99,9 @@ IP
  a| 
 Todos los procedimientos de mantenimiento de bandejas. Se pueden utilizar los procedimientos estándar.
 
-Si se añaden bandejas para un agregado no reflejado, consulte http://["Consideraciones que tener en cuenta al utilizar agregados no reflejados"^]
+Si se añaden bandejas para un agregado no reflejado, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/GUID-EA385AF8-7786-4C3C-B5AE-1B4CFD3AD2EE.html["Consideraciones que tener en cuenta al utilizar agregados no reflejados"^]
  a| 
-https://["Mantener bandejas de discos DS460C DS212C y DS212C"^]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["Mantener bandejas de discos DS460C DS212C y DS212C"^]
 
 
 
@@ -110,7 +110,7 @@ Ambas
  a| 
 Adición en caliente de bandejas IOM12 a una pila de bandejas IOM6
  a| 
-https://["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"^]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"^]
 
 
 

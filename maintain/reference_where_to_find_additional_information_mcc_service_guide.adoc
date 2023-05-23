@@ -28,7 +28,7 @@ link:../index.html["Documentación de MetroCluster"]
 
 
  a| 
-https://["Arquitectura y diseño de la solución NetApp MetroCluster"^]
+https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf["Arquitectura y diseño de la solución NetApp MetroCluster"^]
  a| 
 * Una descripción técnica general de la configuración y el funcionamiento de MetroCluster.
 * Prácticas recomendadas para la configuración de MetroCluster.
@@ -37,7 +37,7 @@ https://["Arquitectura y diseño de la solución NetApp MetroCluster"^]
 
 
  a| 
-https://["Instalación y configuración de MetroCluster estructural"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
  a| 
 * Arquitectura MetroCluster FAS
 * Cableado de la configuración
@@ -49,7 +49,7 @@ https://["Instalación y configuración de MetroCluster estructural"]
 
 
  a| 
-https://["Instalación y configuración de MetroCluster con ampliación"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["Instalación y configuración de MetroCluster con ampliación"]
  a| 
 * Ampliación de la arquitectura de MetroCluster
 * Cableado de la configuración
@@ -60,7 +60,7 @@ https://["Instalación y configuración de MetroCluster con ampliación"]
 
 
  a| 
-https://["Instalación y configuración de IP de MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_differences.html["Instalación y configuración de IP de MetroCluster"]
  a| 
 * Arquitectura MetroCluster IP
 * Cableado de la configuración de IP de MetroCluster
@@ -70,7 +70,7 @@ https://["Instalación y configuración de IP de MetroCluster"]
 
 
  a| 
-https://["Documentación de NetApp: Guías de productos y recursos"^]
+https://www.netapp.com/support-and-training/documentation/["Documentación de NetApp: Guías de productos y recursos"^]
  a| 
 * Supervisar la configuración y el rendimiento de MetroCluster
 
@@ -78,7 +78,7 @@ https://["Documentación de NetApp: Guías de productos y recursos"^]
 
 
  a| 
-https://["Instalación y configuración del software MetroCluster Tiebreaker"]
+https://docs.netapp.com/us-en/ontap-metrocluster/tiebreaker/concept_overview_of_the_tiebreaker_software.html["Instalación y configuración del software MetroCluster Tiebreaker"]
  a| 
 * Supervisión de la configuración de MetroCluster con el software MetroCluster Tiebreaker
 
@@ -86,7 +86,7 @@ https://["Instalación y configuración del software MetroCluster Tiebreaker"]
 
 
  a| 
-https://["Transición basada en copias"]
+https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["Transición basada en copias"]
  a| 
 * Transición de datos de sistemas de almacenamiento 7-Mode a sistemas de almacenamiento en clúster
 

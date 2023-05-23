@@ -199,7 +199,7 @@ This node has its management address assigned and is ready for cluster setup.
 
 
 .Después de terminar
-Después de configurar ONTAP en todos los nodos que desea usar con LUN de cabina, debe completar elhttps://["Proceso de configuración del clúster"]
+Después de configurar ONTAP en todos los nodos que desea usar con LUN de cabina, debe completar elhttps://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["Proceso de configuración del clúster"]
 
 .Información relacionada
-https://["Referencias y requisitos de instalación de la virtualización FlexArray"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["Referencias y requisitos de instalación de la virtualización FlexArray"]

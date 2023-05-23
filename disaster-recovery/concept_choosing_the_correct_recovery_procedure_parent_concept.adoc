@@ -39,7 +39,7 @@ Si un fallo está limitado a un módulo de controladora único, debe utilizar el
 
 *Nota:* el procedimiento de sustitución de la FRU del módulo del controlador se puede utilizar en una configuración MetroCluster de dos nodos si no hay ningún fallo de la unidad ni de ningún otro hardware.
 
-https://["Centro de documentación de AFF y FAS"]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
 
 
 
@@ -114,7 +114,7 @@ En este caso, el fallo se limita a un par de alta disponibilidad.
 
 * Si no necesita sustituir ningún almacenamiento, puede utilizar el procedimiento de sustitución de FRU del módulo de las controladoras para el modelo de plataforma.
 +
-https://["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
 
 * Si es necesario sustituir el almacenamiento, puede utilizar el procedimiento de recuperación del módulo multicontrolador.
 +
@@ -151,7 +151,7 @@ En este caso, el fallo se limita a parejas de alta disponibilidad independientes
 El procedimiento de sustitución de FRU se lleva a cabo dos veces, una vez para cada módulo de controladora que ha fallado.
 
 +
-https://["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
 
 * Si es necesario sustituir el almacenamiento, puede utilizar el procedimiento de recuperación del módulo multicontrolador.
 +
@@ -171,7 +171,7 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["Recuperac
 
 Puede utilizar el procedimiento de reemplazo de FRU de módulo de controladora específico de la plataforma para el grupo de recuperación ante desastres dos.
 
-https://["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
 
 image::../media/mcc_dr_groups_8_node_with_a_3_controller_failure.gif[mcc dr agrupa a 8 nodos con un fallo de controladora 3]
 
@@ -183,7 +183,7 @@ El procedimiento que utilice dependerá de la magnitud del fallo.
 
 * Si no necesita sustituir ningún almacenamiento, puede utilizar el procedimiento de sustitución de FRU del módulo de las controladoras para el modelo de plataforma.
 +
-https://["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
 
 * Si es necesario sustituir el almacenamiento, puede utilizar el procedimiento de recuperación del módulo multicontrolador.
 +

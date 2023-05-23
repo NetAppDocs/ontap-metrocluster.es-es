@@ -22,11 +22,11 @@ A partir de ONTAP 9.9.1, se pueden añadir cuatro nodos nuevos a la configuraci�
 * Este procedimiento describe los pasos necesarios para expandir un grupo de recuperación ante desastres de cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos de DR), debe repetir todo el procedimiento para cada grupo de DR.
 * Debe asegurarse de que los modelos de plataforma anteriores y nuevos son compatibles con la mezcla de plataformas.
 +
-https://["Hardware Universe de NetApp"^]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 * Debe asegurarse de que los modelos de plataforma anterior y nueva sean compatibles con los switches IP.
 +
-https://["Hardware Universe de NetApp"^]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 * Los nuevos nodos deben tener suficiente almacenamiento para acomodar los datos de los nodos antiguos, junto con los discos adecuados para los agregados raíz y los discos de repuesto.
 * Este procedimiento no es compatible con los sistemas FAS2750 o AFF A220.
@@ -150,7 +150,7 @@ Debe verificar el estado y la conectividad de la configuración de MetroCluster 
 
 .. Ejecute Config Advisor.
 +
-https://["Descargas de NetApp: Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 

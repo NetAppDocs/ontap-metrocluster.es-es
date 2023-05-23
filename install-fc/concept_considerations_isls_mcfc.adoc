@@ -34,7 +34,7 @@ Tenga en cuenta los siguientes aspectos de la configuración al determinar cuán
 * Los archivos RCF para el uso compartido de ISL son los mismos que para el cableado MetroCluster de ocho nodos.
 * Debe verificar que todas las versiones de hardware y software sean compatibles.
 +
-https://["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 * El tamaño de la velocidad y el número de ISL se debe ajustar para admitir la carga de cliente en los dos sistemas MetroCluster.
 * Los ISL de back-end y los componentes de back-end deben estar dedicados únicamente a la configuración de MetroCluster.

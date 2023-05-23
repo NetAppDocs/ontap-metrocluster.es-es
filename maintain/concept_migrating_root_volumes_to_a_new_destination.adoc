@@ -17,20 +17,20 @@ Es posible que deba mover volúmenes raíz a otro agregado raíz dentro de una c
 
 == La migración de volúmenes raíz dentro de una configuración MetroCluster de dos nodos
 
-Para migrar volúmenes raíz a un nuevo agregado raíz dentro de una configuración MetroCluster de dos nodos, debería hacer referencia a https://["Cómo mover mroot a un nuevo agregado raíz en un Clustered MetroCluster de 2 nodos con conmutación de sitios"]. Este procedimiento muestra cómo migrar sin interrupciones los volúmenes raíz durante una operación de conmutación de MetroCluster. Este procedimiento es ligeramente diferente al procedimiento utilizado en una configuración de cuatro nodos.
+Para migrar volúmenes raíz a un nuevo agregado raíz dentro de una configuración MetroCluster de dos nodos, debería hacer referencia a https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_move_mroot_to_a_new_root_aggregate_in_a_2-node_Clustered_MetroCluster_with_Switchover["Cómo mover mroot a un nuevo agregado raíz en un Clustered MetroCluster de 2 nodos con conmutación de sitios"]. Este procedimiento muestra cómo migrar sin interrupciones los volúmenes raíz durante una operación de conmutación de MetroCluster. Este procedimiento es ligeramente diferente al procedimiento utilizado en una configuración de cuatro nodos.
 
 
 
 == Migrar volúmenes raíz dentro de una configuración MetroCluster de cuatro nodos
 
-Para migrar volúmenes raíz a un nuevo agregado raíz dentro de una configuración MetroCluster de cuatro nodos, puede usar la http://["migración-raíz del nodo del sistema"] command mientras cumple con los siguientes requisitos.
+Para migrar volúmenes raíz a un nuevo agregado raíz dentro de una configuración MetroCluster de cuatro nodos, puede usar la http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-930/system%5F%5Fnode%5F%5Fmigrate-root.html["migración-raíz del nodo del sistema"] command mientras cumple con los siguientes requisitos.
 
 * Puede utilizar la migración-root del nodo del sistema para mover agregados raíz dentro de una configuración MetroCluster de cuatro nodos.
 * Deben duplicarse todos los agregados raíz.
 * Puede añadir nuevas bandejas en ambos sitios con unidades más pequeñas para alojar el agregado raíz.
 * Debe comprobar los límites de unidades que admite la plataforma antes de conectar unidades nuevas.
 +
-https://["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 * Si mueve el agregado raíz a unidades más pequeñas, debe tener en cuenta el tamaño mínimo de volumen raíz de la plataforma para garantizar que se guarden todos los archivos de núcleo.
 

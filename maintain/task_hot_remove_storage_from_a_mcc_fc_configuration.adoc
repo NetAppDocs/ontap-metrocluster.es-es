@@ -24,11 +24,11 @@ IMPORTANT: Si se intenta realizar este procedimiento en configuraciones FC que n
 La eliminación de agregados implica dividir los agregados reflejados en las bandejas que se van a eliminar y volver a crear los agregados reflejados con otro conjunto de unidades.
 
 +
-https://["Gestión de discos y agregados"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
 
 * Debe haber quitado la propiedad de la unidad después de quitar los agregados de las unidades de las bandejas que desea quitar.
 +
-https://["Gestión de discos y agregados"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
 
 * Si se van a quitar una o varias bandejas de una pila, se debe haber calculado la distancia para omitir las bandejas que se están quitando.
 +
@@ -67,7 +67,7 @@ Esta tarea se aplica a las siguientes configuraciones de FC de MetroCluster:
 
 .. Ejecute Config Advisor.
 +
-https://["Descargas de NetApp: Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 

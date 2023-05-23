@@ -49,7 +49,7 @@ Si va a crear un clúster sin switches de dos nodos, necesita dos cables para co
 . Verifique que dispone de una consola de puerto serie disponible para los módulos de la controladora.
 . Compruebe que su entorno cumple los requisitos del sitio y del sistema.
 +
-https://["Hardware Universe de NetApp"^]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 . Recopile todas las direcciones IP y otros parámetros de red para el nuevo módulo de controladora.
 

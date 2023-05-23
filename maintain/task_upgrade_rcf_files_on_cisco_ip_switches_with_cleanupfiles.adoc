@@ -20,7 +20,7 @@ A partir de la versión 1.4a de RcfFileGenerator, hay una nueva opción para cam
 Puede utilizar este método si la configuración cumple los siguientes requisitos:
 
 * Se aplica la configuración RCF estándar.
-* La https://["RcfFileGenerator"] Debe poder crear el mismo archivo RCF que se aplica, con la misma versión y configuración (plataformas, VLAN).
+* La https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"] Debe poder crear el mismo archivo RCF que se aplica, con la misma versión y configuración (plataformas, VLAN).
 * NetApp no proporcionó el archivo RCF aplicado para una configuración especial.
 * El archivo RCF no se modificó antes de aplicarlo.
 * Antes de aplicar el archivo RCF actual, se siguieron los pasos para restablecer los valores predeterminados de fábrica del conmutador.

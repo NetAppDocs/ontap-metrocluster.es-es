@@ -1055,7 +1055,7 @@ Debe configurar la paridad de los clústeres, reflejar los agregados raíz, crea
 Los clústeres de la configuración de MetroCluster deben tener una relación entre iguales para que puedan comunicarse entre sí y realizar las operaciones de mirroring de datos esenciales para la recuperación ante desastres de MetroCluster.
 
 .Información relacionada
-http://["Configuración exprés de relación entre iguales de clústeres y SVM"^]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"^]
 
 link:concept_considerations_peering.html#considerations-when-using-dedicated-ports["Consideraciones que tener en cuenta al utilizar puertos dedicados"]
 
@@ -1718,9 +1718,9 @@ Esto refleja el agregado, por lo que consta de un complejo local y un complejo r
 
 
 .Información relacionada
-https://["Gestión de almacenamiento lógico"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Gestión de almacenamiento lógico"^]
 
-https://["Conceptos de ONTAP"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["Conceptos de ONTAP"^]
 
 
 
@@ -1737,7 +1737,7 @@ Debe crear un agregado de datos reflejados en cada nodo del grupo de recuperaci�
 * Las unidades y los LUN de cabina son propiedad de un nodo específico; cuando se crea un agregado, todas las unidades de ese agregado deben ser propiedad del mismo nodo, que se convierte en el nodo inicial para ese agregado.
 * Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster.
 +
-https://["Gestión de discos y agregados"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
 
 
 
@@ -1927,7 +1927,7 @@ Debe responder con "'y'" cuando se le pida que continúe en el modo avanzado y v
 |===
 +
 
-NOTE: Lo mejor es disponer de varios agregados de datos. Si el primer grupo de recuperación ante desastres tiene un solo agregado y desea añadir un grupo de recuperación ante desastres con un agregado, debe mover el volumen de metadatos fuera del agregado de datos único. Para obtener más información sobre este procedimiento, consulte http://["Mover un volumen de metadatos en configuraciones de MetroCluster"^].
+NOTE: Lo mejor es disponer de varios agregados de datos. Si el primer grupo de recuperación ante desastres tiene un solo agregado y desea añadir un grupo de recuperación ante desastres con un agregado, debe mover el volumen de metadatos fuera del agregado de datos único. Para obtener más información sobre este procedimiento, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/GUID-114DAE6E-F105-4908-ABB1-CE1D7B5C7048.html["Mover un volumen de metadatos en configuraciones de MetroCluster"^].
 
 +
 El siguiente comando habilita la configuración MetroCluster en todos los nodos del grupo DR que contiene "'Controller_A_1'":
@@ -2198,7 +2198,7 @@ mccint-fas9000-0304
 
 
 .Información relacionada
-https://["Gestión de discos y agregados"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^]
 
 link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Gestión de redes y LIF"^]
 
@@ -2215,7 +2215,7 @@ NOTE: El soporte para Config Advisor es limitado y solo está disponible en lín
 
 . Vaya a la página de descarga de Config Advisor y descargue la herramienta.
 +
-https://["Descargas de NetApp: Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"^]
 
 . Ejecute Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 

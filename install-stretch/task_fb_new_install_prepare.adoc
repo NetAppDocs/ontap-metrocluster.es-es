@@ -20,7 +20,7 @@ Cuando esté preparando la instalación de los puentes como parte del nuevo sist
 * Su sistema ya debe instalarse en un rack si no se ha enviado en un armario del sistema.
 * La configuración debe utilizar modelos de hardware y versiones de software compatibles.
 +
-https://["Herramienta de matriz de interoperabilidad de NetApp"]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
 
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.

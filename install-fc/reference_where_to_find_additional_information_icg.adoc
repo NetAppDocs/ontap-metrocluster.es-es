@@ -24,21 +24,21 @@ Puede obtener más información acerca de la configuración y el funcionamiento 
 
 
  a| 
-https://["Documentación de ONTAP 9"^]
+https://docs.netapp.com/us-en/ontap/index.html["Documentación de ONTAP 9"^]
  a| 
 * Toda la información sobre MetroCluster
 
 
 
 
-| https://["Arquitectura y diseño de la solución MetroCluster de NetApp, TR-4705"^]  a| 
+| https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf["Arquitectura y diseño de la solución MetroCluster de NetApp, TR-4705"^]  a| 
 * Una descripción técnica del funcionamiento y la configuración de MetroCluster FC.
 * Prácticas recomendadas para la configuración de MetroCluster FC.
 
 
 
 
-| https://["Arquitectura y diseño de la solución IP de MetroCluster, TR-4689"^]  a| 
+| https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf["Arquitectura y diseño de la solución IP de MetroCluster, TR-4689"^]  a| 
 * Descripción general técnica del funcionamiento y la configuración de IP de MetroCluster.
 * Prácticas recomendadas para la configuración de IP de MetroCluster.
 
@@ -46,7 +46,7 @@ https://["Documentación de ONTAP 9"^]
 
 
  a| 
-https://["Instalación y configuración de MetroCluster con ampliación"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["Instalación y configuración de MetroCluster con ampliación"]
  a| 
 * Ampliación de la arquitectura de MetroCluster
 * Cableado de la configuración
@@ -57,7 +57,7 @@ https://["Instalación y configuración de MetroCluster con ampliación"]
 
 
  a| 
-https://["Instalación y configuración de IP de MetroCluster: Diferencias entre las configuraciones de ONTAP MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_differences.html["Instalación y configuración de IP de MetroCluster: Diferencias entre las configuraciones de ONTAP MetroCluster"]
  a| 
 * Arquitectura MetroCluster IP
 * Cableado de la configuración
@@ -67,7 +67,7 @@ https://["Instalación y configuración de IP de MetroCluster: Diferencias entre
 
 
  a| 
-https://["Gestión y recuperación ante desastres de MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["Gestión y recuperación ante desastres de MetroCluster"]
  a| 
 * Configuración de MetroCluster
 * Conmutación, reparación y conmutación de estado
@@ -77,7 +77,7 @@ https://["Gestión y recuperación ante desastres de MetroCluster"]
 
 
  a| 
-https://["Mantener los componentes de MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["Mantener los componentes de MetroCluster"]
  a| 
 * Directrices de mantenimiento en una configuración de MetroCluster FC
 * Procedimientos de sustitución o actualización de hardware y actualización del firmware para puentes FC a SAS y switches FC
@@ -91,9 +91,9 @@ https://["Mantener los componentes de MetroCluster"]
 
 
  a| 
-https://["Transición de FC de MetroCluster a IP de MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_choosing_your_transition_procedure_mcc_transition.html["Transición de FC de MetroCluster a IP de MetroCluster"]
 
-https://["Guía de actualización y ampliación de MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Guía de actualización y ampliación de MetroCluster"]
  a| 
 * Actualizar o actualizar una configuración de MetroCluster
 * Realizar la transición de una configuración de MetroCluster FC a una configuración de IP de MetroCluster
@@ -103,7 +103,7 @@ https://["Guía de actualización y ampliación de MetroCluster"]
 
 
  a| 
-https://["Instalación y configuración del software MetroCluster Tiebreaker"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["Instalación y configuración del software MetroCluster Tiebreaker"]
  a| 
 * Supervisión de la configuración de MetroCluster con el software MetroCluster Tiebreaker
 
@@ -113,7 +113,7 @@ https://["Instalación y configuración del software MetroCluster Tiebreaker"]
  a| 
 Documentación del asesor digital de Active IQ
 
-https://["Documentación de NetApp: Guías de productos y recursos"^]
+https://www.netapp.com/support-and-training/documentation/["Documentación de NetApp: Guías de productos y recursos"^]
  a| 
 * Supervisar la configuración y el rendimiento de MetroCluster
 
@@ -121,7 +121,7 @@ https://["Documentación de NetApp: Guías de productos y recursos"^]
 
 
  a| 
-https://["Transición basada en copias"^]
+https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["Transición basada en copias"^]
  a| 
 * Transición de datos de sistemas de almacenamiento 7-Mode a sistemas de almacenamiento en clúster
 
@@ -129,7 +129,7 @@ https://["Transición basada en copias"^]
 
 
  a| 
-https://["Conceptos de ONTAP"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["Conceptos de ONTAP"^]
  a| 
 * Cómo funcionan los agregados reflejados
 

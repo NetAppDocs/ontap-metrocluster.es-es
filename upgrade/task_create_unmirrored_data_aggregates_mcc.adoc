@@ -35,7 +35,7 @@ NOTE: Los agregados no reflejados deben ser locales para el nodo a los que perte
 Puede utilizar los procedimientos de la documentación _Installation and Setup_ para su plataforma y bandejas de discos.
 
 +
-https://["Centro de documentación de AFF y FAS"]
+https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
 
 . Asigne manualmente todos los discos de la bandeja nueva al nodo apropiado:
 +
@@ -88,4 +88,4 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 
 
 .Información relacionada
-https://["Gestión de discos y agregados"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]

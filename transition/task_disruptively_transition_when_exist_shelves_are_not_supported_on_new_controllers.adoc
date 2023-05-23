@@ -41,11 +41,11 @@ link:concept_supported_platforms_for_transition.html["Plataformas compatibles pa
 * Debe cumplir con todos los requisitos y el cableado tal y como se describe en link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"].
 * Las nuevas bandejas de almacenamiento que se proporcionan con las nuevas controladoras (node_A_1-IP, node_A_2-IP, node_B_1-IP y node_B_2-IP) deben ser compatibles con las controladoras antiguas (node_A_1-FC y node_B_1-FC).
 +
-https://["Hardware Universe de NetApp"^]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 * Los nuevos modelos de plataforma IP de MetroCluster * no admiten las bandejas de almacenamiento antiguas.
 +
-https://["Hardware Universe de NetApp"^]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 * En función de los discos de repuesto disponibles en las bandejas existentes, deben añadirse unidades adicionales.
 +
@@ -66,7 +66,7 @@ Debe tener entre 14 y 18 unidades adicionales para cada controladora:
 Esta información está disponible para cada modelo de plataforma en _NetApp Hardware Universe_.
 
 +
-https://["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 * Debe tener acceso remoto a la consola para los seis nodos desde el sitio de MetroCluster o planificar el viaje entre los sitios según lo requiera el procedimiento.
 
@@ -469,7 +469,7 @@ Debe realizar los siguientes pasos en node_A_1-FC y node_B_1-FC para quitar el v
 
 . Migre los volúmenes de datos a agregados en las nuevas controladoras, un volumen a la vez.
 +
-Consulte http://["Crear un agregado y mover volúmenes a los nuevos nodos"^]
+Consulte http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["Crear un agregado y mover volúmenes a los nuevos nodos"^]
 
 . Retire las bandejas antiguas realizando todos los pasos de link:task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.html["Retirada de las bandejas del nodo_A_1-FC y nodo_A_2-FC"].
 

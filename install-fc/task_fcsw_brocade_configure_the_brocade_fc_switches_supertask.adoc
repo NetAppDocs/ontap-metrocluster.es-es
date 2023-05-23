@@ -17,7 +17,7 @@ Debe configurar cada una de las estructuras de switches de Brocade en la configu
 * Debe tener un PC o estación de trabajo UNIX con acceso Telnet o Secure Shell (SSH) a los switches FC.
 * Debe usar cuatro switches Brocade compatibles del mismo modelo con la misma versión y licencia del sistema operativo Brocade Fabric (FOS).
 +
-https://["Herramienta de matriz de interoperabilidad de NetApp"]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
 
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
@@ -51,7 +51,7 @@ Metro-E significa que la trama o la señalización Ethernet se produce de forma 
 * Las extensiones TDMS, FCR (enrutamiento FC nativo) o FCIP no son compatibles con la estructura de switches FC MetroCluster.
 * Algunos switches de la estructura del switch FC de MetroCluster admiten cifrado o compresión, y en ocasiones admiten ambos.
 +
-https://["Herramienta de matriz de interoperabilidad de NetApp (IMT)"]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp (IMT)"]
 
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
@@ -471,7 +471,7 @@ FC_switch_A_1:admin> iodshow
 NOTE: Al configurar ONTAP en los módulos de controlador, OOD debe configurarse explícitamente en cada módulo de controlador de la configuración de MetroCluster.
 
 +
-https://["Configurar la entrega bajo pedido o la entrega fuera de servicio de tramas en el software ONTAP"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["Configurar la entrega bajo pedido o la entrega fuera de servicio de tramas en el software ONTAP"]
 
 
 
@@ -756,7 +756,7 @@ En el caso de los switches Brocade en los que se configuran los enlaces Inter-Sw
 * La combinación del puerto del switch y el factor de forma pequeño conectable (SFP) debe admitir la velocidad.
 * La distancia ISL admitida depende del modelo de switch de FC.
 +
-https://["Herramienta de matriz de interoperabilidad de NetApp"]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
 
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.

@@ -364,5 +364,11 @@ OLD: Host: scsi5 Channel: 00 Id: 00 Lun: 09
 .
 .
 ----
-. En el host iSCSI, compruebe que solo se puedan ver las rutas desde los nodos IP de MetroCluster: `sanlun lun show -p``multipath -ll -d`
+. En el host iSCSI, compruebe que solo se puedan ver las rutas desde los nodos IP de MetroCluster:
++
+`sanlun lun show -p`
+
++
+`multipath -ll -d`
+
 

@@ -69,6 +69,9 @@ entries:
     url: "/maintain/task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html"
   - title: Cambie el nombre de un switch IP de Cisco
     url: "/maintain/task_rename_a_cisco_ip_switch.html"
+- title: Modifique una dirección IP de puente ATTO o conmutador para la supervisión
+    del estado
+  url: "/maintain/task_modify_switch_or_bridge_ip_address_for_health_monitoring.html"
 - title: Añada, elimine o cambie puertos ISL de forma no disruptiva
   url: "/maintain/task_add_remove_or_change_isl_ports_nondisruptively.html"
 - title: Cómo identificar el almacenamiento en una configuración de MetroCluster IP

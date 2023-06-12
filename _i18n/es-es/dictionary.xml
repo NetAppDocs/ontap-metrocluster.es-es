@@ -7444,7 +7444,6 @@
   <block id="e7acec6ea00d47c0f7752735341c6bb3" category="list-text">Licencia de Extended Fabric (para distancias de ISL más de 6 km)</block>
   <block id="9095235ccbae1acead09e083fb7b20dd" category="list-text">Licencia empresarial para sitios con más de un ISL y una distancia ISL mayor de 6 km</block>
   <block id="c447450429c7aa0c8fa978a8c7ab1f67" category="paragraph">La licencia de empresa incluye Brocade Network Advisor y todas las licencias, a excepción de las licencias de puertos adicionales.</block>
-  <block id="aaf82250987f97db574d1fc26bfc8c06" category="paragraph">Puede verificar que las licencias se han instalado mediante el<block ref="c53664d593e772e240ea0e6fdcfc79e1" prefix=" " category="inline-code"></block> comando. Si no tiene estas licencias, debe ponerse en contacto con su representante de ventas antes de continuar.</block>
   <block id="7808905132392bd0ce5a445469e4132d" category="summary">Cada switch de Cisco en la configuración de MetroCluster debe estar configurado correctamente para el ISL y las conexiones de almacenamiento.</block>
   <block id="7cd3fb6e6f6deaf7b1a2916711a6b7e0" category="doc">Configurar manualmente los switches Cisco FC</block>
   <block id="e5d68dba728fb2d82fcd5253e45d2606" category="paragraph">Los siguientes requisitos se aplican a los switches FC de Cisco:</block>
@@ -8260,7 +8259,6 @@
   <block id="b54ac66ca0ca34c593eeed1fe8cd4e03" category="list-text">No se admite la función Brocade Virtual Fabric (VF).</block>
   <block id="c51b448f36df4e8b4b68e7af4df4c6b8" category="list-text">Se admite la división en zonas de FC basada en el puerto de dominio, pero no se admite la división en zonas basada en el nombre a nivel mundial (WWN).</block>
   <block id="5f864e9896e626c0a0c857ef2de8b1d6" category="list-text">Compruebe que las licencias estén instaladas:</block>
-  <block id="085c43e1c750634547ed6d634183b052" category="paragraph"><block ref="c53664d593e772e240ea0e6fdcfc79e1" prefix="" category="inline-code"></block></block>
   <block id="4d8abf4bb34371dfeb410341732e506b" category="paragraph">Si no tiene estas licencias, debe ponerse en contacto con su representante de ventas antes de continuar.</block>
   <block id="29beb95dbfa349b40c8e018564927306" category="section-title">Configurar los valores del switch Brocade FC a los valores predeterminados de fábrica</block>
   <block id="bc9a8f24ac7c37a611a7d6eccad46c1a" category="paragraph">Debe ajustar el conmutador a sus valores predeterminados de fábrica para garantizar una configuración correcta. Además, debe asignar un nombre exclusivo a cada switch.</block>
@@ -8290,7 +8288,6 @@
   <block id="ae6d4e9d4497377541a0ac6446e39a09" category="list-text">En los switches Brocade 6510, desactive la función Brocade Virtual Fabrics (VF):</block>
   <block id="1a81ddb24cea9bbdfadc63273aab083e" category="paragraph"><block ref="39828bc981dfbddce10f0fb4f93bc17e" prefix="" category="inline-code"></block></block>
   <block id="5592272feb1a1ba6847cf13d1a8c1474" category="list-text">Borrar la configuración de dominio de administración (AD):</block>
-  <block id="acb1a0aabd466b89953a635308b148ef" category="paragraph"><block ref="af8d940a13b977febff8146e45835fa1" prefix="" category="inline-code"></block></block>
   <block id="a0aba6ae1d604e993dbdc4de925448a0" category="paragraph"><block ref="2b755b30293f2f9f79ec1c86ab0943f2" prefix="" category="inline-code"></block></block>
   <block id="41f75670bd6513f25d1942c68f417ebb" category="section-title">Configuración de los ajustes básicos del switch</block>
   <block id="b5200136ba99d499e1f31b6fc5df9dcc" category="paragraph">Debe configurar la configuración global básica, incluido el ID de dominio, para los switches Brocade.</block>
@@ -8328,13 +8325,10 @@
   <block id="555d0eb5e8f5efea1f9923360c2e1807" category="paragraph"><block ref="555d0eb5e8f5efea1f9923360c2e1807" category="inline-link-rx"></block></block>
   <block id="8e6415ee4068075bb4d9b0908c9e0ba1" category="list-text">Compruebe que el switch utiliza el método de licencia de puerto dinámico.</block>
   <block id="64fa0d568b3592806aa948b76b25721e" category="list-text">Ejecute el comando license:</block>
-  <block id="67c13f78d822be3160ea3c5b07cae707" category="paragraph"><block ref="652c8cde1b3411c9aaaf04ce42a4838b" prefix="" category="inline-code"></block></block>
   <block id="39c3f713772acf06f906fa354070ccae" category="admonition">Las versiones de Brocade FabricOS anteriores a la versión 8.0 ejecutan los siguientes comandos como admin y las versiones 8.0 y posteriores como root.</block>
   <block id="bb455cc655a37d9370a7b572be5c356a" category="list-text">Habilite el usuario raíz.</block>
   <block id="9982799dc107b44357ff54b7e3b835e7" category="paragraph">Si el usuario raíz ya está desactivado por Brocade, habilite el usuario raíz como se muestra en el siguiente ejemplo:</block>
-  <block id="0495c36d7c4cd6e18740fbb344d64ab4" category="list-text">Cambie el método de licencia a dinámico:</block>
   <block id="58245d98714cc00602b18f5cd698870e" category="paragraph"><block ref="3164874cc01be770c11a12a6977eaa9e" prefix="" category="inline-code"></block></block>
-  <block id="46714aac3ad4ae91307dcd356eefab49" category="admonition">Si el método de licencia dinámica no está en uso (si el método es estático), debe cambiar el método de licencia a dinámico. Omita este paso si el método de licencia dinámica está en uso.</block>
   <block id="95da9f6e517e5c030f88ab1f88a8412b" category="list-text">Habilite el reto de T11-FC-ZONE-SERVER-MIB para que pueda ofrecer una supervisión de estado correcta de los switches de ONTAP:</block>
   <block id="ed4e949381c1b26b6a818efefef7af72" category="list-text">Habilite T11-FC-ZONE-SERVER-MIB:</block>
   <block id="30b22579f9b8f04df9b75ac978e270dc" category="paragraph"><block ref="6e9bfa416f2cbe2c011d5e661b7a168b" prefix="" category="inline-code"></block></block>
@@ -10096,9 +10090,7 @@
   <block id="4461eb2aa0e7be56b07bfd03b50adda3" category="paragraph">Debe completar este paso para cada puerto.</block>
   <block id="1711fdcc6944bbeddd35a626101f4b4d" category="list-text">Compruebe que el switch utiliza el método de puerto dinámico bajo demanda (POD).</block>
   <block id="2f3d07c01cbdac4d395d3a14b661150c" category="admonition">En las versiones de SO Brocade Fabric anteriores a la 8.0, se ejecutan los siguientes comandos como administrador, y para las versiones 8.0 y posteriores, se ejecutan como raíz.</block>
-  <block id="2fc05e860677e088c66d18d9fe3bb918" category="paragraph"><block ref="c3d759c84d82a17cd2fc31c0bbd2be02" prefix="" category="inline-code"></block></block>
   <block id="d63c14f8f4da1b2f3355284117aa43d6" category="list-text">Active el usuario raíz si está deshabilitado por Brocade.</block>
-  <block id="dca190678a04e60a515a67708b3f0c76" category="admonition">Si el método Dynamic POD no está en uso (si el método POD está estático), debe cambiar el método de asignación de licencia a dinámico. Omita este paso si el método Dynamic POD está en uso.</block>
   <block id="06628fac4ad175a059dea1e8992ec356" category="paragraph"><block ref="40c3e9d40d7f5472056a085103ee278b" prefix="" category="inline-code"></block></block>
   <block id="ede0376c0e0928f0e121e5c4a17e579f" category="list-text">Confirme que se ha implementado la configuración predeterminada:</block>
   <block id="384bb33c884dd5c4aed5b1cef7c99c53" category="list-text">Compruebe que la dirección IP esté configurada correctamente:</block>
@@ -13238,4 +13230,14 @@
   <block id="c6b98eed0e9727a5dfb3f152632a0f26" category="paragraph"><block ref="abef28b214988e1f461b70d9ddd96084" prefix="" category="inline-code"></block></block>
   <block id="5da08e80e3eab08ebb4baa8e1b142991" category="paragraph"><block ref="c15b1a514541c60b840d997ade873f6d" prefix="" category="inline-code"></block></block>
   <block id="9c2b22a66311e51f1e1983454811963b" category="paragraph"><block ref="6253a5e48e30f72d3113196e1239627c" prefix="" category="inline-code"></block></block>
+  <block id="5aec6e2f211b9dfd0cbd3f6c569bd08c" category="open-title">Para Fabric OS 8,2.x y versiones anteriores</block>
+  <block id="21a858f81918f7707fbcd7bef86f8797" category="paragraph">Ejecute el comando<block ref="c53664d593e772e240ea0e6fdcfc79e1" prefix=" " category="inline-code"></block>.</block>
+  <block id="afff4aa2c1e899c46d499fb894d82ada" category="open-title">Para Fabric OS 9,0 y posterior</block>
+  <block id="39219ac241ea7f4ccb98564b8a02b92c" category="paragraph">Ejecute el comando<block ref="ee9cf2be6d80be01f66c5272dabe9164" prefix=" " category="inline-code"></block>.</block>
+  <block id="6662b782a3a75b8e31dda70ebe53c4f0" category="paragraph">Ejecute el comando<block ref="c3d759c84d82a17cd2fc31c0bbd2be02" prefix=" " category="inline-code"></block>.</block>
+  <block id="1fb30ffcb217df70eb8b61a9c76f518f" category="paragraph">Ejecute el comando<block ref="f7fd6058274b87da3f8cba419f53bb7e" prefix=" " category="inline-code"></block>.</block>
+  <block id="3c8938b87b13dff113f84a2814ddff39" category="paragraph"><block ref="f7fd6058274b87da3f8cba419f53bb7e" prefix="" category="inline-code"></block></block>
+  <block id="1ad5a70ead9bdd722df6000495e21c24" category="list-text">Si ejecuta Fabric OS 8,2.x y versiones anteriores, debe cambiar el método de licencia a dinámico:</block>
+  <block id="7fafa568d6f3c9a0ee98323f64b1c01c" category="admonition">En Fabric OS 9,0 y posterior, el método de licencia es dinámico de forma predeterminada. El método de licencia estática no es compatible.</block>
+  <block id="0b6c4085e3a8dba280dd11e4bbbbeee1" category="paragraph">Puede verificar que las licencias se instalan mediante el comando 'license'.</block>
 </blocks>

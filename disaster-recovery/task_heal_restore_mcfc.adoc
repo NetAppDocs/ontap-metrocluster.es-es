@@ -20,7 +20,7 @@ Después de reemplazar el hardware y asignar discos, puede ejecutar las operacio
 ----
 cluster_B::> metrocluster heal -phase aggregates
 
-cluster_B::> metrocluster heal -phase root aggregates
+cluster_B::> metrocluster heal -phase root-aggregates
 ----
 . Supervise la reparación y compruebe que los agregados se encuentren en estado de resincronización o de reflejo:
 +

@@ -654,10 +654,8 @@
   <block id="d57e84b8163149c21e12029ec296e524" category="summary">Según la versión de ONTAP, es posible añadir en caliente una bandeja de discos IOM12 a una pila de bandejas de discos IOM6 en una configuración MetroCluster con conexión a puente.</block>
   <block id="c0b0a005c66dec25318b8f77ccd43de1" category="doc">Añadir en caliente una bandeja de discos IOM12 a una pila de bandejas de discos IOM6 en una configuración MetroCluster con conexión a puente</block>
   <block id="a3d256f1f161df27a47bc7770faf92e4" category="paragraph">Para llevar a cabo este procedimiento, consulte<block ref="96c52bfd2d59063b848ae852888ce36d" category="inline-link-rx"></block>.</block>
-  <block id="0ddbccff2e33cdad7e25875f8ed5047b" category="summary">Puede agregar en caliente una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7500N que tengan puertos disponibles.</block>
   <block id="695e87d61d65625619e3a56919865a2c" category="list-text">Debe haber descargado el firmware más reciente de la bandeja de discos y la bandeja de discos.</block>
   <block id="8b82688b3d28b8ce8fbcbb8c09b13ce3" category="list-text">Todas las bandejas de discos de la configuración MetroCluster (bandejas existentes) deben ejecutar la misma versión de firmware. Si uno o varios de los discos o bandejas no están ejecutando la versión de firmware más reciente, actualice el firmware antes de conectar los discos o bandejas nuevos.</block>
-  <block id="86c77fb0de5bbd53bda91b1946b5e7d6" category="list-text">Los puentes FibreBridge 7500N deben estar conectados y tener puertos SAS disponibles.</block>
   <block id="8d372617f83f8c0b84203a0c342601a0" category="paragraph">Puede utilizar la GUI de ATTO ExpressNAV para configurar y administrar un puente y actualizar el firmware del puente. Puede utilizar la utilidad ATTO Quickav para configurar el puerto 1 de gestión de Ethernet de puente.</block>
   <block id="a2a09f3d137021820b6b1b04c4a12e84" category="paragraph">Puede utilizar otras interfaces de gestión si es necesario. Estas opciones incluyen el uso de un puerto serie o Telnet para configurar y administrar un puente y configurar el puerto de administración Ethernet 1, y el uso de FTP para actualizar el firmware del puente. Si elige alguna de estas interfaces de gestión, debe cumplir con los requisitos aplicables en <block ref="7ab0568f22b62ca0e98b3c0cd29a60a1" category="inline-link-macro-rx"></block>.</block>
   <block id="0162c27051eec554a97d6a3f03a4a746" category="list-text">En la consola de cualquiera de las controladoras, compruebe que el sistema tiene habilitada la asignación automática de discos:</block>
@@ -878,7 +876,6 @@
   <block id="ae4bcbe3a4d8a4dd251ebc90c0689dc3" category="paragraph">Cuatro nodos</block>
   <block id="b8910962b1d031cc1eb8e8ad588c4c48" category="paragraph">No disruptivas</block>
   <block id="b1967383562a98a66ed0eff3ea640595" category="paragraph">Las nuevas plataformas admiten las nuevas bandejas de almacenamiento.</block>
-  <block id="7fcdce91feb430306391667c0a012cd7" category="paragraph"><block ref="7fcdce91feb430306391667c0a012cd7" category="inline-link-macro-rx"></block></block>
   <block id="5c85f685c62c106f7c5565f5f9efa724" category="paragraph">Dos nodos</block>
   <block id="fb36a3d5cdf2e3b5ecef9b3c9fbab504" category="paragraph">Disruptivo</block>
   <block id="8377dec7f2f76b3e412145b87daa08da" category="paragraph">Las nuevas bandejas de almacenamiento son compatibles tanto con las plataformas originales como con las nuevas.</block>
@@ -12398,7 +12395,6 @@
   <block id="2021d03f97e8529efb1b76bbd7c4a674" category="list-text">Compruebe el cambio con el comando</block>
   <block id="183cbc2c0b8779013e355a482aba5c4d" category="paragraph"><block ref="12ff466e31106ead3e1afcdd8bb79114" prefix="" category="inline-code"></block></block>
   <block id="17a482b02d43109c8b8a1497839ff0b4" category="list-text">Detenga los nodos con el siguiente comando:<block ref="64741aee0c87a08ef7b37e6ec6fee1b9" prefix=" " category="inline-code"></block></block>
-  <block id="fad9503a100b92ad7c54437a9309f256" category="list-text">En el caso de una configuración MetroCluster de cuatro o ocho nodos, utilice el parámetro:<block ref="1f019d491fcfc3956d780ccfd54601ba" prefix=" " category="inline-code"></block></block>
   <block id="93081236e78e8a13aff59ffaa04927e9" category="list-text">En el caso de una configuración MetroCluster de dos nodos, use el comando:</block>
   <block id="a58d52a12cc22d2e3c3b60974ce27273" category="list-text">Apague el siguiente equipo en el sitio:</block>
   <block id="63e64e288714d32cded7a6ed8dfec32c" category="list-text">Switches FC de MetroCluster (si están en uso y la configuración no es una configuración con ampliación de dos nodos)</block>
@@ -13240,4 +13236,12 @@
   <block id="1ad5a70ead9bdd722df6000495e21c24" category="list-text">Si ejecuta Fabric OS 8,2.x y versiones anteriores, debe cambiar el método de licencia a dinámico:</block>
   <block id="7fafa568d6f3c9a0ee98323f64b1c01c" category="admonition">En Fabric OS 9,0 y posterior, el método de licencia es dinámico de forma predeterminada. El método de licencia estática no es compatible.</block>
   <block id="0b6c4085e3a8dba280dd11e4bbbbeee1" category="paragraph">Puede verificar que las licencias se instalan mediante el comando 'license'.</block>
+  <block id="6c05b41ac12af301a1c1201b16997220" category="paragraph">Debe realizar los pasos de este procedimiento desde ambos sitios, al mismo tiempo.</block>
+  <block id="a934aebb7868eacad4999d15212ac85f" category="list-text">Para obtener una configuración MetroCluster de cuatro u ocho nodos, use el<block ref="1f019d491fcfc3956d780ccfd54601ba" prefix=" " category="inline-code"></block> y..<block ref="6c99881ddd2f188436900ed8d41d99ba" prefix=" " category="inline-code"></block> parámetros:</block>
+  <block id="28289de886d4bf23487d962fb6a696a3" category="summary">Puede agregar en caliente una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7600N o 7500N que tengan puertos disponibles.</block>
+  <block id="2e53212ba8ca8b35cbf4ed2b9eb52b0c" category="doc">Adición en caliente de una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7600N o 7500N</block>
+  <block id="e3e17f353727a0bf80bc5f781fadd978" category="list-text">Los puentes FibreBridge 7600N o 7500N deben estar conectados y tener puertos SAS disponibles.</block>
+  <block id="7ec840edd23c7b1a5bd3b9167d726942" category="list-text">Compruebe si hay alertas de estado en los puentes después de agregar los nuevos paquetes:</block>
+  <block id="4aa202a3c65f2813f56a71404d4e0d9f" category="paragraph">Ocho nodos</block>
+  <block id="74c873abf18bb043c43561d25adce539" category="paragraph"><block ref="74c873abf18bb043c43561d25adce539" category="inline-link-macro-rx"></block></block>
 </blocks>

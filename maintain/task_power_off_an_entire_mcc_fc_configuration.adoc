@@ -13,9 +13,13 @@ summary: Debe apagar toda la configuración de FC de MetroCluster y todos los eq
 [role="lead"]
 Debe apagar toda la configuración de FC de MetroCluster y todos los equipos antes de que pueda empezar el mantenimiento o la reubicación de los sitios.
 
+.Acerca de esta tarea
+Debe realizar los pasos de este procedimiento desde ambos sitios, al mismo tiempo.
+
 
 NOTE: A partir de ONTAP 9.8, el `*storage switch*` el comando se sustituye por `*system switch*`. Los siguientes pasos muestran el `*storage switch*` Pero si ejecuta ONTAP 9.8 o una versión posterior, el `*system switch*` el comando es preferido.
 
+.Pasos
 . Compruebe la configuración de MetroCluster en ambos sitios de la configuración de MetroCluster.
 +
 .. Confirme la configuración del MetroCluster y que el modo operativo es normal. +
@@ -63,12 +67,11 @@ cluster_A_site_A::*>metrocluster modify -auto-switchover-failure-domain auso-dis
 . Detenga los nodos con el siguiente comando:
 `*halt*`
 +
-** En el caso de una configuración MetroCluster de cuatro o ocho nodos, utilice el parámetro:
-`*inhibit-takeover*`
+** Para obtener una configuración MetroCluster de cuatro u ocho nodos, use el `*inhibit-takeover*` y.. `*skip-lif-migration-before-shutdown*` parámetros:
 +
 [listing]
 ----
-system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true
+system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true -skip-lif-migration-before-shutdown true
 ----
 ** En el caso de una configuración MetroCluster de dos nodos, use el comando:
 +

@@ -2,16 +2,16 @@
 permalink: maintain/task_hot_add_a_stack_to_exist_7500n_pair.html 
 sidebar: sidebar 
 keywords: metrocluster, maintain, service, hot, add, stack, sas, disk, shelves, existing, pair, fibrebridge, bridge 
-summary: Puede agregar en caliente una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7500N que tengan puertos disponibles. 
+summary: Puede agregar en caliente una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7600N o 7500N que tengan puertos disponibles. 
 ---
-= Adición en caliente de una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7500N
+= Adición en caliente de una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7600N o 7500N
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puede agregar en caliente una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7500N que tengan puertos disponibles.
+Puede agregar en caliente una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7600N o 7500N que tengan puertos disponibles.
 
 .Antes de empezar
 * Debe haber descargado el firmware más reciente de la bandeja de discos y la bandeja de discos.
@@ -22,7 +22,7 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descar
 +
 https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
 
-* Los puentes FibreBridge 7500N deben estar conectados y tener puertos SAS disponibles.
+* Los puentes FibreBridge 7600N o 7500N deben estar conectados y tener puertos SAS disponibles.
 
 
 .Acerca de esta tarea
@@ -54,11 +54,6 @@ node_A_1             on           on           on           default
 node_A_2             on           on           on           default
 2 entries were displayed.
 ----
-. Deshabilite los puertos del switch para la nueva pila.
-. Actualice el firmware de FiberBridge en cada puente.
-+
-Si el nuevo puente es del mismo tipo que el puente asociado, actualice el mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte la sección "actualización del firmware en un puente FibreBridge" en la _Guía de mantenimiento de MetroCluster_.
-
 . En cada puente del par, habilite el puerto SAS que se conectará a la nueva pila:
 +
 `SASPortEnable _port-letter_`
@@ -208,7 +203,6 @@ NOTE: Si va a dividir la propiedad de una única pila de bandejas de discos en v
 
 NOTE: No se deben añadir unidades de disco a agregados o volúmenes hasta que se haya actualizado el firmware de la unidad de disco y la bandeja de discos, y se hayan completado los pasos de verificación de esta tarea.
 
-. Habilite los puertos del switch para la nueva pila.
 . Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
 +
 .. Compruebe si el sistema es multivía:
@@ -231,9 +225,9 @@ NOTE: No se deben añadir unidades de disco a agregados o volúmenes hasta que s
 +
 `metrocluster check show`
 
-.. Compruebe si hay alertas de estado en los switches (si existen):
+.. Compruebe si hay alertas de estado en los puentes después de agregar los nuevos paquetes:
 +
-`storage switch show`
+`storage bridge show`
 
 .. Ejecute Config Advisor.
 +

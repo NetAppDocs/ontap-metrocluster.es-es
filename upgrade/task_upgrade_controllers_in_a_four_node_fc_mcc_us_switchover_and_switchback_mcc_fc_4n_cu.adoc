@@ -389,7 +389,7 @@ Puerto de interconexión de clústeres
 
 === Obteniendo información antes de la actualización
 
-Antes de la actualización, debe recopilar información para cada uno de los nodos y, si fuera necesario, ajustar los dominios de retransmisión de red, quitar las VLAN y los grupos de interfaces, y recopilar información sobre el cifrado.
+Antes de actualizar, se debe recopilar información sobre cada uno de los nodos antiguos y, si es necesario, ajustar los dominios de retransmisión de red, quitar las VLAN y los grupos de interfaces, y recopilar información de cifrado.
 
 .Acerca de esta tarea
 Esta tarea se realiza en la configuración existente de MetroCluster FC.
@@ -401,7 +401,7 @@ Esta tarea se realiza en la configuración existente de MetroCluster FC.
 `metrocluster node show -fields node-systemid,dr-partner-systemid`
 
 +
-Durante el procedimiento de sustitución, reemplazará estos ID de sistema por los ID de sistema de los nuevos módulos de controlador.
+Durante el procedimiento de actualización, reemplazará estos antiguos ID del sistema por los ID de sistema de los nuevos módulos del controlador.
 
 +
 En este ejemplo de una configuración FC de MetroCluster de cuatro nodos, se recuperan los siguientes ID del sistema antiguos:
@@ -441,7 +441,7 @@ dr-group-id cluster    node      node-systemid dr-partner-systemid
 1           Cluster_B  node_B_1-old  -             -
 2 entries were displayed.
 ----
-. Recopile información del puerto y la LIF para cada nodo.
+. Recopile información del puerto y LIF para cada nodo antiguo.
 +
 Debe recopilar el resultado de los siguientes comandos para cada nodo:
 
@@ -1182,8 +1182,12 @@ Esta tarea debe realizarse en todas las controladoras nuevas.
 
 . Si se utiliza el cifrado de raíz, en función de la versión de ONTAP que esté utilizando, seleccione la opción del menú de inicio o ejecute el comando de menú de inicio para la configuración de administración de claves.
 +
-** A partir de ONTAP 9.8, seleccione la opción de menú de inicio.
-+
+[role="tabbed-block"]
+====
+.ONTAP 9,8 y versiones posteriores
+--
+A partir de ONTAP 9.8, seleccione la opción de menú de inicio.
+
 |===
 
 
@@ -1207,8 +1211,11 @@ Opción «'11»
 Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
 
 |===
-** En ONTAP 9.7 y versiones anteriores, ejecute el comando boot menu.
-+
+--
+.ONTAP 9,7 y anteriores
+--
+Para ONTAP 9,7 y versiones anteriores, ejecute el comando boot menu.
+
 |===
 
 
@@ -1228,8 +1235,8 @@ Gestión de claves externas
 `recover_external_keymanager`
 
 |===
-
-
+--
+====
 . Si está activado el arranque automático, interrumpa el arranque automático presionando CTRL-C.
 . Desde el menú de inicio, ejecute la opción «'6'».
 +
@@ -1258,8 +1265,12 @@ Si el sid del socio no es correcto, configúrelo:
 
 . Si se utiliza el cifrado de raíz, en función de la versión de ONTAP que esté utilizando, seleccione la opción del menú de inicio o vuelva a ejecutar el comando de menú de inicio para la configuración de administración de claves.
 +
-** A partir de ONTAP 9.8, seleccione la opción de menú de inicio.
-+
+[role="tabbed-block"]
+====
+.ONTAP 9,8 y versiones posteriores
+--
+A partir de ONTAP 9.8, seleccione la opción de menú de inicio.
+
 |===
 
 
@@ -1283,11 +1294,13 @@ Opción «'11»
 Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
 
 |===
-+
 En función del ajuste del gestor de claves, realice el procedimiento de recuperación seleccionando la opción «'10'» o la opción «'11'», seguida de la opción «'6'» en el primer símbolo del sistema del menú de arranque. Para arrancar los nodos por completo, puede que necesite repetir el procedimiento de recuperación seguido de la opción «'1'» (arranque normal).
 
-** En ONTAP 9.7 y versiones anteriores, ejecute el comando boot menu.
-+
+--
+.ONTAP 9,7 y anteriores
+--
+Para ONTAP 9,7 y versiones anteriores, ejecute el comando boot menu.
+
 |===
 
 
@@ -1307,11 +1320,10 @@ Gestión de claves externas
 `recover_external_keymanager`
 
 |===
-+
 Puede que tenga que emitir el `recover_xxxxxxxx_keymanager` en el símbolo del sistema del menú de arranque varias veces hasta que los nodos arrancen por completo.
 
-
-
+--
+====
 . Arrancar los nodos:
 +
 `boot_ontap`

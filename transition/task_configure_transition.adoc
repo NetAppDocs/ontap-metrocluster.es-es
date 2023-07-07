@@ -720,6 +720,22 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ....
+. Confirme que la toma de control es posible y que los nodos están conectados ejecutando el siguiente comando en ambos clústeres:
++
+`storage failover show`
+
++
+[listing]
+----
+cluster_A::> storage failover show
+                                    Takeover
+Node           Partner              Possible    State Description
+-------------- -------------------- ---------   ------------------
+Node_FC_1      Node_FC_2              true      Connected to Node_FC_2
+Node_FC_2      Node_FC_1              true      Connected to Node_FC_1
+Node_IP_1      Node_IP_2              true      Connected to Node_IP_2
+Node_IP_2      Node_IP_1              true      Connected to Node_IP_1
+----
 . Mueva los volúmenes MDV_CRS de los nodos antiguos a los nuevos con privilegios avanzados.
 +
 .. Mostrar los volúmenes para identificar los volúmenes de MDV:

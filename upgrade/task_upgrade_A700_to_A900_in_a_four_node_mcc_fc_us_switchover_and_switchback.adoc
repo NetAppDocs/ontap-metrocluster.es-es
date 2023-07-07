@@ -35,8 +35,7 @@ https://hwu.netapp.com/["Hardware Universe de NetApp"^]
 +
 La siguiente tabla muestra la matriz de modelos compatible para la actualización de la controladora.
 
-
-
++
 |===
 
 
@@ -44,19 +43,19 @@ La siguiente tabla muestra la matriz de modelos compatible para la actualizació
 
 
  a| 
-* A700 de AFF
+** A700 de AFF
 
  a| 
-* AFF A900
+** AFF A900
 
 
 
 
  a| 
-* FAS9000
+** FAS9000
 
  a| 
-* FAS9500
+** FAS9500
 
 
 |===
@@ -336,7 +335,7 @@ Si las controladoras A700 o FAS9000 de AFF tienen una tarjeta en la ranura 7, de
 
 === Recopile información antes de la actualización
 
-Antes de la actualización, debe recopilar información para cada uno de los nodos y, si fuera necesario, ajustar los dominios de retransmisión de red, quitar las VLAN y los grupos de interfaces, y recopilar información sobre el cifrado.
+Antes de actualizar, se debe recopilar información sobre cada uno de los nodos antiguos y, si es necesario, ajustar los dominios de retransmisión de red, quitar las VLAN y los grupos de interfaces, y recopilar información de cifrado.
 
 .Acerca de esta tarea
 Esta tarea se realiza en la configuración existente de MetroCluster FC.
@@ -347,7 +346,7 @@ Esta tarea se realiza en la configuración existente de MetroCluster FC.
 `metrocluster node show -fields node-systemid,dr-partner-systemid`
 
 +
-Durante el procedimiento de sustitución, reemplazará estos ID de sistema por los ID de sistema de los módulos de controlador.
+Durante el procedimiento de actualización, reemplazará estos antiguos ID del sistema por los ID del sistema de los módulos del controlador.
 
 +
 En este ejemplo de una configuración FC de MetroCluster de cuatro nodos, se recuperan los siguientes ID del sistema antiguos:
@@ -372,7 +371,7 @@ dr-group-id cluster    node           node-systemid ha-partner-systemid dr-partn
 
 4 entries were displayed.
 ----
-. Recopile información del puerto y la LIF para cada nodo.
+. Recopile información del puerto y LIF para cada nodo antiguo.
 +
 Debe recopilar el resultado de los siguientes comandos para cada nodo:
 

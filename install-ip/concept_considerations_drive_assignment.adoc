@@ -335,7 +335,7 @@ Las particiones de cada bandeja se utilizan para crear el agregado raíz. El agr
  a| 
 Unidades mínimas admitidas (por sitio)
  a| 
-solo 16 unidades internas
+16 unidades internas
  a| 
 Las unidades se dividen en cuatro grupos iguales. Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
  a| 
@@ -503,7 +503,7 @@ Cada uno de los dos complejos del agregado raíz incluye:
  a| 
 Unidades mínimas admitidas (por sitio)
  a| 
-solo 24 unidades internas
+24 unidades internas
  a| 
 Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente.
  a| 

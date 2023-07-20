@@ -112,6 +112,8 @@ entries:
   url: "/maintain/task_replace_a_shelf_nondisruptively_in_a_mcc_fc_configuration.html"
 - title: Cuándo migrar volúmenes raíz a un nuevo destino
   url: "/maintain/concept_migrating_root_volumes_to_a_new_destination.html"
+- title: Migre un agregado raíz con ADP en configuraciones IP de MetroCluster
+  url: "/maintain/task_migrating_root_agg_with_adp.html"
 - title: Mover un volumen de metadatos en configuraciones de MetroCluster
   url: "/maintain/task_move_a_metadata_volume_in_mcc_configurations.html"
 - title: Cambie el nombre de un clúster en las configuraciones de MetroCluster

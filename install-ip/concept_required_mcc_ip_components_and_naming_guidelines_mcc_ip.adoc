@@ -220,6 +220,8 @@ Ranura 0
 e0g, e0h
 
 |===
+link:concept_considerations_drive_assignment.html["Obtenga más información sobre la asignación automática de unidades y los sistemas ADP en las configuraciones IP de MetroCluster"]
+
 
 
 == Requisitos de pool y unidad (compatible como mínimo)
@@ -300,6 +302,6 @@ Si este sistema se ocupa de 16 unidades, deben distribuirse simétricamente entr
 
 == Mezcla módulos IOM12 e IOM 6 en una pila
 
-Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la https://mysupport.netapp.com/NOW/products/interoperability["Herramienta de matriz de interoperabilidad de NetApp (IMT)"] Para ver si su versión de ONTAP admite la mezcla de bandejas.
+Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la https://mysupport.netapp.com/NOW/products/interoperability["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^] Para ver si su versión de ONTAP admite la mezcla de bandejas.
 
-Para obtener más información sobre la mezcla de estantes, consulte https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"]
+Para obtener más información sobre la mezcla de estantes, consulte https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"^]

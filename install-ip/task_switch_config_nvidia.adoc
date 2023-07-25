@@ -120,6 +120,10 @@ Utilice estos pasos si desea reiniciar el conmutador por completo aplicando la i
 .Antes de empezar
 * Debe estar conectado al conmutador mediante una conexión de consola serie.
 * La imagen del software del conmutador Cumulus es accesible a través de HTTP.
++
+
+NOTE: Para obtener más información sobre la instalación de Cumulus Linux, consulte link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html#initial-configuration-overview["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"^]
+
 * Debe tener la contraseña raíz para `sudo` acceso a los comandos.
 
 

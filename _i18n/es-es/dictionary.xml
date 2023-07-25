@@ -13316,4 +13316,6 @@
   <block id="85488d881ebf03beb1eca3be4b5fda44" category="paragraph">Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la<block ref="e78382cc6f841e7f00c97b18a2e30f41" category="inline-link-rx"></block> Para ver si su versión de ONTAP admite la mezcla de bandejas.</block>
   <block id="5fdc7ff67ace146413ecd7d44157aca4" category="paragraph">Para obtener más información sobre la mezcla de estantes, consulte<block ref="532c1f47a9370f9e21538610051f3830" category="inline-link-rx"></block></block>
   <block id="2b2a5cb87d298900008c3873faf7fc40" category="sidebar">Migre un agregado raíz con ADP en configuraciones IP de MetroCluster</block>
+  <block id="e868bded76541295e018b74bb15a7920" category="inline-link-macro">Descripción general de la instalación y configuración de los switches NVIDIA SN2100</block>
+  <block id="b86c7f3554d9472f6a1e417c7f70fb18" category="admonition">Para obtener más información sobre la instalación de Cumulus Linux, consulte <block ref="ac21c0d53d9fcd547ee85e9d73d53854" category="inline-link-macro-rx"></block></block>
 </blocks>

@@ -178,4 +178,44 @@ link:task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html["Actu
 
 link:task_upgrade_or_downgrad_the_firmware_on_a_cisco_fc_switch_mcc.html["Actualización del firmware en un switch de Cisco FC"]
 
+
+
+ a| 
+Conmutador IP
+ a| 
+IP
+ a| 
+Sustitución del interruptor o cambio de uso
+ a| 
+link:task_replace_an_ip_switch.html["Sustituya un switch IP o cambie el uso de los switches IP de MetroCluster existentes"]
+
+
+
+ a| 
+IP
+ a| 
+Actualización del firmware
+ a| 
+link:maintain/task_upgrade_firmware_on_mcc_ip_switches.html["Actualizar el firmware en switches MetroCluster IP"]
+
+
+
+ a| 
+IP
+ a| 
+Actualización de archivo RCF
+ a| 
+link:maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html["Actualice los archivos RCF en switches MetroCluster IP"]
+
+link:maintain/task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html["Actualice los archivos RCF en switches IP de Cisco mediante CleanUpFiles"]
+
+
+
+ a| 
+IP
+ a| 
+Cambie el nombre de un conmutador
+ a| 
+link:maintain/task_rename_a_cisco_ip_switch.html["Cambie el nombre de un switch IP de Cisco"]
+
 |===

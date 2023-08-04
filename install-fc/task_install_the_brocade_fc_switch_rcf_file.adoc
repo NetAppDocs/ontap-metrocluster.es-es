@@ -42,18 +42,6 @@ Password: <user input>
 +
 Después de introducir la contraseña, el switch descarga y ejecuta el archivo de configuración.
 
-. Active el interruptor de forma persistente:
-+
-`switchcfgpersistentenable`
-
-+
-El ejemplo muestra cómo habilitar de forma persistente FC switch_A_1.
-
-+
-[listing]
-----
-FC_switch_A_1:admin> switchcfgpersistentenable
-----
 . Confirme que el archivo de configuración ha establecido el dominio del switch:
 +
 `switchShow`
@@ -161,6 +149,18 @@ Ejemplo: LE
 [listing]
 ----
 FC_switch_A_1:admin> portcfglongdistance 21 LE 1
+----
+. Active el interruptor de forma persistente:
++
+`switchcfgpersistentenable`
+
++
+El ejemplo muestra cómo habilitar de forma persistente FC switch_A_1.
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchcfgpersistentenable
 ----
 . Compruebe si la dirección IP está configurada correctamente:
 +

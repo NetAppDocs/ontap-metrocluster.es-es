@@ -39,7 +39,7 @@ Por ejemplo, si tiene una configuración IP MetroCluster regular con controlador
 [NOTE]
 ====
 ** Si desea añadir o quitar bandejas en una configuración de IP de MetroCluster mediante switches IP de MetroCluster de almacenamiento compartido, siga los pasos de link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_add_shelves_using_shared_storage.html["Añadir bandejas a una IP de MetroCluster mediante switches MetroCluster de almacenamiento compartido"]
-** Es posible que el IP de MetroCluster ya se conecte directamente a bandejas NS224 o a switches de almacenamiento dedicados.
+** Es posible que la configuración IP de MetroCluster ya se conecte directamente a bandejas NS224 o a switches de almacenamiento dedicados.
 
 
 ====

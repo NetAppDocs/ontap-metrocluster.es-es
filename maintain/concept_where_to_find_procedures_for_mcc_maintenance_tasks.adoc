@@ -196,7 +196,7 @@ IP
  a| 
 Actualización del firmware
  a| 
-link:maintain/task_upgrade_firmware_on_mcc_ip_switches.html["Actualizar el firmware en switches MetroCluster IP"]
+link:task_upgrade_firmware_on_mcc_ip_switches.html["Actualizar el firmware en switches MetroCluster IP"]
 
 
 
@@ -205,9 +205,9 @@ IP
  a| 
 Actualización de archivo RCF
  a| 
-link:maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html["Actualice los archivos RCF en switches MetroCluster IP"]
+link:task_upgrade_rcf_files_on_mcc_ip_switches.html["Actualice los archivos RCF en switches MetroCluster IP"]
 
-link:maintain/task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html["Actualice los archivos RCF en switches IP de Cisco mediante CleanUpFiles"]
+link:task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html["Actualice los archivos RCF en switches IP de Cisco mediante CleanUpFiles"]
 
 
 
@@ -216,6 +216,6 @@ IP
  a| 
 Cambie el nombre de un conmutador
  a| 
-link:maintain/task_rename_a_cisco_ip_switch.html["Cambie el nombre de un switch IP de Cisco"]
+link:task_rename_a_cisco_ip_switch.html["Cambie el nombre de un switch IP de Cisco"]
 
 |===

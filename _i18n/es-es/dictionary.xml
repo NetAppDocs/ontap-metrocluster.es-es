@@ -4385,7 +4385,6 @@
   <block id="9cce52969ddef317310e7d9d1c259895" category="list-text">FAS500f</block>
   <block id="1752b126dd5e4219fbf53c09ee63d51e" category="list-text">FAS8300</block>
   <block id="0588c4f1b58eac9f5062dc1da6e8435a" category="list-text">FAS8700</block>
-  <block id="d201d18b165e21d1a9986863a5788d3c" category="admonition">Puede configurar las interfaces IP de MetroCluster desde cualquier clúster. Además, a partir de ONTAP 9.1.1, si está utilizando una configuración de capa 3, también debe especificar el<block ref="50e57debf79bf52aa078c6e993f8969f" prefix=" " category="inline-code"></block> Parámetro para crear interfaces IP de MetroCluster. Consulte <block ref="babfc343bda1ae07500c981be392a72d" category="inline-link-macro-rx"></block>.</block>
   <block id="8c74115e4c2bebadc09e695e69b012f5" category="list-text">Compruebe que se han creado las interfaces IP de MetroCluster:</block>
   <block id="e98f1370c6e6734e34547668e2b7885e" category="paragraph"><block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix="" category="inline-code"></block></block>
   <block id="30b6fb782c39e19cc96a63a24fc78cda" category="list-text">Conecte las interfaces IP de MetroCluster:</block>
@@ -13266,4 +13265,5 @@
   <block id="3d371ae53e0538b3e0a7ddbfb529f302" category="paragraph"><block ref="3d371ae53e0538b3e0a7ddbfb529f302" category="inline-link-macro-rx"></block></block>
   <block id="d9d6b58e57305b9866d95c493eb0aa7a" category="paragraph"><block ref="d9d6b58e57305b9866d95c493eb0aa7a" category="inline-link-macro-rx"></block></block>
   <block id="2d27e76da02804de2afe9d209e5cbb1c" category="admonition">Se recomienda mantener al menos un 20% de espacio libre para agregados reflejados para lograr un rendimiento y una disponibilidad de almacenamiento óptimos. Aunque la recomendación es del 10% para agregados no duplicados, el sistema de archivos puede utilizar el 10% adicional del espacio para absorber cambios incrementales. Los cambios incrementales aumentan el aprovechamiento del espacio para agregados reflejados gracias a la arquitectura basada en Snapshot de copia en escritura de ONTAP. Si no se siguen estas mejores prácticas, puede tener un impacto negativo en el rendimiento.</block>
+  <block id="0e5e2d82a1039e41c19d2248f3b64787" category="admonition">Puede configurar las interfaces IP de MetroCluster desde cualquier clúster.</block>
 </blocks>

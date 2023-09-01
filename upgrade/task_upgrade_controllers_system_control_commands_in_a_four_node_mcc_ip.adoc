@@ -17,7 +17,21 @@ Esta operación de conmutación de sitios guiada automatizada de MetroCluster se
 
 == Combinaciones de plataformas compatibles
 
-Este procedimiento solo admite las actualizaciones de controladoras de AFF A300 a AFF A900.
+Este procedimiento admite las siguientes actualizaciones de controladoras en sistemas que ejecutan ONTAP 9.13.1 y posteriores.
+
+|===
+
+
+| La controladora anterior | Controladora de reemplazo 
+
+
+| AFF A300 | AFF A900 
+
+
+| FAS8200 | FAS9500 
+|===
+
+NOTE: Puede realizar las actualizaciones de controladoras enumeradas en la tabla anterior en los sistemas que ejecutan ONTAP 9.12.1 o 9.11.1 mediante el procedimiento de actualización manual descrito link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["aquí"].
 
 Para obtener más información sobre las combinaciones de actualización de plataformas, revise la tabla de actualización IP de MetroCluster en link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-ip-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
 

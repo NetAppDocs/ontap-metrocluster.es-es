@@ -22,6 +22,14 @@ En esta información de esta tabla se asume que la instalación o la transición
 
 
  a| 
+* Sin fallo de hardware
+
+ a| 
+link:task_recover_from_a_non_controller_failure_mcc_dr.html["Recuperación de un fallo que no sea de controladora"]
+
+
+
+ a| 
 * Fallo del módulo de controlador
 * Ha fallado otro hardware
 

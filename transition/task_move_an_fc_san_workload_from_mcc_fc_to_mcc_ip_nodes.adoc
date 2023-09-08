@@ -17,9 +17,9 @@ Cuando se realiza la transición sin interrupciones de los nodos FC a IP de Metr
 +
 .. Si es necesario, en los nodos IP de MetroCluster, modifique los puertos FC que se utilizarán para establecer la conectividad del cliente con la personalidad de destino FC.
 +
-Puede que esto requiera el reinicio de los nodos.
+Esto puede requerir un reinicio de los nodos.
 
-.. Cree LIF/interfaces FC en nodos IP para todos LOS servidores San. Opcionalmente, compruebe que los WWPN de los LIF FC recién creados estén registrados en el switch DE SAN FC
+.. Crear LIFS/interfaces FC en nodos IP para todas las SVM de SAN. De manera opcional, compruebe que los WWPN de los LIF FC recién creados estén registrados en el switch SAN FC
 
 
 . Actualice la configuración de particiones DE SAN para los LIF FC recién añadidos a los nodos IP de MetroCluster.
@@ -34,7 +34,7 @@ Para facilitar el movimiento de volúmenes que contienen LUN que sirven datos ac
 En este momento, el cliente debe ver y estar iniciado sesión en las interfaces FC en los nodos IP de MetroCluster y FC de MetroCluster. Los LUN y volúmenes siguen alojados físicamente en los nodos FC de MetroCluster.
 
 +
-Dado que las LUN se notifican únicamente en las interfaces de nodos FC de MetroCluster, el cliente solo muestra rutas a través de nodos FC. Esto se puede ver en el resultado de los comandos sanlun lun show -p y multipath -ll -d.
+Dado que las LUN se notifican únicamente en las interfaces de nodos FC de MetroCluster, el cliente solo muestra rutas a través de nodos FC. Esto se puede ver en la salida del `sanlun lun show -p` y.. `multipath -ll -d` comandos.
 
 +
 [listing]
@@ -117,7 +117,8 @@ vsa_1   /vol/vsa_1_vol3/lun_linux_7   igroup_linux    A_1,A_2,B_1,B_2
 
 12 entries were displayed.
 ----
-.. Vuelva a analizar el bus scsi en el host para detectar las rutas recién añadidas: `/usr/bin/rescan-scsi-bus.sh -a`
+.. Compruebe que el `sg3-utils` El paquete se instala en el host Linux. Esto evita un `rescan-scsi-bus.sh utility not found` Error al volver a analizar el host Linux para los LUN recién asignados mediante el `rescan-scsi-bus` comando.
+.. Vuelva a analizar el bus SCSI en el host para detectar las rutas recién añadidas: `/usr/bin/rescan-scsi-bus.sh -a`
 +
 [listing]
 ----
@@ -234,7 +235,7 @@ vsa_1 /vol/vsa_1_vol2/lun_linux_4 igroup_linux B_1,B_2
 
 12 entries were displayed.
 ----
-.. Vuelva a analizar el bus scsi en el cliente: `/usr/bin/rescan-scsi-bus.sh -r`
+.. Vuelva a escanear el bus SCSI en el cliente: `/usr/bin/rescan-scsi-bus.sh -r`
 +
 Se quitan las rutas de los nodos FC de MetroCluster:
 

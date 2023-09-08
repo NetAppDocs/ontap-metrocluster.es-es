@@ -105,7 +105,7 @@ link:task_fb_new_install_cabl.html["Cableado de las bandejas de discos a los pue
 .. Conecte el puerto 1 de FC del puente a un puerto FC en el módulo de la controladora en cluster_A.
 .. Conecte el puerto FC 2 del puente a un puerto FC en el módulo de la controladora en cluster_B.
 +
-Si el módulo de la controladora está configurado con un adaptador FC de cuatro puertos, asegúrese de que las pilas de almacenamiento estén conectadas a dos puertos FC en el mismo ASIC. El puerto a y el puerto b comparten el mismo ASIC, y el puerto c y el puerto d comparten el mismo ASIC. No conecte una pila de bandejas al puerto a y al puerto b. En su lugar, utilice los puertos a y c o utilice los puertos b y d para evitar un único punto de fallo si falla un ASIC.
+Si el módulo del controlador está configurado con un adaptador FC de cuatro puertos, verifique que las pilas de almacenamiento no estén conectadas a dos puertos FC del mismo ASIC. El puerto a y el puerto b comparten el mismo ASIC, y el puerto c y el puerto d comparten el mismo ASIC. No conecte una pila de bandejas al puerto a y al puerto b. En su lugar, utilice los puertos a y c o utilice los puertos b y d para evitar un único punto de fallo si falla un ASIC.
 
 +
 Si el módulo de la controladora está configurado con más de un adaptador de FC, no conecte los dos puertos de puente al mismo adaptador. Debe distribuir el puerto FC 1 al adaptador A y el puerto FC 2 al adaptador B para evitar un único punto de error.

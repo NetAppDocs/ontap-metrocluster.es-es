@@ -49,8 +49,11 @@ La `set closeport` command deshabilita un servicio único cada vez.
 ** icmp
 ** navegación rápida
 ** snmp
-** telnet puede comprobar si un protocolo específico está activado o desactivado mediante el `get closeport` comando.
+** telnet
 
+
++
+Puede comprobar si un protocolo específico está activado o desactivado mediante el `get closeport` comando.
 
 . Si se habilita SNMP, también se debe ejecutar el comando Set SNMP Enabled:
 +

@@ -17,9 +17,11 @@ Resulta útil comprender qué es el software MetroCluster Tiebreaker de NetApp y
 
 == Detección de errores con el software Tiebreaker de MetroCluster de NetApp
 
-El software Tierbreaker reside en un host Linux. Solo necesita el software Tierbreaker si desea supervisar dos clústeres y el estado de conectividad entre ellos desde un tercer sitio. Esto permite a cada partner de un clúster distinguir entre un fallo de ISL, cuando los enlaces entre sitios están inactivos, y un fallo del sitio.
+Solo necesita el software Tierbreaker si desea supervisar dos clústeres y el estado de conectividad entre ellos desde un tercer sitio. El software tiebreaker reside en un host Linux en el tercer sitio y permite que cada partner de un clúster distinga entre un fallo de ISL, cuando los enlaces entre sitios están inactivos, y un fallo del sitio.
 
 Después de instalar el software Tiebreaker en un host de Linux, puede configurar los clústeres en una configuración de MetroCluster para supervisar las condiciones de desastre.
+
+El software tiebreaker puede supervisar hasta 15 configuraciones de MetroCluster simultáneamente. Admite una combinación de configuraciones MetroCluster IP, MetroCluster FC y MetroCluster con ampliación.
 
 
 

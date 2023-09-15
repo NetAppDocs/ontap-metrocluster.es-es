@@ -1041,7 +1041,7 @@ FC2
 
 
  a| 
-Los puertos 12 a 15 de &ast están reservados para el segundo grupo MetroCluster o DR del switch Brocade 7840.
+N.o 42; los puertos 12 a 15 se reservan para el segundo grupo MetroCluster o DR en el switch Brocade 7840.
 
 
 NOTE: Se pueden conectar puentes adicionales a los puertos 16, 17, 20 y 21 en los conmutadores G620, G630, G620-1 y G630-1.

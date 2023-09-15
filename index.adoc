@@ -2,6 +2,8 @@
 layout: astra 
 sidebar: sidebar 
 permalink: index.html 
+lead: NetApp MetroCluster configurations combine array-based clustering with synchronous replication to deliver continuous availability, immediately duplicating all of your mission-critical data on a transaction-by-transaction basis. MetroCluster configurations enhance the built-in high availability and nondisruptive operations of NetApp hardware and ONTAP storage software, providing an additional layer of protection for the entire storage and host environment. 
+summary: Las configuraciones de NetApp MetroCluster combinan clustering basado en cabinas con replicación síncrona para proporcionar una disponibilidad continua, duplicando de inmediato todos sus datos de misión crítica transacción por transacción. 
 ---
 = Documentación de MetroCluster
 :allow-uri-read: 

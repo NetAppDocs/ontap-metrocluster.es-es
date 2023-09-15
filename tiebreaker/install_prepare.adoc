@@ -1,0 +1,89 @@
+---
+permalink: tiebreaker/install_prepare.html 
+sidebar: sidebar 
+keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
+summary: El software Tiebreaker proporciona funcionalidades de supervisión para un entorno de almacenamiento en clúster. También envía notificaciones SNMP en el caso de problemas de conectividad de los nodos y de desastres del sitio. 
+---
+= Revise los requisitos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El software Tiebreaker proporciona funcionalidades de supervisión para un entorno de almacenamiento en clúster. También envía notificaciones SNMP en el caso de problemas de conectividad de los nodos y de desastres del sitio.
+
+El software Tierbreaker debe estar instalado y configurado.
+
+
+
+== Requisitos de software
+
+Debe cumplir los siguientes requisitos de software, según la versión de tiebreaker que esté instalando.
+
+[cols="1,1,1,2"]
+|===
+
+
+| Versión de ONTAP tiebreaker | Versiones de ONTAP compatibles | Versiones de Linux compatibles | Requisitos de Java/MariaDB 
+
+
+ a| 
+1.5
+ a| 
+ONTAP 9,8 y versiones posteriores
+ a| 
+* Red Hat Enterprise Linux 8.1 a 8.7
+
+ a| 
+Con Red Hat Enterprise Linux 8,1 a 8,7:
+
+* MariaDB 10.x (utilice la versión predeterminada que se instala utilizando "yum install mariadb-Server.x86_64")
+* OpenJDK 17, 18 o 19
+
+
+
+
+ a| 
+1,4
+ a| 
+ONTAP 9,2 y versiones posteriores
+ a| 
+* Red Hat Enterprise Linux 8.1 a 8.7
+* Red Hat Enterprise Linux 7 a 7,9
+* CentOS 7 a 7,9 64 bits
+
+ a| 
+Con CentOS:
+
+* MariaDB 5.5.52.x/MySQL Server 5.6x
+* 4 GB DE MEMORIA RAM
+* Abra JRE 8
+
+
+Con Red Hat Enterprise Linux 8,1 a 8,7:
+
+*MariaDB 10.x (utilice la versión predeterminada que se instala usando “yum install mariadb-server.x86_64”)
+*JRE 8
+
+|===
+
+
+== Requisitos adicionales
+
+Debe tener en cuenta los siguientes requisitos adicionales:
+
+* El software Tierbreaker se instala en un tercer sitio, lo que permite al software distinguir entre un fallo de enlace entre switches (ISL) (cuando los enlaces entre sitios están inactivos) y un fallo de sitio. El sistema host debe cumplir determinados requisitos antes de poder instalar o actualizar el software Tiebreaker en el equipo local para supervisar la configuración de MetroCluster.
+* Debe tener privilegios de "root" para instalar el software MetroCluster Tiebreaker y los paquetes dependientes.
+* Solo puede usar un monitor MetroCluster Tiebreaker por configuración de MetroCluster para evitar cualquier conflicto con varios monitores de tiebreaker.
+* Cuando se selecciona el origen de Protocolo de hora de red (NTP) para el software tiebreaker, se debe usar un origen de NTP local. El software tiebreaker no debe utilizar el mismo origen que los sitios de MetroCluster que supervisa el software tiebreaker.
+
+
+* Capacidad del disco: 8 GB
+* Firewall:
++
+** Acceso directo para configurar mensajes AutoSupport
+** SSH (puerto 22/TCP), HTTPS (puerto 443/TCP) y ping (ICMP)
+
+
+

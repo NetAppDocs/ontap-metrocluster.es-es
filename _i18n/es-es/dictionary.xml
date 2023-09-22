@@ -10428,7 +10428,6 @@
   <block id="f69e3ec9eb18b508cb9d4ee4a9a0a1cc" category="paragraph">*Nota:* los procedimientos estándar de mantenimiento de la bandeja de almacenamiento se pueden utilizar con las configuraciones IP de MetroCluster.</block>
   <block id="8bcabb3e778663882c95082b775c75b8" category="summary">A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten nuevas instalaciones con sistemas AFF que utilizan ADP (partición avanzada de unidades).</block>
   <block id="25a1a5e06239d38607850869b12b3607" category="doc">Consideraciones sobre la asignación automática de unidades y los sistemas ADP en ONTAP 9.4 y versiones posteriores</block>
-  <block id="3299ba9863a06ef7650cf2bb56d8651c" category="paragraph">A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten nuevas instalaciones con sistemas AFF que utilizan ADP (partición avanzada de unidades). En la mayoría de las configuraciones, las particiones y la asignación de discos se realizan automáticamente durante la configuración inicial de los sitios MetroCluster.</block>
   <block id="a4a9824ba125eba903fb3d347f4f5eb6" category="list-text">Las asignaciones de discos del pool 0 se realizan de fábrica.</block>
   <block id="a1fbd6da7a08fa8c0a2a6b92a3b0a9c5" category="list-text">La raíz sin reflejar se crea de fábrica.</block>
   <block id="c60c48f30552c5ad7630dd7b31eb4943" category="list-text">La asignación de particiones de datos se realiza en las instalaciones del cliente durante el procedimiento de configuración.</block>
@@ -12822,7 +12821,6 @@
   <block id="2ec9cf7fc01c78e918f2c1109d699ebd" category="sidebar">Configure el acceso de administrador a ONAPI y SSH</block>
   <block id="6dc537d2cf87cd236dd75c2694edbea6" category="image-alt">matriz de transición ip de MetroCluster fc yellowdop1</block>
   <block id="3ba18986907ef3401544960b244376ed" category="section-title">Asignación de ADP y disco en sistemas AFF A150 y AFF A220</block>
-  <block id="cab91f7159880630a5bee29aa55d9f8a" category="section-title">ADP y asignación de discos en los sistemas AFF C250 y AFF A250</block>
   <block id="3e0a52646b307379f47860044c088d60" category="paragraph">Las unidades de cada bandeja externa se dividen en dos grupos iguales (mitades). Cada media bandeja se asigna automáticamente a un pool aparte.</block>
   <block id="b244c220ca2f00fdc24e97de45456f82" category="section-title">Asignación de ADP y disco en los sistemas AFF C400 y AFF A400</block>
   <block id="ba9bcbab50848c136d0007b25231ce1e" category="section-title">ADP y asignación de discos en sistemas AFF C800 y AFF A800</block>
@@ -13292,7 +13290,6 @@
   <block id="4b0a6058e6a6f2eafcc1db1a3a9573fb" category="paragraph">Debe tener en cuenta los siguientes requisitos adicionales:</block>
   <block id="64f896c377dcdc9e0d5ae4809d1c3a73" category="list-text">Cuando se selecciona el origen de Protocolo de hora de red (NTP) para el software tiebreaker, se debe usar un origen de NTP local. El software tiebreaker no debe utilizar el mismo origen que los sitios de MetroCluster que supervisa el software tiebreaker.</block>
   <block id="490414e0366b091220802d406e52c076" category="doc">Lo nuevo</block>
-  <block id="f68e01d366d2b521019205564511ae77" category="paragraph">Con cada versión se incluyen mejoras en el tiebreaker de MetroCluster. Estas son las novedades de los recientes lanzamientos de MetroCluster tiebreaker.</block>
   <block id="c1748037d10cffabb8e95e4ccf77c613" category="section-title">Mejoras</block>
   <block id="6a2fab1a92eaec5f3c3d9b2d28d580c4" category="list-text">Actualización de bibliotecas de soporte</block>
   <block id="5f6c185eb38c56187fc699dfbe62654b" category="list-text">Mejoras de seguridad</block>
@@ -13318,4 +13315,8 @@
   <block id="9adb8eb34f7ed5a25405fe6af3b01c0a" category="sidebar">Asegure la instalación</block>
   <block id="357559d73c5bb22e54ab3aeafca1013b" category="sidebar">Instale el paquete de software</block>
   <block id="3689ab983cde586722e4881cdbf1822a" category="sidebar">Actualice el host</block>
+  <block id="3a234e68f5d62ce2d6b3d068c61605c3" category="paragraph">En cada versión se incluyen mejoras del software MetroCluster tiebreaker. Estas son las novedades de los recientes lanzamientos de MetroCluster tiebreaker.</block>
+  <block id="5801d3e28a980df8d84e60a3eea8469c" category="paragraph">A partir de ONTAP 9,4, las configuraciones de IP de MetroCluster admiten nuevas instalaciones mediante ADP (partición avanzada de unidades). En la mayoría de las configuraciones, las particiones y la asignación de discos se realizan automáticamente durante la configuración inicial de los sitios MetroCluster.</block>
+  <block id="e6ca378bbb6d15fd110961cea50b2eb0" category="section-title">ADP y asignación de discos en sistemas AFF C250, AFF A250 y FAS500f</block>
+  <block id="91d96627fcbee13a9d474587060d13f8" category="paragraph">Las mismas directrices y reglas de asignación de discos para los sistemas AFF C250 y AFF A250 se aplican a los sistemas FAS500f. Para la asignación de discos en sistemas FAS500f, consulte la <block ref="62481755a241b3efc5c68e4e7dd00bb5" category="inline-xref-macro-rx"></block> tabla.</block>
 </blocks>

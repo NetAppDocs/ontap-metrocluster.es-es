@@ -11,7 +11,7 @@ summary: 'A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten 
 
 
 [role="lead"]
-A partir de ONTAP 9.4, las configuraciones IP de MetroCluster admiten nuevas instalaciones con sistemas AFF que utilizan ADP (partición avanzada de unidades). En la mayoría de las configuraciones, las particiones y la asignación de discos se realizan automáticamente durante la configuración inicial de los sitios MetroCluster.
+A partir de ONTAP 9,4, las configuraciones de IP de MetroCluster admiten nuevas instalaciones mediante ADP (partición avanzada de unidades). En la mayoría de las configuraciones, las particiones y la asignación de discos se realizan automáticamente durante la configuración inicial de los sitios MetroCluster.
 
 ONTAP 9,4 y versiones posteriores incluyen los siguientes cambios para el soporte de ADP:
 
@@ -306,7 +306,7 @@ Cada uno de los dos complejos del agregado raíz incluye las siguientes particio
 |===
 
 
-=== ADP y asignación de discos en los sistemas AFF C250 y AFF A250
+=== ADP y asignación de discos en sistemas AFF C250, AFF A250 y FAS500f
 
 |===
 
@@ -624,33 +624,8 @@ No aplicable
 
 === Asignación de discos en sistemas FAS500f
 
-|===
+Las mismas directrices y reglas de asignación de discos para los sistemas AFF C250 y AFF A250 se aplican a los sistemas FAS500f. Para la asignación de discos en sistemas FAS500f, consulte la <<ADP_FAS500f>> tabla.
 
-
-| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
-
-
- a| 
-Unidades mínimas recomendadas (por sitio)
- a| 
-48 unidades
- a| 
-Las unidades se asignan automáticamente de bandeja en bandeja.
- a| 
-No aplicable
-
-
-
- a| 
-Unidades mínimas admitidas (por sitio)
- a| 
-24 unidades
- a| 
-Las unidades se dividen en cuatro grupos iguales. Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
- a| 
-No aplicable
-
-|===
 
 
 === Asignación de discos en los sistemas FAS9000

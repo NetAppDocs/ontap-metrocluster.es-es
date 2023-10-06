@@ -55,6 +55,8 @@ entries:
     url: "/maintain/task_change_speed_of_isl_ports_on_a_cisco_fc_switch.html"
   - title: Añadiendo lSLs a un switch de Cisco
     url: "/maintain/task_add_lsls_to_a_cisco_fc_switch.html"
+  - title: Cambie el proveedor o modelo de un switch de FC
+    url: "/maintain/task_change_an_fc_switch.html"
 - title: Mantenimiento y sustitución del switch IP
   entries:
   - title: Sustituya un switch IP o cambie el uso de los switches IP de MetroCluster

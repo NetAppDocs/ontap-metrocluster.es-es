@@ -68,7 +68,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["Instrucciones de 
 
 .. Si va a configurar un clúster de switches, identifique los puertos que va a utilizar en los switches de red de clúster.
 +
-Consulte la Guía de configuración de switches de Clustered Data ONTAP para switches Cisco_, _NetApp 10G Cluster-Mode Switch Guía de instalación_ o _NetApp 1G Cluster-Mode Switch Guía de instalación_, en función de los switches que esté utilizando.
+Consulte https://library.netapp.com/ecm/ecm_get_file/ECMP1115327["Guía de configuración de Clustered Data ONTAP para switches de Cisco"^], https://library.netapp.com/ecm/ecm_download_file/ECMP1117824["^Guía de instalación de switches en modo de clúster NetApp 10G"^] o. https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["Guía de instalación de switches en modo de clúster NetApp 1G"^], dependiendo de los interruptores que esté utilizando.
 
 .. Conecte los cables a los puertos del clúster:
 

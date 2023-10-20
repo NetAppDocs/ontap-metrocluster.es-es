@@ -224,6 +224,29 @@ En el siguiente ejemplo se muestra el `sntp` Comandos, que especifican la direcc
 (Routing) (Config)#exit
 (Routing) (Config)#
 ----
++
+Para la versión 3.10.0.3 de EFOS y posterior, utilice el `ntp` comando, como se muestra en el siguiente ejemplo:
+
++
+[listing]
+----
+> (Config)# ntp ?
+
+authenticate             Enables NTP authentication.
+authentication-key       Configure NTP authentication key.
+broadcast                Enables NTP broadcast mode.
+broadcastdelay           Configure NTP broadcast delay in microseconds.
+server                   Configure NTP server.
+source-interface         Configure the NTP source-interface.
+trusted-key              Configure NTP authentication key number for trusted time source.
+vrf                      Configure the NTP VRF.
+
+>(Config)# ntp server ?
+
+ip-address|ipv6-address|hostname  Enter a valid IPv4/IPv6 address or hostname.
+
+>(Config)# ntp server 10.99.99.5
+----
 . Configure el nombre del switch:
 +
 `hostname IP_switch_A_1`

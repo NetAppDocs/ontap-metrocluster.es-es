@@ -2946,7 +2946,6 @@
   <block id="d5552b01bf48dde88719269e524ddbb9" category="sidebar">Compruebe que el hardware es compatible.</block>
   <block id="3f2b90ec5a9b43745b9c8c9fedf48d8d" category="sidebar">Base de conocimientos de soporte de NetApp</block>
   <block id="b2cdf9234a2dabbbb6acb6f71e098209" category="sidebar">Busque respuestas para sus preguntas de soporte.</block>
-  <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">Documentación de productos All ONTAP</block>
   <block id="08db1b3cb12af69a75c5d182846cb8e3" category="sidebar">Realice la conmutación de sitios para pruebas o mantenimiento</block>
   <block id="96effe55f4da22d5c25718b62d05d235" category="sidebar">Compruebe que su sistema está listo para realizar una conmutación de sitios</block>
   <block id="6f4a780481b56c575dbc6baddb640db2" category="sidebar">Envíe un mensaje de AutoSupport personalizado antes de que se negocie la conmutación</block>
@@ -13332,4 +13331,5 @@
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="35c124f455f44a154eb3b514029ee58a" category="section-title">Información sobre seguridad y avisos normativos</block>
   <block id="a6518839a3ee2f900f136494094df3cf" category="paragraph"><block ref="a6518839a3ee2f900f136494094df3cf" category="inline-link-rx"></block></block>
+  <block id="f00ba2972a9c532b4ab2bf7cf4fe1350" category="paragraph">Para la versión 3.10.0.3 de EFOS y posterior, utilice el<block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix=" " category="inline-code"></block> comando, como se muestra en el siguiente ejemplo:</block>
 </blocks>

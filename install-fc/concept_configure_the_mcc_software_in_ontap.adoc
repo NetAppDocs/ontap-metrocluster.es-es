@@ -3009,6 +3009,8 @@ Debe realizar algunos pasos de configuración especiales antes de supervisar los
 .Acerca de esta tarea
 Estas tareas solo se aplican a sistemas con puentes FC a SAS.
 
+A partir de Fabric OS 9,0.1, SNMPv2 no se admite para la supervisión de estado de los switches Brocade, debe utilizar SNMPv3 en su lugar. Si está utilizando SNMPv3, debe configurar SNMPv3 en ONTAP antes de continuar con la siguiente sección. Para obtener información detallada, consulte <<Configuración de SNMPv3 en una configuración MetroCluster>>.
+
 [NOTE]
 ====
 * Debería colocar puentes y una LIF de gestión de nodos en una red dedicada para evitar interferencias de otras fuentes.
@@ -3028,8 +3030,22 @@ NOTE: A partir de ONTAP 9.8, el `storage switch` el comando se sustituye por `sy
 .Pasos
 . Añada un switch con una dirección IP a cada nodo MetroCluster:
 +
+El comando que ejecute depende de si está utilizando SNMPv2 o SNMPv3.
+
++
+[role="tabbed-block"]
+====
+.Agregue un interruptor usando SNMPv3:
+--
+`storage switch add -address <ip_adddress> -snmp-version SNMPv3 -snmp-community-or-username <SNMP_user_configured_on_the_switch>`
+
+--
+.Agregue un interruptor usando SNMPv2:
+--
 `storage switch add -address ipaddress`
 
+--
+====
 +
 Este comando debe repetirse en los cuatro switches de la configuración de MetroCluster.
 

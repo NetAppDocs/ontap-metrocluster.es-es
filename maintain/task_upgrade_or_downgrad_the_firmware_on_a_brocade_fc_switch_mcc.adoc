@@ -25,6 +25,8 @@ Para actualizar o degradar el firmware en un switch FC de Brocade, debe utilizar
 
 La estructura del switch está deshabilitada durante una actualización o degradación de firmware, y la configuración de MetroCluster se basa en la segunda estructura para continuar el funcionamiento.
 
+A partir de Fabric OS 9,0.1, SNMPv2 no se admite en los switches Brocade. Si actualiza a Fabric OS 9.0.1 o posterior, debe usar SNMPv3 para la supervisión del estado. Para obtener más información, consulte link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-snmpv3-in-a-metrocluster-configuration["Configuración de SNMPv3 en una configuración MetroCluster"].
+
 Esta tarea se debe realizar en cada una de las estructuras del switch sucesivamente de modo que todos los conmutadores ejecuten la misma versión de firmware.
 
 

@@ -36,12 +36,7 @@ La configuración de ONTAP de los dos clústeres, incluidas las redes, debería 
 
 Según la versión de ONTAP, es posible realizar algunas operaciones específicas de MetroCluster con ONTAP System Manager.
 
-* Conmutación de sitios y conmutación de estado en configuraciones IP de MetroCluster (a partir de ONTAP 9.7).
-* Aprovisionamiento y crecimiento de agregados reflejados en las configuraciones IP de MetroCluster (comenzando por ONTAP 9.8).
-+
-System Manager no admite agregados no reflejados.
-
-
+Para obtener más información, consulte la link:https://docs.netapp.com/us-en/ontap/concept_metrocluster_manage_nodes.html["Gestione sitios de MetroCluster con System Manager"^] documentación.
 
 
 

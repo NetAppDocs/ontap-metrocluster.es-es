@@ -24,19 +24,6 @@ Al utilizar ONTAP en una configuración de MetroCluster, debe tener en cuenta ci
 
 
 
-== Operaciones de MetroCluster en System Manager de ONTAP
-
-Según la versión de ONTAP, es posible realizar algunas operaciones específicas de MetroCluster con ONTAP System Manager.
-
-* Conmutación de sitios y conmutación de estado en configuraciones IP de MetroCluster (a partir de ONTAP 9.7).
-* Aprovisionamiento y crecimiento de agregados reflejados en las configuraciones IP de MetroCluster (comenzando por ONTAP 9.8).
-+
-System Manager no admite agregados no reflejados.
-
-
-
-
-
 == Compatibilidad de FlexCache en una configuración de MetroCluster
 
 A partir de ONTAP 9.7, los volúmenes FlexCache son compatibles con las configuraciones MetroCluster. Debe estar al tanto de los requisitos para la revocación manual después de las operaciones de conmutación de sitios o conmutación de estado.

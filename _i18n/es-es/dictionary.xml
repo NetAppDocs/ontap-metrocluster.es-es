@@ -6123,10 +6123,6 @@
   <block id="481ff395c8448774da769c4e3533a5db" category="section-title">Consideración de SnapMirror</block>
   <block id="38aab50f6d81fce560ddcd4349e66fc7" category="list-text">La recuperación ante desastres de SVM de SnapMirror solo es compatible con las configuraciones de MetroCluster que ejecutan versiones de ONTAP 9.5 o posteriores.</block>
   <block id="8aa8953fa014032d4074fce6f76630d4" category="section-title">Operaciones de MetroCluster en System Manager de ONTAP</block>
-  <block id="f6fd567c32c1fb87872959aed0c80c2e" category="paragraph">Según la versión de ONTAP, se pueden realizar algunas operaciones específicas de MetroCluster mediante ONTAP System Manager.</block>
-  <block id="ce54cea34e79331ac5a0d8398a0daeb2" category="list-text">Conmutación de sitios y conmutación de estado en configuraciones IP de MetroCluster (a partir de ONTAP 9.7).</block>
-  <block id="b9dc5407731afe77b8474622a7260199" category="list-text">Aprovisionamiento y crecimiento de agregados reflejados en las configuraciones IP de MetroCluster (comenzando por ONTAP 9.8).</block>
-  <block id="dea75c52e73dcc7b5308af6dfbc8d3df" category="paragraph">System Manager no admite agregados no reflejados.</block>
   <block id="89bbe5f6f49d96ef3219b3e3960c33d5" category="section-title">Compatibilidad de FlexCache en una configuración de MetroCluster</block>
   <block id="0e0fb7c8f8c90679b6de81eb83cc9c05" category="paragraph">A partir de ONTAP 9.7, los volúmenes FlexCache son compatibles con las configuraciones MetroCluster. Debe estar al tanto de los requisitos para la revocación manual después de las operaciones de conmutación de sitios o conmutación de estado.</block>
   <block id="25f74bbacb558877b948827961d27de6" category="section-title">SVM deroga tras una conmutación cuando el origen y la caché de FlexCache están en el mismo sitio de MetroCluster</block>
@@ -13342,4 +13338,6 @@
   <block id="bd041cb07dda4e5f8fbcf9fc40cd8e53" category="open-title">Agregue un interruptor usando SNMPv3:</block>
   <block id="1ec64a333712792d694f6485f208d7bf" category="paragraph"><block ref="6483c1c2c512d0e62f46ddc53b9d4638" prefix="" category="inline-code"></block></block>
   <block id="ebbf46e9806730b0f0c4ca0133de2d34" category="open-title">Agregue un interruptor usando SNMPv2:</block>
+  <block id="10982c02dbedeb50373ef205f82ca3c8" category="inline-link-macro">Gestione sitios de MetroCluster con System Manager</block>
+  <block id="53eaf367aa3b61105b8ddce45278ab85" category="paragraph">Para obtener más información, consulte la <block ref="eef6283454e42ed2d47fdb00a9ff3e0c" category="inline-link-macro-rx"></block> documentación.</block>
 </blocks>

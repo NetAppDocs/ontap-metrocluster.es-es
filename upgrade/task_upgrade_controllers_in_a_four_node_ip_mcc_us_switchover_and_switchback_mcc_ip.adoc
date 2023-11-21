@@ -1334,6 +1334,9 @@ Reasigne los discos del agregado raíz al nuevo módulo de la controladora media
 .Acerca de esta tarea
 Estos pasos se realizan en modo de mantenimiento.
 
+
+NOTE: Los discos de agregado raíz son los únicos discos que se deben volver a asignar durante el proceso de actualización de la controladora. La propiedad de disco de los agregados de datos se trata como parte de la operación de conmutación de sitios/conmutación de estado.
+
 .Pasos
 . Arranque el sistema en modo de mantenimiento:
 +

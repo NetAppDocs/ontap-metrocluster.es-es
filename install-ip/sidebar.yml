@@ -57,6 +57,9 @@ entries:
     - title: Asignaciones de puertos de la plataforma para los switches Cisco 3232C
         o Cisco 9336C
       url: "/install-ip/port_usage_3232c_9336c.html"
+    - title: Asignaciones de puertos de plataforma para un switch compartido Cisco
+        9336C-FX2
+      url: "/install-ip/port_usage_9336c_shared.html"
     - title: Asignaciones de puertos de plataforma para switches IP BES-53248 compatibles
         con Broadcom
       url: "/install-ip/port_usage_bes53248.html"

@@ -31,22 +31,49 @@ Seleccione su plataforma actual en la tabla FC o IP que aparece a continuación.
 
 Si la plataforma no aparece en la lista, no existe una combinación de actualización de controladoras compatible.
 
-image::../media/metrocluster_ip_upgrade_table_9_13_1.PNG[tabla de actualización de ip de MetroCluster 9 13 1]
+[IMPORTANT]
+====
+Cuando se realiza una actualización del controlador, el tipo de plataforma anterior y el nuevo *debe* coincidir.
+
+* Puede actualizar un sistema FAS a un sistema FAS o un AFF A-Series a un AFF A-Series.
+* No puede actualizar un sistema FAS a un AFF A-Series ni un AFF A-Series a un AFF C-Series.
+
+
+Por ejemplo, si la plataforma que desea actualizar es FAS8200, puede actualizar a la versión FAS9000. No puede actualizar un sistema FAS8200 a un sistema AFF A700.
+
+====
+image::../media/metrocluster_ip_upgrade_table_914.png[tabla de actualización de ip de MetroCluster 914]
 
 * Nota 1: Para esta actualización, utilice el procedimiento link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html["Actualice controladoras de AFF A700/FAS9000 a AFF A900/FAS9500 en una configuración IP de MetroCluster mediante conmutación de sitios y conmutación de estado (ONTAP 9.10.1 o posterior)."]
 * Nota 2: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.
+* Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, las nuevas controladoras deben ejecutar la misma versión de ONTAP que las controladoras anteriores.
 
 
 
 
 === Actualizaciones de controladora FC de MetroCluster admitidas
 
-image::../media/metrocluster_fc_upgrade_table_p_13_1.PNG[tabla de actualización de MetroCluster fc p 13 1]
+Si la plataforma no aparece en la lista, no existe una combinación de actualización de controladoras compatible.
+
+[IMPORTANT]
+====
+Cuando se realiza una actualización del controlador, el tipo de plataforma anterior y el nuevo *debe* coincidir.
+
+* Puede actualizar un sistema FAS a un sistema FAS o un AFF A-Series a un AFF A-Series.
+* No puede actualizar un sistema FAS a un AFF A-Series ni un AFF A-Series a un AFF C-Series.
+
+
+Por ejemplo, si la plataforma que desea actualizar es FAS8200, puede actualizar a la versión FAS9000. No puede actualizar un sistema FAS8200 a un sistema AFF A700.
+
+====
+image::../media/metrocluster_fc_upgrade_table_914.png[tabla de actualización de MetroCluster fc 914]
 
 * Nota 1: Para actualizar controladores cuando las conexiones FCVI de los nodos FAS8020 o AFF8020 existentes utilicen los puertos 1c y 1d, consulte lo siguientehttps://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Upgrading_controllers_when_FCVI_connections_on_existing_FAS8020_or_AFF8020_nodes_use_ports_1c_and_1d["Artículo de base de conocimientos"^].
 * Nota 2: Las actualizaciones de controladora desde las plataformas AFF A300 o FAS8200 mediante los puertos internos 0e y 0f como conexiones FC-VI solo son compatibles en sistemas que ejecutan ONTAP 9.9.1. o anterior. Si quiere más información, consulte link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1507088["Informe público"^].
 * Nota 3: Para esta actualización, consulte link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["Actualice controladoras de AFF A700/FAS9000 a AFF A900/FAS9500 en una configuración FC de MetroCluster mediante conmutación de sitios y conmutación de estado (ONTAP 9.10.1 o posterior)."]
-* Note4: Las actualizaciones de la controladora se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.
+* Nota 4: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.
+* Nota 5: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.14.1 o posterior.
+* Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, las nuevas controladoras deben ejecutar la misma versión de ONTAP que las controladoras anteriores.
 
 
 [cols="2,1,1,2"]

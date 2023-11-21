@@ -17,26 +17,18 @@ El uso del puerto en una configuración IP de MetroCluster depende del modelo de
 
 == Configuraciones admitidas
 
-Actualmente, se admiten las siguientes plataformas:
-
-* FAS500f / AFF C250 / AFF A250
-* FAS8300 / AFF C400 / AFF A400
-* FAS8700
-* FAS9000/A700 de AFF
-* AFF C800/AFF A800
-* FAS9500 / AFF A900
-
-
-Actualmente, no se admiten las siguientes plataformas y configuraciones:
+Actualmente no se admiten las siguientes configuraciones:
 
 * Transición de FC a IP de MetroCluster
-* Una configuración MetroCluster de ocho nodos
 
 
 .Revise estas consideraciones antes de utilizar las tablas de configuración
-Si realiza cables con varias configuraciones de MetroCluster, siga la tabla correspondiente. Por ejemplo:
+* Para conectar una configuración MetroCluster de ocho o dos nodos se requiere ONTAP 9.14.1 o posterior y el archivo RCF versión 2,00 o posterior.
+* Si realiza cables con varias configuraciones de MetroCluster, siga la tabla correspondiente. Por ejemplo:
++
+** Si conecta dos configuraciones de MetroCluster de cuatro nodos del tipo AFF A700, a continuación, conecte el primer MetroCluster que se muestra como "MetroCluster 1" y el segundo MetroCluster que se muestra como "MetroCluster 2" en la tabla A700 de AFF.
 
-* Si conecta dos configuraciones de MetroCluster de cuatro nodos del tipo AFF A700, a continuación, conecte el primer MetroCluster que se muestra como "MetroCluster 1" y el segundo MetroCluster que se muestra como "MetroCluster 2" en la tabla A700 de AFF.
+
 
 
 
@@ -46,12 +38,14 @@ En las siguientes secciones se describe el esquema del cableado físico. Tambié
 
 
 
-== Uso de puertos de switch para FAS500f, AFF C250 o AFF A250
+== Cableado de un AFF A150, ASA A150, FAS500f, AFF C250, ASA C250, el sistema AFF A250 o ASA A250 a un switch NVIDIA SN2100
 
-image::../media/mcc_ip_cabling_A250_C250_MSN2100.png[Cableado ip del mcc A250 C250 MSN2100]
+image::../media/mcc_ip_cabling_aff_asa_a150_fas500f_A250_C250_MSN2100.png[Cableado ip mcc AFF ASA a150 fas500f A250 C250 MSN2100]
 
 
 
-== Uso del puerto del switch para AFF C400, AFF A400, AFF A700, FAS9000, FAS8300, FAS8700, AFF A800, FAS9500 o AFF A900
+== Cableado A FAS8300, AFF C400, ASA C400, AFF A400, ASA A400, FAS8700, FAS9000, AFF A700, AFF C800, ASA C800, sistema AFF A800, ASA A800, FAS9500, AFF A900 o ASA A900 a un switch NVIDIA SN2100
 
-image::../media/mcc_ip_cabling_aff250_400_700_800_cseriesMSN2100.png[Cables ip de mcc 400 700 800 cseriesMSN2100]
+image::../media/mcc_ip_cabling_fas8300_aff_asa_c400_a400_fas8700_fas9000_a700_a800_a900_fas9500_MSN2100.png[Cableado ip mcc fas8300 AFF ASA C400 A400 fas8700 fas9000 a700 A800 A900 fas9500 MSN2100]
+
+*Nota 1*: Si utiliza un adaptador X91440A (40Gbps), utilice los puertos E4A y E4E o E4A y E8a. Si usa un adaptador de X91153A (100Gbps), utilice los puertos E4A y e4b o E4A y E8a.

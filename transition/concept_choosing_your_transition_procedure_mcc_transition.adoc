@@ -17,12 +17,13 @@ En la siguiente tabla se muestran las combinaciones de plataformas compatibles. 
 
 Por ejemplo, se admite la transición de una configuración FC de MetroCluster que consiste en módulos de controladoras AFF8060 a una configuración IP que consta de los módulos de controladoras AFF A400.
 
-image::../media/metrocluster_fc_ip_transition_matrix_yellowdogp1.png[matriz de transición ip de MetroCluster fc yellowdop1]
+image::../media/metrocluster_fc_ip_transition_matrix_914.png[matriz de transición ip de MetroCluster fc 914]
 
 * Nota 1: Esta combinación de plataformas requiere ONTAP 9.11.1 o posterior.
 * Nota 2: Debe tener una interfaz de 40 GbE para las interfaces del clúster local en los nodos FC. Esta combinación de plataformas requiere ONTAP 9.12.1 o posterior.
 * Nota 3: Debe tener una interfaz de 100 GbE para las interfaces de clúster local en los nodos FC. Esta combinación de plataformas requiere ONTAP 9.12.1 o posterior.
 * Todos los procedimientos de transición requieren ONTAP 9.8 o posterior a menos que se indique lo contrario en las notas o según lo requiera una plataforma individual.
+* Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, si tiene una configuración de ocho nodos, los ocho nodos deben ejecutar la misma versión de ONTAP.
 
 
 [NOTE]
@@ -100,10 +101,3 @@ Las bandejas de almacenamiento anteriores no son compatibles con las nuevas plat
 link:task_disruptively_transition_when_exist_shelves_are_not_supported_on_new_controllers.html["Enlace al procedimiento"]
 
 |===
-
-
-=== Transiciones a una configuración de switch compartido Cisco 9336C-FX2
-
-No se admite la transición a una configuración de switch compartido Cisco 9336C-FX2. Una _configuración compartida del switch_ es aquella en la que los switches proporcionan tanto las conexiones MetroCluster como las de la bandeja de almacenamiento.
-
-Se admiten las configuraciones en las que el switch Cisco 9336C-FX2 sólo proporciona las conexiones MetroCluster.

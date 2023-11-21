@@ -44,10 +44,11 @@ En la siguiente tabla se muestran las combinaciones de plataformas admitidas par
 
 [IMPORTANT]
 ====
+* Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, si tiene una configuración de ocho nodos, los ocho nodos deben ejecutar la misma versión de ONTAP.
 * Las combinaciones de esta tabla sólo se aplican a configuraciones normales o permanentes de ocho nodos.
 * Las combinaciones de plataformas en esta tabla *NO* se aplican si está utilizando los procedimientos de transición o actualización.
 * Todos los nodos de un grupo de recuperación ante desastres deben tener el mismo tipo y configuración.
 
 
 ====
-image::../media/8node_comb_fc.png[Combinaciones de plataforma para configuraciones de 8 nodos]
+image::../media/8node_comb_fc_914.png[Combinaciones de plataforma para configuraciones de 8 nodos]

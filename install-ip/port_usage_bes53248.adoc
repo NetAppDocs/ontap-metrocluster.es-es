@@ -15,16 +15,20 @@ El uso del puerto en una configuración IP de MetroCluster depende del modelo de
 
 Los switches no se pueden utilizar con puertos ISL remotos de diferentes velocidades (por ejemplo, un puerto de 25 Gbps conectado a un puerto ISL de 10 Gbps).
 
-.Notas para las tablas siguientes:
-. En algunas plataformas, puede usar los puertos 49 - 54 para los ISL de MetroCluster o las conexiones de interfaz MetroCluster.
+.Revise esta información antes de utilizar las tablas:
+* Si se configura la transición del switch para MetroCluster FC a IP, se usan los siguientes puertos en función de la plataforma objetivo que se elija:
 +
-Estos puertos requieren una licencia adicional.
+[cols="75,25"]
+|===
+| Plataforma objetivo | Puerto 
 
-. Solo se puede conectar al switch un único MetroCluster de cuatro nodos con sistemas AFF A320.
-+
-Estas funciones que requieren un clúster conmutado no son compatibles con esta configuración, incluidos los procedimientos de transición MetroCluster FC a IP y de actualización tecnológica.
 
-. Es posible que los sistemas AFF A320 configurados con switches Broadcom BES-53248 no admitan todas las funciones.
+| FAS500f, AFF C250, ASA C250, AFF A250, ASA A250, FAS8300, AFF C400, ASA C400, AFF A400, ASA A400, o FAS8700 plataformas | Puertos 1 - 6, 10Gbps 
+
+
+| Plataformas FAS8200 o AFF A300 | Puertos 3 - 4 y 9 - 12, 10Gbps 
+|===
+* Es posible que los sistemas AFF A320 configurados con switches Broadcom BES-53248 no admitan todas las funciones.
 +
 No se admite ninguna configuración o función que requiera que las conexiones de clúster local estén conectadas a un switch. Por ejemplo, no se admiten las siguientes configuraciones ni procedimientos:
 
@@ -34,39 +38,31 @@ No se admite ninguna configuración o función que requiera que las conexiones d
 ** Actualizar una configuración IP de MetroCluster de cuatro nodos (ONTAP 9.8 y versiones posteriores)
 
 
-. Si conecta dos configuraciones de MetroCluster y ambos utilizan el mismo tipo de controladora, debe usar los grupos de puertos MetroCluster 3 y 4. Si las controladoras son diferentes, debe usar los grupos de puertos MetroCluster 3 y 4 para un tipo y los grupos de puertos MetroCluster 1 y 2 para el otro.
+
+
+.Notas a las que se hace referencia en las tablas:
+* *Nota 1*: El uso de estos puertos requiere una licencia adicional.
+* *Nota 2*: Solo se puede conectar al switch una sola MetroCluster de cuatro nodos utilizando sistemas AFF A320.
 +
-** Por ejemplo, si se conecta:
+Esta configuración no admite las funciones que requieren un clúster con switches, incluidos los procedimientos de transición de FC a IP de MetroCluster y actualización tecnológica.
+
+* *Nota 3*: El conmutador BES-53248 requiere que todos los puertos de un grupo de cuatro puertos funcionen a la misma velocidad. Para conectar una combinación de plataformas AFF 150, ASA A150, FAS2750, AFF A220 y FAS500f, AFF C250, ASA C250, AFF A250 y ASA A250, se deben usar puertos de switch ubicados en grupos de cuatro puertos separados. Si necesita este tipo de configuración, se aplica lo siguiente:
 +
-*** Dos configuraciones de MetroCluster que constan únicamente de FAS2750/AFF A220 o FAS500f/AFF A250 son, debe seleccionar los grupos de puertos MetroCluster 3 y 4.
-*** Dos configuraciones de MetroCluster donde un MetroCluster sea de tipo FAS2750/AFF A220 y el otro sea FAS500f/AFF A250, debe seleccionar los grupos de puertos 3 y 4 para uno, y los grupos de puertos 1 y 2 para el otro. En la https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"], los campos de lista desplegable 1 y 2 sólo se rellenan con la plataforma admitida después de seleccionar plataformas en los campos de lista desplegable 3 y 4. Consulte link:../install-ip/using_rcf_generator.html["Utilizar las tablas de puertos con la herramienta RcfFileGenerator o varias configuraciones de MetroCluster"] para obtener más información sobre cómo utilizar las tablas de puertos.
+** En la https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"], Los campos desplegables de «MetroCluster 1» y «MetroCluster 2» solo se rellenan después de seleccionar una plataforma para MetroCluster 3 o «MetroCluster 4».  Consulte link:../install-ip/using_rcf_generator.html["Utilizar las tablas de puertos con la herramienta RcfFileGenerator o varias configuraciones de MetroCluster"] para obtener más información sobre cómo utilizar las tablas de puertos.
+** Si ambas configuraciones de MetroCluster utilizan la misma plataforma, NetApp recomienda que seleccione el grupo «MetroCluster 3» para una configuración y el grupo «MetroCluster 4» para la otra. Si las plataformas son diferentes, debe seleccionar «MetroCluster 3» o «MetroCluster 4» para la primera configuración y seleccionar «MetroCluster 1» o «MetroCluster 2» para la segunda configuración.
 
 
 
 
 
 
+== Cableado de un AFF A150, ASA A150, FAS2750, AFF A220, FAS500f, AFF C250, ASA C250, AFF A250 o ASA A250 a un switch Broadcom BES-53248
 
-
-== Uso de puertos de switch para sistemas FAS2750, AFF 150 o AFF A220
-
-image::../media/mcc_ip_cabling_a_aff_a150_a220_or_fas2750_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un AFF a150 a220 o fas2750 a un switch broadcom bes 53248]
-
-
-
-== Uso de puertos de switch para sistemas FAS500f, AFF C250 o AFF A250
-
-image::../media/mcc_ip_cabling_a_aff_c250_a250_or_fas500f_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un AFF c250 a250 o fas500f a un switch broadcom bes 53248]
+image::../media/mcc_ip_cabling_a_aff_asa_a150_a220_c250_a250_fas2750_to_a_broadcom_bes_53248_switch.png[cableado ip mcc un conmutador AFF ASA a150 a220 c250 a250 fas2750 a un conmutador broadcom bes 53248]
 
 
 
-== Uso de puertos de switch para el uso combinado de un AFF A150, FAS2750 o AFF A220 y FAS500f o AFF C250, O sistemas AFF A250
-
-image::../media/mcc_ip_cabling_aff_a250_and_ a220_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc AFF a250 y a220 a un switch broadcom bes 53248]
-
-
-
-== Uso de puertos de switch para sistemas FAS8200 o AFF A300
+== Cableado de un sistema FAS8200, AFF A300 o AFF A320 a un switch Broadcom BES-53248
 
 image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un AFF a300 o fas8200 a un switch broadcom bes 53248]
 
@@ -74,6 +70,6 @@ image::../media/mcc_ip_cabling_a_aff_a320_to_a_broadcom_bes_53248_switch.png[cab
 
 
 
-== Uso de puertos de switch para sistemas FAS8300, AFF C400, AFF A400 o FAS8700
+== Cableado de un sistema FAS8300, AFF C400, ASA C400, AFF A400, ASA A400 o FAS8700 a un switch Broadcom BES-53248
 
-image::../media/mcc_ip_cabling_a_fas8300_a400_or_fas8700_to_a_broadcom_bes_53248_switch.png[cableado ip de mcc un fas8300 a400 o fas8700 a un switch broadcom bes 53248]
+image::../media/mcc_ip_cabling_a_fas8300_a400_c400_or_fas8700_to_a_broadcom_bes_53248_switch.png[cableado ip mcc a fas8300 a400 c400 o fas8700 a un conmutador broadcom bes 53248]

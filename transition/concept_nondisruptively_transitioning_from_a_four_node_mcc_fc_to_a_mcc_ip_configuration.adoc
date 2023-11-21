@@ -13,6 +13,8 @@ summary: A partir de ONTAP 9.13.1, puede ejecutar una transición no disruptiva 
 [role="lead"]
 Puede realizar transiciones no disruptivas de cargas de trabajo y datos de una configuración FC de MetroCluster existente a una nueva configuración de IP de MetroCluster.
 
+A partir de ONTAP 9.13.1, este procedimiento es compatible con las configuraciones IP de MetroCluster en las que MetroCluster y las bandejas de unidades están conectadas a los mismos switches IP (una configuración de switch de almacenamiento compartido).
+
 A partir de ONTAP 9.13.1, puede ejecutar una transición no disruptiva de cargas de trabajo y datos desde una configuración FC de MetroCluster de ocho nodos existente a una nueva configuración de IP de MetroCluster.
 
 A partir de ONTAP 9,8, puede realizar una transición no disruptiva de cargas de trabajo y datos desde una configuración FC de MetroCluster de cuatro nodos existente a una nueva configuración de IP de MetroCluster.

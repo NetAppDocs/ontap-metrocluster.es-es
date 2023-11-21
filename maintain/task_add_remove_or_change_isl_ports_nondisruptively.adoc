@@ -20,6 +20,9 @@ Debe completar todos los pasos en ambos switches para garantizar la conectividad
 
 En el siguiente procedimiento se supone que se reemplaza un ISL de 10 GB conectado en el puerto del switch eth1/24/1 con dos ISL de 100 GB que se conectan con los puertos del switch 17 y 18.
 
+.Antes de empezar
+Consulte la sección *Interruptores* de la link:https://hwu.netapp.com/["Hardware Universe de NetApp"^] para verificar los transceptores compatibles.
+
 .Pasos
 . Deshabilite los puertos ISL de los ISL en ambos switches de la estructura que desea cambiar.
 +

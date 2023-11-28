@@ -4172,9 +4172,7 @@
   <block id="0cd02877aca872fed2b891e70e7d6d9d" category="doc">Expandir una configuración IP de MetroCluster de cuatro nodos a una configuración de ocho nodos</block>
   <block id="a8307b4c5fa271005a1338d5b405ca1f" category="paragraph">A partir de ONTAP 9.9.1, se pueden añadir cuatro nodos nuevos a la configuración IP de MetroCluster como un segundo grupo de recuperación ante desastres. Con esto se crea una configuración MetroCluster de ocho nodos.</block>
   <block id="44e7e75e628cd7549a2dac175d45b418" category="list-text">Los nodos antiguos y nuevos deben ejecutar la misma versión de ONTAP.</block>
-  <block id="8af994ab1dc202d685a253237ad12acd" category="list-text">Debe asegurarse de que los modelos de plataforma anteriores y nuevos son compatibles con la mezcla de plataformas.</block>
   <block id="25c779b977dab5ebed0156b6fb5f864b" category="paragraph"><block ref="25c779b977dab5ebed0156b6fb5f864b" category="inline-link-rx"></block></block>
-  <block id="b721d4593513d27cdfc55ebe6ceb044f" category="list-text">Debe asegurarse de que los modelos de plataforma anterior y nueva sean compatibles con los switches IP.</block>
   <block id="2ee2465217913ae7b455ab4ef5e995e6" category="list-text">Los nuevos nodos deben tener suficiente almacenamiento para acomodar los datos de los nodos antiguos, junto con los discos adecuados para los agregados raíz y los discos de repuesto.</block>
   <block id="1ba701b5ad5528986d9e0eb838638aae" category="section-title">Ejemplo de nomenclatura de este procedimiento</block>
   <block id="a9b1d4be69539e9b95a2c6672035550c" category="paragraph">Este procedimiento usa nombres de ejemplo de todos los para identificar los grupos de recuperación ante desastres, los nodos y los switches implicados.</block>
@@ -13361,4 +13359,9 @@
   <block id="825d65b3b18d444d8008136946a33a99" category="list-text">Nota 5: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.14.1 o posterior.</block>
   <block id="50338c34cfec6d9e54eae1256352e18d" category="image-alt">actualización tecnológica de MetroCluster fc 914</block>
   <block id="94487339ee219de4122a1e81d3919b34" category="admonition">Los discos de agregado raíz son los únicos discos que se deben volver a asignar durante el proceso de actualización de la controladora. La propiedad de disco de los agregados de datos se trata como parte de la operación de conmutación de sitios/conmutación de estado.</block>
+  <block id="67c0d618a712fed303dbbf2eaf09695a" category="list-text">Compruebe que tiene un dominio de retransmisión predeterminado creado en los nodos antiguos.</block>
+  <block id="4fff770200a5d089fd8db4325afa94fc" category="inline-link">LIF de gestión de nodos en los nodos recién añadidos generados con nombres UUID</block>
+  <block id="fdf5e2eb479f201de0c9c62e9a32e769" category="paragraph">Cuando se añaden nodos nuevos a un clúster existente sin un dominio de retransmisión predeterminado, las LIF de gestión de nodos se crean para los nodos nuevos mediante identificadores únicos universales (UUID) en lugar de los nombres esperados. Para obtener más información, vea el artículo de la base de conocimientos<block ref="4808e3ddae1b3b2c14dc148b67bd36ea" category="inline-link-rx"></block>.</block>
+  <block id="f6410291c32fa961402f5a821c332f6c" category="list-text">Confirmar que los modelos de plataforma nuevos y antiguos son compatibles con la combinación de plataformas.</block>
+  <block id="e220a628f1c5f8fb65824aaeb387520e" category="list-text">Compruebe que los modelos de plataforma antiguo y nuevo son compatibles con los conmutadores IP.</block>
 </blocks>

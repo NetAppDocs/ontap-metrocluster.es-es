@@ -20,15 +20,19 @@ A partir de ONTAP 9.9.1, se pueden añadir cuatro nodos nuevos a la configuraci�
 .Antes de empezar
 * Los nodos antiguos y nuevos deben ejecutar la misma versión de ONTAP.
 * Este procedimiento describe los pasos necesarios para expandir un grupo de recuperación ante desastres de cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos de DR), debe repetir todo el procedimiento para cada grupo de DR.
-* Debe asegurarse de que los modelos de plataforma anteriores y nuevos son compatibles con la mezcla de plataformas.
+* Confirmar que los modelos de plataforma nuevos y antiguos son compatibles con la combinación de plataformas.
 +
 https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
-* Debe asegurarse de que los modelos de plataforma anterior y nueva sean compatibles con los switches IP.
+* Compruebe que los modelos de plataforma antiguo y nuevo son compatibles con los conmutadores IP.
 +
 https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 * Los nuevos nodos deben tener suficiente almacenamiento para acomodar los datos de los nodos antiguos, junto con los discos adecuados para los agregados raíz y los discos de repuesto.
+* Compruebe que tiene un dominio de retransmisión predeterminado creado en los nodos antiguos.
++
+Cuando se añaden nodos nuevos a un clúster existente sin un dominio de retransmisión predeterminado, las LIF de gestión de nodos se crean para los nodos nuevos mediante identificadores únicos universales (UUID) en lugar de los nombres esperados. Para obtener más información, vea el artículo de la base de conocimientos https://kb.netapp.com/onprem/ontap/os/Node_management_LIFs_on_newly-added_nodes_generated_with_UUID_names["LIF de gestión de nodos en los nodos recién añadidos generados con nombres UUID"^].
+
 
 
 

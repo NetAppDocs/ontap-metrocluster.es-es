@@ -118,3 +118,6 @@ homepage:
     - title: Base de conocimientos de soporte de NetApp
       summary: Busque respuestas para sus preguntas de soporte.
       url: https://kb.netapp.com/
+product-family:
+  name: ONTAP
+  repo: ontap-family

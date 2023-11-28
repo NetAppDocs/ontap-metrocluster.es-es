@@ -41,6 +41,10 @@ NOTE: Si se actualizan ambos grupos de recuperación de desastres, es posible qu
 
 
 .Pasos
+. Compruebe que tiene un dominio de retransmisión predeterminado creado en los nodos antiguos.
++
+Cuando se añaden nodos nuevos a un clúster existente sin un dominio de retransmisión predeterminado, las LIF de gestión de nodos se crean para los nodos nuevos mediante identificadores únicos universales (UUID) en lugar de los nombres esperados. Para obtener más información, vea el artículo de la base de conocimientos https://kb.netapp.com/onprem/ontap/os/Node_management_LIFs_on_newly-added_nodes_generated_with_UUID_names["LIF de gestión de nodos en los nodos recién añadidos generados con nombres UUID"^].
+
 . Recopile información de los nodos antiguos.
 +
 En este momento, la configuración de cuatro nodos aparece como se muestra en la siguiente imagen:

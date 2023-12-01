@@ -11,13 +11,13 @@ summary: Es posible que necesite actualizar un archivo RCF en un conmutador Metr
 
 
 [role="lead"]
-Es posible que necesite actualizar un archivo RCF en un conmutador MetroCluster IP. Por ejemplo, una actualización de ONTAP o de firmware del switch requieren un nuevo archivo RCF.
+Es posible que necesite actualizar un archivo RCF en un conmutador MetroCluster IP. Por ejemplo, si la versión del archivo RCF que ejecuta en los switches no es compatible con la versión de ONTAP, la versión del firmware del switch o ambos.
 
 
 
-== Asegúrese de que el archivo RCF es compatible
+== Compruebe que el archivo RCF es compatible
 
-Si va a cambiar la versión de ONTAP que se ejecuta en los conmutadores, debe asegurarse de que dispone de un archivo RCF compatible con esa versión. Si utiliza el generador RCF, se generará el archivo RCF correcto.
+Si va a cambiar la versión de ONTAP o la versión de firmware del switch, debe comprobar que tiene un archivo RCF compatible con esa versión. Si utiliza el generador RCF, se generará el archivo RCF correcto.
 
 .Pasos
 . Utilice los siguientes comandos de los conmutadores para comprobar la versión del archivo RCF:

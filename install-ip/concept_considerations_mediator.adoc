@@ -55,8 +55,14 @@ Un MAUSO sólo se inicia en los siguientes escenarios:
 * El mirroring de SyncMirror y el mirroring de DR de la caché no volátil de cada nodo están funcionando y las cachés y reflejos se sincronizan en el momento de la falla.
 * Ninguno de los nodos del sitio superviviente se encuentra en estado de toma de control.
 * Si se produce un desastre en el sitio. Un desastre en el sitio es un fallo de *todos* nodos en el mismo sitio.
++
+
+NOTE: A partir de ONTAP 9.13.1, puede cambiar el comportamiento para iniciar un MAUSO, ya sea en caso de fallo del clúster * o * un par HA. En el caso de un par de alta disponibilidad, los dos nodos deben fallar a la vez.
+
 * A partir de ONTAP 9.13.1, si se cumplen las condiciones anteriores y un fallo de ventilador o hardware inicia un apagado del entorno, por ejemplo, una unidad de suministro de alimentación, una batería NVRAM o un fallo de latido del Service Processor, o una temperatura alta o baja.
 
+
+Puede iniciar un MAUSO para escenarios adicionales que no se enumeran anteriormente. Para obtener más información, consulte link:concept-risks-limitations-automatic-switchover.html["Riesgos y limitaciones del uso de conmutación forzada automática de MetroCluster"].
 
 Un MAUSO se ha *no* iniciado en los siguientes escenarios de apagado:
 
@@ -70,6 +76,4 @@ Un MAUSO se ha *no* iniciado en los siguientes escenarios de apagado:
 
 *Información relacionada*
 
-* link:concept-risks-limitations-automatic-switchover.html["Conozca los riesgos y las limitaciones del uso de la conmutación de sitios forzada automática de MetroCluster"]
-* link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#mediator-assisted-automatic-unplanned-switchover-in-metrocluster-ip-configurations["Obtenga información sobre la gestión de MAUSO en configuraciones IP de MetroCluster"]
-
+link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#mediator-assisted-automatic-unplanned-switchover-in-metrocluster-ip-configurations["Obtenga más información sobre MAUSO en las configuraciones IP de MetroCluster"].

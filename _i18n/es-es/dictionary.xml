@@ -13369,4 +13369,6 @@
   <block id="a6ab1915ab3c895c47d4e04f54324428" category="paragraph">Es posible que necesite actualizar un archivo RCF en un conmutador MetroCluster IP. Por ejemplo, si la versión del archivo RCF que ejecuta en los switches no es compatible con la versión de ONTAP, la versión del firmware del switch o ambos.</block>
   <block id="3c895cdeb8d2489a220d797e54ab8b6f" category="section-title">Compruebe que el archivo RCF es compatible</block>
   <block id="aa71e3dcbe0cdabbe4cce28385ab2fd6" category="paragraph">Si va a cambiar la versión de ONTAP o la versión de firmware del switch, debe comprobar que tiene un archivo RCF compatible con esa versión. Si utiliza el generador RCF, se generará el archivo RCF correcto.</block>
+  <block id="9f4a5b5c7a3f862c1d0ff77f72d3eea0" category="paragraph">Se le pedirá el nombre de usuario y la contraseña de la cuenta de usuario administrador de ONTAP Mediator.</block>
+  <block id="c471c44c2f26c78f9327863d90427cb7" category="admonition">Si el mediador ONTAP está inactivo, el<block ref="1eafb93bfc40f298e60cf17e8a8c598c" prefix=" " category="inline-code"></block> El comando todavía le solicita que introduzca el nombre de usuario y la contraseña para la cuenta de usuario administrador de ONTAP Mediator y elimina el servicio de ONTAP Mediator de la configuración de MetroCluster.</block>
 </blocks>

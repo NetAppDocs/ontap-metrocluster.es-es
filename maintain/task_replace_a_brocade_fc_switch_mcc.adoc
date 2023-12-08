@@ -113,7 +113,7 @@ FC_switch_B_1:admin> switchshow
 +
 `firmwareShow`
 
-.. Configure el nuevo switch como se describe en _instalación y configuración de MetroCluster, pero omita el procedimiento ""Configuración de la división en zonas en switches FC de Brocade".
+.. Configure el nuevo switch como se describe en _Instalación y configuración de MetroCluster_, pero omita el procedimiento ««Configuración de la división en zonas en switches de Brocade FC».
 +
 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
 

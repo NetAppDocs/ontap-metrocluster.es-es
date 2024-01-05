@@ -767,7 +767,7 @@ El espacio en rack depende del modelo de plataforma de los módulos de la contro
 . Puesta a tierra apropiadamente usted mismo.
 . Instale los módulos de la controladora en el rack o armario.
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de hardware de ONTAP"^]
 
 . Si los nuevos módulos de controladoras no vienen con tarjetas FC-VI propias y si las tarjetas FC-VI de controladoras antiguas son compatibles con las nuevas controladoras, intercambie las tarjetas FC-VI e instálelas en las ranuras correctas.
 +
@@ -778,7 +778,7 @@ Consulte link:https://hwu.netapp.com["Hardware Universe de NetApp"^] Para obtene
 No conecte ningún otro cable que esté desconectado de las controladoras antiguas en este momento.
 
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de hardware de ONTAP"^]
 
 . Encienda los nodos nuevos y pulse Ctrl-C cuando se le solicite que muestre el aviso del CARGADOR.
 

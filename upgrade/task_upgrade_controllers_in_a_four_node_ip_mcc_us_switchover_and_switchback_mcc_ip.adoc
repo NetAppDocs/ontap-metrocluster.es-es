@@ -1028,7 +1028,7 @@ El espacio en rack depende del modelo de plataforma de los módulos de la contro
 . Puesta a tierra apropiadamente usted mismo.
 . Instale los módulos de la controladora en el rack o armario.
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"]
+https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de hardware de ONTAP"^]
 
 . Conecte los cables de las controladoras a los switches IP como se describe en link:../install-ip/concept_considerations_differences.html["Instalación y configuración de IP de MetroCluster"].
 +

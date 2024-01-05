@@ -156,7 +156,7 @@ Node_IP_2      Node_IP_1              true      Connected to Node_IP_1
 +
 Siga los pasos de link:../maintain/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"].
 
-. Mueva los datos de los nodos antiguos a los nodos nuevos mediante los siguientes procedimientos en link:https://docs.netapp.com/us-en/ontap-systems-upgrade/index.html["Documentación sobre las actualizaciones del sistema AFF y FAS"^]
+. Mueva los datos de los nodos antiguos a los nodos nuevos mediante los siguientes procedimientos en link:https://docs.netapp.com/us-en/ontap-systems-upgrade/index.html["Documentación de los sistemas de hardware de ONTAP"^]
 +
 .. Realice todos los pasos de http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["Crear un agregado y mover volúmenes a los nuevos nodos"^].
 +

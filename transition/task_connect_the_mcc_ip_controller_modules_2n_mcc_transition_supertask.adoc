@@ -81,7 +81,7 @@ Una vez completada «'9a'», los nodos vuelven automáticamente al menú de inic
 Consulte los procedimientos de instalación y configuración de la controladora para obtener información sobre el cableado.
 
 +
-https://docs.netapp.com/platstor/index.jsp["Centro de documentación de AFF y FAS"^]
+https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de hardware de ONTAP"^]
 
 . Conecte los cables de las controladoras a los switches IP como se describe en link:../install-ip/using_rcf_generator.html["Cableado de los switches IP"].
 . Prepare los switches IP para la aplicación de los nuevos archivos RCF.

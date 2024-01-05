@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, add, remove, change, isl, ports, nondisruptively 
 summary: Es posible que deba añadir, eliminar o cambiar puertos ISL. Se pueden convertir puertos ISL dedicados a puertos ISL compartidos o cambiar la velocidad de los puertos ISL en un switch. Las islas que viajan a distancias mayores pueden requerir velocidades más bajas para mejorar la calidad. También es posible que tenga que aumentar la velocidad de los puertos ISL para aprovechar las actualizaciones del sistema y agregar ISL a un switch IP de Cisco, si agrega o actualiza hardware. 
 ---
-= Adición, eliminación o cambio de puertos ISL sin interrupciones
+= Añada, elimine o cambie los puertos ISL sin interrupciones en los switches IP de Cisco
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Es posible que deba añadir, eliminar o cambiar puertos ISL. Se pueden convertir puertos ISL dedicados a puertos ISL compartidos o cambiar la velocidad de los puertos ISL en un switch. Las islas que viajan a distancias mayores pueden requerir velocidades más bajas para mejorar la calidad. También es posible que tenga que aumentar la velocidad de los puertos ISL para aprovechar las actualizaciones del sistema y agregar ISL a un switch IP de Cisco, si agrega o actualiza hardware.
+Puede que deba agregar, quitar o cambiar los puertos ISL en los switches IP de Cisco. Se pueden convertir puertos ISL dedicados en puertos ISL compartidos o cambiar la velocidad de los puertos ISL en un switch IP de Cisco. Las islas que viajan a distancias mayores pueden requerir velocidades más bajas para mejorar la calidad. Si va a añadir o actualizar hardware, es posible que deba aumentar la velocidad de los puertos ISL para aprovechar las actualizaciones del sistema y agregar ISL a un switch IP de Cisco.
 
 .Acerca de esta tarea
 Si convierte puertos ISL dedicados a puertos ISL compartidos, asegúrese de que los nuevos puertos cumplen con los link:../install-ip/concept_considerations_layer_2.html["Requisitos para los puertos ISL compartidos"].

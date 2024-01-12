@@ -146,14 +146,16 @@ NOTE: Solo se desconectan las conexiones que no estén utilizando el mismo puert
 Quite las conexiones en el siguiente orden:
 
 +
-** Si las interfaces del clúster local están conectadas a un switch:
+.. Modifique todas las LIF del clúster para deshabilitar la reversión automática:
 +
-*** Desconecte las interfaces del clúster local
-*** Desconecte los ISL del clúster local
-
-
-** Desconecte las interfaces IP de MetroCluster
-** Desconecte los ISL de MetroCluster
+[source, asciidoc]
+----
+net int modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
+----
+.. Desconecte las interfaces del clúster local
+.. Desconecte los ISL del clúster local
+.. Desconecte las interfaces IP de MetroCluster
+.. Desconecte los ISL de MetroCluster
 +
 En el ejemplo <<port_usage_worksheet>>, los interruptores no cambian. Los ISL de MetroCluster se reubican y deben desconectarse. No es necesario desconectar las conexiones marcadas en verde en la hoja de trabajo.
 

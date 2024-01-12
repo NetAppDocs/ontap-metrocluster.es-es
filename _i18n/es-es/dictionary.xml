@@ -13367,4 +13367,7 @@
   <block id="13b7f77edb33af927a5eb756e92d3e1e" category="doc">Añada, elimine o cambie los puertos ISL sin interrupciones en los switches IP de Cisco</block>
   <block id="d0b4d4a01f6fdfe6150ce107537b1a30" category="paragraph">Puede que deba agregar, quitar o cambiar los puertos ISL en los switches IP de Cisco. Se pueden convertir puertos ISL dedicados en puertos ISL compartidos o cambiar la velocidad de los puertos ISL en un switch IP de Cisco. Las islas que viajan a distancias mayores pueden requerir velocidades más bajas para mejorar la calidad. Si va a añadir o actualizar hardware, es posible que deba aumentar la velocidad de los puertos ISL para aprovechar las actualizaciones del sistema y agregar ISL a un switch IP de Cisco.</block>
   <block id="f8661864113fa686fbcb0e8305046574" category="cell"><block ref="f8661864113fa686fbcb0e8305046574" category="inline-link-macro-rx"></block></block>
+  <block id="69f5f299da1076246b1de6b47387e82c" category="list-text">Modifique todas las LIF del clúster para deshabilitar la reversión automática:</block>
+  <block id="44f3e9b14f204b411afdea78f7b0391c" category="doc">Notas de la versión de MetroCluster</block>
+  <block id="af8a69aa12393a4d9b6992e884f1c919" category="sidebar">Documentos de MetroCluster</block>
 </blocks>

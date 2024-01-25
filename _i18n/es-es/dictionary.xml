@@ -2861,52 +2861,6 @@
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Notas de la versión</block>
   <block id="13c1fe346da53d3c9c58ab0c190eb172" category="sidebar">Comprender la protección de datos y la recuperación ante desastres de MetroCluster</block>
   <block id="f6ded8bde676e251409725df18ef579a" category="sidebar">Cómo MetroCluster protege los datos y proporciona la recuperación ante desastres</block>
-  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Manos a la obra</block>
-  <block id="2ef693575e01de24e090245f10a59777" category="sidebar">Instale MetroCluster IP</block>
-  <block id="5a3b01a5bff3f06441fb7188a02f105e" category="sidebar">Instale MetroCluster estructural</block>
-  <block id="fdb8b17580937ddecfddeee4298a1482" category="sidebar">Instale Stretch MetroCluster</block>
-  <block id="18bd3543357b4fa11f6a58101dfa61a5" category="sidebar">Instale Tiebreaker</block>
-  <block id="d2875782347edc6066d3025cecc9df38" category="sidebar">Instalación del Mediador (sólo MetroCluster IP)</block>
-  <block id="ade01a5a398372194a42c36e9f5279ac" category="sidebar">Mantener</block>
-  <block id="7b8e5f5947a6dadc276f09b5a095667d" category="sidebar">Mantener y sustituir switches FC en las configuraciones de MetroCluster FC.</block>
-  <block id="7f5d1cf6b92b5f6a9e5fe290c7d568fa" category="sidebar">Switches IP</block>
-  <block id="e9e6a0d40b20996536edcfae7b0ca501" category="sidebar">Mantener y reemplazar switches IP en configuraciones IP de MetroCluster.</block>
-  <block id="5360721f5d15a4a50d1c0ea177551d33" category="sidebar">Puentes ATTO</block>
-  <block id="6659ad060d95c49da27c02efe70880ee" category="sidebar">Mantenga y sustituya los puentes ATTO FC-a-SAS en las configuraciones MetroCluster FC.</block>
-  <block id="c89a58741e7240ddf3c43ec7dbb21cd7" category="sidebar">Bandejas de unidades</block>
-  <block id="bb2a6473813b98ffe9edacc863bb749e" category="sidebar">Sustituya las bandejas de unidades adicionales en caliente y sin interrupciones configuraciones FC de MetroCluster.</block>
-  <block id="9deb979aa141eacec55a34ce9dfd4cc9" category="sidebar">Archivos RCF</block>
-  <block id="277ccac115bb10401c3dbe796a5fd555" category="sidebar">Archivos RCF de MetroCluster</block>
-  <block id="f4ff45e882d7ee5ad1b4a9e07301850d" category="sidebar">Genere o descargue archivos RCF para los switches MetroCluster.</block>
-  <block id="d59048f21fd887ad520398ce677be586" category="sidebar">Leer más</block>
-  <block id="b92dd7cb5813aceca4052255be1046a0" category="sidebar">Arquitectura y diseño de la solución MetroCluster de NetApp | TR-4705</block>
-  <block id="c8ed4eb56c00a193e2bf85d5a38119ee" category="sidebar">Conozca la solución MetroCluster FC.</block>
-  <block id="d821955413ef2ce3b63ac32371a5186e" category="sidebar">Arquitectura y diseño de la solución MetroCluster IP | TR-4689</block>
-  <block id="33d6c0f3568f32d65b84533fcc9dcbcb" category="sidebar">Conozca la solución IP de MetroCluster.</block>
-  <block id="3d5cf400e4fb829207d0ab81798b6587" category="sidebar">Actualice, expanda y convierta</block>
-  <block id="64cd3f6f5347e9d6c92e09aa1c656f87" category="sidebar">Actualice y actualice el hardware</block>
-  <block id="fdc7fb09ec4ebc533362a55d221d305f" category="sidebar">Actualice las controladoras en una configuración MetroCluster.</block>
-  <block id="e912938f380bdbc5125a46cb6974c985" category="sidebar">Expanda un MetroCluster de dos nodos</block>
-  <block id="c495f5fb55d923c4b5bdcc9031d17504" category="sidebar">Añada controladoras a las configuraciones de MetroCluster para crear una configuración de cuatro nodos u ocho nodos.</block>
-  <block id="8b9fb0a48d871747071a5767bb11c3c9" category="sidebar">Expanda un MetroCluster de cuatro nodos</block>
-  <block id="f0de1d093d27614c73e83446489eec92" category="sidebar">Añada controladoras a las configuraciones de MetroCluster para crear una configuración de ocho nodos.</block>
-  <block id="daf3fcb291d6eb9e42a7777197caa458" category="sidebar">Convierta MetroCluster FC a MetroCluster IP</block>
-  <block id="689a3f6927feed4862b6b5b03d4f0018" category="sidebar">Realizar la transición de una configuración IP de MetroCluster existente a configuraciones IP de MetroCluster.</block>
-  <block id="822970998ef8866cd59ed6ba8d63af83" category="sidebar">Actualice los archivos RCF IP de MetroCluster</block>
-  <block id="b2899a6511f7a2ac6656022f75581e5a" category="sidebar">Actualice los archivos RCF del switch en las configuraciones IP de MetroCluster.</block>
-  <block id="b7c02f1bc7ffc889ddb9e99702663c56" category="sidebar">Firmware de ATTO Bridge</block>
-  <block id="ddac5beff5f77bf22595caa98bac08f9" category="sidebar">FibreBridge 7600N</block>
-  <block id="7189e471dda7f4816814f7b74c6948d1" category="sidebar">Descargar firmware para un puente 7600.</block>
-  <block id="dcb741f9e6e5d6050aeb3d8fd347e9fd" category="sidebar">FibreBridge 7500N</block>
-  <block id="81defdfe6f2018754b9c90215acaf8c1" category="sidebar">Descargar firmware para un puente 7500.</block>
-  <block id="dcfbd7fd6db6301d4cc61e9b319755d1" category="sidebar">FibreBridge 6500N</block>
-  <block id="230d9a7150bac60512d2faea2daf48aa" category="sidebar">Descargar firmware para un puente 6500.</block>
-  <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">Más recursos</block>
-  <block id="fa0344a10c89a05b4e9232391d5feb01" category="sidebar">Config Advisor de NetApp</block>
-  <block id="7bde48e6b0d33c17d731b283a4674428" category="sidebar">Verifique la configuración y el cableado.</block>
-  <block id="d5552b01bf48dde88719269e524ddbb9" category="sidebar">Compruebe que el hardware es compatible.</block>
-  <block id="3f2b90ec5a9b43745b9c8c9fedf48d8d" category="sidebar">Base de conocimientos de soporte de NetApp</block>
-  <block id="b2cdf9234a2dabbbb6acb6f71e098209" category="sidebar">Busque respuestas para sus preguntas de soporte.</block>
   <block id="08db1b3cb12af69a75c5d182846cb8e3" category="sidebar">Realice la conmutación de sitios para pruebas o mantenimiento</block>
   <block id="96effe55f4da22d5c25718b62d05d235" category="sidebar">Compruebe que su sistema está listo para realizar una conmutación de sitios</block>
   <block id="6f4a780481b56c575dbc6baddb640db2" category="sidebar">Envíe un mensaje de AutoSupport personalizado antes de que se negocie la conmutación</block>
@@ -9547,7 +9501,6 @@
   <block id="9135f01e21f3378e93e8e79d77b55ba9" category="cell">LEM2-2</block>
   <block id="fab602535b4be80321a95b9f39dfb023" category="cell">LEM2-3</block>
   <block id="9886bd0d1558f3c4c6b4b7c6ccd6d4ca" category="cell">LEM2-4</block>
-  <block id="8aed0fcdb92053bce2340c69664e26c5" category="list-text">Se pueden conectar puentes adicionales a los puertos LEM2-5 a LEM2-8 en conmutadores 9132T con 2 módulos LEM.</block>
   <block id="a2529b9a22421965b80dca74f0e8ac35" category="list-text">Sólo se admite una (1) pila de puente mediante interruptores 9132T con 1 módulo LEM.</block>
   <block id="46921e96d32ca8da20b383833d3a4a04" category="list-text">Los switches DCX 8510-8 utilizados en las configuraciones de MetroCluster deben adquirirse en NetApp.</block>
   <block id="0ea858176a453f0d6d0d985f851b3c41" category="list-text">Para la escalabilidad, debe dejar un segmento de puerto entre las configuraciones de MetroCluster si el cableado sólo dos MetroClusters en módulos de 4 x 48 puertos. Esto le permite ampliar el uso de puertos en las configuraciones de MetroCluster sin necesidad de realizar ninguna presentación.</block>
@@ -9753,13 +9706,11 @@
   <block id="31140865c6da8bd64c2cc352591fd97f" category="paragraph">En la siguiente tabla se muestra el uso de puertos ISL para los switches Brocade.</block>
   <block id="16efd6bef533569cdadd01e7d8f034c9" category="admonition">Los sistemas A700 o FAS9000 de AFF admiten hasta ocho ISL para obtener un rendimiento mejorado. Se admiten ocho ISL en los switches Brocade 6510 y G620.</block>
   <block id="1177ce2d22c07bbd50d26ba5478b5b1d" category="paragraph">En las tablas se muestran las configuraciones máximas admitidas, con ocho módulos de controladora en dos grupos de recuperación ante desastres. Para configuraciones más pequeñas, ignore las filas para los módulos de controladora adicionales.</block>
-  <block id="4ae081212f8a0475febe92be5c491cbc" category="cell">Módulo MDS 2</block>
   <block id="cab785737f7e01bc6cf334a3297e22c3" category="cell">Cisco 9250i Nota: El switch Cisco 9250i no es compatible con configuraciones MetroCluster de ocho nodos.</block>
   <block id="7454ecd5190b690ccf9ee77f2e438c0c" category="section-title">Uso de puertos de Cisco para puentes FC a SAS en una configuración MetroCluster que ejecuta ONTAP 9.1 o posterior</block>
   <block id="68d960c549d05fc84233ef70c7a67687" category="cell">FibreBridge 7500 con dos puertos FC</block>
   <block id="89eaf3610015ecc12505a2408ff9fda6" category="paragraph">Se pueden conectar puentes adicionales utilizando los puertos 17 a 40 y 57 a 88 siguiendo el mismo patrón.</block>
   <block id="a1d4f21ed73518b99dbbab05134b5c9a" category="paragraph">Se pueden conectar puentes adicionales de un segundo grupo de recuperación ante desastres o una segunda configuración MetroCluster utilizando los puertos 33 a 40 siguiendo el mismo patrón.</block>
-  <block id="c4d2587ed11ac65a9b9af2de531f3dce" category="paragraph">Se pueden conectar puentes adicionales para un segundo grupo DR o una segunda configuración MetroCluster utilizando los mismos números de puerto del segundo módulo MDS.</block>
   <block id="a6bd250708a75e43f157a7b657e654c5" category="paragraph">Se pueden conectar puentes adicionales de un segundo grupo de recuperación ante desastres o una segunda configuración MetroCluster utilizando los puertos 25 a 48 siguiendo el mismo patrón.</block>
   <block id="ba310a61cda35bab44af31435467361f" category="paragraph">Las tablas siguientes muestran el uso de puertos de puente cuando se utilizan puentes FibreBridge 6500 o puentes FibreBridge 7500 sólo con un puerto FC (FC1 o FC2). En el caso de los puentes FibreBridge 7500 que utilicen un puerto FC, puede cablearse FC1 o FC2 al puerto indicado como FC1. Se pueden conectar puentes adicionales utilizando los puertos 25-48.</block>
   <block id="5efa1f2cb5eede18bb7294c80eb0d620" category="cell">Puentes FiberBridge 6500 o puentes FibreBridge 7500 con un puerto FC</block>
@@ -10311,7 +10262,6 @@
   <block id="ebd9fb85557b54bcafec3d1a1ac1c292" category="inline-link">RcfFileGenerator para MetroCluster IP</block>
   <block id="b070262d5faad84092129cb1c7a44daa" category="list-text">La<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block> también ofrece información general sobre el cableado por puerto para cada switch. Utilice esta información general sobre el cableado para verificar el cableado.</block>
   <block id="b12eae1983992a43e1aff6798c40b450" category="section-title">Cableado de configuraciones MetroCluster de ocho nodos</block>
-  <block id="fa59de86b7e9bd4898cb6907726259d6" category="paragraph">Para la configuración de MetroCluster que ejecuta ONTAP 9.8 y versiones anteriores, algunos procedimientos que se realizan para realizar la transición de una actualización requieren la adición de un segundo grupo de recuperación ante desastres de cuatro nodos a la configuración para crear una configuración temporal de ocho nodos. A partir de ONTAP 9.9.1, se admiten las configuraciones MetroCluster permanentes de 8 nodos.</block>
   <block id="134c13e2a51797233ea2a5ce24406813" category="paragraph">Para dichas configuraciones, utilice el mismo método que se describe anteriormente. En lugar de una segunda MetroCluster, está cablear un grupo de recuperación ante desastres de cuatro nodos adicional.</block>
   <block id="d5e8fd3a5a09a2e20b7a2ae3865f7eef" category="paragraph">Por ejemplo, la configuración incluye lo siguiente:</block>
   <block id="d05e0033e800da35d05e3a88b52e765d" category="list-text">Switches Cisco 3132Q-V.</block>
@@ -12803,8 +12753,6 @@
   <block id="eae1d6e5dc6115799413390aecfa0c7c" category="paragraph">La operación de automatización inicia la conmutación,<block ref="4bc031ebd90e06c679bed249595b6c90" prefix=" " category="inline-code"></block>, y.<block ref="a233091efff166ee24ee5a89d344dcdf" prefix=" " category="inline-code"></block> operaciones. Una vez finalizadas estas operaciones, la operación se detiene en *pausa para la intervención del usuario* para que pueda instalar los controladores en rack, iniciar los controladores asociados y reasignar los discos agregados raíz al nuevo módulo del controlador desde la copia de seguridad flash mediante el<block ref="5fb641c5977b93de82b81e36db0454cf" prefix=" " category="inline-code"></block> reunidos antes.</block>
   <block id="3d296dee09f5acd9721e7bd1f885a1ff" category="doc">Ampliación de una configuración IP de MetroCluster</block>
   <block id="f7ebd0c3919ed1a579352a95f757a9e6" category="paragraph">Según la versión de ONTAP, puede ampliar la configuración de IP de MetroCluster añadiendo cuatro nodos nuevos como nuevo grupo de recuperación ante desastres.</block>
-  <block id="bb12c6e41d92f6e4a5251b0dd54e9b0f" category="paragraph">A partir de ONTAP 9.13.1, se pueden añadir cuatro nodos nuevos a la configuración de IP de MetroCluster como tercer grupo de recuperación ante desastres. Esto crea una configuración MetroCluster de doce nodos.</block>
-  <block id="1b9d79df22b9bc1c5dc1b1baa6f53e05" category="list-text">Este procedimiento describe los pasos necesarios para expandir un grupo de recuperación ante desastres de cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos de DR), debe repetir todo el procedimiento para cada grupo de DR.</block>
   <block id="5ffb6f10d2a660f5653c90be923e511a" category="section-title">Combinaciones de plataformas compatibles al agregar un segundo grupo de DR</block>
   <block id="c7a5837b5fbd32fe6a2e393e60dbd4a3" category="paragraph">En la siguiente tabla se muestran las combinaciones de plataformas admitidas para las configuraciones IP de ocho nodos.</block>
   <block id="a321522d8592d70cc3e6c26d2e63f256" category="list-text">Las combinaciones de esta tabla sólo se aplican a configuraciones de nodos 8 normales o permanentes.</block>
@@ -13370,4 +13318,34 @@
   <block id="69f5f299da1076246b1de6b47387e82c" category="list-text">Modifique todas las LIF del clúster para deshabilitar la reversión automática:</block>
   <block id="44f3e9b14f204b411afdea78f7b0391c" category="doc">Notas de la versión de MetroCluster</block>
   <block id="af8a69aa12393a4d9b6992e884f1c919" category="sidebar">Documentos de MetroCluster</block>
+  <block id="b8b5370c063dd2b4ce4021558a49ac07" category="paragraph">Para la configuración de MetroCluster que ejecuta ONTAP 9.8 y versiones anteriores, algunos procedimientos que se realizan para realizar la transición de una actualización requieren la adición de un segundo grupo de recuperación ante desastres de cuatro nodos a la configuración para crear una configuración temporal de ocho nodos.  A partir de ONTAP 9,9.1, se admiten las configuraciones permanentes de MetroCluster de ocho nodos.</block>
+  <block id="ff66d22d6ddbc0a6a59188599728f8d1" category="paragraph">A partir de ONTAP 9.13.1, es posible expandir temporalmente una configuración de MetroCluster de ocho nodos para actualizar las controladoras y el almacenamiento. Consulte <block ref="6e6fb56321b906b7bb3a671d5fc5dfc7" category="inline-link-macro-rx"></block> si quiere más información.</block>
+  <block id="0abe9117fda19697d2dbf1bd1d754e02" category="list-text">Este procedimiento describe los pasos necesarios para agregar un grupo de recuperación ante desastres de cuatro nodos a una configuración de IP de MetroCluster existente. Si va a actualizar una configuración de ocho nodos, debe repetir el procedimiento completo para cada grupo de DR, agregando de uno en uno.</block>
+  <block id="84d04e0c7f711ba6800f8d3bd5bc0847" category="inline-xref">Uso del puerto Cisco 9132T en una configuración MetroCluster que ejecute ONTAP 9,4 o posterior</block>
+  <block id="ccdfc130a534c248f558d6495323cb02" category="admonition">Para Cisco 9132T, consulte <block ref="3db7a367aafc64164b814f36e8341eaa" category="inline-xref-macro-rx"></block>.</block>
+  <block id="da1fe90f1a7c8d5426c9fb653143159c" category="inline-xref">Uso de puertos ISL para Cisco 9132T en una configuración MetroCluster que ejecuta ONTAP 9,1 o posterior</block>
+  <block id="ebaff03f6ed502f4a413a1ce08e7b523" category="admonition">Para Cisco 9132T, consulte <block ref="745f667c2207ac60e33bebf6a26d4908" category="inline-xref-macro-rx"></block>.</block>
+  <block id="b6adc54642d6ea9466bf5956bfd90921" category="section-title">Uso de puertos Cisco 9132T en configuraciones de cuatro y ocho nodos MetroCluster que ejecutan ONTAP 9,4 y versiones posteriores</block>
+  <block id="34adac1b835db756e4bda81aeab17aee" category="paragraph">En la siguiente tabla se muestra el uso de puertos en un switch Cisco 9132T. La tabla muestra las configuraciones máximas admitidas con cuatro y ocho módulos de controladora en dos grupos de recuperación ante desastres.</block>
+  <block id="65ac5210a13e16ff0c09cc508d39f010" category="admonition">Para las configuraciones de ocho nodos, debe ejecutar la división en zonas de forma manual porque no se proporcionan los RCF.</block>
+  <block id="24ce95dff7cdbe82f47d82b0c5e3c3bd" category="paragraph">LEM2-5</block>
+  <block id="d1219ba7b45f6028da9ef53dc1d962dc" category="paragraph">LEM2-6</block>
+  <block id="d72635ed8e78c8bf248888485d54fefc" category="paragraph">LEM2-7</block>
+  <block id="bf56acff15a22deda5e2b827afffd42e" category="paragraph">LEM2-8</block>
+  <block id="148fa39b011d75fbf87b5c6a6e4eb7ac" category="list-text">En configuraciones de cuatro nodos, puede conectar puentes adicionales a los puertos LEM2-5 a LEM2-8 en switches 9132T con 2x lems.</block>
+  <block id="1b3edf8d6e61a53c159f115111d76631" category="list-text">En configuraciones de ocho nodos, puede conectar puentes adicionales a los puertos LEM2-13 a LEM2-16 en switches 9132T con 2x lems.</block>
+  <block id="7aff2de5bc0a96f53245830100b31a76" category="section-title">Uso de puertos Cisco 9132T para ISL en configuraciones de cuatro y ocho nodos en una configuración de MetroCluster que ejecute ONTAP 9,1 o posterior</block>
+  <block id="e919df0feb57e826b9f8b6224efe2e04" category="paragraph">En la siguiente tabla se muestra el uso de puertos ISL para un switch Cisco 9132T.</block>
+  <block id="a261c053c0fcf9998b34ce893b64a413" category="paragraph"><block ref="c0d0f2b19dc6b7f887420d5bf33adaba" prefix="" category="inline-code"></block></block>
+  <block id="8eca95447c2280ec1cef00c74fbdd026" category="paragraph"><block ref="08781b24c8be1fcc1ac4a86a67a6752f" prefix="" category="inline-code"></block></block>
+  <block id="e7b29d0915f737610eeeb345da9728aa" category="list-text">Compruebe que todos los nodos del clúster estén en buen estado:</block>
+  <block id="bd0d55b78c7361cb6bee641b1a3f51f1" category="paragraph">Se debe mostrar la salida<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> para la<block ref="555bf8344ca0caf09b42f55e185526d8" prefix=" " category="inline-code"></block> campo para todos los nodos.</block>
+  <block id="a52d9220769f6761bf129d7261ce8c50" category="list-text">Confirme que están presentes todos los discos conectados a los nodos IP de MetroCluster recientemente unidos:</block>
+  <block id="31fd58e5bb5b343f46192bb2a5c46678" category="list-text">Verifique el estado de la configuración de MetroCluster ejecutando los siguientes comandos:</block>
+  <block id="0684ea3076044d6489f161fa34d1768f" category="list-text">Puede conectar puentes adicionales a los puertos LEM2-5 a través de conmutadores LEM2-8 en 9132T con módulos LEM 2x.</block>
+  <block id="2f446d31523b281d945a5fb6d94e09f7" category="cell">Estado de configuración de FC de MetroCluster</block>
+  <block id="b25919189b4340e1b84dd00de09921d3" category="cell">Estado de configuración IP de MetroCluster</block>
+  <block id="e402ac65c66b96e2f07562ac550c53d8" category="paragraph">Sin conexión (Nota 1)</block>
+  <block id="5993b684cff34ce50e30b3a1293c1f25" category="paragraph">*Nota 1*: En las configuraciones de IP de MetroCluster, una vez que se haya completado el cambio, puede poner en línea manualmente los agregados no reflejados.</block>
+  <block id="0fc1dc5210ab6635b5582671b5100aaf" category="paragraph">Más información acerca de <block ref="26007d4b0afff1c47eeefe43a1492ee9" category="inline-xref-macro-rx"></block>.</block>
 </blocks>

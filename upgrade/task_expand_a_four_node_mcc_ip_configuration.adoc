@@ -13,13 +13,13 @@ summary: Puede añadir cuatro nodos nuevos a la configuración IP de MetroCluste
 [role="lead"]
 Según la versión de ONTAP, puede ampliar la configuración de IP de MetroCluster añadiendo cuatro nodos nuevos como nuevo grupo de recuperación ante desastres.
 
-A partir de ONTAP 9.13.1, se pueden añadir cuatro nodos nuevos a la configuración de IP de MetroCluster como tercer grupo de recuperación ante desastres. Esto crea una configuración MetroCluster de doce nodos.
+A partir de ONTAP 9.13.1, es posible expandir temporalmente una configuración de MetroCluster de ocho nodos para actualizar las controladoras y el almacenamiento. Consulte link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_refresh_4n_mcc_ip.html["Actualizar una configuración IP de MetroCluster de cuatro u ocho nodos (ONTAP 9,8 y versiones posteriores)"] si quiere más información.
 
 A partir de ONTAP 9.9.1, se pueden añadir cuatro nodos nuevos a la configuración IP de MetroCluster como un segundo grupo de recuperación ante desastres. Con esto se crea una configuración MetroCluster de ocho nodos.
 
 .Antes de empezar
 * Los nodos antiguos y nuevos deben ejecutar la misma versión de ONTAP.
-* Este procedimiento describe los pasos necesarios para expandir un grupo de recuperación ante desastres de cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos de DR), debe repetir todo el procedimiento para cada grupo de DR.
+* Este procedimiento describe los pasos necesarios para agregar un grupo de recuperación ante desastres de cuatro nodos a una configuración de IP de MetroCluster existente. Si va a actualizar una configuración de ocho nodos, debe repetir el procedimiento completo para cada grupo de DR, agregando de uno en uno.
 * Confirmar que los modelos de plataforma nuevos y antiguos son compatibles con la combinación de plataformas.
 +
 https://hwu.netapp.com["Hardware Universe de NetApp"^]

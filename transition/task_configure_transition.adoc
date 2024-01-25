@@ -613,7 +613,7 @@ Varios agregados de datos
  a| 
 Desde el símbolo del sistema de cualquier nodo, configure MetroCluster:
 
-`metrocluster configure _node-name_`
+`metrocluster configure <node-name>`
 
 
 NOTE: Debe ejecutarse `metrocluster configure` y *no* `metrocluster configure -refresh true`
@@ -632,7 +632,7 @@ Debe responder con `y` cuando se le pida que continúe en modo avanzado y vea el
 
 .. Configure la MetroCluster con el `-allow-with-one-aggregate true` parámetro:
 +
-`metrocluster configure -allow-with-one-aggregate true _node-name_`
+`metrocluster configure -allow-with-one-aggregate true -node-name <node-name>`
 
 .. Vuelva al nivel de privilegio de administrador:
 +
@@ -720,6 +720,13 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ....
+. Compruebe que todos los nodos del clúster estén en buen estado:
++
+`cluster show`
+
++
+Se debe mostrar la salida `true` para la `health` campo para todos los nodos.
+
 . Confirme que la toma de control es posible y que los nodos están conectados ejecutando el siguiente comando en ambos clústeres:
 +
 `storage failover show`
@@ -736,6 +743,18 @@ Node_FC_2      Node_FC_1              true      Connected to Node_FC_1
 Node_IP_1      Node_IP_2              true      Connected to Node_IP_2
 Node_IP_2      Node_IP_1              true      Connected to Node_IP_1
 ----
+. Confirme que están presentes todos los discos conectados a los nodos IP de MetroCluster recientemente unidos:
++
+`disk show`
+
+. Verifique el estado de la configuración de MetroCluster ejecutando los siguientes comandos:
++
+.. `metrocluster check run`
+.. `metrocluster check show`
+.. `metrocluster interconnect mirror show`
+.. `metrocluster interconnect adapter show`
+
+
 . Mueva los volúmenes MDV_CRS de los nodos antiguos a los nuevos con privilegios avanzados.
 +
 .. Mostrar los volúmenes para identificar los volúmenes de MDV:

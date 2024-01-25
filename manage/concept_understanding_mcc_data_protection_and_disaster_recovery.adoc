@@ -120,13 +120,15 @@ En la siguiente tabla se muestra el estado (en línea o sin conexión) de un agr
 |===
 
 
-| Tipo de cambio | Estado 
+| Tipo de cambio | Estado de configuración de FC de MetroCluster | Estado de configuración IP de MetroCluster 
 
 
  a| 
 Conmutación de sitios negociada (NSO)
  a| 
 En línea
+ a| 
+Sin conexión (Nota 1)
 
 
 
@@ -134,6 +136,8 @@ En línea
 Conmutación de sitios no planificada automática (SIN AUSO)
  a| 
 En línea
+ a| 
+Sin conexión (Nota 1)
 
 
 
@@ -143,8 +147,14 @@ Conmutación de sitios no planificada (USO)
 * Si el almacenamiento no está disponible: Sin conexión
 * Si el almacenamiento está disponible: En línea
 
+ a| 
+Sin conexión (Nota 1)
 
 |===
+*Nota 1*: En las configuraciones de IP de MetroCluster, una vez que se haya completado el cambio, puede poner en línea manualmente los agregados no reflejados.
+
+Más información acerca de <<Diferencias de conmutación entre las configuraciones de IP y FC de MetroCluster>>.
+
 
 NOTE: Tras una conmutación por cierre, si el agregado no reflejado se encuentra en el nodo del partner de recuperación ante desastres y hay un fallo de enlace entre switches (ISL), entonces puede producirse un error en el nodo local.
 

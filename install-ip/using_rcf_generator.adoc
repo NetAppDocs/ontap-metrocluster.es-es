@@ -26,7 +26,7 @@ Revise estas consideraciones antes de utilizar las tablas:
 
 == Cableado de configuraciones MetroCluster de ocho nodos
 
-Para la configuración de MetroCluster que ejecuta ONTAP 9.8 y versiones anteriores, algunos procedimientos que se realizan para realizar la transición de una actualización requieren la adición de un segundo grupo de recuperación ante desastres de cuatro nodos a la configuración para crear una configuración temporal de ocho nodos. A partir de ONTAP 9.9.1, se admiten las configuraciones MetroCluster permanentes de 8 nodos.
+Para la configuración de MetroCluster que ejecuta ONTAP 9.8 y versiones anteriores, algunos procedimientos que se realizan para realizar la transición de una actualización requieren la adición de un segundo grupo de recuperación ante desastres de cuatro nodos a la configuración para crear una configuración temporal de ocho nodos.  A partir de ONTAP 9,9.1, se admiten las configuraciones permanentes de MetroCluster de ocho nodos.
 
 .Acerca de esta tarea
 Para dichas configuraciones, utilice el mismo método que se describe anteriormente. En lugar de una segunda MetroCluster, está cablear un grupo de recuperación ante desastres de cuatro nodos adicional.

@@ -8,18 +8,28 @@ entries:
   url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
 - title: Instale el software Tiebreaker
   entries:
-  - title: Prepárese para la instalación
+  - title: Flujo de trabajo de instalación de tiebreaker
+    url: "/tiebreaker/install-tb-workflow.html"
+  - title: Prepárese para instalar el software tiebreaker
     url: "/tiebreaker/install_prepare.html"
-  - title: Configure el acceso de administrador a ONAPI y SSH
-    url: "/tiebreaker/task_configure_ssh_ontapi.html"
-  - title: Instale las dependencias
-    url: "/tiebreaker/install_dependencies.html"
   - title: Asegure la instalación
     url: "/tiebreaker/install_security.html"
-  - title: Instale el paquete de software
-    url: "/tiebreaker/install_tiebreaker_package.html"
-  - title: Actualice el host
-    url: "/tiebreaker/upgrade_host.html"
+  - title: Instale el paquete de software de tiebreaker
+    entries:
+    - title: Elija su procedimiento de instalación
+      url: "/tiebreaker/install-choose-procedure.html"
+    - title: Instale tiebreaker 1,6
+      url: "/tiebreaker/tb-16-install.html"
+    - title: Instale tiebreaker 1,5 o 1,4
+      entries:
+      - title: Configure el acceso de administrador a ONAPI y SSH
+        url: "/tiebreaker/task_configure_ssh_ontapi.html"
+      - title: Instale las dependencias
+        url: "/tiebreaker/install_dependencies.html"
+      - title: Instale el paquete de software
+        url: "/tiebreaker/install_tiebreaker_package.html"
+- title: Actualice el host
+  url: "/tiebreaker/upgrade_host.html"
 - title: Configure el software Tiebreaker
   url: "/tiebreaker/concept_configuring_the_tiebreaker_software.html"
 - title: Configurar los ajustes de SNMP para el software Tiebreaker

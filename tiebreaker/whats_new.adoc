@@ -25,6 +25,16 @@ En cada versión se incluyen mejoras del software MetroCluster tiebreaker. Estas
 
 
  a| 
+1,6
+ a| 
+* Facilidad de instalación mejorada
+* Actualización de bibliotecas de soporte
+* Mejoras de seguridad
+
+
+
+
+ a| 
 1.5
  a| 
 * Actualización de bibliotecas de soporte
@@ -44,11 +54,24 @@ En cada versión se incluyen mejoras del software MetroCluster tiebreaker. Estas
 
 == Matriz de compatibilidad de SO
 
-[cols="16,12,12,12"]
+[cols="2,2,2,2,2,2"]
 |===
+| Versión de tiebreaker | CentOS 7 - 7,9 | Red Hat 7 - 7,9 | Red Hat 8,1 - 8,7 | Red Hat 8,8 -9,2 | Rocky Linux 9.0 
 
 
-| Versión de tiebreaker | CentOS 7 - 7,9 | Redhat 7 - 7,9 | Redhat 8,1 - 8,7 
+ a| 
+1,6
+ a| 
+No
+ a| 
+No
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
 
 
  a| 
@@ -59,6 +82,10 @@ No
 No
  a| 
 Sí
+ a| 
+No
+ a| 
+No
 
 
 
@@ -70,5 +97,9 @@ Sí
 Sí
  a| 
 Sí
+ a| 
+No
+ a| 
+No
 
 |===

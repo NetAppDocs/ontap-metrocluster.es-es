@@ -13,11 +13,11 @@ Debe instalar o actualizar el software MetroCluster Tiebreaker en el equipo loca
 .Acerca de esta tarea
 * El sistema de almacenamiento debe ejecutar ONTAP 8.3.x o una versión posterior.
 * Debe haber instalado OpenJDK mediante el `yum install java-x.x.x-openjdk` comando. Para sistemas que ejecuten Tiebreaker 1.4 y versiones anteriores, ejecute JRE 8. Para sistemas que ejecuten Tiebreaker 1.5 y posteriores, ejecute OpenJDK 17, 18 o 19. Las salidas del ejemplo muestran JRE 1.8.0. (JRE 8).
-* Puede instalar MetroCluster Tiebreaker como usuario que no sea raíz con suficientes privilegios de administración para realizar la instalación de tiebreaker, crear tablas, usuarios, y establecer la contraseña de usuario, etc.
+* Puede instalar MetroCluster tiebreaker como usuario no root con suficientes privilegios administrativos para realizar la instalación de tiebreaker, crear tablas y usuarios y definir la contraseña de usuario.
 
 
 .Pasos
-. Descargue la última versión del software MetroCluster Tiebreaker. En este ejemplo se usa la versión 1.5.
+. Descargue el software MetroCluster tiebreaker. En este ejemplo se usa la versión 1.5.
 +
 https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^]
 

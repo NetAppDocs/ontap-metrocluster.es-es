@@ -1,0 +1,35 @@
+---
+permalink: tiebreaker/install-choose-procedure.html 
+sidebar: sidebar 
+keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
+summary: El procedimiento de instalación de tiebreaker que siga depende de la versión de tiebreaker que esté instalando. 
+---
+= Elija su procedimiento de instalación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El procedimiento de instalación de tiebreaker que siga depende de la versión de tiebreaker que esté instalando.
+
+[cols="5,5"]
+|===
+
+
+| Versión de tiebreaker | Vaya a... 
+
+
+ a| 
+Tiebreaker 1,6
+ a| 
+link:tb-16-install.html["Instale tiebreaker 1,6"]
+
+
+
+ a| 
+Tiebreaker 1,5 o 1,4
+ a| 
+link:install_dependencies.html["Instale tiebreaker 1,5 o 1,4"]
+
+|===

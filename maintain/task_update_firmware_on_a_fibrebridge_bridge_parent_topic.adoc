@@ -22,7 +22,7 @@ Es posible que necesite actualizar el firmware de los puentes FiberBridge para a
 * La configuración de MetroCluster debe estar funcionando con normalidad.
 * Todos los puentes FibreBridge de la configuración de MetroCluster deben estar activos y operativos.
 * Todas las rutas de almacenamiento deben estar disponibles.
-* Necesita la contraseña de administrador y acceso a un servidor HTTP.
+* Necesita la contraseña de administrador y el acceso a un servidor HTTP, FTP, SFTP o Trivial File Transfer Protocol (TFTP).
 * Debe utilizar una versión de firmware compatible.
 +
 https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]

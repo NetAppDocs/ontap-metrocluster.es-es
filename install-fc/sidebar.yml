@@ -95,6 +95,8 @@ entries:
       url: "/install-fc/task_cable_the_management_and_data_connections.html"
   - title: Configure los switches FC
     entries:
+    - title: Información general de la configuración de switch FC
+      url: "/install-fc/concept-configure-fc-switches.html"
     - title: Configuración de switches FC Brocade con archivos RCF
       entries:
       - title: Restablezca el switch Brocade FC a los valores predeterminados de fábrica

@@ -66,11 +66,14 @@ https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad 
 * Cada estructura debe tener dos switches FC.
 * Cada sistema ONTAP debe conectarse al almacenamiento mediante componentes redundantes para que haya redundancia en caso de fallos de dispositivo y de ruta.
 * Los sistemas de almacenamiento A700, FAS9000, AFF A900 y FAS9500 de AFF admiten hasta ocho ISL por estructura. Otros modelos de sistema de almacenamiento admiten hasta cuatro ISL por estructura.
+* Los switches deben utilizar MetroCluster la configuración básica del switch, los ajustes de ISL y las configuraciones FC-VI.
++
+link:task_fcsw_cisco_configure_a_cisco_switch_supertask.html["Configure los switches Cisco FC manualmente"]
+
++
+link:ask_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["Configurar los switches FC Brocade manualmente"]
 
 
-Los switches deben utilizar MetroCluster la configuración básica del switch, los ajustes de ISL y las configuraciones FC-VI.
-
-link:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.html["Configuración manual de los switches FC de Cisco o Brocade"]
 
 
 

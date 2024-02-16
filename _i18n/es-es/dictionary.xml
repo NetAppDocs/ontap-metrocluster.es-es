@@ -11767,7 +11767,6 @@
   <block id="e8097a3b165e180d56bd06e7a7f7df02" category="list-text">Encienda el nuevo interruptor y deje que arranque.</block>
   <block id="6f17ef717caa10c840154e66037357c2" category="list-text">Compruebe la versión de firmware del switch para confirmar que coincide con la versión de otros switches de FC:</block>
   <block id="138bc97385f8b992b8f25f7d2cd5c7ad" category="paragraph"><block ref="21bb9f69740d55aadfa31a7cef5f3701" prefix="" category="inline-code"></block></block>
-  <block id="b78f0a4f76dcc1e77900d332f928827a" category="paragraph">Puede configurar la división en zonas más adelante en este procedimiento.</block>
   <block id="b8e631780d1dd27b4f2d09d46aff4b4b" category="admonition">En este momento, el nuevo switch no está cableado a la configuración de MetroCluster.</block>
   <block id="44cc543a1a8236a9d069faa85442a84b" category="list-text">Deshabilite los puertos FC-VI, HBA y almacenamiento en el switch nuevo y los puertos conectados a los puentes FC-SAS.</block>
   <block id="32d094a9a039fb0268cc6295ed9c3e91" category="list-text">Sustituya físicamente el interruptor:</block>
@@ -13283,7 +13282,6 @@
   <block id="aa71e3dcbe0cdabbe4cce28385ab2fd6" category="paragraph">Si va a cambiar la versión de ONTAP o la versión de firmware del switch, debe comprobar que tiene un archivo RCF compatible con esa versión. Si utiliza el generador RCF, se generará el archivo RCF correcto.</block>
   <block id="9f4a5b5c7a3f862c1d0ff77f72d3eea0" category="paragraph">Se le pedirá el nombre de usuario y la contraseña de la cuenta de usuario administrador de ONTAP Mediator.</block>
   <block id="c471c44c2f26c78f9327863d90427cb7" category="admonition">Si el mediador ONTAP está inactivo, el<block ref="1eafb93bfc40f298e60cf17e8a8c598c" prefix=" " category="inline-code"></block> El comando todavía le solicita que introduzca el nombre de usuario y la contraseña para la cuenta de usuario administrador de ONTAP Mediator y elimina el servicio de ONTAP Mediator de la configuración de MetroCluster.</block>
-  <block id="1aa145ddf3cafc3bf77b04a1c7069f71" category="list-text">Configure el nuevo switch como se describe en _Instalación y configuración de MetroCluster_, pero omita el procedimiento ««Configuración de la división en zonas en switches de Brocade FC».</block>
   <block id="21b5cf2db61fccc0ace8b80bac8b35b7" category="list-text">Nota 2: Debe tener una interfaz de 40 GbE para las interfaces del clúster local en los nodos FC. Esta combinación de plataformas requiere ONTAP 9.11.1 o posterior.</block>
   <block id="13cdbd43c145584bcad75658a29e498d" category="list-text">Nota 3: Debe tener una interfaz de 100 GbE para las interfaces de clúster local en los nodos FC. Esta combinación de plataformas requiere ONTAP 9.11.1 o posterior.</block>
   <block id="646d7d5f93b4a6d7bbbc65acf5ac1077" category="inline-link">Documentación de los sistemas de hardware de ONTAP</block>
@@ -13388,4 +13386,36 @@
   <block id="94d0fc55d9356d3d18534836cae75c1d" category="doc">Información general de la configuración de switch FC</block>
   <block id="67af9bc4271944d43da3bdca5451bf73" category="paragraph">Puede configurar los switches FC de Cisco y Brocade con archivos RCF, o bien, si es necesario, se pueden configurar manualmente los switches.</block>
   <block id="1399637937931de009069d1a13a152fb" category="paragraph">*Nota 1:* Esta combinación requiere ONTAP 9.13.1 o posterior.</block>
+  <block id="9ae99044ddcd14d01b26630cedd8846d" category="list-text">Configure el nuevo conmutador siguiendo los pasos descritos en <block ref="435cf525be06a494222aa18eba4f6000" category="inline-link-macro-rx"></block>.</block>
+  <block id="02d80d458a48a16bd927a203d6bb2c73" category="list-text">Compruebe la configuración de la división en zonas:</block>
+  <block id="62c870995fe52ce6aa5f9fc71ef4da98" category="paragraph"><block ref="ed3badb92af3298762df5a811de2da80" prefix="" category="inline-code"></block></block>
+  <block id="79787dbf023f957de1bd4970858b26be" category="summary">Puede configurar los conmutadores IP para que utilicen SNMPv3 para la supervisión del estado.</block>
+  <block id="3a4aa5b142f66d14a43abf77cc49c599" category="doc">Configure los conmutadores IP de MetroCluster para la supervisión del estado</block>
+  <block id="877caefa8e802eac248e66b46636c94b" category="paragraph">En las configuraciones IP de MetroCluster, puede configurar SNMPv3 para supervisar el estado de los switches IP.</block>
+  <block id="b3d73929ddf74bb4c7d3cac6eeda8684" category="section-title">Paso 1: Configure el usuario SNMPv3 en los conmutadores IP de MetroCluster</block>
+  <block id="038fbd2fc792b1165c5e88791a09113a" category="paragraph">Siga estos pasos para configurar el usuario SNMPv3 en los conmutadores IP de MetroCluster.</block>
+  <block id="f1407eaef69e4aa9948574be11c0a49b" category="admonition">Se deben usar los protocolos de autenticación y de privacidad en los comandos. No se admite el uso de autenticación sin privacidad.</block>
+  <block id="165237cf57452c2427f247f1c6589434" category="open-title">Para switches IP Broadcom</block>
+  <block id="8d09188a2cfea4cc57e0f38750b68c97" category="list-text">Si el grupo de usuarios 'network-admin' no existe, créelo:</block>
+  <block id="0f3a15963e4657a9c97ab6b3db322d27" category="paragraph"><block ref="173ceda524dbc87af297f813b0f50cd8" prefix="" category="inline-code"></block></block>
+  <block id="ec714ba3bea7bae033524709c8ddb144" category="list-text">Confirme que se ha creado el grupo 'network-admin':</block>
+  <block id="a24bdf92e7d1dc2d2e5714305a56e0eb" category="paragraph"><block ref="77aa57f376fe73c9581fb729ddeb38eb" prefix="" category="inline-code"></block></block>
+  <block id="6697365f2e46593a5513af21ee61a084" category="list-text">Configure el usuario SNMPv3 en los conmutadores IP de Broadcom:</block>
+  <block id="3289ce0836654122a2c0d3bfd4fab942" category="paragraph">En el ejemplo siguiente se deben usar entre comillas para la autenticación y las contraseñas de privacidad:</block>
+  <block id="9253168d7e5e9b3b8152a8ff1870743f" category="open-title">Para switches IP Cisco</block>
+  <block id="4a2ec710ab28d8f45e2fdabacdc2dfc6" category="list-text">Ejecute los siguientes comandos para configurar el usuario SNMPv3 en un conmutador IP de Cisco:</block>
+  <block id="a8b5c32b456efe8e0fcb23cd218c6b6c" category="list-text">Compruebe que el usuario SNMPv3 está configurado en el conmutador:</block>
+  <block id="dcc1c100b3f25557081f2e0b39235331" category="paragraph"><block ref="b74f60eeed5179550ade1e96ba13e2f9" prefix="" category="inline-code"></block></block>
+  <block id="82551d68c685b978ef7462fc2759040f" category="paragraph">El siguiente ejemplo muestra que el usuario<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block> Está configurado para SNMPv3:</block>
+  <block id="54095e9794a9fd93e475a7911543f88e" category="section-title">Paso 2: Configure el usuario SNMPv3 en ONTAP</block>
+  <block id="584b7eab2aafafcbe01855419f896b21" category="paragraph">Siga estos pasos para configurar el usuario SNMPv3 en ONTAP.</block>
+  <block id="1bff762b431027892d402682570d40ac" category="list-text">Configure el usuario SNMPv3 en ONTAP:</block>
+  <block id="ddc11f6ac980cbb07f08bef9febcc0e7" category="paragraph"><block ref="d122104842549610cab7a5c1c6e791ab" prefix="" category="inline-code"></block></block>
+  <block id="c74135dc000c228de7018358eaf099e5" category="list-text">Configure la supervisión del estado del switch para supervisar el switch utilizando el nuevo usuario SNMPv3:</block>
+  <block id="19acda7cb8d15af8dcf62dcf74bcbe00" category="paragraph"><block ref="536a54b756351ba8978169ff37fc419d" prefix="" category="inline-code"></block></block>
+  <block id="102bc61adb74b49384536c35a485dea4" category="list-text">Compruebe que el número de serie del dispositivo que se supervisará con el usuario SNMPv3 recién creado es correcto:</block>
+  <block id="189afc0f727c57bbef41f18728ebe44a" category="list-text">Muestra el periodo de tiempo de sondeo de monitorización del estado del switch:</block>
+  <block id="4e8c2092c0a2bb40fde077763873c66c" category="paragraph"><block ref="c9e6cd6140c9d8677df821c7cce2aac1" prefix="" category="inline-code"></block></block>
+  <block id="b9035c5f27542cbf7fb14fced8e330ba" category="list-text">Ejecute el siguiente comando una vez que haya transcurrido el tiempo de sondeo:</block>
+  <block id="20c4c39b07a94d810605541c0137f531" category="paragraph"><block ref="9214d4fe696fff6386a131ecee126bc4" prefix="" category="inline-code"></block></block>
 </blocks>

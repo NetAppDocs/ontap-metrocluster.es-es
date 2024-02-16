@@ -113,13 +113,7 @@ FC_switch_B_1:admin> switchshow
 +
 `firmwareShow`
 
-.. Configure el nuevo switch como se describe en _Instalación y configuración de MetroCluster_, pero omita el procedimiento ««Configuración de la división en zonas en switches de Brocade FC».
-+
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
-
-+
-Puede configurar la división en zonas más adelante en este procedimiento.
-
+.. Configure el nuevo conmutador siguiendo los pasos descritos en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["Configurar manualmente los switches FC de Brocade"].
 +
 
 NOTE: En este momento, el nuevo switch no está cableado a la configuración de MetroCluster.
@@ -173,6 +167,10 @@ Si habilita el cifrado ISL, debe completar las siguientes tareas:
 FC_switch_B_1:admin> portcfgpersistentenable 10
 FC_switch_B_1:admin> portcfgpersistentenable 11
 ----
+.. Compruebe la configuración de la división en zonas:
++
+`cfg show`
+
 .. En el switch de reemplazo (FC_switch_B_1 en el ejemplo), verifique que los ISL estén en línea:
 +
 `switchshow`

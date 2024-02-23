@@ -13,7 +13,7 @@ summary: Puede añadir cuatro nodos nuevos a la configuración IP de MetroCluste
 [role="lead"]
 Según la versión de ONTAP, puede ampliar la configuración de IP de MetroCluster añadiendo cuatro nodos nuevos como nuevo grupo de recuperación ante desastres.
 
-A partir de ONTAP 9.13.1, es posible expandir temporalmente una configuración de MetroCluster de ocho nodos para actualizar las controladoras y el almacenamiento. Consulte link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_refresh_4n_mcc_ip.html["Actualizar una configuración IP de MetroCluster de cuatro u ocho nodos (ONTAP 9,8 y versiones posteriores)"] si quiere más información.
+A partir de ONTAP 9.13.1, es posible expandir temporalmente una configuración de MetroCluster de ocho nodos para actualizar las controladoras y el almacenamiento. Consulte link:task_refresh_4n_mcc_ip.html["Actualizar una configuración IP de MetroCluster de cuatro u ocho nodos (ONTAP 9,8 y versiones posteriores)"] si quiere más información.
 
 A partir de ONTAP 9.9.1, se pueden añadir cuatro nodos nuevos a la configuración IP de MetroCluster como un segundo grupo de recuperación ante desastres. Con esto se crea una configuración MetroCluster de ocho nodos.
 
@@ -28,7 +28,7 @@ https://hwu.netapp.com["Hardware Universe de NetApp"^]
 +
 https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
-* Los nuevos nodos deben tener suficiente almacenamiento para acomodar los datos de los nodos antiguos, junto con los discos adecuados para los agregados raíz y los discos de repuesto.
+* Si lo es link:task_refresh_4n_mcc_ip.html["Actualizar una configuración IP de MetroCluster de cuatro u ocho nodos"], los nuevos nodos deben disponer de espacio suficiente para acomodar los datos de los nodos antiguos, junto con los discos adecuados para los agregados raíz y los discos de reserva.
 * Compruebe que tiene un dominio de retransmisión predeterminado creado en los nodos antiguos.
 +
 Cuando se añaden nodos nuevos a un clúster existente sin un dominio de retransmisión predeterminado, las LIF de gestión de nodos se crean para los nodos nuevos mediante identificadores únicos universales (UUID) en lugar de los nombres esperados. Para obtener más información, vea el artículo de la base de conocimientos https://kb.netapp.com/onprem/ontap/os/Node_management_LIFs_on_newly-added_nodes_generated_with_UUID_names["LIF de gestión de nodos en los nodos recién añadidos generados con nombres UUID"^].
@@ -380,8 +380,6 @@ Después de unos cinco minutos, se muestran los siguientes resultados:
 ----
 -----------
 ::*> metrocluster check show
-
-Last Checked On: 4/7/2019 21:15:05
 
 Component           Result
 ------------------- ---------

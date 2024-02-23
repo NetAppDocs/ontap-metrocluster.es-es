@@ -14,7 +14,9 @@ summary: Al configurar un switch FC de Brocade, puede instalar los archivos de c
 Al configurar un switch FC de Brocade, puede instalar los archivos de configuración del switch que proporcionen la configuración completa del switch para determinadas configuraciones.
 
 .Acerca de esta tarea
-Estos pasos deben repetirse en cada uno de los switches FC de Brocade en la configuración de estructura de MetroCluster.
+* Se deben repetir estos pasos en cada uno de los switches FC de Brocade en la configuración de estructura MetroCluster.
+* Si utiliza una configuración xWDM, puede que necesite ajustes adicionales en las ISLs. Consulte la documentación del proveedor de xWDM para obtener más información.
+
 
 .Pasos
 . Inicie el proceso de descarga y configuración:

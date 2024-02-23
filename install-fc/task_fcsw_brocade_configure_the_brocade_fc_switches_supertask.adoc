@@ -40,6 +40,7 @@ NOTE: Puede configurar sistemas FAS8020, AFF8020, FAS8200 y AFF A300 con dos pue
 +
 link:concept_tdm_wdm.html["Consideraciones sobre el uso de equipos TDM/WDM con configuraciones MetroCluster conectadas a la estructura"]
 
+* Si utiliza una configuración xWDM, puede que necesite ajustes adicionales en las ISLs. Consulte la documentación del proveedor de xWDM para obtener más información.
 * Todos los ISL deben tener la misma longitud y la misma velocidad en una misma estructura.
 +
 Se pueden utilizar diferentes longitudes en los diferentes tejidos. Se debe utilizar la misma velocidad en todas las telas.

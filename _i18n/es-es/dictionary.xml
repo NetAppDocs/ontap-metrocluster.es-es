@@ -4114,7 +4114,6 @@
   <block id="a8307b4c5fa271005a1338d5b405ca1f" category="paragraph">A partir de ONTAP 9.9.1, se pueden añadir cuatro nodos nuevos a la configuración IP de MetroCluster como un segundo grupo de recuperación ante desastres. Con esto se crea una configuración MetroCluster de ocho nodos.</block>
   <block id="44e7e75e628cd7549a2dac175d45b418" category="list-text">Los nodos antiguos y nuevos deben ejecutar la misma versión de ONTAP.</block>
   <block id="25c779b977dab5ebed0156b6fb5f864b" category="paragraph"><block ref="25c779b977dab5ebed0156b6fb5f864b" category="inline-link-rx"></block></block>
-  <block id="2ee2465217913ae7b455ab4ef5e995e6" category="list-text">Los nuevos nodos deben tener suficiente almacenamiento para acomodar los datos de los nodos antiguos, junto con los discos adecuados para los agregados raíz y los discos de repuesto.</block>
   <block id="1ba701b5ad5528986d9e0eb838638aae" category="section-title">Ejemplo de nomenclatura de este procedimiento</block>
   <block id="a9b1d4be69539e9b95a2c6672035550c" category="paragraph">Este procedimiento usa nombres de ejemplo de todos los para identificar los grupos de recuperación ante desastres, los nodos y los switches implicados.</block>
   <block id="360264088f5b0d4a8993fa7a8e15856d" category="cell">Grupos de recuperación ante desastres</block>
@@ -9794,7 +9793,6 @@
   <block id="516b14cf2c8d48e0d3bc843b88989702" category="paragraph">Después de realizar la transición de los datos, puede quitar el cableado de la estructura MetroCluster de 7-Mode y, si lo desea, mover el cableado de Clustered ONTAP MetroCluster a los puertos con el número más bajo que se usaron anteriormente para el cableado MetroCluster de 7-Mode. Los puertos se muestran en la sección "revisar las asignaciones de puertos del switch FC para una MetroCluster de cuatro nodos". Debe ajustar la división en zonas para los puertos reorganizados.</block>
   <block id="5482b27fb601c9d5069a7533e0dd1b02" category="summary">Al configurar un switch FC de Brocade, puede instalar los archivos de configuración del switch que proporcionen la configuración completa del switch para determinadas configuraciones.</block>
   <block id="c2a1b1aaf420fd5fc4e694faa94de89f" category="doc">Instalación del archivo RCF del switch FC de Brocade</block>
-  <block id="40a501dacb79ddf4f770555994a4dbe9" category="paragraph">Estos pasos deben repetirse en cada uno de los switches FC de Brocade en la configuración de estructura de MetroCluster.</block>
   <block id="2d6424f21b7898ba895ef0e70f5c13c8" category="list-text">Inicie el proceso de descarga y configuración:</block>
   <block id="3ef73a7a519c5b4a03c363a138b097eb" category="paragraph"><block ref="087055abbdd65f4791f9e6ce913c7cc4" prefix="" category="inline-code"></block></block>
   <block id="d304e0e1a0c74d4f29c7bf97c9e6c845" category="paragraph">Responda a las indicaciones como se muestra en el siguiente ejemplo.</block>
@@ -13297,7 +13295,6 @@
   <block id="44f3e9b14f204b411afdea78f7b0391c" category="doc">Notas de la versión de MetroCluster</block>
   <block id="af8a69aa12393a4d9b6992e884f1c919" category="sidebar">Documentos de MetroCluster</block>
   <block id="b8b5370c063dd2b4ce4021558a49ac07" category="paragraph">Para la configuración de MetroCluster que ejecuta ONTAP 9.8 y versiones anteriores, algunos procedimientos que se realizan para realizar la transición de una actualización requieren la adición de un segundo grupo de recuperación ante desastres de cuatro nodos a la configuración para crear una configuración temporal de ocho nodos.  A partir de ONTAP 9,9.1, se admiten las configuraciones permanentes de MetroCluster de ocho nodos.</block>
-  <block id="ff66d22d6ddbc0a6a59188599728f8d1" category="paragraph">A partir de ONTAP 9.13.1, es posible expandir temporalmente una configuración de MetroCluster de ocho nodos para actualizar las controladoras y el almacenamiento. Consulte <block ref="6e6fb56321b906b7bb3a671d5fc5dfc7" category="inline-link-macro-rx"></block> si quiere más información.</block>
   <block id="0abe9117fda19697d2dbf1bd1d754e02" category="list-text">Este procedimiento describe los pasos necesarios para agregar un grupo de recuperación ante desastres de cuatro nodos a una configuración de IP de MetroCluster existente. Si va a actualizar una configuración de ocho nodos, debe repetir el procedimiento completo para cada grupo de DR, agregando de uno en uno.</block>
   <block id="84d04e0c7f711ba6800f8d3bd5bc0847" category="inline-xref">Uso del puerto Cisco 9132T en una configuración MetroCluster que ejecute ONTAP 9,4 o posterior</block>
   <block id="ccdfc130a534c248f558d6495323cb02" category="admonition">Para Cisco 9132T, consulte <block ref="3db7a367aafc64164b814f36e8341eaa" category="inline-xref-macro-rx"></block>.</block>
@@ -13418,4 +13415,15 @@
   <block id="4e8c2092c0a2bb40fde077763873c66c" category="paragraph"><block ref="c9e6cd6140c9d8677df821c7cce2aac1" prefix="" category="inline-code"></block></block>
   <block id="b9035c5f27542cbf7fb14fced8e330ba" category="list-text">Ejecute el siguiente comando una vez que haya transcurrido el tiempo de sondeo:</block>
   <block id="20c4c39b07a94d810605541c0137f531" category="paragraph"><block ref="9214d4fe696fff6386a131ecee126bc4" prefix="" category="inline-code"></block></block>
+  <block id="0ca1a0fce29aa8b27d10b5cf276a5a5c" category="list-text">Si utiliza una configuración xWDM, puede que necesite ajustes adicionales en las ISLs. Consulte la documentación del proveedor de xWDM para obtener más información.</block>
+  <block id="e389e5759cd93883cfbee1a000ab0c47" category="list-text">Se deben repetir estos pasos en cada uno de los switches FC de Brocade en la configuración de estructura MetroCluster.</block>
+  <block id="9dc72cfc812a43dbca6ba4e6357b2b04" category="paragraph">A partir de ONTAP 9.13.1, es posible expandir temporalmente una configuración de MetroCluster de ocho nodos para actualizar las controladoras y el almacenamiento. Consulte <block ref="df5e6373f54c9330727709bb1055a079" category="inline-link-macro-rx"></block> si quiere más información.</block>
+  <block id="e6f19b92e0e69fc5d74e94088b442a26" category="inline-link-macro">Actualizar una configuración IP de MetroCluster de cuatro u ocho nodos</block>
+  <block id="ae236ebe2cd05ce4da7fe73d504f4946" category="list-text">Si lo es <block ref="54f4a86aff0fc5aba4d6e37b225734c0" category="inline-link-macro-rx"></block>, los nuevos nodos deben disponer de espacio suficiente para acomodar los datos de los nodos antiguos, junto con los discos adecuados para los agregados raíz y los discos de reserva.</block>
+  <block id="30db39dffca5d3a3ab759b48303153b1" category="list-text">Si el grupo de recuperación de desastres que se va a quitar contiene volúmenes de reflejo de uso compartido de carga, no se pueden mover.  Vuelva a crear todos los volúmenes de reflejos con uso compartido de carga en otro grupo de recuperación ante desastres y, a continuación, elimine los volúmenes de reflejo de uso compartido de carga del grupo de recuperación ante desastres que se van a quitar.</block>
+  <block id="0108924065f583138162139c8d2325c4" category="list-text">Realice los pasos en un conmutador a la vez, en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2.</block>
+  <block id="4c73c980356e24dbc4b9bfa823ff3540" category="inline-link-macro">Restablecer el switch NVIDIA IP SN2100 a los valores predeterminados de fábrica</block>
+  <block id="5ea045545da6545f166122f615c720c2" category="list-text"><block ref="5ea045545da6545f166122f615c720c2" category="inline-link-macro-rx"></block></block>
+  <block id="9d2a9152feb1a65b3472b15d2e557bca" category="inline-link-macro">Descarga e instalación de archivos NVIDIA IP RCF</block>
+  <block id="3ebe02a815587b2ddedbada8c501d0ef" category="list-text"><block ref="3ebe02a815587b2ddedbada8c501d0ef" category="inline-link-macro-rx"></block></block>
 </blocks>

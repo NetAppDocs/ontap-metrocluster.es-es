@@ -31,15 +31,19 @@ image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
 
 == Quite los nodos del grupo DR de cada clúster
 
+.Antes de empezar
 * Este paso debe ejecutarse en ambos clústeres.
 * La `metrocluster remove-dr-group` El comando solo se admite en ONTAP 9.8 y versiones posteriores.
+
+
+.Pasos
+. Prepárese para la eliminación del grupo de recuperación ante desastres, si no lo ha hecho todavía.
 +
-.. Prepárese para la eliminación del grupo de recuperación ante desastres, si no lo ha hecho todavía.
-+
-... Mueva todos los volúmenes de datos a otro grupo de recuperación ante desastres.
-... Mueva todos los volúmenes de metadatos MDV_CRS a otro grupo de DR siguiendo el link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"] procedimiento.
-... Elimine todos los volúmenes de metadatos MDV_aud que puedan existir en el grupo de recuperación ante desastres que se va a quitar.
-... Elimine todos los agregados de datos del grupo de recuperación ante desastres que se van a eliminar, como se muestra en el ejemplo siguiente:
+.. Mueva todos los volúmenes de datos a otro grupo de recuperación ante desastres.
+.. Si el grupo de recuperación de desastres que se va a quitar contiene volúmenes de reflejo de uso compartido de carga, no se pueden mover.  Vuelva a crear todos los volúmenes de reflejos con uso compartido de carga en otro grupo de recuperación ante desastres y, a continuación, elimine los volúmenes de reflejo de uso compartido de carga del grupo de recuperación ante desastres que se van a quitar.
+.. Mueva todos los volúmenes de metadatos MDV_CRS a otro grupo de DR siguiendo el link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"] procedimiento.
+.. Elimine todos los volúmenes de metadatos MDV_aud que puedan existir en el grupo de recuperación ante desastres que se va a quitar.
+.. Elimine todos los agregados de datos del grupo de recuperación ante desastres que se van a eliminar, como se muestra en el ejemplo siguiente:
 +
 [listing]
 ----
@@ -52,16 +56,16 @@ ClusterB::> aggr delete -aggregate aggregate_name
 
 NOTE: Los agregados raíz no se eliminan.
 
-... Mueva las LIF de datos a sin conexión.
+.. Mueva las LIF de datos a sin conexión.
 `network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin down`
-... Migrar todas las LIF de datos a los nodos principales de otro grupo de recuperación ante desastres. +
+.. Migrar todas las LIF de datos a los nodos principales de otro grupo de recuperación ante desastres. +
 `network interface show -home-node _old_node_`
 +
 `network interface modify -vserver _svm-name_ -lif _data-lif_ -home-node _new_node_ -home-port _port-id_`
 
-... Vuelva a conectar las LIF de datos.
+.. Vuelva a conectar las LIF de datos.
 `network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin up`
-... Migrar la LIF de gestión del clúster a un nodo inicial en otro grupo de recuperación ante desastres.
+.. Migrar la LIF de gestión del clúster a un nodo inicial en otro grupo de recuperación ante desastres.
 +
 `network interface show -role cluster-mgmt`
 
@@ -71,7 +75,7 @@ NOTE: Los agregados raíz no se eliminan.
 +
 La gestión de nodos y los LIF entre clústeres no se migran.
 
-... Transfiera el valor épsilon a un nodo de otro grupo de recuperación ante desastres, si fuera necesario.
+.. Transfiera el valor épsilon a un nodo de otro grupo de recuperación ante desastres, si fuera necesario.
 +
 [listing]
 ----
@@ -89,13 +93,13 @@ ClusterB::*> set admin
 ----
 
 
-.. Identifique y elimine el grupo de recuperación ante desastres.
+. Identifique y elimine el grupo de recuperación ante desastres.
 +
-... Identificar el grupo de recuperación ante desastres correcto para su retirada:
+.. Identificar el grupo de recuperación ante desastres correcto para su retirada:
 +
 `metrocluster node show`
 
-... Quite los nodos del grupo DR: +
+.. Quite los nodos del grupo DR: +
 `metrocluster remove-dr-group -dr-group-id 1`
 +
 En el siguiente ejemplo, se muestra la eliminación de la configuración del grupo DR en cluster_A.
@@ -136,54 +140,52 @@ cluster_A::*>
 ----
 
 
-.. Repita el paso anterior en el clúster del partner.
-.. Si está en una configuración IP de MetroCluster, quite las conexiones MetroCluster en los nodos del grupo de recuperación ante desastres antiguo.
+. Repita el paso anterior en el clúster del partner.
+. Si está en una configuración IP de MetroCluster, quite las conexiones MetroCluster en los nodos del grupo de recuperación ante desastres antiguo.
 +
 Estos comandos se pueden emitir desde cualquier clúster y se pueden aplicar a todo el grupo de recuperación ante desastres que abarca ambos clústeres.
 
 +
-... Desconectar las conexiones:
+.. Desconectar las conexiones:
 +
 `metrocluster configuration-settings connection disconnect _dr-group-id_`
 
-... Elimine las interfaces MetroCluster en los nodos del antiguo grupo de recuperación ante desastres:
+.. Elimine las interfaces MetroCluster en los nodos del antiguo grupo de recuperación ante desastres:
 +
 `metrocluster configuration-settings interface delete`
 
-... Elimine la configuración del grupo de recuperación ante desastres antiguo. +
+.. Elimine la configuración del grupo de recuperación ante desastres antiguo. +
 `metrocluster configuration-settings dr-group delete`
 
 
-.. Desunir los nodos del grupo de recuperación ante desastres antiguo.
+. Desunir los nodos del grupo de recuperación ante desastres antiguo.
 +
 Debe realizar este paso en cada clúster.
 
 +
-... Configure el nivel de privilegio avanzado:
+.. Configure el nivel de privilegio avanzado:
 +
 `set -privilege advanced`
 
-... Desactive la conmutación al nodo de respaldo del almacenamiento:
+.. Desactive la conmutación al nodo de respaldo del almacenamiento:
 +
 `storage failover modify -node _node-name_ -enable false`
 
-... Unirte al nodo: +
+.. Unirte al nodo: +
 `cluster unjoin -node _node-name_`
 +
 Repita este paso con el otro nodo local del grupo de recuperación ante desastres antiguo.
 
-... Configure el nivel de privilegio admin: +
+.. Configure el nivel de privilegio admin: +
 `set -privilege admin`
 
 
-.. Volver a habilitar el clúster de alta disponibilidad en el nuevo grupo de recuperación ante desastres:
+. Volver a habilitar el clúster de alta disponibilidad en el nuevo grupo de recuperación ante desastres:
 +
 `cluster ha modify -configured true`
 
 +
 Debe realizar este paso en cada clúster.
 
-.. Detenga, apague y retire los módulos de controladora y las bandejas de almacenamiento antiguos.
-
-
+. Detenga, apague y retire los módulos de controladora y las bandejas de almacenamiento antiguos.
 

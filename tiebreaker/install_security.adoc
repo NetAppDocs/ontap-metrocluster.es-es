@@ -25,7 +25,7 @@ Las siguientes directrices muestran cómo proteger el host donde está instalado
 
 * Limite el acceso del usuario "raíz".
 +
-** Puede utilizar usuarios que puedan elevar el acceso raíz para instalar y administrar el software Tiebreaker. link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-sudo-access_configuring-basic-system-settings["Gestión del acceso sudo"^]
+** Puede utilizar usuarios que puedan elevar el acceso raíz para instalar y administrar el software Tiebreaker.
 ** Puede utilizar usuarios que no puedan elevar al acceso raíz para administrar el software Tiebreaker.
 ** Durante la instalación, debe crear un grupo llamado “mcctbgrp”. El usuario raíz del host y el usuario creados durante la instalación deben ser miembros. Sólo los miembros de este grupo pueden administrar completamente el software Tiebreaker.
 +
@@ -45,27 +45,8 @@ NOTE: Los usuarios que no sean miembros de este grupo no pueden acceder al softw
 
 
 .Información relacionada
-* Gestión de usuarios y cuentas
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/assembly_getting-started-with-managing-user-accounts_configuring-basic-system-settings["Introducción a la gestión de cuentas de usuario"^]
-
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/introduction-to-managing-user-and-group-accounts_configuring-basic-system-settings["Introducción a la administración de cuentas de usuarios y grupos"^]
-
-* Gestión de usuarios y grupos mediante la consola web o CLI
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-user-accounts-in-the-web-console-new_configuring-basic-system-settings["Administración de cuentas de usuario en la consola Web"^]
-
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-users-from-the-command-line_configuring-basic-system-settings["Administrar usuarios desde la línea de comandos"^]
-
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/editing-user-groups-using-the-command-line_configuring-basic-system-settings["Editar grupos de usuarios mediante la línea de comandos"^]
-
-* Administrando la contraseña root
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/changing-and-resetting-the-root-password-from-the-command-line_configuring-basic-system-settings["Administrar y restablecer la contraseña raíz"^]
-
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/["Documentación de producto de Red Hat Enterprise Linux 8"^]
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/["Documentación de producto de Red Hat Enterprise Linux 9"^]
 
 
 
@@ -88,9 +69,6 @@ link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/ht
 
 NOTE: Debe dejar el acceso a la consola serie (si es compatible) o al menos un protocolo habilitado para administrar el host de forma remota. Si deshabilita todos los protocolos, deberá tener acceso físico al host para la administración.
 
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-system-services-with-systemctl_configuring-basic-system-settings["Obtenga información sobre la gestión de servicios del sistema con systemctl"^]
-
 
 
 * Proteger el host mediante FIPS
@@ -100,9 +78,6 @@ link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/ht
 
 NOTE: OpenJDK 19 comprueba al inicio si el host está instalado en modo FIPS. No es necesario realizar cambios manuales.
 
-+
-Para obtener información detallada, consulte link:https://access.redhat.com/documentation/ru-ru/openjdk/8/html/configuring_openjdk_8_on_rhel_with_fips/openjdk-default-fips-configuration["Configuración de FIPS predeterminada en OpenJDK 8"^]
-
 ** Si protege el host, debe asegurarse de que el host pueda arrancar sin la intervención del usuario. Si se requiere la intervención del usuario, es posible que la funcionalidad tiebreaker no esté disponible si el host se reinicia inesperadamente. Si esto sucede, la funcionalidad tiebreaker solo está disponible después de la intervención manual y cuando el host se inicia por completo.
 
 
@@ -110,11 +85,16 @@ Para obtener información detallada, consulte link:https://access.redhat.com/doc
 * Actualice con frecuencia. Tiebreaker está activamente desarrollado y actualizar con frecuencia es importante para incorporar correcciones de seguridad y cambios en la configuración predeterminada, como longitudes de clave o conjuntos de cifrado.
 * Suscríbete a la lista de correo de HashiCorp Anuncio para recibir anuncios de nuevos lanzamientos y visita el CHANGELOG de Tiebreaker para obtener información sobre las últimas actualizaciones para nuevos lanzamientos.
 * Utilice los permisos de archivo correctos. Asegúrese siempre de que se aplican los permisos adecuados a los archivos antes de iniciar el software Tiebreaker, especialmente los que contienen información confidencial.
-* La autenticación multifactor (MFA) mejora la seguridad de su organización al requerir que los administradores se identifiquen usando más del nombre de usuario y la contraseña. Aunque es importante, los nombres de usuario y las contraseñas son vulnerables a ataques de fuerza bruta y pueden ser robados por terceros. link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index["Obtenga más información sobre el refuerzo de la seguridad"^]
+* La autenticación multifactor (MFA) mejora la seguridad de su organización al requerir que los administradores se identifiquen usando más del nombre de usuario y la contraseña. Aunque es importante, los nombres de usuario y las contraseñas son vulnerables a ataques de fuerza bruta y pueden ser robados por terceros.
 +
-** Red Hat Enterprise Linux 8 proporciona MFA que requiere que los usuarios proporcionen más de una información para autenticarse correctamente en una cuenta o host de Linux. La información adicional puede ser una contraseña única enviada a su teléfono móvil a través de SMS o credenciales de una aplicación como Google Authenticator, hyphhydramine io Authy, o FreeOTP. link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/securing_networks/index["Obtenga más información sobre la protección de redes"^]
+** Red Hat Enterprise Linux 8 proporciona MFA que requiere que los usuarios proporcionen más de una información para autenticarse correctamente en una cuenta o host de Linux. La información adicional puede ser una contraseña única enviada a su teléfono móvil a través de SMS o credenciales de una aplicación como Google Authenticator, hyphhydramine io Authy, o FreeOTP.
 
 
+
+
+.Información relacionada
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/["Documentación de producto de Red Hat Enterprise Linux 8"^]
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/["Documentación de producto de Red Hat Enterprise Linux 9"^]
 
 
 

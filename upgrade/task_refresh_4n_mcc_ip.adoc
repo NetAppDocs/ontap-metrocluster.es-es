@@ -124,7 +124,7 @@ Aplicaciones de terceros
 Consulte la documentación del producto.
 
 |===
-. Realice todos los pasos de link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["Ampliación de una configuración IP de MetroCluster"] para añadir los nodos nuevos y el almacenamiento a la configuración.
+. Realice todos los pasos de link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["Ampliación de una configuración IP de MetroCluster"^] para añadir los nodos nuevos y el almacenamiento a la configuración.
 +
 Una vez finalizado el procedimiento de expansión, la configuración temporal aparece como se muestra en las siguientes imágenes:
 
@@ -154,16 +154,16 @@ Node_IP_2      Node_IP_1              true      Connected to Node_IP_1
 ----
 . Mueva los volúmenes CRS.
 +
-Siga los pasos de link:../maintain/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"].
+Siga los pasos de link:../maintain/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"^].
 
-. Mueva los datos de los nodos antiguos a los nodos nuevos mediante los siguientes procedimientos en link:https://docs.netapp.com/us-en/ontap-systems-upgrade/index.html["Documentación de los sistemas de hardware de ONTAP"^]
+. Mueva los datos de los nodos antiguos a los nodos nuevos siguiendo los siguientes procedimientos:
 +
-.. Realice todos los pasos de http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["Crear un agregado y mover volúmenes a los nuevos nodos"^].
+.. Realice todos los pasos de https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-create-aggregate-move-volumes.html["Cree un agregado y mueva volúmenes a los nuevos nodos"^].
 +
 
 NOTE: Puede optar por reflejar el agregado cuando o después de crearlo.
 
-.. Realice todos los pasos de http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["Traslado de LIF de datos no SAN y LIF de administración del clúster a los nuevos nodos"].
+.. Realice todos los pasos de https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-move-lifs-to-new-nodes.html["Mueva LIF de datos que no sean SAN y LIF de gestión de clúster a los nuevos nodos"^].
 
 
 . Modifique la dirección IP del par de clústeres de los nodos transitados para cada clúster:

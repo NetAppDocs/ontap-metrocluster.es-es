@@ -21,9 +21,11 @@ Después de realizar el mantenimiento o sustitución necesarios del equipo del s
 
 
 
-== Reparar la configuración en una configuración de MetroCluster FC
+== Reparar la configuración en una configuración MetroCluster
 
-Después de una conmutación, debe ejecutar las operaciones de reparación en un orden específico para restaurar la funcionalidad de MetroCluster.
+En configuraciones FC de MetroCluster, se realizan las operaciones de reparación en un orden específico para restaurar la funcionalidad de MetroCluster después de una conmutación de sitios.
+
+En las configuraciones de IP de MetroCluster, las operaciones de reparación deberían iniciarse automáticamente después de una conmutación de sitios. Si no lo hacen, puede ejecutar las operaciones de reparación manualmente.
 
 .Antes de empezar
 * Se debe haber realizado la conmutación y el sitio superviviente debe estar sirviendo datos.

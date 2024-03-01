@@ -11,7 +11,7 @@ summary: Es posible que deba añadir, eliminar o cambiar puertos ISL. Se pueden 
 
 
 [role="lead"]
-Puede que deba agregar, quitar o cambiar los puertos ISL en los switches IP de Cisco. Se pueden convertir puertos ISL dedicados en puertos ISL compartidos o cambiar la velocidad de los puertos ISL en un switch IP de Cisco. Las islas que viajan a distancias mayores pueden requerir velocidades más bajas para mejorar la calidad. Si va a añadir o actualizar hardware, es posible que deba aumentar la velocidad de los puertos ISL para aprovechar las actualizaciones del sistema y agregar ISL a un switch IP de Cisco.
+Puede que deba agregar, quitar o cambiar los puertos ISL en los switches IP de Cisco. Se pueden convertir puertos ISL dedicados en puertos ISL compartidos o cambiar la velocidad de los puertos ISL en un switch IP de Cisco.
 
 .Acerca de esta tarea
 Si convierte puertos ISL dedicados a puertos ISL compartidos, asegúrese de que los nuevos puertos cumplen con los link:../install-ip/concept_considerations_layer_2.html["Requisitos para los puertos ISL compartidos"].
@@ -19,6 +19,9 @@ Si convierte puertos ISL dedicados a puertos ISL compartidos, asegúrese de que 
 Debe completar todos los pasos en ambos switches para garantizar la conectividad ISL.
 
 En el siguiente procedimiento se supone que se reemplaza un ISL de 10 GB conectado en el puerto del switch eth1/24/1 con dos ISL de 100 GB que se conectan con los puertos del switch 17 y 18.
+
+
+NOTE: Si se utiliza un switch Cisco 9336C-FX2 en una configuración compartida que conecta bandejas NS224, si se cambian los ISL, es posible que se requiera un nuevo archivo RCF. No necesita un nuevo archivo RCF si su velocidad actual y nueva ISL es 40Gbps y 100Gbps. Todos los demás cambios en la velocidad ISL requieren un nuevo archivo RCF. Por ejemplo, cambiar la velocidad ISL de 40Gbps a 100Gbps no requiere un nuevo archivo RCF, pero cambiar la velocidad ISL de 10Gbps a 40Gbps requiere un nuevo archivo RCF.
 
 .Antes de empezar
 Consulte la sección *Interruptores* de la link:https://hwu.netapp.com/["Hardware Universe de NetApp"^] para verificar los transceptores compatibles.
@@ -52,6 +55,10 @@ switch_B_1#
 ----
 . Quite los cables y transceptores existentes.
 . Cambie el puerto ISL según sea necesario.
++
+
+NOTE: Si utiliza switches Cisco 9336C-FX2 en una configuración compartida conectando bandejas NS224 y tiene que actualizar el archivo RCF y aplicar la nueva configuración para los puertos ISL nuevos, siga los pasos hasta link:task_upgrade_rcf_files_on_mcc_ip_switches.html["Actualice los archivos RCF en los conmutadores IP de MetroCluster."]
+
 +
 [cols="30,70"]
 |===
@@ -101,9 +108,9 @@ switch_B_1(config-if)#
 switch_B_1#
 switch_B_1# copy running-config startup-config
 ----
-. Compruebe que se han establecido ISL entre los dos switches:
+. Compruebe que los ISL y los canales de puerto para los ISL se han establecido entre ambos switches:
 +
-`switch_A_1# show int eth1/17,eth1/18 brief`
+`switch_A_1# show int brief`
 
 +
 Debe ver las interfaces ISL en la salida del comando, como se muestra en el ejemplo siguiente:
@@ -111,21 +118,20 @@ Debe ver las interfaces ISL en la salida del comando, como se muestra en el ejem
 +
 [listing]
 ----
-switch_A_1# show int eth1/17,eth1/18 brief
+Switch_A_1# show interface brief
 --------------------------------------------------------------------------------
-Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
-Interface                                                                                                        Ch #
+Ethernet        VLAN    Type Mode   Status  Reason                 Speed     Port
+Interface                                                                    Ch #
 --------------------------------------------------------------------------------
-Eth1/17       10         eth     access    up      none                       100G(D) 10
-Eth1/18       10         eth     access    up      none                       100G(D) 10
+Eth1/17         1       eth  access down    XCVR not inserted        auto(D) --
+Eth1/18         1       eth  access down    XCVR not inserted        auto(D) --
 
-switch_B_1# show int eth1/17,eth1/18 brief
---------------------------------------------------------------------------------
-Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
-Interface                                                                                                        Ch #
---------------------------------------------------------------------------------
-Eth1/17       10         eth     access    up      none                       100G(D) 10
-Eth1/18       10         eth     access    up      none                       100G(D) 10
+------------------------------------------------------------------------------------------
+Port-channel VLAN    Type Mode   Status  Reason                              Speed   Protocol
+Interface
+------------------------------------------------------------------------------------------
+Po10         1       eth  trunk  up      none                                a-100G(D)  lacp
+Po11         1       eth  trunk  up      none                                a-100G(D)  lacp
 ----
 . Repita el procedimiento para la tela 2.
 

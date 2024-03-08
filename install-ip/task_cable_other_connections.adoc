@@ -30,4 +30,8 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Con
 +
 Utilice las instrucciones de instalación de la plataforma en https://docs.netapp.com/us-en/ontap-systems/["Documentación de los sistemas de hardware de ONTAP"^].
 
++
+
+NOTE: Los sistemas IP de MetroCluster no tienen puertos de alta disponibilidad dedicados. Cuando se utilice _ONTAP Hardware Systems Documentation_ para instalar la plataforma, no debe seguir las instrucciones para cablear el clúster y los puertos de alta disponibilidad.
+
 

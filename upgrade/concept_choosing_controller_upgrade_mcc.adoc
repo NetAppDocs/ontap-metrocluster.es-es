@@ -69,7 +69,18 @@ Por ejemplo, si la plataforma que desea actualizar es FAS8200, puede actualizar 
 image::../media/metrocluster_fc_upgrade_table_914.png[tabla de actualización de MetroCluster fc 914]
 
 * Nota 1: Para actualizar controladores cuando las conexiones FCVI de los nodos FAS8020 o AFF8020 existentes utilicen los puertos 1c y 1d, consulte lo siguientehttps://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Upgrading_controllers_when_FCVI_connections_on_existing_FAS8020_or_AFF8020_nodes_use_ports_1c_and_1d["Artículo de base de conocimientos"^].
-* Nota 2: Las actualizaciones de controladora desde las plataformas AFF A300 o FAS8200 mediante los puertos internos 0e y 0f como conexiones FC-VI solo son compatibles en sistemas que ejecutan ONTAP 9.9.1. o anterior. Si quiere más información, consulte link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1507088["Informe público"^].
+* Nota 2: Las actualizaciones de la controladora desde las plataformas AFF A300 o FAS8200 que utilizan los puertos 0E y 0f internos como conexiones FC-VI solo son compatibles en los sistemas siguientes:
++
+** ONTAP 9.9.1 y anteriores
+** ONTAP 9.10.1P9
+** ONTAP 9.11.1P5
+** ONTAP 9.12.1GA
+** ONTAP 9.13.1 y versiones posteriores
++
+Si quiere más información, consulte link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1507088["Informe público"^].
+
+
+
 * Nota 3: Para esta actualización, consulte link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["Actualice controladoras de AFF A700/FAS9000 a AFF A900/FAS9500 en una configuración FC de MetroCluster mediante conmutación de sitios y conmutación de estado (ONTAP 9.10.1 o posterior)."]
 * Nota 4: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.
 * Nota 5: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.14.1 o posterior.

@@ -24,7 +24,7 @@ link:https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualic
 
 
 
-CAUTION: A partir de ONTAP 9.12.1, es posible habilitar la función de conmutación automática de sitios forzada MetroCluster en una configuración de IP de MetroCluster. Esta característica es una extensión de la conmutación no planificada asistida por Mediator. Antes de habilitar esta función, revise link:concept-risks-limitations-automatic-switchover.html["Riesgos y limitaciones del uso de conmutación forzada automática de MetroCluster"].
+CAUTION: A partir de ONTAP 9.12.1, es posible habilitar la función de conmutación automática de sitios forzada MetroCluster en una configuración de IP de MetroCluster. Esta característica es una extensión de la conmutación no planificada asistida por Mediator. Antes de habilitar esta función, revise la link:concept-ontap-mediator-supports-automatic-unplanned-switchover.html#mauso-9-12-1["Riesgos y limitaciones del uso de conmutación forzada automática de MetroCluster"].
 
 .Acerca de esta tarea
 * Esta tarea habilita la conmutación automática no planificada de forma predeterminada.
@@ -117,7 +117,7 @@ Solo puede utilizar el siguiente comando en el nivel de privilegios avanzado.
 
 +
 
-IMPORTANT: Antes de usar este comando, revise el link:concept-risks-limitations-automatic-switchover.html["Riesgos y limitaciones del uso de conmutación forzada automática de MetroCluster"].
+IMPORTANT: Antes de usar este comando, revise el link:concept-ontap-mediator-supports-automatic-unplanned-switchover.html#mauso-9-12-1["Riesgos y limitaciones del uso de conmutación forzada automática de MetroCluster"].
 
 +
 `metrocluster modify -allow-auto-forced-switchover true`

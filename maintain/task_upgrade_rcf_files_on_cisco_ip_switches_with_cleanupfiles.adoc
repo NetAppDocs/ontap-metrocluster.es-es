@@ -14,7 +14,40 @@ summary: Es posible que necesite actualizar un archivo RCF en un conmutador IP d
 Es posible que necesite actualizar un archivo RCF en un conmutador IP de Cisco. Por ejemplo, una actualización de ONTAP o de firmware del switch requieren un nuevo archivo RCF.
 
 .Acerca de esta tarea
-A partir de la versión 1.4a de RcfFileGenerator, hay una nueva opción para cambiar (actualizar, degradar o reemplazar) la configuración del switch en switches IP de Cisco sin necesidad de realizar un 'borrado de escritura'.
+* A partir de la versión 1.4a de RcfFileGenerator, hay una nueva opción para cambiar (actualizar, degradar o reemplazar) la configuración del switch en switches IP de Cisco sin necesidad de realizar un 'borrado de escritura'.
+* El switch Cisco 9336C-FX2 tiene dos tipos de almacenamiento de switch diferentes con un nombre diferente en el RCF. Use la siguiente tabla para determinar el tipo de almacenamiento Cisco 9336C-FX2 correcto para su configuración:
++
+[cols="3*"]
+|===
+| Si va a conectar el siguiente almacenamiento... | Elija el tipo de almacenamiento Cisco 9336C-FX2... | Banner/MOTD del archivo RCF de ejemplo 
+
+
+ a| 
+** Bandejas SAS conectadas directamente
+** Bandejas NVMe conectadas directamente
+** Bandejas NVMe conectadas a switches de almacenamiento dedicados
+
+ a| 
+9336C-FX2: Solo almacenamiento directo
+ a| 
+`* Switch    : NX9336C (direct storage, L2 Networks, direct ISL)`
+
+
+
+ a| 
+** Bandejas SAS conectadas directamente
+** Bandejas NVMe conectadas a los switches IP de MetroCluster
+
+
+
+NOTE: Se requiere al menos una bandeja NVMe conectada con Ethernet
+ a| 
+9336C-FX2: Almacenamiento SAS y Ethernet
+ a| 
+`* Switch    : NX9336C (SAS and Ethernet storage, L2 Networks, direct ISL)`
+
+|===
+
 
 .Antes de empezar
 Puede utilizar este método si la configuración cumple los siguientes requisitos:
@@ -140,10 +173,6 @@ Utilice este procedimiento si la configuración cumple los requisitos.
 +
 
 NOTE: Debe utilizar CleanUpFiles desde la misma versión que el archivo RCF y para la misma configuración. El uso de CleanUpFile no funcionará y podría requerir un restablecimiento completo del conmutador.
-
-+
-
-NOTE: El tipo de almacenamiento puede ser diferente: Almacenamiento SAS o almacenamiento directo.
 
 +
 

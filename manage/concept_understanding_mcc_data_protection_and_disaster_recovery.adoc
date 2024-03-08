@@ -736,18 +736,7 @@ link:task_perform_switchover_for_tests_or_maintenance.html["Realizar la conmutac
 
 === Conmutación de sitios automática no planificada asistida por mediador en configuraciones de IP de MetroCluster
 
-En las configuraciones IP de MetroCluster, el sistema puede utilizar el Mediador de ONTAP para detectar fallos y realizar una conmutación automática no planificada asistida por Mediador (MAUSO).
-
-A partir de ONTAP 9.13.1, el valor predeterminado para el estado AUSO se establece en “auso-on-dr-group” en una configuración IP de MetroCluster. Para ONTAP 9.12.1 y versiones anteriores, el valor predeterminado se establece en «auso-on-cluster-disaster». En una configuración IP de MetroCluster de ocho nodos, esta opción activará un AUSO si fallan los dos nodos de un par de alta disponibilidad.
-
-Puede cambiar el dominio AUSO al dominio “auso-on-cluster-disaster” mediante el `metrocluster modify -auto-switchover-failure-domain auso-on-cluster-disaster` comando.
-
-
-NOTE: MAUSO no es compatible con las configuraciones de MetroCluster FC.
-
-El Mediador ONTAP proporciona LUN de buzón para los nodos IP de MetroCluster. Estos LUN se coubican con el Mediador ONTAP, que se ejecuta en un host Linux físicamente independiente de los sitios MetroCluster.
-
-Los nodos MetroCluster utilizan la información del buzón para determinar si se requiere un MAUSO. MAUSO no se iniciará si la memoria no volátil (NVRAM o NVMEM, en función del modelo de plataforma) de las controladoras de almacenamiento no se duplica al partner de recuperación ante desastres remota (DR) del sitio del partner
+link:../install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["Obtenga más información sobre cómo Mediator de ONTAP admite la conmutación automática de sitios no planificados en las configuraciones de IP de MetroCluster"].
 
 
 

@@ -312,8 +312,4 @@ El software Tierbreaker activa una alerta, pero ONTAP vetará esta alerta. En es
 
 === Cómo admite el Mediador ONTAP la conmutación automática no planificada
 
-El Mediador ONTAP almacena información de estado sobre los nodos MetroCluster en buzones ubicados en el host del Mediador. Los nodos MetroCluster pueden utilizar esta información para supervisar el estado de sus socios DR e implementar una conmutación automática no planificada asistida por Mediador (MAUSO) en caso de un desastre.
-
-Cuando un nodo detecta un fallo de sitio que requiere una conmutación, se realizan los pasos necesarios para confirmar que la conmutación es adecuada y, de ser así, realiza la conmutación.
-
-MAUSO sólo se inicia si la duplicación SyncMirror y la duplicación DR de la caché no volátil de cada nodo están funcionando y las cachés y réplicas se sincronizan en el momento del fallo.
+link:../install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["Obtenga más información sobre cómo Mediator de ONTAP admite la conmutación automática de sitios no planificados en las configuraciones de IP de MetroCluster"].

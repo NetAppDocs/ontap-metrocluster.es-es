@@ -89,28 +89,6 @@ Las configuraciones de IP de MetroCluster existentes en sistemas FAS se pueden a
 
 
 
-=== Los modelos de controladora se limitan a configuraciones de cuatro nodos
-
-Estos modelos se limitan a cuatro en una configuración de MetroCluster.
-
-* AFF A220
-* AFF A250
-* FAS2750
-* FAS500f
-
-
-Por ejemplo, las siguientes configuraciones no son compatibles:
-
-* Una configuración de ocho nodos que consta de ocho controladoras AFF A250.
-* Una configuración de ocho nodos que consta de cuatro controladoras AFF 220 y cuatro controladoras FAS500f.
-* Dos configuraciones IP de MetroCluster de cuatro nodos, cada una de ellas compuesta por controladoras AFF A250 y compartiendo los mismos switches de back-end.
-* Una configuración de ocho nodos que consta del grupo DR 1 con controladoras AFF A250 y del grupo DR 2 con controladoras FAS9000.
-
-
-Puede configurar dos configuraciones IP de MetroCluster de cuatro nodos independientes con los mismos switches de back-end si el segundo MetroCluster no incluye ninguno de los modelos anteriores.
-
-
-
 === Nombres de ejemplo
 
 Los siguientes nombres de ejemplo se utilizan en la documentación:
@@ -141,7 +119,7 @@ Las configuraciones de IP de MetroCluster utilizan un adaptador Ethernet de 40/1
 | Modelo de plataforma | Adaptador Gigabit Ethernet necesario | Ranura necesaria para el adaptador | Puertos 
 
 
-| AFF A900 y FAS9500 | X91146A | Ranura 5, ranura 7 | e5b, e7b 
+| AFF A900, ASA A900 y FAS9500 | X91146A | Ranura 5, ranura 7 | e5b, e7b 
 
 
  a| 
@@ -156,7 +134,7 @@ e5a, e5b
 
 
  a| 
-AFF A800 y AFF C800
+AFF A800, AFF C800, ASA A800 y ASA C800
  a| 
 Puertos X1146A/incorporados
  a| 
@@ -167,7 +145,7 @@ e0b. e1b
 
 
  a| 
-FAS8300, AFF A400 y AFF C400
+FAS8300, AFF A400, ASA A400, ASA C400 y AFF C400
  a| 
 X1146A
  a| 
@@ -189,7 +167,7 @@ e1a, e1b
 
 
  a| 
-FAS2750, AFF A150 y AFF A220
+FAS2750, AFF A150, ASA A150 y AFF A220
  a| 
 Puertos incorporados
  a| 
@@ -200,7 +178,7 @@ e0a y e0b
 
 
  a| 
-FAS500f, AFF A250 y AFF C250
+FAS500f, AFF A250, ASA A250, ASA C250 y AFF C250
  a| 
 Puertos incorporados
  a| 

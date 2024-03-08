@@ -81,7 +81,7 @@ Siga los pasos de link:https://docs.netapp.com/us-en/ontap-metrocluster/install-
 ... Desconecte los ISL del clúster local
 
 
-.. Desconecte las interfaces IP de MetroCluster.
+.. Desconecte las interfaces de MetroCluster FC.
 .. Desconecte los ISL de MetroCluster.
 
 
@@ -92,7 +92,7 @@ Debe seguir los pasos de link:https://docs.netapp.com/us-en/ontap-metrocluster/i
 
 +
 .. Conecte los cables ISLs al sitio remoto.
-.. Conecte el cable de las interfaces IP de MetroCluster.
+.. Cablee las interfaces de MetroCluster FC.
 .. Cablee las interfaces del clúster local.
 +
 Si las interfaces del clúster local están conectadas a un switch:

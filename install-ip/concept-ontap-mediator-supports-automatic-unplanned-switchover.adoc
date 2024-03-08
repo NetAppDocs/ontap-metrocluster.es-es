@@ -1,0 +1,74 @@
+---
+permalink: install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html 
+sidebar: sidebar 
+keywords: ontap, mediator, service, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, forced 
+summary:  
+---
+= Cómo admite el Mediador ONTAP la conmutación automática no planificada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP Mediator proporciona LUN de buzón para almacenar información de estado acerca de los nodos IP de MetroCluster. Estos LUN se coubican con el Mediador ONTAP, que se ejecuta en un host Linux físicamente independiente de los sitios MetroCluster. Los nodos IP de MetroCluster pueden utilizar la información del buzón para supervisar el estado de sus partners de recuperación ante desastres e implementar una conmutación de sitios no planificada asistida por mediador (MAUSO) en caso de desastre.
+
+
+NOTE: MAUSO no es compatible con las configuraciones de MetroCluster FC.
+
+Cuando un nodo detecta un fallo de sitio que requiere una conmutación, se realizan los pasos necesarios para confirmar que la conmutación es adecuada y, de ser así, realiza la conmutación. Por defecto, se inicia un MAUSO para los siguientes escenarios:
+
+* El mirroring de SyncMirror y el mirroring de DR de la caché no volátil de cada nodo están funcionando y las cachés y reflejos se sincronizan en el momento de la falla.
+* Ninguno de los nodos del sitio superviviente se encuentra en estado de toma de control.
+* Si se produce un desastre en el sitio. Un desastre en el sitio es un fallo de _all_ nodos en el mismo sitio.
+
+
+Un MAUSO es _NOT_ iniciado en los siguientes escenarios de cierre:
+
+* Inicia un apagado. Por ejemplo, cuando:
++
+** Detenga los nodos
+** Reinicie los nodos
+
+
+
+
+Obtenga más información sobre las funciones de MAUSO disponibles con cada versión de ONTAP 9.
+
+[cols="1a,5a"]
+|===
+| Empezando por... | Descripción 
+
+
+ a| 
+ONTAP 9.13.1
+ a| 
+* Se inicia un MAUSO si un <<default_scenarios,escenario predeterminado>> se produce y un fallo de ventilador o hardware inicia un apagado de entorno. Algunos ejemplos de errores de hardware son una temperatura alta o baja, o una unidad de suministro de alimentación, una batería de NVRAM o un fallo de latido de Service Processor.
+* El valor predeterminado para el dominio de fallo se establece en auso-on-dr-group en una configuración IP de MetroCluster. Para ONTAP 9.12.1 y versiones anteriores, el valor predeterminado se establece en auso-on-cluster-disaster.
++
+En una configuración IP de MetroCluster de ocho nodos, «auso-on-dr-group» activa un MAUSO en caso de fallo del clúster o un par de alta disponibilidad en un grupo de recuperación ante desastres. En el caso de un par de alta disponibilidad, los dos nodos deben fallar a la vez.
+
++
+Opcionalmente, puede cambiar la configuración del dominio de fallo al dominio «auso-on-cluster-disaster» mediante el `metrocluster modify -auto-switchover-failure-domain auso-on-cluster-disaster` Comando para activar un MAUSO sólo si hay fallos de par de nodos HA en ambos grupos DR.
+
+* Puede cambiar el comportamiento para forzar un MAUSO incluso si la NVRAM no está sincronizada en el momento del fallo.
+
+
+
+
+ a| 
+[[mauso-9-12-1]] ONTAP 9.12.1
+ a| 
+Puede habilitar la función de conmutación automática forzada de MetroCluster en una configuración de IP de MetroCluster mediante el `metrocluster modify -allow-auto-forced-switchover true` comando.
+
+La conmutación de sitios tras la detección de un fallo de sitio se realiza automáticamente cuando se habilita la función de conmutación forzada automática de MetroCluster. Puede utilizar esta función para complementar la capacidad de conmutación automática de MetroCluster IP.
+
+.Riesgos y limitaciones del uso de conmutación forzada automática de MetroCluster
+Cuando se permite que una configuración IP de MetroCluster funcione en modo de conmutación automática forzada, el siguiente problema conocido podría provocar la pérdida de datos:
+
+* La memoria no volátil de las controladoras de almacenamiento no se refleja en el partner de recuperación ante desastres remoto del sitio del partner.
+
+
+*Precaución*: Puedes encontrar escenarios que no se mencionan. NetApp no se hace responsable de la corrupción de datos, la pérdida de datos u otros daños que puedan derivarse de la habilitación de la función de conmutación automática forzada de MetroCluster. No utilice la función de conmutación forzada automática de MetroCluster si los riesgos y limitaciones no son aceptables para usted.
+
+|===

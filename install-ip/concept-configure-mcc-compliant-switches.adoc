@@ -1,0 +1,280 @@
+---
+permalink: install-ip/concept-configure-mcc-compliant-switches.html 
+sidebar: sidebar 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant, configuration 
+summary: Obtenga más información sobre las diversas configuraciones de puertos del switch. 
+---
+= Ejemplos de configuración de puertos de switch
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga más información sobre las diversas configuraciones de puertos del switch.
+
+
+NOTE: Los siguientes ejemplos utilizan valores decimales y siguen la tabla que se aplica a los switches de Cisco. En función del proveedor del switch, es posible que necesite valores diferentes para DSCP. Consulte la tabla correspondiente de su proveedor de switches para confirmar el valor correcto.
+
+|===
+
+
+| Valor DSCP | Decimal | Hexagonal | Significado 
+
+
+ a| 
+101 000
+ a| 
+16
+ a| 
+0x10
+ a| 
+CS2
+
+
+
+ a| 
+011 000
+ a| 
+24
+ a| 
+0x18
+ a| 
+CS3
+
+
+
+ a| 
+100 000
+ a| 
+32
+ a| 
+0x20
+ a| 
+CS4
+
+
+
+ a| 
+101 000
+ a| 
+40
+ a| 
+0x28
+ a| 
+CS5
+
+|===
+.Puerto del switch que conecta una interfaz MetroCluster
+* Clasificación para tráfico de acceso remoto directo a memoria (RDMA):
++
+** Coincidencia: Puerto TCP 10006, origen, destino o ambos
+** Partido opcional: COS 5
+** Partido opcional: DSCP 40
+** Establezca DSCP 40
+** Establezca COS 5
+** Opcional: Ajuste de tasa a 20Gbps
+
+
+* Clasificación para tráfico de iSCSI:
++
+** Coincidencia: Puerto TCP 62500, origen, destino o ambos
+** Partido opcional: COS 4
+** Partido opcional: DSCP 32
+** Establezca DSCP 32
+** Establezca COS 4
+
+
+* L2FlowControl (pausa), RX y TX
+
+
+.Puertos ISL
+* Clasificación:
++
+** Coincidir con COS 5 o DSCP 40
++
+*** Establezca DSCP 40
+*** Establezca COS 5
+
+
+** Coincidir con COS 4 o DSCP 32
++
+*** Establezca DSCP 32
+*** Establezca COS 4
+
+
+
+
+* Cola de salida
++
+** El grupo COS 4 tiene un umbral de configuración mínimo de 2000 y un umbral máximo de 3000
+** El grupo COS 5 tiene un umbral de configuración mínimo de 3500 y un umbral máximo de 6500.
++
+
+NOTE: Los umbrales de configuración pueden variar en función del entorno. Debe evaluar los umbrales de configuración en función de su entorno individual.
+
+** ECN activado para Q4 y Q5
+** ROJO activado para Q4 y Q5
+
+
+
+
+.Asignación del ancho de banda (puertos del switch que conectan las interfaces MetroCluster y los puertos ISL)
+* RDMA, COS 5 / DSCP 40: 60%
+* ISCSI, COS 4 / DSCP 32: 40%
+* Requisito de capacidad mínima por configuración de MetroCluster y red: 10Gbps
+
+
+
+NOTE: Si usas límites de tasa, el tráfico debe ser *formado* sin introducir pérdida.
+
+
+
+== Ejemplos para configurar puertos del switch que conectan la controladora MetroCluster
+
+Los comandos de ejemplo proporcionados son válidos para los switches Cisco NX3232 o Cisco NX9336. Los comandos varían según el tipo de switch.
+
+Si una función o equivalente que se muestra en los ejemplos no está disponible en el switch, el switch no cumple con los requisitos mínimos y no se puede utilizar para implementar una configuración de MetroCluster. Este es el caso para cualquier switch que se conecte a una configuración de MetroCluster y a todos los switches intermedios.
+
+
+NOTE: Los siguientes ejemplos pueden mostrar solo la configuración de una red.
+
+.Configuración básica
+Debe configurarse una LAN virtual (VLAN) en cada red. El ejemplo siguiente muestra cómo configurar una VLAN en la red 10.
+
+*Ejemplo:*
+
+[listing]
+----
+# vlan 10
+The load balancing policy should be set so that order is preserved.
+----
+*Ejemplo:*
+
+[listing]
+----
+# port-channel load-balance src-dst ip-l4port-vlan
+----
+
+
+== Ejemplos para configurar la clasificación
+
+Debe configurar el acceso y los mapas de clases para asignar tráfico de RDMA e iSCSI a las clases adecuadas.
+
+En el ejemplo siguiente, todo el tráfico TCP hacia y desde el puerto 65200 se asigna a la clase de almacenamiento (iSCSI). Todo el tráfico TCP hacia y desde el puerto 10006 se asigna a la clase RDMA. Estos mapas de normativas se utilizan en los puertos de switch que conectan las interfaces MetroCluster.
+
+*Ejemplo:*
+
+[listing]
+----
+ip access-list storage
+  10 permit tcp any eq 65200 any
+  20 permit tcp any any eq 65200
+ip access-list rdma
+  10 permit tcp any eq 10006 any
+  20 permit tcp any any eq 10006
+
+class-map type qos match-all storage
+  match access-group name storage
+class-map type qos match-all rdma
+match access-group name rdma
+----
+Debe configurar una política de entrada. Una política de ingreso asigna el tráfico según su clasificación a diferentes grupos de COS. En este ejemplo, el tráfico RDMA se asigna al grupo COS 5 y el tráfico iSCSI se asigna al grupo COS 4. La política de entrada se utiliza en los puertos del switch que conectan las interfaces MetroCluster y en los puertos ISL que tienen tráfico MetroCluster.
+
+*Ejemplo:*
+
+[listing]
+----
+policy-map type qos MetroClusterIP_Node_Ingress
+class rdma
+  set dscp 40
+  set cos 5
+  set qos-group 5
+class storage
+  set dscp 32
+  set cos 4
+  set qos-group 4
+----
+NetApp recomienda que dé forma al tráfico en los puertos del switch que conectan una interfaz MetroCluster, como se muestra en el ejemplo siguiente:
+
+*Ejemplo:*
+
+[listing]
+----
+policy-map type queuing MetroClusterIP_Node_Egress
+class type queuing c-out-8q-q7
+  priority level 1
+class type queuing c-out-8q-q6
+  priority level 2
+class type queuing c-out-8q-q5
+  priority level 3
+  shape min 0 gbps max 20 gbps
+class type queuing c-out-8q-q4
+  priority level 4
+class type queuing c-out-8q-q3
+  priority level 5
+class type queuing c-out-8q-q2
+  priority level 6
+class type queuing c-out-8q-q1
+  priority level 7
+class type queuing c-out-8q-q-default
+  bandwidth remaining percent 100
+  random-detect threshold burst-optimized ecn
+----
+
+
+== Ejemplos de configuración de los puertos del nodo
+
+Es posible que deba configurar un puerto de nodo en modo de interrupción. En el siguiente ejemplo, los puertos 25 y 26 están configurados en el modo de desconexión 4 x 25Gbps.
+
+*Ejemplo:*
+
+[listing]
+----
+interface breakout module 1 port 25-26 map 25g-4x
+----
+Es posible que deba configurar la velocidad del puerto de la interfaz MetroCluster. El siguiente ejemplo muestra cómo configurar la velocidad en *auto* o en modo 40Gbps:
+
+*Ejemplo:*
+
+[listing]
+----
+	speed auto
+
+	speed 40000
+----
+En el ejemplo siguiente se muestra un puerto del switch configurado para conectar una interfaz de MetroCluster. Es un puerto de modo de acceso en VLAN 10, con un MTU de 9216 y funciona en velocidad nativa. Tiene habilitado el control de flujo (pausa) simétrico (enviar y recibir) y las políticas de entrada y salida de MetroCluster asignadas.
+
+*Ejemplo:*
+
+[listing]
+----
+interface eth1/9
+description MetroCluster-IP Node Port
+speed auto
+switchport access vlan 10
+spanning-tree port type edge
+spanning-tree bpduguard enable
+mtu 9216
+flowcontrol receive on
+flowcontrol send on
+service-policy type qos input MetroClusterIP_Node_Ingress
+service-policy type queuing output MetroClusterIP_Node_Egress
+no shutdown
+----
+En los puertos 25Gbps, es posible que deba establecer la opción Corrección de errores de reenvío (FEC) en OFF, como se muestra en el siguiente ejemplo.
+
+*Ejemplo:*
+
+[listing]
+----
+fec off
+----
+
+
+== Ejemplos de configuración de puertos ISL en toda la red
+
+Un switch compatible con MetroCluster se considera un switch intermedio, incluso conecta directamente las interfaces MetroCluster. Los puertos ISL con tráfico MetroCluster en el switch compatible con MetroCluster deben configurarse de la misma manera que los puertos ISL en un switch intermedio. Consulte link:concept-considerations-layer-2-layer-3.html#required-settings-on-intermediate-switches["Ajustes necesarios en los interruptores intermedios"] para obtener orientación y ejemplos.
+
+
+NOTE: Algunos mapas de normativas son los mismos para los puertos de switch que conectan interfaces MetroCluster y ISL que llevan tráfico MetroCluster. Puede utilizar el mismo mapa de políticas para ambos usos de puerto.

@@ -1,0 +1,298 @@
+---
+permalink: install-ip/concept-considerations-layer-2-layer-3.html 
+sidebar: sidebar 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+summary: Según sus requisitos, puede usar redes compartidas de capa 2 o capa 3 para poner en marcha MetroCluster. 
+---
+= Consideraciones que se deben tener en cuenta al implementar MetroCluster en redes compartidas de capa 2 o capa 3
+:allow-uri-read: 
+
+
+[role="lead"]
+Según sus requisitos, puede usar redes compartidas de capa 2 o capa 3 para poner en marcha MetroCluster.
+
+A partir de ONTAP 9,6, las configuraciones IP de MetroCluster con switches Cisco compatibles pueden compartir redes existentes de enlaces entre switches (ISL) en lugar de utilizar ISL de MetroCluster dedicados. Esta topología se conoce como _shared layer 2 networks_.
+
+A partir de ONTAP 9.9.1, las configuraciones de IP de MetroCluster se pueden implementar con conexiones de back-end enrutadas por IP (capa 3). Esta topología se conoce como _shared layer 3 networks_.
+
+[NOTE]
+====
+* Debe verificar que tenga la capacidad de red adecuada y que el tamaño de ISL sea adecuado a la configuración. Una latencia baja es crucial para la replicación de datos entre los sitios MetroCluster. Los problemas de latencia en estas conexiones pueden afectar a las operaciones de I/o del cliente
+* Todas las referencias a switches back-end de MetroCluster hacen referencia a switches validados por NetApp o conformes a MetroCluster. Consulte link:mcc-compliant-netapp-validated-switches.html["Switches validados por NetApp y conformes con MetroCluster"] para obtener más detalles.
+
+
+====
+
+
+== Requisitos de ISL para las redes de capa 2 y capa 3
+
+Lo siguiente se aplica a las redes de capa 2 y capa 3:
+
+* No es necesario que coincidan la velocidad y el número de ISL entre los switches de MetroCluster y los switches de red intermedios. De igual modo, no es necesario que la velocidad entre los switches de red intermedios coincida.
++
+Por ejemplo, los switches MetroCluster se pueden conectar mediante un ISL de 40Gbps Gb a los switches intermedios y los switches intermedios se pueden conectar entre sí mediante dos ISL de 100Gbps Gbps.
+
+* La supervisión de red debe configurarse en la red intermedia para supervisar la utilización de los ISLs, errores (caídas, flaps de enlace, corrupción, etc.), y fallos.
+* El tamaño de MTU debe establecerse en 9216 en todos los puertos con tráfico MetroCluster integral.
+* No se puede configurar ningún otro tráfico con una prioridad más alta que la clase de servicio (COS) 5.
+* La notificación explícita de congestión (ECN) debe configurarse en todas las rutas que transporten tráfico MetroCluster de extremo a extremo.
+* Los ISL que transportan tráfico de MetroCluster deben ser enlaces nativos entre los switches.
++
+No se admiten servicios de uso compartido de enlaces como enlaces de conmutación de etiquetas multiprotocolo (MPLS).
+
+* Las VLAN de capa 2 deben abarcar los sitios de forma nativa. No se admite la superposición de VLAN como la LAN extensible virtual (VXLAN).
+* El número de interruptores intermedios no está limitado. Sin embargo, NetApp recomienda mantener el número de switches al mínimo requerido.
+* Los ISL en switches MetroCluster se configuran con lo siguiente:
++
+** Modo de puerto de switch 'troncal' como parte de un puerto-canal LACP
+** El tamaño de MTU es 9216
+** No hay configurada ninguna VLAN nativa
+** Solo se permiten las VLAN que llevan tráfico MetroCluster entre sitios
+** No se permite la VLAN predeterminada del switch
+
+
+
+
+
+
+== Consideraciones sobre las redes de capa 2
+
+Los switches back-end de MetroCluster están conectados a la red del cliente.
+
+image::../media/MCC_layer2.png[MCC layer2]
+
+Los switches intermedios proporcionados por el cliente deben cumplir los siguientes requisitos:
+
+* La red intermedia debe proporcionar las mismas VLAN entre los sitios. Esto debe coincidir con las VLAN de MetroCluster establecidas en el archivo RCF.
+* El RcfFileGenerator no permite la creación de un archivo RCF mediante VLAN que no son compatibles con la plataforma.
+* RcfFileGenerator puede restringir el uso de determinados identificadores de VLAN, por ejemplo, si están destinados a un uso futuro. Por lo general, las VLAN reservadas son de hasta 100, incluidas.
+* Las VLAN de capa 2 con identificadores que coincidan con los identificadores de VLAN de MetroCluster deben abarcar la red compartida.
+
+
+.Configuración de VLAN en ONTAP
+Solo puede especificar la VLAN durante la creación de la interfaz. Después de crear las interfaces de MetroCluster, no se puede cambiar el ID de VLAN. Puede configurar otras VLAN durante la creación de la interfaz, pero deben estar dentro del intervalo de 10 a 20 o dentro del intervalo de 101 a 4096 (o el número admitido por el proveedor del switch, el que sea el número menor).
+
+
+NOTE: Es posible que algunos proveedores de switch reserven el uso de determinadas VLAN.
+
+Los siguientes sistemas no requieren configuración de VLAN en ONTAP. La VLAN está especificada por la configuración de puertos del switch:
+
+* FAS8200 y AFF A300
+* AFF A320
+* FAS9000 y AFF A700
+* AFF A800, ASA A800, AFF C800 y ASA C800
++
+
+NOTE: Los sistemas enumerados anteriormente pueden configurarse mediante VLAN 100 y versiones anteriores. Sin embargo, algunas VLAN de este rango pueden estar reservadas para otros usos o para usos futuros.
+
+
+
+Para los demás sistemas, debe configurar la VLAN cuando crea las interfaces de MetroCluster en ONTAP. Se aplican las siguientes restricciones:
+
+* La VLAN predeterminada es 10 y 20
+* Si ejecuta ONTAP 9,7 o una versión anterior, solo puede utilizar la VLAN 10 y 20 predeterminadas.
+* Si ejecuta ONTAP 9,8 o una versión posterior, puede utilizar la VLAN 10 y 20 predeterminada y también puede usarse una VLAN sobre 100 (101 y superior).
+
+
+
+
+== Consideraciones sobre las redes de capa 3
+
+Los switches back-end de MetroCluster están conectados a la red IP enrutada, ya sea directamente a los routers (como se muestra en el siguiente ejemplo simplificado) o a través de otros switches intermedios.
+
+image::../media/mcc_layer3_backend.png[mcc layer3 back-end]
+
+El entorno de MetroCluster está configurado y cableado como configuración IP de MetroCluster estándar, tal y como se describe en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_parts_of_an_ip_mcc_configuration_mcc_ip.html["Configure los componentes de hardware de MetroCluster"]. Al realizar el procedimiento de instalación y cableado, debe realizar los pasos específicos de una configuración de capa 3. Lo siguiente se aplica a las configuraciones de la capa 3:
+
+* Puede conectar switches MetroCluster directamente al enrutador o a uno o más interruptores intervinientes.
+* Puede conectar interfaces IP de MetroCluster directamente al enrutador o a uno de los interruptores que intervienen.
+* La VLAN debe ampliarse al dispositivo de puerta de enlace.
+* Utilice la `-gateway parameter` Para configurar la dirección de la interfaz IP de MetroCluster con una dirección de puerta de enlace IP.
+* Los identificadores de VLAN para las VLAN de MetroCluster deben ser los mismos en cada sitio. Sin embargo, las subredes pueden ser diferentes.
+* El enrutamiento dinámico no es compatible con el tráfico MetroCluster.
+* No se admiten las siguientes funciones:
++
+** Configuraciones MetroCluster de ocho nodos
+** Actualizar una configuración de MetroCluster de cuatro nodos
+** Transición de FC de MetroCluster a IP de MetroCluster
+
+
+* Se necesitan dos subredes en cada sitio MetroCluster: Una en cada red.
+* No se admite la asignación de IP automática.
+
+
+Al configurar enrutadores y direcciones IP de puerta de enlace, debe cumplir los siguientes requisitos:
+
+* No puede haber dos interfaces de un nodo con la misma dirección IP de pasarela.
+* Las interfaces correspondientes de las parejas de ha de cada sitio deben tener la misma dirección IP de pasarela.
+* Las interfaces correspondientes de un nodo y sus partners DR y AUX no pueden tener la misma dirección IP de la puerta de enlace.
+* Las interfaces correspondientes de un nodo y sus partners DR y AUX deben tener el mismo ID de VLAN.
+
+
+
+
+== Configuración requerida para interruptores intermedios
+
+Cuando el tráfico MetroCluster atraviesa un ISL en una red intermedia, debe comprobar que la configuración de los switches intermedios garantiza que el tráfico de MetroCluster (RDMA y almacenamiento) cumpla con los niveles de servicio requeridos en toda la ruta entre los sitios de MetroCluster.
+
+En el siguiente diagrama se ofrece una descripción general de los ajustes necesarios cuando se utilizan switches Cisco validados por NetApp:
+
+image::../media/switch_traffic_with_cisco_switches.png[cambie el tráfico con switches cisco]
+
+El siguiente diagrama proporciona una descripción general de la configuración necesaria para una red compartida cuando los conmutadores externos son conmutadores IP Broadcom.
+
+image::../media/switch_traffic_with_broadcom_switches.png[cambie el tráfico con switches broadcom]
+
+En este ejemplo se crean las siguientes directivas y mapas para el tráfico MetroCluster:
+
+* La `MetroClusterIP_ISL_Ingress` La política se aplica a los puertos del switch intermedio que se conecta a los switches IP de MetroCluster.
++
+La `MetroClusterIP_ISL_Ingress` policy asigna el tráfico etiquetado entrante a la cola apropiada en el conmutador intermedio.
+
+* A. `MetroClusterIP_ISL_Egress` La política se aplica a los puertos del switch intermedio que se conectan a ISL entre switches intermedios.
+* Debe configurar los switches intermedios con los mapas de acceso de la calidad de servicio, los mapas de clases y los mapas de políticas correspondientes a lo largo de la ruta entre los switches IP de MetroCluster. Los switches intermedios asignan tráfico de RDMA a COS5 y el tráfico de almacenamiento a COS4.
+
+
+Los siguientes ejemplos se refieren a los switches Cisco Nexus 3232C y 9336C-FX2. Según el proveedor de switches y el modelo, debe verificar que los switches intermedios tengan la configuración adecuada.
+
+.Configure la asignación de clases para el puerto ISL del switch intermedio
+El siguiente ejemplo muestra las definiciones de mapa de clases en función de si necesita clasificar o hacer coincidir el tráfico al entrar.
+
+[role="tabbed-block"]
+====
+.Clasificar el tráfico al entrar:
+--
+[listing]
+----
+ip access-list rdma
+  10 permit tcp any eq 10006 any
+  20 permit tcp any any eq 10006
+ip access-list storage
+  10 permit tcp any eq 65200 any
+  20 permit tcp any any eq 65200
+
+class-map type qos match-all rdma
+  match access-group name rdma
+class-map type qos match-all storage
+  match access-group name storage
+----
+--
+.Coincidir el tráfico al entrar:
+--
+[listing]
+----
+class-map type qos match-any c5
+  match cos 5
+  match dscp 40
+class-map type qos match-any c4
+  match cos 4
+  match dscp 32
+----
+--
+====
+.Cree un mapa de políticas de entrada en el puerto ISL del conmutador intermedio:
+Los siguientes ejemplos muestran cómo crear un mapa de políticas de entrada en función de si necesita clasificar o hacer coincidir el tráfico al entrar.
+
+[role="tabbed-block"]
+====
+.Clasifique el tráfico en la entrada:
+--
+[listing]
+----
+policy-map type qos MetroClusterIP_ISL_Ingress_Classify
+  class rdma
+    set dscp 40
+    set cos 5
+    set qos-group 5
+  class storage
+    set dscp 32
+    set cos 4
+    set qos-group 4
+  class class-default
+    set qos-group 0
+----
+--
+.Haga coincidir el tráfico en la entrada:
+--
+[listing]
+----
+policy-map type qos MetroClusterIP_ISL_Ingress_Match
+  class c5
+    set dscp 40
+    set cos 5
+    set qos-group 5
+  class c4
+    set dscp 32
+    set cos 4
+    set qos-group 4
+  class class-default
+    set qos-group 0
+----
+--
+====
+.Configure la política de puesta en cola de salida para los puertos ISL
+El siguiente ejemplo muestra cómo configurar la política de cola de salida:
+
+[listing]
+----
+policy-map type queuing MetroClusterIP_ISL_Egress
+   class type queuing c-out-8q-q7
+      priority level 1
+   class type queuing c-out-8q-q6
+      priority level 2
+   class type queuing c-out-8q-q5
+      priority level 3
+      random-detect threshold burst-optimized ecn
+   class type queuing c-out-8q-q4
+      priority level 4
+      random-detect threshold burst-optimized ecn
+   class type queuing c-out-8q-q3
+      priority level 5
+   class type queuing c-out-8q-q2
+      priority level 6
+   class type queuing c-out-8q-q1
+      priority level 7
+   class type queuing c-out-8q-q-default
+      bandwidth remaining percent 100
+      random-detect threshold burst-optimized ecn
+----
+Esta configuración se debe aplicar a todos los switches y ISL que transporten tráfico de MetroCluster.
+
+En este ejemplo, Q4 y Q5 se configuran con `random-detect threshold burst-optimized ecn`. Según la configuración, es posible que necesite establecer los umbrales mínimo y máximo, como se muestra en el siguiente ejemplo:
+
+[listing]
+----
+class type queuing c-out-8q-q5
+  priority level 3
+  random-detect minimum-threshold 3000 kbytes maximum-threshold 4000 kbytes drop-probability 0 weight 0 ecn
+class type queuing c-out-8q-q4
+  priority level 4
+  random-detect minimum-threshold 2000 kbytes maximum-threshold 3000 kbytes drop-probability 0 weight 0 ecn
+----
+
+NOTE: Los valores mínimo y máximo varían en función del interruptor y sus requisitos.
+
+.Ejemplo 1: Cisco
+Si la configuración dispone de switches Cisco, no es necesario realizar una clasificación en el primer puerto de entrada del switch intermedio. A continuación, configure los siguientes mapas y políticas:
+
+* `class-map type qos match-any c5`
+* `class-map type qos match-any c4`
+* `MetroClusterIP_ISL_Ingress_Match`
+
+
+Asigne el `MetroClusterIP_ISL_Ingress_Match` Asignación de políticas a los puertos ISL que llevan tráfico MetroCluster.
+
+.Ejemplo 2: Broadcom
+Si la configuración tiene conmutadores Broadcom, debe clasificarla en el primer puerto de entrada del conmutador intermedio. A continuación, configure los siguientes mapas y políticas:
+
+* `ip access-list rdma`
+* `ip access-list storage`
+* `class-map type qos match-all rdma`
+* `class-map type qos match-all storage`
+* `MetroClusterIP_ISL_Ingress_Classify`
+* `MetroClusterIP_ISL_Ingress_Match`
+
+
+Que asigne `the MetroClusterIP_ISL_Ingress_Classify` Asignación de políticas a los puertos ISL del switch intermedio que conecta el switch Broadcom.
+
+Asigne el `MetroClusterIP_ISL_Ingress_Match` Asignación de políticas a los puertos ISL del switch intermedio que transporta tráfico MetroCluster, pero no conecta el switch Broadcom.

@@ -1,0 +1,21 @@
+---
+permalink: install-ip/concept-network-speeds-and-switchport-modes.html 
+sidebar: sidebar 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, compliant, network speed, switch port mode 
+summary: Si usa switches compatibles con MetroCluster, debe tener en cuenta las velocidades de red específicas de la plataforma y los requisitos del modo de puerto de switch. 
+---
+= Velocidades de red específicas de la plataforma y modos de puerto de switch para switches compatibles con MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si usa switches compatibles con MetroCluster, debe tener en cuenta las velocidades de red específicas de la plataforma y los requisitos del modo de puerto de switch.
+
+En la siguiente tabla se muestran velocidades de red específicas de plataforma y modos de puertos de switch para switches conformes con MetroCluster. Debe configurar el modo de puerto de switch según la tabla.
+
+
+NOTE: Los valores que faltan indican que la plataforma no se puede utilizar con un switch compatible con MetroCluster.
+
+image::../media/mcc_compliant_switch_network_speed.png[velocidad de red del interruptor compatible con mcc]

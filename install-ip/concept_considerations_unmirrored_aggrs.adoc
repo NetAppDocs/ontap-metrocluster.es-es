@@ -15,14 +15,6 @@ Si la configuración incluye agregados no reflejados, debe tener en cuenta los p
 
 
 
-== Consideraciones sobre los agregados no reflejados al realizar tareas de mantenimiento que requieren apagado y encendido
-
-Si está realizando una conmutación de sitios negociada por motivos de mantenimiento que requieran un apagado de alimentación de todo el sitio, primero debe desconectar manualmente todos los agregados no reflejados propiedad del sitio de desastre.
-
-Si no lo hace, los nodos del sitio superviviente podrían desaparecer debido a una alarma por varios discos. Esto puede suceder si los agregados de conmutación sin mirroring no se desconectan o no existen debido a la pérdida de conectividad al almacenamiento en el sitio de recuperación ante desastres debido al apagado de alimentación o a la pérdida de ISL.
-
-
-
 == Consideraciones sobre los agregados no reflejados y los espacios de nombres jerárquicos
 
 Si utiliza espacios de nombres jerárquicos, debe configurar la ruta de unión de modo que todos los volúmenes de esa ruta estén en agregados reflejados o solo en agregados no reflejados. La configuración de una combinación de agregados no reflejados y reflejados en la ruta de unión puede impedir el acceso a los agregados no reflejados después de la operación de conmutación.

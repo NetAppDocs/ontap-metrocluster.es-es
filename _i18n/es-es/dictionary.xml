@@ -2980,10 +2980,6 @@
   <block id="d5bca41ec2c9b2bc82b68b782983610c" category="sidebar">Instale una configuración de IP de MetroCluster</block>
   <block id="06800b31fe5394b22e1a11163137b326" category="sidebar">Elección entre Mediador ONTAP y tiebreaker para MetroCluster</block>
   <block id="4ae1141d3ba10797d5f82641406d5702" category="sidebar">Asignación automática de unidades y sistemas ADP en ONTAP 9.4 y versiones posteriores</block>
-  <block id="bef67646bfedc1b249d97a64ef323bcc" category="sidebar">Cómo utilizar redes de área amplia de capa 3</block>
-  <block id="876c5ee843ae5fc2720d374b7e063de5" category="sidebar">Compartir redes privadas de capa 2</block>
-  <block id="a0950456b6fe5bfbedbee43b6a7dc213" category="sidebar">Cómo utilizar switches compatibles con MetroCluster</block>
-  <block id="257dd382287d5979745c22ca0c1ac204" category="sidebar">Cómo usar TDM/xWDM y equipo de cifrado con configuraciones MetroCluster IP</block>
   <block id="d3afb6862c8b819caa7f03082d2af919" category="sidebar">Agregados no reflejados en una configuración de IP de MetroCluster</block>
   <block id="5a4d16a157dad9438b527caaa9b4b2ab" category="sidebar">Conecte los cables de los switches IP de MetroCluster</block>
   <block id="e42ae5049bd4441f35fc1a5c789393b6" category="sidebar">Cómo utilizar las tablas de puertos con la herramienta RcfFileGenerator o varias configuraciones de MetroCluster</block>
@@ -10169,61 +10165,18 @@
   <block id="061a9f5b918f12f2b52e93ff2b47a8e8" category="list-text">Tras completar el procedimiento, ejecute el siguiente comando:</block>
   <block id="3df32f645f09cd9947fb507e70dfddd2" category="paragraph"><block ref="e745f4048ee67a0a970ba63b46a7e75e" prefix="" category="inline-code"></block></block>
   <block id="ec587e9e55329598422742d44262fbd5" category="list-text">Compruebe que la asignación automática de discos está habilitada:</block>
-  <block id="8f40f02b2069b8947b976e569e5762e5" category="summary">A partir de ONTAP 9.6, las configuraciones IP de MetroCluster con switches de Cisco compatibles pueden compartir las redes existentes para ISL, en lugar de usar ISL de MetroCluster dedicadas.</block>
-  <block id="36e19271cbd156de524b5ae13872cb4f" category="doc">Consideraciones para compartir redes privadas de capa 2</block>
-  <block id="137fb6b7668b4dc771dba830f9525b67" category="paragraph">A partir de ONTAP 9.6, las configuraciones IP de MetroCluster con switches de Cisco compatibles pueden compartir las redes existentes para ISL, en lugar de usar ISL de MetroCluster dedicadas. Las versiones anteriores de ONTAP requieren ISL dedicados.</block>
-  <block id="26a46433a2f75a74966a962fd286906b" category="paragraph">Los switches IP de MetroCluster se dedican a la configuración de MetroCluster y no pueden compartirse. Por lo tanto, un conjunto de switches IP de MetroCluster solo puede conectar una configuración de MetroCluster. Solo los puertos ISL de MetroCluster en los switches IP de MetroCluster pueden conectarse a los switches compartidos.</block>
-  <block id="8ac8df48acb2ee9b6d05e12a33e47a64" category="admonition">Si se utiliza una red compartida, el cliente es responsable de cumplir los requisitos de red de MetroCluster en la red compartida.</block>
   <block id="967e7fe5e26ac9c522059f0a938773bb" category="section-title">Requisitos de ISL</block>
-  <block id="7785ade42189cf6d11ccb19313c44f6f" category="paragraph">Debe cumplir los requisitos de la siguiente manera:</block>
-  <block id="827f9b527fbba564ef9eced1f2580e8f" category="inline-link-macro">Requisitos básicos de ISL de MetroCluster</block>
-  <block id="8bbac031447994e5b8b245f9bb913a6e" category="list-text"><block ref="8bbac031447994e5b8b245f9bb913a6e" category="inline-link-macro-rx"></block></block>
-  <block id="7b271aec8b32a0f14193aee31d2831c3" category="inline-link-macro">Requisitos ISL en redes de capa 2 compartidas</block>
-  <block id="b0a09f47597f8af9c573c32b664dfa45" category="list-text"><block ref="b0a09f47597f8af9c573c32b664dfa45" category="inline-link-macro-rx"></block></block>
   <block id="67500937686453a2388ecdf97823b682" category="section-title">Ajustes necesarios en los interruptores intermedios</block>
-  <block id="2824c9af33977c76eaa395e6e43f06cf" category="paragraph">Cuando se comparte el tráfico ISL en una red compartida, la configuración de los switches intermedios proporcionados por el cliente debe asegurarse de que el tráfico MetroCluster (RDMA y almacenamiento) cumpla con los niveles de servicio requeridos en toda la ruta entre los sitios de MetroCluster.</block>
-  <block id="65d2eae171038871014da39c8ce5212d" category="paragraph">Los siguientes ejemplos son para switches Cisco Nexus 3000 y switches IP Broadcom. En función del proveedor y los modelos del switch, debe asegurarse de que los switches intermedios tengan una configuración equivalente.</block>
-  <block id="c6300f8f433dd2ce7fbf121a8739ab01" category="section-title">Switches Cisco Nexus</block>
-  <block id="97b5c02d2e6962aa18f521d8e70f5be1" category="paragraph">En el siguiente diagrama se ofrece una descripción general de la configuración necesaria para una red compartida cuando los switches externos son switches Cisco.</block>
   <block id="6c3d514454f211b4331e09486e926e74" category="image-alt">cambie el tráfico con switches cisco</block>
   <block id="60878e723ef52f68f389c7c8fd6c072c" category="paragraph">En este ejemplo se crean las siguientes directivas y mapas para el tráfico MetroCluster:</block>
-  <block id="b167c89e35597c39657522cff264a281" category="list-text">Se aplica una política de MetroClusterIP_Ingress a los puertos del switch intermedio que se conectan a los switches IP de MetroCluster.</block>
-  <block id="d944b4fc13286119be43ab42d06a32be" category="paragraph">La política de MetroClusterIP_Ingress asigna el tráfico etiquetado entrante a la cola apropiada en el conmutador intermedio. El etiquetado se produce en el puerto del nodo, no en el ISL. Un tráfico que no es de MetroCluster que utiliza los mismos puertos en el ISL se mantiene en la cola predeterminada.</block>
-  <block id="e18fbf6fce702c71742e8d27a2d6a7ae" category="list-text">Se aplica una política de MetroClusterIP_Egress a los puertos del switch intermedio que se conectan a ISL entre switches intermedios</block>
   <block id="69aaacac83508073d197d4bf65062708" category="paragraph">Debe configurar los switches intermedios con los mapas de acceso de la calidad de servicio, los mapas de clases y los mapas de políticas correspondientes a lo largo de la ruta entre los switches IP de MetroCluster. Los switches intermedios asignan tráfico de RDMA a COS5 y el tráfico de almacenamiento a COS4.</block>
-  <block id="6ddbc452227e26b7b8bc21217c891718" category="paragraph">El ejemplo siguiente muestra la configuración de un switch Cisco Nexus 3000 proporcionado por el cliente. Si tiene switches Cisco, puede usar el ejemplo para configurar el switch a lo largo de la ruta sin muchas dificultades. Si no tiene switches Cisco, debe determinar y aplicar la configuración equivalente a los switches intermedios.</block>
-  <block id="bedbf87beaf6932452b34e84aa5ee3dd" category="paragraph">En el siguiente ejemplo se muestran las definiciones de mapa de clase:</block>
-  <block id="dd804fb484432fe551ac3fba99fc92f0" category="admonition">Este ejemplo se utiliza para configuraciones que utilizan switches IP de Cisco MetroCluster. Puede seguir este ejemplo independientemente de los tipos de switch de los switches que transportan tráfico MetroCluster que no se conectan a un switch IP de MetroCluster.</block>
-  <block id="b4327d52f05535a2882438ad4f3e25f3" category="paragraph">En el siguiente ejemplo se muestran las definiciones de asignación de directivas:</block>
-  <block id="490e2a5ce4a3b1e54b04eacc64117857" category="section-title">Switches Broadcom IP de MetroCluster</block>
-  <block id="9c6be93159d26c882e6ffd6c1598ade0" category="paragraph">En el siguiente diagrama se ofrece una descripción general de la configuración necesaria para una red compartida cuando los switches externos son switches IP Broadcom.</block>
   <block id="05b3e3fb6ac0659ae9bfe38cf0c825e9" category="image-alt">cambie el tráfico con switches broadcom</block>
-  <block id="cf3219433ded79f81b130bc7d338f32d" category="paragraph">Las configuraciones que utilizan switches MetroCluster IP Broadcom requieren una configuración adicional:</block>
-  <block id="654f12da649b915a9c194b9f37867d88" category="list-text">Para los conmutadores exteriores debe configurar los mapas de acceso y clases para clasificar el tráfico al entrar en la red del cliente.</block>
-  <block id="f49d57475c4de1abef662a0c701bd2df" category="admonition">No es necesario en las configuraciones que utilizan switches IP de MetroCluster.</block>
-  <block id="0247f45671c0550817a407f11075ad25" category="paragraph">El siguiente ejemplo muestra cómo configurar los mapas de acceso y de clase en el primer y último switch de cliente que conecta los ISL entre los switches MetroCluster IP Broadcom.</block>
-  <block id="026a4c2590405563bbb18611864325aa" category="list-text">Debe asignar la política de entrada al puerto del switch ISL en el primer switch cliente.</block>
-  <block id="a5caef8a168ae3398b49dd56ada3c819" category="section-title">Switches de clientes intermedios</block>
-  <block id="a6b73a04bfd2c671e7b9ad270923041b" category="list-text">En el caso de los switches de clientes intermedios, debe asignar la política de salida a los puertos del switch ISL.</block>
-  <block id="68174da7b47b2116e36e80409f154967" category="list-text">Para todos los demás conmutadores interiores de la ruta que lleva tráfico MetroCluster, siga los ejemplos de mapa de clases y de mapa de políticas de la sección _Cisco Nexus 3000 switches_.</block>
   <block id="37322f94dec561a9cb13c3ba1266cfd1" category="section-title">Ejemplos de topologías de red MetroCluster</block>
-  <block id="a7730eb29505c2a902b8c2ef5fabb951" category="paragraph">A partir de ONTAP 9.6, algunas configuraciones de red ISL compartidas son compatibles con las configuraciones de IP de MetroCluster.</block>
   <block id="1884419e0250b6ad508f2fd36f98d40d" category="section-title">Configuración de red compartida con enlaces directos</block>
-  <block id="192af72fd3a6a8f8e1eed7df8b911dc4" category="paragraph">En esta topología, dos sitios distintos están conectados mediante vínculos directos. Estos enlaces pueden estar entre equipos de multiplexión de división de longitud de onda (xWDM) o interruptores. La capacidad de los ISL no está dedicada al tráfico de MetroCluster, sino que se comparte con otro tráfico.</block>
-  <block id="3d46b75a9510ff3b2fc1221089b507b1" category="paragraph">La capacidad del ISL debe cumplir con los requisitos mínimos. En función de si utiliza dispositivos xWDM o cambia una combinación diferente de configuraciones de red.</block>
   <block id="5929fb5bb5d1ff9a7e46817ed17ab0b2" category="image-alt">redes ip de mcc con islas compartidas</block>
   <block id="fbf66ccc845f0c441c22f8be84b750c9" category="section-title">Infraestructura compartida con redes intermedias</block>
-  <block id="78b1baea44bd8a7cd1e99e2d555265cb" category="paragraph">En esta topología, el tráfico del switch principal de IP de MetroCluster y el tráfico del host viajan a través de una red que no es proporcionada por NetApp. La infraestructura de red y los enlaces (incluidos los enlaces directos arrendados) se encuentran fuera de la configuración de MetroCluster. La red puede consistir en una serie de xWDM y switches, pero a diferencia de la configuración compartida con ISL directos, los vínculos no son directos entre los sitios. Dependiendo de la infraestructura entre los sitios, cualquier combinación de configuraciones de red es posible. La infraestructura intermedia se representa como una «'cloud» (pueden existir varios dispositivos entre los sitios), pero sigue estando bajo el control del cliente. La capacidad a través de esta infraestructura intermedia no está dedicada al tráfico de MetroCluster, sino que se comparte con otro tráfico.</block>
-  <block id="a024d8d17577278b0e1443f54ce83c52" category="paragraph">La configuración de VLAN y red xWDM o switch debe cumplir los requisitos mínimos.</block>
   <block id="de47f3bace55dd3bf08de34a0ed075d6" category="image-alt">redes ip de mcc con redes privadas intermedias</block>
-  <block id="74d2d15fdbde676ffa0713db987d6e1b" category="section-title">Dos configuraciones de MetroCluster que comparten una red intermedia</block>
-  <block id="01a462fc9c6195d0a7624ef8e043e011" category="paragraph">En esta topología, dos configuraciones de MetroCluster independientes comparten la misma red intermedia. En el ejemplo, MetroCluster One switch_A_1 y MetroCluster Two switch_A_1 se conectan al mismo conmutador intermedio.</block>
-  <block id="6387b5c2765ea3b2679035cdac3eb1ea" category="paragraph">El ejemplo se simplifica solo con fines ilustrativos:</block>
   <block id="9111fcd943391a3325aaa7508427ee6f" category="image-alt">mcc ip dos cmc que comparten la misma red compartida sx</block>
-  <block id="c1418d0a4d3dae89c1089eb73647aa7b" category="section-title">Dos configuraciones de MetroCluster con una que se conecta directamente a la red intermedia</block>
-  <block id="0f22a23cdeb43d757abb6d17f14c0dd8" category="paragraph">Esta topología es compatible a partir de ONTAP 9.7. Dos configuraciones de MetroCluster separadas comparten la misma red intermedia y uno de los nodos de configuración de MetroCluster está conectado directamente al switch intermedio.</block>
-  <block id="13fb17d9959e5b76dfb561a0f95edc25" category="paragraph">MetroCluster One es una configuración de MetroCluster que utiliza switches validados de NetApp, ONTAP 9.6 y una topología compartida. MetroCluster Two es una configuración MetroCluster que utiliza switches compatibles con NetApp y ONTAP 9.7.</block>
-  <block id="5ad2282d147bc627a5ce751a67599c20" category="admonition">Los switches intermedios deben cumplir con las especificaciones de NetApp.</block>
   <block id="c7f89880448c82e7f3ca4625488b3680" category="image-alt">mcc ip no compatible dos cmc directamente a conmutadores compartidos</block>
   <block id="5b97f056c47eb55f7ac2ec585e184dd9" category="summary">Debe comprender cómo utilizar la información de las tablas de puertos para generar correctamente los archivos RCF.</block>
   <block id="673f5a3eeb8366a43231216d5889b9fc" category="doc">Utilizar las tablas de puertos con la herramienta RcfFileGenerator o varias configuraciones de MetroCluster</block>
@@ -10395,86 +10348,24 @@
   <block id="d805df154de0ed954114c0b8a30d6cf0" category="list-text">El mirroring de SyncMirror y el mirroring de DR de la caché no volátil de cada nodo están funcionando y las cachés y reflejos se sincronizan en el momento de la falla.</block>
   <block id="539aa46206b59c007151f02f46d35617" category="list-text">Ninguno de los nodos del sitio superviviente se encuentra en estado de toma de control.</block>
   <block id="1fb135b5dd970a96db5c2b3025ddcbf8" category="list-text">Inicia un apagado. Por ejemplo, cuando:</block>
-  <block id="a43f4b9d18f498b517f7dd9eede1654d" category="inline-link-macro">Hardware Universe de NetApp</block>
-  <block id="d5b877d116ca4502862349e4a1fea007" category="summary">Los switches MetroCluster IP que aparecen como switches compatibles en el <block ref="81064abf44a077ab44fc1d50feb7e8e0" category="inline-link-macro-rx"></block> Y los proporciona NetApp están validados por NetApp. A partir de ONTAP 9.7, las configuraciones de IP de MetroCluster pueden utilizar switches compatibles con MetroCluster. Estos son switches que no están validados por NetApp pero cumplen con las especificaciones de NetApp. Sin embargo, NetApp no ofrece servicios de soporte, solución de problemas ni configuración para ningún switch no validado.</block>
   <block id="598ab8da90f7b08fb85eebf2cdb5b642" category="doc">Consideraciones para usar switches compatibles con MetroCluster</block>
   <block id="4275c1aa69fa12af30bea79f33b6ab8b" category="section-title">Switches validados por NetApp</block>
-  <block id="1891f9d47aa8c3949d63aba63cfd538e" category="paragraph">Un switch es validado por NetApp si cumple con todos los siguientes requisitos:</block>
   <block id="cf8d2c69254b785016eeecea385f1512" category="list-text">NetApp proporciona el switch como parte de la configuración IP de MetroCluster</block>
-  <block id="57bc5d4a7e0c60e62b42b542a38a19d8" category="list-text">El conmutador se muestra en la <block ref="81064abf44a077ab44fc1d50feb7e8e0" category="inline-link-macro-rx"></block> Como conmutador admitido en “MetroCluster a través de conexiones IP”</block>
   <block id="44f5b263d419c190d99a3b681f245dad" category="list-text">El switch solo se utiliza para conectar controladoras IP de MetroCluster y, en algunas configuraciones, bandejas de unidades NS224</block>
-  <block id="643a5bb556beb7d67fd22c0d3de4c759" category="list-text">El switch se configura usando el RCF proporcionado por NetApp (archivo de configuración de referencia)</block>
-  <block id="579d6ce20a4bdaad6dff3e52bc4e42ba" category="paragraph">Cualquier switch que no cumpla estos criterios *no* es un switch validado por NetApp.</block>
   <block id="92bf95b2bb1fdf762ca6c2507b432332" category="section-title">Switches compatibles con MetroCluster</block>
-  <block id="fb0fc5c459c3f4029ec7b03dd85a909a" category="paragraph">Un switch compatible con MetroCluster no está validado por NetApp, pero puede utilizarse en una configuración de IP de MetroCluster si cumple los siguientes requisitos y directrices de configuración.</block>
-  <block id="f2153c30c0089338d3848e4eaa64fc3e" category="admonition">NetApp no ofrece servicios de soporte, solución de problemas ni configuración para ningún switch compatible con MetroCluster no validado.</block>
   <block id="2e3b6cbd29fbe534f65b62b67e974e1a" category="section-title">Requisitos generales para los switches conformes a la normativa MetroCluster</block>
-  <block id="0fd2020965353993ca7470eaf762f030" category="paragraph">Los requisitos muestran cómo configurar switches que cumplen con MetroCluster sin usar archivos de configuración de referencia (RCF).</block>
-  <block id="73c8b60f13f3d62360643fda70255745" category="list-text">Los switches que se conectan a los nodos de MetroCluster pueden portar tráfico que no sea de MetroCluster.</block>
   <block id="e167cf704969390451b66b4604d89501" category="list-text">Solo se pueden usar las plataformas que ofrezcan puertos dedicados para las interconexiones de clúster sin switch con un switch compatible con MetroCluster. No se pueden utilizar plataformas como FAS2750 y AFF A220 debido a que el tráfico MetroCluster y el tráfico de interconexión de MetroCluster comparten los mismos puertos de red.</block>
   <block id="832bfdec136453c59e06674dc5b1fbfc" category="paragraph">El switch compatible con MetroCluster no debe utilizarse para las conexiones de clúster locales.</block>
   <block id="c33e2f23b789dd4d078b0a5b51963f75" category="list-text">La interfaz IP de MetroCluster se puede conectar a cualquier puerto de switch que se pueda configurar de acuerdo con los requisitos.</block>
-  <block id="33205e28b19e76b7edcb7bc5cad77101" category="list-text">La velocidad de los puertos del switch debe ser de 25 Gbps para las plataformas FAS8200 y AFF A300, y, al menos, 40 Gbps para el resto de plataformas (40 Gbps o 100 Gbps).</block>
-  <block id="145dacb3237a86979e113708eea5ccbb" category="list-text">Se necesitan cuatro switches IP, dos para cada estructura del switch.</block>
-  <block id="92f69bca586043acecbd273c5ea2d217" category="list-text">Los ISL deben tener 10 Gbps o más, y su tamaño debe ser adecuado para la carga de la configuración de MetroCluster.</block>
-  <block id="cef3763dc37c86b326ba9f36674ba2b4" category="list-text">La configuración de MetroCluster debe estar conectada a dos redes. Las interfaces MetroCluster no pueden conectarse a la misma red ni al mismo switch. Cada nodo MetroCluster debe estar conectado a dos switches de red.</block>
-  <block id="2d8f234d7714dedd101fd476b6581d02" category="list-text">La red debe cumplir los siguientes requisitos:</block>
-  <block id="377c20999d3a2f2bf6430aba5269fa35" category="list-text"><block ref="377c20999d3a2f2bf6430aba5269fa35" category="inline-link-macro-rx"></block></block>
-  <block id="81469bbc8b1e22a393e56fdba3d5a1f3" category="list-text">En las configuraciones de IP de MetroCluster mediante switches compatibles con MetroCluster, no se permite revertir a ONTAP 9.6 o una versión anterior.</block>
-  <block id="e2cccfe2013ba1930aabf09a154e5ffe" category="list-text">La MTU de 9216 debe configurarse en todos los switches que lleven tráfico IP de MetroCluster.</block>
-  <block id="320aeba3423b75436241c00392964782" category="section-title">Requisitos de switch y cableado para switches compatibles con MetroCluster</block>
-  <block id="0d3b7c7f0d8918f762dea13c0abfd697" category="list-text">Los switches deben admitir la calidad de servicio/clasificación del tráfico.</block>
   <block id="4ff5b50b72910d305ce187223bd1d86d" category="list-text">Los conmutadores deben admitir la notificación explícita de congestión (ECN).</block>
-  <block id="d1e15e63c1fd6cbe9ab03ae500fe90cc" category="list-text">Los switches deben admitir políticas de equilibrio de carga de puerto-vlan de L4 para conservar el orden en la ruta.</block>
   <block id="d40f7578a0d14b583c64b9e1238ce357" category="list-text">Los interruptores deben ser compatibles con el control de flujo L2 (L2FC).</block>
-  <block id="0cbb4d7d4f143fb521b8b3f87302bd06" category="list-text">Los cables que conectan los nodos a los switches deben adquirirse en NetApp. Los cables que suministremos deben ser compatibles con el proveedor de switches.</block>
-  <block id="00da554e6014936ea814019f7270b104" category="section-title">Limitaciones a los switches conformes con MetroCluster</block>
-  <block id="68d8047cbf72a612dd739f574baa912c" category="paragraph">No se puede utilizar ninguna configuración o función que requiera que las conexiones del clúster local estén conectadas a un switch. Por ejemplo, no pueden utilizarse las siguientes configuraciones ni procedimientos con un switch compatible con MetroCluster:</block>
   <block id="9998da0c6596ccc4b44b68b91eee576b" category="list-text">Configuraciones MetroCluster de ocho nodos</block>
   <block id="68ce13809f636bb102d35b897931709c" category="list-text">Transición de las configuraciones FC de MetroCluster a IP de MetroCluster</block>
   <block id="bd7d6c816fdd7d9da30ecc293b76db32" category="list-text">Actualizar una configuración IP de MetroCluster de cuatro nodos</block>
   <block id="237972ceb7096a96a9dafc4e43911024" category="section-title">Velocidades de red específicas de la plataforma y modos de puerto de switch para switches compatibles con MetroCluster</block>
-  <block id="1134e76c47457f3441325208e777cc69" category="paragraph">La tabla siguiente proporciona velocidades de red específicas de la plataforma y modos de puerto de switch para switches compatibles con MetroCluster. Debe configurar el modo de puerto del switch como se indica en la tabla.</block>
   <block id="999a0234ad26235f40e860b0131203f6" category="admonition">Los valores que faltan indican que la plataforma no se puede utilizar con un switch compatible con MetroCluster.</block>
-  <block id="419f3742e6de8e0ec4b22cce005e7630" category="cell">Plataforma</block>
-  <block id="4995a003b2b1032b64bcc8805dea3b99" category="cell">Velocidad de red (Gbps)</block>
-  <block id="0ec1914fce58a6a4d1748f3ace018fa1" category="cell">Modo de puerto del switch</block>
-  <block id="f899139df5e1059396431415e770c6dd" category="paragraph">100</block>
-  <block id="cfd4780e5a733c1327748c9a30e9d03c" category="paragraph">modo troncal</block>
   <block id="53270fbfda62583949b287e08ae3d063" category="paragraph">A800 de AFF</block>
-  <block id="35b8c775f2c2f1e3186a213d6b7931b3" category="paragraph">40 o 100</block>
-  <block id="2c74da2e4beb4c522085a84540793b5e" category="paragraph">modo de acceso</block>
   <block id="73ab298c8e00d66d28156892903a39ce" category="paragraph">AFF A320</block>
-  <block id="ce345fbefe9cca9ddd58d8e672f0f91e" category="section-title">Supuestos para los ejemplos</block>
-  <block id="85d4a8f9f28aad1082eeb4a658c7d835" category="paragraph">Los ejemplos proporcionados son válidos para los switches Cisco NX31xx y NX32xx. Si se utilizan otros switches, estos comandos pueden usarse como guía, pero los comandos pueden ser diferentes. Si una función que se muestra en los ejemplos no está disponible en el switch, significa que éste no cumple con los requisitos mínimos y no se puede utilizar para implementar una configuración de MetroCluster. Esto es así en todo switch que esté conectando una configuración de MetroCluster y en todos los switches de la ruta entre esos switches.</block>
-  <block id="1931721e4ef4af703b868f902825c2ef" category="list-text">Los puertos ISL tienen 15 y 16 años y funcionan a una velocidad de 40 Gbps.</block>
-  <block id="c111bb8c12e2f784f729520e744f565c" category="list-text">La VLAN en la red 1 es 10 y la VLAN en la red 2 es 20. Es posible que se muestren ejemplos solo para una red.</block>
-  <block id="8b61600dc20618a035e4d19c78a78b09" category="list-text">La interfaz MetroCluster está conectada al puerto 9 de cada switch y funciona a una velocidad de 100 Gbps.</block>
-  <block id="0058cf79c1cc371a6eee83f772cee308" category="list-text">El contexto completo de los ejemplos no está definido ni se muestra. Es posible que deba introducir más información de configuración, como el perfil, la VLAN o la interfaz, para ejecutar los comandos.</block>
-  <block id="cc386b0adbc0859c1bbf9c56dbf7e711" category="section-title">Configuración genérica del switch</block>
-  <block id="6c74eea0bd0204c5de756cb1cc1fca0e" category="paragraph">Debe configurarse una VLAN en cada red. El ejemplo muestra cómo configurar una VLAN en la red 10.</block>
-  <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">Ejemplo:</block>
-  <block id="eb746570e6ed0bb49e25cd189acf94bb" category="paragraph">Debe establecerse la política de equilibrio de carga de modo que se conserve el orden.</block>
-  <block id="ee5374c58f192971aa6985bd24d83a9e" category="paragraph">Es necesario configurar los mapas de acceso y clases, que asignan el tráfico RDMA y iSCSI a las clases correspondientes.</block>
-  <block id="1e3c8e05b670c33032815dc9f814a471" category="paragraph">Todo el tráfico TCP hacia y desde el puerto 65200 se asigna a la clase de almacenamiento (iSCSI). Todo el tráfico TCP hacia y desde el puerto 10006 se asigna a la clase RDMA.</block>
-  <block id="7232053d17d6d458acd3dc6a3b06e8ef" category="paragraph">Debe configurar la política de entrada. La directiva de entrada asigna el tráfico según lo clasificado a los diferentes grupos de CDS. En este ejemplo, el tráfico RDMA se asigna al grupo COS 5 y el tráfico iSCSI se asigna al grupo COS 4.</block>
-  <block id="8d099e100c2db650c7b3c9471d6c3021" category="paragraph">Debe configurar la directiva de salida en el conmutador. La directiva de salida asigna el tráfico a las colas de salida. En este ejemplo, el tráfico RDMA se asigna a la cola 5 y el tráfico iSCSI se asigna a la cola 4.</block>
-  <block id="e6e94fa732001e55f7fcf67c01c5f249" category="paragraph">Puede que necesite configurar un switch que tenga tráfico MetroCluster en un ISL, pero no se conecte a ninguna interfaz MetroCluster. En este caso, el tráfico ya está clasificado y sólo debe asignarse a la cola adecuada. En el siguiente ejemplo, todo el tráfico COS5 se asigna a la clase RDMA, y todo el tráfico COS4 se asigna a la clase iSCSI. Tenga en cuenta que esto afectará *todo* del tráfico COS5 y COS4, no sólo el tráfico MetroCluster. Si sólo desea asignar el tráfico de MetroCluster, debe utilizar los mapas de clases anteriores para identificar el tráfico mediante los grupos de acceso.</block>
-  <block id="40188be7ae52fbad0eec10d341d64dca" category="section-title">Configurar los ISL</block>
-  <block id="139ee81500499fa6a20d90091e35aedf" category="paragraph">Puede configurar un puerto de modo de "enlace" cuando establece una VLAN permitida.</block>
-  <block id="7f46b9452d630356ab3904d38691b3f5" category="paragraph">Hay dos comandos, uno a *establecer* la lista de VLAN permitidas y uno a *agregar* a la lista de VLAN permitidas existentes.</block>
-  <block id="01e38d1895fd26b959a83b5e7c474615" category="paragraph">Puede *establecer* las VLAN permitidas como se muestra en el ejemplo.</block>
-  <block id="a113ac43e845b37ed3c4d24db88ce41d" category="paragraph">Puede *agregar* una VLAN a la lista permitida, como se muestra en el ejemplo.</block>
-  <block id="68c7fc319da1886292fc942cdde96eaa" category="paragraph">En el ejemplo, Port-Channel 10 está configurado para VLAN 10.</block>
-  <block id="5cb440886a621a8372b845ad70883325" category="paragraph">Los puertos ISL deben configurarse como parte de un puerto-canal y deben asignarse las colas de salida, como se muestra en el ejemplo.</block>
-  <block id="0e140510bf85c7aa8339935669d8b836" category="section-title">Configurar los puertos del nodo</block>
-  <block id="04b15a1dc82e7721a50071d0d546bffa" category="paragraph">Es posible que tenga que configurar el puerto del nodo en modo de arranque. En este ejemplo, los puertos 25 y 26 están configurados en modo de arranque de 4 x 25 Gbps.</block>
-  <block id="8a63315a2ffec2485df2f1442ae57ba9" category="paragraph">Es posible que deba configurar la velocidad del puerto de la interfaz MetroCluster. El ejemplo muestra cómo configurar la velocidad en "auto".</block>
-  <block id="3a1d3c6085d08ba32283ec7dca7f4f8c" category="paragraph">El ejemplo siguiente muestra cómo corregir la velocidad a 40 Gbps.</block>
-  <block id="40d09af1b4eb1caa952d1cfeedc72c6b" category="paragraph">Es posible que deba configurar la interfaz. En el ejemplo siguiente, la velocidad de la interfaz se establece en "auto".</block>
-  <block id="0b6fb4c3000783272b8778eb9804b9cc" category="paragraph">El puerto está en modo de acceso en VLAN 10, MTU está establecido en 9216 y la política de entrada de MetroCluster está asignada.</block>
-  <block id="7b87d868779f28cca35a9a8ba5f90614" category="paragraph">En los puertos de 25 Gbps, es posible que sea necesario establecer el ajuste FEC en "OFF", como se muestra en el ejemplo.</block>
-  <block id="333816f1143329ca2f87a87e778f7420" category="admonition">Siempre debe ejecutar este comando *después de* la interfaz está configurada. Es posible que sea necesario insertar un módulo transceptor para que funcione el comando.</block>
   <block id="1ff31a738d26e47dfa5c26bac0568556" category="summary">Tras arrancar cada nodo, se le pedirá que realice la configuración básica del nodo y del clúster. Después de configurar el clúster, volverá a la CLI de ONTAP para crear agregados y crear la configuración de MetroCluster.</block>
   <block id="da6a152013b01d35131c7e6a0a834b28" category="paragraph">Si debe reiniciar el sistema de las nuevas controladoras, consulte <block ref="3b790cf59184cbd534b9cbce1ed9244d" category="inline-link-macro-rx"></block>.</block>
   <block id="6ac62fa13c69ad320702cd9a98f97b12" category="list-text">Encienda cada nodo en el sitio local si aún no lo ha hecho y deje que todos arranquemos por completo.</block>
@@ -10540,20 +10431,6 @@
   <block id="61022df26c2ebed0ba5b50c68d2b8dc6" category="list-text">No aparecen en la salida del<block ref="16fdd92def5a71313d6535c74ef67b81" prefix=" " category="inline-code"></block> comando.</block>
   <block id="c5d60e8f17874f7ca155bb4d1f3eea0b" category="list-text">No conmutan al nodo de respaldo, pero siguen asociados al puerto en el que se crearon.</block>
   <block id="5b04eab200d66e93de7e40e3229c8cde" category="list-text">Las configuraciones de IP de MetroCluster utilizan puertos Ethernet específicos (según la plataforma) para las interfaces IP de MetroCluster.</block>
-  <block id="19d820a9221f4c3142921037b434a337" category="summary">Debe tener en cuenta algunas consideraciones para el uso de equipos de multiplexación en la configuración IP de MetroCluster.</block>
-  <block id="879911f6e225e29ff8e098fa74f5ff53" category="doc">Uso de TDM/xWDM y equipo de cifrado con configuraciones MetroCluster IP</block>
-  <block id="c1c2a0409868d06a74bf1b3203711a03" category="paragraph">Estas consideraciones solo se aplican a los switches y los enlaces de entorno de administración dedicados de MetroCluster directos, no a los enlaces compartidos con tráfico que no sea de MetroCluster.</block>
-  <block id="e9557f8098c7727893e65c1b6a2e977b" category="paragraph">La herramienta Hardware Universe proporciona algunas notas acerca de los requisitos que debe cumplir el equipo TDM/xWDM para trabajar con una configuración de IP de MetroCluster.</block>
-  <block id="4a3cb00dbc665a78cfbd19ade6a9ff95" category="section-title">Uso del cifrado en WDM o dispositivos de cifrado externos</block>
-  <block id="eb2492c73c4c4ff8b6d6fa30c78306b3" category="paragraph">Cuando se utiliza el cifrado en dispositivos WDM en la configuración de IP de MetroCluster, el entorno debe cumplir los siguientes requisitos:</block>
-  <block id="8ee32e06f78f7dec719f3b73b0878e94" category="list-text">Los dispositivos de cifrado externos o el equipo DWDM deben haber sido certificados por el proveedor con el conmutador en cuestión.</block>
-  <block id="68d9a2569dbad6c1e8772013f1aafac9" category="paragraph">La certificación debe abarcar el modo de funcionamiento (como enlaces y cifrado).</block>
-  <block id="086e8208bc8bdabded9057c56fa703ab" category="list-text">La latencia y la fluctuación globales e integrales, incluido el cifrado, no pueden superar el máximo indicado en la IMT o en este documento.</block>
-  <block id="4c592893625bfd66101dc3598e44db86" category="section-title">Consideraciones sobre SFP</block>
-  <block id="16c5d56f540f017cc98cc397c77b811a" category="paragraph">Los SFP o QSFP compatibles con el proveedor de equipos son compatibles con los ISL de MetroCluster. Los SFP y QSFP pueden adquirirse a través de NetApp o del proveedor de equipos.</block>
-  <block id="038405b3bd431b24c757922ba1e38abb" category="paragraph">Los ISL de una estructura deben tener la misma topología. Por ejemplo, todos deberían ser enlaces directos o, si la configuración utiliza WDM, todos deberían utilizar WDM.</block>
-  <block id="957f130ae934815da7e3f565a1d9e150" category="paragraph">Si comparte ISL con una red que no sea MetroCluster, debe seguir las directrices de la sección <block ref="dbac327de76ab613d0e2b5848ebc320c" category="inline-link-macro-rx"></block>.</block>
-  <block id="33fc3bd0047ef5d3f8fb4a1a8611e593" category="paragraph">La diferencia máxima soportada en la distancia entre el tejido 1 y el tejido 2 es de 20 km</block>
   <block id="2ac5b29f2d20bbfbdc32651d31618463" category="summary">Una configuración de ocho nodos consistirá en dos grupos de recuperación ante desastres. Configure el primer grupo de recuperación ante desastres mediante las tareas de esta sección.</block>
   <block id="146d142d8ea797f93d593a6fe9556787" category="doc">Gestionar configuraciones de ocho nodos</block>
   <block id="dd42913fad72868b65fced98cfecfcd6" category="paragraph">A continuación, realice las tareas en <block ref="3e70f7d1f526cf6dd7a89a97c88d0cc8" category="inline-link-macro-rx"></block></block>
@@ -10676,89 +10553,18 @@
   <block id="23b070f17dffe8e66479102b1681ffad" category="doc">Uso de IP virtual y del protocolo de puerta de enlace de borde con una configuración de MetroCluster</block>
   <block id="3771e54725752637c5b1cf7cce911622" category="list-text">Utilice los procedimientos para la conmutación negociada, la reparación y la conmutación de estado que se mencionan en la _Guía de gestión y recuperación ante desastres de MetroCluster_.</block>
   <block id="e60d9e6a9fb9bfbe61031a7440923aa7" category="paragraph"><block ref="e60d9e6a9fb9bfbe61031a7440923aa7" category="inline-link-rx"></block></block>
-  <block id="ea9736859da816cfcd8267f7a6c4256a" category="summary">Debe conocer los requisitos de ISL para la configuración.</block>
-  <block id="48b322af5cc10f141bccf9319f5b9635" category="paragraph">Se deben cumplir los siguientes requisitos para los ISL en todas las configuraciones IP de MetroCluster:</block>
-  <block id="2cf083b4052be0be399ea3ba03b033d9" category="list-text">Un puerto de switch ISL de velocidad nativa debe conectarse a un puerto de switch ISL de velocidad nativa.</block>
-  <block id="70dbdfcc1fcf9942925567a4bb68c457" category="paragraph">Por ejemplo, un puerto de 40 Gbps se conecta a un puerto de 40 Gbps.</block>
-  <block id="cbb950e5b5a1e828d01a30e24e878972" category="list-text">Un puerto de 10 Gbps que está en modo nativo (es decir, no se utiliza un cable de arranque) puede conectarse a un puerto de 10 Gbps que está en modo nativo.</block>
-  <block id="89bde422fe859df0cc4ffa75c63bf660" category="list-text">Los ISL entre los switches MetroCluster IP y la red del cliente, así como los ISL entre los switches intermedios, siguen las mismas reglas en términos de velocidad.</block>
-  <block id="ab170f7d66135266cdcb2262d9678b17" category="list-text">No es necesario que el número de ISL que se encuentre entre los switches de MetroCluster y los switches de red del cliente, ni el número de ISL que están entre los switches de red del cliente.</block>
-  <block id="fdc56c61f9ac64c24f76ec4804e7cc39" category="paragraph">Por ejemplo, los switches MetroCluster pueden conectarse usando dos ISL a los switches intermedios y los switches intermedios se pueden conectar entre sí mediante 10 ISL.</block>
-  <block id="275769550a9388aeaf2fa2c16427b081" category="list-text">No es necesario que la velocidad de los ISL se encuentre entre los switches MetroCluster y los switches de red del cliente, así como la velocidad de los ISL que están entre los switches de red del cliente.</block>
-  <block id="6aab2d09edb8be7e6076e1b402176d1d" category="paragraph">Por ejemplo, los switches MetroCluster pueden conectarse utilizando un ISL de 40 Gbps a los switches intermedios y los switches intermedios se pueden conectar entre sí utilizando ISL de 100 Gbps.</block>
-  <block id="eec3041ce00c0146de19cb1a1ed37539" category="list-text">El número y la velocidad de ISL que conectan cada switch MetroCluster al switch intermedio deben ser los mismos en ambos sitios de MetroCluster.</block>
-  <block id="4f1be337d4a681e3d7b80bec073ab5fb" category="inline-link-macro">Uso compartido del tráfico ISL en una red compartida</block>
-  <block id="e86157d5182c2cc0ba39de2fa88b66d0" category="paragraph">Cuando <block ref="901f15628992a82bc2ea044529a4cc50" category="inline-link-macro-rx"></block>, Debe asegurarse de que tiene la capacidad adecuada y el tamaño de los ISLs apropiadamente. Una latencia baja es crucial para la replicación de datos entre los sitios MetroCluster. Los problemas de latencia en estas conexiones pueden afectar a las operaciones de I/o del cliente</block>
-  <block id="a14dc0dfb776471bcbc1e3c1239e4bb1" category="paragraph">Debe revisar estas secciones para calcular correctamente la capacidad completa necesaria de los ISL. La replicación continua en caché no volátil y del almacenamiento con baja latencia es crucial para las configuraciones de MetroCluster. La latencia de la red back-end afecta a la latencia y al rendimiento que ven las I/o del cliente.</block>
   <block id="449a2bdc6a969f884c1d33fb66eecea7" category="section-title">Límites de latencia y pérdida de paquetes en los ISL</block>
-  <block id="e96606e3ebee8eeb5bb85d4955c381cb" category="paragraph">Deben cumplirse los siguientes requisitos para el tráfico de ida y vuelta entre los switches IP de MetroCluster en el sitio_A y el sitio_B, con la configuración de MetroCluster en estado de funcionamiento constante:</block>
   <block id="5bb182767225fa9e1ca2133f4aa4f1df" category="inline-link-macro">Hardware Universe.</block>
-  <block id="e04f67144663da34a17311a720ccf0a1" category="list-text">Para obtener información específica sobre la latencia de los viajes completos y los requisitos de distancia máxima para su configuración, consulte <block ref="44be38b301d3bfae89cdec57afffd9be" category="inline-link-macro-rx"></block></block>
-  <block id="c9bc211a49ab07521cd90557ecdd0cbb" category="paragraph">A medida que aumenta la distancia entre dos sitios MetroCluster, la latencia aumenta, por lo general, dentro del rango de tiempo de retraso de ida y vuelta de 1 ms por 100 km (62 millas). Esta latencia también depende del acuerdo de nivel de servicio (SLA) de la red en términos de ancho de banda de los enlaces ISL, la tasa de caída de paquetes y la fluctuación de la red. Un ancho de banda bajo, una fluctuación elevada y caídas aleatorias de paquetes dan lugar a diferentes mecanismos de recuperación por parte de los conmutadores o el motor TCP en los módulos del controlador para que la entrega de paquetes sea correcta. Estos mecanismos de recuperación pueden aumentar la latencia general.</block>
   <block id="5b39512a68b8704473f81b0e6ba1272e" category="paragraph">Cualquier dispositivo que contribuya a la latencia debe tenerse en cuenta.</block>
-  <block id="48826ffed53f55da6bc21c81ca1b5e8f" category="list-text">La pérdida de paquetes debe ser menor o igual al 0.01%.</block>
-  <block id="331d81871af9648aed5dcdc16b042e36" category="paragraph">La pérdida de paquetes incluye la pérdida física o la pérdida debido a la congestión o a la suscripción excesiva.</block>
-  <block id="46c3dc1c366b76273938fe1ce08ca0de" category="paragraph">Las caídas de paquetes pueden provocar retransmisiones y una ventana de congestión reducida.</block>
-  <block id="ad89c5a048917b4cc556bf23d46e1874" category="list-text">El valor de fluctuación admitido es de 3 ms para ida y vuelta (o de 1.5 ms para una vía).</block>
-  <block id="8f1a0df354aadab81c22bc45d64cfe7c" category="list-text">La red debe asignar y mantener el SLA para el ancho de banda necesario para el tráfico de MetroCluster, lo que supone microráfagas y picos en el tráfico.</block>
-  <block id="581ca7facb47e256cb2467b52ebc32ad" category="paragraph">Un ancho de banda bajo puede provocar retrasos en la cola y caídas en los interruptores. Si utiliza ONTAP 9.7 o posterior, el intermediario de red entre los dos sitios debe proporcionar un ancho de banda mínimo de 4.5 Gbps para la configuración de MetroCluster.</block>
-  <block id="c0ce48bf5ebe05cb782d8edd4436f621" category="list-text">El tráfico de MetroCluster no debe consumir el ancho de banda completo y tener un impacto negativo en el tráfico que no sea de MetroCluster.</block>
-  <block id="e8d6e7fbaeb7ee39717e31140102b2f7" category="list-text">La red compartida debe tener configurada la supervisión de red para supervisar los ISL en cuanto a uso, errores (caídas, solapas de enlace, daños, etc.) y fallos.</block>
-  <block id="b4c0ed3196b7f0fc8d0177f2d4a47089" category="section-title">Límites de conexión y enlaces en los switches del cliente</block>
   <block id="616cfd3e2d847183316a89a2940d8ba6" category="paragraph">Los switches intermedios proporcionados por el cliente deben cumplir los siguientes requisitos:</block>
-  <block id="d4116be21d3fbe2654067267fd582693" category="list-text">El número de switches intermedios no se limita y se admiten más de dos switches entre los switches IP de MetroCluster.</block>
-  <block id="25d74f2daccefbc881453b697d0166cf" category="paragraph">Los interruptores MetroCluster IP deben estar situados lo más cerca posible de los interruptores intermedios que proporcionan el enlace de largo recorrido. Todas las conexiones ISL a lo largo de la ruta deben cumplir con todos los requisitos para MetroCluster ISL.</block>
-  <block id="32955279f53f3e8b806605d25c94f1b0" category="list-text">Los ISL de la red del cliente (los ISL entre los switches del cliente) deben configurarse de manera que se proporcione suficiente ancho de banda y se mantenga el orden de entrega.</block>
-  <block id="22d652e4993228d5b92712170fa6290f" category="paragraph">Esto se puede hacer mediante la conexión de enlaces de un número suficiente y la aplicación de políticas de equilibrio de carga para conservar el orden.</block>
-  <block id="b1111b151f189b85097d8f0496491fa1" category="section-title">Otros requisitos de red</block>
-  <block id="cfa9c666a1b648f7bb3bf57be1c65b91" category="list-text">La red del cliente debe proporcionar las mismas VLAN entre los sitios que coinciden con las VLAN de MetroCluster establecidas en el archivo RCF.</block>
   <block id="1b7cbc00704b6ef833ca0edf0071abef" category="paragraph">Las VLAN de capa 2 con identificadores que coincidan con los identificadores de VLAN de MetroCluster deben abarcar la red compartida.</block>
-  <block id="39cf9b2bcdacdfeb7b63d18129c991bf" category="list-text">En ONTAP 9.7 y versiones anteriores, los sistemas FAS2750 y AFF A220 requieren VLAN 10 y 20.</block>
-  <block id="6dd7ab791ca7dbeea96f6883017c405f" category="list-text">En ONTAP 9.8 y posteriores, FAS2750, AFF A220, FAS500f, AFF A250 Los sistemas FAS8300, AFF A400 y FAS8700 usan VLAN 10 y 20 de manera predeterminada. Puede configurar otras VLAN durante la creación de interfaces y deben estar dentro del intervalo 101-4096. Para todas las plataformas mencionadas anteriormente, solo puede especificar la VLAN durante la creación de la interfaz. Una vez creadas las interfaces MetroCluster, no se puede cambiar el ID de VLAN. Para el resto de plataformas no mencionadas anteriormente, puede utilizar cualquier VLAN y puede cambiar el identificador de VLAN para esas plataformas en cualquier momento, pero es necesario crear y aplicar un nuevo archivo RCF.</block>
   <block id="d4d2baddcab9cd51d2fbec64f215447e" category="paragraph">El RcfFileGenerator no permite la creación de un archivo RCF mediante VLAN que no son compatibles con la plataforma.</block>
-  <block id="1ae258b0d1f5d352443737727b61370e" category="paragraph">El RcfFileGenerator podría restringir el uso de ciertos identificadores de VLAN (por ejemplo, si están destinados a su uso futuro). Por lo general, las VLAN reservadas son de hasta 100, incluidas.</block>
-  <block id="44320ea25002137ed4c7ae17e4e2c3c4" category="list-text">El tamaño de MTU debe establecerse en 9216 en todos los dispositivos de la red completa.</block>
-  <block id="89135c2bf7d6ba269eae563b2b92f041" category="list-text">No se puede configurar ningún otro tráfico con una prioridad superior a la clase de servicio (COS) cinco.</block>
-  <block id="cddd34f6d4d277285aa4639fd92f80de" category="list-text">ECN (notificación de congestión explícita) debe configurarse en todas las rutas de extremo a extremo.</block>
-  <block id="7417b1510f8c5a301f6398d855561505" category="section-title">Los requisitos de cableado cuando se usan ISL compartidos</block>
-  <block id="a9cb6e376a12c0c6b5deb0f0438259da" category="paragraph">Cuando se usan ISL compartidos en una configuración de IP de MetroCluster, debe tener en cuenta los requisitos del ISL de MetroCluster extremo a extremo que se ejecuta desde los puertos de la controladora del sitio A a a los puertos de la controladora del sitio B.</block>
-  <block id="af1cf569a025dd01876e4b16b86cbc5e" category="admonition">Debe seguir el <block ref="fa2050fe1fe203254b9a9c610c6240ba" category="inline-xref-macro-rx"></block>.</block>
-  <block id="a0195e692f2c0be63d231173e3a75422" category="section-title">Número de ISL y cables de arranque en la red compartida</block>
-  <block id="b1ff9e42c9daa73ff3fe3b02d56090b0" category="paragraph">El número de ISL que conectan los switches IP de MetroCluster a la red compartida varía en función del modelo del switch y el tipo de puerto.</block>
   <block id="d16af7f5896d12cf0cd0ace2315785f4" category="cell">Modelo de switch MetroCluster IP</block>
-  <block id="ad31a22d752d43c3309f6c3ed2021019" category="cell">Número de ISLs</block>
   <block id="87ac6ecba347afc9b3bfcf5a25512ddc" category="paragraph">Switches BES-53248 compatibles con Broadcom</block>
   <block id="ac00d0051561ed303dd8e72e72447f4f" category="paragraph">Puertos nativos</block>
-  <block id="78de8fe46d62f85d57ba50aa182fbd0f" category="paragraph">4 ISL con 10 o 25 puertos Gbps</block>
-  <block id="cd089c0b60ab24530eec57a25c3db128" category="paragraph">6 ISL con puertos de 40 Gbps</block>
   <block id="93f0d165366aa023f16e11d7c9adcd64" category="paragraph">Cables de desconexión</block>
-  <block id="61b74a953ea1f4810d962b6c3c7d0d2e" category="paragraph">16 ISL de 10 Gbps</block>
-  <block id="4c9949dbf0df72405925c5aa0a2567c4" category="paragraph">6 ISL con 40 o 100 puertos Gbps</block>
   <block id="939d3efe7d4070c6c8be39404639b5db" category="paragraph">Cisco 9336C-FX2 (sin conexión de bandejas NS224)</block>
-  <block id="d183fa3896220b7f678ea0b9376a4b8b" category="paragraph">6 ISL con 40 o 100 Gbps</block>
-  <block id="874eb49ff41ba3748fa2b06563329fb2" category="paragraph">16 ISL con 10 Gbps</block>
   <block id="b94f047c1e1eaf1f0b0b1b5ef5819d6b" category="paragraph">Cisco 9336C-FX2 (conexión de bandejas NS224)</block>
-  <block id="74cb45c8e8b33478150237cb0755c4ca" category="paragraph">Puertos nativos (2)</block>
-  <block id="32dd9953382a7753a2f980620effb409" category="paragraph">4 ISL con 40 o 100 Gbps</block>
-  <block id="eb4cfd99b709d0b0ddc435f063be95cf" category="paragraph">Cables de arranque (2)</block>
-  <block id="e5df3565fbad5a4849fc6fb6ec79e8d1" category="list-text">El uso de 40 o 100 puertos ISL en el switch BES-53248 requiere una licencia adicional.</block>
-  <block id="394d86b50aa384c22c3eeb7d90023e15" category="list-text">Al crear los archivos RCF para un Cisco 9336C-FX2 (que conecta las bandejas NS224), debe elegir configurar el ISL en modo de arranque *o* nativo.</block>
-  <block id="6968ac086701343ff37d9889e7c66a54" category="list-text">Los switches Cisco admiten el uso de cables de arranque (un puerto físico se usa como 4 puertos de 10 Gbps).</block>
-  <block id="f8fce322a8edd097d065fb99a37ff7d4" category="list-text">Los archivos RCF para los conmutadores IP tienen configurados puertos en modo nativo y de arranque.</block>
-  <block id="81d3c2b4ee2f461abdccb3d6cdce9095" category="paragraph">No se admite una combinación de puertos ISL en el modo de velocidad de puerto nativo y modo de arranque. Todos los ISL, desde los switches IP de MetroCluster a los switches intermedios de una red, deben tener la misma velocidad y longitud.</block>
-  <block id="dc42da7855100b1c361cd94167e5704b" category="list-text">Se admite el uso de dispositivos de cifrado externos (por ejemplo, cifrado de enlace externo o cifrado proporcionado a través de dispositivos WDM) siempre que la latencia de ida y vuelta se mantenga dentro de los requisitos anteriores.</block>
-  <block id="faca76a5b29adc7d5fa5ff7f0d9b653c" category="paragraph">Para lograr un rendimiento óptimo, debe utilizar al menos 1 x 40 Gbps o varios ISL de 10 Gbps por red. No se recomienda usar un único ISL de 10 Gbps por red para los sistemas AFF A800.</block>
-  <block id="452528f4539349b3f1c2d6c52b377435" category="paragraph">El rendimiento teórico máximo de los ISL compartidos (por ejemplo, 240 Gbps con seis ISL de 40 Gbps) es el mejor caso posible. Cuando se usan varios ISL, el equilibrio de carga estadístico puede afectar el rendimiento máximo. Se puede producir un equilibrio desigual y reducir el rendimiento a un único ISL.</block>
-  <block id="b64af5cd785842d6bf6cd01ead747f85" category="paragraph">Si la configuración utiliza VLAN L2, deben abarcar de forma nativa los sitios. No se admite la superposición de VLAN como la LAN extensible virtual (VXLAN).</block>
-  <block id="29df3d2a3fbed3e329eebdafb198548b" category="paragraph">Los ISL que transportan tráfico de MetroCluster deben ser enlaces nativos entre los switches. No se admiten servicios de uso compartido de enlaces como enlaces de conmutación de etiquetas multiprotocolo (MPLS).</block>
-  <block id="b3c298f9bcf8ef440bfc199365b29a8e" category="section-title">Compatibilidad con ISL WAN en el switch BES-53248 de Broadcom</block>
-  <block id="55c5dc89f1ac68c2bcb189c6aa17ee81" category="list-text">Número mínimo de ISL de WAN por estructura: 1 (10 GbE, o 25 GbE, o 40 GbE, o 100 GbE)</block>
-  <block id="8bfedfb9f058f538424f53d5078319d0" category="list-text">El número máximo de ISL WAN de 10 GbE por estructura: 4</block>
-  <block id="c324e731d42e84dbec1e5b4c71d30110" category="list-text">El número máximo de ISL WAN de 25 GbE por estructura: 4</block>
-  <block id="2a6e6f4fa9d966c23c1cb254e6a5f0e1" category="list-text">Número máximo de ISL WAN de 40 GbE por estructura: 2</block>
-  <block id="4c347bcd948e8c65dedccc01d292af64" category="list-text">Número máximo de ISL WAN de 100 GbE por estructura: 2</block>
-  <block id="fad747cfa36fbbfa745283703977fe09" category="paragraph">Un ISL WAN de 40 GbE o 100 GbE requiere un archivo RCF, versión 1.40 o superior.</block>
-  <block id="0bb3bfbc599df59ab910863567e82b1f" category="admonition">Se requieren licencias adicionales para puertos adicionales.</block>
   <block id="965fd21ca9743b38007dc88ab0a81ba7" category="summary">Cada sitio de MetroCluster se configura como un par para su sitio de partner.</block>
   <block id="0f6663ce923ab095e111674a6a00e20f" category="summary">Puede eliminar el servicio mediador de ONTAP de la configuración IP de MetroCluster.</block>
   <block id="dbef88bf7072abf7cb1500b76c098158" category="doc">Desconfigure el servicio Mediador ONTAP desde la configuración IP de MetroCluster</block>
@@ -11233,8 +11039,6 @@
   <block id="b6b47858b43ec1819137a7dbb17a0e1c" category="paragraph"><block ref="b40cb3692b615bfe5a12819de2930bfb" prefix="" category="inline-code"></block></block>
   <block id="b73bb1a80bfcd166befb33ddc1a9fe9d" category="paragraph">La configuración para una directiva específica de MACsec o para todas las directivas de MACsec</block>
   <block id="09cb6984bdf1b82c9749906ba1a69331" category="summary">Puede cambiar las siguientes propiedades de una interfaz IP de MetroCluster, una máscara y una dirección IP, y una puerta de enlace. Puede usar cualquier combinación de parámetros para actualizar.</block>
-  <block id="bacf5875940eb96c091917a5d1b9e1ad" category="doc">Modificar la dirección, la máscara de red y la pasarela en una IP de MetroCluster</block>
-  <block id="40505aafe5fd41af1999393ab341c808" category="paragraph">A partir de ONTAP 9.10.1, puede cambiar las siguientes propiedades de una interfaz IP de MetroCluster: Dirección IP y máscara y puerta de enlace. Puede usar cualquier combinación de parámetros para actualizar.</block>
   <block id="d7fffb0ac95f2fd216c5e3fd04365cca" category="paragraph">Es posible que deba actualizar estas propiedades, por ejemplo, si se detecta una dirección IP duplicada o si una puerta de enlace necesita cambiar en el caso de una red de capa 3 debido a cambios en la configuración del enrutador.</block>
   <block id="383d9b07e1ef0cfcfa9ec36fecccfe02" category="paragraph">Sólo puede cambiar una interfaz a la vez. Habrá interrupciones en el tráfico en esa interfaz hasta que se actualicen las otras interfaces y se restablezcan las conexiones.</block>
   <block id="8450a359c3efc774857fe0f3189456e0" category="paragraph">Utilice la<block ref="a7c7bfc3508e315ba41d4dc6412930eb" prefix=" " category="inline-code"></block> Comando para cambiar cualquier propiedad de interfaz IP de MetroCluster.</block>
@@ -11245,7 +11049,6 @@
   <block id="2f545dcb650b5848061814c5ce3b4cf4" category="paragraph">El siguiente comando muestra cómo actualizar la dirección IP, la máscara de red y la pasarela:</block>
   <block id="c8a08760312508ec804450cb7fad4702" category="list-text">[[step2]]Compruebe que toda la conectividad funciona para todas las interfaces:<block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix=" " category="inline-code"></block></block>
   <block id="3fc201ecdcbc7e37cc8a9b91bd0c01b3" category="paragraph">El siguiente comando muestra cómo comprobar que toda la conectividad funciona en todas las interfaces:</block>
-  <block id="464f766a72b725b51056bd23b507d8fb" category="list-text">[[step3]]Compruebe que todas las conexiones funcionan:<block ref="e7acb1ae14be0e5233d619851263fdae" prefix=" " category="inline-code"></block></block>
   <block id="1a8c6f33d0bdd54f26272fc3c497ec01" category="paragraph">El siguiente comando muestra cómo comprobar que todas las conexiones funcionan:</block>
   <block id="6f7aa8ee1d3b803f22c9a8f304a8d92c" category="paragraph">Los pasos de reparación no son necesarios en sistemas que ejecutan ONTAP 9.5 o posterior, en los que la reparación se realiza automáticamente después de una conmutación negociada. En sistemas que ejecutan ONTAP 9.6 y versiones posteriores, la reparación también se realiza automáticamente después de una conmutación por cierre no programada.</block>
   <block id="bc123056e228f601bd0d262cb4470668" category="list-text">Si el sistema ejecuta ONTAP 9.4 o una versión anterior, repare el agregado de datos:</block>
@@ -11386,25 +11189,13 @@
   <block id="158cb58d37ae471e855a50eebdf79050" category="list-text">Aplicar el script RCF:</block>
   <block id="3c0c5e88db6d4b3741126778351471ec" category="paragraph"><block ref="a3b51a11425b2e2e727375b543ea1877" prefix="" category="inline-code"></block></block>
   <block id="8dbef93c578a2dd1a148ce7a8e7ed428" category="list-text">Repita los pasos anteriores para cada uno de los otros tres conmutadores, asegurándose de copiar el archivo RCF correspondiente al conmutador correspondiente.</block>
-  <block id="01fe01722f1775c1b67e7b20a14951de" category="summary">A partir de ONTAP 9.9.1, las configuraciones de IP de MetroCluster se pueden implementar con conexiones de back-end enrutadas por IP (capa 3).</block>
   <block id="4b7a16d6d162a666fd84016cdf343a72" category="paragraph">Los switches back-end de MetroCluster están conectados a la red IP enrutada, ya sea directamente a los routers (como se muestra en el siguiente ejemplo simplificado) o a través de otros switches intermedios.</block>
   <block id="39a69537fd3d24cb81ea2bc0e26adec5" category="image-alt">mcc layer3 back-end</block>
-  <block id="190cbd15f1cbbd86a76eac6847a93472" category="admonition">NetApp solo admite switches validados por NetApp. NetApp ha probado y vendido estos switches. Se enumeran en la <block ref="d4ffdef7e991262a330f44b113eb81ba" category="inline-link-macro-rx"></block> y en <block ref="d708b823ca770dd1bbb2d28ee68bd021" category="inline-link-macro-rx"></block>.</block>
   <block id="fe77866a46d2eb6a7c2af4e6da3afb40" category="inline-link-macro">Configure los componentes de hardware de MetroCluster</block>
-  <block id="b16f070ef0ff70f134e9de232ff4d07d" category="paragraph">El entorno de MetroCluster está configurado y cableado como configuración IP de MetroCluster estándar, tal y como se describe en <block ref="1f208108354e7662d904d86579319d48" category="inline-link-macro-rx"></block>. Al realizar el procedimiento de instalación y cableado, debe realizar los pasos específicos de la configuración de capa 3:</block>
-  <block id="50355476e9050b2a291f3aee1615aa53" category="list-text">Los conmutadores MetroCluster se pueden conectar directamente al router o a uno o varios conmutadores intermedios. La VLAN debe ampliarse al dispositivo de puerta de enlace.</block>
-  <block id="0e94eed6c84ca698067d35e27e2c2b56" category="list-text">Utilice la<block ref="50e57debf79bf52aa078c6e993f8969f" prefix=" " category="inline-code"></block> Parámetro para configurar la dirección de interfaz IP de MetroCluster (MCC-IP) con una dirección de puerta de enlace IP.</block>
-  <block id="8f02ff97112ef08ffb62f88c80b6aab7" category="paragraph">Al configurar enrutadores y direcciones IP de puerta de enlace, asegúrese de que se cumplen los siguientes requisitos:</block>
-  <block id="254c2137e0390496acb79dd0bc699a37" category="list-text">En cada nodo, dos interfaces no pueden tener la misma dirección IP de pasarela.</block>
   <block id="7529321ce137d7312b6e8ba5d13f21e9" category="list-text">Las interfaces correspondientes de las parejas de ha de cada sitio deben tener la misma dirección IP de pasarela.</block>
   <block id="c2fdaa32e3c40d58194e8a3db0bc7230" category="list-text">Las interfaces correspondientes de un nodo y sus partners DR y AUX no pueden tener la misma dirección IP de la puerta de enlace.</block>
   <block id="f9444a19576866e65f0aef4edcc3a6f3" category="list-text">Las interfaces correspondientes de un nodo y sus partners DR y AUX deben tener el mismo ID de VLAN.</block>
-  <block id="0c0528f146b2a317df8f2dcc9f042cba" category="paragraph">Las VLAN de MetroCluster deben extenderse desde el switch Edge MetroCluster al router de la puerta de enlace para que el tráfico MetroCluster llegue a la puerta de enlace (consulte el diagrama mostrado anteriormente). Los identificadores de VLAN para las VLAN de MetroCluster deben ser los mismos en cada sitio. Sin embargo, las subredes pueden ser diferentes.</block>
-  <block id="fbe952f2d6d84cc85d1e1f8f557ede0e" category="paragraph">Utilice los archivos RCF creados por la herramienta RcfFileGenerator. La red entre los nodos MetroCluster y el enrutador de puerta de enlace debe proporcionar los mismos identificadores de VLAN que los establecidos en el archivo RCF.</block>
-  <block id="b9190193c292a0ff200a479f4f92d534" category="section-title">Requisitos de la red enrutada por IP</block>
-  <block id="c6c1faa8edb04466748eaa20b9f1af27" category="paragraph">La red enrutada por IP debe cumplir con los siguientes requisitos:</block>
   <block id="33fea8e13b43fdb7df3cb24e51cc42c4" category="list-text">El enrutamiento dinámico no es compatible con el tráfico MetroCluster.</block>
-  <block id="b6a9903c2ef511ee44c51b65db292bf6" category="list-text">Solo se admiten configuraciones MetroCluster de cuatro nodos (dos nodos en cada sitio).</block>
   <block id="b793654a30cf8567ed25af895400affb" category="list-text">Se necesitan dos subredes en cada sitio MetroCluster: Una en cada red.</block>
   <block id="4ef3b220e04ca274abbe1def1b61d2bc" category="list-text">No se admite la asignación de IP automática.</block>
   <block id="a3100bf3334206028c894a5568ddcf09" category="summary">Describe nuevas funciones, notas de actualización, problemas solucionados, limitaciones conocidas y problemas conocidos.</block>
@@ -12901,7 +12692,6 @@
   <block id="2d27e76da02804de2afe9d209e5cbb1c" category="admonition">Se recomienda mantener al menos un 20% de espacio libre para agregados reflejados para lograr un rendimiento y una disponibilidad de almacenamiento óptimos. Aunque la recomendación es del 10% para agregados no duplicados, el sistema de archivos puede utilizar el 10% adicional del espacio para absorber cambios incrementales. Los cambios incrementales aumentan el aprovechamiento del espacio para agregados reflejados gracias a la arquitectura basada en Snapshot de copia en escritura de ONTAP. Si no se siguen estas mejores prácticas, puede tener un impacto negativo en el rendimiento.</block>
   <block id="0e5e2d82a1039e41c19d2248f3b64787" category="admonition">Puede configurar las interfaces IP de MetroCluster desde cualquier clúster.</block>
   <block id="6212a1ad66c5ad9d3c50380aa91aab6a" category="list-text">Sin fallo de hardware</block>
-  <block id="8a1d06fd27bf0bfc6535b6a49185e591" category="paragraph">AFF A150</block>
   <block id="36cbaf4511461b23b06f56ad7754e17d" category="paragraph">Este procedimiento admite las siguientes actualizaciones de controladoras en sistemas que ejecutan ONTAP 9.13.1 y posteriores.</block>
   <block id="cfdade9e474e805958704ec0836f18ac" category="cell">Controladora de reemplazo</block>
   <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link-macro">aquí</block>
@@ -13436,4 +13226,279 @@
   <block id="09e34111ef8649a5302b1889e0c7d303" category="list-text">JRE 8</block>
   <block id="d434765df1b814e459b22676bed43318" category="paragraph">1,21Px</block>
   <block id="b3c0f57dcdb05faa9fbc38832a492a4e" category="admonition">Aparecen algunos mensajes de advertencia mientras se aplica la configuración. Por lo general, no se esperan mensajes de error. Sin embargo, si ha iniciado sesión mediante SSH, puede recibir el siguiente error:<block ref="f6ffe33fb36eb714adf6f81147c665f6" prefix=" " category="inline-code"></block></block>
+  <block id="c15b62e6a5ff15a0315735efe0205145" category="doc">Modifique la dirección, la máscara de red y la pasarela en una configuración IP de MetroCluster</block>
+  <block id="907d0a00eecf52dcc4562775faad470a" category="paragraph">A partir de ONTAP 9.10.1, puede cambiar las siguientes propiedades de una interfaz IP de MetroCluster: Dirección IP, máscara y puerta de enlace. Puede usar cualquier combinación de parámetros para actualizar.</block>
+  <block id="5e1f7c325aa2c4eb9ee527a8279eb798" category="list-text">[[step3]]Compruebe que todas las conexiones funcionan:</block>
+  <block id="cf07fc29a0bf48b43804bd5e97849449" category="summary">Si usa switches compatibles con MetroCluster, debe tener en cuenta las velocidades de red específicas de la plataforma y los requisitos del modo de puerto de switch.</block>
+  <block id="b6c12395a961cf95058c6e4d4412ac09" category="paragraph">En la siguiente tabla se muestran velocidades de red específicas de plataforma y modos de puertos de switch para switches conformes con MetroCluster. Debe configurar el modo de puerto de switch según la tabla.</block>
+  <block id="f2ac555a8b496557dba2555170124225" category="image-alt">velocidad de red del interruptor compatible con mcc</block>
+  <block id="8c425f952493015588fb91113b5b2dd8" category="summary">Esta sección contiene los requisitos de los enlaces entre switches (ISL) que llevan el tráfico MetroCluster en todas las configuraciones IP de MetroCluster y topologías de red.</block>
+  <block id="422a6c8c8d23cb29ed822adac0da8cd9" category="paragraph">Los enlaces entre switches (ISL) que manejan el tráfico MetroCluster en todas las configuraciones IP de MetroCluster y las topologías de red tienen determinados requisitos. Estos requisitos se aplican a todos los ISL con tráfico de MetroCluster, independientemente de si los ISL son directos o compartidos entre los switches de clientes.</block>
+  <block id="78464639db6e6acf657d9d576a0f2888" category="section-title">Requisitos generales de ISL de MetroCluster</block>
+  <block id="a5c426f5b72cbfd96a6dec4a6e3046d2" category="paragraph">Lo siguiente se aplica a los ISL en todas las configuraciones IP de MetroCluster:</block>
+  <block id="f2fe3be43c081827bf52c1013416d414" category="list-text">Ambas estructuras deben tener el mismo número de ISL.</block>
+  <block id="baf55d93093b54950152b6be3f9bfec2" category="list-text">Los ISL de una estructura deben tener todos la misma velocidad y longitud.</block>
+  <block id="4b00dc01ca120693f1539bf736f11069" category="list-text">Los ISL de ambos tejidos deben tener la misma velocidad y longitud.</block>
+  <block id="ef6ab3e28db1093c7315b30edeb84730" category="list-text">La diferencia máxima admitida en la distancia entre la estructura 1 y la estructura 2 es 20km o 0,2ms.</block>
+  <block id="1b6ceb9b8db71407a3be0617e754101e" category="list-text">Los ISL de una estructura deben tener la misma topología. Por ejemplo, todos deben ser enlaces directos, o si la configuración utiliza WDM, todos deben usar WDM.</block>
+  <block id="ddf41f2636c98d00a2698837f55a3f74" category="list-text">La velocidad de ISL debe ser mínimo 10Gbps.</block>
+  <block id="cb806a9b25dfb1d4470413a3c2dd9944" category="list-text">Debe haber al menos un puerto ISL de 10Gbps Gb por estructura.</block>
+  <block id="25b13aa97e6e9eb228478bfddbcc84e9" category="paragraph">Lo siguiente se aplica al tráfico de ida y vuelta entre los conmutadores IP de MetroCluster en SITE_A y SITE_B, con la configuración de MetroCluster en funcionamiento estable:</block>
+  <block id="ae36a5fd21eb894eb914590a632f59c9" category="list-text">A medida que aumenta la distancia entre dos sitios MetroCluster, la latencia aumenta, por lo general, dentro del rango de tiempo de retraso de ida y vuelta de 1 ms por 100 km (62 millas). La latencia también depende del acuerdo de nivel de servicio de red (SLA) en términos del ancho de banda de los enlaces ISL, la tasa de caída de paquetes y la fluctuación de la red. El bajo ancho de banda, la fluctuación alta y las caídas aleatorias de paquetes conducen a diferentes mecanismos de recuperación por parte de los switches, o el motor TCP en los módulos del controlador, para una entrega correcta de paquetes. Estos mecanismos de recuperación pueden aumentar la latencia general. Para obtener información específica sobre la latencia de los viajes completos y los requisitos de distancia máxima para su configuración, consulte <block ref="44be38b301d3bfae89cdec57afffd9be" category="inline-link-macro-rx"></block></block>
+  <block id="827d473df1489ff96dfc62d8af802566" category="list-text">La <block ref="44be38b301d3bfae89cdec57afffd9be" category="inline-link-macro-rx"></block> proporciona la distancia en km. Debe asignar 1ms por cada 100km. La distancia máxima se define por lo que se alcanza primero, ya sea el tiempo máximo de ida y vuelta (RTT) en ms, o la distancia en km Por ejemplo, si _the Hardware Universe_ enumera una distancia de 300km, traduciéndose a 3ms, su ISL no puede ser más de 300km y la RTT máxima no puede exceder 3ms, lo que se alcance primero.</block>
+  <block id="22380478e64b8062eb70d91ccdd67ce7" category="list-text">La pérdida de paquetes debe ser inferior o igual al 0,01%. La pérdida máxima de paquetes es la suma de todas las pérdidas de todos los enlaces de la ruta entre los nodos MetroCluster y la pérdida en las interfaces IP de MetroCluster locales.</block>
+  <block id="0b2575167b6e71da84f0682066aa5c0d" category="list-text">El valor de fluctuación admitido es 3ms para ida y vuelta (o 1,5ms para ida y vuelta).</block>
+  <block id="b1bbb8c0e7431a301e05959762cb6be0" category="list-text">La red debe asignar y mantener la cantidad de ancho de banda de acuerdo de nivel de servicio necesaria para el tráfico MetroCluster, independientemente de las microráfagas y los picos en el tráfico.</block>
+  <block id="db5dfb006abd3b92e48ae138fe185ffb" category="list-text">Si utiliza ONTAP 9,7 o una versión posterior, la red intermedia entre los dos sitios debe proporcionar un ancho de banda mínimo de 4,5Gbps GB para la configuración de IP de MetroCluster.</block>
+  <block id="8feeeb8c24b7a524af9a025841262932" category="section-title">Consideraciones sobre el transceptor y el cable</block>
+  <block id="667735c31f9e3d4e69adccaa68e87206" category="paragraph">Los SFP o QSFP compatibles con el proveedor de equipos son compatibles con los ISL de MetroCluster. Los SFP y los QSFP que proporciona NetApp o el proveedor del equipo deben ser respaldados por el firmware del switch y del switch.</block>
+  <block id="887966b0ad45d1598b4a9517835a9477" category="paragraph">Al conectar las controladoras a los switches y los ISL del clúster local, debe usar los transceptores y los cables que proporciona NetApp con el MetroCluster.</block>
+  <block id="e85cb21e89ca9d04ba904100f2ca54dd" category="section-title">Uso de xWDM, TDM y dispositivos de cifrado externos</block>
+  <block id="b93bd17cefcbedfcddd97a878fe619ca" category="paragraph">Cuando utiliza dispositivos xWDM/TDM o dispositivos que proporcionan cifrado en una configuración IP de MetroCluster, el entorno debe cumplir los siguientes requisitos:</block>
+  <block id="5ccca3c124f21ccc9309774d650ff25a" category="list-text">Al conectar los conmutadores IP de MetroCluster al xWDM/TDM, el proveedor debe certificar los dispositivos de cifrado externos o el equipo xWDM/TDM para el conmutador y el firmware. La certificación debe cubrir el modo de funcionamiento (como troncalización y cifrado).</block>
+  <block id="d649419649cb678c33d0b903d521e77d" category="list-text">La latencia y la fluctuación general de extremo a extremo, incluido el cifrado, no pueden superar la cantidad máxima indicada en el IMT y en esta documentación.</block>
+  <block id="2d4984b69db60670a112b74742b0e904" category="section-title">Número admitido de ISLs y cables de conexión</block>
+  <block id="fb107bb292185991f92a0e25ae8d6a7d" category="paragraph">La siguiente tabla muestra el número máximo admitido de ISL que se pueden configurar en un conmutador IP de MetroCluster mediante la configuración de archivo de configuración de referencia (RCF).</block>
+  <block id="44f1305d14d557252a2dc140a921830d" category="cell">Número máximo de ISLs</block>
+  <block id="a3a59d60bdb611e1b4c58bf4c4cf7723" category="paragraph">4 ISL con 10Gbps o 25Gbps</block>
+  <block id="05f775ee7e2e9c0191349d27678ee92a" category="paragraph">Puertos nativos (Nota 1)</block>
+  <block id="7fc50d7658ce6e69450367a1566d2160" category="paragraph">2 ISL con 40Gbps o 100Gbps</block>
+  <block id="d92546772d08abd00db8e99ff54c7ecb" category="paragraph">6 ISLs usando 40Gbps</block>
+  <block id="0274c7930fb2689bb0d5d7900b24b372" category="paragraph">16 ISLs usando 10Gbps</block>
+  <block id="cdd7ce1b4fb53a24815dfe597e2d9bf4" category="paragraph">6 ISL con 40Gbps o 100Gbps</block>
+  <block id="5f464862c3ad92817ffd0d939008e569" category="paragraph">16 ISLs usando 10</block>
+  <block id="a47530745311f9d2efa307163eb1ee61" category="paragraph">Puertos nativos (Nota 2)</block>
+  <block id="a86749ca3f0eb199f6cde6d8cc60d442" category="paragraph">4 ISL con 40Gbps o 100Gbps</block>
+  <block id="83462a2f17a5fa1e38b557632ec6d366" category="paragraph">Cables de desconexión (Nota 2)</block>
+  <block id="94f92369bb57ec3cd50af356ac87615d" category="paragraph">NVIDIA SN2100</block>
+  <block id="e742bd9fac434ad11cb2ad1f6bf81c22" category="paragraph">8 ISL con 10Gbps o 25Gbps</block>
+  <block id="57806988ce5a738c0e2a24b77927841a" category="paragraph">*Nota 1*: El uso de 40Gbps o 100Gbps ISLs en un conmutador BES-53248 requiere una licencia adicional.</block>
+  <block id="e2470e32c0e86c6c4a72a4740defccf2" category="paragraph">*Nota 2*: Los mismos puertos se utilizan para la velocidad nativa y el modo de ruptura. Debe elegir utilizar los puertos en modo de velocidad nativo o modo de ruptura al crear el archivo RCF.</block>
+  <block id="210ce8af438dddcd62166408fac706c7" category="list-text">Todos los ISL de un switch IP de MetroCluster deben tener la misma velocidad. No se admite el uso de una combinación de puertos ISL con diferentes velocidades simultáneamente.</block>
+  <block id="0c1686d7a527ea2db8a72392a860f59c" category="list-text">Para obtener un rendimiento óptimo, debe utilizar al menos un ISL de 40Gbps Gb por red. No se debe utilizar un solo ISL de 10Gbps Gb por red para FAS9000, AFF A700 u otras plataformas de alta capacidad.</block>
+  <block id="932fb139d393444f022abae844a0f930" category="admonition">NetApp recomienda configurar un número pequeño de ISL de ancho de banda alto, en lugar de un número alto de ISL de ancho de banda bajo. Por ejemplo, se prefiere configurar un ISL de 40Gbps Gbps en lugar de cuatro ISL de 10Gbps Gbps. Cuando se utilizan varios ISL, el equilibrio de carga estadístico puede afectar al rendimiento máximo. El equilibrio desigual puede reducir el rendimiento al de un único ISL.</block>
+  <block id="38c2425cd3eb3add7b70e3f33eb88ddb" category="summary">En esta sección se proporciona la información necesaria para verificar que la configuración de MetroCluster y la red cumplen todos los requisitos.</block>
+  <block id="b3afb8520c6389b800eb9ce2c45ab2ba" category="doc">Switches validados por NetApp y conformes con MetroCluster</block>
+  <block id="e28e9835ecaf16f4bdf25d7e6e04c512" category="paragraph">Todos los switches utilizados en la configuración, incluidos los switches back-end, deben estar validados por NetApp o conformes a la normativa con MetroCluster.</block>
+  <block id="d5d85142dbdda4a696e7722b3c96dc4a" category="paragraph">Un switch está validado por NetApp si cumple con los siguientes requisitos:</block>
+  <block id="c8ca446c1fea2c076d78412221cebd1b" category="list-text">El interruptor aparece en la <block ref="41f66f34b3a905f864500c9319fdff8f" category="inline-link-macro-rx"></block> Como un switch admitido en _MetroCluster-over-IP-connections_</block>
+  <block id="14bb4f6c6d9e383cc569d9498b83c24e" category="list-text">El switch se configura usando el archivo de configuración de referencia (RCF) que proporciona NetApp</block>
+  <block id="3f3f7f794ea7fa2f780388bfffd726f0" category="paragraph">Cualquier switch que no cumpla con estos requisitos es *NO* un switch validado por NetApp.</block>
+  <block id="6e90f0ca5975aa305331b461c0d17a10" category="paragraph">Un switch compatible con MetroCluster no está validado por NetApp, pero puede utilizarse en una configuración de IP de MetroCluster si cumple ciertos requisitos y directrices de configuración.</block>
+  <block id="81d0b430232d54ef8c3da154a6bb51df" category="admonition">NetApp no proporciona servicios de soporte de configuración o solución de problemas para ningún switch que cumpla con MetroCluster no validado.</block>
+  <block id="e4d0658d40deb1bdd0cba2af1bb7edcc" category="summary">A partir de ONTAP 9,6, se admiten algunas configuraciones de red adicionales para las configuraciones IP de MetroCluster.</block>
+  <block id="d4e5769f0b30b686cad3f67f0712a4ed" category="paragraph">A partir de ONTAP 9,6, se admiten algunas configuraciones de red adicionales para las configuraciones IP de MetroCluster. En esta sección se proporcionan algunos ejemplos de las configuraciones de red admitidas. No se muestran todas las topologías admitidas.</block>
+  <block id="f8c144d99faf0be94c6f73117182fe1c" category="paragraph">En estas topologías, se asume que el ISL y la red intermedia se configuran de acuerdo con los requisitos descritos en <block ref="3a1583c43d5c26bc5494a0499ae33c72" category="inline-link-macro-rx"></block>.</block>
+  <block id="3f455575634261ee88453f2b32a39574" category="admonition">Si comparte un ISL con tráfico que no sea de MetroCluster, debe verificar que MetroCluster tenga al menos el ancho de banda mínimo requerido disponible en todo momento.</block>
+  <block id="714d7f26f344f1a2137ecaafa3977560" category="paragraph">En esta topología, dos sitios distintos están conectados mediante vínculos directos. Estos enlaces pueden estar entre los dispositivos xWDM y TDM o switches. La capacidad de los ISL no está dedicada al tráfico de MetroCluster, sino que se comparte con otro tráfico que no sea de MetroCluster.</block>
+  <block id="c6cb1b44e79b73322f9f95a6e6a856bf" category="paragraph">En esta topología, los sitios de MetroCluster no están conectados directamente, sino que MetroCluster y el tráfico de host viajan a través de una red.
+La red puede consistir en una serie de xWDM y TDM y switches, pero a diferencia de la configuración compartida con ISLs directos, los enlaces no son directos entre los sitios. Dependiendo de la infraestructura entre los sitios, cualquier combinación de configuraciones de red es posible.</block>
+  <block id="0ebe9ae371e55183b558cb093feb8087" category="section-title">Varias configuraciones de MetroCluster que comparten una red intermedia</block>
+  <block id="5ba8b9c9d6b3d9754ec372dd3472dbd0" category="paragraph">En esta topología, dos configuraciones de MetroCluster independientes comparten la misma red intermedia. En el ejemplo, MetroCluster ONE SWITCH_A_1 y MetroCluster Two SWITCH_A_1, ambos se conectan al mismo conmutador intermedio.</block>
+  <block id="fd42ae0e289ae7349d9cb095b5baedcb" category="admonition">Tanto «MetroCluster One» como «MetroCluster two» pueden ser una configuración MetroCluster de ocho nodos o dos configuraciones MetroCluster de cuatro nodos.</block>
+  <block id="445254de7995c8ef37155f67cff1ccd8" category="section-title">Combinación de una configuración MetroCluster con switches validados NetApp y una configuración mediante switches conformes a la normativa MetroCluster</block>
+  <block id="d0f4ebf077d350978a17afd3cf7a8bc3" category="paragraph">Dos configuraciones de MetroCluster separadas comparten el mismo switch intermedio, donde un MetroCluster se configura usando switches validados por NetApp en una configuración de capa 2 compartida (MetroCluster One) y el otro MetroCluster se configura usando switches compatibles con MetroCluster y se conectan directamente a los switches intermedios (MetroCluster Two).</block>
+  <block id="15111207d6b0c0cbf958b921f4798172" category="summary">Obtenga más información sobre las diversas configuraciones de puertos del switch.</block>
+  <block id="698eaadeb5d3fb421bccdcf1b0ab1fef" category="doc">Ejemplos de configuración de puertos de switch</block>
+  <block id="39c7e049077f0d9b7a1fa77f6180ea92" category="admonition">Los siguientes ejemplos utilizan valores decimales y siguen la tabla que se aplica a los switches de Cisco. En función del proveedor del switch, es posible que necesite valores diferentes para DSCP. Consulte la tabla correspondiente de su proveedor de switches para confirmar el valor correcto.</block>
+  <block id="35ad26d27261978449b9fa90bdfbbee1" category="cell">Valor DSCP</block>
+  <block id="937504f318f04eaf0f1d701df4c4d7f3" category="cell">Decimal</block>
+  <block id="92640bd72988395b326c888614f8937a" category="cell">Hexagonal</block>
+  <block id="7277de5f2ed6f17c61f1f25594591a82" category="cell">Significado</block>
+  <block id="8b7e00eb8a358958722be8ce20193ff2" category="paragraph">101 000</block>
+  <block id="7f6a417be70d8c2743207d53badb5c83" category="paragraph">0x10</block>
+  <block id="aef7a4e1b7e3fe7e4df67684dbffa9e1" category="paragraph">CS2</block>
+  <block id="3a7057801a60578b2ed0bbaf035dfc21" category="paragraph">011 000</block>
+  <block id="b0757d5c3880247054302eee28d9d08c" category="paragraph">0x18</block>
+  <block id="8c4e56414e26520294c3b571e92e58e4" category="paragraph">CS3</block>
+  <block id="7e0cd72ce46464b7b74a6be952e1198d" category="paragraph">100 000</block>
+  <block id="9cb7196b9376491fb16d0db6de086efb" category="paragraph">0x20</block>
+  <block id="7009daf81333670cd06b8bb2b02054cc" category="paragraph">CS4</block>
+  <block id="64759f4346c9c74f5744ed5781753be7" category="paragraph">0x28</block>
+  <block id="1c61feff957ecc2d50e499cbe076094c" category="paragraph">CS5</block>
+  <block id="152ac40eab234174a4df3411ce840abc" category="list-title">Puerto del switch que conecta una interfaz MetroCluster</block>
+  <block id="d3739a6ca5f7881d26cd16ae0246cb66" category="list-text">Clasificación para tráfico de acceso remoto directo a memoria (RDMA):</block>
+  <block id="1fbc1d9fd1cab89ba481e86cf474c0db" category="list-text">Coincidencia: Puerto TCP 10006, origen, destino o ambos</block>
+  <block id="a829c133d53608ae0e95e4674bf97b6b" category="list-text">Partido opcional: COS 5</block>
+  <block id="6f8616dc7edb0ec3be10494e52645e33" category="list-text">Partido opcional: DSCP 40</block>
+  <block id="d8211541cda259f40aead0607233255f" category="list-text">Establezca DSCP 40</block>
+  <block id="f530740ac9e609fc21d073ac7a1005eb" category="list-text">Establezca COS 5</block>
+  <block id="905698c568b08ffae010badfede2c3d9" category="list-text">Opcional: Ajuste de tasa a 20Gbps</block>
+  <block id="6f9086eed365c3a2db1521fa98bb7fad" category="list-text">Clasificación para tráfico de iSCSI:</block>
+  <block id="bfee253ff06448698780744ab1762cba" category="list-text">Coincidencia: Puerto TCP 62500, origen, destino o ambos</block>
+  <block id="b6b4cd52ee0814cd111c7646f3ec71cf" category="list-text">Partido opcional: COS 4</block>
+  <block id="bc0161255c709f2bfdb09ade9fbc1364" category="list-text">Partido opcional: DSCP 32</block>
+  <block id="18b58e1c9302e2acb18218c02c62dab7" category="list-text">Establezca DSCP 32</block>
+  <block id="9635157acb849c6a772e37e0f94858d6" category="list-text">Establezca COS 4</block>
+  <block id="0e6469e92f0a600d51275ec32be23bb1" category="list-text">L2FlowControl (pausa), RX y TX</block>
+  <block id="85a0f387d72a9b66caa12bfd8ac6c340" category="list-text">Clasificación:</block>
+  <block id="e27bd9b5b6530f056100c85e8e3f0077" category="list-text">Coincidir con COS 5 o DSCP 40</block>
+  <block id="e9430458570a06bf61121dd05841e47c" category="list-text">Coincidir con COS 4 o DSCP 32</block>
+  <block id="5874b557eb2d616519503b3a9d5ce19c" category="list-text">Cola de salida</block>
+  <block id="78456c8ab5587f32bc610877d74ef7a7" category="list-text">El grupo COS 4 tiene un umbral de configuración mínimo de 2000 y un umbral máximo de 3000</block>
+  <block id="b4b17fa389e749d338c939d59e32db97" category="list-text">El grupo COS 5 tiene un umbral de configuración mínimo de 3500 y un umbral máximo de 6500.</block>
+  <block id="246d20a235e1c5c1dbb77c8dd872497b" category="admonition">Los umbrales de configuración pueden variar en función del entorno. Debe evaluar los umbrales de configuración en función de su entorno individual.</block>
+  <block id="accd310df4e17b2af66b22edc9c1e947" category="list-text">ECN activado para Q4 y Q5</block>
+  <block id="e5d00fe64d05f1fce7d98d430a420841" category="list-text">ROJO activado para Q4 y Q5</block>
+  <block id="afeb146185af0336a8e15734f4d8d82b" category="list-title">Asignación del ancho de banda (puertos del switch que conectan las interfaces MetroCluster y los puertos ISL)</block>
+  <block id="4ffad2b7caeb46c571b7de01bf63c497" category="list-text">RDMA, COS 5 / DSCP 40: 60%</block>
+  <block id="fddd1eb673a9b9d4b1288a3e624d4702" category="list-text">ISCSI, COS 4 / DSCP 32: 40%</block>
+  <block id="74a0d47e246ff885c997c58ac7f5c7ef" category="list-text">Requisito de capacidad mínima por configuración de MetroCluster y red: 10Gbps</block>
+  <block id="e14e93b70d1997123d2de410047c323f" category="admonition">Si usas límites de tasa, el tráfico debe ser *formado* sin introducir pérdida.</block>
+  <block id="e53ae17087425b26dcf2c8f30e6a2f79" category="section-title">Ejemplos para configurar puertos del switch que conectan la controladora MetroCluster</block>
+  <block id="1d44ff8a3ea66c300c0fc107ab6d6979" category="paragraph">Los comandos de ejemplo proporcionados son válidos para los switches Cisco NX3232 o Cisco NX9336. Los comandos varían según el tipo de switch.</block>
+  <block id="63459049e091924c73609b9957c4e64f" category="paragraph">Si una función o equivalente que se muestra en los ejemplos no está disponible en el switch, el switch no cumple con los requisitos mínimos y no se puede utilizar para implementar una configuración de MetroCluster. Este es el caso para cualquier switch que se conecte a una configuración de MetroCluster y a todos los switches intermedios.</block>
+  <block id="11eba6b520d78c3fbdee86eaa640f55e" category="admonition">Los siguientes ejemplos pueden mostrar solo la configuración de una red.</block>
+  <block id="416206518e27ed2ec8b8e0876078af35" category="paragraph-title">Configuración básica</block>
+  <block id="92960f86c54c971b6a0cf5a9c0ba173f" category="paragraph">Debe configurarse una LAN virtual (VLAN) en cada red. El ejemplo siguiente muestra cómo configurar una VLAN en la red 10.</block>
+  <block id="c26fe677a830587ef1c141567a86c86a" category="paragraph">*Ejemplo:*</block>
+  <block id="0d2aec46175773fc70efbe5d12535b0a" category="section-title">Ejemplos para configurar la clasificación</block>
+  <block id="b6743577d6311b6a886fd545eecad9ab" category="paragraph">Debe configurar el acceso y los mapas de clases para asignar tráfico de RDMA e iSCSI a las clases adecuadas.</block>
+  <block id="2cb92abbd15a47018d0204e9dfee4122" category="paragraph">En el ejemplo siguiente, todo el tráfico TCP hacia y desde el puerto 65200 se asigna a la clase de almacenamiento (iSCSI). Todo el tráfico TCP hacia y desde el puerto 10006 se asigna a la clase RDMA. Estos mapas de normativas se utilizan en los puertos de switch que conectan las interfaces MetroCluster.</block>
+  <block id="f80f72892df8210cce38857cf663c2ed" category="paragraph">Debe configurar una política de entrada. Una política de ingreso asigna el tráfico según su clasificación a diferentes grupos de COS. En este ejemplo, el tráfico RDMA se asigna al grupo COS 5 y el tráfico iSCSI se asigna al grupo COS 4. La política de entrada se utiliza en los puertos del switch que conectan las interfaces MetroCluster y en los puertos ISL que tienen tráfico MetroCluster.</block>
+  <block id="66a59d5a8e6aaa9cf1a591ec9c2aebb3" category="paragraph">NetApp recomienda que dé forma al tráfico en los puertos del switch que conectan una interfaz MetroCluster, como se muestra en el ejemplo siguiente:</block>
+  <block id="fa2cdd1d9c185220534e9a5f6e581f57" category="section-title">Ejemplos de configuración de los puertos del nodo</block>
+  <block id="6c19da68939fc2775a2a8c23908971ef" category="paragraph">Es posible que deba configurar un puerto de nodo en modo de interrupción. En el siguiente ejemplo, los puertos 25 y 26 están configurados en el modo de desconexión 4 x 25Gbps.</block>
+  <block id="f9d3b2b553dd7e256aefbf7a7cb80c85" category="paragraph">Es posible que deba configurar la velocidad del puerto de la interfaz MetroCluster. El siguiente ejemplo muestra cómo configurar la velocidad en *auto* o en modo 40Gbps:</block>
+  <block id="a510a743559d6f2f71e9d8bf3b5f0f30" category="paragraph">En el ejemplo siguiente se muestra un puerto del switch configurado para conectar una interfaz de MetroCluster. Es un puerto de modo de acceso en VLAN 10, con un MTU de 9216 y funciona en velocidad nativa. Tiene habilitado el control de flujo (pausa) simétrico (enviar y recibir) y las políticas de entrada y salida de MetroCluster asignadas.</block>
+  <block id="a791c23bf43a913e9bc2dd3fbb04acf3" category="paragraph">En los puertos 25Gbps, es posible que deba establecer la opción Corrección de errores de reenvío (FEC) en OFF, como se muestra en el siguiente ejemplo.</block>
+  <block id="c1e9e67d43bd92599acf6de487a61c65" category="section-title">Ejemplos de configuración de puertos ISL en toda la red</block>
+  <block id="18b91592ae3775f34f65c991d793f843" category="paragraph">Un switch compatible con MetroCluster se considera un switch intermedio, incluso conecta directamente las interfaces MetroCluster. Los puertos ISL con tráfico MetroCluster en el switch compatible con MetroCluster deben configurarse de la misma manera que los puertos ISL en un switch intermedio. Consulte <block ref="d4732e32817c639c5e57cf150621c360" category="inline-link-macro-rx"></block> para obtener orientación y ejemplos.</block>
+  <block id="a05b3cdfc5cc23ee6b2d90f33be54635" category="admonition">Algunos mapas de normativas son los mismos para los puertos de switch que conectan interfaces MetroCluster y ISL que llevan tráfico MetroCluster. Puede utilizar el mismo mapa de políticas para ambos usos de puerto.</block>
+  <block id="80d1269e99768d5e883ffa70dd8f6aeb" category="summary">Según sus requisitos, puede usar redes compartidas de capa 2 o capa 3 para poner en marcha MetroCluster.</block>
+  <block id="1c46b7bbd317f603895892a646ef8b2d" category="doc">Consideraciones que se deben tener en cuenta al implementar MetroCluster en redes compartidas de capa 2 o capa 3</block>
+  <block id="2ff08728ea0124138aa06bf0f8c8ea31" category="paragraph">A partir de ONTAP 9,6, las configuraciones IP de MetroCluster con switches Cisco compatibles pueden compartir redes existentes de enlaces entre switches (ISL) en lugar de utilizar ISL de MetroCluster dedicados. Esta topología se conoce como _shared layer 2 networks_.</block>
+  <block id="cc723d7803ba423b47b353cc9dfa54ff" category="paragraph">A partir de ONTAP 9.9.1, las configuraciones de IP de MetroCluster se pueden implementar con conexiones de back-end enrutadas por IP (capa 3). Esta topología se conoce como _shared layer 3 networks_.</block>
+  <block id="80a482ff4ac144c8d8c1e668a348dd67" category="list-text">Debe verificar que tenga la capacidad de red adecuada y que el tamaño de ISL sea adecuado a la configuración. Una latencia baja es crucial para la replicación de datos entre los sitios MetroCluster. Los problemas de latencia en estas conexiones pueden afectar a las operaciones de I/o del cliente</block>
+  <block id="37eee3b9ac9781ca0484f54aeef70602" category="list-text">Todas las referencias a switches back-end de MetroCluster hacen referencia a switches validados por NetApp o conformes a MetroCluster. Consulte <block ref="16daa185b92984fefaae8aa04a4cd437" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
+  <block id="fb51bd6bc8df92b67b0dbb637314bf54" category="section-title">Requisitos de ISL para las redes de capa 2 y capa 3</block>
+  <block id="58137a1ac83de260ca60eccfcb17156d" category="paragraph">Lo siguiente se aplica a las redes de capa 2 y capa 3:</block>
+  <block id="0993d8fc99c85994b32658ca6ec6793e" category="list-text">No es necesario que coincidan la velocidad y el número de ISL entre los switches de MetroCluster y los switches de red intermedios. De igual modo, no es necesario que la velocidad entre los switches de red intermedios coincida.</block>
+  <block id="e86033c89acfedd6f1712d0fc113d65e" category="paragraph">Por ejemplo, los switches MetroCluster se pueden conectar mediante un ISL de 40Gbps Gb a los switches intermedios y los switches intermedios se pueden conectar entre sí mediante dos ISL de 100Gbps Gbps.</block>
+  <block id="8eb2d711b28ba52fd757990156cc9af3" category="list-text">La supervisión de red debe configurarse en la red intermedia para supervisar la utilización de los ISLs, errores (caídas, flaps de enlace, corrupción, etc.), y fallos.</block>
+  <block id="f7b423d1ee713bf3285829978ce48331" category="list-text">El tamaño de MTU debe establecerse en 9216 en todos los puertos con tráfico MetroCluster integral.</block>
+  <block id="f9e9b76449caab6e71a42abee6aba4e7" category="list-text">No se puede configurar ningún otro tráfico con una prioridad más alta que la clase de servicio (COS) 5.</block>
+  <block id="13b4ddbad8ca7740efa748e6262e919e" category="list-text">La notificación explícita de congestión (ECN) debe configurarse en todas las rutas que transporten tráfico MetroCluster de extremo a extremo.</block>
+  <block id="0b98609b51a21604f1a00a4828047fa4" category="list-text">Los ISL que transportan tráfico de MetroCluster deben ser enlaces nativos entre los switches.</block>
+  <block id="d68cc50331576837c5a83b1affefcd38" category="paragraph">No se admiten servicios de uso compartido de enlaces como enlaces de conmutación de etiquetas multiprotocolo (MPLS).</block>
+  <block id="b76b15693c2f8c16c80e09ae0fe2b441" category="list-text">Las VLAN de capa 2 deben abarcar los sitios de forma nativa. No se admite la superposición de VLAN como la LAN extensible virtual (VXLAN).</block>
+  <block id="2156b2d970617b3d65eafda966103652" category="list-text">El número de interruptores intermedios no está limitado. Sin embargo, NetApp recomienda mantener el número de switches al mínimo requerido.</block>
+  <block id="b0dbac2ed11a4ffb9cf551a68744fc3b" category="list-text">Los ISL en switches MetroCluster se configuran con lo siguiente:</block>
+  <block id="5e34055a3e0591bb621f4758f8ab5c63" category="list-text">Modo de puerto de switch 'troncal' como parte de un puerto-canal LACP</block>
+  <block id="a819f04829e8d3d3f22e5c1321e7af0d" category="list-text">El tamaño de MTU es 9216</block>
+  <block id="3276e46322c8ba3f79ce3ea27b68265d" category="list-text">No hay configurada ninguna VLAN nativa</block>
+  <block id="c4e0b3187c97c7f37c8ce07e79b76791" category="list-text">Solo se permiten las VLAN que llevan tráfico MetroCluster entre sitios</block>
+  <block id="b6c4e1e2f2a0c06e8d9a324d954bc763" category="list-text">No se permite la VLAN predeterminada del switch</block>
+  <block id="3f3bba6728c947cfa6f369c605b7118b" category="section-title">Consideraciones sobre las redes de capa 2</block>
+  <block id="64dd6d9e6b2c1c66728d029e3b45abd2" category="paragraph">Los switches back-end de MetroCluster están conectados a la red del cliente.</block>
+  <block id="11ab87f335ed35c8bcf058a70cebc2be" category="image-alt">MCC layer2</block>
+  <block id="6acf5532efb336e0d8001419f26ef951" category="list-text">La red intermedia debe proporcionar las mismas VLAN entre los sitios. Esto debe coincidir con las VLAN de MetroCluster establecidas en el archivo RCF.</block>
+  <block id="ac8a1f1bfd836ba146d1ab2feb59b2fa" category="list-text">RcfFileGenerator puede restringir el uso de determinados identificadores de VLAN, por ejemplo, si están destinados a un uso futuro. Por lo general, las VLAN reservadas son de hasta 100, incluidas.</block>
+  <block id="d4a11c01614c17bddc7d41960498137a" category="paragraph-title">Configuración de VLAN en ONTAP</block>
+  <block id="2fdb610706dea62a50ca16baa1d63c2a" category="paragraph">Solo puede especificar la VLAN durante la creación de la interfaz. Después de crear las interfaces de MetroCluster, no se puede cambiar el ID de VLAN. Puede configurar otras VLAN durante la creación de la interfaz, pero deben estar dentro del intervalo de 10 a 20 o dentro del intervalo de 101 a 4096 (o el número admitido por el proveedor del switch, el que sea el número menor).</block>
+  <block id="5c7b46710dbc52038abeae30dc7410f8" category="admonition">Es posible que algunos proveedores de switch reserven el uso de determinadas VLAN.</block>
+  <block id="c42b50e941d0ad3822d8ba3c571ef6c4" category="paragraph">Los siguientes sistemas no requieren configuración de VLAN en ONTAP. La VLAN está especificada por la configuración de puertos del switch:</block>
+  <block id="24eb498f969850d03efc1a22afbc9649" category="list-text">FAS8200 y AFF A300</block>
+  <block id="1bcc0cae878ae9cc7fa87246f0d4540c" category="list-text">FAS9000 y AFF A700</block>
+  <block id="7d60aa55363e89f3edb95d64f7738599" category="list-text">AFF A800, ASA A800, AFF C800 y ASA C800</block>
+  <block id="9726fef0e4dc57d416750f1437b801d2" category="admonition">Los sistemas enumerados anteriormente pueden configurarse mediante VLAN 100 y versiones anteriores. Sin embargo, algunas VLAN de este rango pueden estar reservadas para otros usos o para usos futuros.</block>
+  <block id="d113a6ed852ea26337d713450639ad33" category="paragraph">Para los demás sistemas, debe configurar la VLAN cuando crea las interfaces de MetroCluster en ONTAP. Se aplican las siguientes restricciones:</block>
+  <block id="69cb699eb5cb6fc6aac153a3486a2d02" category="list-text">La VLAN predeterminada es 10 y 20</block>
+  <block id="6954b86244a9da40b24d29171fe19dd2" category="list-text">Si ejecuta ONTAP 9,7 o una versión anterior, solo puede utilizar la VLAN 10 y 20 predeterminadas.</block>
+  <block id="c3a01939286fd058fa14f456bdf7fe55" category="list-text">Si ejecuta ONTAP 9,8 o una versión posterior, puede utilizar la VLAN 10 y 20 predeterminada y también puede usarse una VLAN sobre 100 (101 y superior).</block>
+  <block id="383a9ccc3c329cd46717d48764d2a3a1" category="section-title">Consideraciones sobre las redes de capa 3</block>
+  <block id="262180f9a3b542d7e9252ccb29c6e05a" category="paragraph">El entorno de MetroCluster está configurado y cableado como configuración IP de MetroCluster estándar, tal y como se describe en <block ref="311f44367ad647b525912f40849bbd78" category="inline-link-macro-rx"></block>. Al realizar el procedimiento de instalación y cableado, debe realizar los pasos específicos de una configuración de capa 3. Lo siguiente se aplica a las configuraciones de la capa 3:</block>
+  <block id="9754d5ef829b115c83fcfad16e037150" category="list-text">Puede conectar switches MetroCluster directamente al enrutador o a uno o más interruptores intervinientes.</block>
+  <block id="ed94574fa9ed2387bee462bdd7cd3ba5" category="list-text">Puede conectar interfaces IP de MetroCluster directamente al enrutador o a uno de los interruptores que intervienen.</block>
+  <block id="f1596f206c54f2be9203577a2eff12b5" category="list-text">La VLAN debe ampliarse al dispositivo de puerta de enlace.</block>
+  <block id="9b0be62b5e24c67f7d0b3aa7b31b6604" category="list-text">Utilice la<block ref="952b62648c6a534516a9c3c7315a7c7d" prefix=" " category="inline-code"></block> Para configurar la dirección de la interfaz IP de MetroCluster con una dirección de puerta de enlace IP.</block>
+  <block id="f6d02847cab7cb4beb1719ebf258e2f2" category="list-text">Los identificadores de VLAN para las VLAN de MetroCluster deben ser los mismos en cada sitio. Sin embargo, las subredes pueden ser diferentes.</block>
+  <block id="b7b42132f8e93917eac40b208d22bece" category="list-text">No se admiten las siguientes funciones:</block>
+  <block id="e175f2efef635374c81a1849be567459" category="list-text">Actualizar una configuración de MetroCluster de cuatro nodos</block>
+  <block id="737fb92f35cc9bdf093b6e69cc63f06d" category="paragraph">Al configurar enrutadores y direcciones IP de puerta de enlace, debe cumplir los siguientes requisitos:</block>
+  <block id="a90528fa780e67a14116d1611ce717d2" category="list-text">No puede haber dos interfaces de un nodo con la misma dirección IP de pasarela.</block>
+  <block id="70bfc0d0b45a011747af6c74384efe16" category="section-title">Configuración requerida para interruptores intermedios</block>
+  <block id="447dfac8aa099d425869681811719a30" category="paragraph">Cuando el tráfico MetroCluster atraviesa un ISL en una red intermedia, debe comprobar que la configuración de los switches intermedios garantiza que el tráfico de MetroCluster (RDMA y almacenamiento) cumpla con los niveles de servicio requeridos en toda la ruta entre los sitios de MetroCluster.</block>
+  <block id="6b8d702de4699c80d4f08e3290e0ae78" category="paragraph">En el siguiente diagrama se ofrece una descripción general de los ajustes necesarios cuando se utilizan switches Cisco validados por NetApp:</block>
+  <block id="d64d8900b94544769fb9967383f0fd7c" category="paragraph">El siguiente diagrama proporciona una descripción general de la configuración necesaria para una red compartida cuando los conmutadores externos son conmutadores IP Broadcom.</block>
+  <block id="05b4b53d3b59a13fd2e65542e7891e26" category="list-text">La<block ref="f63a844b3a8b746d4843c729ac11c60a" prefix=" " category="inline-code"></block> La política se aplica a los puertos del switch intermedio que se conecta a los switches IP de MetroCluster.</block>
+  <block id="52ef9029aac6ce5ffcb9c3d6cff86d7f" category="paragraph">La<block ref="f63a844b3a8b746d4843c729ac11c60a" prefix=" " category="inline-code"></block> policy asigna el tráfico etiquetado entrante a la cola apropiada en el conmutador intermedio.</block>
+  <block id="15ab0cd88b7fb9a6fd629378a99a2295" category="list-text">A.<block ref="f9720e3c5caef8b7a1d232011f766afa" prefix=" " category="inline-code"></block> La política se aplica a los puertos del switch intermedio que se conectan a ISL entre switches intermedios.</block>
+  <block id="18d81090280ae3c4bb12ecd8a2bed4be" category="paragraph">Los siguientes ejemplos se refieren a los switches Cisco Nexus 3232C y 9336C-FX2. Según el proveedor de switches y el modelo, debe verificar que los switches intermedios tengan la configuración adecuada.</block>
+  <block id="dbf22513b7658f718a783a9c9ca05c25" category="paragraph-title">Configure la asignación de clases para el puerto ISL del switch intermedio</block>
+  <block id="2f8cbfda819bd44eb1b6d0b8413c7380" category="paragraph">El siguiente ejemplo muestra las definiciones de mapa de clases en función de si necesita clasificar o hacer coincidir el tráfico al entrar.</block>
+  <block id="920163af25aaf3412edc4e2617944413" category="open-title">Clasificar el tráfico al entrar:</block>
+  <block id="5195f66a2dd1582077857da153dfc3e7" category="open-title">Coincidir el tráfico al entrar:</block>
+  <block id="fe70aaf6db42e3ca503ed0f831ec3013" category="paragraph-title">Cree un mapa de políticas de entrada en el puerto ISL del conmutador intermedio:</block>
+  <block id="ed8f4f6efa89e6154543c4f612bf78ba" category="paragraph">Los siguientes ejemplos muestran cómo crear un mapa de políticas de entrada en función de si necesita clasificar o hacer coincidir el tráfico al entrar.</block>
+  <block id="fd2f21fa2367388327b48baf4eba2d34" category="open-title">Clasifique el tráfico en la entrada:</block>
+  <block id="116d60d710def294128331f31f4e99fe" category="open-title">Haga coincidir el tráfico en la entrada:</block>
+  <block id="59b0f4b7ca0808cc39159f8f430b2a40" category="paragraph-title">Configure la política de puesta en cola de salida para los puertos ISL</block>
+  <block id="aff7033715e65e12ff4650459dd9ff39" category="paragraph">El siguiente ejemplo muestra cómo configurar la política de cola de salida:</block>
+  <block id="dfb0c4a1486181d12349fddc19976e09" category="paragraph">Esta configuración se debe aplicar a todos los switches y ISL que transporten tráfico de MetroCluster.</block>
+  <block id="b938eb18ad1590315ab79c5e36f76620" category="paragraph">En este ejemplo, Q4 y Q5 se configuran con<block ref="5d143ead1084d921d2b83df6e0907a26" prefix=" " category="inline-code"></block>. Según la configuración, es posible que necesite establecer los umbrales mínimo y máximo, como se muestra en el siguiente ejemplo:</block>
+  <block id="9cc02e1ad38d785896ce26b51fb60102" category="admonition">Los valores mínimo y máximo varían en función del interruptor y sus requisitos.</block>
+  <block id="6cda46b8128670310f45ae18ae21c334" category="paragraph-title">Ejemplo 1: Cisco</block>
+  <block id="df31e88a5390c4402f1d983b088515a0" category="paragraph">Si la configuración dispone de switches Cisco, no es necesario realizar una clasificación en el primer puerto de entrada del switch intermedio. A continuación, configure los siguientes mapas y políticas:</block>
+  <block id="51c0b14fe2b02fc7801ff18c8af17a3d" category="list-text"><block ref="c32bdab64a5102128e49f0e258738d79" prefix="" category="inline-code"></block></block>
+  <block id="4498fe5bbba88f97458a16049737b887" category="list-text"><block ref="96565419e14f3fe6879ee17ff6782d2f" prefix="" category="inline-code"></block></block>
+  <block id="b326fb23b2e8262075e282eafc7e2b3d" category="list-text"><block ref="229440853e909add465ca7b5f5413e8b" prefix="" category="inline-code"></block></block>
+  <block id="94256cf7c85ad240f4ba47c6ced26a6c" category="paragraph">Asigne el<block ref="229440853e909add465ca7b5f5413e8b" prefix=" " category="inline-code"></block> Asignación de políticas a los puertos ISL que llevan tráfico MetroCluster.</block>
+  <block id="0ec5acbb5f8936a859017b5f986d1624" category="paragraph-title">Ejemplo 2: Broadcom</block>
+  <block id="d7b3d145846ddade4db7a38d17e1b38e" category="paragraph">Si la configuración tiene conmutadores Broadcom, debe clasificarla en el primer puerto de entrada del conmutador intermedio. A continuación, configure los siguientes mapas y políticas:</block>
+  <block id="01d873f1d9e0aba8247cb464d76ea43f" category="list-text"><block ref="75c2563b7e6183480d77905c311117ee" prefix="" category="inline-code"></block></block>
+  <block id="d964707c5bc946eced7a043ad795f097" category="list-text"><block ref="4e445a7c8509b9986edc65399089887f" prefix="" category="inline-code"></block></block>
+  <block id="56a9521c621b33f42304f5ab63fca1eb" category="list-text"><block ref="8e5d0e16f4ef973f194b24b671764f57" prefix="" category="inline-code"></block></block>
+  <block id="f5d105ae84b71f8c7b3e300d059f40dc" category="list-text"><block ref="7539fea0476c31185bf673fa66164f2d" prefix="" category="inline-code"></block></block>
+  <block id="6e73ee887ad940172c7a88d077bf0772" category="list-text"><block ref="51c0649c1214c3a7cb1b5422c6b9dd5f" prefix="" category="inline-code"></block></block>
+  <block id="9fd450aaf744ef2f0f02e43876522bfe" category="paragraph">Que asigne<block ref="67a94f8e22c0892a226d626753340cc4" prefix=" " category="inline-code"></block> Asignación de políticas a los puertos ISL del switch intermedio que conecta el switch Broadcom.</block>
+  <block id="4eaf14eb10c7f173afbdacfeab39777a" category="paragraph">Asigne el<block ref="229440853e909add465ca7b5f5413e8b" prefix=" " category="inline-code"></block> Asignación de políticas a los puertos ISL del switch intermedio que transporta tráfico MetroCluster, pero no conecta el switch Broadcom.</block>
+  <block id="5af97d9502169db37645c08f238777a6" category="summary">A partir de ONTAP 9.7, las configuraciones de IP de MetroCluster pueden utilizar switches compatibles con MetroCluster. Estos son switches que no están validados por NetApp pero cumplen con las especificaciones de NetApp. En este tema se describen los requisitos generales y las limitaciones de los switches compatibles con MetroCluster.</block>
+  <block id="47fffbd3afdf8fa76a079477bd59709f" category="doc">Requisitos y limitaciones al utilizar switches que cumplen con la normativa de MetroCluster</block>
+  <block id="ed0f2729a4bf35a687f00daa041997c7" category="paragraph">A partir de ONTAP 9.7, las configuraciones de IP de MetroCluster pueden utilizar switches compatibles con MetroCluster. Estos son switches que no están validados por NetApp pero cumplen con las especificaciones de NetApp. Sin embargo, NetApp no proporciona servicios de soporte para la configuración o solución de problemas para ningún switch no validado. Debe conocer los requisitos generales y las limitaciones cuando se usan switches compatibles con MetroCluster.</block>
+  <block id="9948bad86a0ee0273515c6ce814edbfc" category="paragraph">El switch que conecta las interfaces IP de MetroCluster debe cumplir los siguientes requisitos generales:</block>
+  <block id="b67e189b705bbcc9f23d7cfa3f63039e" category="list-text">Los switches deben admitir calidad de servicio (QoS) y clasificación del tráfico.</block>
+  <block id="0abd4d7fe8e048cb4f96973a179b5dee" category="list-text">Los switches deben admitir una política de equilibrio de carga para preservar el orden en la ruta.</block>
+  <block id="09e2c61b537dad80acb6a181f4206358" category="list-text">El puerto del switch debe proporcionar una velocidad dedicada y no debe sobreasignarse.</block>
+  <block id="331dfa751b96c23b76a7e7322f4a12e0" category="list-text">NetApp debe proporcionar los cables y los transceptores que conectan los nodos a los switches. Estos cables deben ser compatibles con el proveedor de switches. Si utiliza cableado óptico, es posible que NetApp no suministre el transceptor del switch. Debe verificar que sea compatible con el transceptor en el controlador.</block>
+  <block id="1deb959e67bae44ee05547e71ee4436a" category="list-text">Los switches que conectan los nodos MetroCluster pueden transportar tráfico que no es de MetroCluster.</block>
+  <block id="196918e4613993957d5d65aa2c49625e" category="list-text">Se necesitan cuatro switches IP, dos para cada estructura del switch. Si utiliza directores, puede utilizar un solo director en cada lado, pero las interfaces IP de MetroCluster deben conectarse a dos blades diferentes en dos dominios de fallo diferentes en ese director.</block>
+  <block id="d578b667256f73cf0054ce85e9a803c1" category="list-text">Las interfaces MetroCluster de un nodo deben conectarse a dos switches de red o blades. Las interfaces MetroCluster de un nodo no se pueden conectar a la misma red, ni al mismo switch o blade.</block>
+  <block id="dbc6bc08f5767f194c92081755bcebc7" category="list-text">La red debe cumplir los requisitos descritos en las siguientes secciones:</block>
+  <block id="3a1583c43d5c26bc5494a0499ae33c72" category="list-text"><block ref="3a1583c43d5c26bc5494a0499ae33c72" category="inline-link-macro-rx"></block></block>
+  <block id="919e8522ca559ecdaf4e3c760661ca3c" category="list-text"><block ref="919e8522ca559ecdaf4e3c760661ca3c" category="inline-link-macro-rx"></block></block>
+  <block id="80e63f439f45f04f3bd1d9233a23c06b" category="list-text">Se debe configurar la unidad de transmisión máxima (MTU) de 9216 en todos los switches que transportan tráfico MetroCluster IP.</block>
+  <block id="1190064be457a70251f83cf8ed90fbae" category="list-text">No se admite la reversión a ONTAP 9,6 o una versión anterior.</block>
+  <block id="dded0c2f57164482346a6b6658d31507" category="paragraph">Cualquier switch intermedio que utilice entre los switches que conectan las interfaces IP de MetroCluster en ambos sitios debe cumplir los requisitos y debe configurarse como se describe en <block ref="919e8522ca559ecdaf4e3c760661ca3c" category="inline-link-macro-rx"></block>.</block>
+  <block id="6ce75f6758ededfae6e3e174dee1b0ba" category="section-title">Limitaciones al utilizar switches que cumplen con la normativa de MetroCluster</block>
+  <block id="41fd40944ef8fe76d651f6ed528b7847" category="paragraph">No se puede utilizar ninguna configuración o función que requiera que las conexiones de clúster local estén conectadas a un switch. Por ejemplo, no es posible utilizar las siguientes configuraciones y procedimientos con un switch compatible con MetroCluster:</block>
+  <block id="09c51db2a0d87cd77a2ca402ad79db18" category="list-text">Plataformas que comparten una interfaz física para el tráfico de MetroCluster y del clúster local. Consulte <block ref="286286065c1258176357731fa5aef554" category="inline-link-macro-rx"></block> para velocidades compatibles.</block>
+  <block id="dc3593c035434198a7961c4f6d12d947" category="summary">Obtenga información sobre la información necesaria para verificar que la configuración de MetroCluster y la red cumplen todos los requisitos de ISL.</block>
+  <block id="efd281456c0c33d38a0841ccb8331143" category="doc">Descripción general de los requisitos de ISL</block>
+  <block id="7c4aed3b24a800ab4c4ec111c0a0a428" category="paragraph">Debe comprobar que la red y la configuración IP de MetroCluster cumplen todos los requisitos de enlace entre switches (ISL). Aunque es posible que ciertos requisitos no se apliquen a su configuración, debe conocer todos los requisitos de ISL para comprender mejor la configuración general.</block>
+  <block id="402532c1895565feb3dce23c34cffb5f" category="paragraph">La siguiente tabla proporciona una descripción general de los temas tratados en esta sección.</block>
+  <block id="b78a3223503896721cca1303f776159b" category="cell">Título</block>
+  <block id="16daa185b92984fefaae8aa04a4cd437" category="cell"><block ref="16daa185b92984fefaae8aa04a4cd437" category="inline-link-macro-rx"></block></block>
+  <block id="5feb584dda6da1d0566cba066fddf124" category="cell">Describe los requisitos del switch.
+
+Se aplica a todos los switches utilizados en las configuraciones de MetroCluster, incluidos los switches back-end.</block>
+  <block id="a8e05c7ee6fd39022fc67143bc5251ba" category="cell">Describe los requisitos de ISL.
+
+Se aplica a todas las configuraciones de MetroCluster, independientemente de la topología de red y si se utilizan switches validados por NetApp o switches conformes a MetroCluster.</block>
+  <block id="6220e2336a0586f7b524ec64a336fe1c" category="inline-link-macro">Consideraciones que se deben tener en cuenta al implementar MetroCluster en redes de capa 2 o capa 3 compartidas</block>
+  <block id="466b71f8831d64eada053719fd961798" category="cell"><block ref="466b71f8831d64eada053719fd961798" category="inline-link-macro-rx"></block></block>
+  <block id="f3c54f8b1b081afe141797ddcf3459e0" category="cell">Describe los requisitos para las redes compartidas de capa 2 o capa 3.
+
+Se aplica a todas las configuraciones, excepto para las configuraciones de MetroCluster que utilizan switches validados por NetApp y mediante ISL de conexión directa.</block>
+  <block id="a5a4c52ad165d0f2ece1f7aefc7d482c" category="inline-link-macro">Consideraciones que se deben tener en cuenta al utilizar switches compatibles con MetroCluster</block>
+  <block id="469660356a0585d894a2477073c83c97" category="cell"><block ref="469660356a0585d894a2477073c83c97" category="inline-link-macro-rx"></block></block>
+  <block id="b7cda7e4a23f216c9f7830dfa3e8bc23" category="cell">Describe los requisitos para los switches compatibles con MetroCluster.
+
+Se aplica a todas las configuraciones de MetroCluster que no utilicen switches validados por NetApp.</block>
+  <block id="c8a876018fbb152e3e9beb9a87f3cd4e" category="cell"><block ref="c8a876018fbb152e3e9beb9a87f3cd4e" category="inline-link-macro-rx"></block></block>
+  <block id="529fcc581410686227b4df2b0fb6b6c2" category="cell">Proporciona ejemplos de distintas topologías de red de MetroCluster.
+
+Se aplica a todas las configuraciones MetroCluster.</block>
+  <block id="20f7078fb96bd6060a10b9fed9306941" category="sidebar">Requisitos y limitaciones de los switches que cumplen con las normativas de MetroCluster</block>
+  <block id="3c24829f69028dca3ac0aa982abad68d" category="sidebar">Velocidades de red y modos de puertos de switch para switches que cumplen las normativas de MetroCluster</block>
 </blocks>

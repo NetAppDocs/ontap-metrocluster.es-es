@@ -18,20 +18,28 @@ entries:
   - title: Conexión de clústeres entre iguales
     url: "/install-ip/concept_considerations_peering.html"
   - title: Requisitos de ISL
-    url: "/install-ip/concept_considerations_isls.html"
-  - title: Cómo utilizar redes de área amplia de capa 3
-    url: "/install-ip/concept_considerations_layer_3.html"
     entries:
-    - title: Modificar la dirección, la máscara de red y la pasarela en una IP de
-        MetroCluster
-      url: "/install-ip/task_modify_ip_netmask_gateway_properties.html"
-  - title: Compartir redes privadas de capa 2
-    url: "/install-ip/concept_considerations_layer_2.html"
-  - title: Cómo utilizar switches compatibles con MetroCluster
-    url: "/install-ip/concept_considerations_mc_compliant_switches.html"
-  - title: Cómo usar TDM/xWDM y equipo de cifrado con configuraciones MetroCluster
-      IP
-    url: "/install-ip/concept_considerations_tdm_encryption.html"
+    - title: Descripción general de los requisitos de ISL
+      url: "/install-ip/overview-isl-requirements.html"
+    - title: Switches validados por NetApp y conformes con MetroCluster
+      url: "/install-ip/mcc-compliant-netapp-validated-switches.html"
+    - title: Consideraciones sobre ISL
+      url: "/install-ip/concept-requirements-isls.html"
+    - title: Consideraciones que se deben tener en cuenta al implementar MetroCluster
+        en redes compartidas de capa 2 o capa 3
+      url: "/install-ip/concept-considerations-layer-2-layer-3.html"
+    - title: Consideraciones para usar switches compatibles con MetroCluster
+      entries:
+      - title: Requisitos y limitaciones de los switches que cumplen con las normativas
+          de MetroCluster
+        url: "/install-ip/concept-requirement-and-limitations-mcc-compliant-switches.html"
+      - title: Velocidades de red y modos de puertos de switch para switches que cumplen
+          las normativas de MetroCluster
+        url: "/install-ip/concept-network-speeds-and-switchport-modes.html"
+      - title: Ejemplos de configuración de puertos de switch
+        url: "/install-ip/concept-configure-mcc-compliant-switches.html"
+    - title: Ejemplos de topologías de red MetroCluster
+      url: "/install-ip/concept-example-network-topologies.html"
   - title: Agregados no reflejados en una configuración de IP de MetroCluster
     url: "/install-ip/concept_considerations_unmirrored_aggrs.html"
   - title: Uso del firewall en sitios de MetroCluster

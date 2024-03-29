@@ -192,6 +192,13 @@ https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/index.html["Ges
 +
 https://docs.netapp.com/us-en/ontap/index.html#about-ontap-system-manager["Administrador del sistema de ONTAP (versión 9.7 y posterior)"]
 
+.. Configure el Service Processor (SP):
++
+link:https://docs.netapp.com/us-en/ontap/system-admin/sp-bmc-network-config-concept.html["Configure la red del SP/BMC"^]
+
++
+link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_service_processors.html["Utilice una instancia de Service Processor con System Manager - ONTAP 9.7 y versiones anteriores"^]
+
 
 
 . Arranque la siguiente controladora y únase a ella al clúster, siguiendo las indicaciones.

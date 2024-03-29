@@ -22,7 +22,7 @@ Lo siguiente se aplica a los ISL en todas las configuraciones IP de MetroCluster
 * Los ISL de una estructura deben tener todos la misma velocidad y longitud.
 * Los ISL de ambos tejidos deben tener la misma velocidad y longitud.
 * La diferencia máxima admitida en la distancia entre la estructura 1 y la estructura 2 es 20km o 0,2ms.
-* Los ISL de una estructura deben tener la misma topología. Por ejemplo, todos deben ser enlaces directos, o si la configuración utiliza WDM, todos deben usar WDM.
+* Los ISL deben tener la misma topología. Por ejemplo, todos deben ser enlaces directos, o si la configuración utiliza WDM, todos deben usar WDM.
 * La velocidad de ISL debe ser mínimo 10Gbps.
 * Debe haber al menos un puerto ISL de 10Gbps Gb por estructura.
 

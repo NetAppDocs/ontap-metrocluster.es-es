@@ -80,7 +80,7 @@ Utilice la `portcfglongdistance _port number port distance_` comando en ambos sw
  a| 
 Para quitar un ISL...
  a| 
-Desconecte el enlace \(cable\).
+Desconecte el eslabón.
 
 
 
@@ -97,6 +97,10 @@ Para reubicar un ISL...
 Reubicar un ISL es el mismo que quitar y luego añadir un ISL. En primer lugar, quite el ISL desconectando el enlace y luego inserte SFP en los puertos que está añadiendo como puertos ISL.
 
 |===
++
+
+NOTE: Cuando realice cambios en los puertos ISL, es posible que también necesite aplicar la configuración adicional recomendada por el proveedor de WDM. Consulte la documentación del proveedor de WDM para obtener orientación.
+
 . Reconfigurar para entrega fuera de servicio (OOD) o entrega en orden (IOD).
 +
 

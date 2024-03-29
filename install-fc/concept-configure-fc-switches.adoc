@@ -12,3 +12,22 @@ summary:
 
 [role="lead"]
 Puede configurar los switches FC de Cisco y Brocade con archivos RCF, o bien, si es necesario, se pueden configurar manualmente los switches.
+
+[cols="2*"]
+|===
+| Si... | Utilice el procedimiento... 
+
+
+| Disponga de un RCF que cumpla con sus requisitos  a| 
+* link:task_reset_the_brocade_fc_switch_to_factory_defaults.html["Configuración de switches FC Brocade con archivos RCF"]
+* link:task_reset_the_cisco_fc_switch_to_factory_defaults.html["Configure switches FC de Cisco con archivos RCF"]
+
+
+
+
+| No tenga un RCF o un RCF que no cumpla con sus requisitos  a| 
+* link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["Configurar manualmente los switches FC de Brocade"]
+* link:task_fcsw_cisco_configure_a_cisco_switch_supertask.html["Configure los switches Cisco FC manualmente"]
+
+
+|===

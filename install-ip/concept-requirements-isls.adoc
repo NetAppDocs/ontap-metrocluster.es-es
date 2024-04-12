@@ -10,6 +10,7 @@ summary: 'Esta sección contiene los requisitos de los enlaces entre switches (I
 :imagesdir: ../media/
 
 
+[role="lead"]
 Los enlaces entre switches (ISL) que manejan el tráfico MetroCluster en todas las configuraciones IP de MetroCluster y las topologías de red tienen determinados requisitos. Estos requisitos se aplican a todos los ISL con tráfico de MetroCluster, independientemente de si los ISL son directos o compartidos entre los switches de clientes.
 
 

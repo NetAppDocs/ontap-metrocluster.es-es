@@ -10,6 +10,7 @@ summary: A partir de ONTAP 9,6, se admiten algunas configuraciones de red adicio
 :imagesdir: ../media/
 
 
+[role="lead"]
 A partir de ONTAP 9,6, se admiten algunas configuraciones de red adicionales para las configuraciones IP de MetroCluster. En esta sección se proporcionan algunos ejemplos de las configuraciones de red admitidas. No se muestran todas las topologías admitidas.
 
 En estas topologías, se asume que el ISL y la red intermedia se configuran de acuerdo con los requisitos descritos en link:concept-requirements-isls.html["Consideraciones sobre ISL"].

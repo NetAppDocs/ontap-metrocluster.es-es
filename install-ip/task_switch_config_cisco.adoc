@@ -18,7 +18,6 @@ Varios de los procedimientos de esta sección son procedimientos independientes 
 
 == Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco
 
-[role="lead"]
 Antes de instalar cualquier archivo RCF, debe borrar la configuración del conmutador Cisco y realizar la configuración básica. Este procedimiento es necesario cuando desea volver a instalar el mismo archivo RCF después de que se haya producido un error en la instalación anterior, o si desea instalar una nueva versión de un archivo RCF.
 
 .Acerca de esta tarea

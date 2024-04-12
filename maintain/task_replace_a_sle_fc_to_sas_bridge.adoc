@@ -229,28 +229,7 @@ Device  D       4       Disabled        12Gb    5001086000a1c70c
 
 
 . Puesta a tierra apropiadamente usted mismo.
-. Apague el puente ATTO.
-+
-[cols="35,65"]
-|===
-
-
-| Si está utilizando un... | Realice lo siguiente... 
-
-
- a| 
-Puente FibreBridge 7600N o 7500N
- a| 
-Retire los cables de alimentación conectados al puente.
-
-
-
- a| 
-Puente FibreBridge 6500N
- a| 
-Apague el interruptor de alimentación del puente.
-
-|===
+. Apague el puente ATTO y retire los cables de alimentación conectados al puente.
 . Desconecte los cables que están conectados al puente antiguo.
 +
 Debe tomar nota del puerto al que se ha conectado cada cable.
@@ -350,9 +329,8 @@ En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en
 La velocidad de datos FC admitida depende de su puente de modelos.
 
 +
-*** El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.
-*** El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.
-*** El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.
+*** El puente FibreBridge 7600N admite hasta 32, 16 o 8 Gbps.
+*** El puente FibreBridge 7500N admite hasta 16, 8 o 4 Gbps.
 +
 
 NOTE: La velocidad de FCDataRate que seleccione se limita a la velocidad máxima admitida tanto por el puente como por el conmutador al que se conecta el puerto de puente. Las distancias de cableado no deben superar las limitaciones de SFP y otro hardware.
@@ -365,7 +343,7 @@ Si utiliza la CLI, debe ejecutar el siguiente comando:
 
 
 
-.. Si va a configurar un puente FibreBridge 7500N o 6500N, configure el modo de conexión que el puerto utiliza para ptp.
+.. Si va a configurar un FibreBridge 7500N, configure el modo de conexión que el puerto utiliza para 'ptp'.
 +
 
 NOTE: El ajuste FCConnMode no es necesario al configurar un puente FibreBridge 7600N.
@@ -437,7 +415,7 @@ Si el nuevo puente es del mismo tipo que el puente asociado, actualice el mismo 
 
 . [[paso 17-Reconectar-newbridge]] vuelva a conectar los cables SAS y FC a los mismos puertos del nuevo puente.
 +
-Si el nuevo puente es un FibreBridge 7600N o 7500N, debe sustituir los cables que conectan el puente a la parte superior o inferior de la pila de estantes. El puente FibreBridge 6500N utilizaba cables SAS; los puentes FibreBridge 7600N y 7500N requieren cables mini-SAS para estas conexiones.
+Es necesario sustituir los cables que conectan el puente a la parte superior o inferior de la pila de la bandeja. Los puentes FibreBridge 7600N y 7500N requieren cables mini-SAS para estas conexiones.
 
 +
 
@@ -771,9 +749,8 @@ En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en
 La velocidad de datos FC admitida depende de su puente de modelos.
 
 +
-*** El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.
-*** El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.
-*** El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.
+*** El puente FibreBridge 7600N admite hasta 32, 16 o 8 Gbps.
+*** El puente FibreBridge 7500N admite hasta 16, 8 o 4 Gbps.
 +
 
 NOTE: La velocidad FCDataRate que seleccione se limita a la velocidad máxima admitida tanto por el puente como por el puerto FC del módulo de controlador o switch al que se conecta el puerto de puente. Las distancias de cableado no deben superar las limitaciones de SFP y otro hardware.
@@ -1180,9 +1157,9 @@ En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en
 La velocidad de datos FC admitida depende de su puente de modelos.
 
 +
-*** El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.
-*** El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.
-*** El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.
+*** El puente FibreBridge 7600N admite hasta 32, 16 o 8 Gbps.
+*** El puente FibreBridge 7500N admite hasta 16, 8 o 4 Gbps.
+*** El puente FibreBridge 6500N admite hasta 8, 4 o 2 Gbps.
 +
 
 NOTE: La velocidad de FCDataRate que seleccione se limita a la velocidad máxima admitida tanto por el puente como por el conmutador al que se conecta el puerto de puente. Las distancias de cableado no deben superar las limitaciones de SFP y otro hardware.

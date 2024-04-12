@@ -107,7 +107,6 @@ La configuración MetroCluster FC conectada a la estructura requiere un par de p
 NOTE: Los puentes FibreBridge 6500N no se admiten en configuraciones que ejecuten ONTAP 9.8 y posteriores.
 
 * Los puentes FibreBridge 7600N o 7500N admiten hasta cuatro pilas SAS.
-* Los puentes FibreBridge 6500N solo admiten una pila SAS.
 * Cada pila puede utilizar distintos modelos de IOM.
 +
 No se admite una combinación de módulos IOM12 y módulos IOM3 dentro de la misma pila de almacenamiento. Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila de almacenamiento si el sistema ejecuta una versión admitida de ONTAP.
@@ -197,7 +196,6 @@ Número del grupo de pilas al que se conecta el par de puente.
 +
 El grupo de pilas no puede contener más de 10 bandejas de almacenamiento.
 
-* Los puentes FibreBridge 6500N sólo admiten una pila única en el grupo de pilas.
 
  a| 
 1, 2, etc.

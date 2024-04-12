@@ -8,6 +8,7 @@ summary: Obtenga información sobre la información necesaria para verificar que
 :allow-uri-read: 
 
 
+[role="lead"]
 Debe comprobar que la red y la configuración IP de MetroCluster cumplen todos los requisitos de enlace entre switches (ISL). Aunque es posible que ciertos requisitos no se apliquen a su configuración, debe conocer todos los requisitos de ISL para comprender mejor la configuración general.
 
 La siguiente tabla proporciona una descripción general de los temas tratados en esta sección.

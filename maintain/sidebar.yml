@@ -122,12 +122,19 @@ entries:
   url: "/maintain/task_move_a_metadata_volume_in_mcc_configurations.html"
 - title: Cambie el nombre de un clúster en las configuraciones de MetroCluster
   url: "/maintain/task_rename_the_cluster_for_mcc_configuration.html"
-- title: Apague y encienda un centro de datos
-  url: "/maintain/task_power_on_and_power_off_a_data_center.html"
-- title: Apague toda una configuración de IP de MetroCluster
-  url: "/maintain/task_power_off_an_entire_mcc_ip_configuration.html"
-- title: Apague toda una configuración de MetroCluster FC
-  url: "/maintain/task_power_off_an_entire_mcc_fc_configuration.html"
+- title: Apague y encienda un único sitio de MetroCluster
+  entries:
+  - title: Apagar y encender un sitio único en una configuración IP de MetroCluster
+    url: "/maintain/task_power_on_and_power_off_a_data_center.html"
+  - title: Apagar y encender un único sitio con una configuración de MetroCluster
+      FC
+    url: "/maintain/task-power-on-and-power-off-a-fc-site.html"
+- title: Apague toda una configuración de MetroCluster
+  entries:
+  - title: Apague toda una configuración de IP de MetroCluster
+    url: "/maintain/task_power_off_an_entire_mcc_ip_configuration.html"
+  - title: Apague toda una configuración de MetroCluster FC
+    url: "/maintain/task_power_off_an_entire_mcc_fc_configuration.html"
 - title: Vuelva a configurar un diseño del switch de FC configurado antes de ONTAP
     9.x.
   url: "/maintain/task_do_not_use_for_9_8_and_later_reconfigure_the_fc_switch_layout_for_ontap_9_1_or_later.html"

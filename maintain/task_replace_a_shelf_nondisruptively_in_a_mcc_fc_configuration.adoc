@@ -104,10 +104,6 @@ FC_switch_A_2(config)# end
 ** Si los puentes están conectando dos o más pilas SAS, deshabilite los puertos SAS que conectan los puentes a la bandeja de destino: +
 `SASportDisable _port number_`
 +
-
-NOTE: Esto no es aplicable a los puentes FiberBridge 6500.
-
-+
 En el siguiente ejemplo se muestra un par de puentes que conectan cuatro pilas SAS. La pila SAS 2 contiene la bandeja objetivo:
 
 +
@@ -253,9 +249,6 @@ SASPortEnable A
 SAS Port A has been enabled.
 ----
 
-
-
-NOTE: Esto no es aplicable a ATTO 6500 FiberBridges.
 
 |===
 . Si anteriormente ha desactivado los puertos del conmutador, compruebe que están habilitados y en línea y que todos los dispositivos están conectados correctamente:

@@ -14,7 +14,7 @@ summary:
 Puede añadir en caliente (agregar de forma no disruptiva) una pila completa, incluidos los puentes, al sistema MetroCluster. Debe haber puertos disponibles en los switches FC y actualizar la división en zonas del switch para reflejar los cambios.
 
 .Acerca de esta tarea
-* Este procedimiento se puede utilizar para agregar una pila con puentes FibreBridge 7500N o 6500N.
+* Este procedimiento se puede utilizar para agregar una pila utilizando puentes FibreBridge 7600N o 7500N.
 * Este procedimiento se redacta suponiendo que está utilizando las interfaces de gestión de puentes recomendadas: La GUI de ATTO ExpressNAV y la utilidad ATTO Quickav.
 +
 ** La GUI de ATTO ExpressNAV se utiliza para configurar y administrar un puente y para actualizar el firmware del puente. Puede utilizar la utilidad ATTO Quickav para configurar el puerto 1 de gestión de Ethernet de puente.
@@ -252,9 +252,8 @@ En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en
 La velocidad de datos FC admitida depende de su puente de modelos.
 
 +
-*** El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.
-*** El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.
-*** El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.
+*** El puente FibreBridge 7600N admite hasta 32, 16 o 8 Gbps.
+*** El puente FibreBridge 7500N admite hasta 16, 8 o 4 Gbps.
 +
 
 NOTE: La velocidad de FCDataRate que seleccione se limita a la velocidad máxima admitida tanto por el puente como por el conmutador al que se conecta el puerto de puente. Las distancias de cableado no deben superar las limitaciones de SFP y otro hardware.
@@ -267,7 +266,7 @@ Si utiliza la CLI, debe ejecutar el siguiente comando:
 
 
 
-.. Si va a configurar un puente FibreBridge 7500N o 6500N, configure el modo de conexión que el puerto utiliza para ptp.
+.. Si está configurando un puente FibreBridge 7500N, configure el modo de conexión que el puerto utiliza para ptp.
 +
 
 NOTE: El ajuste FCConnMode no es necesario al configurar un puente FibreBridge 7600N.
@@ -1275,7 +1274,7 @@ NOTE: Se pueden conectar puentes adicionales a los puertos 36 - 39 en los conmut
 |===
 
 
-12+| Configuraciones que utilizan puentes FibreBridge 6500N o FibreBridge 7500N o 7600N utilizando sólo un puerto FC (FC1 o FC2) 
+12+| Configuraciones que utilicen FibreBridge 7500N o 7600N con solo un puerto FC (FC1 o FC2) 
 
 
 12+| GRUPO DR 1 
@@ -1499,7 +1498,7 @@ NOTE: Se pueden conectar puentes adicionales a los puertos 12 - 17, 20 y 21 en l
 |===
 
 
-10+| Configuraciones que utilizan puentes FibreBridge 6500N o FibreBridge 7500N o 7600N utilizando sólo un puerto FC (FC1 o FC2) 
+10+| Configuraciones que utilicen FibreBridge 7500N o 7600N con solo un puerto FC (FC1 o FC2) 
 
 
 10+| GRUPO DR 2 

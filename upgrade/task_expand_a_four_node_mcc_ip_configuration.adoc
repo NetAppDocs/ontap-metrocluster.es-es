@@ -308,7 +308,6 @@ Consulte la documentación de la aplicación.
 
 == Preparación de los nuevos módulos de la controladora
 
-[role="lead"]
 Debe preparar los cuatro nodos MetroCluster nuevos e instalar la versión de ONTAP correcta.
 
 .Acerca de esta tarea
@@ -346,7 +345,6 @@ No complete el asistente de clúster ni el asistente para nodos en este momento.
 
 == Actualice los archivos RCF
 
-[role="lead"]
 Si va a instalar un nuevo firmware de conmutador, debe instalar el firmware del conmutador antes de actualizar el archivo RCF.
 
 .Acerca de esta tarea

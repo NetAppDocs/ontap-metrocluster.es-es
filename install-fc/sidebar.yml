@@ -118,7 +118,7 @@ entries:
     - title: Configure los switches Cisco FC manualmente
       url: "/install-fc/task_fcsw_cisco_configure_a_cisco_switch_supertask.html"
   - title: Instale los puentes de FC a SAS y las bandejas de discos SAS
-    url: "/install-fc/task_fb_new_install.html"
+    url: "/install-fc/task_install_fc_sas_bridges_shelves.html"
 - title: Configuración del hardware para compartir una estructura FC de Brocade 6510
     durante la transición
   entries:

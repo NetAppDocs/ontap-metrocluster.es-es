@@ -115,7 +115,6 @@ De manera predeterminada, todos los puertos están configurados para funcionar a
 
 +
 ** La velocidad de los puertos del switch de interconexión debe cambiarse cuando se utiliza un adaptador FC-VI de 8 Gbps y la velocidad del puerto del switch debe configurarse a 8 Gbps.
-** La velocidad de los puertos del switch debe cambiarse cuando se utiliza un adaptador HBA de 8 Gbps para ATTO FibreBridge 6500N.
 ** La velocidad de los puertos ISL se debe cambiar cuando el ISL no puede ejecutarse a 16 Gbps.
 
 

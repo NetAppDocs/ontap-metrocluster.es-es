@@ -13,7 +13,7 @@ summary: 'Si está utilizando una versión ONTAP anterior a 9.5, o planea utiliz
 [role="lead"]
 Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar de otro modo el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP (FTP, ExpressNAV, ICMP o navegación rápida), puede activar los servicios de acceso a través del puerto de consola.
 
-A diferencia de los puentes ATTO FibreBridge 7500N y 6500N, el puente FibreBridge 7600N se entrega con todos los protocolos de puerto IP y servicios desactivados.
+A diferencia del puente ATTO FibreBridge 7500N, el puente FibreBridge 7600N se envía con todos los protocolos y servicios de puerto IP desactivados.
 
 A partir de ONTAP 9.5, se admite la gestión en banda_ de los puentes. Esto significa que los puentes se pueden configurar y supervisar desde la CLI de ONTAP a través de la conexión FC al puente. No se requiere acceso físico al puente a través de los puertos Ethernet puente y no se necesitan las interfaces de usuario de puente.
 

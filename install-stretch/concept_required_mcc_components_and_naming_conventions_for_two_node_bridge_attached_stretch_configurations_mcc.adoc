@@ -86,7 +86,6 @@ Estos puentes conectan las bandejas de discos SAS a los módulos de controladora
 NOTE: Los puentes FibreBridge 6500N no se admiten en configuraciones que ejecuten ONTAP 9.8 y posteriores.
 
 * Los puentes FibreBridge 7600N y 7500N admiten hasta cuatro pilas SAS.
-* Los puentes FibreBridge 6500N solo admiten una pila SAS.
 * Cada pila puede utilizar distintos modelos de IOM, pero todas las bandejas de una pila deben utilizar el mismo modelo.
 +
 Los modelos de IOM admitidos dependen de la versión de ONTAP que ejecute.

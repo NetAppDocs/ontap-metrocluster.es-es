@@ -1,5 +1,5 @@
 ---
-permalink: install-fc/task_fb_new_install.html 
+permalink: install-fc/task_install_fc_sas_bridges_shelves.html 
 sidebar: sidebar 
 keywords: install, installing, fc-to-sas, fc, sas, bridges, disk, shelves, atto, fibrebridge 
 summary: Puede instalar y cablear los puentes de ATTO FiberBridge y las bandejas de discos SAS cuando agregue nuevo almacenamiento a la configuración. 
@@ -140,7 +140,7 @@ NOTE: Las bandejas SAS en las configuraciones MetroCluster no son compatibles co
 Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar de otro modo el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP (FTP, ExpressNAV, ICMP o navegación rápida), puede activar los servicios de acceso a través del puerto de consola.
 
 .Acerca de esta tarea
-A diferencia de los puentes ATTO FibreBridge 7500N y 6500N, el puente FibreBridge 7600N se entrega con todos los protocolos de puerto IP y servicios desactivados.
+A diferencia de los puentes ATTO FibreBridge 7500N, el puente FibreBridge 7600N se envía con todos los protocolos y servicios de puerto IP desactivados.
 
 A partir de ONTAP 9.5, se admite la gestión en banda_ de los puentes. Esto significa que los puentes se pueden configurar y supervisar desde la CLI de ONTAP a través de la conexión FC al puente. No se requiere acceso físico al puente a través de los puertos Ethernet puente y no se necesitan las interfaces de usuario de puente.
 
@@ -311,9 +311,8 @@ En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en
 --
 La velocidad de datos FC admitida depende de su puente de modelos.
 
-*** El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.
-*** El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.
-*** El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.
+*** El puente FibreBridge 7600N admite hasta 32, 16 o 8 Gbps.
+*** El puente FibreBridge 7500N admite hasta 16, 8 o 4 Gbps.
 
 
 
@@ -324,7 +323,7 @@ Si utiliza la CLI, debe ejecutar el siguiente comando:
 `set FCDataRate _port-number_ _port-speed_`
 
 --
-.. Si va a configurar un puente FibreBridge 7500N o 6500N, configure el modo de conexión que el puerto utiliza para ptp.
+.. Si está configurando un puente FibreBridge 7500N, configure el modo de conexión que el puerto utiliza para ptp.
 +
 
 NOTE: El ajuste FCConnMode no es necesario al configurar un puente FibreBridge 7600N.
@@ -459,7 +458,6 @@ Debe utilizar los puentes FC-a-SAS correctos para cablear las bandejas de discos
 .Opciones
 * <<cabling_fb_7600N_7500N_with_iom12,Cableado de un puente FibreBridge 7600N o 7500N con bandejas de discos con módulos IOM12>>
 * <<cabling_fb_7600N_7500N_with_iom6_iom3,Cableado de un puente FibreBridge 7600N o 7500N con bandejas de discos que utilicen módulos IOM6 o IOM3>>
-* <<cabling_fb_6500N_with_iom6_iom3,Cableado de un puente FibreBridge 6500N con bandejas de discos mediante módulos IOM6 o IOM3>>
 
 
 
@@ -548,39 +546,6 @@ image::../media/mcc_cabling_bridge_and_sas_stack_with_7500n_four_stacks.gif[puen
 
 
 
-==== Cableado de un puente FibreBridge 6500N con bandejas de discos mediante módulos IOM6 o IOM3
-
-Después de configurar el puente, puede iniciar el cableado del nuevo sistema. El puente FibreBridge 6500N utiliza conectores QSFP.
-
-.Acerca de esta tarea
-Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).
-
-El puente FibreBridge 6500N no admite bandejas de discos que utilicen IOM12.
-
-.Pasos
-. Conecte en cadena las bandejas de discos en cada pila.
-+
-Para obtener información acerca de las bandejas de discos en cadena, consulte la _Guía de instalación y mantenimiento_ del modelo de bandeja de discos.
-
-. Para cada pila de bandejas de discos, conecte el IOM un puerto cuadrado de la primera bandeja al puerto SAS A en FibreBridge A.
-. Para cada pila de bandejas de discos, conecte el puerto circular IOM B de la última bandeja al puerto SAS A en FibreBridge B.
-+
-Cada puente tiene un camino hacia su pila de bandejas de discos: el puente A se conecta al lado A de la pila a través de la primera bandeja y el puente B se conecta al lado B de la pila a través de la última bandeja.
-
-+
-
-NOTE: El puente del puerto SAS B está deshabilitado.
-
-+
-En la siguiente ilustración, se muestra un conjunto de puentes cableados a una pila de cuatro bandejas de discos:
-
-+
-image::../media/mcc_cabling_bridge_and_sas_stack.gif[puente de cableado mcc y pila sas]
-
-
-
-
-
 === Verificación de la conectividad y el cableado de los puentes de los puertos FC de puente
 
 Es necesario verificar que cada puente pueda detectar todas las unidades de disco y, a continuación, conectar cada puente a los switches FC locales.
@@ -620,12 +585,10 @@ Ver los dispositivos conectados:
 `sastargets`
 
 |===
-
-
++
 La salida muestra los dispositivos (discos y bandejas de discos) a los que está conectado el puente. Las líneas de salida están numeradas secuencialmente para que pueda contar rápidamente los dispositivos. Por ejemplo, el siguiente resultado muestra que hay 10 discos conectados:
 
 +
-
 [listing]
 ----
 Tgt VendorID ProductID        Type        SerialNumber
@@ -640,7 +603,9 @@ Tgt VendorID ProductID        Type        SerialNumber
   8 NETAPP   X410_S15K6288A15 DISK        3QP1FY0T00009940G8PA
   9 NETAPP   X410_S15K6288A15 DISK        3QP1FXW600009940VERQ
 ----
-+ NOTA: Si el texto "esponse truncada" aparece al principio de la salida, puede utilizar Telnet para conectarse al puente e introducir el mismo comando para ver toda la salida.
++
+
+NOTE: Si aparece el texto “ressponse truncated” al principio de la salida, puede usar Telnet para conectarse al puente e ingresar el mismo comando para ver toda la salida.
 
 . Compruebe que el resultado del comando muestra que el puente está conectado a todos los discos y bandejas de discos de la pila a la que se supone que está conectado.
 +

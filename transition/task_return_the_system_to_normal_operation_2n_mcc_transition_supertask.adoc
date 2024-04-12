@@ -17,7 +17,6 @@ Debe realizar los pasos de configuración finales y devolver la configuración d
 
 == Verificación del funcionamiento de MetroCluster y asignación de unidades después de la transición
 
-[role="lead"]
 Debe verificar que MetroCluster funciona correctamente y asignar unidades al segundo par de nodos nuevos (node_A_2-IP y node_B_2-IP).
 
 . Confirme que el tipo de configuración de MetroCluster es la estructura IP: `metrocluster show`
@@ -35,7 +34,6 @@ Debe verificar que MetroCluster funciona correctamente y asignar unidades al seg
 
 == Instalación de licencias para el nuevo módulo de controlador
 
-[role="lead"]
 Debe añadir licencias para el nuevo módulo de controladora para todos los servicios ONTAP que requieran licencias estándar (de bloqueo de nodo). Para funciones con licencias estándar, cada nodo del clúster debe tener su propia clave para la función.
 
 Si quiere información detallada sobre las licencias, consulte el artículo de la base de conocimientos 3013749: Información general y referencias de licencias de Data ONTAP 8.2 en el sitio de soporte de NetApp y _System Administration Reference_.
@@ -57,7 +55,6 @@ Repita este paso con cada licencia estándar (bloqueo de nodo) requerida.
 
 == Completando la configuración de los nodos
 
-[role="lead"]
 Existen varios pasos de configuración que se pueden realizar antes de completar los procedimientos. Algunos de estos pasos son opcionales.
 
 . Configure el Service Processor: `system service-processor network modify`
@@ -82,7 +79,6 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Instalació
 
 == Envío de un mensaje de AutoSupport personalizado tras el mantenimiento
 
-[role="lead"]
 Después de completar la transición, debe enviar un mensaje de AutoSupport que indique el final del mantenimiento para que se pueda reanudar la creación automática de casos.
 
 . Para reanudar la generación automática de casos de soporte, envíe un mensaje de AutoSupport para indicar que se ha completado el mantenimiento.

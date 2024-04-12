@@ -74,10 +74,10 @@ En general, los clústeres de ONTAP incluyen una red de interconexión de clúst
 
 image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[interconexión ip de arquitectura de hardware ip de mcc]
 
-Cada nodo de la configuración de IP de MetroCluster cuenta con LIF especializadas para la conexión a la red IP back-end:
+Cada nodo de la configuración IP de MetroCluster tiene interfaces dedicadas para la conexión con la red IP back-end:
 
 * Dos interfaces MetroCluster IP
-* Una LIF de interconexión de clústeres
+* Dos interfaces de clúster locales
 
 
 En la siguiente ilustración se muestran estas interfaces. El uso de puertos mostrado es para un sistema A700 o FAS9000 de AFF.

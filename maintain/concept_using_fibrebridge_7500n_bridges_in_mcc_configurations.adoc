@@ -28,7 +28,7 @@ No
  a| 
 El puente FibreBridge 7500N debe configurarse exactamente igual que el puente FibreBridge 6500N, usando un solo puerto FC y acoplando a una sola pila. No se debe utilizar el segundo puerto FC de FibreBridge 7500N.
  a| 
-link:task_replace_a_sle_fc_to_sas_bridge.html["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"]
+link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"]
 
 
 

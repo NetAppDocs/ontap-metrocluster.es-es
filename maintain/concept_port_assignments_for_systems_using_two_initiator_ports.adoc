@@ -14,20 +14,18 @@ summary: Puede configurar sistemas FAS8020, AFF8020, FAS8200 y AFF A300 utilizan
 Puede configurar sistemas FAS8020, AFF8020, FAS8200 y AFF A300 utilizando un único puerto de iniciador para cada estructura y dos puertos de iniciador para cada controladora.
 
 .Acerca de esta tarea
-Puede seguir el cableado para el puente FibreBridge 6500N o el puente FibreBridge 7500N o 7600N utilizando sólo un puerto FC (FC1 o FC2). En lugar de usar cuatro iniciadores, conecte solo dos iniciadores y deje los otros dos que están conectados al puerto del switch vacío.
+Puede seguir el cableado para el puente FibreBridge 7500N o 7600N usando solo un puerto FC (FC1 o FC2). En lugar de usar cuatro iniciadores, conecte solo dos iniciadores y deje los otros dos que están conectados al puerto del switch vacío.
 
-Debe aplicar el archivo RCF correcto para la configuración del puente FibreBridge 6500N.
+Si la división en zonas se realiza manualmente, siga la división en zonas utilizada para un puente FibreBridge 7500N o 7600N mediante un puerto FC (FC1 o FC2). En esta situación, se agrega un puerto de iniciador en lugar de dos a cada miembro de la zona por estructura.
 
-Si la división en zonas se realiza manualmente, siga la división en zonas utilizada para un puente FibreBridge 6500N o FibreBridge 7500N o 7600N que utilice un puerto FC (FC1 o FC2). En esta situación, se agrega un puerto de iniciador en lugar de dos a cada miembro de la zona por estructura.
-
-Puede cambiar la división en zonas o realizar una actualización de FibreBridge 6500 a FibreBridge 7500 con el procedimiento _Cambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7500N o 7600N del link:../maintain/index.html["Mantener los componentes de MetroCluster"].
+Puede cambiar la zonificación o realizar una actualización de un FibreBridge 6500N a un FibreBridge 7500N mediante el procedimiento de link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"].
 
 En la siguiente tabla se muestran las asignaciones de puertos para los switches de FC cuando se utiliza ONTAP 9.1 y versiones posteriores.
 
 |===
 
 
-4+| Configuraciones que utilizan puentes FibreBridge 6500N o FibreBridge 7500N o 7600N utilizando sólo un puerto FC (FC1 o FC2) 
+4+| Configuraciones que utilicen FibreBridge 7500N o 7600N con solo un puerto FC (FC1 o FC2) 
 
 
 4+| MetroCluster 1 o Grupo DR 1 

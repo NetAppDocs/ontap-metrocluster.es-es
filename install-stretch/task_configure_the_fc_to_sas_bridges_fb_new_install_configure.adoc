@@ -108,9 +108,8 @@ En sistemas que ejecutan ONTAP 9.5 o posterior, se puede utilizar la gestión en
 La velocidad de datos FC admitida depende de su puente de modelos.
 
 +
-*** El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.
-*** El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.
-*** El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.
+*** El puente FibreBridge 7600N admite hasta 32, 16 o 8 Gbps.
+*** El puente FibreBridge 7500N admite hasta 16, 8 o 4 Gbps.
 +
 
 NOTE: La velocidad FCDataRate que seleccione se limita a la velocidad máxima admitida tanto por el puente como por el puerto FC del módulo de controlador al que se conecta el puerto de puente. Las distancias de cableado no deben superar las limitaciones de SFP y otro hardware.
@@ -124,7 +123,7 @@ Si utiliza la CLI, debe ejecutar el siguiente comando:
 --
 
 
-.. Si va a configurar un puente FibreBridge 7500N o 6500N, configure el modo de conexión que el puerto utiliza para ptp.
+.. Si está configurando un puente FibreBridge 7500N, configure el modo de conexión que el puerto utiliza para ptp.
 +
 
 NOTE: El ajuste FCConnMode no es necesario al configurar un puente FibreBridge 7600N.

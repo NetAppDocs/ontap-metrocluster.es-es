@@ -57,8 +57,6 @@
   <block id="e57ca4b3df83a88b6254675613163df0" category="list-text">El sistema debe cumplir todos los requisitos de <block ref="08d6c3cbf42a81a0c26843f87c874545" category="inline-link-macro-rx"></block>.</block>
   <block id="5c96ab4a94ce2c03e50e3170dc50e8be" category="list-text">El entorno debe satisfacer una de las siguientes situaciones para añadir una bandeja en caliente:</block>
   <block id="dc7e96665a67891a688cad5299c9216d" category="list-text">Tiene dos puentes FibreBridge 7500N conectados a una pila de bandejas de discos SAS.</block>
-  <block id="eece1d4d900f6ebddf86703e79ecc8e1" category="list-text">Dispone de un puente FibreBridge 7500N y un puente FibreBridge 6500N conectado a una pila de bandejas de discos SAS.</block>
-  <block id="dd1b0f5953e1bb8988271af33d40715c" category="list-text">Tiene dos puentes FibreBridge 6500N conectados a una pila de bandejas de discos SAS.</block>
   <block id="bbe46ae98258b21267300cd00fda2d33" category="list-text">Este procedimiento sirve para añadir de forma activa una bandeja de discos a la última bandeja de discos de una pila.</block>
   <block id="de765cbcb90d504e6ac736ad12d5610f" category="paragraph">Este procedimiento se escribe suponiendo que la última bandeja de discos de una pila está conectada desde el IOM A al puente A y de IOM B al puente B.</block>
   <block id="898c5906a76d3bd931a038bfaebc8419" category="list-text">Se trata de un procedimiento no disruptivo.</block>
@@ -85,10 +83,6 @@
   <block id="6805cea5c8147284b27002a3dfc8e4af" category="inline-link">Descargas de NetApp: Firmware de bandeja de discos</block>
   <block id="90a2ee29d5c0a6782e15c4ba1d47ebca" category="paragraph"><block ref="90a2ee29d5c0a6782e15c4ba1d47ebca" category="inline-link-rx"></block></block>
   <block id="70a0e75e35d9914b9a2f7708da941117" category="list-text">Instale y cablee la bandeja de discos:</block>
-  <block id="263c15ac5674f01ff68b35e6b6e75bd3" category="paragraph">Tenga en cuenta las siguientes consideraciones:</block>
-  <block id="39e6f48b1de9ddbfef92e6f4fcff1ce4" category="list-text">Para puentes FibreBridge 6500N:</block>
-  <block id="29c6af38e68b6b8bb268425f0b790887" category="paragraph">Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde.en el caso de las bandejas de discos, se inserta un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).</block>
-  <block id="96c7e7c9134d64da1099df040e16e532" category="list-text">Para puentes FibreBridge 7500N:</block>
   <block id="28f13ef1be475bc18398b06c9ee9c0ad" category="paragraph">No fuerce un conector en un puerto. Los cables mini-SAS están codificados; cuando están orientados correctamente a un puerto SAS, el cable SAS hace clic en su lugar y el LED LNK de puerto SAS de la bandeja de discos se ilumina en verde. Para las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia arriba (en la parte superior del conector).</block>
   <block id="d4fa97d509c1914d4c73c7be277a3f4a" category="list-text">Instale la bandeja de discos, enciela y configure el ID de bandeja.</block>
   <block id="d14a1bb2bac60ab5e8c6c23c719dc845" category="paragraph">La _Guía de instalación_ del modelo de bandejas de discos proporciona información detallada sobre la instalación de bandejas de discos.</block>
@@ -135,13 +129,11 @@
   <block id="73152dad4acad3208bc063c3951344c5" category="paragraph">En este caso, debe empezar con el paso siguiente para intercambiar en caliente el puente FibreBridge 6500N "'bottom'" con un puente FibreBridge 7600N o 7500N.</block>
   <block id="f9c1933f3b94ffee14ef186b2709352c" category="paragraph">El siguiente diagrama muestra un ejemplo de la configuración inicial, en la que cuatro puentes FibreBridge 6500N conectan dos pilas de almacenamiento SAS:</block>
   <block id="3dcba5083263c26dc21f695136013a58" category="image-alt">consolidación de pilas antes</block>
-  <block id="8a55d02eab45d757aa9762d06c09ae5f" category="list-text">Utilizando las siguientes directrices, intercambie en caliente el puente "'top'"FibreBridge 6500N con un puente FibreBridge 7600N o 7500N siguiendo el procedimiento descrito en <block ref="958de5ee2f25b5fa2715cdd4e27fa14c" category="inline-link-macro-rx"></block>:</block>
   <block id="dc876c7ff2512b544d84916000f3f0d0" category="list-text">Conecte el puerto FC1 del puente FibreBridge 7600N o 7500N al conmutador o controlador.</block>
   <block id="a2ccc9b7cfd6e0b208f2ec5271001e18" category="paragraph">Esta es la misma conexión que se hizo al puerto FC1 del puente FibreBridge 6500N.</block>
   <block id="5a5847115d5c3eb94f6db3d6e4b75064" category="list-text">No conecte el puerto FC2 del puente FibreBridge 7600N o 7500N en este momento. El siguiente diagrama muestra que bridge_A_1a se ha reemplazado y ahora es un puente FibreBridge 7600N o 7500N:</block>
   <block id="e16af547e6500c2c72cc764eaaaa3831" category="image-alt">consolidación de las pilas 1ro 7500n en su lugar</block>
   <block id="a3f45edd16a39a61c12d4446071cba63" category="list-text">Confirme la conectividad con los discos conectados en puente y que el nuevo FibreBridge 7500N esté visible en la configuración:</block>
-  <block id="c160b6358f7336db6f2a26360400f661" category="list-text">Utilizando las siguientes directrices, intercambie en caliente el puente "'bottom'"FibreBridge 6500N con un puente FibreBridge 7600N o 7500N siguiendo el procedimiento descrito en <block ref="958de5ee2f25b5fa2715cdd4e27fa14c" category="inline-link-macro-rx"></block>:</block>
   <block id="8ff709665460262bbf6007f085751483" category="list-text">Conecte el puerto FC2 del puente FibreBridge 7600N o 7500N al conmutador o controlador.</block>
   <block id="44f4a4edbfb8c95871fef3eb7d97957a" category="list-text">No conecte el puerto FC1 del puente FibreBridge 7600N o 7500N en este momento.<block ref="a06c0386e8ef594aee7be854f4de811f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f02aee1c50fae642922a5499566ecbf9" category="list-text">Confirmar la conectividad con los discos conectados en puente:</block>
@@ -317,16 +309,10 @@
   <block id="aebdbdde32f31274fe9fc6e75b482c32" category="list-text">Compruebe que ambas imágenes flash se han actualizado a la misma versión.</block>
   <block id="1b7c547e0c44744faa2a37c6b0435cc2" category="paragraph">La salida debe mostrar la misma versión para ambas particiones.</block>
   <block id="bb7439d72897f5b031319c5576c3cc67" category="list-text">Repita los pasos 5 a 13 en el puente siguiente hasta que todos los puentes de la configuración de MetroCluster se hayan actualizado.</block>
-  <block id="58cc4f784b9aded3583b845939a81062" category="section-title">Actualización del firmware en FibreBridge 7500N en configuraciones que ejecuten puentes ONTAP 9.3.x y anteriores o 6500N</block>
-  <block id="8aa44124bc18ff7af6c04005e961b310" category="paragraph">Es posible que necesite actualizar el firmware de los puentes FiberBridge para asegurarse de tener las últimas funciones o resolver posibles problemas. Este procedimiento debe utilizarse para FibreBridge 7500N en configuraciones que ejecuten ONTAP 9.3.x o para puentes FibreBridge 6500N en todas las versiones compatibles de ONTAP.</block>
-  <block id="0bbb89fa01deac898bd6b44e2d10d4b1" category="paragraph">Puede utilizar esta tarea con puentes FibreBridge 7500N o 6500N. A partir de ONTAP 9.3, puede utilizar el comando de actualización del firmware del puente de almacenamiento ONTAP para actualizar el firmware del puente en los puentes FibreBridge 7500N.</block>
   <block id="2d0700f1234a9f9dd9937555291170ec" category="paragraph">"'_maintenance-window-in-hours_'" especifica la duración de la ventana de mantenimiento, con un máximo de 72 horas. Si el mantenimiento se completa antes de que haya transcurrido el tiempo, puede invocar un mensaje de AutoSupport que indique el final del período de mantenimiento:</block>
   <block id="8c3f1a5045c47c008de3de6fa5352da3" category="list-text">Descargue el archivo de firmware del puente siguiendo los pasos del 1 al 3 del procedimiento en la página Descarga de firmware de ATTO FiberBridge.</block>
   <block id="3083b982cc912e364f9e1bc28cc6915a" category="list-text">Haga una copia de la página de descarga del firmware de ATTO FiberBridge y de las notas de la versión como referencia cuando se le indique que debe actualizar el firmware en cada puente.</block>
   <block id="ae87d5531ab43f90dedaa89f103356a1" category="list-text">Actualice el puente:</block>
-  <block id="b0d472f0b2dbe5d730a80e2962aec6de" category="list-text">Instale el firmware en el puente FiberBridge.</block>
-  <block id="47205d1bbe1b0ebe5f214ffe8a31f30f" category="list-text">Si está utilizando puentes ATTO FibreBridge 7500N, debe consultar las instrucciones proporcionadas en la sección "'firmware de actualización'" del Manual de instalación y operación de ATTO FibreBridge 7500N.</block>
-  <block id="e82d508ae669816742bd73c7a3aa7f20" category="list-text">Si está utilizando puentes ATTO FibreBridge 6500N, debe consultar las instrucciones proporcionadas en la sección "'firmware de actualización'" del Manual de instalación y operación de ATTO FibreBridge 6500N.</block>
   <block id="8458ea1c3c1ea2053887d2f331da77f4" category="paragraph">*ATENCIÓN:* Asegúrese de que encienda el puente individual ahora. Si espera y enciende y apague ambos puentes en una pila simultáneamente, es posible que la controladora pierda acceso a las unidades, lo que podría provocar un fallo complejo o una caída de varios discos.</block>
   <block id="6eee07f1028e6e37c9b9675c78a3ecab" category="paragraph">El puente debería reiniciarse.</block>
   <block id="86b1ef008f18b43ce62a9069606c0c6d" category="list-text">Desde la consola de cualquiera de las controladoras, compruebe que el puente se ha reiniciado correctamente:</block>
@@ -490,7 +476,6 @@
   <block id="0e095a7f7721eccacda29a1b723a776b" category="list-text">Vuelva al modo de privilegio admin: +<block ref="d5ca624cb3a7e6be13a829c838df3f7b" prefix=" " category="inline-code"></block></block>
   <block id="f777e49343f6ee5f07f45b28dabf1e0c" category="paragraph">El siguiente ejemplo muestra que el conmutador aparece con el nuevo nombre,<block ref="73c6d760f528fa449fd643ef68f79a32" prefix=" " category="inline-code"></block>:</block>
   <block id="556bbef84d582c44d275b1d259773581" category="paragraph">Puede añadir en caliente (agregar de forma no disruptiva) una pila completa, incluidos los puentes, al sistema MetroCluster. Debe haber puertos disponibles en los switches FC y actualizar la división en zonas del switch para reflejar los cambios.</block>
-  <block id="0bfea2edb24bd8a4a4bbb8cda2a3e201" category="list-text">Este procedimiento se puede utilizar para agregar una pila con puentes FibreBridge 7500N o 6500N.</block>
   <block id="3bdb5b94e9e047f350ef916e04de48b0" category="list-text">Este procedimiento se redacta suponiendo que está utilizando las interfaces de gestión de puentes recomendadas: La GUI de ATTO ExpressNAV y la utilidad ATTO Quickav.</block>
   <block id="a3d9a1252fb80a064155cc8c80974390" category="inline-link-macro">Otras interfaces de gestión de puentes</block>
   <block id="5a02bdff215718b5bc1262fbe8d72e13" category="list-text">Puede utilizar otras interfaces de gestión si es necesario. Estas opciones incluyen el uso de un puerto serie o Telnet para configurar y administrar un puente, configurar el puerto de administración Ethernet 1 y utilizar FTP para actualizar el firmware del puente. Si elige alguna de estas interfaces de gestión, su sistema debe cumplir con los requisitos aplicables en <block ref="7ab0568f22b62ca0e98b3c0cd29a60a1" category="inline-link-macro-rx"></block></block>
@@ -2367,7 +2352,6 @@
   <block id="85f0652173fa7b3fc64c286307b3617a" category="list-text">Vuelva a cambiar los agregados reflejados:</block>
   <block id="933883823c7d637ca7f531bf57658b6a" category="list-text">Compruebe que la operación de curación se haya completado ejecutando el siguiente comando en el clúster de destino:</block>
   <block id="79a916b9b9844039e5758f1c19eaa2ea" category="list-text">Encienda cada módulo de la controladora en el sitio de recuperación ante desastres.</block>
-  <block id="9273337a1e299dfc8dfe67a6cfac57c8" category="paragraph">Si existen ambos complejos, la resincronización se iniciará automáticamente. Si un complejo ha fallado, ese complejo debe destruirse y el espejo se ha vuelto a crear mediante el siguiente comando para restablecer la relación de reflejo.</block>
   <block id="45f24e4f4da42e071e122e2ae4357bb7" category="paragraph"><block ref="9c66ef35becdcd6754d36ba97213db1d" prefix="" category="inline-code"></block></block>
   <block id="99d347f5ee9c6d06272a3e8abad4bbfd" category="section-title">Verificación de que su sistema está listo para una conmutación de estado</block>
   <block id="ba6c2df32f41b2c48352bb19b5534193" category="paragraph">Si el sistema ya está en estado de conmutación, puede utilizar<block ref="328f4ffb8a49963a3015fccf28940a6e" prefix=" " category="inline-code"></block> opción para obtener una vista previa de los resultados de una operación de regreso.</block>
@@ -3026,7 +3010,6 @@
   <block id="40a09e232a862af1f1a00bbe4b0defb8" category="sidebar">Sustituya una bandeja de forma no disruptiva en una configuración MetroCluster con ampliación</block>
   <block id="6a739570036228dc1447eb1b941f12a0" category="sidebar">Sustituya una bandeja de forma no disruptiva en una configuración MetroCluster estructural</block>
   <block id="d73f3d20e01c0ae11b268d892b9c7514" category="sidebar">Cambie el nombre de un clúster en las configuraciones de MetroCluster</block>
-  <block id="35c80ebe00a0f12bf75ded93997e17cb" category="sidebar">Apague y encienda un centro de datos</block>
   <block id="87e3fddd4347c3eea1eee68f594f1a43" category="sidebar">Apague toda una configuración de IP de MetroCluster</block>
   <block id="98e0abbb33a3ee2f9258bc3cb733233b" category="sidebar">Apague toda una configuración de MetroCluster FC</block>
   <block id="01f252af90871f7cd362d1ce68d6a434" category="sidebar">Vuelva a configurar un diseño del switch de FC configurado antes de ONTAP 9.x.</block>
@@ -6269,18 +6252,7 @@
   <block id="9a220a3f22f8641906ad7cfa0dd3502b" category="paragraph">Puede quitar la configuración de MetroCluster de todos los nodos de un grupo de recuperación ante desastres (DR). Tras eliminar la configuración de MetroCluster, todas las interconexiones y la conectividad de disco deben ajustarse para que estén en estado admitido. Si necesita quitar la configuración de MetroCluster, póngase en contacto con el soporte técnico.</block>
   <block id="a0bc38f50488b4f686bd2fe145def041" category="inline-link-macro">Cómo quitar nodos de una configuración de MetroCluster: Guía de resolución.</block>
   <block id="8b54a6608c7aceee8d4dfde954124547" category="admonition">No puede revertir la desconfiguración de MetroCluster. Este proceso solo debe realizarse con la ayuda del soporte técnico. Póngase en contacto con el soporte técnico de NetApp y consulte la guía adecuada para su configuración en <block ref="c2ef60fcbce343052d34da400cf98089" category="inline-link-macro-rx"></block></block>
-  <block id="c9da011f9debc02fdab80f3b849d7f6e" category="summary">Después de configurar el puente, puede iniciar el cableado del nuevo sistema. El puente FibreBridge 6500N utiliza conectores QSFP.</block>
-  <block id="1ff786282c561a059275f4f66fbb3c02" category="doc">Cableado de un puente FibreBridge 6500N con bandejas de discos mediante módulos IOM6 o IOM3</block>
-  <block id="a0256b5d14d8f8e278ab1f632644ed83" category="paragraph">Encienda y espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector del cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).</block>
-  <block id="2826857d59337300555697a88fd8af6c" category="paragraph">El puente FibreBridge 6500N no admite bandejas de discos que utilicen un módulo IOM12.</block>
   <block id="a5a5f326fc41dba20cf931ceeadbd860" category="list-text">Conecte en cadena las bandejas de discos en cada pila.</block>
-  <block id="7c1615c29340c6fd3d248d789343e1d1" category="paragraph">Para obtener información acerca de las bandejas de discos en cadena, consulte la _Guía de instalación y mantenimiento_ del modelo de bandeja de discos.</block>
-  <block id="0180c8e3cd250ff60d40a92d46bed5f2" category="list-text">Para cada pila de bandejas de discos, conecte el IOM un puerto cuadrado de la primera bandeja al puerto SAS A en FibreBridge A.</block>
-  <block id="3438a63fec3ca234e9dd8cac149f0aba" category="list-text">Para cada pila de bandejas de discos, conecte el puerto circular IOM B de la última bandeja al puerto SAS A en FibreBridge B.</block>
-  <block id="bed97cf26e962cfbadd9158043d57ebf" category="paragraph">Cada puente tiene un camino hacia su pila de bandejas de discos. El puente A se conecta al lado A de la pila a través de la primera balda, y el puente B se conecta al lado B de la pila a través de la última balda.</block>
-  <block id="091991cc9aad418748a9606ea3888e0f" category="admonition">El puente del puerto SAS B está deshabilitado.</block>
-  <block id="29e7b923f8725202565ab59fd5d6e538" category="paragraph">En la siguiente ilustración, se muestra un conjunto de puentes cableados a una pila de cuatro bandejas de discos:</block>
-  <block id="c44614eb148668338fa95894c5e745ae" category="image-alt">puente de cableado mcc y pila sas</block>
   <block id="93ba9bcaf75f3b305567eed2f5797513" category="summary">Puede instalar y cablear los puentes de ATTO FiberBridge y las bandejas de discos SAS cuando agregue nuevo almacenamiento a la configuración.</block>
   <block id="a9ed40443a225cecce5742ada138b243" category="doc">Instalar puentes de FC a SAS y bandejas de discos SAS</block>
   <block id="a2d4b828805dc92004efb97c8e85045a" category="paragraph">Para los sistemas recibidos de fábrica, los puentes FC a SAS están preconfigurados y no requieren configuración adicional.</block>
@@ -6298,7 +6270,6 @@
   <block id="786bcd5bd1b18eea716b58462b00e890" category="summary">Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP \(FTP, ExpressNAV, ICMP o Quickav\), puede activar los servicios de acceso a través del puerto de consola.</block>
   <block id="40fd7b7d6fe8848f1cb5a5e5acf0fd41" category="doc">Habilitar el acceso al puerto IP en el puente FibreBridge 7600N si es necesario</block>
   <block id="ef402cf927be6e8ac7911e7437ce8e76" category="paragraph">Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP (FTP, ExpressNAV, ICMP o navegación rápida), puede activar los servicios de acceso a través del puerto de consola.</block>
-  <block id="2db131c02bbb96341da732aef89b4993" category="paragraph">A diferencia de los puentes ATTO FibreBridge 7500N y 6500N, el puente FibreBridge 7600N se entrega con todos los protocolos de puerto IP y servicios desactivados.</block>
   <block id="52812075c78ece551ae010bb2c3594ea" category="paragraph">A partir de ONTAP 9.5, se admite la gestión en banda_ de los puentes. Esto significa que los puentes se pueden configurar y supervisar desde la CLI de ONTAP a través de la conexión FC al puente. No se requiere acceso físico al puente a través de los puertos Ethernet puente y no se necesitan las interfaces de usuario de puente.</block>
   <block id="5366fe8e6a583070b8536329d2fb2c42" category="paragraph">A partir de ONTAP 9.8, la gestión en banda_ de los puentes se admite de forma predeterminada y la administración de SNMP fuera de banda está obsoleta.</block>
   <block id="3ab84e59a44526486a6dc2185cd0b1e7" category="paragraph">Esta tarea es necesaria si está *no* utilizando la administración en banda para administrar los puentes. En este caso, debe configurar el puente a través del puerto de administración Ethernet.</block>
@@ -6764,9 +6735,6 @@
   <block id="4816c474b056c83a35173d874218184e" category="list-text">Configurar los puertos FC de puente.</block>
   <block id="0ae098ca81f26216088dd67e626f4774" category="list-text">Configurar la velocidad/velocidad de datos de los puertos FC de puente.</block>
   <block id="6f8fa0d15ba986a207f54e5380590b50" category="paragraph">La velocidad de datos FC admitida depende de su puente de modelos.</block>
-  <block id="4442c01d444cdf8dfad8eee5a984041f" category="list-text">El puente FiberBridge 7600 admite hasta 32, 16 o 8 Gbps.</block>
-  <block id="d7c58cd18c76f6cce444274875661cf3" category="list-text">El puente FiberBridge 7500 admite hasta 16, 8 o 4 Gbps.</block>
-  <block id="794e8b1feb84d0af8dfe68bda71f2312" category="list-text">El puente FiberBridge 6500 admite hasta 8, 4 o 2 Gbps.</block>
   <block id="489a36de5fc8a9824314b5b3d0c0c069" category="admonition">La velocidad FCDataRate que seleccione se limita a la velocidad máxima admitida tanto por el puente como por el puerto FC del módulo de controlador al que se conecta el puerto de puente. Las distancias de cableado no deben superar las limitaciones de SFP y otro hardware.</block>
   <block id="e59edea7eca66c59981a48c451207f15" category="paragraph"><block ref="56c9a9e2cd04a7bdfd3d50da887984d0" prefix="" category="inline-code"></block></block>
   <block id="498cdca1ed56090dbe81c2421b2d09a8" category="list-text">Si va a configurar un puente FibreBridge 7500N o 6500N, configure el modo de conexión que el puerto utiliza para ptp.</block>
@@ -6850,7 +6818,6 @@
   <block id="f6b899924165d9a9138040744109e623" category="paragraph">Estos puentes conectan las bandejas de discos SAS a los módulos de controladoras.</block>
   <block id="2091b6ecd96a9b581d1553ea683b97f8" category="admonition">Los puentes FibreBridge 6500N no se admiten en configuraciones que ejecuten ONTAP 9.8 y posteriores.</block>
   <block id="d35ae81c53ef62cd8e5bdc7d997b45f0" category="list-text">Los puentes FibreBridge 7600N y 7500N admiten hasta cuatro pilas SAS.</block>
-  <block id="1d670d96f2ecbfb15c4a81314e20f67d" category="list-text">Los puentes FibreBridge 6500N solo admiten una pila SAS.</block>
   <block id="2ab47c29a266c510668f89eb63ddd421" category="list-text">Cada pila puede utilizar distintos modelos de IOM, pero todas las bandejas de una pila deben utilizar el mismo modelo.</block>
   <block id="431f56fc810c66ac8296106f1f30b1ec" category="paragraph">Los modelos de IOM admitidos dependen de la versión de ONTAP que ejecute.</block>
   <block id="562c481a4722b64967a4fc3b654ce42b" category="paragraph">Los nombres sugeridos utilizados como ejemplos de este procedimiento identifican el módulo de la controladora al que se conecta el puente y el puerto.</block>
@@ -7726,8 +7693,6 @@
   <block id="de10b7ba4ade6acdea8774b5a68bf1ba" category="list-text">Cree zonas de almacenamiento y añada los puertos de almacenamiento a ellos.</block>
   <block id="fe6733f22485938d023679adc9a877ff" category="admonition">Lleve a cabo estos pasos en un solo switch de cada estructura.</block>
   <block id="cb2a66d72ad29d5ada076628de3ea506" category="paragraph">La división en zonas depende del puente de FC a SAS modelo que utilice. Para obtener más información, consulte la sección correspondiente al puente de modelos. Los ejemplos muestran los puertos del switch Brocade, por lo que ajuste los puertos según corresponda.</block>
-  <block id="50fe2d6c304635caf302b58bd0b6dfee" category="inline-link-macro">División en zonas para puentes FibreBridge 6500N, o puentes FibreBridge 7500N o 7600N que utilicen un puerto FC</block>
-  <block id="a86ff0af1d79628a912ac6a46ff27030" category="list-text"><block ref="a86ff0af1d79628a912ac6a46ff27030" category="inline-link-macro-rx"></block></block>
   <block id="21849a4ac2e63761046ed5823f63d93b" category="inline-link-macro">División en zonas para puentes FibreBridge 7500N con ambos puertos FC</block>
   <block id="89a61a78ea2327ff92f1148721872f22" category="list-text"><block ref="89a61a78ea2327ff92f1148721872f22" category="inline-link-macro-rx"></block></block>
   <block id="2c0db800facff01fe96c6b0dcfc7cbbd" category="paragraph">Cada zona de almacenamiento contiene los puertos de iniciadores de HBA de todas las controladoras y un puerto único que conecta un puente de FC a SAS.</block>
@@ -8300,7 +8265,6 @@
   <block id="df09a476320acebda6f08f8d250d6e6d" category="paragraph">Puede utilizar el comando islShow para comprobar que E_Port se ha conectado con cifrado o compresión configurada y activa.</block>
   <block id="978fbde67977c63ea58137daf2a0c897" category="paragraph">Puede utilizar el comando portEncCompShow para ver qué puertos están activos. En este ejemplo puede ver que el cifrado y la compresión están configurados y activos en el puerto 0.</block>
   <block id="e0be7ea022244db5d1c1da820a4f5ad8" category="section-title">Configuración de la división en zonas en switches Brocade FC</block>
-  <block id="a303e21b6b9e9b6f6c289e91bb7d5d67" category="paragraph">Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento. El procedimiento varía en función de si está utilizando un puente FibreBridge 7500N o FibreBridge 6500N.</block>
   <block id="caf28de9f878439a25ca8c39e1e746b5" category="paragraph">Para cada grupo de recuperación ante desastres de la MetroCluster, debe configurar dos zonas para las conexiones FC-VI que permiten el tráfico de la controladora a la controladora. Estas zonas contienen puertos del switch FC que se conectan a los puertos FC-VI del módulo de la controladora. Estas zonas son zonas de calidad de servicio.</block>
   <block id="c6e4ca0d92238d04023b15c34ba48994" category="paragraph">Un nombre de zona QoS comienza con el prefijo QOSHid_, seguido por una cadena definida por el usuario para diferenciarlo de una zona normal. Estas zonas QoS son las mismas independientemente del modelo de puente FibreBridge que se esté utilizando.</block>
   <block id="3f9aeb06ce7c37a0f2b2cc9af46be345" category="paragraph">Cada zona contiene todos los puertos FC-VI, uno para cada cable FC-VI de cada controladora. Estas zonas están configuradas para prioridad alta.</block>
@@ -8385,8 +8349,6 @@
   <block id="875f652a8829c477d23566825a41ce2d" category="cell">FC_switch_A_2 y FC_switch_B_2</block>
   <block id="03f62b19d6b9509a69d1224a5fd8e73b" category="paragraph">QOSH2_MC1_FAB_2_FCVI (6510)</block>
   <block id="0ac598b4b15967045c768da6dff300ad" category="paragraph">QOSH2_MC1_FAB_2_FCVI (6520)</block>
-  <block id="8924407898770c03b8e8f352362d05df" category="section-title">División en zonas para puentes FibreBridge 6500N o puentes FibreBridge 7500N o 7600N que utilicen un puerto FC</block>
-  <block id="ed6cc2e4a5b1eb49bd98a6836c3c16e0" category="paragraph">Si utiliza puentes FibreBridge 6500N o puentes FibreBridge 7500N o 7600N que utilicen sólo uno de los dos puertos FC, tendrá que crear zonas de almacenamiento para los puertos de puente. Tiene que comprender las zonas y los puertos asociados antes de configurar las zonas.</block>
   <block id="6b31232cf0b2abdcdf2b178f68104f01" category="paragraph">Los ejemplos muestran la división en zonas solo para el grupo de recuperación ante desastres 1. Si la configuración incluye un segundo grupo de recuperación ante desastres, configure la división en zonas del segundo grupo de recuperación ante desastres de la misma manera, utilizando los puertos correspondientes de las controladoras y los puentes.</block>
   <block id="baf9712fec9aa36f25583f754fbdcc36" category="section-title">Zonas requeridas</block>
   <block id="8498a500fccebcb4367e73fb3b617503" category="paragraph">Debe configurar una zona para cada uno de los puertos FC de puente FC FC FC FC a SAS que permita el tráfico entre los iniciadores de cada módulo de controladora y el puente FC a SAS.</block>
@@ -8407,7 +8369,6 @@
   <block id="27c139222e5351fb34d2d62b3d965a28" category="paragraph">Número del grupo de pilas al que se conecta el par de puente.</block>
   <block id="fdeaf3d6c981b83dd3df188d27914262" category="list-text">Los puentes FibreBridge 7600N o 7500N admiten hasta cuatro pilas en el grupo de pilas.</block>
   <block id="91c3e629f683c97b0153438356cb808e" category="paragraph">El grupo de pilas no puede contener más de 10 bandejas de almacenamiento.</block>
-  <block id="059103bb915e843506300718b93905c4" category="list-text">Los puentes FibreBridge 6500N sólo admiten una pila única en el grupo de pilas.</block>
   <block id="3bedeed3aede72d127ad4893c878fb6b" category="paragraph">1, 2, etc.</block>
   <block id="faf844ce6ce8135dec1b710eb9763ba5" category="paragraph">ubicación en pareja</block>
   <block id="8d3eb4cb77ea2bbd21bb7417b5cacaca" category="paragraph">Puente dentro del par de puente.un par de puentes se conectan a un grupo de pila específico.</block>
@@ -8530,7 +8491,6 @@
   <block id="dccc912da6b4072a85754c637123a97c" category="paragraph">Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento, con zonas para los puertos y las zonas de FC-VI para los puertos de almacenamiento.</block>
   <block id="683805dbe49cdc889c788fdcb11e6927" category="paragraph">Los pasos siguientes utilizan la división en zonas estándar para la configuración de MetroCluster.</block>
   <block id="7dc2e1d82f3e11c1d3fa8b2712f6f307" category="paragraph"><block ref="7dc2e1d82f3e11c1d3fa8b2712f6f307" category="inline-link-macro-rx"></block></block>
-  <block id="4e28cc28dc4b1c247e9fc6b5a03ce662" category="paragraph"><block ref="4e28cc28dc4b1c247e9fc6b5a03ce662" category="inline-link-macro-rx"></block></block>
   <block id="2eae53758764e0498d8d60c075032e44" category="list-text">Cree las zonas FC-VI en cada switch:</block>
   <block id="9bb5b14403063a52226996be386c7f39" category="paragraph"><block ref="1b6ef8a5584bc1cb423c10884c7ac79b" prefix="" category="inline-code"></block></block>
   <block id="7b1a5b61138e1c11f0a9c495c1439ab2" category="paragraph">En este ejemplo se crea una zona FCVI QOS que contiene los puertos 5,0;5,1;5,4;5,5;7,0;7,1;7,4;7,5:</block>
@@ -8621,15 +8581,12 @@
   <block id="2a6ce6ad185ff3e30d6b4377d106ed67" category="cell">FC_switch_x_1</block>
   <block id="83224d834f0020489fdb99fe4b7aac03" category="cell">FC_switch_x_2</block>
   <block id="afad1c27cb5fc5d1d792e5ba791ef840" category="section-title">Uso de puertos Brocade para conexiones puente FC a SAS en una configuración MetroCluster de ocho nodos que ejecuta ONTAP 9.0</block>
-  <block id="ae031054e1b7b8ac47164099dbf1db9c" category="paragraph">La siguiente tabla muestra el uso de puertos de puente cuando se utilizan puentes FibreBridge 7500:</block>
   <block id="814568b4249c0114f7f5acf6d86149fb" category="cell">Puente FiberBridge 7500</block>
   <block id="1d28ff844844021e107aa66cfc976e38" category="paragraph">bridge_x_1b</block>
   <block id="ed3fdd8862f782b3adfc86c158c5c6b0" category="paragraph">bridge_x_2b</block>
   <block id="5f3d7a8eab09d202517da1abc99331dc" category="paragraph">bridge_x_3b</block>
   <block id="b2f10ca95ea95e075db7adc2d019047e" category="paragraph">bridge_x_4a</block>
   <block id="3aa12852277616c106b36f5670f64448" category="paragraph">bridge_x_4b</block>
-  <block id="a8e749c2ecbd4bf1e7224f858d4b54e2" category="paragraph">La siguiente tabla muestra el uso de puertos de puente cuando se utilizan puentes FibreBridge 6500:</block>
-  <block id="72732277f710e65392cf7492a34e528a" category="cell">Puente FiberBridge 6500</block>
   <block id="f49308486cec24e5559590a8e8ab5f10" category="paragraph">bridge_x_5a</block>
   <block id="eb5edae8fa155daf7b0c78acbc5c622e" category="paragraph">bridge_x_5b</block>
   <block id="2f18a86c8432805a00900af0153918f1" category="paragraph">bridge_x_6a</block>
@@ -8643,7 +8600,6 @@
   <block id="720e1fb07c36d94aa69e0ee7eb5cb7f3" category="section-title">Uso del puerto Brocade para las controladoras en una configuración MetroCluster de cuatro nodos que ejecuta ONTAP 9.0</block>
   <block id="8fa7af407bf3527ae51a64903584fb97" category="cell">Configuración con cuatro nodos de MetroCluster</block>
   <block id="bb98798a94eabd991690e4d98bb1e93d" category="section-title">Uso de puertos Brocade para puentes en una configuración MetroCluster de cuatro nodos que ejecuta ONTAP 9.0</block>
-  <block id="d4c2c7d0b904292d2b869aa1f73bf0e8" category="paragraph">La siguiente tabla muestra el uso del puerto puente hasta el puerto 17 cuando se utilizan puentes FibreBridge 7500. Se pueden conectar puentes adicionales a los puertos 18 a 23.</block>
   <block id="b568f2bc70056e5c549443721bcfb52b" category="cell">Brocade 6510 o DCX 8510-8</block>
   <block id="5cf1fa7f2c6c9825315b7608236abe2b" category="paragraph">se pueden conectar puentes adicionales a través del puerto 19 y luego de los puertos 24 a 47</block>
   <block id="c4381a0b6bf2d250fd5afa1d8db80d48" category="paragraph">se pueden conectar puentes adicionales a través del puerto 23</block>
@@ -8657,17 +8613,11 @@
   <block id="a435d7a239e10d99dd0bb66c0966f44d" category="paragraph">En la siguiente tabla se muestra el uso del puerto de la controladora en los switches Cisco:</block>
   <block id="b54c734a5be7921355fc2aa93b69ba59" category="cell">Cisco 9148 o 9148S</block>
   <block id="7dd0f293a7e09ad1d4ac1014f18a018a" category="section-title">El uso de puertos de Cisco para puentes FC a SAS en una configuración MetroCluster de ocho nodos que ejecuta ONTAP 9.0</block>
-  <block id="f0bd256ae87926dc22cadd49e5bfaf85" category="paragraph">La siguiente tabla muestra el uso del puerto puente hasta el puerto 23 cuando se utilizan puentes FibreBridge 7500. Se pueden conectar puentes adicionales utilizando los puertos 25 a 48.</block>
   <block id="1d8dd340273647eae3a36eff43fc547e" category="paragraph">Se pueden conectar puentes adicionales utilizando los puertos 25 a 48 siguiendo el mismo patrón.</block>
-  <block id="92c57b4343387dab646670955eb22ea3" category="paragraph">La siguiente tabla muestra el uso del puerto puente hasta el puerto 23 cuando se utilizan puentes FibreBridge 6500. Se pueden conectar puentes adicionales utilizando los puertos 25-48.</block>
-  <block id="1d52039f20a1cb4fe8774684260c63d7" category="cell">MetroCluster de ocho nodos</block>
   <block id="c4739fa521713dbbe264a1366afde348" category="section-title">El uso de puertos Cisco para ISL en una configuración MetroCluster de ocho nodos que ejecuta ONTAP 9.0</block>
   <block id="bf9995231adba64383dd274717591fad" category="section-title">Uso del puerto de Cisco para las controladoras en una configuración MetroCluster de cuatro nodos</block>
   <block id="11278506140805617313d6fd9ed8b0fc" category="cell">Cisco 9148, 9148S o 9250i</block>
   <block id="8a960a450c78ddb1326827d52c10a15a" category="section-title">Uso de puertos de Cisco para puentes FC a SAS en una configuración MetroCluster de cuatro nodos que ejecuta ONTAP 9.0</block>
-  <block id="84e23d11c4e127e49471824f2e6c9d7c" category="paragraph">La siguiente tabla muestra el uso del puerto puente hasta el puerto 14 cuando se utilizan puentes FibreBridge 7500. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
-  <block id="a469d4f6876ebd3dc052284b5c5e7509" category="paragraph">La siguiente tabla muestra el uso de puertos de puente cuando se utilizan puentes FibreBridge 6500 hasta el puerto 14. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
-  <block id="56f993fb26dc8cf4262b56765d09c432" category="paragraph">Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
   <block id="6fcd6dc740970bb42bde0c9a37d97275" category="section-title">Uso de puertos Cisco 9148 y 9148S para ISL en una configuración MetroCluster de cuatro nodos que ejecuta ONTAP 9.0</block>
   <block id="19ca14e7ea6328a42e0eb13d585e4c22" category="paragraph">36</block>
   <block id="d8547f2a1e0767433bffe41b5c4ca3bc" category="section-title">Uso de puertos Cisco 9250i para ISL en una configuración MetroCluster de cuatro nodos que ejecuta ONTAP 9.0</block>
@@ -8681,12 +8631,7 @@
   <block id="26e412e124f0e9c78b247288bfd03abd" category="list-text">Cada clúster de la configuración de MetroCluster FC debería tener su propio servidor NTP independiente o servidores que utilizan los nodos, los switches FC y los puentes FC a SAS del sitio MetroCluster.</block>
   <block id="e7f78ef846f1e6e4f4517bf5c0ce40bc" category="list-text">Compruebe los cambios realizados en los ajustes de fecha y hora en la ventana *Fecha y hora*.</block>
   <block id="0d70078385b01668ecfcc33dcc7785e4" category="summary">Puede configurar sistemas FAS8020, AFF8020, FAS8200 y AFF A300 utilizando un único puerto de iniciador para cada estructura y dos puertos de iniciador para cada controladora.</block>
-  <block id="918697643ecb503ad41bd41cd21ad85c" category="paragraph">Puede seguir el cableado para el puente FibreBridge 6500N o el puente FibreBridge 7500N o 7600N utilizando sólo un puerto FC (FC1 o FC2). En lugar de usar cuatro iniciadores, conecte solo dos iniciadores y deje los otros dos que están conectados al puerto del switch vacío.</block>
-  <block id="caf615d7715d92dbf30bfb0d0b1cc4d7" category="paragraph">Debe aplicar el archivo RCF correcto para la configuración del puente FibreBridge 6500N.</block>
-  <block id="efce25b9409a6bd708e7c532b13e8176" category="paragraph">Si la división en zonas se realiza manualmente, siga la división en zonas utilizada para un puente FibreBridge 6500N o FibreBridge 7500N o 7600N que utilice un puerto FC (FC1 o FC2). En esta situación, se agrega un puerto de iniciador en lugar de dos a cada miembro de la zona por estructura.</block>
-  <block id="cdd098707a5ab09c2aacefd245a22b7d" category="paragraph">Puede cambiar la división en zonas o realizar una actualización de FibreBridge 6500 a FibreBridge 7500 con el procedimiento _Cambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7500N o 7600N del<block ref="01d78e686e1360972399f4e6d1d43586" category="inline-link-rx"></block>.</block>
   <block id="a8a2bf560173c2071776e7eb62881e05" category="paragraph">En la siguiente tabla se muestran las asignaciones de puertos para los switches de FC cuando se utiliza ONTAP 9.1 y versiones posteriores.</block>
-  <block id="24938029e2776bfd3dacbae21e93a8b1" category="cell">Configuraciones que utilizan puentes FibreBridge 6500N o FibreBridge 7500N o 7600N utilizando sólo un puerto FC (FC1 o FC2)</block>
   <block id="be4390855c7255687268115d7024953b" category="cell">*MetroCluster 1 o Grupo DR 1*</block>
   <block id="b4244340f0935c1a99a9f6b1a5c587ed" category="cell">*Componente*</block>
   <block id="5ddcf17f54788a5bb9148e8671562c06" category="cell">*Puerto*</block>
@@ -8790,18 +8735,14 @@
   <block id="4040897121df220e5ae9b68b9fe58f41" category="list-text">Configure los parámetros en la cabina de almacenamiento que se necesitan para trabajar con ONTAP.</block>
   <block id="22352eb03ff7e6b8795e4f237f27d8d1" category="paragraph">Este procedimiento se redacta suponiendo que está utilizando las interfaces de gestión de puentes recomendadas: La GUI de ATTO ExpressNAV y la utilidad ATTO Quickav.</block>
   <block id="382796d45bd36c3702aa7fdd174e2a3f" category="paragraph">La GUI de ATTO ExpressNAV se utiliza para configurar y administrar un puente y para actualizar el firmware del puente. Puede utilizar la utilidad ATTO Quickav para configurar el puerto 1 de gestión de Ethernet de puente.</block>
-  <block id="e724cb67436f5eec5573e5a3fd4cb036" category="paragraph">Comandos de la CLI de Bridge, por ejemplo<block ref="0c4a8f098e0ed513f1915286fc0b9d0a" prefix=" " category="inline-code"></block> Command, que se puede ejecutar desde la interfaz de ONTAP.</block>
   <block id="b9af642f4c94393d1d86928e1df7b939" category="paragraph">Cuando esté preparando la instalación de los puentes como parte del nuevo sistema MetroCluster, debe asegurarse de que el sistema cumple determinados requisitos, entre los que se incluyen los requisitos de configuración y configuración de los puentes. Otros requisitos incluyen la descarga de los documentos necesarios, la utilidad de navegación rápida de ATTO y el firmware del puente.</block>
-  <block id="d0ee1757d9fccb6a2088a8a3f1aede6a" category="paragraph">Después de asegurarse de que el sistema cumple todos los requisitos de "'preparación para la instalación'", puede instalar su nuevo sistema.</block>
   <block id="6f150fd01a15072340dda8ea97654309" category="admonition">Todos los discos del grupo de recuperación ante desastres deben utilizar el mismo tipo de conexión y ser visibles para todos los nodos del grupo de recuperación ante desastres, independientemente de los discos que se utilicen para agregados reflejados o no reflejados.</block>
   <block id="ebda0461d9b282997db74027d2c545a7" category="paragraph">Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar de otro modo el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP (FTP, ExpressNAV, ICMP o navegación rápida), puede activar los servicios de acceso a través del puerto de consola.</block>
   <block id="51c314385c544d39d9b0b57b7e4adc0c" category="paragraph">A partir de ONTAP 9.5, se admite la gestión en banda_ de los puentes. Esto significa que los puentes se pueden configurar y supervisar desde la CLI de ONTAP a través de la conexión FC al puente. No se requiere acceso físico al puente a través de los puertos Ethernet puente y no se necesitan las interfaces de usuario de puente.</block>
   <block id="4de57bb3ff326a74dbe2d8f7f29b872e" category="paragraph">A partir de ONTAP 9.8, la gestión en banda_ de los puentes es compatible de forma predeterminada y la gestión de SNMP fuera de banda está obsoleta.</block>
   <block id="4f8b49fd2c78185a429537ccca6bc9b8" category="paragraph"><block ref="1859fb52401d439b78e4471f35d5d2a5" prefix="" category="inline-code"></block></block>
   <block id="ffdbfa0a92ef89961619af0cb24c5631" category="paragraph"><block ref="9e327e25d6bcee375235bf50d593a53b" prefix="" category="inline-code"></block></block>
-  <block id="715af57300b5c6806072fa2c866065e6" category="list-text">Desactive un servicio, si lo desea, emitiendo <block ref="40c66578e27296f14f52884aa46db768" prefix=" " category="inline-code"></block> y repetir el comando según sea necesario hasta que todos los servicios deseados estén desactivados:</block>
   <block id="bd05a9df46ef5cee378e7385dd47e249" category="paragraph"><block ref="40c66578e27296f14f52884aa46db768" prefix="" category="inline-code"></block></block>
-  <block id="74c3270411b35dffcba4c76dadbafc6c" category="paragraph">La<block ref="f0644776120bb06e0e293b1d88a9e8d6" prefix=" " category="inline-code"></block> command deshabilita un servicio único cada vez. El servicio se puede especificar mediante una de las siguientes opciones:</block>
   <block id="03583cd75bf401944b018f81b3f6916d" category="list-text">telnet</block>
   <block id="18dbb64a12017d20307bc641212dbd77" category="paragraph">Puede comprobar si un protocolo específico está activado o desactivado mediante el<block ref="78ffae24f50d1763051c5834f1e24a95" prefix=" " category="inline-code"></block> comando.</block>
   <block id="c4d438b2e2bd0896f2b695f62760125c" category="paragraph"><block ref="b5ac625737918fa90a557c49fcd2839a" prefix="" category="inline-code"></block></block>
@@ -8809,17 +8750,10 @@
   <block id="9adaa4b035594e5d964fd58b200e26d9" category="paragraph">La conexión en serie se utilizará para la configuración inicial y, a continuación, la gestión en banda a través de ONTAP y los puertos FC pueden utilizarse para supervisar y gestionar el puente.</block>
   <block id="5ba93b1d1631308a58a7b506c740bfa2" category="paragraph"><block ref="f0104ab719763806a61c8279ee0e0184" prefix="" category="inline-code"></block></block>
   <block id="698baf99e373b8d4f943031badc7d3e7" category="paragraph"><block ref="2e4c085dd767f3855634c8a387e0be3a" prefix="" category="inline-code"></block></block>
-  <block id="7b3efb5742ffd4881d7f445df634f9a7" category="paragraph"><block ref="67250b7e8d9d2f07f6b34aa79484ed9a" prefix="" category="inline-code"></block></block>
-  <block id="53f9010a998452330c318a49a19fdad3" category="paragraph"><block ref="bdfdb200f5a92e495b0fd5fe384d2011" prefix="" category="inline-code"></block></block>
   <block id="0d77538b2ad1e8b5f624512685596cda" category="list-text">Si ejecuta ONTAP 9.4 o una versión anterior, habilite SNMP en el puente:</block>
-  <block id="00e0abfb46aba6832f65f196e0f3044d" category="paragraph"><block ref="b6962167bb76983c7ff7ae4e09ba7acc" prefix="" category="inline-code"></block></block>
-  <block id="bef8395e82221d7acad3540cbcc25f3d" category="paragraph">El ajuste FCConnMode no es necesario al configurar un puente FibreBridge 7600N. Si utiliza la CLI, debe ejecutar el comando siguiente:</block>
-  <block id="acc808880efb90c6f8934d124df0c880" category="paragraph"><block ref="f7724faaeb3a3d6fe76a1dbd2c275120" prefix="" category="inline-code"></block></block>
   <block id="e0a5f23db1ea016ca393b0dc436ce2f7" category="list-text">Si no utiliza el segundo puerto, debe deshabilitar el puerto:</block>
   <block id="e56418bb842bd172c1bf2aaff54451fd" category="paragraph"><block ref="9b110bb52a19e20da07d06e46afdb2ee" prefix="" category="inline-code"></block></block>
   <block id="08492a50f188b83f3605c3b28b1cc22f" category="list-text">Si está configurando un puente FibreBridge 7600N o 7500N, desactive los puertos SAS sin utilizar:</block>
-  <block id="fe3c5c4aadf855704d7af81d0dc642d9" category="paragraph"><block ref="d98e17216fdef68072997b7c55150b00" prefix="" category="inline-code"></block></block>
-  <block id="d7513c0e570b2f3453caf0550a333d1e" category="list-text">Asegure el acceso al puente y guarde la configuración del puente. Elija una opción de abajo dependiendo de la versión de ONTAP que su sistema esté ejecutando.</block>
   <block id="4bba2584f57904f148583d5ad0ce4a34" category="list-text">Ver el estado de los puentes:</block>
   <block id="b937671578dea012b5d9e0ca996417fc" category="list-text">Asegure el puente:</block>
   <block id="cf574293b8ab8a752912f9e7ad222e6b" category="paragraph"><block ref="0b02d3243d42e6632b22b713b73ab2d3" prefix="" category="inline-code"></block></block>
@@ -8831,23 +8765,15 @@
   <block id="2c5e8c1a90d9fac55613816da8484fd4" category="paragraph">Después de configurar el puente, puede iniciar el cableado del nuevo sistema. El puente FibreBridge 7600N o 7500N utiliza conectores mini-SAS y admite bandejas que utilizan módulos IOM6 o IOM3.</block>
   <block id="f7e3d93b4c145bf696a9e6f193ce4fb7" category="list-text">Para pilas de bandejas adicionales, repita los pasos anteriores con el siguiente puerto SAS disponible en los puentes FibreBridge, usando el puerto B para una segunda pila, el puerto C para una tercera pila y el puerto D para una cuarta pila.</block>
   <block id="7dd4f77a1d8a0add44b6d788582b503a" category="paragraph">Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).</block>
-  <block id="c05c9c89f29541a2e3cafe9c3845e3e8" category="paragraph">El puente FibreBridge 6500N no admite bandejas de discos que utilicen IOM12.</block>
-  <block id="812d5019caa5125426f0aef260c3c3e7" category="paragraph">Cada puente tiene un camino hacia su pila de bandejas de discos: el puente A se conecta al lado A de la pila a través de la primera bandeja y el puente B se conecta al lado B de la pila a través de la última bandeja.</block>
   <block id="8cbdbb5be51e2a78d7b472e23327b938" category="section-title">Verificación de la conectividad y el cableado de los puentes de los puertos FC de puente</block>
   <block id="605157b79e898676481d263489be287d" category="paragraph">Es necesario verificar que cada puente pueda detectar todas las unidades de disco y, a continuación, conectar cada puente a los switches FC locales.</block>
-  <block id="cccc51b51ddeaf1d070119fe26d9dca4" category="list-text">[[step1_Verify_Bridges]] verificar que cada puente pueda detectar todas las unidades de disco y bandejas de discos a las que está conectado:</block>
   <block id="bf532d59144bc55a10c7ae835f098f56" category="paragraph">Se le lleva a la página de inicio de ATTO FiberBridge del puente para el que ingresó la dirección IP, que tiene un enlace.</block>
   <block id="c7634b5b5412c39c95e0120e8096c9c1" category="list-text">Haga clic en el vínculo e introduzca su nombre de usuario y la contraseña que ha designado al configurar el puente.</block>
   <block id="78d586744784b57424fd44e8680647aa" category="list-text">Haga clic en *Avanzado*.</block>
-  <block id="350948e1948da38211704e0e632282d6" category="list-text">Consulte los dispositivos conectados mediante<block ref="2aa3751083baf48c1e1ddef8df4ddcc3" prefix=" " category="inline-code"></block> Y, a continuación, haga clic en *Enviar*.</block>
   <block id="b86eb4c51a5acf9000389d9ca0815da2" category="paragraph">Ver los dispositivos conectados:</block>
   <block id="7077cd2cd21f10438aeeb3c4a40de35e" category="paragraph">La salida muestra los dispositivos (discos y bandejas de discos) a los que está conectado el puente. Las líneas de salida están numeradas secuencialmente para que pueda contar rápidamente los dispositivos. Por ejemplo, el siguiente resultado muestra que hay 10 discos conectados:</block>
-  <block id="5c1a7988cfaa2c9a1f21c9b95b652af9" category="admonition">Si la respuesta de texto truncada aparece al principio de la salida, puede utilizar Telnet para conectarse al puente y escribir el mismo comando para ver toda la salida.</block>
   <block id="540e154d4e289b6bfd793dd86036768d" category="list-text">Compruebe que el resultado del comando muestra que el puente está conectado a todos los discos y bandejas de discos de la pila a la que se supone que está conectado.</block>
-  <block id="bb5aca9716acb38283c10f2d735e3acf" category="paragraph">Repetición <block ref="2814819d643b5a414bd6cc7c03f47bc3" category="inline-xref-macro-rx"></block> por cada puente restante.</block>
   <block id="234d9ba6039ff899b95d32b2d5738596" category="list-text">Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo el cableado.</block>
-  <block id="2eb7016fb2e69bc04a0be5e44dbc69dd" category="paragraph"><block ref="2eb7016fb2e69bc04a0be5e44dbc69dd" category="inline-link-macro-rx"></block></block>
-  <block id="5107f3588b77e26edc1af80f693e8509" category="list-text">Repetición <block ref="2814819d643b5a414bd6cc7c03f47bc3" category="inline-xref-macro-rx"></block>.</block>
   <block id="22fa5db9179793221a81bd3cfceea63a" category="list-text">Conecte cada puente a los switches FC locales mediante el cableado de la tabla para la configuración y el modelo de switch, y el modelo de puente de FC a SAS:</block>
   <block id="cbf21b0a1a6cb9d0bb203c817705311a" category="admonition">La segunda conexión de puerto FC en el puente FibreBridge 7500N no debe cablearse hasta que se haya completado la división en zonas.</block>
   <block id="6ccf095006c1d816e28e52dc0e9bd0f6" category="paragraph">Consulte las asignaciones de puertos para su versión de ONTAP.</block>
@@ -8857,15 +8783,12 @@
   <block id="f492e8c42f4aa05cd2d89ed340eda017" category="list-text">Al fijar el puente se desactivan los protocolos y servicios de telnet y otros puertos IP (FTP, ExpressNAV, ICMP o navegación rápida) en el puente.</block>
   <block id="f959a7f998a036cbb1af9730d1501639" category="list-text">Este procedimiento usa la administración fuera de banda mediante el indicador ONTAP, que está disponible a partir de ONTAP 9.5.</block>
   <block id="955c34d56b14a955d6778c2f968ce374" category="paragraph">Puede emitir los comandos desde la CLI de bridge si no utiliza la gestión fuera de banda.</block>
-  <block id="a7961aec4222555642ec51ab8f3cbdb7" category="list-text">La<block ref="dd3c323b9985b4657ab16220491093ca" prefix=" " category="inline-code"></block> El comando se puede utilizar para volver a habilitar los puertos Ethernet.</block>
   <block id="92ce9352258f4fd51a93e19057e163df" category="list-text">En ONTAP 9.7 y versiones anteriores, ejecute el<block ref="0b02d3243d42e6632b22b713b73ab2d3" prefix=" " category="inline-code"></block> El comando del ATTO FiberBridge podría no actualizar correctamente el estado del puente en el clúster asociado. Si esto ocurre, ejecute el<block ref="0b02d3243d42e6632b22b713b73ab2d3" prefix=" " category="inline-code"></block> del clúster de partners.</block>
   <block id="91b61970c1dbad9dc9b40ee68d065910" category="list-text">Desde el símbolo del sistema de ONTAP del clúster que contiene el puente, asegure el puente o desasegure.</block>
   <block id="97d0b59e1b50cf5d1519ad1d3c508062" category="paragraph">El siguiente comando asegura bridge_A_1:</block>
   <block id="162f658eabdc5fc30bf557f0dd15a5a8" category="paragraph">El siguiente comando desasegura bridge_A_1:</block>
   <block id="63e4f1043edc42bb258a37bfbd998bda" category="list-text">En el símbolo del sistema ONTAP del clúster que contiene el puente, guarde la configuración de puente:</block>
-  <block id="5c89ff4fb068c362b464eb4fa8108a16" category="paragraph"><block ref="b4804ff71b8d2496c3427434160f6512" prefix="" category="inline-code"></block></block>
   <block id="848c91462fdf4b2756db71b5b7cf8d20" category="list-text">Desde el símbolo del sistema de ONTAP del clúster que contiene el puente, reinicie el firmware del puente:</block>
-  <block id="f649a33fa0f1f3fe81f64356049e86f4" category="paragraph"><block ref="b277272d1a5349cb34c860858e2a2a88" prefix="" category="inline-code"></block></block>
   <block id="91570c88eb5cc19dd41fc5caf53c3a27" category="paragraph">La relación de clústeres entre iguales puede realizarse en puertos dedicados o en puertos de datos. El uso de puertos dedicados proporciona un rendimiento mayor para el tráfico de paridad de clústeres.</block>
   <block id="4cd1110435955b3b14ac2d145c6baae1" category="paragraph">Cada sitio de MetroCluster se configura como un par para su sitio de partner. Debe estar familiarizado con los requisitos previos y las directrices para configurar las relaciones de paridad y para decidir si desea utilizar puertos compartidos o dedicados para dichas relaciones.</block>
   <block id="bafe4bc75cd2dda40df8007d783f6a0b" category="paragraph"><block ref="bafe4bc75cd2dda40df8007d783f6a0b" category="inline-link-macro-rx"></block></block>
@@ -9353,11 +9276,9 @@
   <block id="4e14469d1b9cb5857e2b83704c8ab8d4" category="list-text"><block ref="d277051460abcb0f3a19fb6f4b09af32" category="inline-xref-macro-rx"></block></block>
   <block id="1098ebf3ac123d908705a49af90988ba" category="inline-xref">Cableado de un puente FibreBridge 7600N o 7500N con bandejas de discos que utilicen módulos IOM6 o IOM3</block>
   <block id="572e966b8fd8a186b019d7c5d26ff32c" category="list-text"><block ref="f3f03af6d08c988efd686559fcd15483" category="inline-xref-macro-rx"></block></block>
-  <block id="6db0710ae16bb03fe4ed9188d32a68ab" category="list-text"><block ref="5ee3dd6cfd52247d8b37207cfaf13e9b" category="inline-xref-macro-rx"></block></block>
   <block id="8bfac37f0565c6922aeced47caf18f6a" category="list-text">[[step1_bridge]] Compruebe que cada puente pueda detectar todas las unidades de disco y bandejas de disco a las que está conectado:</block>
   <block id="7584130e58d7e346035eb6eabd58a612" category="list-text">Consulte los dispositivos conectados mediante el comando sastargets y, a continuación, haga clic en *Enviar*.</block>
   <block id="26b17225b626fb9238849fd60eabdf60" category="paragraph">+</block>
-  <block id="6edb2b0baf9ed9e4cde065ac51290bc3" category="paragraph">+ NOTA: Si el texto "esponse truncada" aparece al principio de la salida, puede utilizar Telnet para conectarse al puente e introducir el mismo comando para ver toda la salida.</block>
   <block id="eb443924112f8c71329400ac78de9284" category="paragraph">Repetición <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block> por cada puente restante.</block>
   <block id="0aeba4fd83ea38faeb00ddbf389be6ad" category="paragraph"><block ref="48f604bdf2d3bf06f58ee9f10e668948" category="inline-xref-macro-rx"></block></block>
   <block id="2c0892c11c37aec07e0a746c4c7fbe0d" category="list-text">Repetición <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block>.</block>
@@ -9675,13 +9596,9 @@
   <block id="1177ce2d22c07bbd50d26ba5478b5b1d" category="paragraph">En las tablas se muestran las configuraciones máximas admitidas, con ocho módulos de controladora en dos grupos de recuperación ante desastres. Para configuraciones más pequeñas, ignore las filas para los módulos de controladora adicionales.</block>
   <block id="cab785737f7e01bc6cf334a3297e22c3" category="cell">Cisco 9250i Nota: El switch Cisco 9250i no es compatible con configuraciones MetroCluster de ocho nodos.</block>
   <block id="7454ecd5190b690ccf9ee77f2e438c0c" category="section-title">Uso de puertos de Cisco para puentes FC a SAS en una configuración MetroCluster que ejecuta ONTAP 9.1 o posterior</block>
-  <block id="68d960c549d05fc84233ef70c7a67687" category="cell">FibreBridge 7500 con dos puertos FC</block>
   <block id="89eaf3610015ecc12505a2408ff9fda6" category="paragraph">Se pueden conectar puentes adicionales utilizando los puertos 17 a 40 y 57 a 88 siguiendo el mismo patrón.</block>
   <block id="a1d4f21ed73518b99dbbab05134b5c9a" category="paragraph">Se pueden conectar puentes adicionales de un segundo grupo de recuperación ante desastres o una segunda configuración MetroCluster utilizando los puertos 33 a 40 siguiendo el mismo patrón.</block>
   <block id="a6bd250708a75e43f157a7b657e654c5" category="paragraph">Se pueden conectar puentes adicionales de un segundo grupo de recuperación ante desastres o una segunda configuración MetroCluster utilizando los puertos 25 a 48 siguiendo el mismo patrón.</block>
-  <block id="ba310a61cda35bab44af31435467361f" category="paragraph">Las tablas siguientes muestran el uso de puertos de puente cuando se utilizan puentes FibreBridge 6500 o puentes FibreBridge 7500 sólo con un puerto FC (FC1 o FC2). En el caso de los puentes FibreBridge 7500 que utilicen un puerto FC, puede cablearse FC1 o FC2 al puerto indicado como FC1. Se pueden conectar puentes adicionales utilizando los puertos 25-48.</block>
-  <block id="5efa1f2cb5eede18bb7294c80eb0d620" category="cell">Puentes FiberBridge 6500 o puentes FibreBridge 7500 con un puerto FC</block>
-  <block id="a072aae7bbb53167bbaf8606f2c6e2a0" category="cell">Puente FibreBridge 6500 o FibreBridge 7500 con un puerto FC</block>
   <block id="de8504b73ea228d0ea9bbce69752092e" category="cell">Puente</block>
   <block id="4968e1c4a92e0df27646933918f92be2" category="section-title">El uso de puertos Cisco para ISL en una configuración de ocho nodos en una configuración MetroCluster que ejecuta ONTAP 9.1 o posterior</block>
   <block id="538b94639e6cbcf51578ca8e73fa1108" category="summary">A la hora de planificar la configuración de MetroCluster para su uso con discos y LUN de cabina, debe tener en cuenta diversos factores, como el orden de configuración del acceso al almacenamiento, la ubicación del agregado raíz y el uso de puertos iniciadores FC, switches y puentes FC a SAS.</block>
@@ -9786,7 +9703,6 @@
   <block id="b242408d7d7d710b9677d625caecbe2d" category="paragraph"><block ref="485e87046e645a3ee2b0bd27ba5b9a9a" prefix="" category="inline-code"></block></block>
   <block id="be5202b28e5b83beb808b3ac26e9742d" category="paragraph">De manera predeterminada, todos los puertos están configurados para funcionar a 16 Gbps. Puede cambiar la velocidad del puerto por los siguientes motivos:</block>
   <block id="ba9c767eb14e474535af6d4b9bee5496" category="list-text">La velocidad de los puertos del switch de interconexión debe cambiarse cuando se utiliza un adaptador FC-VI de 8 Gbps y la velocidad del puerto del switch debe configurarse a 8 Gbps.</block>
-  <block id="a0bbe76035aaa0a06b6d98046fa647be" category="list-text">La velocidad de los puertos del switch debe cambiarse cuando se utiliza un adaptador HBA de 8 Gbps para ATTO FibreBridge 6500N.</block>
   <block id="88a9be1491a219d7b5dd0ebd6de75774" category="list-text">La velocidad de los puertos ISL se debe cambiar cuando el ISL no puede ejecutarse a 16 Gbps.</block>
   <block id="0cde63179964e3bf0a8751afc45a15b9" category="paragraph">Debido al comportamiento del FC-VI, debe establecer la distancia en 1.5 veces la distancia real con un mínimo de 10 (LE). La distancia para el ISL se calcula de la siguiente manera, redondeada hasta el siguiente kilómetro completo: 1.5 × distancia real = distancia.</block>
   <block id="aadeb78696fd6130a1f507d57cf50198" category="paragraph">Si la distancia es de 3 km, entonces 1.5 × 3 km = 4.5. Esto es menor que 10; por lo tanto, debe establecer el ISL en el nivel DE distancia LE.</block>
@@ -10938,9 +10854,7 @@
   <block id="20d3ce5dec27f8f374403afd88aa2576" category="section-title">Ilustración de la red de interconexión de clúster y la IP de MetroCluster</block>
   <block id="57b140d2bdb4a32e43e24402fa90a87d" category="paragraph">En general, los clústeres de ONTAP incluyen una red de interconexión de clúster para el tráfico entre los nodos del clúster. En configuraciones de IP de MetroCluster, esta red también se utiliza para transportar tráfico de replicación de datos entre los sitios de MetroCluster.</block>
   <block id="8884ae199fd568dc7ca11305cb40b82e" category="image-alt">interconexión ip de arquitectura de hardware ip de mcc</block>
-  <block id="decd0c57096fb74885b3c3c62892e9df" category="paragraph">Cada nodo de la configuración de IP de MetroCluster cuenta con LIF especializadas para la conexión a la red IP back-end:</block>
   <block id="5157984370bbb692d3f2d2a41727e668" category="list-text">Dos interfaces MetroCluster IP</block>
-  <block id="5359dd5f381b734f4af8cff7b671c28f" category="list-text">Una LIF de interconexión de clústeres</block>
   <block id="f413ada03786bcba415f9a26d51d3699" category="paragraph">En la siguiente ilustración se muestran estas interfaces. El uso de puertos mostrado es para un sistema A700 o FAS9000 de AFF.</block>
   <block id="7fa8c692d2fa9493453528081a86e668" category="image-alt">uso de ip de mcc</block>
   <block id="e39c1c9f6137c6dbe9a36e7da08ce525" category="paragraph"><block ref="e39c1c9f6137c6dbe9a36e7da08ce525" category="inline-link-macro-rx"></block></block>
@@ -11094,7 +11008,6 @@
   <block id="f0630dda98a33b3b99be916ac28603b0" category="admonition">El archivo RCF desactiva el protocolo Telnet. Si no configura el servidor SSH, sólo puede acceder al puente utilizando la conexión de puerto serie.</block>
   <block id="4cbd2061568d423e0fdf461dfa55b473" category="list-text">Generar claves RSA.</block>
   <block id="bb618b144b7c6895aa5a8818fa66c1b2" category="list-text">Generar claves DSA (opcional)</block>
-  <block id="d034cc5a3446b99507240baca90266a0" category="list-text">Si está utilizando la versión compatible con FIPS de EFOS, genere las claves ECDSA. En el ejemplo siguiente se crean las claves con una longitud de 256. Los valores válidos son 256, 384 o 521.</block>
   <block id="2adc88e53d20b1a61cccff951117e58f" category="list-text">Habilite el servidor SSH.</block>
   <block id="a3fec8a700961f2756fa87e70ed3f889" category="paragraph">Si es necesario, salga del contexto de configuración.</block>
   <block id="b5a5b3a0219f19569613cb2962fe0ab6" category="admonition">Si las claves ya existen, es posible que se le pida que las sobrescriba.</block>
@@ -11374,11 +11287,6 @@
   <block id="2c38bfd3e1fc55958de34b8ebc994982" category="list-text">En el símbolo del sistema del clúster ONTAP, quite el puente que está experimentando el mantenimiento de la supervisión del estado:</block>
   <block id="b628331cdaf499ac5355da5166121f7c" category="list-text">Extraer el puente: +<block ref="0a43f7f1d3b3ead28309a0c3e1894441" prefix=" " category="inline-code"></block></block>
   <block id="10849d1bb066212b581722aa34844d00" category="list-text">Vea la lista de puentes supervisados y confirme que el puente eliminado no está presente: +<block ref="5612ed7a515d4278d578c100f6f1a976" prefix=" " category="inline-code"></block></block>
-  <block id="646f7640c0412bb509ebc11ade2117f9" category="list-text">Apague el puente ATTO.</block>
-  <block id="f374d6cd8c51ec88c39bd91a0405a822" category="cell">Si está utilizando un...</block>
-  <block id="5a19c2aa2027af8ccb87bafe6503ea56" category="paragraph">Puente FibreBridge 7600N o 7500N</block>
-  <block id="d315e369fa1477e4884dde927f66cc4c" category="paragraph">Retire los cables de alimentación conectados al puente.</block>
-  <block id="8a8591256eac823617f5398950d60602" category="paragraph">Puente FibreBridge 6500N</block>
   <block id="785d24e60ecad3abd011ca5dd1478bbb" category="paragraph">Apague el interruptor de alimentación del puente.</block>
   <block id="e3129e36caa5d6bf706b1a5b6b5d79c9" category="list-text">Desconecte los cables que están conectados al puente antiguo.</block>
   <block id="3e6e22b6aa776e503ebf2535dbb1e8c9" category="paragraph">Debe tomar nota del puerto al que se ha conectado cada cable.</block>
@@ -11400,7 +11308,6 @@
   <block id="0d0c0c98576403d7d46bc7ee7fa9fa7a" category="list-text">Actualice el firmware de FiberBridge en cada puente.</block>
   <block id="b2d9f80a5c71fe34bed7839914c2fd68" category="paragraph">Si el nuevo puente es del mismo tipo que el puente asociado, actualice el mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte la sección "actualización del firmware en un puente FibreBridge" en _MetroCluster Maintenance_.</block>
   <block id="9013c925bc3a423f843c073690ed8081" category="list-text">[[paso 17-Reconectar-newbridge]] vuelva a conectar los cables SAS y FC a los mismos puertos del nuevo puente.</block>
-  <block id="f3065ac3252067556040545ba2157a25" category="paragraph">Si el nuevo puente es un FibreBridge 7600N o 7500N, debe sustituir los cables que conectan el puente a la parte superior o inferior de la pila de estantes. El puente FibreBridge 6500N utilizaba cables SAS; los puentes FibreBridge 7600N y 7500N requieren cables mini-SAS para estas conexiones.</block>
   <block id="3b5ef1874490ddb39e2ab56e91c15fd9" category="admonition">Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector). En el caso de las controladoras, la orientación de los puertos SAS puede variar en función del modelo de plataforma. Por lo tanto, la orientación correcta del conector del cable SAS varía.</block>
   <block id="6795687b051fe5f1cb692559517648dd" category="list-text">[[paso 18-verify-each-bridge]]Compruebe que cada puente puede ver todas las unidades de disco y bandejas de disco a las que está conectado el puente.</block>
   <block id="cf6dbfa4f0192b540abc550aae0f260f" category="list-text">En un navegador web compatible, introduzca la dirección IP del puente en el cuadro del navegador.</block>
@@ -11702,7 +11609,6 @@
   <block id="f9a006e76305c853a36326e90e0bbbd8" category="list-text">Este procedimiento es NDO (no disruptivo) y tarda aproximadamente 15 minutos en completarse.</block>
   <block id="8b694c77bd2c858a409806961b43208c" category="paragraph"><block ref="8b694c77bd2c858a409806961b43208c" category="inline-link-macro-rx"></block></block>
   <block id="b15b631599ae22ec3fadef4714275d7b" category="paragraph"><block ref="b15b631599ae22ec3fadef4714275d7b" category="inline-link-macro-rx"></block></block>
-  <block id="a2acb78d8cb4843536ea51de17566d1d" category="paragraph"><block ref="a2acb78d8cb4843536ea51de17566d1d" category="inline-link-macro-rx"></block></block>
   <block id="d2b5d45be366bf0d9a72be32715aa813" category="inline-link-macro">Adición en caliente de una pila de bandejas de discos SAS y puentes</block>
   <block id="ad30fa95f18f21e4c8674318a12499f8" category="paragraph"><block ref="ad30fa95f18f21e4c8674318a12499f8" category="inline-link-macro-rx"></block></block>
   <block id="f8ab0ac0bcb20f9074bb5111e4de500b" category="section-title">Gestión de un puente FiberBridge de ONTAP</block>
@@ -11721,7 +11627,6 @@
   <block id="74bca6fe4f2c7fc5e1d9f259f2af6e25" category="paragraph">El puente FibreBridge 7600N debe configurarse exactamente igual que el puente FibreBridge 7500N.</block>
   <block id="0844200ff0a1a64af612e81369c551dd" category="paragraph">Sustitución de un puente FibreBridge 6500N sencillo con un puente FibreBridge 7600N</block>
   <block id="c1b6154853d79aff3153d0360d8109e3" category="paragraph">El puente FibreBridge 7600N debe configurarse exactamente igual que el puente FibreBridge 6500N.</block>
-  <block id="9f75c353bd4a7cb0ce6fe90b3c498736" category="paragraph"><block ref="9f75c353bd4a7cb0ce6fe90b3c498736" category="inline-link-macro-rx"></block></block>
   <block id="ad9a391d7a61680d45246cf29a54f588" category="paragraph">Añadiendo nuevo almacenamiento con un nuevo par de puentes FibreBridge 7600N</block>
   <block id="91683a88a240de71b025c11834d0b99a" category="paragraph">Debe añadir zonas de almacenamiento para cada puerto FC de los nuevos puentes.</block>
   <block id="a05dfddcdfd9dd24ca7de6d1c728d916" category="paragraph">Debe tener puertos disponibles en la estructura de switch FC (en una configuración MetroCluster estructural) o en las controladoras de almacenamiento (en una configuración MetroCluster con ampliación).cada par de puentes FibreBridge 7500N o 7600N puede admitir hasta cuatro pilas.</block>
@@ -11780,7 +11685,6 @@
   <block id="702f8bfb0583ba76da1d5453b8963e67" category="paragraph">En el siguiente ejemplo se muestran los puertos 8 y 9 desactivados en un switch de Brocade.</block>
   <block id="327a9880f8e0dd44a44e0909f4debaf5" category="paragraph">En el ejemplo siguiente se muestran los puertos 8 y 9 que se están deshabilitando en un switch Cisco.</block>
   <block id="dad7a4e2db295af2111afd1f4cce2d6a" category="list-text">Si los puentes están conectando dos o más pilas SAS, deshabilite los puertos SAS que conectan los puentes a la bandeja de destino: +<block ref="a84f5d3ebef16dcafe8f8326fb982bed" prefix=" " category="inline-code"></block></block>
-  <block id="48e4b75815ecd760177696fc4dd29dda" category="admonition">Esto no es aplicable a los puentes FiberBridge 6500.</block>
   <block id="4b09ce830b72db5cca9758e1276d7e12" category="paragraph">En el siguiente ejemplo se muestra un par de puentes que conectan cuatro pilas SAS. La pila SAS 2 contiene la bandeja objetivo:</block>
   <block id="e64c1d35a465f6a0d896f63a42127c1e" category="image-alt">puentes de sustitución de bandejas mcc con cuatro pilas</block>
   <block id="6b968bde345a1af02381409979c014c6" category="paragraph">El puerto SAS B conecta los puentes a la bandeja de destino. Al deshabilitar solo el puerto SAS B en ambas bandejas, las otras pilas SAS pueden seguir sirviendo datos durante el procedimiento de reemplazo.</block>
@@ -11814,7 +11718,6 @@
   <block id="a4102d82b7f62613670eb722068786c1" category="list-text">Habilite el puerto SAS que conecta la pila a la ubicación de la bandeja:</block>
   <block id="705150e4546682900466b07055ca41d7" category="paragraph"><block ref="3da814f2220e24909ef92c0e618ffcd4" prefix="" category="inline-code"></block></block>
   <block id="afd1a46303765732d70810f6dd9b9dd9" category="paragraph">En el ejemplo se muestra que el puerto SAS A está habilitado desde el puente y también se comprueba que está habilitado.</block>
-  <block id="a024992ec9deb1644f55dca391af6505" category="admonition">Esto no es aplicable a ATTO 6500 FiberBridges.</block>
   <block id="9c0ceb1f6e71f50cc0c1fd789b320bc9" category="list-text">Si anteriormente ha desactivado los puertos del conmutador, compruebe que están habilitados y en línea y que todos los dispositivos están conectados correctamente:</block>
   <block id="c744094e6b65e8f07edf32ee2e23c347" category="paragraph">En el ejemplo se muestra la<block ref="0b2718104127a5486eda087932559182" prefix=" " category="inline-code"></block> Comando para verificar que un switch Brocade está en línea.</block>
   <block id="3e6769560c571e6b85c4571b0042668d" category="paragraph">En el ejemplo se muestra la<block ref="0b2718104127a5486eda087932559182" prefix=" " category="inline-code"></block> Comando para verificar que un switch Cisco está en línea.</block>
@@ -11882,7 +11785,6 @@
   <block id="074655e8b1cc12e66a73fa4302ee6f80" category="paragraph">El puente FibreBridge 7500N es compatible como sustituto del puente FibreBridge 6500N o cuando se añade nuevo almacenamiento a la configuración de MetroCluster. Las configuraciones compatibles tienen requisitos de división en zonas y restricciones respecto al uso de puertos FC del puente y los límites de bandejas de almacenamiento y pila.</block>
   <block id="d346c68856b5919d4bbdf850ee3e3eb7" category="paragraph">Sustitución de un puente FibreBridge 6500N sencillo con un puente FibreBridge 7500N sencillo</block>
   <block id="d2afb86fa69717e133b24f6733d30141" category="paragraph">El puente FibreBridge 7500N debe configurarse exactamente igual que el puente FibreBridge 6500N, usando un solo puerto FC y acoplando a una sola pila. No se debe utilizar el segundo puerto FC de FibreBridge 7500N.</block>
-  <block id="958de5ee2f25b5fa2715cdd4e27fa14c" category="paragraph"><block ref="958de5ee2f25b5fa2715cdd4e27fa14c" category="inline-link-macro-rx"></block></block>
   <block id="2e93d499857b0d9941e6363a44b6de83" category="paragraph">Consolidación de múltiples pilas mediante la sustitución de múltiples pares de puentes FibreBridge 6500N por un par de puentes FibreBridge 7500N</block>
   <block id="ecd7fb40107bf896d176fafc2b4a5b19" category="paragraph">En este caso, puede retirar los puentes FibreBridge 6500N fuera de servicio y sustituirlos por un único par de puentes FibreBridge 7500N.cada par de puentes FibreBridge 7500N o 7600N puede admitir hasta cuatro pilas.</block>
   <block id="11f749dbbfcfff08a3f03687936819ad" category="paragraph">Al final del procedimiento, tanto la parte superior como la inferior de las pilas deben conectarse a los puertos correspondientes de los puentes FibreBridge 7500N.</block>
@@ -11942,31 +11844,19 @@
   <block id="22eeed3fff7b55b768266be126a12dcf" category="list-text">Realice comprobaciones de ciclo de encendido y apagado.</block>
   <block id="e52b8d056eb8caf437f1120e5d314a30" category="list-text">Compruebe que todas las SVM sincronizada en origen estén en línea: +<block ref="c8f87ef9cba43239082a0f2328d296b1" prefix=" " category="inline-code"></block></block>
   <block id="2069e27bc5a7ecc4db870a703c66de8f" category="list-text">Inicie cualquier SVM sincronizada en origen que no estén en línea: +<block ref="1d28a2bf8ea989628079967bbf9293c7" prefix=" " category="inline-code"></block></block>
-  <block id="1abb821f2b965d18052b2448ef4137ed" category="summary">Debe saber cómo apagar y encender el centro de datos para realizar el mantenimiento del sitio o reubicar un sitio en otra ubicación.</block>
-  <block id="3f7ef4e6486f47719dca790d2a160ae5" category="doc">Apagado y encendido de un centro de datos</block>
-  <block id="50619d56fd21f33883011467e89403f8" category="paragraph">Si, por ejemplo, hay que cambiar la ubicación de un sitio y volver a configurarlo (si necesita pasar de un clúster de cuatro nodos a uno de ocho nodos), estas tareas no se podrán completar al mismo tiempo. Este procedimiento sólo cubre los pasos necesarios para realizar el mantenimiento del sitio o para reubicar un sitio sin cambiar su configuración.</block>
   <block id="1fe9ee738ca0e6e9e3aeec4c7902cb67" category="paragraph">El siguiente diagrama muestra una configuración de MetroCluster. El Cluster_B se apaga para realizar tareas de mantenimiento.</block>
-  <block id="e42120d29d88cc6c3c023d82236437a8" category="admonition">Este procedimiento se utiliza tanto en configuraciones de MetroCluster IP como de FC.</block>
   <block id="13453110a818269a21fc3929d2514208" category="image-alt">apague el centro de datos</block>
-  <block id="efe31da79ff42582640c229b718168aa" category="section-title">Apagando un sitio MetroCluster</block>
   <block id="c72683789a2c53d80a618207766d5e8e" category="paragraph">Debe apagar un sitio y todo el equipo antes de que pueda comenzar el mantenimiento o la reubicación del sitio.</block>
-  <block id="05cb8d64e2770620783bfd98ba2c571c" category="paragraph">Todos los comandos de los siguientes pasos se emiten desde el sitio para permanecer encendidos.</block>
   <block id="4bfd66c37cd5ce244e0dfdd30c499d83" category="list-text">Antes de comenzar, compruebe que los agregados no reflejados del sitio no están desconectados.</block>
-  <block id="714cb8627bb0d04d6b5d032326cab4a3" category="list-text">Desde el sitio que desea seguir implementando la conmutación:</block>
   <block id="c35cb6405b316f2999613190b9a610f3" category="list-text">Supervise y verifique que se haya completado la conmutación:</block>
   <block id="60add77cd3913e8299d20186ba7ec1e0" category="list-text">Si tiene una configuración IP de MetroCluster que ejecuta ONTAP 9.6 o posterior, espere a que los complejos del sitio de recuperación ante desastres se conecten y las operaciones de reparación se completen automáticamente.</block>
-  <block id="a0d9123d4cd00ea9771184e3cc69bc3b" category="paragraph">En las configuraciones IP de MetroCluster que ejecutan versiones anteriores de ONTAP, los nodos del sitio en caso de desastre no se inician automáticamente en ONTAP, mientras que los plex permanecen sin conexión. Para las configuraciones FC de MetroCluster, todos los complejos permanecen en línea y no es necesario que esté en línea.</block>
   <block id="cba78abc40cd6aa38755c20692e16922" category="list-text">Mueva todos los volúmenes y LUN que pertenecen a los agregados no reflejados sin conexión.</block>
   <block id="7386845cd79b01875eaa7f006f46b9f2" category="list-text">Mueva los volúmenes sin conexión.</block>
   <block id="cd69a3dbda56dd351c139686ba9519dc" category="list-text">Desconecte las LUN.</block>
   <block id="e7edce3217788bc841a63851100c9164" category="list-text">Mover agregados no reflejados sin conexión:<block ref="0dc53035f1910e7de4922fd1c61aa5ef" prefix=" " category="inline-code"></block></block>
   <block id="5b12aa7a5c28a3989c442d88ecafd4b3" category="list-text">En función de su configuración y versión de ONTAP, identifique y mueva los complejos afectados sin conexión que se encuentren en la ubicación ante desastres (Cluster_B).</block>
-  <block id="d3111cbb50ee3236823b8a9fc96146fd" category="paragraph">Este paso es necesario en las siguientes configuraciones:</block>
-  <block id="68d41db03ba61b38417da47f63616c6b" category="list-text">Configuraciones de All MetroCluster FC.</block>
-  <block id="87da73be0cf8313cf4ae27e67515aaff" category="list-text">Configuraciones IP de MetroCluster que ejecutan ONTAP versión 9.6 o posterior.</block>
   <block id="d728f92d15186acd3ab7bfe69c91c74a" category="paragraph">Debe mover los siguientes complejos sin conexión:</block>
   <block id="bb1dbaa590d8d023b92b11955221364e" category="list-text">Complejos no reflejados que residen en discos ubicados en el sitio de recuperación ante desastres.</block>
-  <block id="0780a4c1fe0c3501c0d025f1b600dbdc" category="paragraph">Si no mueve los plex no reflejados en el sitio de recuperación ante desastres sin conexión, puede que se produzca una interrupción del servicio cuando el sitio de recuperación ante desastres se apague más adelante.</block>
   <block id="a05a5ee5c3ac194989ef258bddaa30d0" category="list-text">Plexes reflejados que residen en discos ubicados en el centro de recuperación ante desastres para el mirroring de agregados. Una vez que se han movido fuera de línea, no se puede acceder a los complejos.</block>
   <block id="db3cf611b9905283227764c513bd7a82" category="list-text">Identifique los complejos afectados.</block>
   <block id="82e30d8124ea7d730cf5faa5719112de" category="paragraph">Los complejos que son propiedad de nodos en el sitio superviviente consisten en discos de la piscina 1. Los complejos que son propiedad de nodos en el sitio de desastre consisten en discos de la piscina 0.</block>
@@ -11990,48 +11880,27 @@
   <block id="edce01688e98b58b19121c93fc7ff2e1" category="paragraph">Node_B_2_aggr1/plex0</block>
   <block id="d4f18ae628e27ab34b26b8a43c48ace9" category="list-text">Mueva los complejos afectados sin conexión:</block>
   <block id="2a8e88f52bc016e030fb4bcd3be6617a" category="paragraph"><block ref="7544eaf8b1a050a042e9b0b71e8504eb" prefix="" category="inline-code"></block></block>
-  <block id="1f6dc3b671503c8d63a1afa2819b223b" category="admonition">Realice esto en todos los complejos que tienen discos remotos a Cluster_A.</block>
-  <block id="f380dd26f2cf185b17accd909e743fe1" category="list-text">Desconectar los puertos de switch de forma persistente según el tipo de switch.</block>
-  <block id="a919607ef6e9e47aee6ab7e80893d8c1" category="admonition">Este paso solo es necesario para configuraciones de MetroCluster FC. Ignore este paso si la configuración es una configuración de IP de MetroCluster o una configuración de MetroCluster extendida con switches de back-end de FC.</block>
   <block id="ec101ec8f4300c01b3e83ccb567aa413" category="cell">Tipo de interruptor</block>
-  <block id="a4856b5d624fb703341d2b6cb1fd8be3" category="paragraph">Si los switches FC son switches Brocade...</block>
-  <block id="9239ccea70d6b0bd2c5d7ed953067b9f" category="list-text">Utilice la<block ref="af94a5e04c4c8b686d368bb5ffe5cff1" prefix=" " category="inline-code"></block> comando para deshabilitar los puertos de forma persistente, como se muestra en el ejemplo siguiente. Esto se debe hacer en ambos conmutadores del sitio superviviente.</block>
   <block id="0a2ddd49f9e299b81cf7c5e078debcc7" category="list-text">Compruebe que los puertos están deshabilitados mediante el<block ref="9735c41c5a405cd610d4fad10780f0e8" prefix=" " category="inline-code"></block> comando que se muestra en el ejemplo siguiente:</block>
-  <block id="7ed2005e63164c86338f8fb503fec38d" category="paragraph">Si los switches FC son switches Cisco...</block>
   <block id="a71c1aa8359408f9d2d2ca6505749f51" category="list-text">Utilice la<block ref="8eb58dd5e328e978169c7b0cbd30d43f" prefix=" " category="inline-code"></block> comando para deshabilitar los puertos de forma persistente. En el ejemplo siguiente se muestran los puertos 14 y 15 que se están deshabilitando:</block>
   <block id="b344f211c6ef4a7b6fabe45ee6e74946" category="list-text">Compruebe que el puerto del switch esté deshabilitado mediante el<block ref="9bacb249b0368cefba275373cd07ba98" prefix=" " category="inline-code"></block> comando como se muestra en el ejemplo siguiente:</block>
-  <block id="763cdd1475f50ea62662f8b936e2c440" category="list-text">Apague el sitio.</block>
-  <block id="ad36ac8a7c949cb0a7d855a39368e1af" category="paragraph">El siguiente equipo debe estar apagado sin un orden específico:</block>
-  <block id="329805dc23b0f78ee65c229740fe0896" category="cell">Equipo a apagar</block>
-  <block id="1b2764afd9aaca6231f2d49e8524a66a" category="paragraph">En una configuración IP de MetroCluster, apague...</block>
   <block id="c74361f8919e393c4955920ffabda5b7" category="list-text">Switches IP de MetroCluster</block>
-  <block id="b3894761dbeb99a32f1c40b05d75c5d6" category="paragraph">En una configuración FC de MetroCluster, apague...</block>
-  <block id="83815a5585829ebe6e18a93710f2ed57" category="list-text">Puentes ATTO (si existe)</block>
   <block id="e9107e97cd9f561e993f9a9105d0f969" category="section-title">Reubicación del sitio de alimentación fuera del MetroCluster</block>
   <block id="056b0a2f5b039231afdc0b079e5c0490" category="paragraph">Una vez apagado el sitio, puede comenzar a realizar tareas de mantenimiento. Este procedimiento es el mismo, tanto si se reubican los componentes de MetroCluster dentro del mismo centro de datos como si se reubican a otro centro de datos.</block>
   <block id="feac0f4e1a7a3880345a6d85bc067870" category="list-text">El hardware debe cablearse del mismo modo que el sitio anterior.</block>
   <block id="646b1ab7b785db95e65836b91eb5f200" category="list-text">Si la velocidad, longitud o número del enlace entre switches (ISL) ha cambiado, todos ellos deben volver a configurarse.</block>
-  <block id="3f76e37706c9faa6700da35111115ea4" category="list-text">Asegúrese de que el cableado de todos los componentes está bien grabado para que se pueda volver a conectar correctamente en la nueva ubicación.</block>
-  <block id="2b855db90885b553c7efa8495875eff8" category="list-text">Reubicar físicamente todo el hardware, las controladoras de almacenamiento, los switches FC e IP, FiberBridges y las bandejas de almacenamiento.</block>
   <block id="18019c4008d233544383989684359349" category="list-text">Configure los puertos ISL y compruebe la conectividad entre sitios.</block>
-  <block id="bfd9b3b5b8b525583b218437100bfdb7" category="list-text">Encienda los switches FC e IP.</block>
   <block id="bf2ae036674fadf7b6a170a21c43abfe" category="admonition">*No* encienda ningún otro equipo.</block>
   <block id="c524ff28ab463ec9b165bc4709db7002" category="list-text">Habilite los puertos.</block>
-  <block id="542e15b008a9b862e26cf580f0b01cf8" category="admonition">Este paso solo es necesario en las configuraciones de MetroCluster FC. Puede omitir este paso si la configuración es una configuración de MetroCluster IP.</block>
   <block id="9f09d6db3803f5975352ce67ba7f717e" category="paragraph">Habilite los puertos según los tipos de switch correctos en la siguiente tabla:</block>
-  <block id="70402b2dd117113d5709d3c7ba2f6c45" category="paragraph">Si los switches FC son switches Brocade...</block>
-  <block id="bc41076628d5d0bb91f9fb460e04ccbc" category="list-text">Utilice la<block ref="720bf4b47606e4c2b3eaa0073a4f0411" prefix=" " category="inline-code"></block> comando para habilitar el puerto de forma persistente. Esto se debe hacer en ambos conmutadores del sitio superviviente.</block>
   <block id="28e464b91ab6edf27cbd69513c84c803" category="paragraph">En el ejemplo siguiente se muestran los puertos 14 y 15 activados en Switch_A_1.</block>
   <block id="1d2dc9ff26f81ff899df7afec43c1cff" category="list-text">Compruebe que el puerto del switch esté activado:<block ref="9735c41c5a405cd610d4fad10780f0e8" prefix=" " category="inline-code"></block></block>
   <block id="2af4b9b090a7e55fa22cb9e55d504e27" category="paragraph">En el siguiente ejemplo, se muestra que los puertos 14 y 15 están habilitados:</block>
-  <block id="8c946acc8fe7903c37ee5e36f1329425" category="paragraph">Si los switches FC son switches Cisco...</block>
   <block id="dd0b0e83e384f79fb372176f7061dccf" category="list-text">Introduzca el<block ref="8eb58dd5e328e978169c7b0cbd30d43f" prefix=" " category="inline-code"></block> comando para habilitar el puerto.</block>
   <block id="7f3383279505825a51c155d92f58aa33" category="list-text">Compruebe que el puerto del switch esté activado:<block ref="9bacb249b0368cefba275373cd07ba98" prefix=" " category="inline-code"></block></block>
   <block id="7d116444c6dbfce20212f1c247ff48fd" category="list-text">Utilice herramientas en los switches (según estén disponibles) para verificar la conectividad entre sitios.</block>
-  <block id="867a2618d71bca42427a1b9c72bdbf63" category="admonition">Sólo debe continuar si los enlaces están correctamente configurados y estables.</block>
   <block id="12ad932abeaa569fcf61513a7bd887dc" category="list-text">Vuelva a desactivar los vínculos si se encuentran estables.</block>
   <block id="10d03245f20596d5862d16e715e4143e" category="paragraph">Deshabilite los puertos según se vaya a utilizar los switches Brocade o Cisco como se muestra en la siguiente tabla:</block>
-  <block id="c11fb9d9afe8d36ff83e6aefd247c782" category="list-text">Introduzca el<block ref="8d40b70dc84103025d5ef78cfa471cdf" prefix=" " category="inline-code"></block> comando para deshabilitar el puerto de forma persistente.</block>
   <block id="d369d42d622a7a0ff4e0309e0f9210ab" category="paragraph">Esto se debe hacer en ambos conmutadores del sitio superviviente. En el ejemplo siguiente se muestran los puertos 14 y 15 desactivados en Switch_A_1:</block>
   <block id="6936ed4cbbd3fdd5e8b27a40bf2f0486" category="list-text">Compruebe que el puerto del switch está deshabilitado:<block ref="9735c41c5a405cd610d4fad10780f0e8" prefix=" " category="inline-code"></block></block>
   <block id="7cbd9438118ade59eac485cd3956718b" category="paragraph">En el siguiente ejemplo, se muestra que los puertos 14 y 15 están deshabilitados:</block>
@@ -12042,36 +11911,22 @@
   <block id="e86d011a6ecc19bb8059b2fa5b959f36" category="paragraph">Tras completar el mantenimiento o mover el sitio, debe encender el sitio y restablecer la configuración de MetroCluster.</block>
   <block id="ee0b87400ee6781862e8ee67136924ab" category="paragraph">Todos los comandos de los pasos siguientes se emiten en el sitio que se enciende.</block>
   <block id="5b8fc7540adba4e66fd1dc8235e29807" category="list-text">Encienda los switches.</block>
-  <block id="ccb8cc8f9fc881b0a95752e9b327ef63" category="paragraph">Los interruptores deben encenderse primero. Es posible que se hayan encendido durante el paso anterior si se reubicó el sitio.</block>
   <block id="1e4c63725dc9c35c07a4b7c4f5a82dff" category="list-text">Vuelva a configurar el enlace entre switches (ISL) si es necesario o si no se ha completado como parte de la reubicación.</block>
   <block id="21dc076a81ed6f69783e2616c1983762" category="list-text">Habilite el ISL si se ha completado la delimitación.</block>
   <block id="dfe7a6104d1ae990704b31d6513dbfd9" category="list-text">Verifique el ISL.</block>
-  <block id="e3b4bec7cc0382f3d2b420e4d37da974" category="list-text">Encienda las controladoras de almacenamiento.</block>
   <block id="9219cfc955e6beec81a1b4a216127064" category="list-text">Encienda las bandejas y deje que haya tiempo suficiente para que se encicien por completo.</block>
   <block id="01bd20df5dc47e7a524bea9169bdedf5" category="list-text">Encienda los puentes FiberBridge.</block>
-  <block id="fa84d23aa5f79b2c2b1873ef1111b2a9" category="admonition">Puede omitir este paso si la configuración es una configuración de MetroCluster IP.</block>
   <block id="46d125b114551af83f9b4300716884e4" category="list-text">En los switches FC, compruebe que los puertos que conectan los puentes están conectados.</block>
   <block id="950372b89704e14720897b9cc9143854" category="paragraph">Puede utilizar un comando como<block ref="9735c41c5a405cd610d4fad10780f0e8" prefix=" " category="inline-code"></block> Para los switches Brocade, y.<block ref="9bacb249b0368cefba275373cd07ba98" prefix=" " category="inline-code"></block> Para switches Cisco.</block>
   <block id="4b14478bc266e73c21d8c8e1baefedf8" category="list-text">Verifique que las estanterías y los discos de los puentes estén claramente visibles.</block>
-  <block id="a0c802a3250ae2fb7360a23c34260ad0" category="paragraph">Puede utilizar un comando como<block ref="2aa3751083baf48c1e1ddef8df4ddcc3" prefix=" " category="inline-code"></block> En la interfaz de línea de comandos de ATTO (CLI).</block>
   <block id="d55f68c0f2018d8510fbe5ad7686fa13" category="list-text">Habilite los ISL en los switches FC.</block>
-  <block id="8dbba1f3a045398fb8c2068f3d859597" category="admonition">Omitir este paso si la configuración es una configuración de IP de MetroCluster.</block>
   <block id="874b4480e5736cfb3bb267ac5127e12a" category="paragraph">Habilite los puertos según si utiliza switches Brocade o Cisco, como se muestra en la siguiente tabla:</block>
-  <block id="cb4bda83e4b475d4527a306a175f8dc5" category="list-text">Introduzca el<block ref="421b503f5f673dc4cb45407a58fe869d" prefix=" " category="inline-code"></block> comando para habilitar los puertos de forma persistente. Esto se debe hacer en ambos conmutadores del sitio superviviente.</block>
   <block id="4091cccb2a9363be900b49a8123fd953" category="paragraph">En el ejemplo siguiente se muestran los puertos 14 y 15 activados en Switch_A_1:</block>
   <block id="2202782420c4dafcddf766370d515d92" category="list-text">Compruebe que el puerto del switch está activado con el signo +<block ref="9735c41c5a405cd610d4fad10780f0e8" prefix=" " category="inline-code"></block> comando:</block>
   <block id="90249cecea11f452dc769a28231fca6b" category="list-text">Utilice la<block ref="8eb58dd5e328e978169c7b0cbd30d43f" prefix=" " category="inline-code"></block> comando para habilitar los puertos.</block>
   <block id="3d3f8220d38456693795f57399e3dd66" category="paragraph">En el ejemplo siguiente se muestra el puerto fc1/14 y fc1/15 habilitados en el switch A_1:</block>
   <block id="d448f82c3dc45aeef9b75bf272bc8ed4" category="list-text">Compruebe que el puerto del switch está deshabilitado:</block>
-  <block id="2164a8908dcd0889f81dd9e8f32fb414" category="list-text">Compruebe que el almacenamiento ya está visible.</block>
-  <block id="83a0bb2026f512c960273d4bdc10525f" category="paragraph">Seleccione el método apropiado para determinar si el almacenamiento es visible en función de si tiene una configuración de MetroCluster IP o FC:</block>
-  <block id="b6929e4968ce2ed48274a887d3709bf9" category="cell">Si la configuración es...</block>
-  <block id="3badf494f1e5507594701f730003f4b3" category="cell">Realice este paso...</block>
-  <block id="1f826b7fd7651c127e286e0bbc129b77" category="paragraph">Compruebe que el almacenamiento local esté visible desde el modo de mantenimiento del nodo.</block>
-  <block id="7ed92f84948f4fe94d9e740b0e479a4e" category="paragraph">Configuración de FC de MetroCluster</block>
-  <block id="81927ec637b63156a40899d4c547908f" category="paragraph">Compruebe que el almacenamiento está visible en el sitio superviviente. Vuelva a conectar los complejos sin conexión. Esto reinicia las operaciones de resincronización y vuelve a establecer el SyncMirror.</block>
   <block id="0483b2aca795ea6933a0ab7502b4e963" category="list-text">Restablezca la configuración de MetroCluster.</block>
-  <block id="44b7f701c8b22fd32471d911de4c0984" category="paragraph">Siga las instrucciones de <block ref="c355f6bb3dca677defb89e8a84e6c55b" category="inline-link-macro-rx"></block> Para llevar a cabo operaciones de reparación y conmutación de estado de acuerdo con su configuración de MetroCluster.</block>
   <block id="e0b252916154b49ca991301bb62d8e77" category="summary">Es posible que necesite actualizar un archivo RCF en un conmutador MetroCluster IP. Por ejemplo, una actualización de ONTAP o de firmware del switch requieren un nuevo archivo RCF.</block>
   <block id="56ba5c8d245e7af9f26245ccc8eddba9" category="doc">Actualice los archivos RCF en switches MetroCluster IP</block>
   <block id="bdff20b545d5f7f451d6cc86cddcd9d5" category="list-text">Utilice los siguientes comandos de los conmutadores para comprobar la versión del archivo RCF:</block>
@@ -12172,29 +12027,19 @@
   <block id="d7ef6a0ac4569dd5ea389384efc59fe4" category="paragraph"><block ref="d7ef6a0ac4569dd5ea389384efc59fe4" category="inline-link-macro-rx"></block></block>
   <block id="4c400b3f7160abe1ed688a9b8979589e" category="paragraph">En la siguiente tabla se muestra el uso de puertos de la controladora en los modelos Brocade 6505, 6510 o DCX 8510-8:</block>
   <block id="fac64949de3a43257f3c8a97a35449a1" category="cell">Puerto puente</block>
-  <block id="260c4e83cf5b055da9148425e2590b41" category="paragraph">La siguiente tabla muestra el uso de puertos de puente cuando se utilizan puentes FibreBridge 6500 con switches Brocade 6505, 6510 o DCX 8510-8:</block>
   <block id="394f60a83bf45a2e06134eded4e6adc2" category="paragraph">En la siguiente tabla se muestra el uso de puertos ISL para switches Brocade 6505, 6510 o DCX 8510-8:</block>
   <block id="253a9adeaa7038a2700f39aad347d73d" category="paragraph">El cableado es el mismo para cada switch de FC en la estructura de switches. En la siguiente tabla se muestra el uso de los switches Brocade 6505, 6510 y DCX 8510-8.</block>
   <block id="4b1342698b69db9277c10ae5d059e837" category="cell">FC_switch_x_1 (6510 o DCX 8510-8)</block>
   <block id="e49423aa401904cc19d9c93b1dba3f71" category="cell">FC_switch_x_2 (6510 o DCX 8510-8)</block>
   <block id="8e8e002bc58d3a842d05c1be7b04ba4c" category="cell">FC_switch_x_1 (6505)</block>
   <block id="7ab09fefe83fcbd6007a5ac115dfefbc" category="cell">FC_switch_x_2 (6505)</block>
-  <block id="8593f73dec0b8f87b6881450492db44b" category="cell">Puerto puente 6500N</block>
   <block id="7699bf8a4df6f7e15f159269bd8927e4" category="paragraph">El cableado es el mismo para cada switch de FC en la estructura de switches. La siguiente tabla muestra el cableado de los switches Brocade 6505, 6510 y DCX 8510-8.</block>
-  <block id="38eeead869e2de976d69521d9b093eb7" category="paragraph">La siguiente tabla muestra el uso de puertos de puente hasta el puerto 17 cuando se utilizan puentes FibreBridge 7500 con switches Brocade 6505, 6510 y DCX 8510-8. Se pueden conectar puentes adicionales a los puertos 18 a 23.</block>
-  <block id="77758a81fbabd65f1a0cbd943aa33610" category="paragraph">La siguiente tabla muestra el uso de puertos de puente cuando se utilizan puentes FibreBridge 6500 con switches Brocade 6505, 6510 y DCX 8510-8:</block>
   <block id="851032b3e8ee16b9eb2ed6098216108e" category="paragraph">En la siguiente tabla se muestra el uso de puertos ISL para los switches Brocade 6505, 6510 y DCX 8510-8:</block>
   <block id="062caca7c0bb29ebff9fcc7a33a75d93" category="paragraph">En la siguiente tabla se muestra el uso del puerto de la controladora en los switches Cisco 9148 y 9148S:</block>
-  <block id="c1eac127cb565fa4817962e9f30a2046" category="paragraph">La siguiente tabla muestra el uso de puertos de puente hasta el puerto 23 cuando se utilizan puentes FibreBridge 7500 cuando se utilizan switches Cisco 9148 o 9148S. Se pueden conectar puentes adicionales utilizando los puertos 25 a 48.</block>
-  <block id="c55b059fa762d08399351bc6ae5ac539" category="paragraph">La siguiente tabla muestra el uso de puertos de puente hasta el puerto 23 cuando se utilizan puentes FibreBridge 6500 con switches Cisco 9148 o 9148S. Se pueden conectar puentes adicionales utilizando los puertos 25-48.</block>
   <block id="524e7c19dbf542bdc24be3909a68aa5b" category="paragraph">En la siguiente tabla se muestra el uso de puertos ISL para los switches Cisco 9148 y 9148S:</block>
   <block id="84a71a9e63ead8784cd365088a3be8c4" category="cell">Puertos ISL</block>
   <block id="9009bb494f588eb453c941a0f5346de2" category="paragraph">En la siguiente tabla se muestra el uso de puertos de la controladora en switches Cisco 9148, 9148S y 9250i:</block>
-  <block id="57cfe04ee8907b137339177ed5bd25a5" category="paragraph">La siguiente tabla muestra el uso de puertos de puente hasta el puerto 14 cuando se utilizan puentes FibreBridge 7500 con switches Cisco 9148, 9148S o 9250i. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
-  <block id="0d86a304bf0c93bbe64ea2e44e5e5870" category="paragraph">La siguiente tabla muestra el uso de puertos de puente cuando se utilizan puentes FibreBridge 6500 hasta el puerto 14 en switches Cisco 9148, 9148S o 9250i. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
-  <block id="8fe37cc6f907399a491cf6418a4bfa16" category="paragraph">La siguiente tabla muestra el uso de puertos de puente hasta el puerto 14 cuando se utilizan puentes FibreBridge 7500 con switches Cisco 9148, 9148S y 9250i. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
   <block id="2bc92937819403549f510c08d8a54058" category="paragraph">En la siguiente tabla se muestra el uso de puertos ISL para los switches Cisco 9148 o 9148S:</block>
-  <block id="2f33c0ab177d6cfd4b52b9e6472de2a0" category="paragraph">Puede cambiar la división en zonas o realizar una actualización de FibreBridge 6500 a FibreBridge 7500 con el procedimiento _Cambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7500N o 7600N del <block ref="aeb2eb91b4a88826f71d1fbd30b29e7b" category="inline-link-macro-rx"></block>.</block>
   <block id="967f94774fd0a441a676db03d0d50895" category="cell">Modelos de switch Brocade 6505, 6510, 6520, 7840, G620, G610 y DCX 8510-8</block>
   <block id="8d09237a9bed78e3bc86feba80aebb5b" category="summary">Debe utilizar pasos específicos de Cisco para reemplazar un switch FC de Cisco con fallos.</block>
   <block id="48857fed5c331f02a57d14f8bbd9600f" category="paragraph">En los ejemplos de este procedimiento, FC_switch_A_1 es el conmutador en buen estado y FC_switch_B_1 es el conmutador dañado. El uso del puerto del switch en los ejemplos se muestra en la siguiente tabla:</block>
@@ -13515,4 +13360,103 @@ Se aplica a todas las configuraciones MetroCluster.</block>
   <block id="4010f2b8e90ddf85f94ac358d78075c1" category="inline-link-macro">Utilice una instancia de Service Processor con System Manager - ONTAP 9.7 y versiones anteriores</block>
   <block id="eaa2669881cbe475b9e0b278420a4005" category="paragraph"><block ref="eaa2669881cbe475b9e0b278420a4005" category="inline-link-macro-rx"></block></block>
   <block id="adf442d82428813618df31b5f35c8c5d" category="list-text">Los ISL deben tener la misma topología. Por ejemplo, todos deben ser enlaces directos, o si la configuración utiliza WDM, todos deben usar WDM.</block>
+  <block id="3ac4da3c19500a46472e39b550233955" category="paragraph">A diferencia de los puentes ATTO FibreBridge 7500N, el puente FibreBridge 7600N se envía con todos los protocolos y servicios de puerto IP desactivados.</block>
+  <block id="cf6dca2d67d60a19d4a17cee9ded8839" category="list-text">El puente FibreBridge 7600N admite hasta 32, 16 o 8 Gbps.</block>
+  <block id="eaf41f2c4105da1a7df1e2d6212b3c1f" category="list-text">El puente FibreBridge 7500N admite hasta 16, 8 o 4 Gbps.</block>
+  <block id="0690be6eb1d3773f24e0f2ab2ccaa146" category="list-text">Si está configurando un puente FibreBridge 7500N, configure el modo de conexión que el puerto utiliza para ptp.</block>
+  <block id="da76178e1d22c167f6a99e845374ced2" category="admonition">Si aparece el texto “ressponse truncated” al principio de la salida, puede usar Telnet para conectarse al puente e ingresar el mismo comando para ver toda la salida.</block>
+  <block id="fe718489f73382a38802fd47209269cf" category="paragraph">Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento.</block>
+  <block id="2e6da062f65d036e37e8048eb1168cd1" category="section-title">División en zonas para puentes FibreBridge 7500N o 7600N usando un puerto FC</block>
+  <block id="a4ee4d0f79fa6f1bac894cfc957089d6" category="paragraph">Si utiliza puentes FibreBridge 7500N o 7600N utilizando solo uno de los dos puertos FC, debe crear zonas de almacenamiento para los puertos puente. Tiene que comprender las zonas y los puertos asociados antes de configurar las zonas.</block>
+  <block id="7e95951a529361ac1e326cd54359d011" category="paragraph"><block ref="7e95951a529361ac1e326cd54359d011" category="inline-link-macro-rx"></block></block>
+  <block id="4c79922838c9f8d530f20efcd3382822" category="cell">Configuraciones que utilicen FibreBridge 7500N o 7600N con solo un puerto FC (FC1 o FC2)</block>
+  <block id="3a4842c9952a7c657d04e55a3d69b1a4" category="cell">FibreBridge 7500N o 7600N con dos puertos FC</block>
+  <block id="f9805d94598bd6a841fddbff1c6ddc7b" category="paragraph">Las siguientes tablas muestran el uso del puerto puente cuando se utilizan puentes FibreBridge 7500N o 7600N utilizando un puerto FC (FC1 o FC2) solamente. Para los puentes FibreBridge 7500N o 7600N que utilizan un puerto FC, el FC1 o el FC2 se pueden cablear al puerto indicado como FC1. Se pueden conectar puentes adicionales utilizando los puertos 25-48.</block>
+  <block id="126b9e3a8501d897a2356aba96828af6" category="cell">Puentes FibreBridge 7500N o 7600N utilizando un puerto FC</block>
+  <block id="69abf6cf7deeba7ace2f747f7661208f" category="cell">FibreBridge 7500N ó 7600N con un puerto FC</block>
+  <block id="1b3c29a52da9672be1cb789bb6d06ae8" category="cell">FibreBridge 7500N con dos puertos FC</block>
+  <block id="0351289236b3260f9d0c35b64f62689c" category="paragraph">Puede seguir el cableado para el puente FibreBridge 7500N o 7600N usando solo un puerto FC (FC1 o FC2). En lugar de usar cuatro iniciadores, conecte solo dos iniciadores y deje los otros dos que están conectados al puerto del switch vacío.</block>
+  <block id="4883312b6c36aa2f1d5ce2e2f17638bd" category="paragraph">Si la división en zonas se realiza manualmente, siga la división en zonas utilizada para un puente FibreBridge 7500N o 7600N mediante un puerto FC (FC1 o FC2). En esta situación, se agrega un puerto de iniciador en lugar de dos a cada miembro de la zona por estructura.</block>
+  <block id="1e008e69dc731ad28df3d6927462a7f3" category="paragraph">Puede cambiar la zonificación o realizar una actualización de un FibreBridge 6500N a un FibreBridge 7500N mediante el procedimiento de <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>.</block>
+  <block id="803d845c069720e0ec75ee03ea5a43d4" category="paragraph">En la siguiente tabla se muestra el uso del puerto puente cuando se utilizan los puentes FibreBridge 7500N y 7600N:</block>
+  <block id="2cd1f3df6c3bbd7c9891d742ad23d04a" category="cell">Puente FibreBridge 7500N o 7600N</block>
+  <block id="81b2aac60df91543fcf4f05563b1f80e" category="paragraph">La siguiente tabla muestra el uso del puerto del puente hasta el puerto 17 cuando se utilizan los puentes FibreBridge 7500N y 7600N. Se pueden conectar puentes adicionales a los puertos 18 a 23.</block>
+  <block id="85878b4f87459062c8904a27720ba2be" category="paragraph">La siguiente tabla muestra el uso del puerto de puente hasta el puerto 23 cuando se utilizan puentes FibreBridge 7500N o 7600N. Se pueden conectar puentes adicionales utilizando los puertos 25 a 48.</block>
+  <block id="6f40fc62599b436af99e9090bcb1fe21" category="paragraph">La siguiente tabla muestra el uso del puerto de puente hasta el puerto 14 cuando se utilizan puentes FibreBridge 7500N o 7600N. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
+  <block id="836f2645702f9125726ff7335ed42bd5" category="paragraph">La siguiente tabla muestra el uso del puerto del puente hasta el puerto 14 cuando se utilizan los puentes FibreBridge 7500N y 7600N. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
+  <block id="7f921cbd9f23de85fa3d483b640e428b" category="open-title">Si los nodos están apagados:</block>
+  <block id="5f4eaac69c780a3f8ab154192e4a1a26" category="paragraph">Encienda los nodos.</block>
+  <block id="2900f8420dafccee0a2692e48506c6cb" category="open-title">Si los nodos se encuentran en el símbolo del SISTEMA DEL CARGADOR:</block>
+  <block id="796bd1c27d5eea106367802d9fd5bd0e" category="paragraph">Ejecute el comando:<block ref="ce54ef17bebf280339d340bd40dff593" prefix=" " category="inline-code"></block></block>
+  <block id="4129cca17421055c633ccbc72f65d61f" category="list-text">Cuando se complete el arranque del nodo, compruebe que se han duplicado los agregados raíz.</block>
+  <block id="f691b46b240bca97e906bfb1366247a7" category="paragraph">Si existen ambos complejos, la resincronización se iniciará automáticamente. Si falla un plex, destruirlo y vuelva a establecer la relación de reflejo mediante el siguiente comando para volver a crear el mirror:</block>
+  <block id="9abd59a18f57d6cb4282adb209f8b563" category="list-text">Tiene dos puentes FibreBridge 7600N conectados a una pila de bandejas de discos SAS.</block>
+  <block id="fc35f0bbf60965f7ec34001ad687a3f3" category="list-text">Tiene un puente FibreBridge 7500N y un puente FibreBridge 7600N conectado a una pila de bandejas de discos SAS.</block>
+  <block id="3ed94c5d90da7ee057d27e4a111e2d56" category="list-text">Apague el puente ATTO y retire los cables de alimentación conectados al puente.</block>
+  <block id="44f214a5099f49db147696415a075d47" category="list-text">Si va a configurar un FibreBridge 7500N, configure el modo de conexión que el puerto utiliza para 'ptp'.</block>
+  <block id="8abe3c7c95f9615fe71d95df61a4b898" category="paragraph">Es necesario sustituir los cables que conectan el puente a la parte superior o inferior de la pila de la bandeja. Los puentes FibreBridge 7600N y 7500N requieren cables mini-SAS para estas conexiones.</block>
+  <block id="b889bc5ea39fc308a80e7da9aafcd5bb" category="list-text">El puente FibreBridge 6500N admite hasta 8, 4 o 2 Gbps.</block>
+  <block id="522ee388aaa608b60a7148c3f95473d7" category="paragraph">A diferencia del puente ATTO FibreBridge 7500N, el puente FibreBridge 7600N se envía con todos los protocolos y servicios de puerto IP desactivados.</block>
+  <block id="453c83b73d0ecbb9f09224937b817815" category="list-text">Este procedimiento se puede utilizar para agregar una pila utilizando puentes FibreBridge 7600N o 7500N.</block>
+  <block id="e05381bfaa686bb26262ce132ba9d898" category="summary">Debe saber cómo apagar y encender un único sitio de una configuración FC de MetroCluster para realizar el mantenimiento del sitio o reubicar un sitio a otra ubicación.</block>
+  <block id="81856068a1902936a3d6d361da5c40d9" category="doc">Apagar y encender un único sitio con una configuración de MetroCluster FC</block>
+  <block id="d7816243d769abfab3871457907990d1" category="paragraph">Si necesita realizar tareas de mantenimiento del sitio o reubicar un único sitio en una configuración FC de MetroCluster, es necesario saber cómo apagar y encender el sitio.</block>
+  <block id="8d4c5977271a3cb624fe080526afb7fc" category="paragraph">Si necesita reubicar y reconfigurar un sitio (por ejemplo, si necesita ampliar un clúster de cuatro nodos a uno de ocho nodos), no podrá completar estas tareas al mismo tiempo. Este procedimiento sólo cubre los pasos necesarios para realizar el mantenimiento del sitio o para reubicar un sitio sin cambiar su configuración.</block>
+  <block id="56d6288c5f791724a871f0f147e12032" category="section-title">Apagar un sitio MetroCluster</block>
+  <block id="1045051bc489dcbac0eba7b7e828fc16" category="paragraph">Todos los comandos de los siguientes pasos se emiten desde el sitio que permanece encendido.</block>
+  <block id="3992217858a418dc708f7898927dc589" category="list-text">Desde el sitio que desea mantener activo, implemente la conmutación de sitios:</block>
+  <block id="de581c55e079c6aae1e67e65189afbfa" category="paragraph">Los agregados no reflejados solo estarán en línea tras una conmutación de sitios si se puede acceder a los discos remotos del agregado. Si los ISL fallan, es posible que el nodo local no pueda acceder a los datos de los discos remotos no reflejados. El error de un agregado puede provocar un reinicio del nodo local.</block>
+  <block id="8786bed4623fe6698abcaad77521bad9" category="paragraph">Si no mueve los complejos no reflejados en el sitio de recuperación ante desastres sin conexión, se puede producir una interrupción del servicio cuando el sitio de recuperación ante desastres se apague más tarde.</block>
+  <block id="9f3870eb3ed0a7def4c546eeae018089" category="admonition">Realice este paso para todos los plexes que tengan discos remotos para Cluster_A.</block>
+  <block id="52aff055e8c859748fa5df921f322567" category="list-text">Desconecta de forma persistente los puertos del switch ISL según el tipo de switch.</block>
+  <block id="8e3f5197bd01d7914ee8e8fc65fc56e4" category="paragraph">Para switches FC Brocade...</block>
+  <block id="132fe2b93bc791dd643ed680d1ddaa5e" category="list-text">Utilice la<block ref="2e7f851c1bdee09a500a083d356ad425" prefix=" " category="inline-code"></block> comando para deshabilitar los puertos de forma persistente, como se muestra en el ejemplo siguiente. Esto se debe hacer en ambos conmutadores del sitio superviviente.</block>
+  <block id="06f892e706e2490e96a2a657cd6b479d" category="paragraph">Para switches FC de Cisco...</block>
+  <block id="aa4560fdf6eb931e7acf782f301837db" category="list-text">Apague el equipo en el sitio de desastre.</block>
+  <block id="a966334d5468b4c1dcb921af4d8f0060" category="paragraph">El siguiente equipo debe apagarse en el orden indicado:</block>
+  <block id="5129cfd7ac63c37dcae900bb424246fe" category="list-text">Controladoras de almacenamiento: Las controladoras de almacenamiento actualmente deben estar en<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> aviso, debe apagarlos por completo.</block>
+  <block id="eb5d4a4c0c7b75bc1b90f45b192a7523" category="list-text">ATTO FibreBridges (si está presente)</block>
+  <block id="0924753fca83f6aa143b6eebad4e37c4" category="list-text">Verifique que el cableado de todos los componentes se registre con cuidado para poder volver a conectarlo correctamente en la nueva ubicación.</block>
+  <block id="23b7edc8743ecdff653ecd31b9ba0b49" category="list-text">Reubique físicamente todo el hardware, las controladoras de almacenamiento, los switches FC, FibreBridges y las bandejas de almacenamiento.</block>
+  <block id="99b1e28bd58c72b586b1c8c6740b9731" category="list-text">Encienda los switches FC.</block>
+  <block id="1acfa95e8e2514763ed62036ab3fa9ed" category="list-text">Utilice la<block ref="aa9509625b9b7a7cbd37e4dfa7a53121" prefix=" " category="inline-code"></block> comando para habilitar el puerto de forma persistente. Esto se debe hacer en ambos conmutadores del sitio superviviente.</block>
+  <block id="ad505825f73570f3e5352620da6fccac" category="admonition">Solo debe continuar si los enlaces están correctamente configurados y estables.</block>
+  <block id="e56dd9ab2becce5cc684eaa96fadcf60" category="list-text">Introduzca el<block ref="9ecdb594b01de9fa2c95aec87e6f82e1" prefix=" " category="inline-code"></block> comando para deshabilitar el puerto de forma persistente.</block>
+  <block id="4fe0323b18610fc616e4b8a765b3e593" category="paragraph">Primero debe encender los interruptores. Es posible que se hayan encendido durante el paso anterior si se reubicó el sitio.</block>
+  <block id="2208c2a5a2ab4f46416b8dc29f446d2b" category="list-text">Deshabilite los ISL en los switches FC.</block>
+  <block id="971572bd6aba77ed87a414025a289cb9" category="list-text">Encienda las controladoras de almacenamiento y espere hasta que vea el<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> prompt. Las controladoras no deben arrancarse por completo.</block>
+  <block id="b5b517b5bd160188f72a49194aee565c" category="paragraph">Si el inicio automático está activado, pulse<block ref="08102569ee3581db669c9d763e14b983" prefix=" " category="inline-code"></block> para detener el arranque automático de las controladoras.</block>
+  <block id="235d6d36d1eabe510af7ea0ec5e96c6b" category="paragraph">Puede utilizar un comando como<block ref="2aa3751083baf48c1e1ddef8df4ddcc3" prefix=" " category="inline-code"></block> En la CLI de ATTO.</block>
+  <block id="480cf83fd6c463ccef2ed2a9d0dce2c4" category="list-text">Introduzca el<block ref="bedfcd4488b13f5b7062e121a6a8baa5" prefix=" " category="inline-code"></block> comando para habilitar los puertos de forma persistente. Esto se debe hacer en ambos conmutadores del sitio superviviente.</block>
+  <block id="9d1a338762e03c980c82e8098eb03744" category="list-text">Compruebe que el almacenamiento está visible en el sitio superviviente. Vuelva a conectar los complejos sin conexión. Esto reinicia las operaciones de resincronización y vuelve a establecer el SyncMirror.</block>
+  <block id="9f6a23c1abc971d714730192ce961b96" category="paragraph">Siga las instrucciones de <block ref="9c0d52e0ce7a57d643217990aba10043" category="inline-link-macro-rx"></block> Para llevar a cabo operaciones de reparación y conmutación de estado de acuerdo con su configuración de MetroCluster.</block>
+  <block id="92833b015ed412068659d576a7df1599" category="list-text">Utilizando las siguientes directrices, intercambie en caliente el puente "'top'"FibreBridge 6500N con un puente FibreBridge 7600N o 7500N siguiendo el procedimiento descrito en <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>:</block>
+  <block id="3753c208918127350b444c3dc052115f" category="list-text">Utilizando las siguientes directrices, intercambie en caliente el puente "'bottom'"FibreBridge 6500N con un puente FibreBridge 7600N o 7500N siguiendo el procedimiento descrito en <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>:</block>
+  <block id="0b4bc6296d77be28e33d3b50e0ea0797" category="paragraph"><block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block></block>
+  <block id="e49bc35e0118f2b5a5904c13e1833761" category="section-title">Actualización del firmware en FibreBridge 7500N en configuraciones que ejecutan ONTAP 9,3.x y versiones anteriores</block>
+  <block id="1a5e839afe7a716dd2640f7fdb69669a" category="paragraph">Es posible que necesite actualizar el firmware de los puentes FibreBridge para verificar que tiene las últimas características o para resolver posibles problemas. Este procedimiento debe utilizarse para FibreBridge 7500N en configuraciones que ejecuten ONTAP 9,3.x.</block>
+  <block id="ef1eae725a44cfeb66559e3d3e94f7ec" category="paragraph">A partir de ONTAP 9.3, puede utilizar el comando de actualización del firmware del puente de almacenamiento ONTAP para actualizar el firmware del puente en los puentes FibreBridge 7500N.</block>
+  <block id="05791e70fbe1537753bf5a023b7623eb" category="list-text">Instale el firmware en el puente FibreBridge 7500N.</block>
+  <block id="c1a1962dd8879c856d3b821c9622f94c" category="paragraph">Debe consultar las instrucciones proporcionadas en la sección «`Actualizar firmware » del _Manual de instalación y funcionamiento de ATTO FibreBridge 7500N_.</block>
+  <block id="24ea961e35f1e60e606fd840735a7b80" category="summary">Si necesita realizar el mantenimiento del sitio o reubicar un solo sitio en una configuración IP de MetroCluster, debe saber cómo apagar y encender el sitio.</block>
+  <block id="064c811af1591c939040fba47365213b" category="doc">Apagar y encender un sitio único en una configuración IP de MetroCluster</block>
+  <block id="b66411bb5022a5619d62ef25fa47b67f" category="paragraph">En configuraciones IP de MetroCluster que ejecutan ONTAP 9,5 o una versión anterior, los nodos del sitio de recuperación ante desastres no arrancan automáticamente en ONTAP y los complejos permanecen sin conexión.</block>
+  <block id="b13f7000aa5add9a5264da17e3dc4f67" category="list-text">Detenga los nodos ejecutando el siguiente comando en cada nodo:</block>
+  <block id="de48c3af46bd57dad9f2ad02bbb26041" category="paragraph"><block ref="8a921c8973814d1a72edcc98a6686da9" prefix="" category="inline-code"></block></block>
+  <block id="84b0c3d7ab439004e978c709f15fc230" category="paragraph">Debe apagar el siguiente equipo en el orden indicado:</block>
+  <block id="98734a3d5b75c8baf95c27fbc27a15f1" category="list-text">Reubique físicamente todo el hardware, las controladoras de almacenamiento, los switches IP, FibreBridges y las bandejas de almacenamiento.</block>
+  <block id="1cef707d96d59ea52cd45984a36d2f11" category="list-text">Encienda los interruptores IP.</block>
+  <block id="ac8327044a4ce63889944095a1b6aed8" category="list-text">Encienda las bandejas teniendo tiempo suficiente para que se enciendan por completo.</block>
+  <block id="d5061566f9570e151daa3fd59fb31405" category="list-text">Compruebe que el almacenamiento local sea visible en el nodo en modo de mantenimiento:</block>
+  <block id="7a492d8ba3deac8ecd729c56c1058794" category="paragraph">En la siguiente tabla se muestra el uso del puerto puente cuando se utilizan puentes FibreBridge 7500N o 7600N:</block>
+  <block id="2d5d944d1466716b339b20936cc4b7ec" category="paragraph">La siguiente tabla muestra el uso del puerto de puente hasta el puerto 17 cuando se utilizan puentes FibreBridge 7500N o 7600N. Se pueden conectar puentes adicionales a los puertos 18 a 23.</block>
+  <block id="f912eaa76cd834cbed98a7201254e72e" category="paragraph">En la siguiente tabla se muestra el uso del puerto puente hasta el puerto 17 cuando se usan puentes FibreBridge 7500N o 7600N con switches Brocade 6505, 6510 y DCX 8510-8. Se pueden conectar puentes adicionales a los puertos 18 a 23.</block>
+  <block id="e75c88d98fec123855e6503ffa20ae16" category="paragraph">La siguiente tabla muestra el uso del puerto puente hasta el puerto 23 cuando se utilizan puentes FibreBridge 7500N o 7600N con switches Cisco 9148 o 9148S.</block>
+  <block id="0d792f55f305e85c0f763a05b6d33ae1" category="paragraph">La siguiente tabla muestra el uso del puerto puente hasta el puerto 14 cuando se utilizan puentes FibreBridge 7500N o 7600N con switches Cisco 9148, 9148S o 9250i. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
+  <block id="972c5512c843cde59ea3263b1073efea" category="paragraph">La siguiente tabla muestra el uso del puerto puente hasta el puerto 14 cuando se utilizan puentes FibreBridge 7500N o 7600N con switches Cisco 9148, 9148S y 9250i. Se pueden conectar puentes adicionales a los puertos 15 a 32 siguiendo el mismo patrón.</block>
+  <block id="8bc67669b17eba9ca754ee74dd34564c" category="list-text">Si está utilizando la versión compatible con FIPS de EFOS, genere las claves ECDSA. El siguiente ejemplo crea las claves con una longitud de 521. Los valores válidos son 256, 384 o 521.</block>
+  <block id="8eb0b3dc24b7128748cd767385d5a9f2" category="paragraph">Cada nodo de la configuración IP de MetroCluster tiene interfaces dedicadas para la conexión con la red IP back-end:</block>
+  <block id="ad1b97f0744b9c154b01cc69afb505d7" category="list-text">Dos interfaces de clúster locales</block>
+  <block id="861e1910edbd7f3e677dab91f10869b0" category="sidebar">Apague y encienda un único sitio de MetroCluster</block>
+  <block id="b54f4d527d126f4e54869800ed0e43ac" category="sidebar">Apague toda una configuración de MetroCluster</block>
 </blocks>

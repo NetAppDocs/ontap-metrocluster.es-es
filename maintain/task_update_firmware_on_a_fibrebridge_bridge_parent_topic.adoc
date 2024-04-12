@@ -258,9 +258,9 @@ flashimages
 
 
 
-== Actualización del firmware en FibreBridge 7500N en configuraciones que ejecuten puentes ONTAP 9.3.x y anteriores o 6500N
+== Actualización del firmware en FibreBridge 7500N en configuraciones que ejecutan ONTAP 9,3.x y versiones anteriores
 
-Es posible que necesite actualizar el firmware de los puentes FiberBridge para asegurarse de tener las últimas funciones o resolver posibles problemas. Este procedimiento debe utilizarse para FibreBridge 7500N en configuraciones que ejecuten ONTAP 9.3.x o para puentes FibreBridge 6500N en todas las versiones compatibles de ONTAP.
+Es posible que necesite actualizar el firmware de los puentes FibreBridge para verificar que tiene las últimas características o para resolver posibles problemas. Este procedimiento debe utilizarse para FibreBridge 7500N en configuraciones que ejecuten ONTAP 9,3.x.
 
 .Antes de empezar
 * La configuración de MetroCluster debe estar funcionando con normalidad.
@@ -276,7 +276,7 @@ En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su 
 
 
 
-Puede utilizar esta tarea con puentes FibreBridge 7500N o 6500N. A partir de ONTAP 9.3, puede utilizar el comando de actualización del firmware del puente de almacenamiento ONTAP para actualizar el firmware del puente en los puentes FibreBridge 7500N.
+A partir de ONTAP 9.3, puede utilizar el comando de actualización del firmware del puente de almacenamiento ONTAP para actualizar el firmware del puente en los puentes FibreBridge 7500N.
 
 link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["Actualización del firmware en puentes FibreBridge 7600N o 7500N en configuraciones que ejecuten ONTAP 9.4 y posteriores"]
 
@@ -305,17 +305,15 @@ https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/download
 . Haga una copia de la página de descarga del firmware de ATTO FiberBridge y de las notas de la versión como referencia cuando se le indique que debe actualizar el firmware en cada puente.
 . Actualice el puente:
 +
-.. Instale el firmware en el puente FiberBridge.
+.. Instale el firmware en el puente FibreBridge 7500N.
 +
-*** Si está utilizando puentes ATTO FibreBridge 7500N, debe consultar las instrucciones proporcionadas en la sección "'firmware de actualización'" del Manual de instalación y operación de ATTO FibreBridge 7500N.
-*** Si está utilizando puentes ATTO FibreBridge 6500N, debe consultar las instrucciones proporcionadas en la sección "'firmware de actualización'" del Manual de instalación y operación de ATTO FibreBridge 6500N.
+Debe consultar las instrucciones proporcionadas en la sección «`Actualizar firmware » del _Manual de instalación y funcionamiento de ATTO FibreBridge 7500N_.
+
 +
 *ATENCIÓN:* Asegúrese de que encienda el puente individual ahora. Si espera y enciende y apague ambos puentes en una pila simultáneamente, es posible que la controladora pierda acceso a las unidades, lo que podría provocar un fallo complejo o una caída de varios discos.
 
 +
 El puente debería reiniciarse.
-
-
 
 .. Desde la consola de cualquiera de las controladoras, compruebe que el puente se ha reiniciado correctamente:
 +

@@ -17,7 +17,6 @@ Debe recopilar información de los nodos FC de MetroCluster existentes, enviar u
 
 == Recopilación de información de los módulos de controladoras existentes antes de la transición
 
-[role="lead"]
 Antes de la transición, debe recopilar información para cada uno de los nodos.
 
 Esta tarea se realiza en los nodos existentes:
@@ -100,7 +99,6 @@ Esta tarea se realiza en los nodos existentes:
 
 == Envío de un mensaje de AutoSupport personalizado antes del mantenimiento
 
-[role="lead"]
 Antes de realizar el mantenimiento, debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que se está realizando el mantenimiento. Esto les impide abrir un caso suponiendo que se ha producido una interrupción.
 
 Esta tarea debe realizarse en cada sitio MetroCluster.
@@ -120,7 +118,6 @@ la ventana de mantenimiento en horas especifica la longitud de la ventana de man
 
 == Realizar la transición, apagar y quitar los nodos FC de MetroCluster
 
-[role="lead"]
 Además de emitir comandos en los nodos FC de MetroCluster, esta tarea incluye la conexión física y la retirada de los módulos de la controladora de cada site.
 
 Esta tarea se debe realizar en cada uno de los nodos antiguos:

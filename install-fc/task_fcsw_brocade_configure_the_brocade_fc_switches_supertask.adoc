@@ -1725,7 +1725,7 @@ Port   Configured    Active   Configured   Active  Speed
 
 == Configuración de la división en zonas en switches Brocade FC
 
-Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento. El procedimiento varía en función de si está utilizando un puente FibreBridge 7500N o FibreBridge 6500N.
+Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento.
 
 
 
@@ -1947,9 +1947,9 @@ QOSH2_MC1_FAB_2_FCVI (6520)
 |===
 
 
-=== División en zonas para puentes FibreBridge 6500N o puentes FibreBridge 7500N o 7600N que utilicen un puerto FC
+=== División en zonas para puentes FibreBridge 7500N o 7600N usando un puerto FC
 
-Si utiliza puentes FibreBridge 6500N o puentes FibreBridge 7500N o 7600N que utilicen sólo uno de los dos puertos FC, tendrá que crear zonas de almacenamiento para los puertos de puente. Tiene que comprender las zonas y los puertos asociados antes de configurar las zonas.
+Si utiliza puentes FibreBridge 7500N o 7600N utilizando solo uno de los dos puertos FC, debe crear zonas de almacenamiento para los puertos puente. Tiene que comprender las zonas y los puertos asociados antes de configurar las zonas.
 
 Los ejemplos muestran la división en zonas solo para el grupo de recuperación ante desastres 1. Si la configuración incluye un segundo grupo de recuperación ante desastres, configure la división en zonas del segundo grupo de recuperación ante desastres de la misma manera, utilizando los puertos correspondientes de las controladoras y los puentes.
 
@@ -1999,7 +1999,6 @@ Número del grupo de pilas al que se conecta el par de puente.
 +
 El grupo de pilas no puede contener más de 10 bandejas de almacenamiento.
 
-* Los puentes FibreBridge 6500N sólo admiten una pila única en el grupo de pilas.
 
  a| 
 1, 2, etc.
@@ -2443,7 +2442,6 @@ Número del grupo de pilas al que se conecta el par de puente.
 +
 El grupo de pilas no puede contener más de 10 bandejas de almacenamiento.
 
-* Los puentes FibreBridge 6500N sólo admiten una pila única en el grupo de pilas.
 
  a| 
 1, 2, etc.
@@ -4294,7 +4292,7 @@ Los pasos siguientes utilizan la división en zonas estándar para la configurac
 
 link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["División en zonas para los puertos FC-VI"]
 
-link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["División en zonas para puentes FibreBridge 6500N o puentes FibreBridge 7500N o 7600N que utilicen un puerto FC"]
+link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["División en zonas para puentes FibreBridge 7500N o 7600N usando un puerto FC"]
 
 link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["División en zonas para puentes FibreBridge 7500N con ambos puertos FC"]
 

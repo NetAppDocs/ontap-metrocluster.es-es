@@ -17,7 +17,7 @@ Puede seguir el cableado para el puente FibreBridge 7500N o 7600N usando solo un
 
 Si la división en zonas se realiza manualmente, siga la división en zonas utilizada para un puente FibreBridge 7500N o 7600N mediante un puerto FC (FC1 o FC2). En esta situación, se agrega un puerto de iniciador en lugar de dos a cada miembro de la zona por estructura.
 
-Puede cambiar la zonificación o realizar una actualización de un FibreBridge 6500N a un FibreBridge 7500N mediante el procedimiento de link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"].
+Puede cambiar la zonificación o realizar una actualización de un FibreBridge 6500N a un FibreBridge 7500N mediante el procedimiento de link:../maintain/task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"].
 
 En la siguiente tabla se muestran las asignaciones de puertos para los switches de FC cuando se utiliza ONTAP 9.1 y versiones posteriores.
 

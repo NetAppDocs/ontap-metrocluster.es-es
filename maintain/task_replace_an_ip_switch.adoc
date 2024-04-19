@@ -137,6 +137,15 @@ Si actualiza o degrada un conmutador, aplique el último archivo RCF admitido pa
 +
 `*network port show*`
 
++
+.. Modifique todas las LIF del clúster para deshabilitar la reversión automática:
++
+[source, asciidoc]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
+----
+
+
 . [[existing_step4]]Desconecte las conexiones del interruptor antiguo.
 +
 
@@ -146,12 +155,6 @@ NOTE: Solo se desconectan las conexiones que no estén utilizando el mismo puert
 Quite las conexiones en el siguiente orden:
 
 +
-.. Modifique todas las LIF del clúster para deshabilitar la reversión automática:
-+
-[source, asciidoc]
-----
-net int modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
-----
 .. Desconecte las interfaces del clúster local
 .. Desconecte los ISL del clúster local
 .. Desconecte las interfaces IP de MetroCluster
@@ -228,6 +231,12 @@ Si va a actualizar o a cambiar a una versión anterior de los switches de la pri
 
 NOTE: Si actualiza o degrada las redes, repita todos los pasos para la segunda red.
 
+. Modifique todas las LIF de clúster para volver a habilitar la reversión automática:
++
+[source, asciidoc]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert true
+----
 . De manera opcional, mueva las bandejas NS224.
 +
 Si va a volver a configurar una configuración IP de MetroCluster que no conecta las bandejas de NS224 a los switches IP de MetroCluster, utilice el procedimiento adecuado para añadir o mover las bandejas NS224:

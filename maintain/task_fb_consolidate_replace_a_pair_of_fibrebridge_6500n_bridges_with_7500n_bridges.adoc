@@ -109,7 +109,7 @@ También puede utilizar este procedimiento si se cumplen las siguientes condicio
 * Va a sustituir un par de puentes FibreBridge 6500N que están conectados a la misma pila de almacenamiento SAS.
 * Ha sustituido previamente un puente FibreBridge 6500N en el par y su pila de almacenamiento está configurada con un puente FibreBridge 6500N y un puente FibreBridge 7600N o 7500N.
 +
-En este caso, debe empezar con el paso siguiente para intercambiar en caliente el puente FibreBridge 6500N "'bottom'" con un puente FibreBridge 7600N o 7500N.
+En este caso, debe comenzar con el siguiente paso para intercambiar en caliente el puente inferior FibreBridge 6500N con un puente FibreBridge 7600N o 7500N.
 
 
 
@@ -118,7 +118,7 @@ El siguiente diagrama muestra un ejemplo de la configuración inicial, en la que
 image::../media/consolidating_stacks_before.gif[consolidación de pilas antes]
 
 .Pasos
-. Utilizando las siguientes directrices, intercambie en caliente el puente "'top'"FibreBridge 6500N con un puente FibreBridge 7600N o 7500N siguiendo el procedimiento descrito en link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"]:
+. Siguiendo las siguientes directrices, intercambie en caliente el puente superior FibreBridge 6500N con un puente FibreBridge 7600N o 7500N utilizando el procedimiento de link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"]:
 +
 ** Conecte el puerto FC1 del puente FibreBridge 7600N o 7500N al conmutador o controlador.
 +
@@ -182,7 +182,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 		.
 		.
 ----
-. Utilizando las siguientes directrices, intercambie en caliente el puente "'bottom'"FibreBridge 6500N con un puente FibreBridge 7600N o 7500N siguiendo el procedimiento descrito en link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"]:
+. Siguiendo las siguientes directrices, intercambie en caliente el puente FibreBridge 6500N inferior con un puente FibreBridge 7600N o 7500N siguiendo el procedimiento descrito en link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"]:
 +
 ** Conecte el puerto FC2 del puente FibreBridge 7600N o 7500N al conmutador o controlador.
 +

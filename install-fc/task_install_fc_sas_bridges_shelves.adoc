@@ -469,6 +469,7 @@ Después de configurar el puente, puede iniciar el cableado del nuevo sistema.
 .Acerca de esta tarea
 En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).
 
+.Pasos
 . Conecte en cadena las bandejas de discos en cada pila:
 +
 .. Comenzando por la primera bandeja lógica de la pila, conecte el puerto IOM A 3 al puerto IOM A 1 de la siguiente bandeja hasta que cada IOM A de la pila esté conectado.
@@ -479,9 +480,6 @@ En el caso de las bandejas de discos, inserte un conector de cable SAS con la pe
 +
 La _Guía de instalación y mantenimiento_ del modelo de bandeja de discos proporciona información detallada sobre las bandejas de discos en cadena.
 
-
-
-.Pasos
 . Encienda las bandejas de discos y, a continuación, defina los ID de bandeja.
 +
 ** Debe apagar y encender cada bandeja de discos.

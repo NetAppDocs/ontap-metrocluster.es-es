@@ -1005,6 +1005,10 @@ cluster_A::*> metrocluster configure -refresh true
 
 [Job 726] Job succeeded: Configure is successful.
 ----
+.. Reinicie cada uno de los nodos nuevos:
++
+`node reboot -node <node_name> -inhibit-takeover true`
+
 .. Volver al modo de privilegios de administrador:
 +
 `set -privilege admin`

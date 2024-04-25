@@ -2,29 +2,29 @@
 permalink: tiebreaker/install_tiebreaker_package.html 
 sidebar: sidebar 
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
-summary: El software Tiebreaker proporciona funcionalidades de supervisión para un entorno de almacenamiento en clúster. También envía notificaciones SNMP en el caso de problemas de conectividad de los nodos y de desastres del sitio. 
+summary: Realice una nueva instalación o actualización a tiebreaker 1,5 en el sistema operativo Linux del host para supervisar las configuraciones de MetroCluster. 
 ---
-= Instalar o actualizar el paquete de software
+= Instale o actualice a tiebreaker 1,5
 :allow-uri-read: 
 
 
 [role="lead"]
-Debe instalar o actualizar el software MetroCluster Tiebreaker en el equipo local para supervisar las configuraciones de MetroCluster.
+Realice una nueva instalación o actualización a tiebreaker 1,5 en el sistema operativo Linux del host para supervisar las configuraciones de MetroCluster.
 
 .Acerca de esta tarea
-* El sistema de almacenamiento debe ejecutar ONTAP 8.3.x o una versión posterior.
-* Debe haber instalado OpenJDK mediante el `yum install java-x.x.x-openjdk` comando. Para sistemas que ejecuten Tiebreaker 1.4 y versiones anteriores, ejecute JRE 8. Para sistemas que ejecuten Tiebreaker 1.5 y posteriores, ejecute OpenJDK 17, 18 o 19. Las salidas del ejemplo muestran JRE 1.8.0. (JRE 8).
+* El sistema de almacenamiento debe ejecutar una versión compatible de ONTAP. Consulte link:install_prepare.html#software-requirements["Requisitos de software"] tabla para obtener más información.
+* Debe haber instalado OpenJDK mediante el `yum install java-x.x.x-openjdk` comando. Tiebreaker 1,5 y versiones posteriores son compatibles con OpenJDK 17, 18 o 19.
 * Puede instalar MetroCluster tiebreaker como usuario no root con suficientes privilegios administrativos para realizar la instalación de tiebreaker, crear tablas y usuarios y definir la contraseña de usuario.
 
 
 .Pasos
-. Descargue el software MetroCluster tiebreaker. En este ejemplo se usa la versión 1.5.
+. Descargue el software MetroCluster tiebreaker y la clave MetroCluster_tiebreaker_RPM_GPG.
 +
-https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^]
 
-. Descargue el `MetroCluster_Tiebreaker_RPM_GPG` clave:
+NOTE: La clave MetroCluster_tiebreaker_RPM_GPG está disponible para descargar desde la misma página que se descarga el paquete de software para tiebreaker 1,5 en el sitio de soporte de NetApp.
+
 +
-https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^]
+https://mysupport.netapp.com/site/products/all/details/metrocluster-tiebreaker/downloads-tab["MetroCluster tiebreaker (descargas) - Sitio de soporte de NetApp"^]
 
 . Inicie sesión en el host como usuario raíz.
 . Cree un usuario que no sea raíz y el `mcctbgrp` grupo.
@@ -97,7 +97,7 @@ NOTE: Sólo debe continuar con la instalación una vez que haya verificado corre
 NOTE: Solo puede actualizar a tiebreaker versión 1.5 cuando actualice desde la versión 1.4 de tiebreaker. No se puede actualizar desde versiones anteriores a Tiebreaker 1.5.
 
 +
-Seleccione el procedimiento correcto de abajo dependiendo de si está realizando una instalación nueva o actualizando una instalación existente.
+Seleccione el procedimiento correcto en función de si está realizando una nueva instalación o actualizando una instalación existente.
 
 +
 [role="tabbed-block"]
@@ -123,7 +123,6 @@ NOTE: Cuando se le solicite durante la instalación, proporcione el usuario que 
 +
 [listing]
 ----
-
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
 Updating / installing...

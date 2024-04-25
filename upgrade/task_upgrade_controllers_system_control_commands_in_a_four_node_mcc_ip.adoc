@@ -35,7 +35,7 @@ NOTE: Puede realizar las actualizaciones de controladoras enumeradas en la tabla
 
 Para obtener más información sobre las combinaciones de actualización de plataformas, revise la tabla de actualización IP de MetroCluster en link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-ip-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
 
-Consulte https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Seleccione un método de actualización o actualización"] para procedimientos adicionales.
+Consulte link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Seleccione un método de actualización o actualización"] para procedimientos adicionales.
 
 
 
@@ -269,7 +269,7 @@ Necesitará la contraseña más adelante en el procedimiento de actualización.
 Si la configuración existente se supervisa con la configuración de tiebreaker para MetroCluster u otras aplicaciones de terceros (por ejemplo, ClusterLion) que pueden iniciar una conmutación de sitios, debe eliminar la configuración de MetroCluster del tiebreaker o de otro software antes de sustituir el controlador antiguo.
 
 .Pasos
-. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["Quitar la configuración de MetroCluster existente"^] Del software Tiebreaker.
+. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["Quitar la configuración de MetroCluster existente"] Del software Tiebreaker.
 . Elimine la configuración de MetroCluster existente de cualquier aplicación de terceros que pueda iniciar la conmutación.
 +
 Consulte la documentación de la aplicación.
@@ -318,7 +318,7 @@ Todos los LIF de datos, incluidos SAN y NAS, serán «propios» de administrador
 Por ejemplo, «'e0d» es un puerto físico de las controladoras antiguas y también está presente en las nuevas controladoras. «'e0d'» no se utiliza como puerto de clúster ni de ningún otro modo en las nuevas controladoras.
 
 +
-Para el uso de puertos para los modelos de plataforma, consulte https://hwu.netapp.com/["Hardware Universe de NetApp"^]
+Para el uso de puertos para los modelos de plataforma, consulte link:https://hwu.netapp.com/["Hardware Universe de NetApp"^]
 
 .. Modifique todas las LIF de datos para utilizar el puerto común como puerto de inicio:
 +
@@ -428,7 +428,7 @@ Después de instalar los nodos nuevos, debe reiniciar el sistema para asegurarse
 Esta tarea se realiza en cada uno de los nuevos módulos del controlador.
 
 .Pasos
-. Acceda a https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
+. Acceda a link:https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
 . Descargue el software ONTAP adecuado desde la sección de descarga de software del sitio de soporte de NetApp y almacene el archivo ontap-version_image.tgz en un directorio accesible desde la web.
 . Vaya al directorio accesible a Internet y compruebe que los archivos que necesita están disponibles.
 +

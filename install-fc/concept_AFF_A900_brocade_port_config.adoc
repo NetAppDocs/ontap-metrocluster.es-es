@@ -10,6 +10,7 @@ summary: En las siguientes tablas se muestra el uso de puertos en los conmutador
 :imagesdir: ../media/
 
 
+[role="lead"]
 En las siguientes tablas se muestra cómo se utilizan los puertos en los switches Brocade. En las tablas se muestra la configuración máxima admitida, con ocho módulos de controladora en cuatro grupos de recuperación ante desastres. Los sistemas AFF A900 y FAS9500 tienen ocho puertos FC-VI (a, b, c y d para FC-VI-1 y FC-VI-2)
 
 |===

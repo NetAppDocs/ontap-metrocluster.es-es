@@ -10,11 +10,12 @@ summary: Si es necesario sustituir los componentes de hardware, deberá sustitui
 :imagesdir: ../media/
 
 
+[role="lead"]
+Si es necesario sustituir los componentes de hardware, deberá sustituirlos con sus guías individuales de instalación y sustitución de hardware.
+
 
 
 == Sustitución del hardware en el centro de recuperación ante desastres
-
-Si es necesario sustituir los componentes de hardware, deberá sustituirlos con sus guías individuales de instalación y sustitución de hardware.
 
 .Antes de empezar
 Las controladoras de almacenamiento deben estar apagadas o permanecer detenida (mostrar el símbolo del sistema del CARGADOR).
@@ -419,7 +420,7 @@ https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"^]
 
 
 .Pasos
-. Acceda a https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
+. Acceda a link:https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
 . Descargue el software ONTAP adecuado desde la sección de descarga de software del sitio de soporte de NetApp y almacene el archivo ontap-version_image.tgz en un directorio accesible desde la web.
 . Vaya al directorio accesible a Internet y compruebe que los archivos que necesita están disponibles.
 +

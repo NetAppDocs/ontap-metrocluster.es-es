@@ -23,7 +23,7 @@ image::../media/metrocluster_fc_tech_refresh_914.png[actualización tecnológica
 * Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, si tiene una configuración de ocho nodos, los ocho nodos deben ejecutar la misma versión de ONTAP.
 * No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas.
 * Si los límites de la plataforma de destino son inferiores a los límites de MetroCluster, debe volver a configurar el MetroCluster para que sea igual o inferior a los límites de la plataforma de destino antes de agregar los nuevos nodos.
-* Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
+* Consulte la link:https://hwu.netapp.com["Hardware Universe"^] para límites de plataforma.
 
 
 
@@ -38,7 +38,7 @@ image::../media/metrocluster_techref_ip_914.png[Combinaciones de actualizaciones
 * Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, si tiene una configuración de ocho nodos, los ocho nodos deben ejecutar la misma versión de ONTAP.
 * No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas.
 * Si los límites de la plataforma de destino son inferiores a los límites de MetroCluster, debe volver a configurar el MetroCluster para que sea igual o inferior a los límites de la plataforma de destino antes de agregar los nuevos nodos.
-* Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
+* Consulte la link:https://hwu.netapp.com["Hardware Universe"^] para límites de plataforma.
 
 
 [cols="2,1,1,2"]

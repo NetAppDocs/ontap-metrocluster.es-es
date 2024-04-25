@@ -51,6 +51,11 @@ Los SFP o QSFP compatibles con el proveedor de equipos son compatibles con los I
 
 Al conectar las controladoras a los switches y los ISL del clúster local, debe usar los transceptores y los cables que proporciona NetApp con el MetroCluster.
 
+Cuando utiliza un adaptador QSFP-SFP, tanto si se configura el puerto en el modo de interrupción como en el modo de velocidad nativo depende del modelo de switch y del firmware. Por ejemplo, si se utiliza un adaptador QSFP-SFP con switches Cisco 9336C que ejecutan el firmware NX-OS 9.x o 10.x, se requiere configurar el puerto en modo de velocidad nativo.
+
+
+NOTE: Si configura un RCF, compruebe que selecciona el modo de velocidad correcto o utilice un puerto con el modo de velocidad adecuado.
+
 
 
 == Uso de xWDM, TDM y dispositivos de cifrado externos

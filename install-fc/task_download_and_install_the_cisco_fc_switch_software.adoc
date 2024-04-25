@@ -21,7 +21,7 @@ Estos pasos deben repetirse en cada uno de los switches FC de la configuración 
 
 Debe utilizar la versión de software del switch compatible.
 
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 
 NOTE: Los resultados que se muestran son para los switches IP de Cisco; sin embargo, estos pasos también se aplican a los switches FC de Cisco.
@@ -29,7 +29,7 @@ NOTE: Los resultados que se muestran son para los switches IP de Cisco; sin emba
 .Pasos
 . Descargue el archivo de software NX-OS admitido.
 +
-https://software.cisco.com/download/home["Página de descarga de Cisco"]
+link:https://software.cisco.com/download/home["Página de descarga de Cisco"^]
 
 . Copie el software del conmutador en el conmutador:
 +

@@ -30,7 +30,7 @@ image::../media/metrocluster_fc_ip_transition_matrix_914.png[matriz de transici�
 ====
 * No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas.
 * Si los límites de la plataforma de destino son inferiores a los límites de MetroCluster, debe volver a configurar el MetroCluster para que sea igual o inferior a los límites de la plataforma de destino antes de agregar los nuevos nodos.
-* Consulte la link:https://hwu.netapp.html["Hardware Universe"^] para límites de plataforma.
+* Consulte la link:https://hwu.netapp.com["Hardware Universe"^] para límites de plataforma.
 
 
 ====

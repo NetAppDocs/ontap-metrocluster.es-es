@@ -33,7 +33,7 @@ NOTE: Debe utilizar los procedimientos en la sección "cableado de una configura
 
 . Actualice la configuración de MetroCluster mediante los siguientes pasos.
 +
-No utilice los procedimientos descritos en la sección "Configuración del software MetroCluster en ONTAP" que se encuentra en el enlace https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html[Fabric-attached instalación y configuración de MetroCluster].
+No utilice los procedimientos de la sección Configuración del software de MetroCluster en ONTAP que se encuentra en la link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Instalación y configuración de MetroCluster estructural"].
 
 +
 .. Entre en el modo de privilegio avanzado: +

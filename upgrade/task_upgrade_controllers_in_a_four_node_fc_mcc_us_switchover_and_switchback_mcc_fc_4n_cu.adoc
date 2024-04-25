@@ -19,7 +19,7 @@ Puede utilizar la operación de conmutación de sitios de MetroCluster para prop
 
 Puede actualizar algunas plataformas con la operación de conmutación de sitios y conmutación de estado en una configuración FC de MetroCluster.
 
-Para obtener información sobre las combinaciones de actualización de la plataforma compatibles, consulte la tabla de actualización FC de MetroCluster en link:concept_choosing_controller_upgrade_mcc.html#metrocluster-fc-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
+Para obtener información sobre las combinaciones de actualización de la plataforma compatibles, consulte la tabla de actualización FC de MetroCluster en  link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-fc-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
 
 Consulte https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Seleccione un método de actualización o actualización"] para procedimientos adicionales.
 
@@ -505,7 +505,7 @@ Si la configuración existente se supervisa con la configuración de tiebreaker 
 .Pasos
 . Elimine la configuración de MetroCluster existente del software Tiebreaker.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["Eliminación de las configuraciones de MetroCluster"]
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["Eliminación de las configuraciones de MetroCluster"]
 
 . Elimine la configuración de MetroCluster existente de cualquier aplicación de terceros que pueda iniciar la conmutación.
 +
@@ -792,7 +792,7 @@ Después de instalar los nodos nuevos, debe reiniciar el sistema para asegurarse
 Esta tarea se realiza en cada uno de los nuevos módulos del controlador.
 
 .Pasos
-. Acceda a https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
+. Acceda a link:https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
 . Descargue el software ONTAP adecuado desde la sección de descarga de software del sitio de soporte de NetApp y almacene el archivo ontap-version_image.tgz en un directorio accesible desde la web.
 . Vaya al directorio accesible a Internet y compruebe que los archivos que necesita están disponibles.
 +

@@ -10,6 +10,9 @@ summary: Si uno de los almacenes de objetos de un reflejo de FabricPool se coloc
 :imagesdir: ../media/
 
 
+[role="lead"]
+Realizar las tareas requeridas para completar la recuperación tras un fallo de varias controladoras o de almacenamiento.
+
 
 
 == Restablecer almacenes de objetos para configuraciones de FabricPool

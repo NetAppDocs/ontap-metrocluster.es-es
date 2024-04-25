@@ -17,10 +17,10 @@ Puede usar esta operación de conmutación de sitios automatizada y guiada de Me
 
 == Combinaciones de plataformas compatibles
 
-* Para obtener información sobre qué combinaciones de actualizaciones de plataforma son compatibles, revise la tabla de actualización FC de MetroCluster en link:concept_choosing_controller_upgrade_mcc.html#metrocluster-fc-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
+* Para obtener información sobre qué combinaciones de actualizaciones de plataforma son compatibles, revise la tabla de actualización FC de MetroCluster en  link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-fc-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
 
 
-Consulte https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Seleccione un método de actualización o actualización"] para procedimientos adicionales.
+Consulte link:concept_choosing_an_upgrade_method_mcc.html["Seleccione un método de actualización o actualización"] para procedimientos adicionales.
 
 
 
@@ -35,7 +35,7 @@ Otros componentes de la configuración, como bandejas de almacenamiento o switch
 +
 https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
-* Puede usar este procedimiento para actualizar las controladoras en una configuración FC de MetroCluster de cuatro nodos mediante una conmutación de sitios y conmutación de estado automatizadas basadas en NSO. Si desea realizar una actualización de una controladora mediante la reubicación de agregados (ARL), consulte https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/["Utilice comandos para sustituir la controladora del sistema para actualizar el hardware de la controladora que ejecute ONTAP 9.8 o una versión posterior"]. Se recomienda usar el procedimiento automatizado basado en NSO.
+* Puede usar este procedimiento para actualizar las controladoras en una configuración FC de MetroCluster de cuatro nodos mediante una conmutación de sitios y conmutación de estado automatizadas basadas en NSO. Si desea realizar una actualización de una controladora mediante la reubicación de agregados (ARL), consulte link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/["Utilice comandos para sustituir la controladora del sistema para actualizar el hardware de la controladora que ejecute ONTAP 9.8 o una versión posterior"]. Se recomienda usar el procedimiento automatizado basado en NSO.
 * Si los sitios de MetroCluster se encuentran físicamente en dos ubicaciones diferentes, debe usar el procedimiento de actualización automatizada de la controladora NSO para actualizar las controladoras en ambos sitios en secuencia.
 * Este procedimiento automatizado de actualización de controladora basada en la NSO le ofrece la posibilidad de iniciar la sustitución de controladoras a un sitio de recuperación ante desastres (DR) de MetroCluster. Solo puede iniciar el reemplazo de una controladora en una instalación cada vez.
 * Para iniciar la sustitución de una controladora en el sitio A, debe ejecutar el comando Controller rereemplazo start desde el sitio B. La operación le guía para reemplazar controladoras de ambos nodos en el sitio A únicamente. Para sustituir las controladoras en el sitio B, debe ejecutar el comando Controller replace start desde el sitio A. Aparece un mensaje que identifica el sitio en el que se van a reemplazar los controladores.
@@ -241,7 +241,7 @@ Necesitará la contraseña más adelante en el procedimiento de actualización.
 Si la configuración existente se supervisa con la configuración de tiebreaker para MetroCluster u otras aplicaciones de terceros (por ejemplo, ClusterLion) que pueden iniciar una conmutación de sitios, debe eliminar la configuración de MetroCluster del tiebreaker o de otro software antes de sustituir el controlador antiguo.
 
 .Pasos
-. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["Quitar la configuración de MetroCluster existente"^] Del software Tiebreaker.
+. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["Quitar la configuración de MetroCluster existente"] Del software Tiebreaker.
 . Elimine la configuración de MetroCluster existente de cualquier aplicación de terceros que pueda iniciar la conmutación.
 +
 Consulte la documentación de la aplicación.
@@ -400,7 +400,7 @@ Después de instalar los nodos nuevos, debe reiniciar el sistema para asegurarse
 Esta tarea se realiza en cada uno de los nuevos módulos del controlador.
 
 .Pasos
-. Acceda a https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
+. Acceda a link:https://mysupport.netapp.com/site/["Sitio de soporte de NetApp"^] para descargar los archivos utilizados para realizar el arranque desde red del sistema.
 . Descargue el software ONTAP adecuado desde la sección de descarga de software del sitio de soporte de NetApp y almacene el archivo ontap-version_image.tgz en un directorio accesible desde la web.
 . Vaya al directorio accesible a Internet y compruebe que los archivos que necesita están disponibles.
 +

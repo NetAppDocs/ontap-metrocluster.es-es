@@ -10,6 +10,9 @@ summary: Las herramientas de supervisión SNMP de terceros no son compatibles co
 :imagesdir: ../media/
 
 
+[role="lead"]
+Aprenda a configurar los puentes FC a SAS para la supervisión del estado.
+
 .Acerca de esta tarea
 * Las herramientas de supervisión SNMP de terceros no son compatibles con los puentes FibreBridge.
 * A partir de ONTAP 9.8, los puentes FC a SAS se supervisan a través de conexiones en banda de forma predeterminada, por lo que no se requiere ninguna configuración adicional.

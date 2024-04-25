@@ -40,7 +40,7 @@ Ninguno. Las dependencias se incluyen en la instalación.
  a| 
 1.5
  a| 
-ONTAP 9.13.1 y anteriores
+ONTAP 9,8 a ONTAP 9.14.1
  a| 
 * Red Hat Enterprise Linux 8.1 a 8.7
 
@@ -56,56 +56,7 @@ Con Red Hat Enterprise Linux 8,1 a 8,7:
  a| 
 1,4
  a| 
-ONTAP 9.11.1 y anteriores
- a| 
-* Red Hat Enterprise Linux 8.1 a 8.7
-* Red Hat Enterprise Linux 7 a 7,9
-* CentOS 7 a 7,9 64 bits
-
- a| 
-Con CentOS:
-
-* MariaDB 5.5.52.x/MySQL Server 5.6x
-* 4 GB DE MEMORIA RAM
-* Abra JRE 8
-
-
-Con Red Hat Enterprise Linux 8,1 a 8,7:
-
-*MariaDB 10.x (utilice la versión predeterminada que se instala usando “yum install mariadb-server.x86_64”)
-*JRE 8
-
-
-
- a| 
-1,3
- a| 
-ONTAP 9.10.1 y anteriores
- a| 
-* Red Hat Enterprise Linux 8.1 a 8.7
-* Red Hat Enterprise Linux 7 a 7,9
-* CentOS 7 a 7,9 64 bits
-
- a| 
-Con CentOS:
-
-* MariaDB 5.5.52.x/MySQL Server 5.6x
-* 4 GB DE MEMORIA RAM
-* Abra JRE 8
-
-
-Con Red Hat Enterprise Linux 8,1 a 8,7:
-
-* MariaDB 10.x (utilice la versión predeterminada que se instala utilizando "yum install mariadb-Server.x86_64")
-* JRE 8
-
-
-
-
- a| 
-1,21Px
- a| 
-ONTAP 9.9.1 y anteriores
+ONTAP 9,1 a ONTAP 9.9.1
  a| 
 * Red Hat Enterprise Linux 8.1 a 8.7
 * Red Hat Enterprise Linux 7 a 7,9
@@ -132,7 +83,7 @@ Con Red Hat Enterprise Linux 8,1 a 8,7:
 
 Debe tener en cuenta los siguientes requisitos adicionales:
 
-* El software Tierbreaker se instala en un tercer sitio, lo que permite al software distinguir entre un fallo de enlace entre switches (ISL) (cuando los enlaces entre sitios están inactivos) y un fallo de sitio. El sistema host debe cumplir determinados requisitos antes de poder instalar o actualizar el software Tiebreaker en el equipo local para supervisar la configuración de MetroCluster.
+* El software Tierbreaker se instala en un tercer sitio, lo que permite al software distinguir entre un fallo de enlace entre switches (ISL) (cuando los enlaces entre sitios están inactivos) y un fallo de sitio. El sistema host debe cumplir con ciertos requisitos antes de poder instalar o actualizar el software tiebreaker para supervisar la configuración de MetroCluster.
 * Debe tener privilegios de "root" para instalar el software MetroCluster Tiebreaker y los paquetes dependientes.
 * Solo puede usar un monitor MetroCluster Tiebreaker por configuración de MetroCluster para evitar cualquier conflicto con varios monitores de tiebreaker.
 * Cuando se selecciona el origen de Protocolo de hora de red (NTP) para el software tiebreaker, se debe usar un origen de NTP local. El software tiebreaker no debe utilizar el mismo origen que los sitios de MetroCluster que supervisa el software tiebreaker.

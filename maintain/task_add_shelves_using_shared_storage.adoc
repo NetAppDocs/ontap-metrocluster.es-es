@@ -395,11 +395,11 @@ Estos pasos deben repetirse en cada switch IP de la configuración de IP de Metr
 
 Debe utilizar la versión de software del switch compatible.
 
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+link:https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 . Descargue el archivo de software NX-OS admitido.
 +
-https://software.cisco.com/download/home["Descarga de software de Cisco"]
+link:https://software.cisco.com/download/home["Descarga de software de Cisco"^]
 
 . Copie el software del conmutador en el conmutador: `+copy sftp://root@server-ip-address/tftpboot/NX-OS-file-name bootflash: vrf management+`
 +

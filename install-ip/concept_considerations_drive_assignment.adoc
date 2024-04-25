@@ -59,10 +59,19 @@ ADP se realiza automáticamente durante la configuración inicial del sistema.
 
 NOTE: A partir de ONTAP 9,5, la asignación automática de discos debe habilitarse con el `storage disk option modify -autoassign on` comando.
 
-Debe establecer el estado de ha-config en `mccip` antes del aprovisionamiento automático, para asegurarse de que se seleccionan los tamaños de partición correctos para permitir el tamaño de volumen raíz adecuado. Para obtener más información, consulte link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_verify_haconfig.html["Verificación del estado de los componentes de la configuración de alta disponibilidad"].
+Debe establecer el estado de ha-config en `mccip` antes del aprovisionamiento automático, para asegurarse de que se seleccionan los tamaños de partición correctos para permitir el tamaño de volumen raíz adecuado. Para obtener más información, consulte link:install-ip/task_sw_config_verify_haconfig.html["Verificación del estado de los componentes de la configuración de alta disponibilidad"].
 
 Se pueden particionar un máximo de 96 unidades automáticamente durante la instalación. Se pueden añadir unidades adicionales después de la instalación inicial.
 
+[NOTE]
+====
+Si utiliza unidades internas y externas, primero inicialice MetroCluster con solo las unidades internas mediante ADP. A continuación, conecte manualmente la bandeja externa después de completar la tarea de instalación o configuración.
+
+Debe asegurarse de que las bandejas internas tengan la cantidad mínima recomendada de unidades, según se indica en <<adp-disk-assign,Diferencias de asignación de discos y ADP por sistema>>.
+
+Para las unidades internas y externas, se deben completar las bandejas parcialmente completas, como se describe en <<populate-partially-full-shelves,Cómo completar bandejas parcialmente completas>>.
+
+====
 
 
 == Cómo funciona la asignación automática de bandeja a bandeja
@@ -122,7 +131,42 @@ Cuarto 4: Bahías 36-47
 Bahías 36-41
 
 |===
-Si utiliza dos bandejas en cada sitio, los discos se asignan con una normativa de media bandeja. Si las bandejas no se rellenan completamente, instale las unidades igualmente desde cualquiera de los extremos de la bandeja.
+La tabla siguiente muestra un ejemplo de cómo colocar los discos 16 en una bandeja interna de unidades 24.
+
+|===
+
+
+| Las 24 bahías de unidad se dividen en cuatro cuartos: | Instale cuatro unidades en las primeras cuatro bahías cada trimestre... 
+
+
+ a| 
+Cuarto 1: Bahías 0-5
+ a| 
+Bahías 0-3
+
+
+
+ a| 
+Cuarto 2: Bahías 6-11
+ a| 
+Bahías 6-9
+
+
+
+ a| 
+Cuarto 3: Bahías 12-17
+ a| 
+Bahías 12-15
+
+
+
+ a| 
+Cuarto 4: Bahías 18-23
+ a| 
+Bahías 18-21
+
+|===
+Si utiliza dos bandejas externas en cada sitio, los discos se asignan mediante una política de media bandeja. Si las bandejas no se rellenan completamente, instale las unidades igualmente desde cualquiera de los extremos de la bandeja.
 
 Por ejemplo, si está instalando 12 unidades en una bandeja de 24 unidades, instale unidades en las bahías 0-5 y 18-23.
 

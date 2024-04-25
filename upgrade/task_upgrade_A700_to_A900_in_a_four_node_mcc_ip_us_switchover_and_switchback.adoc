@@ -651,7 +651,7 @@ Configure manualmente la conexión mediante el siguiente comando en el símbolo 
 
 |===
 . Reiniciar el sistema en el nodo B_1:
-`netboot` `http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`
+`netboot` `\http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`
 +
 La `<path_to_the_web-accessible_directory>` debería conducir al lugar en el que se ha descargado el `<ontap_version>\_image.tgz` pulg <<step2-download-software,Paso 2>>.
 
@@ -683,7 +683,7 @@ Selection (1-11)?
 Utilice siempre netboot para actualizar el nodo nuevo a la imagen deseada. Si utiliza otro método para instalar la imagen en la nueva controladora, podría instalarse la imagen incorrecta. Este problema se aplica a todas las versiones de ONTAP.
 
 . Si se le solicita que continúe el procedimiento, introduzca `y`, Y cuando se le solicite el paquete, escriba la dirección URL:
-`http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>\_image.tgz`
+`\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>\_image.tgz`
 . Lleve a cabo los siguientes pasos para reiniciar el módulo del controlador:
 +
 .. Introduzca `n` para omitir la recuperación del backup cuando aparezca la siguiente solicitud:

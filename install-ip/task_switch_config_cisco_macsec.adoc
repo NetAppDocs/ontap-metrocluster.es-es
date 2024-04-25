@@ -6,9 +6,12 @@ summary: Solo debe configurar el cifrado MACsec en los puertos ISL WAN que se ej
 ---
 = Configurar el cifrado MACsec en switches Cisco 9336C
 :allow-uri-read: 
+:firstname: [.lead]
+:author: [.lead]
+:authorinitials: [
+:authors: [.lead]
+:revdate: You can configure MACsec encryption on the WAN ISL ports that run between the sites. You must configure MACsec after applying the correct RCF file.
 
-
-Si lo desea, puede configurar el cifrado MACsec en los puertos ISL WAN que se ejecutan entre los sitios. Debe configurar MACsec después de aplicar el archivo RCF correcto.
 
 
 NOTE: El cifrado MACsec sólo se puede aplicar a los puertos WAN ISL.

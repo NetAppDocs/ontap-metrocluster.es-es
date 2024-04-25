@@ -10,6 +10,7 @@ summary: Las distintas configuraciones de MetroCluster tienen diferencias clave 
 :imagesdir: ../media/
 
 
+[role="lead"]
 Las distintas configuraciones de MetroCluster tienen diferencias clave en los componentes necesarios.
 
 En todas las configuraciones, cada uno de los dos sitios MetroCluster se configura como un clúster ONTAP. En una configuración MetroCluster de dos nodos, cada nodo se configura como un clúster de un solo nodo.
@@ -232,4 +233,4 @@ Tenga en cuenta las siguientes consideraciones en cuanto a las configuraciones I
 
 Algunas de las cabinas All SAN (ASAS) son compatibles con las configuraciones MetroCluster. En la documentación de MetroCluster, la información de los modelos AFF se aplica al sistema ASA correspondiente. Por ejemplo, toda la información de cableado y de otro tipo para el sistema AFF A400 también se aplica al sistema ASA AFF A400.
 
-Las configuraciones de plataforma admitidas se enumeran en la https://hwu.netapp.com["Hardware Universe de NetApp"].
+Las configuraciones de plataforma admitidas se enumeran en la link:https://hwu.netapp.com["Hardware Universe de NetApp"^].

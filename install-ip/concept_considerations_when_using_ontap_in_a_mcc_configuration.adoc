@@ -155,7 +155,7 @@ Una configuración de cliente LDAP creada en una máquina virtual de almacenamie
 Debe saber cómo se crean y se replican los LIF en una configuración de MetroCluster. También debe conocer el requisito de coherencia para poder tomar las decisiones adecuadas al configurar la red.
 
 .Información relacionada
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["Gestión de redes y LIF"^]
+link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Gestión de redes y LIF"^]
 
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements["Requisitos de configuración de subred y replicación de objetos IP"]
 

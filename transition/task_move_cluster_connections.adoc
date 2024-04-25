@@ -17,7 +17,6 @@ Debe mover las interfaces de clúster de la configuración de MetroCluster FC a 
 
 == Mueva las conexiones del clúster en los nodos FC de MetroCluster
 
-[role="lead"]
 Debe mover las conexiones del clúster de los nodos FC de MetroCluster a los switches IP. Los pasos dependen de si se utilizan los switches IP existentes o si se utilizan nuevos switches IP.
 
 Debe realizar esta tarea en ambos sitios MetroCluster.

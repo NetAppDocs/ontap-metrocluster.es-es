@@ -10,6 +10,7 @@ summary: Debe verificar que está utilizando las asignaciones de puertos especif
 :imagesdir: ../media/
 
 
+[role="lead"]
 Debe verificar que está utilizando las asignaciones de puertos especificadas al conectar los switches FC cuando utiliza ONTAP 9.10.1 y versiones posteriores.
 
 Los puertos que no se utilizan para conectar puertos de iniciador, puertos FC-VI o ISL se pueden volver a configurar para que funcionen como puertos de almacenamiento. Sin embargo, si se están utilizando los RCF compatibles, la división en zonas debe cambiarse en consecuencia.

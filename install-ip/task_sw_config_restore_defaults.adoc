@@ -8,7 +8,7 @@ summary: Debe restablecer y restaurar los valores predeterminados en los módulo
 :allow-uri-read: 
 
 
-[role="lead"]
+[role="lead lead"]
 Restablezca y restaure los valores predeterminados en los módulos de la controladora.
 
 . En el símbolo del SISTEMA del CARGADOR, devuelva las variables de entorno a su configuración predeterminada: `set-defaults`

@@ -274,7 +274,7 @@ fec off
 
 == Ejemplos de configuración de puertos ISL en toda la red
 
-Un switch compatible con MetroCluster se considera un switch intermedio, incluso conecta directamente las interfaces MetroCluster. Los puertos ISL con tráfico MetroCluster en el switch compatible con MetroCluster deben configurarse de la misma manera que los puertos ISL en un switch intermedio. Consulte link:concept-considerations-layer-2-layer-3.html#required-settings-on-intermediate-switches["Ajustes necesarios en los interruptores intermedios"] para obtener orientación y ejemplos.
+Un switch compatible con MetroCluster se considera un switch intermedio, incluso conecta directamente las interfaces MetroCluster. Los puertos ISL con tráfico MetroCluster en el switch compatible con MetroCluster deben configurarse de la misma manera que los puertos ISL en un switch intermedio. Consulte link:concept-considerations-layer-2-layer-3.html#required-settings-for-intermediate-switches["Ajustes necesarios en los interruptores intermedios"] para obtener orientación y ejemplos.
 
 
 NOTE: Algunos mapas de normativas son los mismos para los puertos de switch que conectan interfaces MetroCluster y ISL que llevan tráfico MetroCluster. Puede utilizar el mismo mapa de políticas para ambos usos de puerto.

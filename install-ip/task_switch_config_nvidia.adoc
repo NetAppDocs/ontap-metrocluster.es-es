@@ -57,7 +57,7 @@ NOTE: La salida puede mostrar archivos de copia de seguridad, archivos conservad
 +
 [listing, subs="+quotes"]
 ----
-cumulus@IP_switch_A_1:mgmt:~$ sudo python3 MSN2100_v1.0_IP_switch_A_1.py
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.0.0_IP_switch_A_1.py
 [sudo] password for cumulus:
 >>> Opened RcfApplyLog
 *A RCF configuration has been successfully applied.*
@@ -96,7 +96,7 @@ cumulus@IP_switch_A_1:mgmt:~$
 +
 [listing]
 ----
-cumulus@IP_switch_A_1:mgmt:~$ sudo python3 MSN2100_v1.0_IP_switch_A_2.py restoreDefaults
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.0.0_IP_switch_A_2.py restoreDefaults
 [sudo] password for cumulus:
 >>> Opened RcfApplyLog
 Can restore from backup directory. Continuing.
@@ -106,13 +106,13 @@ Enter yes or no: yes
 . Responda "sí" al mensaje. El conmutador vuelve a la configuración original y se reinicia.
 . Espere a que se reinicie el switch.
 +
-El switch se restablece y conserva la configuración inicial, como la configuración de red de gestión y las credenciales actuales, tal y como existían antes de aplicar el archivo RCF. Después del reinicio, puede aplicar una nueva configuración utilizando la misma versión o una versión diferente del archivo RCF.
+El switch se restablece y conserva la configuración inicial, como la configuración de red de gestión y las credenciales actuales, tal y como existían antes de aplicar el archivo RCF. Después del reinicio, puede aplicar una nueva configuración utilizando la misma o una versión diferente del archivo RCF.
 
 
 
 
 
-=== [[Cumulus-install-Option]]reinicie el interruptor con la opción de instalación Cumulus
+=== [[Cumulus-install-option]] Descargue e instale el software Cumulus
 
 .Acerca de esta tarea
 Utilice estos pasos si desea reiniciar el conmutador por completo aplicando la imagen Cumulus.
@@ -130,14 +130,14 @@ NOTE: Para obtener más información sobre la instalación de Cumulus Linux, con
 .Pasos
 . Desde la consola Cumulus, descargue y ponga en cola la instalación del software del conmutador con el comando `onie-install -a -i` seguido de la ruta de archivo al software del switch:
 +
-En este ejemplo, el archivo de firmware `cumulus-linux-4.4.2-mlx-amd64.bin` Se copia del servidor HTTP '50.50.50.50' al conmutador local.
+En este ejemplo, el archivo de firmware `cumulus-linux-4.4.3-mlx-amd64.bin` Se copia del servidor HTTP '50.50.50.50' al conmutador local.
 
 +
 [listing]
 ----
-cumulus@IP_switch_A_1:mgmt:~$ sudo onie-install -a -i http://50.50.50.50/switchsoftware/cumulus-linux-4.4.2-mlx-amd64.bin
-Fetching installer: http://50.50.50.50/switchsoftware/cumulus-linux-4.4.2-mlx-amd64.bin
-Downloading URL: http://50.50.50.50/switchsoftware/cumulus-linux-4.4.2-mlx-amd64.bin
+cumulus@IP_switch_A_1:mgmt:~$ sudo onie-install -a -i http://50.50.50.50/switchsoftware/cumulus-linux-4.4.3-mlx-amd64.bin
+Fetching installer: http://50.50.50.50/switchsoftware/cumulus-linux-4.4.3-mlx-amd64.bin
+Downloading URL: http://50.50.50.50/switchsoftware/cumulus-linux-4.4.3-mlx-amd64.bin
 ######################################################################### 100.0%
 Success: HTTP download complete.
 tar: ./sysroot.tar: time stamp 2021-01-30 17:00:58 is 53895092.604407122 s in the future
@@ -207,7 +207,7 @@ Changing password for cumulus.
 Current password:
 New password:
 Retype new password:
-Linux cumulus 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.2u1 (2021-12-18) x86_64
+Linux cumulus 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.3u1 (2021-12-18) x86_64
 
 Welcome to NVIDIA Cumulus (R) Linux (R)
 
@@ -222,13 +222,21 @@ cumulus@cumulus:mgmt:~$
 ----
 . Configure la interfaz de red de gestión.
 +
-
-NOTE: El ejemplo siguiente muestra cómo configurar el nombre de host (IP_switch_A_1), la dirección IP (10.10.10.10), la máscara de red (255.255.255.0 (24)) y la puerta de enlace (10.10.10.1) utilizando los comandos: `net add hostname <hostname>`, `net add interface eth0 ip address <IPAddress/mask>`, y. `net add interface eth0 ip gateway <Gateway>`.
+Los comandos que utilice dependen de la versión de firmware del switch que ejecute.
 
 +
+
+NOTE: Los siguientes comandos de ejemplo configuran el nombre de host como ip_switch_A_1, la dirección IP como 10.10.10.10, la máscara de red como 255.255.255.0 (24) y la dirección de puerta de enlace como 10.10.10.1.
+
++
+[role="tabbed-block"]
+====
+.Cumulus 4,4.x
+--
+Los siguientes comandos de ejemplo configuran el nombre de host, la dirección IP, la máscara de red y la puerta de enlace en un switch que ejecuta Cumulus 4,4.x.
+
 [listing]
 ----
-
 cumulus@cumulus:mgmt:~$ net add hostname IP_switch_A_1
 cumulus@cumulus:mgmt:~$ net add interface eth0 ip address 10.0.10.10/24
 cumulus@cumulus:mgmt:~$ net add interface eth0 ip gateway 10.10.10.1
@@ -257,6 +265,19 @@ cumulus 2021-05-17 22:21:57.635729 net add interface eth0 ip gateway 10.10.10.1
 
 cumulus@cumulus:mgmt:~$
 ----
+--
+.Cumulus 5,4.x y posterior
+--
+Los siguientes comandos de ejemplo configuran el nombre de host, la dirección IP, la máscara de red y la puerta de enlace en un switch que ejecuta Cumulus 5,4.x. o posterior.
+
+[listing]
+----
+cumulus@cumulus:mgmt:~$ nv set system hostname IP_switch_A_1
+cumulus@cumulus:mgmt:~$ nv set interface eth0 ip address 10.0.10.10/24 cumulus@cumulus:mgmt:~$ nv set interface eth0 ip gateway 10.10.10.1 cumulus@cumulus:mgmt:~$ nv config apply
+cumulus@cumulus:mgmt:~$ nv config save
+----
+--
+====
 . Reinicie el conmutador con el `sudo reboot` comando.
 +
 [listing]
@@ -302,11 +323,12 @@ cumulus@IP_switch_A_1:mgmt:~$ pwd
 /home/cumulus
 cumulus@IP_switch_A_1:mgmt:~$
 ----
-.. Descargue el archivo RCF en este directorio. El ejemplo siguiente muestra que utiliza SCP para descargar el archivo `MSN2100_v1.0_IP_switch_A_1.txt` desde el servidor '50.50.50.50' a su directorio principal y guárdelo como `MSN2100_v1.0_IP_switch_A_1.py`:
+.. Descargue el archivo RCF en este directorio.
+El ejemplo siguiente muestra que utiliza SCP para descargar el archivo `SN2100_v2.0.0_IP_switch_A_1.txt` desde el servidor '50.50.50.50' a su directorio principal y guárdelo como `SN2100_v2.0.0_IP_switch_A_1.py`:
 +
 [listing]
 ----
-cumulus@Switch-A-1:mgmt:~$ scp username@50.50.50.50:/RcfFiles/MSN2100_v1.0_IP_switch_A_1.txt ./MSN2100_v1.0_IP_switch-A1.py
+cumulus@Switch-A-1:mgmt:~$ scp username@50.50.50.50:/RcfFiles/SN2100_v2.0.0_IP_switch_A_1.txt ./SN2100_v2.0.0_IP_switch-A1.py
 The authenticity of host '50.50.50.50 (50.50.50.50)' can't be established.
 RSA key fingerprint is SHA256:B5gBtOmNZvdKiY+dPhh8=ZK9DaKG7g6sv+2gFlGVF8E.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -315,7 +337,7 @@ Warning: Permanently added '50.50.50.50' (RSA) to the list of known hosts.
 Banner of the SCP server
 ***********************************************************************
 username@50.50.50.50's password:
-MSN2100_v1.0-X2_IP_switch_A1.txt 100% 55KB 1.4MB/s 00:00
+SN2100_v2.0.0_IP_switch_A1.txt 100% 55KB 1.4MB/s 00:00
 cumulus@IP_switch_A_1:mgmt:~$
 ----
 
@@ -325,7 +347,7 @@ cumulus@IP_switch_A_1:mgmt:~$
 [listing]
 ----
 
-cumulus@IP_switch_A_1:mgmt:~$ sudo python3 MSN2100_v1.0_IP_switch_A_1.py
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.0.0_IP_switch_A_1.py
 all
 [sudo] password for cumulus:
 The switch will be rebooted after the step(s) have been run.
@@ -343,6 +365,35 @@ Running Step 24: Final reboot of the switch
 
 ... The switch will reboot if all steps applied successfully ...
 ----
+. Si la configuración utiliza cables DAC, active la opción DAC en los puertos del switch:
++
+[listing]
+----
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.0.0-X10_Switch-A1.py runCmd <switchport> DacOption [enable | disable]
+----
++
+En el siguiente ejemplo se activa la opción DAC para el puerto `swp7`:
+
++
+[listing]
+----
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.00_Switch-A1.py runCmd swp7 DacOption enable
+    Running cumulus version  : 5.4.0
+    Running RCF file version : v2.00
+    Running command: Enabling the DacOption for port swp7
+    runCmd: 'nv set interface swp7 link fast-linkup on', ret: 0
+    runCmd: committed, ret: 0
+    Completion: SUCCESS
+cumulus@IP_switch_A_1:mgmt:~$
+----
+. Reinicie el conmutador después de activar la opción DAC en los puertos del conmutador:
++
+`sudo reboot`
+
++
+
+NOTE: Cuando configura la opción DAC para varios puertos de switch, solo necesita reiniciar el switch una vez.
+
 
 
 

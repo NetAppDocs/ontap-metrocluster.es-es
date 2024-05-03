@@ -343,7 +343,7 @@ Consulte link:../install-ip/task_sw_config_configure_clusters.html#configuring-a
 
 +
 
-NOTE: Puede configurar las interfaces IP de MetroCluster desde cualquier clúster. Además, a partir de ONTAP 9.9.1, si está utilizando una configuración de capa 3, también debe especificar el `-gateway` Al crear interfaces IP de MetroCluster. Consulte link:../install-ip/concept_considerations_layer_3.html["Consideraciones sobre las redes de área amplia de capa 3"]
+NOTE: Puede configurar las interfaces IP de MetroCluster desde cualquier clúster.
 
 +
 ....

@@ -11,6 +11,7 @@ summary: Debe configurar los switches IP para proporcionar conectividad IP de Me
 [role="lead"]
 Debe configurar los switches IP para proporcionar conectividad IP de MetroCluster back-end.
 
-* link:../install-ip/task_switch_config_broadcom.html["Configuración de switches IP de Broadcom"]
-* link:../install-ip/task_switch_config_broadcom.html["Configuración de switches Cisco IP"]
+* link:../install-ip/task_switch_config_broadcom.html["Configure los switches IP de Broadcom"]
+* link:../install-ip/task_switch_config_broadcom.html["Configure los switches IP de Cisco"]
+* link:../install-ip/task_switch_config_nvidia.html["Configure los switches NVIDIA IP"]
 

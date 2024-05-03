@@ -59,7 +59,7 @@ ADP se realiza automáticamente durante la configuración inicial del sistema.
 
 NOTE: A partir de ONTAP 9,5, la asignación automática de discos debe habilitarse con el `storage disk option modify -autoassign on` comando.
 
-Debe establecer el estado de ha-config en `mccip` antes del aprovisionamiento automático, para asegurarse de que se seleccionan los tamaños de partición correctos para permitir el tamaño de volumen raíz adecuado. Para obtener más información, consulte link:install-ip/task_sw_config_verify_haconfig.html["Verificación del estado de los componentes de la configuración de alta disponibilidad"].
+Debe establecer el estado de ha-config en `mccip` antes del aprovisionamiento automático, para asegurarse de que se seleccionan los tamaños de partición correctos para permitir el tamaño de volumen raíz adecuado. Para obtener más información, consulte link:task_sw_config_verify_haconfig.html["Verificación del estado de los componentes de la configuración de alta disponibilidad"].
 
 Se pueden particionar un máximo de 96 unidades automáticamente durante la instalación. Se pueden añadir unidades adicionales después de la instalación inicial.
 

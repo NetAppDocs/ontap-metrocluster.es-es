@@ -1,0 +1,97 @@
+---
+permalink: releasenotes/mcc-ip-config-platform-support.html 
+sidebar: sidebar 
+keywords: metrocluster, ip configuration, platform, support 
+summary:  
+---
+= Novedades de la compatibilidad con la plataforma IP de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Las configuraciones de IP de MetroCluster no son compatibles con los LUN de cabina.
+
+[cols="2*"]
+|===
+| Plataformas compatibles en las configuraciones IP de MetroCluster | Comienzo disponible 
+
+
+ a| 
+AFF A150
+ a| 
+ONTAP 9.13.1 y versiones posteriores de ONTAP
+
+ONTAP 9.12.1P1
+
+ONTAP 9.11.1P8
+
+ONTAP 9.10.1P12
+
+
+
+ a| 
+AFF C250, AFF C400, AFF C800
+ a| 
+ONTAP 9.12.1P1
+
+ONTAP 9.13.1 GA y versiones posteriores de ONTAP.
+
+[NOTE]
+====
+Estas plataformas no son compatibles con ONTAP 9.13.1 RC1.
+
+====
+
+
+ a| 
+AFF A900
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+AFF A250
+ a| 
+ONTAP 9,8
+
+
+
+ a| 
+FAS500f
+ a| 
+ONTAP 9,8
+
+
+
+ a| 
+Plataformas de cabinas All-Flash SAN
+
+En la documentación de MetroCluster, la información de los modelos AFF se aplica al sistema ASA correspondiente. Por ejemplo, toda la información de cableado y de otro tipo para el sistema AFF A400 también se aplica al sistema ASA AFF A400.
+ a| 
+ONTAP 9,7
+
+
+
+ a| 
+AFF A320
+ a| 
+ONTAP 9.6P3
+
+
+
+ a| 
+AFF A220 y FAS2750
+ a| 
+ONTAP 9,6
+
+
+
+ a| 
+AFF A300 y FAS8200
+ a| 
+ONTAP 9,5
+
+|===

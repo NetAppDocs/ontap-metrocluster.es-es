@@ -1,0 +1,105 @@
+---
+permalink: releasenotes/mcc-tiebreaker-whats-new.html 
+sidebar: sidebar 
+keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
+summary: El software Tiebreaker proporciona funcionalidades de supervisión para un entorno de almacenamiento en clúster. También envía notificaciones SNMP en el caso de problemas de conectividad de los nodos y de desastres del sitio. 
+---
+= Novedades en el soporte de MetroCluster tiebreaker
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En cada versión se incluyen mejoras del software MetroCluster tiebreaker. Estas son las novedades de los recientes lanzamientos de MetroCluster tiebreaker.
+
+
+
+== Mejoras
+
+[cols="25,75"]
+|===
+
+
+| Versión de ONTAP tiebreaker | Mejoras 
+
+
+ a| 
+1,6
+ a| 
+* Facilidad de instalación mejorada
+* Actualización de bibliotecas de soporte
+* Mejoras de seguridad
+
+
+
+
+ a| 
+1.5
+ a| 
+* Actualización de bibliotecas de soporte
+* Mejoras de seguridad
+
+
+
+
+ a| 
+1,4
+ a| 
+* Actualización de bibliotecas de soporte
+
+
+|===
+
+
+== Matriz de compatibilidad de SO
+
+[cols="2,2,2,2,2,2"]
+|===
+| Versión de tiebreaker | CentOS 7 - 7,9 | Red Hat 7 - 7,9 | Red Hat 8,1 - 8,7 | Red Hat 8,8 -9,2 | Rocky Linux 9.0 
+
+
+ a| 
+1,6
+ a| 
+No
+ a| 
+No
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
+1.5
+ a| 
+No
+ a| 
+No
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+1,4
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+|===

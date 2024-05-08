@@ -1,0 +1,44 @@
+---
+permalink: releasenotes/mcc-fc-config-platform-support.html 
+sidebar: sidebar 
+keywords: metrocluster, fc configuration, platform, support 
+summary:  
+---
+= Novedades de la compatibilidad con plataformas FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[cols="2*"]
+|===
+| Plataformas compatibles en configuraciones FC de MetroCluster | Comienzo disponible 
+
+
+ a| 
+AFF A900
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+ASA AFF A700 y ASA AFF A400
+ a| 
+ONTAP 9.7P5
+
+
+
+ a| 
+AFF A400 y FAS8300
+ a| 
+ONTAP 9,7
+
+
+
+ a| 
+AFF A300 y FAS8200
+ a| 
+ONTAP 9,5
+
+|===

@@ -1,0 +1,113 @@
+---
+permalink: releasenotes/mcc-config-support-features.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, support for ontap features 
+summary:  
+---
+= Novedades en la compatibilidad con la configuración de MetroCluster de las funciones de ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[cols="20,65,15"]
+|===
+| Funciones admitidas en la configuración de MetroCluster | Descripción | Comienzo disponible 
+
+
+ a| 
+Compatibilidad con almacenamiento de objetos S3 en agregados reflejados y no reflejados
+ a| 
+Puede habilitar un servidor de almacenamiento de objetos S3 en una SVM en un agregado reflejado o no reflejado en configuraciones de MetroCluster IP y FC.
+
+https://docs.netapp.com/us-en/ontap/s3-config/index.html["Información general de la configuración de S3"]
+ a| 
+ONTAP 9.14.1
+
+
+
+ a| 
+Compatibilidad para aprovisionar un bloque de S3 en agregados reflejados y no reflejados de un clúster de MetroCluster
+ a| 
+Puede crear un bucket en un agregado reflejado o no reflejado en las configuraciones de MetroCluster.
+
+https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-mcc-task.html["Cree un bucket en un agregado reflejado o no reflejado en una configuración de MetroCluster"]
+ a| 
+ONTAP 9.14.1
+
+
+
+ a| 
+ONTAP Mediator 1,5 se admite en una configuración IP de MetroCluster
+ a| 
+ONTAP Mediator 1,5 está disponible para supervisar las configuraciones IP de MetroCluster.
+
+https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
+Compatibilidad con IPsec para el protocolo de host front-end en configuraciones FAS de MetroCluster e IP de MetroCluster
+ a| 
+La compatibilidad con IPsec para el protocolo de host front-end (como NFS e iSCSI) está disponible en configuraciones FAS de MetroCluster IP y MetroCluster.
+
+https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html["Configurar la seguridad IP (IPsec) a través del cifrado de cable"]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
+Mediador ONTAP 1,4
+ a| 
+La versión 1,4 del software ONTAP Mediator se admite en las configuraciones IP de MetroCluster.
+
+https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"]
+ a| 
+ONTAP 9.11.1
+
+
+
+ a| 
+Grupos de consistencia
+ a| 
+Los grupos de coherencia son compatibles con las configuraciones MetroCluster.
+
+https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"]
+ a| 
+ONTAP 9.11.1
+
+
+
+ a| 
+ONTAP Mediator es compatible con las configuraciones de IP de MetroCluster
+ a| 
+El servicio ONTAP Mediator puede ayudar a la configuración de IP de MetroCluster a realizar una conmutación automática no planificada proporcionando un repositorio físicamente separado para obtener información de estado.
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["Configuración del servicio Mediator de ONTAP para conmutación automática no planificada"]
+ a| 
+ONTAP 9,7
+
+
+
+ a| 
+Reflejos FabricPool en configuraciones MetroCluster
+ a| 
+Puede configurar un FabricPool reflejado en configuraciones de MetroCluster para organizar los datos inactivos en dos zonas de fallos distintas.
+
+https://docs.netapp.com/us-en/ontap/fabricpool/setup-object-stores-mcc-task.html["Configuración de almacenes de objetos para FabricPool en una configuración de MetroCluster"]
+ a| 
+ONTAP 9,7
+
+
+
+ a| 
+Recuperación ante desastres de SVM
+ a| 
+Las máquinas virtuales de almacenamiento activas (SVM) en una configuración de MetroCluster pueden usarse como orígenes con la función de recuperación ante desastres de SVM de SnapMirror.
+ a| 
+ONTAP 9,5
+
+|===

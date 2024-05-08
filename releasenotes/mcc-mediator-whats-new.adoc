@@ -1,0 +1,47 @@
+---
+permalink: releasenotes/mcc-mediator-whats-new.html 
+sidebar: sidebar 
+keywords: metrocluster, mediator, new, release, update, install, 
+summary: Con cada versión se proporcionan nuevas funciones del Mediador ONTAP.  Esto es lo nuevo. 
+---
+= Novedades del soporte de ONTAP Mediator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En cada versión se incluyen nuevas mejoras del Mediador de ONTAP.  Esto es lo nuevo.
+
+[cols="75,25"]
+|===
+
+
+| Versión/capacidad de ONTAP Mediator | Versión de ONTAP 
+
+
+ a| 
+ONTAP Mediator 1,5 está disponible para supervisar las configuraciones IP de MetroCluster.
+
+link:https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"^]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
+La versión 1,4 del software ONTAP Mediator se admite en las configuraciones IP de MetroCluster.
+
+link:https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"^]
+ a| 
+ONTAP 9.11.1
+
+
+
+ a| 
+El servicio ONTAP Mediator puede ayudar a la configuración de IP de MetroCluster a realizar una conmutación automática no planificada proporcionando un repositorio físicamente separado para obtener información de estado.
+Configuración del servicio Mediator de ONTAP para conmutación automática no planificada
+ a| 
+ONTAP 9,7
+
+|===

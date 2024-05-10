@@ -12,11 +12,6 @@ entries:
   url: "/releasenotes/mcc-ip-config-platform-support.html"
 - title: Novedades del soporte para la configuración de MetroCluster FC
   url: "/releasenotes/mcc-fc-config-platform-support.html"
-- title: Novedades en la compatibilidad de switches Brocade en MetroCluster FC
-  url: "/releasenotes/mcc-fc-config-support-brocade-cisco-switches.html"
-- title: Novedades en compatibilidad con Broadcom, Cisco y switches NVIDIA en MetroCluster
-    IP
-  url: "/releasenotes/mcc-ip-configuration-support-broadcom-cisco-nvidia-switches.html"
 - title: Novedades del soporte de ONTAP Mediator
   url: "/releasenotes/mcc-mediator-whats-new.html"
 - title: Novedades en el soporte de MetroCluster tiebreaker

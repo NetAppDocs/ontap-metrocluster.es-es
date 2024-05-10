@@ -4,11 +4,15 @@ sidebar: sidebar
 keywords: metrocluster, fc configuration, platform, support 
 summary:  
 ---
-= Novedades de la compatibilidad con plataformas FC de MetroCluster
+= Novedades en la compatibilidad de switches y la plataforma FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
+
+
+
+== Soporte de plataformas
 
 [cols="2*"]
 |===
@@ -40,5 +44,34 @@ ONTAP 9,7
 AFF A300 y FAS8200
  a| 
 ONTAP 9,5
+
+|===
+
+
+== Soporte del interruptor
+
+[cols="2*"]
+|===
+| Switches FC Brocade | Comienzo disponible 
+
+
+ a| 
+G720
+ a| 
+ONTAP 9,8
+
+
+
+ a| 
+G620-1, G630-1
+ a| 
+ONTAP 9,8
+
+
+
+ a| 
+G630
+ a| 
+ONTAP 9,6
 
 |===

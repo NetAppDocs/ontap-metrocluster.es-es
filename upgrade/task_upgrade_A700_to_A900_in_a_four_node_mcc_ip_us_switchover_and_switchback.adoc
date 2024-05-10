@@ -2,7 +2,7 @@
 permalink: upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, controller, ip, configuration, switchover, switchback, workflow, nodes, tiebreaker, verify, bootrage, root, aggregate, disks 
-summary: 'Bpuede utilizar la operación de conmutación de MetroCluster para proporcionar un servicio no disruptivo a los clientes mientras se actualizan los módulos de la controladora del clúster de partners. Como parte de este procedimiento, no se pueden actualizar otros componentes (como bandejas de almacenamiento o switches).' 
+summary: 'Puede utilizar la operación de conmutación de sitios de MetroCluster para proporcionar un servicio no disruptivo a los clientes mientras se actualizan los módulos de la controladora del clúster de partners. Como parte de este procedimiento, no se pueden actualizar otros componentes (como bandejas de almacenamiento o switches).' 
 ---
 = Actualice controladoras de AFF A700/FAS9000 a AFF A900/FAS9500 en una configuración IP de MetroCluster mediante conmutación de sitios y conmutación de estado (ONTAP 9.10.1 o posterior).
 :allow-uri-read: 
@@ -106,20 +106,22 @@ Debe actualizar los archivos RCF en los conmutadores MetroCluster cuando realice
 .Pasos
 . Prepare los switches IP para la aplicación de los nuevos archivos RCF.
 +
-Siga los pasos de la sección correspondiente a su proveedor de switches desde el link:../install-ip/index.html["Instalación y configuración de IP de MetroCluster"] contenido.
+Siga los pasos de la sección para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"]
-** link:../install-ip/task_switch_config_broadcom.html#resetting-the-cisco-ip-switch-to-factory-defaults["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["Restablezca el conmutador IP Broadcom a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_cisco.html#resetting-the-cisco-ip-switch-to-factory-defaults["Restablezca el conmutador IP de Cisco a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["Restablezca el conmutador IP de NVIDIA a los valores predeterminados de fábrica"]
 
 
 . Descargue e instale los archivos RCF.
 +
-Siga los pasos de la link:../install-ip/index.html["Instalación y configuración de IP de MetroCluster"] contenido.
+Siga los pasos de la sección para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descarga e instalación de los archivos Broadcom RCF"]
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-cisco-ip-rcf-files["Descarga e instalación de los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descargue e instale los archivos Broadcom RCF"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["Descargue e instale los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["Descargue e instale los archivos NVIDIA RCF"]
 
 
 

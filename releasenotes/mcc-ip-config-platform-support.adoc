@@ -10,8 +10,9 @@ summary:
 :imagesdir: ./media/
 
 
-[role="lead"]
-Las configuraciones de IP de MetroCluster no son compatibles con los LUN de cabina.
+
+
+== Soporte de plataformas
 
 [cols="2*"]
 |===
@@ -38,11 +39,6 @@ ONTAP 9.12.1P1
 
 ONTAP 9.13.1 GA y versiones posteriores de ONTAP.
 
-[NOTE]
-====
-Estas plataformas no son compatibles con ONTAP 9.13.1 RC1.
-
-====
 
 
  a| 
@@ -93,5 +89,56 @@ ONTAP 9,6
 AFF A300 y FAS8200
  a| 
 ONTAP 9,5
+
+|===
+
+
+== Soporte del interruptor
+
+[cols="2*"]
+|===
+| Switches IP Broadcom | Comienzo disponible 
+
+
+ a| 
+Quanta IX8
+ a| 
+ONTAP 9,6
+
+|===
+[cols="2*"]
+|===
+| Switches IP Cisco | Comienzo disponible 
+
+
+ a| 
+Nexus 9336C-FX2
+ a| 
+ONTAP 9.9.1
+
+
+
+ a| 
+9336C
+ a| 
+ONTAP 9,8
+
+|===
+[cols="2*"]
+|===
+| Switches NVIDIA | Comienzo disponible 
+
+
+ a| 
+Varias configuraciones de MC IP en el mismo switch NVIDIA SN2100
+ a| 
+ONTAP 9.14.1
+
+
+
+ a| 
+SN2100
+ a| 
+ONTAP 9.12.1
 
 |===

@@ -15,6 +15,7 @@ Es posible que deba actualizar el firmware en un switch MetroCluster IP.
 
 Debe repetir esta tarea en cada uno de los conmutadores sucesivamente.
 
+[[step_1_fw_upgrade]]
 .Pasos
 . Compruebe el estado de la configuración.
 +
@@ -86,7 +87,7 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 NOTE: Debe instalar el software del conmutador en los conmutadores en el siguiente orden: Switch_A_1, switch_B_1, Switch_A_2, switch_B_2.
 
 +
-Siga los pasos para instalar el software del switch en el tema relevante de la información de instalación y configuración de _MetroCluster IP dependiendo de si el tipo de switch es Broadcom, Cisco o NVIDIA:
+Siga los pasos para instalar el software de switch en el tema correspondiente dependiendo de si el tipo de switch es Broadcom, Cisco o NVIDIA:
 
 +
 ** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-switch-efos-software["Descargue e instale el software EFOS del conmutador Broadcom"]
@@ -94,8 +95,6 @@ Siga los pasos para instalar el software del switch en el tema relevante de la i
 ** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-cumulus-software["Descargue e instale el software NVIDIA SN2100 switch Cumulus"]
 
 
-
-
 . Repita el paso anterior con cada uno de los conmutadores.
-. Repita el paso 1 para comprobar el estado de la configuración.
+. Repetición <<step_1_fw_upgrade,Paso 1>> para comprobar el estado de la configuración.
 

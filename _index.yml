@@ -1,0 +1,98 @@
+---
+indexpage:
+  title: Documentación de MetroCluster
+  summary: Las configuraciones de NetApp MetroCluster combinan clustering basado en
+    cabinas con replicación síncrona para proporcionar una disponibilidad continua,
+    duplicando de inmediato todos sus datos de misión crítica transacción por transacción.
+  keywords: metrocluster configuration, array-based, clustering, synchronous, replication,
+    duplicating, mission critical data
+  lead: Las configuraciones de NetApp MetroCluster combinan clustering basado en cabinas
+    con replicación síncrona para proporcionar una disponibilidad continua, duplicando
+    de inmediato todos sus datos de misión crítica transacción por transacción. Las
+    configuraciones de MetroCluster mejoran las operaciones no disruptivas y de alta
+    disponibilidad incorporadas del hardware de NetApp y del software de almacenamiento
+    ONTAP, y ofrecen una capa adicional de protección para todo el entorno de host
+    y almacenamiento.
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Instale MetroCluster IP
+      url: "/install-ip/index.html"
+    - title: Instale MetroCluster estructural
+      url: "/install-fc/index.html"
+    - title: Instale Stretch MetroCluster
+      url: "/install-stretch/index.html"
+    - title: Instale Tiebreaker
+      url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
+    - title: Instalación del Mediador (sólo MetroCluster IP)
+      url: "/install-ip/concept_mediator_requirements.html"
+  - title: Mantener
+    links:
+    - title: Switches FC
+      summary: Mantener y sustituir switches FC en las configuraciones de MetroCluster
+        FC.
+      url: "/maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html"
+    - title: Switches IP
+      summary: Mantener y reemplazar switches IP en configuraciones IP de MetroCluster.
+      url: "/maintain/task_replace_an_ip_switch.html"
+    - title: Puentes ATTO
+      summary: Mantenga y sustituya los puentes ATTO FC-a-SAS en las configuraciones
+        MetroCluster FC.
+      url: "/maintain/concept_using_fibrebridge_7600n_bridges_in_mcc_configurations.html"
+    - title: Bandejas de unidades
+      summary: Sustituya las bandejas de unidades adicionales en caliente y sin interrupciones
+        configuraciones FC de MetroCluster.
+      url: "/maintain/index.html"
+  - title: Archivos RCF
+    links:
+    - title: Archivos RCF de MetroCluster
+      summary: Genere o descargue archivos RCF para los switches MetroCluster.
+      url: https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/docsandkb-tab
+  - title: Leer más
+    links:
+    - title: Arquitectura y diseño de la solución MetroCluster de NetApp | TR-4705
+      summary: Conozca la solución MetroCluster FC.
+      url: https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf
+    - title: Arquitectura y diseño de la solución MetroCluster IP | TR-4689
+      summary: Conozca la solución IP de MetroCluster.
+      url: https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf
+  - title: Actualice, expanda y convierta
+    links:
+    - title: Actualice y actualice el hardware
+      summary: Actualice las controladoras en una configuración MetroCluster.
+      url: "/upgrade/concept_choosing_an_upgrade_method_mcc.html"
+    - title: Expanda un MetroCluster de dos nodos
+      summary: Añada controladoras a las configuraciones de MetroCluster para crear
+        una configuración de cuatro nodos u ocho nodos.
+      url: "/upgrade/task_expand_a_two_node_mcc_fc_configuration_to_a_four_node_fc_configuration_supertask.html"
+    - title: Expanda un MetroCluster de cuatro nodos
+      summary: Añada controladoras a las configuraciones de MetroCluster para crear
+        una configuración de ocho nodos.
+      url: "/upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html"
+    - title: Convertir MetroCluster FC a MetroCluster IP
+      summary: Realizar la transición de una configuración IP de MetroCluster existente
+        a configuraciones IP de MetroCluster.
+      url: "/transition/concept_choosing_your_transition_procedure_mcc_transition.html"
+    - title: Actualice los archivos RCF IP de MetroCluster
+      summary: Actualice los archivos RCF del switch en las configuraciones IP de
+        MetroCluster.
+      url: "/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html"
+  - title: Firmware de ATTO Bridge
+    links:
+    - title: FibreBridge 7600N
+      summary: Descargar firmware para un puente 7600.
+      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+7600N
+    - title: FibreBridge 7500N
+      summary: Descargue el firmware de un puente 7500.
+      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+7500N
+  - title: Más recursos
+    links:
+    - title: Config Advisor de NetApp
+      summary: Verifique la configuración y el cableado.
+      url: https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor
+    - title: Hardware Universe de NetApp
+      summary: Compruebe que el hardware es compatible.
+      url: https://hwu.netapp.com/
+    - title: Base de conocimientos de soporte de NetApp
+      summary: Busque respuestas para sus preguntas de soporte.
+      url: https://kb.netapp.com/

@@ -10,6 +10,11 @@ summary:
 :imagesdir: ./media/
 
 
+[role="lead"]
+Cada versión del software de gestión de datos ONTAP 9 ofrece funciones nuevas y mejoradas que mejoran las funcionalidades, la capacidad de gestión y el rendimiento de las configuraciones de ONTAP MetroCluster.
+
+Para obtener información detallada sobre problemas conocidos, limitaciones y precauciones sobre la actualización que afectan a las configuraciones de ONTAP MetroCluster, consulte la https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["Notas de la versión de ONTAP 9"^]. Debe iniciar sesión con su cuenta de NetApp o crear una cuenta para acceder a las Notas de la versión.
+
 [cols="20,65,15"]
 |===
 | Funciones admitidas en la configuración de MetroCluster | Descripción | Comienzo disponible 
@@ -33,17 +38,6 @@ Puede crear un bucket en un agregado reflejado o no reflejado en las configuraci
 
 https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-mcc-task.html["Cree un bucket en un agregado reflejado o no reflejado en una configuración de MetroCluster"]
  a| 
-ONTAP 9.14.1
-
-
-
- a| 
-ONTAP Mediator 1,5 se admite en una configuración IP de MetroCluster
- a| 
-ONTAP Mediator 1,5 está disponible para supervisar las configuraciones IP de MetroCluster.
-
-https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"]
- a| 
 ONTAP 9.12.1
 
 
@@ -55,17 +49,6 @@ La compatibilidad con IPsec para el protocolo de host front-end (como NFS e iSCS
 
 https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html["Configurar la seguridad IP (IPsec) a través del cifrado de cable"]
  a| 
-ONTAP 9.12.1
-
-
-
- a| 
-Mediador ONTAP 1,4
- a| 
-La versión 1,4 del software ONTAP Mediator se admite en las configuraciones IP de MetroCluster.
-
-https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"]
- a| 
 ONTAP 9.11.1
 
 
@@ -76,17 +59,6 @@ Grupos de consistencia
 Los grupos de coherencia son compatibles con las configuraciones MetroCluster.
 
 https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"]
- a| 
-ONTAP 9.11.1
-
-
-
- a| 
-ONTAP Mediator es compatible con las configuraciones de IP de MetroCluster
- a| 
-El servicio ONTAP Mediator puede ayudar a la configuración de IP de MetroCluster a realizar una conmutación automática no planificada proporcionando un repositorio físicamente separado para obtener información de estado.
-
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["Configuración del servicio Mediator de ONTAP para conmutación automática no planificada"]
  a| 
 ONTAP 9,7
 

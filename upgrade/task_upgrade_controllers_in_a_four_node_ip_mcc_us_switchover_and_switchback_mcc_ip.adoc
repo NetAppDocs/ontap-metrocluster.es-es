@@ -44,6 +44,7 @@ No se puede utilizar la configuración MetroCluster con diferentes tipos de cont
 +
 Para obtener más información, consulte https://hwu.netapp.com/["Hardware Universe de NetApp"].
 
+* Si está activado en el sistema, link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["Deshabilite el cifrado integral"] antes de realizar la actualización de la controladora.
 * Reutilizará las direcciones IP, las máscaras de red y las puertas de enlace de las plataformas originales en las nuevas plataformas.
 * En este procedimiento se utilizan los nombres de ejemplo siguientes:
 +
@@ -1829,3 +1830,9 @@ Después de completar la actualización, debe enviar un mensaje de AutoSupport q
 
 
 
+
+
+
+== Configurar el cifrado integral
+
+Si es compatible con su sistema, puede cifrar el tráfico de back-end, como NVlog y los datos de replicación de almacenamiento, entre los sitios IP de MetroCluster. Consulte link:../maintain/task-configure-encryption.html["Configurar el cifrado integral"] si quiere más información.

@@ -74,6 +74,7 @@ Si el mantenimiento se completa antes de que haya transcurrido el tiempo, puede 
 .. Repita el comando en el clúster de partners.
 
 
+. Si el cifrado de extremo a extremo está activado, siga los pasos a. link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["Deshabilite el cifrado integral"].
 . Elimine la configuración de MetroCluster existente de tiebreaker, Mediator u otro software que pueda iniciar la conmutación.
 +
 [cols="2*"]
@@ -302,6 +303,7 @@ image::../media/mcc_dr_group_c5.png[mcc dr grupo c5]
 
 
 
+. Si deshabilitó el cifrado de extremo a extremo antes de añadir los nodos nuevos, puede volver a habilitarlo siguiendo los pasos de link:../maintain/task-configure-encryption.html#enable-end-to-end-encryption["Habilite el cifrado integral"].
 . Restaure la supervisión si es necesario, siguiendo el procedimiento para su configuración.
 +
 [cols="2*"]

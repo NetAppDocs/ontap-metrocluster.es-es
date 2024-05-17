@@ -2074,8 +2074,6 @@
   <block id="cc7819055cde3194bb3b136bad5cf58d" category="paragraph">nbsp;</block>
   <block id="7d9eb2a2ea236bd30b0c33d293620cf2" category="image-alt">flujo de trabajo preparación para la conmutación de regreso en mcc ip dr</block>
   <block id="6b1a2eef5ea82e265caa75d1009aaae1" category="summary">Si es necesario sustituir los componentes de hardware, deberá sustituirlos con sus guías individuales de instalación y sustitución de hardware.</block>
-  <block id="b3847c80d357e0d5d221ce737320c2b4" category="doc">Reemplazar hardware e arrancar nuevas controladoras</block>
-  <block id="217c96dcd79e3325e1857aed771a5c40" category="section-title">Sustitución del hardware en el centro de recuperación ante desastres</block>
   <block id="83a10d9e95eee16293468c7f346cce1e" category="paragraph">Las controladoras de almacenamiento deben estar apagadas o permanecer detenida (mostrar el símbolo del sistema del CARGADOR).</block>
   <block id="b5de74a1fd2187d9589df11fe3f78707" category="list-text">Sustituya los componentes según sea necesario.</block>
   <block id="f62bcce98f7e25ff88aa77d67a701b6b" category="admonition">En este paso, puede reemplazar y cablear los componentes exactamente como se cablearon antes del desastre. No debe encender los componentes.</block>
@@ -2136,7 +2134,6 @@
   <block id="c4f544053cff7408e816016df0403a9a" category="list-text">Si los sistemas son modelos AFF A220, AFF A400, FAS2750, FAS8300 o FAS8700, Determine los identificadores de VLAN:</block>
   <block id="a299904397c0c53d0dff20464bb5a6fb" category="paragraph">Los identificadores de VLAN se incluyen en el nombre del adaptador que se muestra en la columna Adapter de la salida.</block>
   <block id="53e60741b7dea71b0fc08dfdab30d92c" category="paragraph">En este ejemplo, los ID de VLAN son 120 y 130:</block>
-  <block id="d57d00f698e8ac4eaa665b2d710b970a" category="section-title">Aislamiento de las unidades de reemplazo del sitio superviviente (configuraciones IP de MetroCluster)</block>
   <block id="faf1b2de9b3420669edf161ef2d98b43" category="paragraph">Debe aislar todas las unidades de reemplazo bajando las conexiones de iniciador iSCSI de MetroCluster de los nodos supervivientes.</block>
   <block id="36e6d0da6dd22d30492f26d039f7b332" category="paragraph">Este procedimiento solo es necesario en las configuraciones de MetroCluster IP.</block>
   <block id="79899d65096477dbbe2b3da6bfd80528" category="list-text">Desde el símbolo del sistema del nodo superviviente, cambie al nivel de privilegio avanzado:</block>
@@ -2812,7 +2809,6 @@
   <block id="d06a2b242e286c2379e7e873bf603bbd" category="list-text">Expandir una configuración de MetroCluster con estructura de dos nodos o con ampliación a una configuración de MetroCluster de cuatro nodos.</block>
   <block id="ddce32ff2776818dc471c3bd4712c1ac" category="list-text">Expandir una configuración MetroCluster de cuatro nodos conectada a la estructura o con ampliación a una configuración MetroCluster de ocho nodos.</block>
   <block id="7abce9dabe03b4e216be9445267a37a1" category="paragraph"><block ref="7abce9dabe03b4e216be9445267a37a1" category="inline-link-rx"></block></block>
-  <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Notas de la versión</block>
   <block id="13c1fe346da53d3c9c58ab0c190eb172" category="sidebar">Comprender la protección de datos y la recuperación ante desastres de MetroCluster</block>
   <block id="f6ded8bde676e251409725df18ef579a" category="sidebar">Cómo MetroCluster protege los datos y proporciona la recuperación ante desastres</block>
   <block id="08db1b3cb12af69a75c5d182846cb8e3" category="sidebar">Realice la conmutación de sitios para pruebas o mantenimiento</block>
@@ -9169,7 +9165,6 @@
   <block id="34d50950463bd9deb8050c6afe5d8652" category="paragraph"><block ref="025c83c1a746b39471a98aa72befe950" prefix="" category="inline-code"></block></block>
   <block id="00045154249cbebb0c448b3f16b85947" category="list-text">Configure SNMPv3 en los interruptores desde el indicador del conmutador:</block>
   <block id="8877f60294cec4f344b4ffc0df4449c3" category="paragraph"><block ref="f508dc950a961eb3d640359c9730a18d" prefix="" category="inline-code"></block></block>
-  <block id="f9f9baab7ad1908bd1cdbdf27a3f1041" category="paragraph">Si necesita acceder a RO, después de "User (ro):", especifique "snmpv3user" como se muestra en el ejemplo:</block>
   <block id="7c36b0e12ce814681762efb6b2ec6cc4" category="paragraph">El ejemplo muestra cómo configurar un usuario de sólo lectura. Puede ajustar los usuarios de RW si es necesario.</block>
   <block id="046a4dbe28831449e896740fded1c064" category="paragraph">También debe configurar contraseñas en cuentas sin utilizar para asegurarlas y usar el mejor cifrado disponible en la versión de ONTAP.</block>
   <block id="b650107d3033a6cbfd9eec73b7b79ab2" category="list-text">Configure el cifrado y las contraseñas en los demás usuarios del switch según sea necesario en su sitio.</block>
@@ -13547,7 +13542,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="54c9cab829044acca6994285d3185409" category="paragraph">Puede crear un bucket en un agregado reflejado o no reflejado en las configuraciones de MetroCluster.</block>
   <block id="ea0c90724ad3d5959704fb91a048c28c" category="inline-link">Cree un bucket en un agregado reflejado o no reflejado en una configuración de MetroCluster</block>
   <block id="7a5d298867b0efc5adf88dfe965f7137" category="paragraph"><block ref="7a5d298867b0efc5adf88dfe965f7137" category="inline-link-rx"></block></block>
-  <block id="cd18beb67ffb0ec95fecaca021fc2541" category="paragraph"><block ref="cd18beb67ffb0ec95fecaca021fc2541" category="inline-link-rx"></block></block>
   <block id="594e1ec3daa27e540baa061f731f028f" category="paragraph">ONTAP 9.12.1</block>
   <block id="6eaae443849a6746c6ace7f4204bd085" category="paragraph">Compatibilidad con IPsec para el protocolo de host front-end en configuraciones FAS de MetroCluster e IP de MetroCluster</block>
   <block id="d70d383ef18fafd59eb655545c1017bd" category="paragraph">La compatibilidad con IPsec para el protocolo de host front-end (como NFS e iSCSI) está disponible en configuraciones FAS de MetroCluster IP y MetroCluster.</block>
@@ -13580,7 +13574,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="b57d94c823165bcbbdd40797c37fc13a" category="paragraph"><block ref="b57d94c823165bcbbdd40797c37fc13a" category="inline-link-rx"></block></block>
   <block id="de19903f1baec8a806f09acbc21c609c" category="paragraph">La conmutación automática no planificada asistida por mediador (MAUSO) se activa para un cierre medioambiental</block>
   <block id="8a6db987355c97228c7eda746c7aab92" category="paragraph">Si un sitio se cierra correctamente debido a un cierre ambiental, se activa MAUSO.</block>
-  <block id="0b97e7c3b0f44c35cdd69948234f7fcc" category="paragraph"><block ref="0b97e7c3b0f44c35cdd69948234f7fcc" category="inline-link-rx"></block></block>
   <block id="2baf765df55a69e9c032792bec126f2c" category="paragraph">Se admiten configuraciones IP de MetroCluster de ocho nodos</block>
   <block id="5e3aa18041f614fb450ca9a1c9ff1a5b" category="paragraph">Es posible actualizar las controladoras y el almacenamiento en una configuración IP de MetroCluster de ocho nodos. Para ello, se debe expandir la configuración para convertirse en una configuración temporal de doce nodos y, a continuación, quitar los grupos anteriores de recuperación ante desastres.</block>
   <block id="ee794ce3325c3c2b6f8e58083826be5a" category="paragraph"><block ref="ee794ce3325c3c2b6f8e58083826be5a" category="inline-link-rx"></block></block>
@@ -13652,11 +13645,7 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="be0230807be10234aa034e45c6825280" category="paragraph">AFF A400 y FAS8300</block>
   <block id="0cf4c92a4ea3edbf66b4866978237ff3" category="doc">Novedades en el soporte de MetroCluster tiebreaker</block>
   <block id="e90d1c6a70648051cbe5131fdb8a8227" category="paragraph">Cada versión del software de gestión de datos ONTAP 9 ofrece funciones nuevas y mejoradas que mejoran las funcionalidades, la capacidad de gestión y el rendimiento de las configuraciones de ONTAP MetroCluster.</block>
-  <block id="8c1bba32ed1c0d98d05106a264d07469" category="paragraph">Para obtener detalles sobre la compatibilidad de plataformas de hardware y switches, los problemas conocidos y las limitaciones en todas las versiones de ONTAP 9, o para las funciones introducidas en las versiones anteriores a ONTAP 9,9.1, consulte el<block ref="6e7f74aa9001f0524a965144f528bbc2" category="inline-link-rx"></block>. Debe iniciar sesión con su cuenta de NetApp o crear una cuenta para acceder a las Notas de la versión.</block>
-  <block id="a4c25ce93017fa1e39ea1f02e454b5dd" category="sidebar">Novedades en cuanto a compatibilidad con funciones de ONTAP</block>
   <block id="3cc716dba68d44285ae03d4a0e650afb" category="sidebar">Novedades en las funciones de MetroCluster</block>
-  <block id="7a9ee1321dd82cefa7736a4643b1d4cb" category="sidebar">Novedades del soporte para la configuración de IP de MetroCluster</block>
-  <block id="d793294f059b1014ac708a3a85a786cb" category="sidebar">Novedades del soporte para la configuración de MetroCluster FC</block>
   <block id="986acab97d190ab2df45c246e97ca539" category="sidebar">Novedades del soporte de ONTAP Mediator</block>
   <block id="72b08fce3cdf931f9f180e97f8508090" category="sidebar">Novedades en el soporte de MetroCluster tiebreaker</block>
   <block id="9ae85011061f6a07b3199cc6631e205d" category="paragraph">Siga los pasos de la sección para su proveedor de switches:</block>
@@ -13683,7 +13672,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="4765407452f01930deae2b9481b69e36" category="paragraph">Soporte inicial para el servicio ONTAP Mediator en configuraciones IP de MetroCluster</block>
   <block id="de09b0e8b75c62ac84c620713e05647b" category="paragraph">Puede realizar la transición de forma no disruptiva de una configuración MetroCluster FC a una IP de MetroCluster mediante un switch de almacenamiento compartido.</block>
   <block id="76a27f1dad18a5de567d4849d3e76b69" category="doc">Novedades en la compatibilidad de switches y la plataforma FC de MetroCluster</block>
-  <block id="0f40216c1ad47c12e8ccc087d555570f" category="doc">Notas de la versión de ONTAP</block>
   <block id="2dfc17cf61c3aebedc1a1f7f467baa26" category="paragraph">Siga los pasos para instalar el software de switch en el tema correspondiente dependiendo de si el tipo de switch es Broadcom, Cisco o NVIDIA:</block>
   <block id="9caf870a1494e70481403791fcece589" category="list-text">Repetición <block ref="b2da07bc854b8a63875843471604110c" category="inline-xref-macro-rx"></block> para comprobar el estado de la configuración.</block>
   <block id="67d7197766de9fc9cf6113211650818b" category="sidebar">Las configuraciones de NetApp MetroCluster combinan clustering basado en cabinas con replicación síncrona para proporcionar una disponibilidad continua, duplicando de inmediato todos sus datos de misión crítica transacción por transacción. Las configuraciones de MetroCluster mejoran las operaciones no disruptivas y de alta disponibilidad incorporadas del hardware de NetApp y del software de almacenamiento ONTAP, y ofrecen una capa adicional de protección para todo el entorno de host y almacenamiento.</block>
@@ -13731,4 +13719,68 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="d5552b01bf48dde88719269e524ddbb9" category="sidebar">Compruebe que el hardware es compatible.</block>
   <block id="3f2b90ec5a9b43745b9c8c9fedf48d8d" category="sidebar">Base de conocimientos de soporte de NetApp</block>
   <block id="b2cdf9234a2dabbbb6acb6f71e098209" category="sidebar">Busque respuestas para sus preguntas de soporte.</block>
+  <block id="67ed9530c4069b662839f89c94d4a160" category="inline-link-macro">Deshabilite el cifrado integral</block>
+  <block id="ade87983ca16ac3bdbf2b32cf6e9b0d5" category="list-text">Si está activado en el sistema, <block ref="8a6f29aee2b87dab72caa4c63be583f5" category="inline-link-macro-rx"></block> antes de realizar la actualización de la controladora.</block>
+  <block id="3d8fb38a661b136fb35b34201d24ef76" category="section-title">Configurar el cifrado integral</block>
+  <block id="df4377d05c61041e2e8ae85ae5db4fad" category="paragraph">Si es compatible con su sistema, puede cifrar el tráfico de back-end, como NVlog y los datos de replicación de almacenamiento, entre los sitios IP de MetroCluster. Consulte <block ref="ffcb318089fda8d2418bcd406342779d" category="inline-link-macro-rx"></block> si quiere más información.</block>
+  <block id="8f883162e124fc09a7ae40b02d457abc" category="list-text">Si está activado en el sistema, <block ref="8a6f29aee2b87dab72caa4c63be583f5" category="inline-link-macro-rx"></block> antes de realizar la actualización.</block>
+  <block id="5aa9df9bfe2a9d3dcb9eaf7420818fac" category="inline-link-macro">Habilite el cifrado integral</block>
+  <block id="bd7a871cd772a6f8f044f086ccc3ed68" category="list-text">Si su sistema admite cifrado de principio a fin, puede hacerlo <block ref="2fd1db8c2a0ebb290526de8f46b28acd" category="inline-link-macro-rx"></block> En el nuevo grupo de recuperación ante desastres.</block>
+  <block id="0088c1e15cccccdb2e3dc23e762335e0" category="list-text">Si el cifrado de extremo a extremo está activado, siga los pasos a. <block ref="8a6f29aee2b87dab72caa4c63be583f5" category="inline-link-macro-rx"></block>.</block>
+  <block id="7b27e86dbf07563fca6c99e2fca83549" category="list-text">Si deshabilitó el cifrado de extremo a extremo antes de añadir los nodos nuevos, puede volver a habilitarlo siguiendo los pasos de <block ref="2fd1db8c2a0ebb290526de8f46b28acd" category="inline-link-macro-rx"></block>.</block>
+  <block id="149bff96621a57d63b9a824d96957df7" category="open-title">Switches Brocade</block>
+  <block id="250f3098aa37d3a08b48b8157db8a62e" category="open-title">Switches Cisco</block>
+  <block id="6204028fd0e3ba079ca2fce4bb224e24" category="paragraph"><block ref="010303eb2e404f6eb49cc314fc8aa294" prefix="" category="inline-code"></block></block>
+  <block id="a1032909a057927264a07294a53b91b5" category="paragraph">Si necesita acceso RO, después de “Usuario (ro):” especifique el “snmpv3user”. En el siguiente ejemplo se utilizan switches Brocade:</block>
+  <block id="b4656d073f9b3064260089f7e9a12e66" category="paragraph">A partir de ONTAP 9.15.1, puede configurar el cifrado integral para cifrar el tráfico de back-end, como NVlog y los datos de replicación de almacenamiento, entre los sitios en una configuración de IP de MetroCluster.</block>
+  <block id="ddaa39224424042ba35394afbe714a70" category="list-text">Para realizar esta tarea, debe ser un administrador de clústeres.</block>
+  <block id="ffe47e3eda7ee0a88fa1a1b82a09899e" category="inline-link-macro">Configure la gestión de claves externas</block>
+  <block id="ca6ec36bc37ffec6b208710049cf5f93" category="list-text">Para poder configurar el cifrado integral, se debe <block ref="16044a12704308be53c493c61be8d30c" category="inline-link-macro-rx"></block>.</block>
+  <block id="04070a9cbaae869f3877454cee7e3949" category="list-text">Revise los sistemas compatibles y la versión mínima de ONTAP requerida para configurar el cifrado integral en una configuración de IP de MetroCluster:</block>
+  <block id="59489a60854fece7ae72228144da61ce" category="cell">Versión de ONTAP mínima</block>
+  <block id="933247e0be7796a309cfa4c95bd34938" category="cell">Sistemas compatibles</block>
+  <block id="8cd7d5cbedf290a9b729cc263d9b289c" category="paragraph">ONTAP 9.15.1</block>
+  <block id="e93d47f017ad237de98b35aad9fcb874" category="paragraph">Realice los siguientes pasos para habilitar el cifrado de extremo a extremo.</block>
+  <block id="837070b3add2f869a83c272371c71943" category="list-text">Después del<block ref="c2966f2f3bfc7e81dae5df7c44ce66ea" prefix=" " category="inline-code"></block> la operación finaliza, ejecute:</block>
+  <block id="cc69fb16e9b5f75fc5721d1ad8277443" category="list-text">Compruebe que la gestión de claves externas está configurada en ambos clústeres:</block>
+  <block id="689610e955be8fb22e796c52df915481" category="list-text">Habilite el cifrado integral para cada grupo de recuperación ante desastres:</block>
+  <block id="655bf96cae9bcf362fa2b9cb1dc6329b" category="paragraph">Repita este paso con cada grupo de recuperación ante desastres de la configuración.</block>
+  <block id="c5298fbea590442bc5dccc0f0c0a42ce" category="list-text">Verifique que el cifrado integral está activado:</block>
+  <block id="450b20a9e1e9a7c24bdce85480153300" category="paragraph">Realice los siguientes pasos para desactivar el cifrado de extremo a extremo.</block>
+  <block id="77b90866eb30c2c119140e82f8c5f4d2" category="list-text">Deshabilite el cifrado integral en cada grupo de recuperación ante desastres:</block>
+  <block id="882fe58a6392388c2ce927c31a93371f" category="list-text">Verifique que el cifrado integral está desactivado:</block>
+  <block id="db03999c5b24c225561e85043c8ca2c1" category="paragraph">Soporte de IP de MetroCluster para NVMe</block>
+  <block id="0c9f8df361f16ae4ec9468c24acaafae" category="paragraph">El protocolo de host front-end NVMe/TCP se admite en configuraciones IP de MetroCluster de cuatro nodos.</block>
+  <block id="21f44b7d67ca22b4dfdc5b37402d6176" category="inline-link-macro">Configuraciones SAN en un entorno MetroCluster</block>
+  <block id="0523cf29ce37abad9282f80ffd3f533e" category="paragraph"><block ref="0523cf29ce37abad9282f80ffd3f533e" category="inline-link-macro-rx"></block></block>
+  <block id="f09a5dc7d9c973e1f6ab3e9ffa36921c" category="paragraph">El protocolo NVMe/FC se admite en configuraciones IP MetroCluster de cuatro nodos.</block>
+  <block id="581b029a5b5e612bbb2ff34e6b1ff9ad" category="paragraph"><block ref="581b029a5b5e612bbb2ff34e6b1ff9ad" category="inline-link-rx"></block></block>
+  <block id="629ea23148e9d8c2d0f002e89411b05a" category="paragraph">Obtenga más información sobre las nuevas funciones de MetroCluster.</block>
+  <block id="efd20e2b544e4614b2e657ac6783ec0a" category="paragraph">Compatibilidad con IP de MetroCluster para cifrado integral</block>
+  <block id="4a4b85199291f3e23fc84fb47fb5ca30" category="paragraph">El cifrado de extremo a extremo se admite en sistemas AFF A400, FAS8300 y FAS8700 para cifrar el tráfico de back-end, como los datos de replicación de almacenamiento y NVlog, entre sitios en una configuración IP de MetroCluster.</block>
+  <block id="a9734ca6d9ffb317f9b6a802b2dbb3aa" category="inline-link-macro">Configure el cifrado integral en una configuración IP de MetroCluster</block>
+  <block id="c39138b0d883de358017e1fce7fa55a9" category="paragraph"><block ref="c39138b0d883de358017e1fce7fa55a9" category="inline-link-macro-rx"></block></block>
+  <block id="aec0d8caac35e70ca6b42831fa957b4d" category="paragraph">Aumento del límite de volúmenes para configuraciones IP de MetroCluster de cuatro nodos en sistemas AFF A800 y AFF C800</block>
+  <block id="cbd27762af6b4c6335bac75a098542ce" category="paragraph">En configuraciones MetroCluster IP de cuatro nodos, los siguientes límites de volúmenes para los sistemas AFF A800 y AFF C800 han aumentado:</block>
+  <block id="2c18214fb090b3346dccf036f48c7f39" category="list-text">El número máximo de volúmenes de FlexVol por agregado ha aumentado de 200 a 625.</block>
+  <block id="3f35c7e20a8d7d81feeb64eb6d5afa09" category="list-text">El número máximo de volúmenes FlexVol por nodo ha aumentado de 800 a 1250.</block>
+  <block id="b30d9c31e8ee4ad2f0b8474d6a8c7b5d" category="list-text">El número máximo de volúmenes FlexVol por pareja de alta disponibilidad ha aumentado de 1600 a 2500.</block>
+  <block id="34211e4d6128da1dfdf7db696c0d2aad" category="paragraph">Aumento del límite de volúmenes para configuraciones IP de MetroCluster de cuatro nodos en sistemas AFF A900</block>
+  <block id="84e9aa8f760c1f5f0f19cf4fc3153c4b" category="paragraph">En configuraciones MetroCluster IP de cuatro nodos, los siguientes límites de volúmenes para los sistemas AFF A900 han aumentado:</block>
+  <block id="69cd959e02d2a7b70720f5426f4f0888" category="list-text">Si los sistemas originales se configuraron para cifrado de extremo a extremo, en el aviso de cada CARGADOR DE los nodos de reemplazo, configure el siguiente arranque:</block>
+  <block id="635e42fd721973aab43465fb05d0c976" category="paragraph"><block ref="62c037d8665e336dd114412a0b756bfc" prefix="" category="inline-code"></block></block>
+  <block id="5a8c7594ee8269dda78a3c94154a49fc" category="doc">Sustituya el hardware y arranque las nuevas controladoras</block>
+  <block id="81a393ca01b7355292a9de6a418b7506" category="section-title">Sustituya el hardware en el sitio de recuperación ante desastres</block>
+  <block id="341755fab7492718abaee90d7addc0e1" category="section-title">Determine los ID del sistema y los ID de VLAN de los antiguos módulos de la controladora</block>
+  <block id="7783c9328f785a62c6d922c7aee5f5bf" category="section-title">Aislar las unidades de reemplazo del sitio superviviente (configuraciones IP de MetroCluster)</block>
+  <block id="2b8101509ea4735a4334fe0f417a56e5" category="section-title">Arranque en red los nuevos módulos de controlador</block>
+  <block id="e766bf7ee3198b936508b04c961bee1c" category="section-title">Determine los ID del sistema de los módulos de la controladora de reemplazo</block>
+  <block id="853b9b549a9a87e8693e5e1457ccc627" category="section-title">Determinar si se activó el cifrado de extremo a extremo en los sistemas originales</block>
+  <block id="b6f65762cf35ba4ac4c9366142731eb4" category="paragraph">Debe verificar si los sistemas originales se configuraron para el cifrado de extremo a extremo.</block>
+  <block id="f900ea78fef7de22abe3c887295c3554" category="list-text">Ejecute el siguiente comando desde el sitio superviviente:</block>
+  <block id="c1604d057494bf6abab3a40147fecf7c" category="paragraph"><block ref="eea57ee5f23bab30ed50dbeb23a75f4f" prefix="" category="inline-code"></block></block>
+  <block id="bd000f3bd62ff510f9146882628ce226" category="paragraph">Si el cifrado está activado, se muestra la siguiente salida:</block>
+  <block id="98db7bcad911ca4f97f6c512fd15dba5" category="admonition">Consulte <block ref="21cf3ec43c40018cebe1c66cf55306b2" category="inline-link-macro-rx"></block> para sistemas compatibles.</block>
+  <block id="03e22cbc7470f9e3b1bc635479554ca9" category="sidebar">Novedades en la compatibilidad de MetroCluster con las funciones de ONTAP</block>
+  <block id="89753eb00eabd16383d2c616cc908230" category="sidebar">Novedades de la plataforma IP de MetroCluster y soporte de switches</block>
 </blocks>

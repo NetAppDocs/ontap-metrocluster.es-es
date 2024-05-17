@@ -514,6 +514,10 @@ setenv bootarg.mcc.lun_part true
 ----
 
 
+. Si los sistemas originales se configuraron para cifrado de extremo a extremo, en el aviso de cada CARGADOR DE los nodos de reemplazo, configure el siguiente arranque:
++
+`setenv bootarg.mccip.encryption_enabled 1`
+
 . Si los sistemas originales se configuraron para ADP, en cada uno de los avisos DEL CARGADOR de los nodos de sustitución, defina el ID original del sistema (*no* el ID del sistema del módulo del controlador de sustitución) y el ID del sistema del asociado de recuperación ante desastres del nodo:
 +
 `setenv bootarg.mcc.local_config_id original-sysID`

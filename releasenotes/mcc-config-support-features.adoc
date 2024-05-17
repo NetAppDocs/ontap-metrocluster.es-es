@@ -21,6 +21,17 @@ Para obtener información detallada sobre problemas conocidos, limitaciones y pr
 
 
  a| 
+Soporte de IP de MetroCluster para NVMe
+ a| 
+El protocolo de host front-end NVMe/TCP se admite en configuraciones IP de MetroCluster de cuatro nodos.
+
+link:https://docs.netapp.com/us-en/ontap/san-admin/san-config-mcc-concept.html["Configuraciones SAN en un entorno MetroCluster"^]
+ a| 
+ONTAP 9.15.1
+
+
+
+ a| 
 Compatibilidad con almacenamiento de objetos S3 en agregados reflejados y no reflejados
  a| 
 Puede habilitar un servidor de almacenamiento de objetos S3 en una SVM en un agregado reflejado o no reflejado en configuraciones de MetroCluster IP y FC.
@@ -43,6 +54,17 @@ ONTAP 9.12.1
 
 
  a| 
+Soporte de IP de MetroCluster para NVMe
+ a| 
+El protocolo NVMe/FC se admite en configuraciones IP MetroCluster de cuatro nodos.
+
+link:https://docs.netapp.com/us-en/ontap/san-admin/san-config-mcc-concept.html["Configuraciones SAN en un entorno MetroCluster"^]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
 Compatibilidad con IPsec para el protocolo de host front-end en configuraciones FAS de MetroCluster e IP de MetroCluster
  a| 
 La compatibilidad con IPsec para el protocolo de host front-end (como NFS e iSCSI) está disponible en configuraciones FAS de MetroCluster IP y MetroCluster.
@@ -57,8 +79,6 @@ ONTAP 9.11.1
 Grupos de consistencia
  a| 
 Los grupos de coherencia son compatibles con las configuraciones MetroCluster.
-
-https://docs.netapp.com/us-en/ontap/mediator/index.html["Instale o actualice el servicio Mediator de ONTAP"]
  a| 
 ONTAP 9,7
 

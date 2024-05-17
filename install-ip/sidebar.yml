@@ -112,6 +112,8 @@ entries:
     url: "/install-ip/task_sw_config_setup_ontap.html"
   - title: Configure los clústeres en una configuración MetroCluster
     url: "/install-ip/task_sw_config_configure_clusters.html"
+  - title: Configurar el cifrado integral
+    url: "/install-ip/task-configure-end-to-end-encryption.html"
   - title: Verifique la conmutación de sitios, el reparación y la conmutación de estado
     url: "/install-ip/task_sw_config_verify_switchover.html"
   - title: Configurar el software MetroCluster Tiebreaker o Mediator de ONTAP

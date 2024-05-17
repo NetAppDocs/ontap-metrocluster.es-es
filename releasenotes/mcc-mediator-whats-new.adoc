@@ -26,6 +26,8 @@ Para obtener más información sobre la instalación o actualización de ONTAP M
 La conmutación automática no planificada asistida por mediador (MAUSO) es compatible en el caso de un cierre medioambiental.
 
 Si un sitio se cierra correctamente debido a un cierre ambiental, se activa MAUSO.
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["Cómo admite el Mediador ONTAP la conmutación automática no planificada"]
  a| 
 ONTAP 9.13.1
 

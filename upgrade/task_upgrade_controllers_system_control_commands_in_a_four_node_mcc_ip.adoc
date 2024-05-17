@@ -55,6 +55,7 @@ https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 NOTE: La realización de una actualización mediante la reubicación de agregados (ARL) con comandos «systems controller replace» no se admite para una configuración de IP de MetroCluster de cuatro nodos.
 
+* Si está activado en el sistema, link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["Deshabilite el cifrado integral"] antes de realizar la actualización.
 * Debe utilizar el procedimiento de actualización automática de la controladora NSO para actualizar las controladoras en ambos sitios en secuencia.
 * Este procedimiento automatizado de actualización de controladora basada en la NSO le ofrece la posibilidad de iniciar la sustitución de controladoras a un sitio de recuperación ante desastres (DR) de MetroCluster. Solo puede iniciar el reemplazo de una controladora en una instalación cada vez.
 * Para iniciar la sustitución de una controladora en el sitio A, debe ejecutar el comando Controller rereemplazo start desde el sitio B. La operación le guía para reemplazar controladoras de ambos nodos en el sitio A únicamente. Para sustituir las controladoras en el sitio B, debe ejecutar el comando Controller replace start desde el sitio A. Aparece un mensaje que identifica el sitio en el que se van a reemplazar los controladores.
@@ -1145,9 +1146,15 @@ Configure manualmente ONTAP Mediator que se eliminó automáticamente antes de i
 
 
 
-=== Restaurar la supervisión de tiebreaker
+=== Supervisión de tiebreaker para restaurar
 
 Si la configuración de MetroCluster se ha configurado previamente para la supervisión por parte del software Tiebreaker, puede restaurar la conexión de tiebreaker.
 
 . Utilice los pasos de http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["Adición de configuraciones de MetroCluster"].
 
+
+
+
+=== Configurar el cifrado integral
+
+Si es compatible con su sistema, puede cifrar el tráfico de back-end, como NVlog y los datos de replicación de almacenamiento, entre los sitios IP de MetroCluster. Consulte link:../maintain/task-configure-encryption.html["Configurar el cifrado integral"] si quiere más información.

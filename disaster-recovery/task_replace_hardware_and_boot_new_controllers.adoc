@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: hardware, component, replace, individual, replacement, installation, guide, replacing, controller, booting, new 
 summary: Si es necesario sustituir los componentes de hardware, deberá sustituirlos con sus guías individuales de instalación y sustitución de hardware. 
 ---
-= Reemplazar hardware e arrancar nuevas controladoras
+= Sustituya el hardware y arranque las nuevas controladoras
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,7 +15,7 @@ Si es necesario sustituir los componentes de hardware, deberá sustituirlos con 
 
 
 
-== Sustitución del hardware en el centro de recuperación ante desastres
+== Sustituya el hardware en el sitio de recuperación ante desastres
 
 .Antes de empezar
 Las controladoras de almacenamiento deben estar apagadas o permanecer detenida (mostrar el símbolo del sistema del CARGADOR).
@@ -134,7 +134,7 @@ link:http://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas d
 
 
 
-== Determinar los ID del sistema y los ID de VLAN de los módulos de controladora anteriores
+== Determine los ID del sistema y los ID de VLAN de los antiguos módulos de la controladora
 
 Después de haber sustituido todo el hardware en el sitio de desastres, debe determinar los ID del sistema de los módulos de controladora sustituidos. Necesita los ID de sistema antiguos cuando reasigna los discos a los nuevos módulos de controladora. Si los sistemas son AFF A220, AFF A250, AFF A400, AFF A800, FAS2750 Los modelos FAS500f, FAS8300 o FAS8700 también deben determinar los identificadores de VLAN que utilizan las interfaces IP de MetroCluster.
 
@@ -328,7 +328,7 @@ Node_A_2 Node_A_1 HA      enabled  online
 
 
 
-== Aislamiento de las unidades de reemplazo del sitio superviviente (configuraciones IP de MetroCluster)
+== Aislar las unidades de reemplazo del sitio superviviente (configuraciones IP de MetroCluster)
 
 Debe aislar todas las unidades de reemplazo bajando las conexiones de iniciador iSCSI de MetroCluster de los nodos supervivientes.
 
@@ -367,7 +367,7 @@ site_B::*> storage iscsi-initiator disconnect -node node_B_2 -label *
 
 
 
-== Borrar la configuración en un módulo del controlador
+== Borrar la configuración de un módulo de controlador
 
 [role="lead"]
 Antes de utilizar un nuevo módulo de controladora en la configuración de MetroCluster, debe borrar la configuración existente.
@@ -407,7 +407,7 @@ Responda `yes` a la solicitud de confirmación.
 
 
 
-== Netarrancando los nuevos módulos del controlador
+== Arranque en red los nuevos módulos de controlador
 
 Si los nuevos módulos de controladora tienen una versión de ONTAP diferente de la versión de los módulos de controladora supervivientes, debe reiniciar el sistema los nuevos módulos de la controladora.
 
@@ -483,7 +483,7 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 
 
-== Determinación de los ID de sistema de los módulos de controlador de sustitución
+== Determine los ID del sistema de los módulos de la controladora de reemplazo
 
 Después de haber sustituido todo el hardware en el centro de desastres, debe determinar el ID del sistema del módulo o módulos de la controladora de almacenamiento recién instalados.
 
@@ -623,7 +623,7 @@ En el ejemplo siguiente, el nuevo ID del sistema local es 1574774991:
 
 
 
-== Verificación del estado de los componentes de la configuración de alta disponibilidad
+== Compruebe el estado de los componentes de ha-config
 
 En una configuración MetroCluster, el estado ha-config del módulo de la controladora y los componentes del chasis debe configurarse en "mcc" o "mcc-2n" para que se arranque correctamente.
 
@@ -725,4 +725,33 @@ Configuración de IP de MetroCluster
 
 |===
 . Repita estos pasos en el otro nodo de repuesto.
+
+
+
+
+== Determinar si se activó el cifrado de extremo a extremo en los sistemas originales
+
+Debe verificar si los sistemas originales se configuraron para el cifrado de extremo a extremo.
+
+.Paso
+. Ejecute el siguiente comando desde el sitio superviviente:
++
+`metrocluster node show -fields is-encryption-enabled`
+
++
+Si el cifrado está activado, se muestra la siguiente salida:
+
++
+[listing]
+----
+1 cluster_A node_A_1 true
+1 cluster_A node_A_2 true
+1 cluster_B node_B_1 true
+1 cluster_B node_B_2 true
+4 entries were displayed.
+----
++
+
+NOTE: Consulte link:../install-ip/task-configure-end-to-end-encryption.html["Configurar el cifrado integral"] para sistemas compatibles.
+
 

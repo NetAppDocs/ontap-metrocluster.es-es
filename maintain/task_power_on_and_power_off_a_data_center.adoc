@@ -259,8 +259,8 @@ NOTE: Realice este paso para todos los plexes que tengan discos remotos para Clu
 Debe apagar el siguiente equipo en el orden indicado:
 
 +
+** Controladoras de almacenamiento: Las controladoras de almacenamiento actualmente deben estar en `LOADER` aviso, debe apagarlos por completo.
 ** Switches IP de MetroCluster
-** Controladoras de almacenamiento
 ** Bandejas de almacenamiento
 
 
@@ -321,16 +321,14 @@ Primero debe encender los interruptores. Es posible que se hayan encendido duran
 Si el inicio automático está activado, pulse `Ctrl+C` para detener el arranque automático de las controladoras.
 
 . Encienda las bandejas teniendo tiempo suficiente para que se enciendan por completo.
+. Verifique que el almacenamiento esté visible.
 +
-.. Verifique que las estanterías y los discos de los puentes estén claramente visibles.
-+
-Puede utilizar un comando como `sastargets` En la CLI de ATTO.
-
-
-
-. Compruebe que el almacenamiento local sea visible en el nodo en modo de mantenimiento:
+.. Compruebe que el almacenamiento está visible en el sitio superviviente. Vuelva a conectar los complejos sin conexión para reiniciar la operación de resincronización y restablecer SyncMirror.
+.. Compruebe que el almacenamiento local sea visible en el nodo en modo de mantenimiento:
 +
 `disk show -v`
+
+
 
 . Restablezca la configuración de MetroCluster.
 +

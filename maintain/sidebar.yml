@@ -62,6 +62,8 @@ entries:
   - title: Sustituya un switch IP o cambie el uso de los switches IP de MetroCluster
       existentes
     url: "/maintain/task_replace_an_ip_switch.html"
+  - title: Puertos de interfaz IP de MetroCluster en línea u fuera de línea
+    url: "/maintain/task_online_or_offline_the_mcc_ip_interface.html"
   - title: Actualizar el firmware en switches MetroCluster IP
     url: "/maintain/task_upgrade_firmware_on_mcc_ip_switches.html"
   - title: Actualice los archivos RCF en switches MetroCluster IP

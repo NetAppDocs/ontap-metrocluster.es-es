@@ -23,7 +23,7 @@ Compatibilidad con IP de MetroCluster para cifrado integral
  a| 
 El cifrado de extremo a extremo se admite en sistemas AFF A400, FAS8300 y FAS8700 para cifrar el tráfico de back-end, como los datos de replicación de almacenamiento y NVlog, entre sitios en una configuración IP de MetroCluster.
 
-link:../maintain//task-configure-encryption.html["Configure el cifrado integral en una configuración IP de MetroCluster"]
+link:../maintain/task-configure-encryption.html["Configure el cifrado integral en una configuración IP de MetroCluster"]
  a| 
 ONTAP 9.15.1
 

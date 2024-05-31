@@ -332,10 +332,10 @@ Para switches FC de Cisco...
 El siguiente equipo debe apagarse en el orden indicado:
 
 +
-** Switches FC de MetroCluster
 ** Controladoras de almacenamiento: Las controladoras de almacenamiento actualmente deben estar en `LOADER` aviso, debe apagarlos por completo.
-** Bandejas de almacenamiento
+** Switches FC de MetroCluster
 ** ATTO FibreBridges (si está presente)
+** Bandejas de almacenamiento
 
 
 
@@ -568,10 +568,6 @@ Primero debe encender los interruptores. Es posible que se hayan encendido duran
 
 
 . Deshabilite los ISL en los switches FC.
-. Encienda las controladoras de almacenamiento y espere hasta que vea el `LOADER` prompt. Las controladoras no deben arrancarse por completo.
-+
-Si el inicio automático está activado, pulse `Ctrl+C` para detener el arranque automático de las controladoras.
-
 . Encienda las bandejas y deje que haya tiempo suficiente para que se encicien por completo.
 . Encienda los puentes FiberBridge.
 +
@@ -671,7 +667,15 @@ switch_A_1#
 
 
 |===
-. Compruebe que el almacenamiento está visible en el sitio superviviente. Vuelva a conectar los complejos sin conexión. Esto reinicia las operaciones de resincronización y vuelve a establecer el SyncMirror.
+. Verifique que el almacenamiento esté visible.
++
+.. Compruebe que el almacenamiento está visible en el sitio superviviente. Vuelva a conectar los complejos sin conexión para reiniciar la operación de resincronización y restablecer SyncMirror.
+.. Compruebe que el almacenamiento local sea visible en el nodo en modo de mantenimiento:
++
+`disk show -v`
+
+
+
 . Restablezca la configuración de MetroCluster.
 +
 Siga las instrucciones de link:../disaster-recovery/task_recover_from_a_non_controller_failure_mcc_dr.html#verifying-that-your-system-is-ready-for-a-switchback["Verificación de que su sistema está listo para una conmutación de estado"] Para llevar a cabo operaciones de reparación y conmutación de estado de acuerdo con su configuración de MetroCluster.

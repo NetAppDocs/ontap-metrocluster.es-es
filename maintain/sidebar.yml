@@ -147,8 +147,6 @@ entries:
   - title: Las asignaciones de puertos para los sistemas que utilizan dos puertos
       iniciadores
     url: "/maintain/concept_port_assignments_for_systems_using_two_initiator_ports.html"
-  - title: Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0
-    url: "/maintain/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html"
   - title: Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1
       y versiones posteriores
     url: "/maintain/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html"

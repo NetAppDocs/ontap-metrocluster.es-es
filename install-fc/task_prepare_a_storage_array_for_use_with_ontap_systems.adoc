@@ -16,7 +16,7 @@ Antes de empezar a configurar sistemas ONTAP en una configuración MetroCluster 
 .Antes de empezar
 Las cabinas de almacenamiento, el firmware y los switches que planea utilizar en la configuración deben ser compatibles con la versión de ONTAP específica.
 
-* https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilidad de NetApp (IMT)"]
+* https://imt.netapp.com/matrix/["Interoperabilidad de NetApp (IMT)"^]
 +
 En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
 

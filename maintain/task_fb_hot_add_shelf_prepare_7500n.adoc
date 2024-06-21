@@ -24,7 +24,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["Ac
 
 
 
-NOTE: Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila si el sistema ejecuta una versión admitida de ONTAP. Para determinar si su versión de ONTAP admite la mezcla de bandejas, Consulte la herramienta de matriz de interoperabilidad (IMT).https://mysupport.netapp.com/NOW/products/interoperability[NetApp Interoperability] Si la versión de ONTAP no es compatible y no puede actualizar o degradar los módulos IOM en la pila existente o en la nueva bandeja que debe añadirse a una combinación compatible de módulos IOM, debe realizar una de las siguientes acciones:
+NOTE: Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila si el sistema ejecuta una versión admitida de ONTAP. Para establecer si su versión de ONTAP es compatible con la mezcla de bandejas, consulte la link:https://imt.netapp.com/matrix/["Herramienta de matriz de interoperabilidad (IMT)"^]. Si la versión de ONTAP no es compatible y no puede actualizar o degradar los módulos IOM en la pila existente o de la bandeja nueva que se debe añadir a una combinación compatible de módulos IOM, tendrá que realizar una de las siguientes acciones:
 
 * Inicie una nueva pila en un nuevo puerto SAS (si lo admite el par de puente).
 * Inicie una nueva pila en un par de puente adicional.

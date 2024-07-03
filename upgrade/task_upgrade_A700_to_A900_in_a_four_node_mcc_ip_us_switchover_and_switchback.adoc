@@ -589,7 +589,7 @@ image::../media/drw_9500_remove_PCM.png[módulo del controlador]
 .. Mueva la conexión e5a a e5b.
 +
 
-NOTE: La ranura 7 de todos los nodos del clúster debe estar vacía, tal como se menciona en <<Asigne puertos de los nodos antiguos a los nuevos>> sección.
+NOTE: La ranura 7 de todos los nodos del cluster debe estar vacía como se menciona en la <<upgrade_a700_a900_ip_map,Asigne puertos de los nodos antiguos a los nuevos>> sección.
 
 
 
@@ -838,23 +838,22 @@ Los switches de Site_A se actualizarán cuando se actualicen las controladoras d
 .Pasos
 . Prepare los switches IP para la aplicación de los nuevos archivos RCF.
 +
-Siga los pasos de la sección correspondiente al proveedor de switches en la sección _MetroCluster IP Installation and Configuration_ (instalación y configuración de IP de).
+Siga los pasos de la sección para su proveedor de switches:
 
 +
-link:../install-ip/index.html["Instalación y configuración de IP de MetroCluster"]
-
-+
-** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"]
-** link:../install-ip/task_switch_config_broadcom.html#resetting-the-cisco-ip-switch-to-factory-defaults["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["Restablezca el conmutador IP Broadcom a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-cisco-ip-switch-to-factory-defaults["Restablezca el conmutador IP de Cisco a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_nvidia.html["Restablece el switch NVIDIA IP SN2100 a los valores predeterminados de fábrica"]
 
 
 . Descargue e instale los archivos RCF.
 +
-Siga los pasos de la sección correspondiente a su proveedor de switches desde el link:../install-ip/index.html["Instalación y configuración de IP de MetroCluster"].
+Siga los pasos de la sección para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descarga e instalación de los archivos Broadcom RCF"]
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-cisco-ip-rcf-files["Descarga e instalación de los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descargue e instale los archivos Broadcom RCF"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-cisco-ip-rcf-files["Descargue e instale los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["Descargue e instale los archivos NVIDIA IP RCF"]
 
 
 
@@ -872,7 +871,7 @@ En este momento, las nuevas controladoras deben estar listas y cableadas.
 Ciertos valores de arranque IP de MetroCluster deben configurarse en los nuevos módulos de la controladora. Los valores deben coincidir con los configurados en los módulos de la controladora anteriores.
 
 .Acerca de esta tarea
-En esta tarea, utilizará los UUID y los identificadores del sistema identificados anteriormente en el procedimiento de actualización en link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#gathering-information-before-the-upgrade["Obteniendo información antes de la actualización"].
+En esta tarea, utilizará los UUID y los ID del sistema identificados anteriormente en el procedimiento de actualización de <<Recopile información antes de la actualización>>.
 
 .Pasos
 . En la `LOADER>` Prompt, establezca los siguientes bootargs en los nuevos nodos en el site_B:
@@ -1283,7 +1282,7 @@ Confirmar que las LIF se alojan en los nodos y puertos adecuados, según lo asig
 
 .Acerca de esta tarea
 * Esta tarea se realiza en el sitio_B.
-* Consulte el plan de asignación de puertos que ha creado en link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#mapping-ports-from-the-old-nodes-to-the-new-nodes["Asignando los puertos de los nodos antiguos a los nodos nuevos"].
+* Consulte el plan de asignación de puertos que ha creado en <<upgrade_a700_a900_ip_map,Asigne puertos de los nodos antiguos a los nuevos>>
 
 
 .Pasos
@@ -1436,7 +1435,7 @@ Esta tarea se puede realizar en cualquier nodo de la configuración de MetroClus
 Debe repetir las tareas de actualización en site_A.
 
 .Pasos
-. Repita los pasos para actualizar los nodos en el sitio_A, empezando por link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#preparing-for-the-upgrade["Prepare la actualización"].
+. Repita los pasos para actualizar los nodos en SITE_A, empezando por <<upgrade_a700_a900_ip_prepare,Prepare la actualización>>.
 +
 Al realizar las tareas, se invierten todas las referencias de ejemplo a los sitios y nodos. Por ejemplo, cuando se da el ejemplo para cambiar de sitio_A, se cambiará de sitio_B.
 

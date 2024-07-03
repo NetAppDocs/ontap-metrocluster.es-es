@@ -15,9 +15,7 @@ El procedimiento de actualización del sistema que utilice dependerá del modelo
 
 
 
-=== Compatible con combinaciones de actualización tecnológica de FC de MetroCluster
-
-image::../media/metrocluster_fc_tech_refresh_914.png[actualización tecnológica de MetroCluster fc 914]
+== Compatible con combinaciones de actualización tecnológica de MetroCluster IP
 
 * Debe completar el procedimiento de actualización tecnológica antes de añadir una nueva carga.
 * Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, si tiene una configuración de ocho nodos, los ocho nodos deben ejecutar la misma versión de ONTAP.
@@ -26,20 +24,61 @@ image::../media/metrocluster_fc_tech_refresh_914.png[actualización tecnológica
 * Consulte la link:https://hwu.netapp.com["Hardware Universe"^] para límites de plataforma.
 
 
+.Combinaciones de actualizaciones tecnológicas AFF y FAS MetroCluster IP admitidas
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster:
 
 
-=== Compatible con combinaciones de actualización tecnológica de MetroCluster IP
+NOTE: Los sistemas AFF A70, AFF A90 y AFF A1K requieren ONTAP 9.15.1 o posterior.
 
-image::../media/metrocluster_techref_ip_914.png[Combinaciones de actualizaciones tecnológicas IP de MetroCluster]
+image::../media/metrocluster_techref_ip.png[Combinaciones de actualizaciones tecnológicas IP de MetroCluster]
 
 *Nota 1:* Esta combinación requiere ONTAP 9.13.1 o posterior.
 
+.Combinaciones de actualizaciones tecnológicas IP de ASA MetroCluster admitidas
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema ASA en una configuración IP de MetroCluster:
+
+image::../media/metrocluster_techref_ip_asa.png[Combinaciones de actualizaciones tecnológicas de la ASA IP de MetroCluster]
+
+
+
+== Compatible con combinaciones de actualización tecnológica de FC de MetroCluster
+
 * Debe completar el procedimiento de actualización tecnológica antes de añadir una nueva carga.
 * Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, si tiene una configuración de ocho nodos, los ocho nodos deben ejecutar la misma versión de ONTAP.
 * No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas.
 * Si los límites de la plataforma de destino son inferiores a los límites de MetroCluster, debe volver a configurar el MetroCluster para que sea igual o inferior a los límites de la plataforma de destino antes de agregar los nuevos nodos.
 * Consulte la link:https://hwu.netapp.com["Hardware Universe"^] para límites de plataforma.
 
+
+.Combinaciones de actualizaciones técnicas FC de AFF y FAS MetroCluster admitidas
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración de MetroCluster FC:
+
+image::../media/metrocluster_fc_tech_refresh.png[actualización tecnológica de MetroCluster fc]
+
+.Combinaciones de actualizaciones tecnológicas FC de ASA MetroCluster admitidas
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema ASA en una configuración de MetroCluster FC:
+
+[cols="3*"]
+|===
+| Plataforma FC de MetroCluster de origen | Plataforma FC MetroCluster de destino | Compatible? 
+
+
+.2+| ASA A400 | ASA A400 | Sí 
+
+
+| ASA A900 | No 
+
+
+.2+| ASA A900 | ASA A400 | No 
+
+
+| ASA A900 | Sí 
+|===
+
+
+== Seleccione un procedimiento de refrescamiento
+
+Seleccione el procedimiento de actualización para la configuración en la siguiente tabla:
 
 [cols="2,1,1,2"]
 |===

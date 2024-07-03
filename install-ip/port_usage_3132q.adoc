@@ -20,18 +20,36 @@ Revise estas directrices antes de utilizar las tablas:
 
 
 
-== Uso de puertos para los sistemas FAS2750 o AFF A220 y un switch Cisco 3132Q-V.
+== Elija la tabla de cableado correcta para su configuración
 
-image::../media/mcc_ip_cabling_a_fas2750_or_a220_to_a_cisco_3132q_v_switch.png[cableado ip de mcc: fas2750 o a220 a un switch cisco 3132q v.]
+Utilice la siguiente tabla para determinar qué tabla de cableado debe seguir.
 
-
-
-== Uso de puertos para sistemas FAS9000 o AFF A700 y un switch Cisco 3132Q-V.
-
-image::../media/mcc_ip_cabling_a_fas9000_or_aff_a700_to_a_cisco_3132q_v_switch.png[cableado ip de mcc: fas9000 o AFF a700 a un switch cisco 3132q v]
+[cols="2*"]
+|===
+| Si el sistema es... | Utilice esta tabla de cableado... 
 
 
+ a| 
+FAS2750, AFF A220
+| <<table_1_cisco_3132q,Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 1)>> 
 
-== Uso de puertos para sistemas AFF A800 o ASA A800 y un switch Cisco 3132Q-V.
 
-image::../media/cabling_an_aff_a800_to_a_cisco_3132q_v_switch.png[cableado de un a800 de AFF a un switch cisco 3132q v.]
+| FAS9000, AFF A700 | <<table_2_cisco_3132q,Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 2)>> 
+
+
+| AFF A800, ASA A800 | <<table_3_cisco_3132q,Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 3)>> 
+|===
+.Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 1)
+Revise las asignaciones de puertos de plataforma para cablear un sistema FAS2750 o AFF A220 a un conmutador Cisco 3132Q-V:
+
+image::../media/mcc_ip_cabling_a_fas2750_or_a220_to_a_cisco_3132q_v_switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3132Q-V.]
+
+.Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 2)
+Revise las asignaciones de puertos de plataforma para cablear un sistema FAS9000 o AFF A700 a un conmutador Cisco 3132Q-V:
+
+image::../media/mcc_ip_cabling_a_fas9000_or_aff_a700_to_a_cisco_3132q_v_switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3132Q-V.]
+
+.Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 3)
+Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A800 o ASA A800 a un switch Cisco 3132Q-V:
+
+image::../media/cabling_an_aff_a800_to_a_cisco_3132q_v_switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3132Q-V.]

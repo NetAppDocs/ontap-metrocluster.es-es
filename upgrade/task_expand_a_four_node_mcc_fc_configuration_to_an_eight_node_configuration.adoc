@@ -40,7 +40,7 @@ Ambos sitios deben ser ampliados igualmente. Una configuración FC de MetroClust
 
 == Combinaciones de plataformas compatibles al agregar un segundo grupo de DR
 
-En la siguiente tabla se muestran las combinaciones de plataformas admitidas para las configuraciones de FC MetroCluster de ocho nodos.
+En las siguientes tablas se muestran las combinaciones de plataformas admitidas para configuraciones FC de MetroCluster de ocho nodos.
 
 [IMPORTANT]
 ====
@@ -51,4 +51,27 @@ En la siguiente tabla se muestran las combinaciones de plataformas admitidas par
 
 
 ====
-image::../media/8node_comb_fc_914.png[Combinaciones de plataforma para configuraciones de 8 nodos]
+.Combinaciones de ampliación AFF y FAS MetroCluster FC compatibles
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para ampliar un sistema AFF o FAS en una configuración de MetroCluster FC:
+
+image::../media/8node_comb_fc.png[Combinaciones de plataforma para configuraciones de 8 nodos]
+
+.Combinaciones de expansión FC de ASA MetroCluster compatibles
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para ampliar un sistema ASA en una configuración de MetroCluster FC:
+
+[cols="3*"]
+|===
+| Grupo de recuperación ante desastres de ocho nodos 1 | Grupo de recuperación ante desastres de ocho nodos 2 | Compatible? 
+
+
+.2+| ASA A400 | ASA A400 | Sí 
+
+
+| ASA A900 | No 
+
+
+.2+| ASA A900 | ASA A400 | No 
+
+
+| ASA A900 | Sí 
+|===

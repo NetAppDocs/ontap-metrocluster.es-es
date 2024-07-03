@@ -216,6 +216,9 @@ En la siguiente tabla se enumeran los modelos de plataforma que utilizan identif
 
 
  a| 
+* AFF A70
+* AFF A90
+* AFF A1K
 * AFF A220
 * AFF A250
 * AFF A400
@@ -237,9 +240,48 @@ En la siguiente tabla se enumeran los modelos de plataforma que utilizan identif
 Las direcciones necesarias son las direcciones de los socios DR que se muestran en la columna *Dirección de red de destino*.
 
 +
-El siguiente resultado muestra las direcciones IP para una configuración con los sistemas A700 y FAS9000 de AFF con las interfaces IP de MetroCluster en los puertos e5a y e5b. Las interfaces varían según el tipo de plataforma.
+La salida del comando varía en función del modelo de la plataforma.
 
 +
+[role="tabbed-block"]
+====
+.Sistemas introducidos en ONTAP 9.15.1 o posterior
+--
+Los sistemas introducidos en ONTAP 9.15.1 o posterior (AFF A70, AFF A90 y AFF A1K) tienen puertos independientes para alta disponibilidad y recuperación ante desastres, como se muestra en el resultado del ejemplo siguiente:
+
+[listing]
+----
+cluster_B::*> metrocluster configuration-settings connection show
+DR                    Source          Destination
+DR                    Source          Destination
+Group Cluster Node    Network Address Network Address Partner Type Config State
+----- ------- ------- --------------- --------------- ------------ ------------
+1     cluster_B
+              node_B_1
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.10    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.11    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.10    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.11    DR Auxiliary completed
+              node_B_2
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.11    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.10    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.11    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.10    DR Auxiliary completed
+12 entries were displayed.
+----
+--
+.Todos los demás sistemas
+--
+El siguiente resultado muestra las direcciones IP para una configuración con los sistemas A700 y FAS9000 de AFF con las interfaces IP de MetroCluster en los puertos e5a y e5b. Las interfaces pueden variar según el tipo de plataforma.
+
 [listing]
 ----
 cluster_B::*> metrocluster configuration-settings connection show
@@ -276,12 +318,14 @@ Group Cluster Node    Network Address Network Address Partner Type Config State
                       172.17.27.12    172.17.27.10    DR Auxiliary completed
 12 entries were displayed.
 ----
+--
+====
 . Si necesita determinar el identificador de VLAN o la dirección de puerta de enlace de la interfaz, determine los identificadores de VLAN del sitio superviviente:
 +
 `metrocluster configuration-settings interface show`
 
 +
-** Necesitará el identificador de VLAN si los modelos de plataforma utilizan identificadores de VLAN (consulte la lista anterior) y si no está utilizando los identificadores de VLAN predeterminados.
+** Necesita el ID de VLAN si los modelos de la plataforma utilizan identificadores de VLAN (consulte la lista anterior) y si no utiliza los identificadores de VLAN predeterminados.
 ** Necesita la dirección de puerta de enlace si está utilizando link:../install-ip/concept_considerations_layer_3.html["Redes de área amplia de capa 3"].
 +
 Los identificadores de VLAN se incluyen en la columna *Dirección de red* de la salida. La columna *Gateway* muestra la dirección IP de la puerta de enlace.
@@ -306,27 +350,56 @@ Group Cluster Node     Network Address Netmask         Gateway         State
 ----
 
 
-. Si los nodos del sitio de desastres utilizan identificadores de VLAN (consulte la lista anterior), en el símbolo del sistema del CARGADOR para cada uno de los nodos del sitio de desastres, establezca los siguientes bootargs:
+. En el símbolo del sistema del CARGADOR para cada uno de los nodos del sitio de desastre, establezca el valor de arranque según el modelo de plataforma:
 +
+[NOTE]
+====
+** Si las interfaces utilizan las VLAN predeterminadas, o el modelo de plataforma no utiliza un ID de VLAN (consulte la lista anterior), el _vlan-id_ no es necesario.
+** Si la configuración no está utilizando link:../install-ip/concept_considerations_layer_3.html["Redes de área extensa Layer3"], El valor para _gateway-IP-address_ es *0* (cero).
+
+
+====
++
+[role="tabbed-block"]
+====
+.Sistemas introducidos en ONTAP 9.15.1 o posterior
 --
+El valor de _HA-PARTNER-IP-ADDRESS_ debe establecerse en *0* (cero) en los sistemas introducidos en ONTAP 9.15.1 o posterior porque tienen puertos independientes para DR y HA.
+
+Defina el siguiente arranque:
+
+[listing]
+----
+setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+
+setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+----
+Los siguientes comandos establecen los valores para node_A_1 mediante VLAN 120 para la primera red y VLAN 130 para la segunda red:
+
+....
+setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,0,172.17.26.13,172.17.26.12,120
+
+setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,0,172.17.27.13,172.17.27.12,130
+....
+En el ejemplo siguiente se muestran los comandos para node_A_1 sin un ID de VLAN:
+
+[listing]
+----
+setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,0,172.17.26.13,172.17.26.12
+
+setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,0,172.17.27.13,172.17.27.12
+----
+--
+.Todos los demás sistemas
+--
+Defina el siguiente arranque:
+
 ....
 setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
 
 setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
 ....
-[NOTE]
-====
-** Si las interfaces utilizan las VLAN predeterminadas o el modelo de plataforma no requiere una VLAN (consulte la lista anterior), el _vlan-id_ no es necesario.
-** Si la configuración no está utilizando link:../install-ip/concept_considerations_layer_3.html["Redes de área extensa Layer3"], El valor para _gateway-IP-address_ es *0* (cero).
-
-
-====
-** Si las interfaces utilizan las VLAN predeterminadas o el modelo de plataforma no requiere una VLAN (consulte la lista anterior), el _vlan-id_ no es necesario.
-** Si la configuración no está utilizando link:../install-ip/concept_considerations_layer_3.html["conexiones de back-end de capa 3"], El valor para _gateway-IP-address_ es *0* (cero).
-+
 Los siguientes comandos establecen los valores para node_A_1 mediante VLAN 120 para la primera red y VLAN 130 para la segunda red:
-
-
 
 ....
 setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12,120
@@ -335,37 +408,14 @@ setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,
 ....
 En el ejemplo siguiente se muestran los comandos para node_A_1 sin un ID de VLAN:
 
-....
+[listing]
+----
 setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12
 
 setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,172.17.27.12
-....
+----
 --
-. Si los nodos del sitio de desastres no son sistemas que utilizan identificadores de VLAN, en el símbolo del sistema del CARGADOR para cada uno de los nodos de desastre, defina los siguientes bootargs con local_IP/mask,gateway:
-+
-....
-setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address
-
-
-setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address
-....
-+
-[NOTE]
 ====
-** Si las interfaces utilizan las VLAN predeterminadas o el modelo de plataforma no requiere una VLAN (consulte la lista anterior), el _vlan-id_ no es necesario.
-** Si la configuración no está utilizando link:../install-ip/concept_considerations_layer_3.html["Redes de área amplia de capa 3"], El valor para _gateway-IP-address_ es *0* (cero).
-
-
-====
-+
-Los siguientes comandos establecen los valores de node_A_1. En este ejemplo, no se utilizan los valores _gateway-IP-address_ y _vlan-id_ .
-
-+
-....
-setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12
-
-setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,172.17.27.12
-....
 . Desde el sitio superviviente, recopile los UUID para el sitio de desastre:
 +
 `metrocluster node show -fields node-cluster-uuid, node-uuid`

@@ -32,6 +32,6 @@ Utilice las instrucciones de instalación de la plataforma en https://docs.netap
 
 +
 
-NOTE: Los sistemas IP de MetroCluster no tienen puertos de alta disponibilidad dedicados. Cuando se utilice _ONTAP Hardware Systems Documentation_ para instalar la plataforma, no debe seguir las instrucciones para cablear el clúster y los puertos de alta disponibilidad.
+NOTE: Los sistemas IP de MetroCluster no tienen puertos de alta disponibilidad dedicados. Según su plataforma, el tráfico de alta disponibilidad se servirá mediante MetroCluster, el clúster local o la interfaz de clúster/MetroCluster compartido. Cuando se utilice _ONTAP Hardware Systems Documentation_ para instalar la plataforma, no debe seguir las instrucciones para cablear el clúster y los puertos de alta disponibilidad.
 
 

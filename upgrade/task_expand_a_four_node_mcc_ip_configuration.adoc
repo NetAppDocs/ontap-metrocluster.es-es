@@ -76,7 +76,7 @@ dr_group_2-new
 
 == Combinaciones de plataformas compatibles al agregar un segundo grupo de DR
 
-En la siguiente tabla se muestran las combinaciones de plataformas admitidas para las configuraciones IP de ocho nodos.
+En las siguientes tablas se muestran las combinaciones de plataformas admitidas para las configuraciones IP de MetroCluster de ocho nodos.
 
 [IMPORTANT]
 ====
@@ -87,11 +87,22 @@ En la siguiente tabla se muestran las combinaciones de plataformas admitidas par
 
 
 ====
-image::../media/8node_comb_ip_914.png[Combinaciones de plataforma para configuraciones de 8 nodos]
+.Combinaciones de ampliación AFF y FAS MetroCluster IP compatibles
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para ampliar un sistema AFF o FAS en una configuración IP de MetroCluster:
+
+
+NOTE: Los sistemas AFF A70, AFF A90 y AFF A1K requieren ONTAP 9.15.1 o posterior.
+
+image::../media/8node_comb_ip_aff_fas.png[Combinaciones de plataforma para configuraciones de 8 nodos]
 
 * *Nota 1*: Se requiere ONTAP 9.9.1 o posterior (o la versión mínima de ONTAP admitida en la plataforma) para estas combinaciones.
 * *Nota 2*: Se requiere ONTAP 9.13.1 o posterior (o la versión mínima de ONTAP admitida en la plataforma) para estas combinaciones.
 
+
+.Combinaciones de ampliación IP de ASA MetroCluster compatibles
+La siguiente tabla muestra las combinaciones de plataformas admitidas para expandir un sistema ASA en una configuración IP de MetroCluster:
+
+image::../media/8node_comb_ip_asa.png[Combinaciones de plataforma para configuraciones de 8 nodos]
 
 
 

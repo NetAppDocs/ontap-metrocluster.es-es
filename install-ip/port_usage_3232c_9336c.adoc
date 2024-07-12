@@ -30,6 +30,9 @@ Utilice esta información general sobre el cableado para verificar el cableado.
 
 
 
+NOTE: La versión del archivo RCF es diferente a la versión de la herramienta RCFfilegenerator utilizada para generar el archivo. Por ejemplo, puede generar un archivo RCF versión 2,00 utilizando RCFfilegenerator v1,6c.
+
+
 
 == Cableado de dos configuraciones de MetroCluster a los switches
 

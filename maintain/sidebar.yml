@@ -76,8 +76,7 @@ entries:
   - title: Añada, elimine o cambie los puertos ISL sin interrupciones en los switches
       IP de Cisco
     url: "/maintain/task_add_remove_or_change_isl_ports_nondisruptively.html"
-- title: Modifique la dirección, la máscara de red y la pasarela en una configuración
-    IP de MetroCluster
+- title: Modificar las propiedades de una interfaz IP de MetroCluster
   url: "/maintain/task-modify-ip-netmask-properties.html"
 - title: Modifique una dirección IP de puente ATTO o conmutador para la supervisión
     del estado

@@ -1720,8 +1720,6 @@ No debe haber configurado Service Processor.
 .Acerca de esta tarea
 Esta tarea se realiza para configuraciones MetroCluster de dos nodos que utilizan almacenamiento de NetApp nativo.
 
-Los nuevos sistemas MetroCluster están preconfigurados, no es necesario realizar estos pasos. Sin embargo, debe configurar AutoSupport.
-
 Esta tarea debe realizarse en ambos clústeres de la configuración de MetroCluster.
 
 Para obtener más información general sobre la configuración de ONTAP, consulte la _Guía de configuración de software_

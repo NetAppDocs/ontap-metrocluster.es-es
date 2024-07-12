@@ -1189,10 +1189,7 @@
   <block id="2f27031fa0ef15874103f9c3c2bb2cdb" category="section-title">Configurar los nodos IP de MetroCluster y deshabilitar la transición</block>
   <block id="328e2e9e10966db8ddcc53513bf291f7" category="paragraph">Debe implementar las conexiones IP de MetroCluster, actualizar la configuración de MetroCluster y deshabilitar el modo de transición.</block>
   <block id="303070df2456faa853aadfa7ea3999db" category="list-text">Forme los nodos nuevos en un grupo de recuperación ante desastres emitiendo los siguientes comandos desde Controller node_A_1-IP:</block>
-  <block id="e7973dc96fbf00a42cc73b5c38c79955" category="paragraph"><block ref="d34d1af6875a3950a028fe34a530a8b6" prefix="" category="inline-code"></block></block>
   <block id="ba687aa6b66d0caad63c23e4f8056daa" category="list-text">Create MetroCluster interfaces IP (node_A_1-IP, node_A_2-IP, node_B_1-IP, node_B_2-IP) -- se necesitan crear dos interfaces por controladora; ocho interfaces en total:</block>
-  <block id="fa8131efc320bb8e280052bd108e5171" category="paragraph"><block ref="b6474cc23e637ba94dc25266de471055" prefix="" category="inline-code"></block></block>
-  <block id="e236c571f68a8abbf9f63cbdda82b284" category="paragraph">El parámetro -vlan-id solo es obligatorio si no utiliza los identificadores de VLAN predeterminados. Solo ciertos sistemas admiten identificadores de VLAN no predeterminados.</block>
   <block id="9a0b9eb8837eefadab01d020fa11e1d5" category="list-text">Ejecute la operación de conexión MetroCluster desde Controller node_A_1-IP para conectar los sitios MetroCluster;- esta operación puede tardar unos minutos en completarse:</block>
   <block id="5d8ecedd372251a662a8070efd4d44a1" category="list-text">Compruebe que los discos del clúster remoto son visibles en cada controladora a través de las conexiones iSCSI:</block>
   <block id="7f4213ba547153050e227bb7e83660cf" category="paragraph">Debería ver los discos remotos que pertenecen al resto de nodos de la configuración.</block>
@@ -1235,13 +1232,11 @@
   <block id="8570d4b69bd3be86ec49bb299da8d8e8" category="list-text">Compruebe el puerto de inicio de las LIF:</block>
   <block id="0f017cab6ec74ba1f4afec8f68cba30b" category="paragraph"><block ref="315e934a7749f3c253cb37734c658257" prefix="" category="inline-code"></block></block>
   <block id="ebb1f0f568f8a927428fc83bb9ebb26c" category="list-text">Si es necesario, modifique la configuración de LIF:</block>
-  <block id="cf5ad87d9cad301afa5079b192ec4fe1" category="paragraph"><block ref="b9359427280dc2955a64d39a70c07ed2" prefix="" category="inline-code"></block></block>
   <block id="d97bb8f76cd270b3d3f4ad15bf1ad581" category="list-text">Revierte los LIF a sus puertos principales:</block>
   <block id="d75d76809aa06d21a97ad9fe9321f1aa" category="section-title">Ponga en marcha las SVM</block>
   <block id="55e81917f17be0fde525c762d18e803b" category="paragraph">Debido a los cambios si la configuración de LIF, debe reiniciar las SVM en los nodos nuevos.</block>
   <block id="1d7b64edfdea8f80d1f2ac282bdb2bc3" category="list-text">Compruebe el estado de las SVM:</block>
   <block id="ff52cbccdf312c3ea8a620732c8adcbb" category="list-text">Reinicie las SVM en cluster_A que no tengan un sufijo "'-mc":</block>
-  <block id="92227e5460eb525c285dd05f872c0b0b" category="paragraph"><block ref="e39b3a5097057bd5ed27ed4a851394a1" prefix="" category="inline-code"></block></block>
   <block id="eb612851318a6ca8e82057ddee9b9f8c" category="list-text">Repita los pasos anteriores en el clúster de partners.</block>
   <block id="f62ca81f37424307e221ec33ca15ce2c" category="list-text">Compruebe que todas las SVM estén en buen estado:</block>
   <block id="10ccf225d5b66e557c92de3b160a830f" category="list-text">Compruebe que todas las LIF de datos están en línea:</block>
@@ -1252,25 +1247,19 @@
   <block id="8f8d06a8dad308b531eba66926b2f2fc" category="list-text">Habilitar la asignación automática de discos.</block>
   <block id="b2a4f8ac895a8d07c2ac00ec1569efdf" category="list-text">Mueva el volumen del sistema _B de node_A_1-IP a node_A_2-IP siguiendo los pasos siguientes de site_A.</block>
   <block id="1accc6cb1f1118e060a5ddb1cbcdc858" category="list-text">Cree un agregado reflejado en node_A_2-IP de la controladora para alojar el volumen del sistema:</block>
-  <block id="0df1338723e7e2dede2b69ee215ab08d" category="paragraph"><block ref="bd28fa8dd2b955f072f02bba9a2c2996" prefix="" category="inline-code"></block></block>
   <block id="10404496bc3fdbc20b1a8cb6f40290ac" category="paragraph"><block ref="a261f7431767cd36b0625adf3422b7d4" prefix="" category="inline-code"></block></block>
   <block id="90b6980aa9c6eec01e7b50296b5e3215" category="paragraph">El agregado reflejado requiere cinco discos de repuesto de pool 0 y cinco pools 1 propiedad del nodo de la controladora_A_2-IP.</block>
   <block id="7bfd01cb125fbc7dbcaca1c1a5ba6b84" category="paragraph">La opción avanzada « »-force-small-aggregate true» se puede utilizar para limitar el uso del disco a 3 discos de los pools 0 y 3 discos de los pools 1, si los discos se encuentran en un acceso breve.</block>
   <block id="07d91fa2c5be95dfee421615bc50eb6a" category="list-text">Enumere los volúmenes del sistema asociados con la SVM de administrador:</block>
   <block id="d18522f509115a3fc2cb993d3bb07341" category="paragraph"><block ref="448da724515e17f1a0d8b304eb2f526c" prefix="" category="inline-code"></block></block>
-  <block id="2bcc2af8321d27cf62ad615dcc09c890" category="paragraph"><block ref="069d88189c31e527ddf12de946ba0bb0" prefix="" category="inline-code"></block></block>
   <block id="c526c532810479af3143f75c0b926db1" category="paragraph">Debe identificar los volúmenes contenidos por agregados que pertenecen a Site_A. También se mostrarán los volúmenes del sistema Site_B.</block>
   <block id="7803c32341af959dbb8295c7d3f2c5b3" category="list-text">Mueva el volumen del sistema MDV_CRS_*_B del sitio_A al agregado reflejado creado en el nodo_A_2-IP del controlador</block>
   <block id="de77dddd8bae21c040010b1563afa176" category="list-text">Compruebe los posibles agregados de destino:</block>
-  <block id="1785091900894e2dd266e14ada9cac43" category="paragraph"><block ref="ab9efff315d734086d5a14cead4c688b" prefix="" category="inline-code"></block></block>
   <block id="c7da5ceb7c66f40a7eb4760c7fa708a6" category="paragraph">Debe aparecer el agregado recién creado en node_A_2-IP.</block>
   <block id="f5863f82786e791434401c19871905fc" category="list-text">Mueva el volumen al agregado recién creado en node_A_2-IP:</block>
-  <block id="05b2e5e5779185fe4f513ff169317139" category="paragraph"><block ref="c297673a6bcf823878fa892dd1cf3963" prefix="" category="inline-code"></block></block>
   <block id="79a5088dfdd3b710c037e8edaced2831" category="list-text">Compruebe el estado de la operación de movimiento:</block>
-  <block id="28764cb9000d8ef2fcf0b5d81981277b" category="paragraph"><block ref="e394f7f70d9196dcc223242835f6f37d" prefix="" category="inline-code"></block></block>
   <block id="6fbae0f85a9fb1a4a76eda149fb886d3" category="list-text">Una vez completada la operación de movimiento, compruebe que el nuevo agregado del sistema MDV_CRS_*_B está contenido en node_A_2-IP:</block>
   <block id="7d751970b8113a85136b22a70fa38bcc" category="paragraph"><block ref="3c0ecb7e06fffa9c8cf5dc763ad7ac8f" prefix="" category="inline-code"></block></block>
-  <block id="ef4b82047d91f505fc870c69b3a59831" category="paragraph"><block ref="c1b7b70bef21e056aa1f1da7614027d6" prefix="" category="inline-code"></block></block>
   <block id="34d1cfcdcf18bab93eb2f50683525124" category="list-text">Repita los pasos anteriores en site_B (node_B_1-IP y node_B_2-IP).</block>
   <block id="a1dc95b2dccfd24df8e5f465b41ca7bb" category="summary">Durante la transición, se mueven los datos de las bandejas de unidades en la configuración FC de MetroCluster a la nueva configuración IP de MetroCluster.</block>
   <block id="6b2201b255bf7619b40525eabcf640ce" category="doc">Mover los datos a las bandejas de unidades nuevas</block>
@@ -1916,8 +1905,6 @@
   <block id="4d02019723a4017318fe7fcb3cebc7cc" category="list-text">e5b: 172.17.27.13</block>
   <block id="54a37fb90fee103691197fc9d5ac4722" category="list-text">e5a: 172.17.26.12</block>
   <block id="8a5c2788729f7d71adc6ea3073bef0a7" category="list-text">e5b: 172.17.27.12</block>
-  <block id="293eb0cec46bbaec87fb533441fc6a62" category="paragraph">En la siguiente tabla se enumeran los modelos de plataforma que utilizan identificadores de VLAN en las interfaces IP de MetroCluster. Estos modelos pueden requerir pasos adicionales si no utiliza los identificadores de VLAN predeterminados.</block>
-  <block id="c19058170bee0e83b964c0c32018bf9a" category="cell">Modelos de plataforma que utilizan identificadores de VLAN con las interfaces IP de MetroCluster</block>
   <block id="84880048c8db4bb557c571e15f6437c7" category="list-text">Desde el sitio superviviente, recopile las direcciones IP de las interfaces MetroCluster en el sitio de recuperación ante desastres:</block>
   <block id="7a401d723d877e99188e0a3d18003e13" category="paragraph">Las direcciones necesarias son las direcciones de los socios DR que se muestran en la columna *Dirección de red de destino*.</block>
   <block id="940e6eb81cb9ea67ed6a7924fe4f6444" category="list-text">Si necesita determinar el identificador de VLAN o la dirección de puerta de enlace de la interfaz, determine los identificadores de VLAN del sitio superviviente:</block>
@@ -4054,7 +4041,6 @@
   <block id="cff1f1e3d1bd4979f788b1439a65b093" category="paragraph">Antes de realizar el mantenimiento, debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que se está realizando el mantenimiento. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción.</block>
   <block id="98b62c826619c29a4bad696e74f75477" category="list-text">Para evitar la generación automática de casos de soporte, envíe un mensaje de AutoSupport para indicar que la actualización está en curso.</block>
   <block id="7df74d0e0c825c9d4fe156e6bd9676e5" category="list-text">Emita el siguiente comando:</block>
-  <block id="fe7cd7570699a4adf147f5f7b9a04721" category="paragraph"><block ref="9062a94bcc646043cfb8c2ffec3011d8" prefix="" category="inline-code"></block></block>
   <block id="217c8768ad5ec1b4b90b1244cd1221a7" category="paragraph">En este ejemplo se especifica una ventana de mantenimiento de 10 horas. Es posible que desee permitir tiempo adicional, dependiendo de su plan.</block>
   <block id="626b3d2c42e820bd7603e0a6c34ff781" category="paragraph">Si el mantenimiento se completa antes de que haya transcurrido el tiempo, puede invocar un mensaje de AutoSupport que indique el final del período de mantenimiento:</block>
   <block id="84e33342856c02e8a00ad96f47bd4d9f" category="list-text">Repita el comando en el clúster de partners.</block>
@@ -4102,20 +4088,14 @@
   <block id="09a5ba598e7357ef745825da8cab1892" category="paragraph">Esta tarea se debe realizar en cada uno de los nuevos nodos:</block>
   <block id="c63a77ef39a96105eac912bc9b3dd2fb" category="paragraph">En estos pasos, se borra la configuración en los nodos y se borra la región del buzón en las unidades nuevas.</block>
   <block id="4d2a12dbb40eebfdeb323911fc06c5ce" category="list-text">Monte en rack las nuevas controladoras.</block>
-  <block id="f6acb42dff1f31025b3df225af9cfeb7" category="list-text">Conecte los nuevos nodos IP de MetroCluster a los switches IP como se muestra en la instalación y configuración de _MetroCluster._</block>
   <block id="ef8a86bee8843988ee84e3ebf370fee9" category="inline-link-macro">Cableado de los switches IP</block>
-  <block id="657bcb6c51639854c4fdede551507755" category="paragraph"><block ref="657bcb6c51639854c4fdede551507755" category="inline-link-macro-rx"></block></block>
-  <block id="f8f9e49e85005888d8da2b71cfd36720" category="list-text">Configure los nodos IP de MetroCluster mediante las siguientes secciones de la instalación y configuración de _MetroCluster._</block>
   <block id="49bbf1feafd5bd1fce43e87c0b9dbd0b" category="inline-link-macro">Obteniendo información obligatoria</block>
   <block id="1cbfeb82dbc642ca3cfc8e2db84c469c" category="list-text"><block ref="1cbfeb82dbc642ca3cfc8e2db84c469c" category="inline-link-macro-rx"></block></block>
   <block id="89ec261ce88167cf44741974c5031e50" category="inline-link-macro">Restaurando los valores predeterminados del sistema en un módulo de controlador</block>
-  <block id="80fb18040e16ccb3a6c8dc20fc5f11f1" category="list-text"><block ref="80fb18040e16ccb3a6c8dc20fc5f11f1" category="inline-link-macro-rx"></block></block>
   <block id="251fa3a6289ecafe7b95d67056605968" category="list-text"><block ref="251fa3a6289ecafe7b95d67056605968" category="inline-link-macro-rx"></block></block>
   <block id="9db419369e9211f992a02b77873b9294" category="inline-link-macro">Asignar manualmente unidades para un pool 0 (ONTAP 9.4 y posterior)</block>
-  <block id="55f78f2dd63e2732947016115017bd0f" category="list-text"><block ref="55f78f2dd63e2732947016115017bd0f" category="inline-link-macro-rx"></block></block>
   <block id="d93785c679dd9ecbbe55df9329146a8d" category="list-text">En el modo de mantenimiento, emita el comando halt para salir del modo de mantenimiento y, a continuación, emita el comando boot_ontap para arrancar el sistema y acceder a la configuración del clúster.</block>
   <block id="ccaa4e34c729aaba9db9c5a44c41381f" category="paragraph">No complete el asistente de clúster ni el asistente para nodos en este momento.</block>
-  <block id="b425f6bdd0c31b91b100e2fdd5e1f615" category="section-title">La unión de los nuevos nodos a los clústeres</block>
   <block id="6fd67a5ed9276ba994c073cf2c532faf" category="paragraph">Debe añadir los cuatro nodos IP de MetroCluster nuevos a la configuración de MetroCluster existente.</block>
   <block id="b74949b8fefb7fd6ee33defaa6372e00" category="paragraph">Debe ejecutar esta tarea en ambos clústeres.</block>
   <block id="dd1fe3592fd98072942cfb0278eb80b6" category="list-text">Añada los nodos IP de MetroCluster nuevos a la configuración de MetroCluster existente.</block>
@@ -4145,12 +4125,8 @@
   <block id="ad668484e20b76c4db276efb95b361b4" category="paragraph"><block ref="c4afe022b7411a2436b595a90ac0292e" prefix="" category="inline-code"></block></block>
   <block id="333744f802db71c53ff9d4ad61fbc125" category="list-text">Configure las interfaces IP de MetroCluster para los nodos IP de MetroCluster recién Unidos:</block>
   <block id="b1e0fc9a28d1fbc5566a3e38e1ba8e33" category="paragraph"><block ref="e36741948f6631f55a1d7c27b8da74e8" prefix="" category="inline-code"></block></block>
-  <block id="e4194351c70f628f28ee542a65494961" category="list-text">Algunas plataformas utilizan una VLAN para la interfaz de IP de MetroCluster. De manera predeterminada, cada uno de los dos puertos utiliza una VLAN diferente: 10 y 20. También puede especificar una VLAN diferente (no predeterminada) mayor que 100 (entre 101 y 4095) mediante el<block ref="7ddd31ad6bfad1157829ba0cb2299068" prefix=" " category="inline-code"></block> en la<block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> comando.</block>
   <block id="6d8c2528a36ade2616de34224d776375" category="inline-link-macro">Consideraciones sobre las redes de área amplia de capa 3</block>
   <block id="eae306387b2384204fa6a3c19690890a" category="list-text">A partir de ONTAP 9.9.1, si utiliza una configuración de capa 3, también debe especificar el<block ref="50e57debf79bf52aa078c6e993f8969f" prefix=" " category="inline-code"></block> Al crear interfaces IP de MetroCluster. Consulte <block ref="babfc343bda1ae07500c981be392a72d" category="inline-link-macro-rx"></block>.</block>
-  <block id="37e445da4970f1c0106716e8dba83be8" category="paragraph">Los siguientes modelos de plataforma se pueden añadir a la configuración de MetroCluster existente si las VLAN utilizadas son 10/20 o superiores a 100. Si se usan otras VLAN, no es posible agregar estas plataformas a la configuración existente, ya que no se puede configurar la interfaz de MetroCluster. Si utiliza cualquier otra plataforma, la configuración de VLAN no es relevante, ya que no es necesaria en ONTAP.</block>
-  <block id="9ace720c417350af9e7b31ebc811b5de" category="cell">Plataformas AFF</block>
-  <block id="cc04b828d9f0654ce99362fa4a96bb32" category="cell">Plataformas FAS</block>
   <block id="8fd3ca5f66dff5be16e79560dd28171e" category="list-text">AFF A220</block>
   <block id="68b23d3f7da36f1f08be0727f515bcb1" category="list-text">AFF A250</block>
   <block id="540dacfeb5577ce4282c41e9c7518680" category="list-text">AFF A400</block>
@@ -4173,7 +4149,6 @@
   <block id="6c46e592d5f16891d3a16e5f364e031b" category="section-title">Finalización de la adición de nuevos nodos</block>
   <block id="756f29d7bcbe7decf6b979c0706fc9a1" category="paragraph">Debe incorporar el nuevo grupo de recuperación ante desastres a la configuración de MetroCluster y crear agregados de datos reflejados en los nuevos nodos.</block>
   <block id="b24de9180a5deb759a394eebcd1a0305" category="list-text">Crear agregados de datos reflejados en cada uno de los nuevos nodos de MetroCluster:</block>
-  <block id="170c0bd348671980b8974da23b1a29d5" category="paragraph"><block ref="45cb50361d62c86a22194e1c059852f6" prefix="" category="inline-code"></block></block>
   <block id="aabce8f4cea0092b527adf5c08e57ba7" category="admonition">Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es compatible con un único agregado de datos reflejados de un centro de MetroCluster, mientras que el otro sitio tiene más de un agregado de datos con mirroring.</block>
   <block id="7062dd7205e5ed0cba84efd4203bc9cc" category="paragraph">En el ejemplo siguiente se muestra la creación de un agregado en node_A_1-new.</block>
   <block id="5172e21efeb1892262831ef5031d5316" category="list-text">Entre en el modo de privilegio avanzado:</block>
@@ -4187,19 +4162,15 @@
   <block id="b0d21d87e852192022d32882c31d8709" category="paragraph">En el siguiente ejemplo se muestran los volúmenes MDV en<block ref="0c5606ed319753bb2d86a485f23c8f6d" prefix=" " category="inline-code"></block> salida:</block>
   <block id="ef5472688f1420b45325cbf6180440eb" category="list-text">Configure el nivel de privilegio avanzado:</block>
   <block id="de01f17b24f9e658f1690bddd46b771d" category="list-text">Mueva los volúmenes de MDV de uno en uno:</block>
-  <block id="b7eb0ab9143e83a0ba9eaa1b24abb788" category="paragraph"><block ref="a8fe24713feeaee0bc1b50c42946c0bf" prefix="" category="inline-code"></block></block>
   <block id="aacab676cefc900d32e2155650f1b66e" category="paragraph">En el siguiente ejemplo se muestra el comando y la salida para mover "MDV_CRS_d6b0b313f5611e9837100a098544e51_A" al agregado "data_a3" en "node_A_3".</block>
   <block id="91065ab9ce24d9b5cf714f2c930ae111" category="list-text">Utilice el comando volume show para comprobar que el volumen de MDV se ha movido correctamente:</block>
-  <block id="a25df1c27211fa258fda2429e25619ba" category="paragraph"><block ref="c66de7caae339d419fc8038b341c2721" prefix="" category="inline-code"></block></block>
   <block id="15824d097492897385ee13d6bbfb3727" category="paragraph">La siguiente salida muestra que el volumen de MDV se ha movido correctamente.</block>
   <block id="12ad2a7a15e12ee368e4e0bc2e2ab5bb" category="list-text">Volver al modo admin:</block>
   <block id="35e9915a736701c4f891d4dd42880e39" category="list-text">Mueva épsilon de un nodo antiguo a un nuevo nodo:</block>
   <block id="cc863d7088764c07fa87ffea3cae245e" category="list-text">Identifique qué nodo tiene actualmente épsilon:</block>
   <block id="19b075b0ff8fbdf79efbef8787bbf0d7" category="paragraph"><block ref="6633eb44d2ebe2b378268900133e2c3f" prefix="" category="inline-code"></block></block>
   <block id="7361f37b651295feb8d60f3f566081f2" category="list-text">Establezca épsilon en FALSE en el nodo antiguo (node_A_1-old):</block>
-  <block id="d75b73420fff0db8b490d51327d3ac30" category="paragraph"><block ref="ec2a5ffda528e24b7c49bc594abb1e79" prefix="" category="inline-code"></block></block>
   <block id="327221e852c98244ddf26f6a4f3c61c5" category="list-text">Establezca épsilon en true en el nuevo nodo (node_A_3-new):</block>
-  <block id="7e8573f61e56d88c570a9b47a35d2872" category="paragraph"><block ref="4e3c03be38431b25d7ba19bb6218a845" prefix="" category="inline-code"></block></block>
   <block id="468a7d44a90e2d51ce44106bf786e824" category="list-text">Compruebe que épsilon se ha movido al nodo correcto:</block>
   <block id="96b370eac5aa139852f6e8fd4b6aaf01" category="summary">Puede utilizar la operación de conmutación de sitios de MetroCluster para proporcionar un servicio no disruptivo a los clientes mientras se actualizan los módulos de la controladora del clúster de partners. Como parte de este procedimiento, no se pueden actualizar otros componentes (como bandejas de almacenamiento o switches).</block>
   <block id="3f28886cbb43f1c7c0c4f4d35ecafdde" category="doc">Actualización de controladoras en una configuración MetroCluster FC mediante conmutación de sitios y conmutación de estado</block>
@@ -6407,7 +6378,6 @@
   <block id="4c286a4533c555f62039858a256b6e7f" category="paragraph">En una configuración MetroCluster de dos nodos, en cada clúster debe arrancar el nodo, salir del asistente de configuración de clúster y utilizar el<block ref="03934095bd27f1b42b336dffb38d392f" prefix=" " category="inline-code"></block> comando para configurar el nodo en un clúster de un solo nodo.</block>
   <block id="2dafecd33d1bcc030e5a4330614efcc0" category="paragraph">No debe haber configurado Service Processor.</block>
   <block id="3d97e23b9e037dc67358be022977af8f" category="paragraph">Esta tarea se realiza para configuraciones MetroCluster de dos nodos que utilizan almacenamiento de NetApp nativo.</block>
-  <block id="0db317f78e958b4fc0a151a64a160872" category="paragraph">Los nuevos sistemas MetroCluster están preconfigurados, no es necesario realizar estos pasos. Sin embargo, debe configurar AutoSupport.</block>
   <block id="f82209ba761a7a3841706c46b4b7c662" category="paragraph">Esta tarea debe realizarse en ambos clústeres de la configuración de MetroCluster.</block>
   <block id="81d86459e5a3e2353ad75db0c4cc1230" category="paragraph">Para obtener más información general sobre la configuración de ONTAP, consulte <block ref="b344da29565aaa689911ef5c966296ae" category="inline-link-macro-rx"></block></block>
   <block id="65ed7b3de2c8dfe1b7246d59c4b26a4f" category="list-text">Encienda el primer nodo.</block>
@@ -9848,7 +9818,6 @@
   <block id="4f9c0725d0d15a8e91511fc6c394410b" category="paragraph">En el ejemplo siguiente se muestra la instalación del software en IP_switch_A_1:</block>
   <block id="ac3aa4d9a92093f6bd699c4806c9e9ae" category="list-text">Compruebe que se ha instalado el software del conmutador: +<block ref="48f6d03db0af7dafae461857e48942d9" prefix=" " category="inline-code"></block></block>
   <block id="15035122b1bddd8c3fe67b67b0705420" category="list-text">Repita estos pasos en los tres switches IP restantes de la configuración IP de MetroCluster.</block>
-  <block id="ae5a9e1b352beed4f4e81e14f93b2027" category="paragraph">Debe descargar el archivo RCF en cada switch de la configuración IP de MetroCluster.</block>
   <block id="ea0d999dd84d8036206106a29fbde270" category="paragraph">Existen cuatro archivos RCF, uno para cada uno de los cuatro conmutadores de la configuración IP de MetroCluster. Debe utilizar los archivos RCF correctos para el modelo de conmutador que esté utilizando.</block>
   <block id="73c6d760f528fa449fd643ef68f79a32" category="paragraph">IP_switch_A_1</block>
   <block id="334910bbc7198eea40a5718a09788dc1" category="paragraph">NX3232_v1.80_Switch-A1.txt</block>
@@ -9858,7 +9827,6 @@
   <block id="c2a6f21d9468636e0845f2fa91c6865a" category="paragraph">NX3232_v1.80_Switch-B1.txt</block>
   <block id="6e4e89c7b914560c1a65ea32734c6bfc" category="paragraph">IP_switch_B_2</block>
   <block id="fed227599b689943135c765d47b6045a" category="paragraph">NX3232_v1.80_Switch-B2.txt</block>
-  <block id="837bb09325ae9b33d183f31d5f605c2f" category="list-text">Descargue los archivos RCF IP de MetroCluster.</block>
   <block id="dd6721b9055a32492dda0434480da44d" category="admonition">No se admiten las modificaciones realizadas en los archivos RCF después de la descarga.</block>
   <block id="516e7c19b1a750a903f4fd9e3624c57a" category="list-text">Copie los archivos RCF en los conmutadores:</block>
   <block id="d40094c20302b8d483bb43b07d043c82" category="paragraph"><block ref="6305d967b80a5a692091566ceba6afc7" prefix="" category="inline-code"></block></block>
@@ -10395,7 +10363,6 @@
   <block id="49e1a7864ade73270e9731fa5e8d06b5" category="paragraph"><block ref="9853a9fda038b06437565c30324ef780" prefix="" category="inline-code"></block></block>
   <block id="3ddf6128f0a393867c561bb1e5afc517" category="paragraph">El resultado del comando debería mostrar que los nodos están listos:</block>
   <block id="1e1bd4d49c72f5651a7bf56c3b28ad9e" category="list-text">Cree el grupo DR:</block>
-  <block id="398261489fd871e4bf365185e2f10654" category="paragraph"><block ref="843081a225f83db3da77e77ece48dec1" prefix="" category="inline-code"></block></block>
   <block id="5f4922783bf1dbf85c40333fb51b2c89" category="paragraph">Este comando se emite una sola vez. No es necesario que se repita en el clúster de partners. En el comando, debe especificar el nombre del clúster remoto y el nombre de un nodo local y un nodo en el clúster de compañero.</block>
   <block id="0516823d8797d0c70b11e32480c8b55e" category="paragraph">Los dos nodos que especifique están configurados como partners de recuperación ante desastres y los otros dos nodos (que no se especifican en el comando) se configuran como la segunda pareja de recuperación ante desastres del grupo de recuperación ante desastres. Estas relaciones no se pueden cambiar después de introducir este comando.</block>
   <block id="551a81d95247af57ec12499fdc4a3c4f" category="paragraph">El siguiente comando crea estas parejas de recuperación ante desastres:</block>
@@ -10407,11 +10374,8 @@
   <block id="86983ba76f02422a54a19be9cff0fcaa" category="inline-link-macro">Consideraciones sobre la configuración de IP de MetroCluster</block>
   <block id="cb8db61556b998f0533a4e329749c0f3" category="list-text">Debe crear todos los puertos de interfaz IP "A" de MetroCluster en la misma VLAN y todos los puertos de interfaz IP de MetroCluster "B" en la otra VLAN. Consulte <block ref="0d7e2206ca44f9cb7344ddf469b6d625" category="inline-link-macro-rx"></block>.</block>
   <block id="d92b732ac2371228690ac4aa3a45c76d" category="paragraph">Las siguientes direcciones IP y subredes se usan en los ejemplos:</block>
-  <block id="7836fec023af8279b6813ce6178cea83" category="paragraph">Los puertos físicos que utilizan las interfaces IP de MetroCluster dependen del modelo de plataforma, como se muestra en la siguiente tabla.</block>
   <block id="76b11ed48986c915dad0ad468f5f7076" category="cell">Puerto IP MetroCluster</block>
-  <block id="3b0649c72650c313a357338dcdfb64ec" category="cell">Nota</block>
   <block id="7f9098b3aa499fc3c45fc1b938fa2983" category="paragraph">e5b</block>
-  <block id="ef552e9c89303b51a8bdce9d5298edba" category="paragraph">e7b</block>
   <block id="22fe67c2e87caff18249cf1804bbeaad" category="paragraph">e0b</block>
   <block id="e737b5ac24a63afc00e81377a906728d" category="paragraph">e1b</block>
   <block id="be5c2414ae70aba780319ccd665f44da" category="paragraph">AFF A700 y FAS9000</block>
@@ -10420,14 +10384,9 @@
   <block id="cbd803f54be888bcec7290684e827de3" category="paragraph">e0g</block>
   <block id="09f2306a6f2ede6943b6299ba6f08e6f" category="paragraph">e0h</block>
   <block id="1cee36e7d177f47699c566a98cdd28b7" category="paragraph">AFF A300 y FAS8200</block>
-  <block id="8f3d53e328e933c1c823ad812070ee9a" category="paragraph">AFF A220 y FAS2750</block>
   <block id="922c556baf6272bffc4fa28b2e9a0bbc" category="paragraph">e0a</block>
-  <block id="b33c216ed444f03f1d7617747a6e7d14" category="paragraph">En estos sistemas, estos puertos físicos también se utilizan como interfaces de clúster.</block>
   <block id="931c3299e4495428df74c7ef15981af6" category="paragraph">AFF A250 y FAS500f</block>
   <block id="96640993dd2592a16c29226daf83b860" category="paragraph">e0c</block>
-  <block id="5191792b1ad05675fea3bbf015036b3b" category="paragraph">e0d</block>
-  <block id="e84adb514eb7cf544f0458fa9f233a94" category="paragraph">FAS8300 y FAS8700</block>
-  <block id="bb696bca91d9d001f9391644f8ffc55b" category="paragraph">El uso de puertos en los siguientes ejemplos corresponde a un sistema A700 o FAS9000 de AFF.</block>
   <block id="815655232c25fc83e97a6545a3d32ad0" category="list-text">Confirme que cada nodo tiene habilitada la asignación automática de discos:</block>
   <block id="3053279e92827f88ac749b07c55736e4" category="paragraph"><block ref="95e8c3545da27ac609a73ab063932ef7" prefix="" category="inline-code"></block></block>
   <block id="26474283e53d2bcc6e465bb015d10ac6" category="paragraph">La asignación automática de discos asignará discos de pool 0 y pool 1 a bandeja.</block>
@@ -10435,14 +10394,9 @@
   <block id="a6f575cfbb092754b19dcdd7684049de" category="list-text">Compruebe que puede crear interfaces IP de MetroCluster en los nodos:</block>
   <block id="9f7283c1c792ddad181076fee0869a5a" category="paragraph">Todos los nodos deben estar listos:</block>
   <block id="8f955ed5a582fae9866401d6c28b2e2b" category="list-text">Cree las interfaces en node_A_1.</block>
-  <block id="d6bd32bf1126979c2d4e6ece8c95299c" category="list-text">El uso de puertos en los siguientes ejemplos corresponde a un sistema A700 o FAS9000 de AFF (e5a y e5b). Debe configurar las interfaces en los puertos correctos para su modelo de plataforma, como se ha indicado anteriormente.</block>
-  <block id="1631c24dd2645318c89e780c4904812a" category="list-text">A partir de ONTAP 9.9.1, si utiliza una configuración de capa 3, también debe especificar el<block ref="50e57debf79bf52aa078c6e993f8969f" prefix=" " category="inline-code"></block> Al crear interfaces IP de MetroCluster. Consulte <block ref="c0c95b98444cb413fd783099a9c566d2" category="inline-link-macro-rx"></block>.</block>
-  <block id="5164fe99511e449f9e8845c15ef34f48" category="list-text">En los modelos de plataforma que admiten VLAN para la interfaz IP de MetroCluster, se puede incluir el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> Si no desea utilizar los identificadores de VLAN predeterminados.</block>
   <block id="6fdec1a2f60a774bc364863d2853cc3f" category="list-text">Configure la interfaz en el puerto "e5a" en "node_A_1":</block>
-  <block id="45ad6e06c40844c6f5b57d8932e2f7ff" category="paragraph"><block ref="7c2f521ca601b45a3928eab222cc57cf" prefix="" category="inline-code"></block></block>
   <block id="27dcaaf47e1da08f00a2b2187c12fb1c" category="paragraph">En el ejemplo siguiente se muestra la creación de la interfaz en el puerto "e5a" en "node_A_1" con la dirección IP "10.1.1.1":</block>
   <block id="05dbfe1f868a1f51583d39356b69e4e2" category="list-text">Configure la interfaz en el puerto "e5b" en "node_A_1":</block>
-  <block id="20c3f3b4b951b2af82631bde02fb51b9" category="paragraph"><block ref="16000f9b063345e38b40a35d9806f84c" prefix="" category="inline-code"></block></block>
   <block id="1803e10a14f354e79a75c68f1ec4c3c3" category="paragraph">En el ejemplo siguiente se muestra la creación de la interfaz en el puerto "e5b" en "node_A_1" con la dirección IP "10.1.2.1":</block>
   <block id="7038283390e1896174a1ee9c0a0abffd" category="admonition">Puede verificar la presencia de estas interfaces mediante el<block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix=" " category="inline-code"></block> comando.</block>
   <block id="c22374f63564b93ff51df38b4b1bd900" category="list-text">Cree las interfaces en node_A_2.</block>
@@ -10467,7 +10421,6 @@
   <block id="7cdacd92c7d25c56a3b4cd267ceaeb45" category="list-text">Compruebe que los nodos estén listos para conectar las interfaces MetroCluster:</block>
   <block id="81b3ec87aa382eaeed6816109d653991" category="paragraph">En el siguiente ejemplo, se muestran todos los nodos en el estado "Ready for connection":</block>
   <block id="2426ba4359302fc0601f4fe05ddcde9e" category="list-text">Establezca las conexiones:<block ref="2537b712544abaf1a4d2233756085f09" prefix=" " category="inline-code"></block></block>
-  <block id="b3aefc653b3e34234962d0fd4751384e" category="paragraph">Las direcciones IP no se pueden cambiar después de emitir este comando.</block>
   <block id="5477c0f2f19c548117af0a9f6d15e1cd" category="paragraph">En el ejemplo siguiente se muestra Cluster_A conectado correctamente:</block>
   <block id="1e17943d4720a25913c03b742e2d9603" category="list-text">Compruebe que se han establecido las conexiones:</block>
   <block id="18247a699f6a66787ed75bb08c337588" category="paragraph">Se debe completar el estado de los ajustes de configuración de todos los nodos:</block>
@@ -10504,8 +10457,6 @@
   <block id="93a05e12a5b6edba257e33f8d132f672" category="list-text">Mostrar la lista de unidades sin asignar:</block>
   <block id="9541d0a2ec2001b79a5021245bc8097d" category="paragraph"><block ref="49eb07d0de44bdd59c96ebe3d2e50b6f" prefix="" category="inline-code"></block></block>
   <block id="ebf25afcc7ec4438e4e8b495a9c10a1b" category="list-text">Asigne la propiedad de las unidades remotas (0m) al pool 1 del primer nodo (por ejemplo, node_A_1):</block>
-  <block id="43e6ad4a7595ffb998ecabca800a4499" category="paragraph"><block ref="35b6217020d4fae4344043a4f29fbe3d" prefix="" category="inline-code"></block></block>
-  <block id="d2d4ec61bf8acc60eba25fa2650dd53e" category="paragraph"><block ref="9817e7d5e354e00e27c230cd87198379" prefix="" category="inline-code"></block> debe identificar una unidad en una bandeja remota de<block ref="e4b0b6a148163d618b06fd13e7636800" prefix=" " category="inline-code"></block>.</block>
   <block id="3eb645c2e2e57a4fa839c890ce5500a5" category="list-text">Confirmar que las unidades se asignaron al pool 1:</block>
   <block id="0b9ffe41b53e309536e3f5708172ef6b" category="admonition">La conexión iSCSI utilizada para acceder a las unidades remotas aparece como dispositivo 0m.</block>
   <block id="7d3e47253a900358f15197bcd198cc0a" category="paragraph">El siguiente resultado muestra que las unidades de la bandeja 23 se asignaron porque ya no se muestran en la lista de unidades sin asignar:</block>
@@ -10525,7 +10476,6 @@
   <block id="ea0ac128cbb46e41c5edee49bafee325" category="list-text">Asigne un disco remoto al pool 1 desde cada nodo de la configuración IP de MetroCluster.</block>
   <block id="94427a4d5177b2ba3264de4433e877c3" category="list-text">Mostrar la lista de discos sin asignar:</block>
   <block id="97047fcf259462467b79b76f81bc261f" category="list-text">Seleccione un disco remoto (0m) y asigne la propiedad del disco al pool 1 del primer nodo (por ejemplo, "node_A_1"):</block>
-  <block id="1df04fb323d4da59ba3f98ebc5f1b64e" category="paragraph">La<block ref="9817e7d5e354e00e27c230cd87198379" prefix=" " category="inline-code"></block> debe identificar un disco en una bandeja remota de<block ref="e4b0b6a148163d618b06fd13e7636800" prefix=" " category="inline-code"></block>.</block>
   <block id="123e6c3d9c94f11e38d58164f434bdf4" category="paragraph">La función de asignación automática de discos de ONTAP asigna todos los discos de la bandeja remota que contiene el disco especificado.</block>
   <block id="81b4294a2f342064d8a63544ff17f60d" category="list-text">Después de esperar al menos 60 segundos para que se realice la asignación automática de discos, compruebe que los discos remotos de la bandeja se asignaron automáticamente al pool 1:</block>
   <block id="22d6fa72a4ea2e4fe27cd33123cd3604" category="admonition">La conexión iSCSI utilizada para acceder a los discos remotos aparece como dispositivo 0m.</block>
@@ -10534,7 +10484,6 @@
   <block id="dc39a7bb0328bf49da6969242ecc1465" category="section-title">Habilitación de la asignación automática de unidades en ONTAP 9.4</block>
   <block id="86bd4aae23931ee0da1b105523dd6302" category="paragraph">En ONTAP 9.4, si deshabilitó la asignación automática de unidades como indicó anteriormente en este procedimiento, debe rehabilitarla en todos los nodos.</block>
   <block id="e1ba2dd99f6f83bc8a965b69cf5d438e" category="list-text">Habilitar asignación automática de unidades:</block>
-  <block id="c6aa0c3762cef91596cb5364dc0519ff" category="paragraph"><block ref="468cd0e5a15e85c7790fc4f543542ad2" prefix="" category="inline-code"></block></block>
   <block id="c6929687122880aa90a062df554ef575" category="paragraph">Debe emitir este comando en todos los nodos de la configuración de IP de MetroCluster.</block>
   <block id="ea9e90b23c0b9c0b676c1354ef372db9" category="paragraph">El siguiente comando refleja el agregado raíz para "Controller_A_1":</block>
   <block id="f901b4e06f91cf4fe5b1e0d1cc53e888" category="list-text">Si se permiten unidades con distintas RPM para obtener más información acerca de estas opciones, consulte la página man CREATE Aggregate Storage.</block>
@@ -10545,7 +10494,6 @@
   <block id="f85d453a151727b424ea32911c308179" category="admonition">Lo mejor es disponer de varios agregados de datos. Si el primer grupo de recuperación ante desastres tiene un solo agregado y desea añadir un grupo de recuperación ante desastres con un agregado, debe mover el volumen de metadatos fuera del agregado de datos único. Para obtener más información sobre este procedimiento, consulte <block ref="bf3d05f18b73f1c62d283d02a0c83e7a" category="inline-link-macro-rx"></block>.</block>
   <block id="a0015e0604e545ee6945f1fa8fdce38f" category="paragraph">El siguiente comando habilita la configuración de MetroCluster en todos los nodos del grupo DR que contiene "Controller_A_1":</block>
   <block id="317d0fe753c44e0c763e684785e3b0bd" category="list-text">Para evitar posibles problemas con el mirroring de memoria no volátil, reinicie cada uno de los cuatro nodos:</block>
-  <block id="752dca7721b956b1795d215187b7376f" category="paragraph"><block ref="41d7cfee2012cf8c11940f5d20c37126" prefix="" category="inline-code"></block></block>
   <block id="0a61a44a1765390d027f85da70024fd8" category="list-text">Emita el<block ref="0d51371cbb850772d2130a36f4368df4" prefix=" " category="inline-code"></block> comando en ambos clústeres para volver a verificar la configuración.</block>
   <block id="43a86ca9910ac10add49d293714b50f6" category="section-title">Configurar el segundo grupo DR con una configuración de ocho nodos</block>
   <block id="5526d75deed345c5b83d6ead8ab0bdad" category="paragraph">Repita las tareas anteriores para configurar los nodos del segundo grupo de recuperación ante desastres.</block>
@@ -10606,7 +10554,6 @@
   <block id="fd56421b5278bf3b069d8729f920f29e" category="list-text">Reinicie el conmutador con el<block ref="06d12c03aa485826b7f204affe755aa8" prefix=" " category="inline-code"></block> comando.</block>
   <block id="c55cbcd30055e2eecf2070469bd7907a" category="paragraph">Cuando se reinicie el conmutador, puede aplicar una nueva configuración siguiendo los pasos de <block ref="67df29514d3fd31c6e0b92fb5ef28c21" category="inline-xref-macro-rx"></block>.</block>
   <block id="66dfac56c9206023b345746e3fd92eae" category="section-title">[[Download-and-install]]Descargue e instale los archivos NVIDIA RCF</block>
-  <block id="5d975c1dd11d51c95b55f14295457c6d" category="paragraph">Debe descargar e instalar el archivo RCF del conmutador en cada conmutador de la configuración IP de MetroCluster.</block>
   <block id="62217055050b5f95ab3ac1b301982bec" category="list-text">El software del switch está instalado y la red de administración está configurada.</block>
   <block id="8d8734eaa9f80f06163e261ecd8dfd87" category="list-text">Ha seguido los pasos para instalar inicialmente el conmutador mediante el método 1 o el método 2.</block>
   <block id="f5029a9b9e4cf676befc86e9839549bd" category="list-text">No ha aplicado ninguna configuración adicional después de la instalación inicial.</block>
@@ -10797,7 +10744,6 @@
   <block id="383d9b07e1ef0cfcfa9ec36fecccfe02" category="paragraph">Sólo puede cambiar una interfaz a la vez. Habrá interrupciones en el tráfico en esa interfaz hasta que se actualicen las otras interfaces y se restablezcan las conexiones.</block>
   <block id="8450a359c3efc774857fe0f3189456e0" category="paragraph">Utilice la<block ref="a7c7bfc3508e315ba41d4dc6412930eb" prefix=" " category="inline-code"></block> Comando para cambiar cualquier propiedad de interfaz IP de MetroCluster.</block>
   <block id="6a644f6158922e284b18d4232a152b9f" category="admonition">Estos comandos cambian la configuración de un nodo en particular para un puerto en particular. Para restaurar una conectividad de red completa, se necesitan comandos similares en otros puertos. De igual modo, los switches de red también deben actualizar su configuración. Por ejemplo, si la puerta de enlace se actualiza, lo ideal es que cambie en ambos nodos de un par de alta disponibilidad, ya que son los mismos. Además, el switch conectado a dichos nodos también debe actualizar su puerta de enlace.</block>
-  <block id="7c7233877526ac5d7617b812df525ea4" category="paragraph">Utilice la<block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix=" " category="inline-code"></block>,<block ref="5b8b75a432651ed8b64b6072b8616665" prefix=" " category="inline-code"></block> compruebe y.<block ref="1fb1e9c05efc96eb745333b035ce6d59" prefix=" " category="inline-code"></block> comandos para verificar que toda la conectividad funciona en todas las interfaces.</block>
   <block id="700215bf58e5cc6edce60155aeb7c44a" category="section-title">Modifique la dirección IP, la máscara de red y la pasarela</block>
   <block id="2747f7ff86cce509295bfb4ba2b1c4fa" category="list-text">Actualice la dirección IP, la máscara de red y la pasarela de un solo nodo e interfaz:<block ref="a7c7bfc3508e315ba41d4dc6412930eb" prefix=" " category="inline-code"></block></block>
   <block id="2f545dcb650b5848061814c5ce3b4cf4" category="paragraph">El siguiente comando muestra cómo actualizar la dirección IP, la máscara de red y la pasarela:</block>
@@ -10933,7 +10879,6 @@
   <block id="30fb21972afba53cd103c9063e54815b" category="cell">3.7.x.x.</block>
   <block id="ca06807503101d86e21d40fd5c8ff94b" category="cell">v2.x</block>
   <block id="ab4a2de3931dbed092e0d44be3c87116" category="list-text">Genere los archivos RCF de Broadcom para MetroCluster IP.</block>
-  <block id="fd550a9c3a7b7c6106ae07bc6bb69106" category="list-text">Descargue el<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block></block>
   <block id="03b9eedf57c55a2eb9b4feaa990c85f6" category="list-text">Genere el archivo RCF para su configuración utilizando el RcfFileGenerator para MetroCluster IP.</block>
   <block id="b457d19307b0152d2948b75490c21739" category="list-text">Copie los archivos RCF en el primer conmutador:<block ref="3f67288a8e6d20265fe6b15914489c60" prefix=" " category="inline-code"></block></block>
   <block id="0fde531bbbf90d47fe7905001a962dde" category="paragraph">En este ejemplo, el archivo RCF "BES-53248_v1.32_Switch-A1.txt" se copia desde el servidor SFTP en "50.50.50.50" al bootflash local. Debe utilizar la dirección IP del servidor TFTP/SFTP y el nombre de archivo del archivo RCF que necesita instalar.</block>
@@ -10955,7 +10900,6 @@
   <block id="1749d12df3df2319d3eee218a277ff83" category="doc">MetroCluster</block>
   <block id="efe451bd1c5b374a05e7d5178bb06987" category="inline-link">Notas de la versión de ONTAP 9</block>
   <block id="dbd469acdcbd52648cb242bcfda6add3" category="paragraph">Debe iniciar sesión en el sitio de soporte de NetApp para acceder a las notas de la versión.</block>
-  <block id="90cd0db781b4639c1c46407e5a4f0a93" category="paragraph">+ los siguientes modelos de plataforma se pueden agregar a la configuración de MetroCluster existente si las VLAN utilizadas son 10/20 o superiores a 100. Si se usan otras VLAN, no es posible agregar estas plataformas a la configuración existente, ya que no se puede configurar la interfaz de MetroCluster. Si utiliza cualquier otra plataforma, la configuración de VLAN no es relevante, ya que no es necesaria en ONTAP.</block>
   <block id="14df4d809d9812994f1e4264e6272db6" category="paragraph">Si es necesario, puede restablecer el boot_recovery y rdb_corrupt_bootargs</block>
   <block id="d2c039898f8a935b9869f711551f1bdc" category="list-text">Detenga el nodo de nuevo en el símbolo del sistema del CARGADOR:</block>
   <block id="0b0c0d8fa1e4052e4b5d4195ede1e340" category="list-text">Compruebe si se han configurado los siguientes bootargs:</block>
@@ -11913,8 +11857,6 @@
   <block id="779a44ac931df50e9ba3ac26bbca035e" category="list-text">Si la<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> el comando se ha completado correctamente y, a continuación, se ha producido un error en el módulo del controlador; utilice la tabla anterior para determinar el procedimiento de recuperación correcto.</block>
   <block id="57c5f3148ec34d732973b7f905f1ca84" category="section-title">Escenarios de fallos del módulo de controlador durante la transición de MetroCluster FC a IP</block>
   <block id="b79001d76282bba800ccc9b5187d2ad4" category="list-text">Mueva las LIF de datos a sin conexión.<block ref="58d060d8bc95409e743c7b8e95e72710" prefix=" " category="inline-code"></block></block>
-  <block id="6bf7a249268f3de77afe5f47cab93371" category="list-text"><block ref="6bf7a249268f3de77afe5f47cab93371" category="inline-link-macro-rx"></block></block>
-  <block id="6a6fc2b9cb4bc74b0b6f0528b0da3e1e" category="list-text"><block ref="6a6fc2b9cb4bc74b0b6f0528b0da3e1e" category="inline-link-macro-rx"></block></block>
   <block id="467f07382f2568a4248a6dee67437d64" category="paragraph"><block ref="467f07382f2568a4248a6dee67437d64" category="inline-link-macro-rx"></block></block>
   <block id="d570f5d821344a6838aaa260987eafc8" category="inline-link-macro">Gestión de parejas de alta disponibilidad</block>
   <block id="519460f530eb0c6817aeafcaef72fd69" category="paragraph">En una configuración MetroCluster de cuatro nodos, este error podría provocar una toma de control automática o negociada del nodo dañado, según el componente que haya fallado. Se describe la recuperación de datos en <block ref="098c4bee7c591ea5429ed6be6c4ddd42" category="inline-link-macro-rx"></block> .</block>
@@ -12803,12 +12745,10 @@
   <block id="83401bd8eb751fc79a9ff9e2e69be029" category="paragraph"><block ref="ff41f8886897126f1b4109a0b09cd291" category="inline-link-macro-rx"></block>.</block>
   <block id="09e34111ef8649a5302b1889e0c7d303" category="list-text">JRE 8</block>
   <block id="b3c0f57dcdb05faa9fbc38832a492a4e" category="admonition">Aparecen algunos mensajes de advertencia mientras se aplica la configuración. Por lo general, no se esperan mensajes de error. Sin embargo, si ha iniciado sesión mediante SSH, puede recibir el siguiente error:<block ref="f6ffe33fb36eb714adf6f81147c665f6" prefix=" " category="inline-code"></block></block>
-  <block id="c15b62e6a5ff15a0315735efe0205145" category="doc">Modifique la dirección, la máscara de red y la pasarela en una configuración IP de MetroCluster</block>
   <block id="907d0a00eecf52dcc4562775faad470a" category="paragraph">A partir de ONTAP 9.10.1, puede cambiar las siguientes propiedades de una interfaz IP de MetroCluster: Dirección IP, máscara y puerta de enlace. Puede usar cualquier combinación de parámetros para actualizar.</block>
   <block id="5e1f7c325aa2c4eb9ee527a8279eb798" category="list-text">[[step3]]Compruebe que todas las conexiones funcionan:</block>
   <block id="cf07fc29a0bf48b43804bd5e97849449" category="summary">Si usa switches compatibles con MetroCluster, debe tener en cuenta las velocidades de red específicas de la plataforma y los requisitos del modo de puerto de switch.</block>
   <block id="b6c12395a961cf95058c6e4d4412ac09" category="paragraph">En la siguiente tabla se muestran velocidades de red específicas de plataforma y modos de puertos de switch para switches conformes con MetroCluster. Debe configurar el modo de puerto de switch según la tabla.</block>
-  <block id="f2ac555a8b496557dba2555170124225" category="image-alt">velocidad de red del interruptor compatible con mcc</block>
   <block id="8c425f952493015588fb91113b5b2dd8" category="summary">Esta sección contiene los requisitos de los enlaces entre switches (ISL) que llevan el tráfico MetroCluster en todas las configuraciones IP de MetroCluster y topologías de red.</block>
   <block id="422a6c8c8d23cb29ed822adac0da8cd9" category="paragraph">Los enlaces entre switches (ISL) que manejan el tráfico MetroCluster en todas las configuraciones IP de MetroCluster y las topologías de red tienen determinados requisitos. Estos requisitos se aplican a todos los ISL con tráfico de MetroCluster, independientemente de si los ISL son directos o compartidos entre los switches de clientes.</block>
   <block id="78464639db6e6acf657d9d576a0f2888" category="section-title">Requisitos generales de ISL de MetroCluster</block>
@@ -12970,7 +12910,6 @@ La red puede consistir en una serie de xWDM y TDM y switches, pero a diferencia 
   <block id="6acf5532efb336e0d8001419f26ef951" category="list-text">La red intermedia debe proporcionar las mismas VLAN entre los sitios. Esto debe coincidir con las VLAN de MetroCluster establecidas en el archivo RCF.</block>
   <block id="ac8a1f1bfd836ba146d1ab2feb59b2fa" category="list-text">RcfFileGenerator puede restringir el uso de determinados identificadores de VLAN, por ejemplo, si están destinados a un uso futuro. Por lo general, las VLAN reservadas son de hasta 100, incluidas.</block>
   <block id="d4a11c01614c17bddc7d41960498137a" category="paragraph-title">Configuración de VLAN en ONTAP</block>
-  <block id="2fdb610706dea62a50ca16baa1d63c2a" category="paragraph">Solo puede especificar la VLAN durante la creación de la interfaz. Después de crear las interfaces de MetroCluster, no se puede cambiar el ID de VLAN. Puede configurar otras VLAN durante la creación de la interfaz, pero deben estar dentro del intervalo de 10 a 20 o dentro del intervalo de 101 a 4096 (o el número admitido por el proveedor del switch, el que sea el número menor).</block>
   <block id="5c7b46710dbc52038abeae30dc7410f8" category="admonition">Es posible que algunos proveedores de switch reserven el uso de determinadas VLAN.</block>
   <block id="c42b50e941d0ad3822d8ba3c571ef6c4" category="paragraph">Los siguientes sistemas no requieren configuración de VLAN en ONTAP. La VLAN está especificada por la configuración de puertos del switch:</block>
   <block id="24eb498f969850d03efc1a22afbc9649" category="list-text">FAS8200 y AFF A300</block>
@@ -13614,9 +13553,7 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="a5742dd38006c09197d0e488bba89bf7" category="open-title">Sistemas introducidos en ONTAP 9.15.1 o posterior</block>
   <block id="566a13604e83a8fff73bdf14020a980a" category="paragraph">Los sistemas introducidos en ONTAP 9.15.1 o posterior (AFF A70, AFF A90 y AFF A1K) tienen puertos independientes para alta disponibilidad y recuperación ante desastres, como se muestra en el resultado del ejemplo siguiente:</block>
   <block id="5703319e138fc00c827014acd16d0376" category="paragraph">El siguiente resultado muestra las direcciones IP para una configuración con los sistemas A700 y FAS9000 de AFF con las interfaces IP de MetroCluster en los puertos e5a y e5b. Las interfaces pueden variar según el tipo de plataforma.</block>
-  <block id="b843496219829d61ebc41138be0194e6" category="list-text">Necesita el ID de VLAN si los modelos de la plataforma utilizan identificadores de VLAN (consulte la lista anterior) y si no utiliza los identificadores de VLAN predeterminados.</block>
   <block id="e2974b23926ca4d7d377fe83a01893cc" category="list-text">En el símbolo del sistema del CARGADOR para cada uno de los nodos del sitio de desastre, establezca el valor de arranque según el modelo de plataforma:</block>
-  <block id="ac0f64413607e314a8c6c9ca1bcf8171" category="list-text">Si las interfaces utilizan las VLAN predeterminadas, o el modelo de plataforma no utiliza un ID de VLAN (consulte la lista anterior), el _vlan-id_ no es necesario.</block>
   <block id="7e9ada96e6c7ea5b82a0e953f38fc85c" category="paragraph">El valor de _HA-PARTNER-IP-ADDRESS_ debe establecerse en *0* (cero) en los sistemas introducidos en ONTAP 9.15.1 o posterior porque tienen puertos independientes para DR y HA.</block>
   <block id="fd053f45281bc461c7ff13c80dc7a0ef" category="paragraph">Defina el siguiente arranque:</block>
   <block id="b1656b6f4acc345525c67f4fc0341f24" category="section-title">ADP y asignación de discos en AFF C800, ASA C800, ASA A800, AFF A800, AFF A70, y sistemas AFF A90</block>
@@ -13775,7 +13712,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="ea246a6495df1b87df40d7c322d23942" category="list-text">Todos los nodos (antiguos y nuevos) de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP.</block>
   <block id="5505f24f1b03305d31aacdd035c7f251" category="paragraph-title">Actualizaciones de controladoras IP de AFF y FAS MetroCluster admitidas</block>
   <block id="fcb21df516134bd5563b8b7bef30f98b" category="paragraph">En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster:</block>
-  <block id="bda013124fcd29c13b3794671c5907a2" category="admonition">Los sistemas AFF A90, AFF A70 y AFF A1K requieren ONTAP 9.15.1 o posterior.</block>
   <block id="7b8670a76cf1dc8cbe357ce34cc11736" category="image-alt">actualización ip de MetroCluster so sb AFF FAS</block>
   <block id="ae189029f72cc261fbad1afff41d9552" category="list-text">Nota 3: La plataforma de destino no puede tener unidades internas hasta que finalice la actualización de la controladora. Es posible añadir las unidades internas después de la actualización.</block>
   <block id="39eb8422a5f49fae94f0335febb78701" category="list-text">Nota 4: Requiere la sustitución de los módulos del controlador.</block>
@@ -13800,7 +13736,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="5f59766a690e00008d7b09d26244b85f" category="paragraph">El procedimiento de actualización del sistema que utilice dependerá del modelo de la plataforma y el tipo de configuración de MetroCluster. Los procedimientos de actualización se aplican a las controladoras y las bandejas de almacenamiento. En los procedimientos de actualización, se añaden nuevas controladoras y bandejas a la configuración de la MetroCluster y se crea un segundo grupo de recuperación ante desastres. A continuación, los datos se migran sin interrupciones a los nuevos nodos. A continuación, se retiran las controladoras originales.</block>
   <block id="cf35ca12d11c5730282da68bdb26e696" category="paragraph-title">Combinaciones de actualizaciones tecnológicas AFF y FAS MetroCluster IP admitidas</block>
   <block id="3a2b3b39311d9a61b3a9bb66f7feec5c" category="paragraph">En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster:</block>
-  <block id="70fdfec9430ed4893168e5c59eb64e08" category="admonition">Los sistemas AFF A70, AFF A90 y AFF A1K requieren ONTAP 9.15.1 o posterior.</block>
   <block id="cb8925996d20b2dc27bec26b66db8e61" category="paragraph-title">Combinaciones de actualizaciones tecnológicas IP de ASA MetroCluster admitidas</block>
   <block id="03c48c75d06f3446ef94029cbbce579a" category="paragraph">En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema ASA en una configuración IP de MetroCluster:</block>
   <block id="a3a15df2eb8fb472342a575b30857763" category="image-alt">Combinaciones de actualizaciones tecnológicas de la ASA IP de MetroCluster</block>
@@ -13967,4 +13902,113 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="c848af1101f629db69baafb2b08b9915" category="paragraph"><block ref="ce889b95687da5aee0c3d9ec48e819b4" prefix="" category="inline-code"></block></block>
   <block id="2d425665af37b9989f89179649650990" category="section-title">Complete la actualización</block>
   <block id="0ca215bc0428424e5cb9556db1b478d9" category="paragraph">Revise las asignaciones de puertos de plataforma para cablear un AFF A320, FAS8300, AFF C400, ASA C400, FAS8700, sistema AFF A400 o ASA A400 que no conecta bandejas NSS24 conectadas a switches a un switch compartido Cisco 9336C-FX2:</block>
+  <block id="7bf9d1ef7aeb37de6171f77014cb7475" category="paragraph">Algunas plataformas utilizan una VLAN para la interfaz de IP de MetroCluster. De manera predeterminada, cada uno de los dos puertos utiliza una VLAN diferente: 10 y 20.</block>
+  <block id="b676a1207e184308799f51c46b2c49b4" category="paragraph">+ Si es compatible, también puede especificar una VLAN diferente (no predeterminada) superior a 100 (entre 101 y 4095) mediante el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro del<block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="89ec7be62a41e52b11c54d2aedfc03bf" category="paragraph">+ Las siguientes plataformas *no* soportan el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro:</block>
+  <block id="94c7b7802191ba5792f013727a36b74a" category="paragraph">+ ** FAS8200 y AFF A300 ** AFF A320 ** FAS9000 y AFF A700 ** AFF C800, ASA C800, AFF A800 y ASA A800</block>
+  <block id="4c2e03631cb543e4bf4e7ef67224daf1" category="paragraph">+ Todas las demás plataformas soportan el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro.</block>
+  <block id="4a1ac4ba70bb5d6773aeed24d616a2f3" category="paragraph">+ Las asignaciones VLAN predeterminadas y válidas dependen de si la plataforma soporta el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro:</block>
+  <block id="aabac265f84bb9461925573aa630c391" category="open-title">Plataformas compatibles con &lt;code&gt;-vlan-id&lt;/code&gt;</block>
+  <block id="009e0a1c99c8ad5bfabf6f11303ce60a" category="paragraph">VLAN predeterminada:</block>
+  <block id="a78983875cad001a26c3723e0f50eb6a" category="list-text">Cuando no se especifica el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro, las interfaces se crean con VLAN 10 para los puertos “A” y VLAN 20 para los puertos “B”.</block>
+  <block id="02b813307ad3752283ec290b82273753" category="list-text">La VLAN especificada debe coincidir con la VLAN seleccionada en el RCF.</block>
+  <block id="1715ee402796bdf40dff29a889304866" category="paragraph">Rangos de VLAN válidos:</block>
+  <block id="8ea94730f2193c8723e3b27c5aebe078" category="list-text">VLAN predeterminada 10 y 20</block>
+  <block id="01ec4d3102007958d709faf3df32136d" category="list-text">VLAN 101 y superior (entre 101 y 4095)</block>
+  <block id="aaa04ff0a589d6aed0e5512a0e4a08e3" category="open-title">Plataformas que no admiten &lt;code&gt;-vlan-id&lt;/code&gt;</block>
+  <block id="20b1ece0621452d9d6d4e784484585f1" category="list-text">No aplicable La interfaz no requiere que se especifique una VLAN en la interfaz de MetroCluster. El puerto del switch define la VLAN que se usa.</block>
+  <block id="a5bd965731e0cc4104031ebde55f5c85" category="list-text">Todas las VLAN no se excluyen explícitamente al generar el RCF. La RCF le avisa si la VLAN no es válida.</block>
+  <block id="0afa15de79026c2cb84906cb7a4acaa3" category="paragraph">Si es compatible, también puede especificar una VLAN diferente (no predeterminada) superior a 100 (entre 101 y 4095) con el<block ref="883efb435dfcdbab29a2ff69d0287888" prefix=" " category="inline-code"></block> parámetro.</block>
+  <block id="3a62ad5f83f9a3bdc5429900d03b6af5" category="paragraph">Las siguientes plataformas *no* soportan el<block ref="883efb435dfcdbab29a2ff69d0287888" prefix=" " category="inline-code"></block> parámetro:</block>
+  <block id="f3ab2c03b6ddff7d085fba83ebc3a6b3" category="list-text">AFF C800, ASA C800, AFF A800 y ASA A800</block>
+  <block id="f70f8fd274ec7fa58bf8ba6d99937b3c" category="paragraph">Todas las demás plataformas admiten<block ref="883efb435dfcdbab29a2ff69d0287888" prefix=" " category="inline-code"></block> el parámetro.</block>
+  <block id="318e6115888f5535c580151d3c337eeb" category="inline-xref">lista anterior</block>
+  <block id="601779c42f052b558b7ac9443d399420" category="list-text">Debe determinar el ID de VLAN si los modelos de plataforma admiten identificadores de VLAN (consulte <block ref="05a2d2a273433dceaaaa95abd8b74c34" category="inline-xref-macro-rx"></block>) y si no utiliza los identificadores de VLAN predeterminados.</block>
+  <block id="99d8e07cf22b54bf1c4fe9ecde3bd413" category="list-text">Si las interfaces utilizan las VLAN predeterminadas, o el modelo de plataforma no utiliza un ID de VLAN (consulte <block ref="05a2d2a273433dceaaaa95abd8b74c34" category="inline-xref-macro-rx"></block>), el _vlan-id_ no es necesario.</block>
+  <block id="26c0375297253dbcc942fe30cefa7b4b" category="paragraph">Solo puede especificar la VLAN durante la creación de la interfaz. Puede configurar las VLAN predeterminadas 10 y 20, o las VLAN dentro del intervalo de 101 a 4096 (o el número admitido por el proveedor del switch, el que sea el número inferior). Después de crear las interfaces de la MetroCluster, no se puede cambiar el identificador de VLAN.</block>
+  <block id="3faee78823aa7a1dc8ffca46972f6fb2" category="image-alt">La muestra las velocidades de red específicas de la plataforma y los modos de puertos de switch para switches que cumplen con MetroCluster.</block>
+  <block id="c189be7568f7fe77db4a889353024935" category="admonition">La versión del archivo RCF es diferente a la versión de la herramienta RCFfilegenerator utilizada para generar el archivo. Por ejemplo, puede generar un archivo RCF versión 2,00 utilizando RCFfilegenerator v1,6c.</block>
+  <block id="a796207f93572cbc190249400ba34b9b" category="paragraph"><block ref="08689ca588d2fd5d0e0a12366a8cd0a6" prefix="" category="inline-code"></block></block>
+  <block id="fc902c4c5eb117926b80fc3a1066d5f9" category="paragraph"><block ref="31e96f11307c41bb11d8a37f3c919979" prefix="" category="inline-code"></block></block>
+  <block id="10c6f8561201e68a979db34a4c1af328" category="open-title">En ONTAP 9,6 y versiones posteriores, ejecute:</block>
+  <block id="3bc064a1902725a8ae62c8e84b7feb99" category="paragraph"><block ref="c37572c95fddef7657d9a0fcd9b24e75" prefix="" category="inline-code"></block></block>
+  <block id="ec9ff736da1fa54423820b62f41ff662" category="open-title">En ONTAP 9,5 y versiones anteriores, ejecute:</block>
+  <block id="243afd0bf9b328c9bc054e76fad2abe8" category="paragraph"><block ref="85428d08b368376af762be33f6c812b4" prefix="" category="inline-code"></block></block>
+  <block id="86ef160c7fdcafc5a4252298190d95a2" category="paragraph"><block ref="761632925b707d885dfeb15b72afe768" prefix="" category="inline-code"></block></block>
+  <block id="b98723dad5619921c9fbdb7e0e0050ad" category="paragraph"><block ref="e66e929e19af3d0ee4af9e0e58bd7e5c" prefix="" category="inline-code"></block></block>
+  <block id="80dcc4edac2d765045f64b4c38d1d603" category="paragraph"><block ref="8e2d8ef88fdca0c2d84f0bc37a725a61" prefix="" category="inline-code"></block></block>
+  <block id="51f368c2c1d8b5478b6282cb7c1d5750" category="paragraph"><block ref="d80e7838e2fc707884fbff7e375981c9" prefix="" category="inline-code"></block></block>
+  <block id="4ae2f4a2aef26662b47c70763eb4279d" category="paragraph"><block ref="90a8f7d7f597974a89c88091d170056f" prefix="" category="inline-code"></block></block>
+  <block id="ddf0bc53a0486fe472c9c2802cb8a024" category="inline-link-macro">Modificar las propiedades de una interfaz IP de MetroCluster</block>
+  <block id="c2101bcd2959ec896c34ad3ac441e668" category="list-text">Dependiendo de la versión de ONTAP, puede cambiar algunas propiedades de la interfaz IP de MetroCluster después de la configuración inicial. Consulte <block ref="b5882dba0d9962f87b1ec9d2a9ef135c" category="inline-link-macro-rx"></block> para obtener más información sobre qué es compatible.</block>
+  <block id="fdc2f9c59b3906cedb6920c830ed095c" category="paragraph">Si es compatible, también puede especificar una VLAN diferente (no predeterminada) superior a 100 (entre 101 y 4095) con el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro del<block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="eb2b66b1668ae6b216f98bedcd551ca7" category="paragraph">Las siguientes plataformas *no* soportan el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro:</block>
+  <block id="b98986071c014fdcc3eb14230209b05d" category="paragraph">Todas las demás plataformas admiten<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> el parámetro.</block>
+  <block id="777f7436eaaa59005ece3683cc156ffb" category="paragraph">Las asignaciones de VLAN predeterminadas y válidas dependen de si la plataforma admite el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro:</block>
+  <block id="519e24d9a1a55a3bd63ec91a1eb5f3a2" category="list-text">Los puertos físicos utilizados por las interfaces IP de MetroCluster dependen del modelo de plataforma. Consulte <block ref="7176836221733e9bf6fcbaccc1aa9ffd" category="inline-link-macro-rx"></block> para conocer el uso del puerto para el sistema.</block>
+  <block id="1b629c5d185b0a312899fd30cf61b757" category="list-text">Este procedimiento utiliza los siguientes ejemplos:</block>
+  <block id="1609e614328e6c8547b5eb4d2587160c" category="paragraph">Los puertos para un sistema AFF A700 o FAS9000 (e5a y e5b).</block>
+  <block id="dbf6dd8fe37bef64292c8bb330136895" category="paragraph">Los puertos de un sistema AFF A220 para mostrar cómo usar<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> el parámetro en una plataforma compatible.</block>
+  <block id="5744d7aa47c69584562886d1537eef6c" category="paragraph">Configure las interfaces en los puertos correctos para el modelo de plataforma.</block>
+  <block id="66139ebecd22b7bd276fa21a6e992e09" category="paragraph"><block ref="9f7725524d39b585acc780018710c3b5" prefix="" category="inline-code"></block></block>
+  <block id="3649ee884444b305dd9be194280a7e4c" category="paragraph"><block ref="d768449437ec0f2ec05972fa5734930a" prefix="" category="inline-code"></block></block>
+  <block id="69ec827ee345a01514240a2f136400ed" category="paragraph">Si ejecuta una versión anterior a ONTAP 9.10.1, las direcciones IP no se pueden cambiar después de emitir este comando.</block>
+  <block id="1eaed4d1bc56491d94753ba682a805e3" category="paragraph"><block ref="7e6322a29fc1352727c14f0ff12a2160" prefix="" category="inline-code"></block></block>
+  <block id="df2b000d2262493c81df70ac97ba9f57" category="paragraph"><block ref="9817e7d5e354e00e27c230cd87198379" prefix="" category="inline-code"></block> debe identificar una unidad en una bandeja remota de<block ref="b17fa57bf075ee17088a62c487e99a79" prefix=" " category="inline-code"></block>.</block>
+  <block id="69eed086d7a8a5fd87cfc0c2ec925654" category="paragraph"><block ref="222508883cb9789fa0260600a3a92e79" prefix="" category="inline-code"></block></block>
+  <block id="d2c8fe635684963077359ae30bbb97d8" category="paragraph">El<block ref="9817e7d5e354e00e27c230cd87198379" prefix=" " category="inline-code"></block> debe identificar un disco en una bandeja remota de<block ref="b17fa57bf075ee17088a62c487e99a79" prefix=" " category="inline-code"></block>.</block>
+  <block id="8a97215f1bc3ba891c3674a251e6f272" category="paragraph"><block ref="ca7759d53e9fa9fc63fbc14e6519386b" prefix="" category="inline-code"></block></block>
+  <block id="d99c28bd9db861f076913fb0ceac646d" category="paragraph"><block ref="e0764014c3bd1ac6934ad9c6d416ff33" prefix="" category="inline-code"></block></block>
+  <block id="96c0692401701908c0022bdceb9555d2" category="paragraph"><block ref="59cae235ae742e8f746c0ec9daf9709c" prefix="" category="inline-code"></block></block>
+  <block id="0b15bc4339fc9ca757229e60724602c3" category="paragraph"><block ref="e786ea4dfa5c88bb0e334e54700ffb79" prefix="" category="inline-code"></block></block>
+  <block id="fc8cd930b76d28c02db9703a924fcbc5" category="paragraph"><block ref="7604ec0db3686df86574dac0a83e939c" prefix="" category="inline-code"></block></block>
+  <block id="dee14e1bdab8dbac6ebd23082f44ad6c" category="paragraph"><block ref="e88be64a9e3e854938970e5cd537eab0" prefix="" category="inline-code"></block></block>
+  <block id="acc972bbe2508be48bbc4c72aa01da78" category="paragraph"><block ref="1c2fae678145f8165afe06d13aac27d2" prefix="" category="inline-code"></block></block>
+  <block id="970fd9ae6b41014fb26adcdd699de900" category="paragraph"><block ref="07f05fef8407c50eb9469e72873810d1" prefix="" category="inline-code"></block></block>
+  <block id="7628c397a6518a332d1e7c6b45b4d3c8" category="paragraph"><block ref="29f2c8c292b68f6f42c1df6782b911b3" prefix="" category="inline-code"></block></block>
+  <block id="cf3326a1f08e63b551e2d071556e0598" category="paragraph">Debe generar e instalar el archivo RCF del switch en cada switch de la configuración IP de MetroCluster.</block>
+  <block id="a7ecf6e9de3b493515ff606fc0532227" category="list-text">Descargue el<block ref="b3f8a8564bd91efeacbc3b6197426c6e" category="inline-link-rx"></block></block>
+  <block id="b0e1fb1b9093a23db84f9fe9ec414a05" category="paragraph">Debe generar e instalar el archivo RCF en cada switch de la configuración IP de MetroCluster.</block>
+  <block id="5f6300d6cef757d6670c2170d0ee50fb" category="list-text">Genere los archivos RCF de Cisco para MetroCluster IP.</block>
+  <block id="f0af72ee7b95606742238881f6d3d746" category="list-text">Utilice<block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix=" " category="inline-code"></block><block ref="05f7f2ea3536c78a494ee9ec91b6fef9" prefix=" " category="inline-code"></block>los comandos , , y<block ref="1fb1e9c05efc96eb745333b035ce6d59" prefix=" " category="inline-code"></block> para comprobar que toda la conectividad funciona en todas las interfaces.</block>
+  <block id="696ca372052e4e85401e9ef266b57375" category="paragraph">Realice los siguientes pasos para modificar la dirección IP, la máscara de red y la pasarela de una interfaz MetroCluster IP.</block>
+  <block id="164748ab1cab79cb53ebb8d067fb41df" category="paragraph"><block ref="3b73cc9aa0167fa80aa8a786a4871e88" prefix="" category="inline-code"></block></block>
+  <block id="8c8de216c09126479bba8f0a636ceac7" category="paragraph"><block ref="34b1158d44c89ca8031563bdf424ba84" prefix="" category="inline-code"></block></block>
+  <block id="711aa9967b438e020ee72c9773739e5d" category="paragraph"><block ref="c7462aa9b4e3acfeadac46864ab81636" prefix="" category="inline-code"></block></block>
+  <block id="f33223d33643f0a6a65b83484e66763b" category="paragraph"><block ref="bbe7345a3b57d077a14ca7c861fdc510" prefix="" category="inline-code"></block></block>
+  <block id="9058dcd22d8900bb4bf3607938ba011e" category="paragraph"><block ref="50b65f64b784537f4059e17dbc0cddb8" prefix="" category="inline-code"></block></block>
+  <block id="10b199a11023cc52bf03a4affa5f0105" category="paragraph"><block ref="3110c51feae074637e0930ba61181573" prefix="" category="inline-code"></block></block>
+  <block id="edc1d1fde5aa71226989f69fc30ad581" category="paragraph"><block ref="a10c5f9f83d239029a4f450d6915ef80" prefix="" category="inline-code"></block></block>
+  <block id="2b17135ccdcd7ba37ad016691c03a649" category="paragraph"><block ref="a93cf91a50990ac0c34a2db5a2934eb0" prefix="" category="inline-code"></block></block>
+  <block id="3d49a79afad45f39959ecfef872b641e" category="paragraph"><block ref="64c7ad0cb2888e06ba6c73486d3dff85" prefix="" category="inline-code"></block></block>
+  <block id="88cea512e9153abf88fe978449806ce2" category="paragraph"><block ref="8472522f9b339858f68ec32c5fba569e" prefix="" category="inline-code"></block></block>
+  <block id="7efe6a75c4cace6f7d8d2037b41fcb11" category="paragraph"><block ref="9c6a2d5ce4c1bdc82e1982314ba6847d" prefix="" category="inline-code"></block></block>
+  <block id="a36b67419575cf5ffa05ec3b5f7683a4" category="section-title">Consideraciones sobre las VLAN al añadir un nuevo grupo de DR</block>
+  <block id="d22d7ddfee8653f07bbab4b5554c7e8d" category="list-text">Se aplican las siguientes consideraciones de VLAN al ampliar una configuración de IP de MetroCluster:</block>
+  <block id="180998c1506f167022c7569e93485cf6" category="list-text">Ambos grupos de DR utilizan las mismas VLAN al ampliar de una configuración MetroCluster de cuatro nodos a otra de ocho nodos.</block>
+  <block id="14cbcb11bb60726b28bad9deb474ecca" category="list-text">Si no se pueden configurar ambos grupos de DR con la misma VLAN, debe actualizar el grupo de DR que no admite<block ref="883efb435dfcdbab29a2ff69d0287888" prefix=" " category="inline-code"></block> el parámetro para utilizar una VLAN que sea compatible con el otro grupo de DR.</block>
+  <block id="ff265cea659d94d2bb616f30f406a802" category="paragraph">Debe comprobar el estado y la conectividad de la configuración de MetroCluster antes de ejecutar la ampliación.</block>
+  <block id="9ff1de752473d0e8f9618f724dd22ff9" category="paragraph"><block ref="e0c8c2b46ec80ac4a0d764213e3acc22" prefix="" category="inline-code"></block></block>
+  <block id="8b2ecfdc07e5fe6a0cccb7c1f6495624" category="inline-link-macro">Conecte los cables de los conmutadores IP</block>
+  <block id="76793d2295cd7f845d6a07404968d739" category="list-text">Conecte los nuevos nodos IP de MetroCluster a los switches IP como se muestra en <block ref="f8673193926534b844ce0bb3f56d4c82" category="inline-link-macro-rx"></block>.</block>
+  <block id="daecb091e8e1b92970e1e47c88cae707" category="list-text">Configure los nodos IP de MetroCluster mediante los siguientes procedimientos:</block>
+  <block id="c9e5d01137879d19a0099ceaee84e6a0" category="list-text"><block ref="c9e5d01137879d19a0099ceaee84e6a0" category="inline-link-macro-rx"></block></block>
+  <block id="336a0d2c139a7b999e8638c73ae958c8" category="inline-link-macro">Restaurar los valores predeterminados del sistema en un módulo de controlador</block>
+  <block id="1d593a4f9525e6f2ca9ec32621f1db90" category="list-text"><block ref="1d593a4f9525e6f2ca9ec32621f1db90" category="inline-link-macro-rx"></block></block>
+  <block id="f66b08223139cc88d367e9f8ba658bb8" category="list-text"><block ref="f66b08223139cc88d367e9f8ba658bb8" category="inline-link-macro-rx"></block></block>
+  <block id="355e13ab500dceb89a56c4317cdfae82" category="inline-link-macro">Asignar unidades manualmente para el pool 0 (ONTAP 9,4 y posteriores)</block>
+  <block id="825d410ac3ad0bbf292a80f8c6135d02" category="list-text"><block ref="825d410ac3ad0bbf292a80f8c6135d02" category="inline-link-macro-rx"></block></block>
+  <block id="01a84b5c8cad7ed0a15f89b1e64d1751" category="inline-link-macro">Descargue e instale los archivos Broadcom IP RCF</block>
+  <block id="2cb55225768d53c7a8c62d73b71595b8" category="list-text"><block ref="2cb55225768d53c7a8c62d73b71595b8" category="inline-link-macro-rx"></block></block>
+  <block id="bda05896fe9c6a54adda73ed2403937c" category="list-text"><block ref="bda05896fe9c6a54adda73ed2403937c" category="inline-link-macro-rx"></block></block>
+  <block id="7d7b3e7f82a4c62f0a1e1c6c7bf36942" category="admonition">Si tiene una configuración de red L2 compartida o L3, es posible que deba ajustar los puertos ISL en los switches intermedio/cliente. El modo de puerto de conmutador puede cambiar de modo de acceso a modo de tronco. Sólo continúe con la actualización del segundo par de conmutadores (A_2, B_2) si la conectividad de red entre los conmutadores A_1 y B_1 está totalmente operativa y la red está en buen estado.</block>
+  <block id="78047aee32ead93280f971895b902f6f" category="section-title">Una los nuevos nodos a los clústeres</block>
+  <block id="07d3f381efeb375a8fe18cc6f11404e7" category="list-text">El puerto de inicio utilizado en los ejemplos es específico de la plataforma. Debe utilizar el puerto de inicio específico de la plataforma de nodo IP de MetroCluster.</block>
+  <block id="78697dcb303aaaf46c68a191d70983f2" category="list-text">Revise la información de <block ref="f8cbfe9b9b2f8ea45f944b8dcf8bd730" category="inline-xref-macro-rx"></block> antes de realizar esta tarea.</block>
+  <block id="e337731f47dd5caec3953f6c88c4ba3f" category="list-text">Si es compatible, puede especificar una VLAN diferente (no predeterminada) superior a 100 (entre 101 y 4095) con el<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> parámetro del<block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> comando. Consulte <block ref="f8cbfe9b9b2f8ea45f944b8dcf8bd730" category="inline-xref-macro-rx"></block> para obtener información sobre la plataforma compatible.</block>
+  <block id="24e03425b754f9c14624daf47f474e76" category="paragraph"><block ref="5b8e8c4a107a486fdbb855e0962cf1ee" prefix="" category="inline-code"></block></block>
+  <block id="2868832443fa457c67292a9b7be9937e" category="paragraph"><block ref="8d2b5e6dcd7abb7368984243bc33eb7d" prefix="" category="inline-code"></block></block>
+  <block id="ef5e947e6fcfcc998981842db2980963" category="paragraph"><block ref="03c173f1a61527f819558186b9d61be9" prefix="" category="inline-code"></block></block>
+  <block id="f17f69c6edf98777a15cba11703ecfa4" category="paragraph"><block ref="3e67c1f4fcc76e1369016e8e183fdf3b" prefix="" category="inline-code"></block></block>
+  <block id="0f137b9473f8c1720c69f6c82c079dba" category="paragraph"><block ref="3b297593c0c2375482cbced8777ea2a8" prefix="" category="inline-code"></block></block>
 </blocks>

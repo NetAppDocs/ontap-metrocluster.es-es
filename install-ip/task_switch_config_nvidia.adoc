@@ -293,7 +293,7 @@ Cuando se reinicie el conmutador, puede aplicar una nueva configuración siguien
 
 == [[Download-and-install]]Descargue e instale los archivos NVIDIA RCF
 
-Debe descargar e instalar el archivo RCF del conmutador en cada conmutador de la configuración IP de MetroCluster.
+Debe generar e instalar el archivo RCF del switch en cada switch de la configuración IP de MetroCluster.
 
 .Antes de empezar
 * Debe tener la contraseña raíz para `sudo` acceso a los comandos.

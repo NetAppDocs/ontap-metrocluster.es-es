@@ -27,9 +27,6 @@ El procedimiento de actualización del sistema que utilice dependerá del modelo
 .Combinaciones de actualizaciones tecnológicas AFF y FAS MetroCluster IP admitidas
 En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster:
 
-
-NOTE: Los sistemas AFF A70, AFF A90 y AFF A1K requieren ONTAP 9.15.1 o posterior.
-
 image::../media/metrocluster_techref_ip.png[Combinaciones de actualizaciones tecnológicas IP de MetroCluster]
 
 *Nota 1:* Esta combinación requiere ONTAP 9.13.1 o posterior.

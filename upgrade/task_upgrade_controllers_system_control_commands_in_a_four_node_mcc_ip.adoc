@@ -35,9 +35,6 @@ Por ejemplo, si la plataforma que desea actualizar es FAS8200, puede actualizar 
 .Actualizaciones de controladoras IP de AFF y FAS MetroCluster admitidas
 En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster:
 
-
-NOTE: Los sistemas AFF A90, AFF A70 y AFF A1K requieren ONTAP 9.15.1 o posterior.
-
 image::../media/mcc_ip_system_controller_replace_aff_fas.png[el controlador del sistema mcc ip reemplaza a AFF FAS]
 
 * Nota 1: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.

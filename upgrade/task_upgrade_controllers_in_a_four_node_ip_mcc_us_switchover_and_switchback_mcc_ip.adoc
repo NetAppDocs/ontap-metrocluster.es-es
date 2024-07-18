@@ -894,7 +894,57 @@ Debe mover las LIF de datos a un puerto común, quitar las VLAN y los grupos de 
 +
 `boot_ontap`
 
-. Asigne el puerto de inicio de todos los LIF de datos de la controladora anterior a un puerto común que sea el mismo en los módulos de controladora nuevos y antiguos.
+. Modifique las LIF de interconexión de clústeres de las controladoras antiguas para que usen un puerto raíz diferente a los puertos utilizados para la interconexión de alta disponibilidad o la interconexión de recuperación ante desastres IP de MetroCluster en las nuevas controladoras.
++
+
+NOTE: Este paso es necesario para una actualización correcta.
+
++
+Las LIF de interconexión de clústeres de las controladoras antiguas deben usar un puerto inicial diferente al de los puertos utilizados para la interconexión de alta disponibilidad o la interconexión de recuperación ante desastres IP de MetroCluster en las nuevas controladoras. Por ejemplo, cuando se actualiza a controladoras AFF A90, los puertos de interconexión de alta disponibilidad son e1a y e7a, y los puertos de interconexión de recuperación ante desastres IP de MetroCluster son E2B y E3b. Debe mover las LIF de interconexión de clústeres de las controladoras anteriores si están alojadas en los puertos e1a, e7a, E2B o E3b.
+
++
+Para la distribución y asignación de puertos en los nuevos nodos, consulte la https://hwu.netapp.com["Hardware Universe de NetApp"].
+
++
+.. En las controladoras antiguas, vea las LIF de interconexión de clústeres:
++
+`network interface show  -role intercluster`
+
++
+Una de las siguientes acciones dependerá de si las LIF de interconexión de clústeres de las controladoras anteriores usan los mismos puertos que los utilizados para la interconexión de alta disponibilidad o la interconexión MetroCluster IP DR en las nuevas controladoras.
+
++
+[cols="2*"]
+|===
+| Si las LIF de interconexión de clústeres... | Vaya a... 
+
+
+| Utilice el mismo puerto de inicio | <<controller_manual_upgrade_prepare_network_ports_2b,Subpaso b>> 
+
+
+| Utilice un puerto de inicio diferente | <<controller_manual_upgrade_prepare_network_ports_3,Paso 3>> 
+|===
+.. [[controller_manual_upgrade_prepare_network_ports_2b]]Modifique las LIF de interconexión de clústeres para utilizar un puerto raíz diferente:
++
+`network interface modify -vserver <vserver> -lif <intercluster_lif> -home-port <port-not-used-for-ha-interconnect-or-mcc-ip-dr-interconnect-on-new-nodes>`
+
+.. Compruebe que todas las LIF de interconexión de clústeres se encuentran en sus nuevos puertos principales:
++
+`network interface show -role intercluster -is-home  false`
+
++
+El resultado del comando debe estar vacío, lo que indica que todas las LIF de interconexión de clústeres están en sus respectivos puertos principales.
+
+.. Si hay algún LIF que no está en sus puertos raíz, revertiéndolo con el siguiente comando:
++
+`network interface revert -lif <intercluster_lif>`
+
++
+Repita el comando para cada LIF de interconexión de clústeres que no esté en el puerto de inicio.
+
+
+
+. [[controller_manual_upgrade_prepare_network_ports_3]]Asigne el puerto de inicio de todas las LIF de datos de la controladora antigua a un puerto común que sea el mismo en los módulos de controladora antiguos y nuevos.
 +
 .. Mostrar las LIF:
 +

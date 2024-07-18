@@ -1301,7 +1301,7 @@ Debe asignar un número igual de discos a cada pool.
 +
 .. En el primer nodo, asigne sistemáticamente la mitad de los discos de cada bandeja al pool 0 y la otra mitad al pool del partner de alta disponibilidad 0:
 +
-`disk assign -disk _disk-name_ -p _pool_ -n _number-of-disks_`
+`disk assign -shelf <shelf-name> -p <pool> -n <number-of-disks>`
 
 +
 Si la controladora de almacenamiento Controller_A_1 tiene cuatro bandejas, cada una con 8 SSD, emita los siguientes comandos:

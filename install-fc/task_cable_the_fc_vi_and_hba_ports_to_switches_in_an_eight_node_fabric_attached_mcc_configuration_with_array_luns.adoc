@@ -18,7 +18,6 @@ Si va a configurar una configuración MetroCluster estructural de ocho nodos con
 * Si planea utilizar discos además de los LUN de cabina en la configuración de MetroCluster, debe usar los puertos HBA y los puertos del switch especificados para la configuración con discos.
 +
 ** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
-** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0"]
 
 
 

@@ -783,8 +783,6 @@ Debe realizar esta tarea para cada estructura de switch de FC.
 
 En las siguientes tablas, se muestran los puertos ISL para los diferentes switches y un número diferente de ISL en una configuración que ejecute ONTAP 9.1 o 9.2. Los ejemplos que se muestran en esta sección son para un switch Brocade 6505. Debe modificar los ejemplos para utilizar los puertos que se aplican al tipo de switch.
 
-Si la configuración funciona con ONTAP 9.0 o una versión anterior, consulte link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0"].
-
 Debe usar el número necesario de ISL para la configuración.
 
 |===

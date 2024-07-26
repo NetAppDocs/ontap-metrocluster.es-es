@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, change, fc, switch 
 summary: 'Es posible que deba cambiar el proveedor de un switch FC (de Cisco a Brocade o viceversa), cambiar el modelo de switch o ambos.' 
 ---
-= Cambie el proveedor o modelo de un switch de FC
+= Cambie el proveedor o modelo de switches FC
 :allow-uri-read: 
 
 
 [role="lead"]
-Es posible que deba cambiar el proveedor de un switch FC de Cisco a Brocade o viceversa, cambiar el modelo de switch o cambiar ambos.
+Es posible que deba cambiar el proveedor de switches FC de Cisco a Brocade o viceversa, cambiar el modelo de switch o cambiar ambos.
 
 .Acerca de esta tarea
 * Este procedimiento se aplica cuando utiliza switches validados NetApp.
@@ -53,8 +53,6 @@ Group Cluster Node           State          Mirroring Mode
 ----
 cluster_A::> metrocluster check run
 
-Last Checked On: 10/1/2014 16:03:37
-
 Component           Result
 ------------------- ---------
 nodes               ok
@@ -69,42 +67,29 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 .. Compruebe que no hay alertas de estado: `*system health alert show*`
 
 
-. Configure el nuevo interruptor antes de instalarlo.
+. Configure los nuevos switches antes de la instalación.
 +
-Siga los pasos de link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html["Configure los switches FC"].
+Siga los pasos indicados en link:../install-fc/concept-configure-fc-switches.html["Configure los switches FC"].
 
-. Desconecte las conexiones del interruptor antiguo retirando las conexiones en el siguiente orden:
+. Desconecte las conexiones de los interruptores antiguos quitando las conexiones en el siguiente orden:
 +
-.. Si las interfaces del clúster local están conectadas a un switch:
-+
-... Desconecte las interfaces del clúster local
-... Desconecte los ISL del clúster local
-
-
-.. Desconecte las interfaces de MetroCluster FC.
+.. Desconecte las interfaces MetroCluster FC y FCVI.
+.. Desconecte los puentes ATTO FibreBridge.
 .. Desconecte los ISL de MetroCluster.
 
 
-. Apague el interruptor antiguo, retire los cables y sustituya físicamente el interruptor antiguo por el nuevo.
+. Apague los interruptores antiguos, retire los cables y sustituya físicamente los interruptores antiguos por el interruptor nuevo.
 . Conecte los cables de los interruptores en el siguiente orden:
 +
-Debe seguir los pasos de link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_rack_the_hardware_components_mcc_fabric_and_ip.html["Instale y conecte los cables de los componentes de MetroCluster"].
+Debe seguir los pasos indicados en link:../install-fc/task_configure_the_mcc_hardware_components_fabric.html["Cableado de una configuración MetroCluster estructural"].
 
 +
 .. Conecte los cables ISLs al sitio remoto.
-.. Cablee las interfaces de MetroCluster FC.
-.. Cablee las interfaces del clúster local.
-+
-Si las interfaces del clúster local están conectadas a un switch:
-
-+
-... Cablee las interfaces del clúster local.
-... Conecte los cables de los ISL del clúster local.
+.. Conecte los puentes ATTO FibreBridge.
+.. Conecte los cables de las interfaces MetroCluster FC y FCVI.
 
 
-
-
-. Encienda el interruptor.
+. Encienda los interruptores.
 . Repita para comprobar que la configuración de MetroCluster sea correcta <<Paso 1>>.
 . Repita los pasos 1 a 7 para el segundo tejido de la configuración.
 

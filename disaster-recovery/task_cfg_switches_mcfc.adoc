@@ -14,8 +14,6 @@ summary: Si ha sustituido los switches FC en el sitio de desastre, debe configur
 Si ha sustituido los switches FC en el sitio de desastre, debe configurarlos usando los procedimientos específicos del proveedor. Debe configurar un switch, compruebe que el acceso al almacenamiento en el sitio superviviente no se ve afectado y, a continuación, configure el segundo switch.
 
 .Tareas relacionadas
-link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["Asignación de puertos para los switches FC cuando se utiliza 9.0"]
-
 link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
 
 
@@ -37,7 +35,6 @@ Los ejemplos de este procedimiento se basan en las siguientes suposiciones:
 
 Debe verificar que está utilizando las asignaciones de puertos especificadas al cablear los switches FC:
 
-* link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0"]
 * link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
 
 

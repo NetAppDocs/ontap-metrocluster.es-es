@@ -11,12 +11,13 @@ summary: Según sus requisitos, puede usar redes compartidas de capa 2 o capa 3 
 [role="lead"]
 Según sus requisitos, puede usar redes compartidas de capa 2 o capa 3 para poner en marcha MetroCluster.
 
-A partir de ONTAP 9,6, las configuraciones IP de MetroCluster con switches Cisco compatibles pueden compartir redes existentes de enlaces entre switches (ISL) en lugar de utilizar ISL de MetroCluster dedicados. Esta topología se conoce como _shared layer 2 networks_.
+A partir de ONTAP 9,6, las configuraciones IP de MetroCluster con switches compatibles pueden compartir redes existentes para enlaces entre switches (ISL) en lugar de utilizar ISL de MetroCluster dedicados. Esta topología se conoce como _shared layer 2 networks_.
 
 A partir de ONTAP 9.9.1, las configuraciones de IP de MetroCluster se pueden implementar con conexiones de back-end enrutadas por IP (capa 3). Esta topología se conoce como _shared layer 3 networks_.
 
 [NOTE]
 ====
+* No todas las funciones son compatibles con todas las topologías de red.
 * Debe verificar que tenga la capacidad de red adecuada y que el tamaño de ISL sea adecuado a la configuración. Una latencia baja es crucial para la replicación de datos entre los sitios MetroCluster. Los problemas de latencia en estas conexiones pueden afectar a las operaciones de I/o del cliente
 * Todas las referencias a switches back-end de MetroCluster hacen referencia a switches validados por NetApp o conformes a MetroCluster. Consulte link:mcc-compliant-netapp-validated-switches.html["Switches validados por NetApp y conformes con MetroCluster"] para obtener más detalles.
 

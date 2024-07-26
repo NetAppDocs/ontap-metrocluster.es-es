@@ -835,7 +835,6 @@
   <block id="2b114f6498e5132b0cbcc04ccda11d53" category="list-text">Debe cumplir con todos los requisitos y el cableado según se describe en los procedimientos _MetroCluster Installation and Configuration_.</block>
   <block id="b6d1ddb6b8631d474ee650e1dd150c29" category="summary">Debe seleccionar un procedimiento de transición según la configuración existente de FC de MetroCluster.</block>
   <block id="e420954c9496e6eb99455a2aac546e3f" category="doc">Cómo elegir el procedimiento de transición</block>
-  <block id="2687b88898e3642fcc69aaef6be8e73c" category="paragraph">Cuando se realiza la transición a una configuración IP de MetroCluster, debe contar con una combinación de modelos de plataforma compatibles. También debe asegurarse de que la plataforma IP de MetroCluster tenga un tamaño adecuado para la carga que realice la transición de la configuración FC de MetroCluster a la configuración IP de MetroCluster.</block>
   <block id="d9599a6265b31306f6c79d760a47a9aa" category="paragraph">En la siguiente tabla se muestran las combinaciones de plataformas compatibles. Puede pasar de las plataformas de la columna de la izquierda a las plataformas enumeradas como admitidas en las columnas hacia la derecha, tal y como indican las celdas de la tabla de colores.</block>
   <block id="1799408ec992ed3e5561f7b04ccef0fe" category="paragraph">Por ejemplo, se admite la transición de una configuración FC de MetroCluster que consiste en módulos de controladoras AFF8060 a una configuración IP que consta de los módulos de controladoras AFF A400.</block>
   <block id="9418f262fda4ce79d51366cacd6743b2" category="list-text">Todos los procedimientos de transición requieren ONTAP 9.8 o posterior a menos que se indique lo contrario en las notas o según lo requiera una plataforma individual.</block>
@@ -2135,8 +2134,6 @@
   <block id="861537da733c3c33390e1bb718e7d543" category="doc">Configuración de los switches FC (solo configuraciones de MetroCluster FC)</block>
   <block id="6fc1ae41ce34d8dbe0674eae90086def" category="paragraph">Si ha sustituido los switches FC en el sitio de desastre, debe configurarlos usando los procedimientos específicos del proveedor. Debe configurar un switch, compruebe que el acceso al almacenamiento en el sitio superviviente no se ve afectado y, a continuación, configure el segundo switch.</block>
   <block id="ec18da962520ae390c485b5c542ac279" category="paragraph-title">Tareas relacionadas</block>
-  <block id="914dab9fff1417a4f447a3feac720983" category="inline-link-macro">Asignación de puertos para los switches FC cuando se utiliza 9.0</block>
-  <block id="6c720f524797154130f39ef291f10146" category="paragraph"><block ref="6c720f524797154130f39ef291f10146" category="inline-link-macro-rx"></block></block>
   <block id="ebfcfc0cdc71cf93176408da80c45caa" category="section-title">Configuración de un switch FC de Brocade tras un desastre en el sitio</block>
   <block id="550c787ba4aa16cc8545b89a8c4aaf2f" category="paragraph">Debe utilizar este procedimiento específico de Brocade para configurar el switch de sustitución y habilitar los puertos ISL.</block>
   <block id="d368b9a876decfc4013cf824df52f471" category="paragraph">Debe verificar que está utilizando las asignaciones de puertos especificadas al cablear los switches FC:</block>
@@ -2808,7 +2805,6 @@
   <block id="34e0a85e8dfaaeca6dadc1260cdef2ae" category="sidebar">Actualice una configuración FC de MetroCluster de cuatro nodos</block>
   <block id="6e1b901662872166ef0e661d1481924c" category="sidebar">Expanda una configuración MetroCluster FC de dos nodos con una configuración de cuatro nodos</block>
   <block id="fbda6a351e5c32b65583383006360afa" category="sidebar">Compruebe el estado de la configuración de MetroCluster</block>
-  <block id="c3f3140743256f4b3b23e2414dda5987" category="sidebar">Envíe un mensaje de AutoSupport personalizado antes de agregar noxdes a la configuración de MetroCluster</block>
   <block id="b8e92406eb7a6fca550b1d6570cceffc" category="sidebar">Establezca una zona para los puertos de la controladora nuevos cuando añada un módulo de controladora en una configuración MetroCluster estructural</block>
   <block id="5718f7671797ad3f1f095d0aebd2f2df" category="sidebar">Añada un nuevo módulo de controladora a cada clúster</block>
   <block id="b29a91a2b18a5fff75e62a034da2c030" category="sidebar">Borrar la configuración de un módulo de controlador</block>
@@ -5581,8 +5577,6 @@
   <block id="0f0db6d55e9bbb84af3413a7e8b1da70" category="list-text">Conecte mediante cable los puertos FC-VI y los puertos HBA, mediante la tabla correspondiente a su configuración y modelo de switch.</block>
   <block id="9eecb7c801dc57fbe6e2bb323f2ab061" category="inline-link-macro">Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores</block>
   <block id="0984e83667fc512bfc1adc48478ded1c" category="list-text"><block ref="0984e83667fc512bfc1adc48478ded1c" category="inline-link-macro-rx"></block></block>
-  <block id="b061acf9e57b52553e1039e7a5289a52" category="inline-link-macro">Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0</block>
-  <block id="314a33d74f4f0a6e853b23a18224e122" category="list-text"><block ref="314a33d74f4f0a6e853b23a18224e122" category="inline-link-macro-rx"></block></block>
   <block id="8db12a7f598538a4f3273d8beec78fa9" category="inline-link-macro">Las asignaciones de puertos para los sistemas que utilizan dos puertos iniciadores</block>
   <block id="2f311d11b06ed91a28142e5c25bbdfb5" category="list-text"><block ref="2f311d11b06ed91a28142e5c25bbdfb5" category="inline-link-macro-rx"></block></block>
   <block id="3b889d3c5322b48147e7fc9ac55e9c53" category="summary">Después de agregar nuevos módulos de controladoras a la configuración de MetroCluster, debe habilitar la conmutación por error de almacenamiento en ambos módulos de controladoras y habilitar la alta disponibilidad de clúster de forma independiente.</block>
@@ -7024,7 +7018,6 @@
   <block id="529a2302cffad8d858ddf8cfd8a1235a" category="paragraph">Esto se debe hacer para ambas telas de switch.</block>
   <block id="bf626de442bc8fa734370a57351ba540" category="list-text">Conecte los switches FC de cada sitio a todos los ISL, utilizando el cableado de la tabla que corresponda a su configuración y modelo de switch.</block>
   <block id="fb60c06f4120cd75fc9ac39720fd32d8" category="list-text"><block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block></block>
-  <block id="249227e2d8f8114c9bdc6db2520e9445" category="list-text"><block ref="249227e2d8f8114c9bdc6db2520e9445" category="inline-link-macro-rx"></block></block>
   <block id="1c2ac66406fbd86dae3a5ebc91801648" category="inline-link-macro">Consideraciones sobre ISL</block>
   <block id="69e92926786e575346dbd083b8dec2f2" category="paragraph"><block ref="69e92926786e575346dbd083b8dec2f2" category="inline-link-macro-rx"></block></block>
   <block id="a9376b40838c95dc0e4da39abdfa72b0" category="summary">Debe conectar los switches FC a través de los sitios mediante vínculos Inter-Switch \(ISL\) para formar estructuras de switches en la configuración de MetroCluster con LUN de cabina.</block>
@@ -8012,7 +8005,6 @@
   <block id="aa83d3900b8d93c3644be1ebd01007a1" category="paragraph">No debe utilizar el valor LD al emitir el<block ref="d3a2a0bf02432a1740137f3f3ce2fe18" prefix=" " category="inline-code"></block> Comando al trabajar con equipos xWDM/TDM. En su lugar, debe utilizar EL ajuste LE o LS para configurar la distancia en los conmutadores Brocade.</block>
   <block id="b5ef89cda7a6eb4294365f3706a02a43" category="paragraph">Debe realizar esta tarea para cada estructura de switch de FC.</block>
   <block id="94da8788598889667c43cfcc1f24c729" category="paragraph">En las siguientes tablas, se muestran los puertos ISL para los diferentes switches y un número diferente de ISL en una configuración que ejecute ONTAP 9.1 o 9.2. Los ejemplos que se muestran en esta sección son para un switch Brocade 6505. Debe modificar los ejemplos para utilizar los puertos que se aplican al tipo de switch.</block>
-  <block id="83e579bcd33d25206730a931a64a84a1" category="paragraph">Si la configuración funciona con ONTAP 9.0 o una versión anterior, consulte <block ref="249227e2d8f8114c9bdc6db2520e9445" category="inline-link-macro-rx"></block>.</block>
   <block id="3e4d0fd63cc5f1956547ff33cc403609" category="paragraph">Debe usar el número necesario de ISL para la configuración.</block>
   <block id="009309d700e9083e55803dc01b559155" category="cell">Brocade 7840 *Nota:* el conmutador Brocade 7840 admite dos puertos ve de 40 Gbps o hasta cuatro puertos ve de 10 Gbps por switch para la creación de FCIP ISL.</block>
   <block id="70909e1e40c0c3eea76a5ac896ef5a88" category="list-text">[[step1_brocado_config]] Configurar la velocidad del puerto:</block>
@@ -9109,7 +9101,6 @@
   <block id="eb443924112f8c71329400ac78de9284" category="paragraph">Repetición <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block> por cada puente restante.</block>
   <block id="0aeba4fd83ea38faeb00ddbf389be6ad" category="paragraph"><block ref="48f604bdf2d3bf06f58ee9f10e668948" category="inline-xref-macro-rx"></block></block>
   <block id="2c0892c11c37aec07e0a746c4c7fbe0d" category="list-text">Repetición <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block>.</block>
-  <block id="979780f3d72e1e779c1418145ea73bcb" category="paragraph">Debe verificar que está utilizando las asignaciones de puertos especificadas al cablear los switches FC. Las asignaciones de puertos son diferentes entre ONTAP 9.0 y la versión posterior de ONTAP.</block>
   <block id="9f39b4378a3d44f4f0a500c832ddf6b3" category="list-text">La<block ref="dd3c323b9985b4657ab16220491093ca" prefix=" " category="inline-code"></block> Se puede utilizar el comando para volver a habilitar los puertos Ethernet.</block>
   <block id="896822419043c00441403336af7e4108" category="paragraph"><block ref="5f8bb868da3c9f5bcaacc421bb460f0b" prefix="" category="inline-code"></block></block>
   <block id="347f47cb38d61664308e2cc323981b92" category="paragraph"><block ref="d91bc6aeda6bbc5aaf2ada6066b3552c" prefix="" category="inline-code"></block></block>
@@ -12370,18 +12361,11 @@
   <block id="91d96627fcbee13a9d474587060d13f8" category="paragraph">Las mismas directrices y reglas de asignación de discos para los sistemas AFF C250 y AFF A250 se aplican a los sistemas FAS500f. Para la asignación de discos en sistemas FAS500f, consulte la <block ref="62481755a241b3efc5c68e4e7dd00bb5" category="inline-xref-macro-rx"></block> tabla.</block>
   <block id="d39fc122b5bc72857d3bc1cb28b2528b" category="summary">Es posible que deba cambiar el proveedor de un switch FC (de Cisco a Brocade o viceversa), cambiar el modelo de switch o ambos.</block>
   <block id="dc97a56f45d09eb47627be2f51eaacac" category="doc">Cambie el proveedor o modelo de un switch de FC</block>
-  <block id="588f711b0852bf6ebac518663e6bf15c" category="paragraph">Es posible que deba cambiar el proveedor de un switch FC de Cisco a Brocade o viceversa, cambiar el modelo de switch o cambiar ambos.</block>
   <block id="34b3750efa9ad33069e758e1d20702b2" category="list-text">Este procedimiento se aplica cuando utiliza switches validados NetApp.</block>
   <block id="038dcdf6b816f0dea514171c0fbec340" category="list-text">Debe realizar los pasos de este procedimiento en una estructura a la vez, para ambas estructuras en la configuración.</block>
   <block id="12e792350f2f2a26f26efec238939f8c" category="list-text">[[STEP_1,Paso 1]]Compruebe el estado de la configuración.</block>
-  <block id="2aadc0e8757be310d2a25c139de10d8a" category="paragraph">Siga los pasos de <block ref="71433a7a2e7b6001aee2288bc93568fd" category="inline-link-macro-rx"></block>.</block>
-  <block id="4b0b73acfce5119dcc60f2f7b6dac2c4" category="list-text">Desconecte las conexiones del interruptor antiguo retirando las conexiones en el siguiente orden:</block>
   <block id="66700e9b823419320bcf568412b3c8f5" category="list-text">Desconecte los ISL de MetroCluster.</block>
-  <block id="c4f64a0c7e0a39b3f68c6c76b119f9b7" category="list-text">Apague el interruptor antiguo, retire los cables y sustituya físicamente el interruptor antiguo por el nuevo.</block>
   <block id="39c4de53c442cd522fc67edfc4cc59c8" category="list-text">Conecte los cables de los interruptores en el siguiente orden:</block>
-  <block id="0f192214376d7c0e958d509a331b7c82" category="inline-link-macro">Instale y conecte los cables de los componentes de MetroCluster</block>
-  <block id="ca71188f7f4bbd1ad7fb2b3ac50145fa" category="paragraph">Debe seguir los pasos de <block ref="f09498c56b761bf8471aa49436b9c6b5" category="inline-link-macro-rx"></block>.</block>
-  <block id="d7c72b026579f98d6108723379befa5c" category="list-text">Encienda el interruptor.</block>
   <block id="4c49ac5fd96c13efa7ddbce7575dd9e4" category="list-text">Repita para comprobar que la configuración de MetroCluster sea correcta <block ref="70a312d559ac5bac88a63c5c7c2e52d3" category="inline-xref-macro-rx"></block>.</block>
   <block id="b81576b1956a4793e86cfb62d8774b3f" category="list-text">Repita los pasos 1 a 7 para el segundo tejido de la configuración.</block>
   <block id="899dd799064eace0f16728f2bf38c96b" category="paragraph">El uso del puerto del switch FC debe coincidir con el uso descrito en la documentación para poder utilizar los archivos de configuración de referencia (RFC).</block>
@@ -12692,8 +12676,6 @@
   <block id="8c8b7a01f7186e24025ef8e89ee4deb8" category="admonition">Se requiere al menos una bandeja NVMe conectada con Ethernet</block>
   <block id="ad87745a64591ff679affa48fe663b39" category="paragraph">9336C-FX2: Almacenamiento SAS y Ethernet</block>
   <block id="462b36259caf681453d6d7b142217c3d" category="paragraph"><block ref="419f67b8b89585d3be41af97b158dd9e" prefix="" category="inline-code"></block></block>
-  <block id="3a9ef4ec11f1ec3fddae2461f053c31a" category="list-text">Desconecte las interfaces de MetroCluster FC.</block>
-  <block id="439c5d8621fe2376ba1455a5e5502727" category="list-text">Cablee las interfaces de MetroCluster FC.</block>
   <block id="6a62571ce4203a1671da10509f3013e0" category="cell">AFF A900, ASA A900 y FAS9500</block>
   <block id="d7b1c9d4f2a52b2d3648ce28baa0dd5c" category="paragraph">AFF A800, AFF C800, ASA A800 y ASA C800</block>
   <block id="2bba389392c3b789eaa9d1c8c6fc87d2" category="paragraph">FAS8300, AFF A400, ASA A400, ASA C400 y AFF C400</block>
@@ -12877,7 +12859,6 @@ La red puede consistir en una serie de xWDM y TDM y switches, pero a diferencia 
   <block id="a05b3cdfc5cc23ee6b2d90f33be54635" category="admonition">Algunos mapas de normativas son los mismos para los puertos de switch que conectan interfaces MetroCluster y ISL que llevan tráfico MetroCluster. Puede utilizar el mismo mapa de políticas para ambos usos de puerto.</block>
   <block id="80d1269e99768d5e883ffa70dd8f6aeb" category="summary">Según sus requisitos, puede usar redes compartidas de capa 2 o capa 3 para poner en marcha MetroCluster.</block>
   <block id="1c46b7bbd317f603895892a646ef8b2d" category="doc">Consideraciones que se deben tener en cuenta al implementar MetroCluster en redes compartidas de capa 2 o capa 3</block>
-  <block id="2ff08728ea0124138aa06bf0f8c8ea31" category="paragraph">A partir de ONTAP 9,6, las configuraciones IP de MetroCluster con switches Cisco compatibles pueden compartir redes existentes de enlaces entre switches (ISL) en lugar de utilizar ISL de MetroCluster dedicados. Esta topología se conoce como _shared layer 2 networks_.</block>
   <block id="cc723d7803ba423b47b353cc9dfa54ff" category="paragraph">A partir de ONTAP 9.9.1, las configuraciones de IP de MetroCluster se pueden implementar con conexiones de back-end enrutadas por IP (capa 3). Esta topología se conoce como _shared layer 3 networks_.</block>
   <block id="80a482ff4ac144c8d8c1e668a348dd67" category="list-text">Debe verificar que tenga la capacidad de red adecuada y que el tamaño de ISL sea adecuado a la configuración. Una latencia baja es crucial para la replicación de datos entre los sitios MetroCluster. Los problemas de latencia en estas conexiones pueden afectar a las operaciones de I/o del cliente</block>
   <block id="37eee3b9ac9781ca0484f54aeef70602" category="list-text">Todas las referencias a switches back-end de MetroCluster hacen referencia a switches validados por NetApp o conformes a MetroCluster. Consulte <block ref="16daa185b92984fefaae8aa04a4cd437" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
@@ -14009,8 +13990,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="df0de59a7d82bfac9aeb4c3a4d0ff3d5" category="paragraph"><block ref="593e2b872fdc863863b3175980b503ee" prefix="" category="inline-code"></block></block>
   <block id="ce4d776f761276cab4718597907e9b25" category="paragraph"><block ref="ce4d776f761276cab4718597907e9b25" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4bbabfb39bdaa67802b5f83f085672a9" category="image-alt">Muestra las combinaciones de plataformas compatibles para la transición de IP a FC</block>
-  <block id="32571d30b5ea67a42d51725233459057" category="list-text">Nota 1: Esta combinación de plataformas requiere ONTAP 9.13.1 o posterior.</block>
-  <block id="c6a7b9b858b4fca6a11eb81808875db0" category="list-text">Nota 2: Debe tener una interfaz de 100 GbE para las interfaces de clúster local en los nodos FC. Esta combinación de plataformas requiere ONTAP 9.11.1 o posterior.</block>
   <block id="5a4027b63d6ed294211392e256667c2c" category="list-text">Modifique las LIF de interconexión de clústeres de las controladoras antiguas para que usen un puerto raíz diferente a los puertos utilizados para la interconexión de alta disponibilidad o la interconexión de recuperación ante desastres IP de MetroCluster en las nuevas controladoras.</block>
   <block id="931a74601edef3262a75c3d8d8e6acda" category="admonition">Este paso es necesario para una actualización correcta.</block>
   <block id="f7f8cd16da4423b24e25a4d21cb4bc83" category="paragraph">Las LIF de interconexión de clústeres de las controladoras antiguas deben usar un puerto inicial diferente al de los puertos utilizados para la interconexión de alta disponibilidad o la interconexión de recuperación ante desastres IP de MetroCluster en las nuevas controladoras. Por ejemplo, cuando se actualiza a controladoras AFF A90, los puertos de interconexión de alta disponibilidad son e1a y e7a, y los puertos de interconexión de recuperación ante desastres IP de MetroCluster son E2B y E3b. Debe mover las LIF de interconexión de clústeres de las controladoras anteriores si están alojadas en los puertos e1a, e7a, E2B o E3b.</block>
@@ -14037,4 +14016,28 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="b0b6d9c342452ad19a9b24e1caf2ff35" category="cell"><block ref="e7896f2437c8c50a74bfea383fc26eb3" category="inline-xref-macro-rx"></block></block>
   <block id="3872acc735c86484cf5289e6f36d9d09" category="list-text">[[controller_replace_upgrade_prepare_network_ports_2b]]Modifique las LIF de interconexión de clústeres para utilizar un puerto raíz diferente:</block>
   <block id="bd14e125f8f9035fe1f7a46be559035d" category="list-text">[[controller_replace_upgrade_prepare_network_ports_3]]Asigne el puerto raíz de todas las LIF de datos de la controladora antigua a un puerto común que sea el mismo en los módulos de controladora antiguos y nuevos.</block>
+  <block id="bf8ab32fb11672e6514cae71dc5fafe7" category="paragraph">A partir de ONTAP 9,6, las configuraciones IP de MetroCluster con switches compatibles pueden compartir redes existentes para enlaces entre switches (ISL) en lugar de utilizar ISL de MetroCluster dedicados. Esta topología se conoce como _shared layer 2 networks_.</block>
+  <block id="ecf6e6f3fcedd63b625249365c65593c" category="list-text">No todas las funciones son compatibles con todas las topologías de red.</block>
+  <block id="8358ac5f612a66f1c1de4d949b9a86ae" category="doc">Cambie el proveedor o modelo de switches FC</block>
+  <block id="52fe3712857160698c1b014e83579ba9" category="paragraph">Es posible que deba cambiar el proveedor de switches FC de Cisco a Brocade o viceversa, cambiar el modelo de switch o cambiar ambos.</block>
+  <block id="32e3da7a69b04d14731b2ee761e658ba" category="list-text">Configure los nuevos switches antes de la instalación.</block>
+  <block id="26f5dee585e3373bb2d4d532d8840b7a" category="paragraph">Siga los pasos indicados en <block ref="8891b6de7b2070c584bdeb67b522b51b" category="inline-link-macro-rx"></block>.</block>
+  <block id="da05a72c6769f77035f88e9c4a38fa5f" category="list-text">Desconecte las conexiones de los interruptores antiguos quitando las conexiones en el siguiente orden:</block>
+  <block id="02ee3aa1129af6cfff90a9db0232239e" category="list-text">Desconecte las interfaces MetroCluster FC y FCVI.</block>
+  <block id="f4682cedd049931c51d74f398ef3fb36" category="list-text">Desconecte los puentes ATTO FibreBridge.</block>
+  <block id="450cb91595a8d54efc773a3e450fd1f3" category="list-text">Apague los interruptores antiguos, retire los cables y sustituya físicamente los interruptores antiguos por el interruptor nuevo.</block>
+  <block id="a139b1c04214aec0693f828d23631fcf" category="paragraph">Debe seguir los pasos indicados en <block ref="37a983721e8c37719820fe5091c30d35" category="inline-link-macro-rx"></block>.</block>
+  <block id="0695aadd5e22ca576036ee74e37a609e" category="list-text">Conecte los puentes ATTO FibreBridge.</block>
+  <block id="bc1e1a74eeb5d30d0aec52f0e7d3fc2c" category="list-text">Conecte los cables de las interfaces MetroCluster FC y FCVI.</block>
+  <block id="0498d59ca3d1dcff64193b28d0aad43b" category="list-text">Encienda los interruptores.</block>
+  <block id="7e78f2c6ef0bb1c644bf13957f799b3e" category="paragraph">Cuando se realiza la transición a una configuración IP de MetroCluster, debe contar con una combinación de modelos de plataforma compatibles.</block>
+  <block id="4c3904f4170d85c115c47ba3f7c7991f" category="paragraph">También debe asegurarse de que la plataforma IP de MetroCluster tenga un tamaño adecuado para la carga que realice la transición de la configuración FC de MetroCluster a la configuración IP de MetroCluster.</block>
+  <block id="b58285eb9b24d9fe796b9063f265bfb5" category="paragraph-title">Combinaciones compatibles con la transición AFF y FAS</block>
+  <block id="c1e51816977e0a0a7222c23da2cc2cb9" category="list-text">Nota 1: Esta combinación de plataformas requiere ONTAP 9.11.1 o posterior.</block>
+  <block id="234207cc1f3002485022da1892b4559b" category="list-text">Nota 2: Debe tener una interfaz de 40 GbE para las interfaces del clúster local en los nodos FC.</block>
+  <block id="6ae32e231af4316f91162f3b9a761e43" category="list-text">Nota 3: Debe tener una interfaz de 100 GbE para las interfaces de clúster local en los nodos FC.</block>
+  <block id="2e16237b0ca66b75b7c3d7fdd40e4d39" category="paragraph-title">Combinaciones de plataformas de transición ASA compatibles</block>
+  <block id="5feb826151198d290926a00c8f0166bd" category="paragraph">La siguiente tabla muestra las combinaciones de plataformas compatibles para los sistemas ASA.</block>
+  <block id="26f5174a535725c2475715c5b1747824" category="cell">Plataforma IP de MetroCluster de destino</block>
+  <block id="315289188a5b2b11bb8fe0c80160e8d4" category="sidebar">Envíe un mensaje de AutoSupport personalizado antes de añadir nodos a la configuración de MetroCluster</block>
 </blocks>

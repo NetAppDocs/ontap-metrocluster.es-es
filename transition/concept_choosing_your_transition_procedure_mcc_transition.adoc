@@ -4,23 +4,21 @@ sidebar: sidebar
 keywords: select, transition, procedure, depend, exist, metrocluster, fc, configuration, choosing, choose 
 summary: Debe seleccionar un procedimiento de transición según la configuración existente de FC de MetroCluster. 
 ---
-= Cómo elegir el procedimiento de transición
+= Elija el procedimiento de transición
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cuando se realiza la transición a una configuración IP de MetroCluster, debe contar con una combinación de modelos de plataforma compatibles. También debe asegurarse de que la plataforma IP de MetroCluster tenga un tamaño adecuado para la carga que realice la transición de la configuración FC de MetroCluster a la configuración IP de MetroCluster.
+Cuando se realiza la transición a una configuración IP de MetroCluster, debe contar con una combinación de modelos de plataforma compatibles.
 
-En la siguiente tabla se muestran las combinaciones de plataformas compatibles. Puede pasar de las plataformas de la columna de la izquierda a las plataformas enumeradas como admitidas en las columnas hacia la derecha, tal y como indican las celdas de la tabla de colores.
+También debe asegurarse de que la plataforma IP de MetroCluster tenga un tamaño adecuado para la carga que realice la transición de la configuración FC de MetroCluster a la configuración IP de MetroCluster.
 
-Por ejemplo, se admite la transición de una configuración FC de MetroCluster que consiste en módulos de controladoras AFF8060 a una configuración IP que consta de los módulos de controladoras AFF A400.
 
-image::../media/four_node_transition_mcc_9151.png[Muestra las combinaciones de plataformas compatibles para la transición de IP a FC]
 
-* Nota 1: Esta combinación de plataformas requiere ONTAP 9.13.1 o posterior.
-* Nota 2: Debe tener una interfaz de 100 GbE para las interfaces de clúster local en los nodos FC. Esta combinación de plataformas requiere ONTAP 9.11.1 o posterior.
+== Combinaciones de plataformas compatibles
+
 * Todos los procedimientos de transición requieren ONTAP 9.8 o posterior a menos que se indique lo contrario en las notas o según lo requiera una plataforma individual.
 * Todos los nodos de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Por ejemplo, si tiene una configuración de ocho nodos, los ocho nodos deben ejecutar la misma versión de ONTAP.
 
@@ -33,6 +31,41 @@ image::../media/four_node_transition_mcc_9151.png[Muestra las combinaciones de p
 
 
 ====
+.Combinaciones compatibles con la transición AFF y FAS
+En la siguiente tabla se muestran las combinaciones de plataformas compatibles. Puede pasar de las plataformas de la columna de la izquierda a las plataformas enumeradas como admitidas en las columnas hacia la derecha, tal y como indican las celdas de la tabla de colores.
+
+Por ejemplo, se admite la transición de una configuración FC de MetroCluster que consiste en módulos de controladoras AFF8060 a una configuración IP que consta de los módulos de controladoras AFF A400.
+
+image::../media/4node-transition-9151-update.png[Muestra las combinaciones de plataformas compatibles para la transición de IP a FC]
+
+* Nota 1: Esta combinación de plataformas requiere ONTAP 9.11.1 o posterior.
+* Nota 2: Debe tener una interfaz de 40 GbE para las interfaces del clúster local en los nodos FC.
+* Nota 3: Debe tener una interfaz de 100 GbE para las interfaces de clúster local en los nodos FC.
+
+
+.Combinaciones de plataformas de transición ASA compatibles
+La siguiente tabla muestra las combinaciones de plataformas compatibles para los sistemas ASA.
+
+[cols="3*"]
+|===
+| Plataforma FC de MetroCluster de origen | Plataforma IP de MetroCluster de destino | Compatible? 
+
+
+.2+| ASA A400 | ASA A400 | Sí 
+
+
+| ASA A900 | No 
+
+
+.2+| ASA A900 | ASA A400 | No 
+
+
+| ASA A900 | Sí 
+|===
+
+
+== Elija el procedimiento de transición
+
 Debe seleccionar un procedimiento de transición según la configuración existente de FC de MetroCluster.
 
 Un procedimiento de transición reemplaza la estructura de switch FC back-end o la conexión FC-VI con una red de switch IP. El procedimiento exacto depende de la configuración inicial.

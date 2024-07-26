@@ -648,10 +648,6 @@ link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.htm
 
 Debe verificar que está utilizando las asignaciones de puertos especificadas al conectar los switches FC cuando utiliza ONTAP 9.1 y versiones posteriores.
 
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["Asignación de puertos para los switches FC cuando se utiliza ONTAP 9.0"]
-
-Debe verificar que está utilizando las asignaciones de puertos especificadas al cablear los switches FC. Las asignaciones de puertos son diferentes entre ONTAP 9.0 y la versión posterior de ONTAP.
-
 
 
 == Asegurar o desfijar el puente FiberBridge

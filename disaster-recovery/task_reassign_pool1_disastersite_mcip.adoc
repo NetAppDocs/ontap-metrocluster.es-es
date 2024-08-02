@@ -30,7 +30,7 @@ En los ejemplos se da por sentado lo siguiente:
 * El nodo B_2 está en buen estado.
 
 
-Los ID del sistema anteriores y nuevos se identificaron en link:../disaster-recovery/task_replace_hardware_and_boot_new_controllers.html#determining-the-system-ids-of-the-replacement-controller-modules["Determinación de los nuevos ID de sistema de los módulos de controlador de reemplazo"].
+Los ID de sistema antiguos y nuevos se identificaron en link:../disaster-recovery/task_replace_hardware_and_boot_new_controllers.html["Sustituir el hardware e arrancar nuevas controladoras"].
 
 Los ejemplos de este procedimiento utilizan controladoras con los siguientes ID de sistema:
 

@@ -124,16 +124,16 @@ volumes             ok
 Siga los pasos para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"]
-** link:../install-ip/task_switch_config_cisco.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"]
-** link:../install-ip/task_switch_config_nvidia.html["Restablecer el switch NVIDIA IP SN2100 a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["Restablezca el conmutador IP Broadcom a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_cisco.html#resetting-the-cisco-ip-switch-to-factory-defaults["Restablezca el conmutador IP de Cisco a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["Restablece el switch NVIDIA IP SN2100 a los valores predeterminados de fábrica"]
 
 
 . Descargue e instale el archivo IP RCF, según el proveedor del switch.
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descarga e instalación de los archivos Broadcom IP RCF"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["Descarga e instalación de los archivos Cisco IP RCF"]
-** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["Descarga e instalación de archivos NVIDIA IP RCF"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descargue e instale los archivos Broadcom IP RCF"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["Descargue e instale los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["Descargue e instale los archivos NVIDIA IP RCF"]
 +
 
 NOTE: Si tiene una configuración de red L2 compartida o L3, es posible que deba ajustar los puertos ISL en los switches intermedio/cliente. El modo de puerto de switch puede cambiar del modo de acceso al modo de "tronco". Sólo continúe con la actualización del segundo par de conmutadores (A_2, B_2) si la conectividad de red entre los conmutadores A_1 y B_1 está totalmente operativa y la red está en buen estado.

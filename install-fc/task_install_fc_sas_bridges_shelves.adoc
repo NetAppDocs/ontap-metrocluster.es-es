@@ -51,6 +51,94 @@ NOTE: Se recomienda el uso de la gestión en banda con acceso IP desactivado par
 
 
 
+== Número admitido de discos y estantes en los puentes FibreBridge 7600N y 7500N
+
+Las siguientes tablas muestran el número de discos y estantes que se admiten detrás de un par de puentes FibreBridge 7600N y 7500N.
+
+[NOTE]
+====
+* Se aplica el primer límite que alcances.
+* Si se utilizan bandejas DS460C, solo pueden usarse hasta 240 unidades, lo cual equivale a 4 bandejas.
+* Si se utilizan bandejas DS212C, solo pueden usarse hasta 120 unidades, lo cual equivale a 10 bandejas.
+
+
+====
+.Número de discos admitido
+Revise el número de discos compatibles detrás de un par de puentes FibreBridge 7600N o 7500N:
+
+[cols="3*"]
+|===
+| Configuración de discos | Tipo de disco | Discos totales por par de puente 
+
+
+| Todos los SSD | SSD | 96 
+
+
+| Todos los HDD | HDD | 240 
+
+
+.2+| Mixto (96 SSD) | SSD | 96 
+
+
+| HDD | 144 
+
+
+.2+| Mixto (72 SSD) | SSD | 72 
+
+
+| HDD | 168 
+
+
+.2+| Mixto (48 SSD) | SSD | 48 
+
+
+| HDD | 192 
+
+
+.2+| Mixto (24 SSD) | SSD | 24 
+
+
+| HDD | 216 
+|===
+.Cantidad de bandejas admitida
+Revise el número de estantes compatibles detrás de un par de puentes FibreBridge 7600N y 7500N:
+
+[cols="3*"]
+|===
+| Configuración de discos | Tipo de disco | Cantidad total de bandejas 
+
+
+| Todos los SSD | SSD | 4 
+
+
+| Todos los HDD | HDD | 10 
+
+
+.2+| Mixto | SSD | 1 
+
+
+| HDD | 9 
+
+
+.2+| Mixto | SSD | 2 
+
+
+| HDD | 8 
+
+
+.2+| Mixto | SSD | 3 
+
+
+| HDD | 7 
+
+
+.2+| Mixto | SSD | 4 
+
+
+| HDD | 6 
+|===
+
+
 == Preparación de la instalación
 
 Cuando esté preparando la instalación de los puentes como parte del nuevo sistema MetroCluster, debe asegurarse de que el sistema cumple determinados requisitos, entre los que se incluyen los requisitos de configuración y configuración de los puentes. Otros requisitos incluyen la descarga de los documentos necesarios, la utilidad de navegación rápida de ATTO y el firmware del puente.

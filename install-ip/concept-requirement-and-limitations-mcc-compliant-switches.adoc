@@ -15,6 +15,25 @@ A partir de ONTAP 9.7, las configuraciones de IP de MetroCluster pueden utilizar
 
 
 
+== Switches conformes a MetroCluster frente a switches validados de NetApp
+
+Un switch está validado por NetApp si cumple con los siguientes requisitos:
+
+* NetApp proporciona el switch como parte de la configuración IP de MetroCluster
+* El interruptor aparece en la link:https://hwu.netapp.com/["Hardware Universe de NetApp"^] Como un switch admitido en _MetroCluster-over-IP-connections_
+* El switch solo se utiliza para conectar controladoras IP de MetroCluster y, en algunas configuraciones, bandejas de unidades NS224
+* El switch se configura usando el archivo de configuración de referencia (RCF) que proporciona NetApp
+
+
+Cualquier switch que no cumpla con estos requisitos es *NO* un switch validado por NetApp.
+
+Un switch compatible con MetroCluster no está validado por NetApp, pero puede utilizarse en una configuración de IP de MetroCluster si cumple ciertos requisitos y directrices de configuración.
+
+
+NOTE: NetApp no proporciona servicios de soporte de configuración o solución de problemas para ningún switch que cumpla con MetroCluster no validado.
+
+
+
 == Requisitos generales para los switches conformes a la normativa MetroCluster
 
 El switch que conecta las interfaces IP de MetroCluster debe cumplir los siguientes requisitos generales:

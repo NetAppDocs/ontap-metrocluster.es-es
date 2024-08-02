@@ -23,14 +23,19 @@ En un procedimiento de actualización, se reemplazan las controladoras por un nu
 
 == Actualizaciones de controladoras admitidas
 
-Seleccione su plataforma actual en la tabla FC o IP que aparece a continuación. Si la intersección de la fila de plataforma actual y la columna de plataforma de destino están en blanco, la actualización no es compatible.
-
-
-NOTE: Para obtener información sobre actualizaciones compatibles utilizando `system controller replace` comandos en una configuración de IP de MetroCluster de cuatro nodos, consulte la tabla de link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["Actualizar controladoras en una configuración IP de MetroCluster de cuatro nodos mediante conmutación de sitios y conmutación de estado con comandos de sustitución de controladoras del sistema (ONTAP 9.13.1 y versiones posteriores)"]
+Obtenga información sobre las combinaciones compatibles de actualización de controladoras MetroCluster IP y FC.
 
 
 
-=== Actualizaciones de controladora IP de MetroCluster admitidas
+=== Actualizaciones de la controladora IP de MetroCluster admitidas mediante comandos de sustitución de la controladora del sistema
+
+Consulte la tabla de link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["Actualizar controladoras en una configuración IP de MetroCluster de cuatro nodos mediante conmutación de sitios y conmutación de estado con comandos de sustitución de controladoras del sistema (ONTAP 9.13.1 y versiones posteriores)"] para ver las plataformas compatibles.
+
+
+
+=== Todas las demás actualizaciones de controladoras IP de MetroCluster admitidas
+
+Encuentre su plataforma *Source* en las tablas de actualización del controlador MetroCluster en esta sección. Si la intersección de la fila de la plataforma *Source* y la columna de la plataforma *Target* está en blanco, la actualización no es compatible.
 
 * Si la plataforma no aparece en la lista, no existe una combinación de actualización de controladoras compatible.
 * Cuando se realiza una actualización del controlador, el tipo de plataforma anterior y el nuevo *debe* coincidir:
@@ -46,7 +51,7 @@ Por ejemplo, si la plataforma que desea actualizar es FAS8200, puede actualizar 
 
 
 .Actualizaciones de controladoras IP de AFF y FAS MetroCluster admitidas
-En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster:
+La siguiente tabla muestra las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS manualmente en una configuración IP de MetroCluster:
 
 image::../media/metrocluster_ip_upgrade_so_sb_aff_fas.png[actualización ip de MetroCluster so sb AFF FAS]
 
@@ -57,7 +62,7 @@ image::../media/metrocluster_ip_upgrade_so_sb_aff_fas.png[actualización ip de M
 
 
 .Actualizaciones de la controladora IP de ASA MetroCluster admitidas
-En la siguiente tabla, se muestran las combinaciones de plataformas admitidas para actualizar un sistema ASA en una configuración IP de MetroCluster:
+En la siguiente tabla, se muestran las combinaciones de plataformas admitidas para actualizar un sistema ASA manualmente en una configuración IP de MetroCluster:
 
 image::../media/metrocluster_ip_upgrade_so_sb_asa_fas.png[actualización ip de MetroCluster so sb ASA FAS]
 
@@ -67,6 +72,8 @@ image::../media/metrocluster_ip_upgrade_so_sb_asa_fas.png[actualización ip de M
 
 
 === Actualizaciones de controladora FC de MetroCluster admitidas
+
+Encuentre su plataforma *Source* en las tablas de actualización del controlador MetroCluster en esta sección. Si la intersección de la fila de la plataforma *Source* y la columna de la plataforma *Target* está en blanco, la actualización no es compatible.
 
 * Si la plataforma no aparece en la lista, no existe una combinación de actualización de controladoras compatible.
 * Cuando se realiza una actualización del controlador, el tipo de plataforma anterior y el nuevo *debe* coincidir:

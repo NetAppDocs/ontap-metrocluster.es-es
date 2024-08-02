@@ -13,20 +13,48 @@ summary: Para utilizar SNMP con el software Tiebreaker, debe configurar los ajus
 [role="lead"]
 Para utilizar SNMP con el software Tiebreaker, debe configurar los ajustes de SNMP.
 
+.Acerca de esta tarea
+* Tiebreaker 1,6 solo admite SNMPv3.
+* Aunque tiebreaker 1,5 y 1,4 son compatibles con SNMPv1 y SNMPv3, NetApp recomienda encarecidamente que configure SNMPv3 para obtener una seguridad óptima.
+
+
+.Pasos
 . Utilice la CLI de Tiebreaker `snmp config wizard` Para añadir configuraciones de MetroCluster.
 +
 
 NOTE: Actualmente, solo se admite un host de captura SNMP.
 
 +
-En el ejemplo siguiente se muestra la configuración de un receptor SNMP que admite SNMP V3 con una dirección IP 10.240.45.66 y número de puerto 162 para los mensajes de captura. El software Tierbreaker está listo para enviar capturas al receptor SNMP que ha especificado.
+La `snmp config wizard` respuesta del comando depende de la versión de tiebreaker que esté ejecutando.
 
 +
+[role="tabbed-block"]
+====
+.Tiebreaker 1,6
+--
+En el ejemplo siguiente, se muestra la configuración de un receptor SNMP que admite SNMPv3 con una dirección IP 192.0.2.255 y el número de puerto 162 para los mensajes de captura. El software Tierbreaker está listo para enviar capturas al receptor SNMP que ha especificado.
+
+
+NOTE: Tiebreaker 1,6 solo admite SNMPv3
+
+[listing]
+----
+NetApp MetroCluster Tiebreaker :> snmp config wizard
+Enter SNMP Host: 192.0.2.255
+Enter SNMP Port: 162
+Enter SNMP V3 Security Name: v3sec
+Enter SNMP V3 Authentication password:
+----
+--
+.Tiebreaker 1,5 y 1,4
+--
+En el ejemplo siguiente, se muestra la configuración de un receptor SNMP que admite SNMPv3 con una dirección IP 192.0.2.255 y el número de puerto 162 para los mensajes de captura. El software Tierbreaker está listo para enviar capturas al receptor SNMP que ha especificado.
+
 ....
 
 NetApp MetroCluster Tiebreaker :> snmp config wizard
 Enter SNMP Version[V1/V3]: v3
-Enter SNMP Host: 10.240.45.66
+Enter SNMP Host: 192.0.2.255
 Enter SNMP Port: 162
 Enter SNMP V3 Security Name: v3sec
 Enter SNMP V3 Authentication password:
@@ -34,10 +62,11 @@ Enter SNMP V3 Privacy password:
 Engine ID : 8000031504932eff571825192a6f1193b265e24593
 Successfully added SNMP properties to NetApp MetroCluster Tiebreaker software.
 ....
-+
 
-NOTE: Debe configurar SNMPv3 porque SNMPv1 no es segura. Asegúrese de que la cadena de comunidad predeterminada es *NO* establecida en public.
+NOTE: Debe configurar SNMPv3 porque SNMPv1 no es segura. Verifique que la cadena de comunidad predeterminada esté *NOT* establecida en PUBLIC.
 
+--
+====
 . Compruebe que los ajustes de SNMP están configurados:
 +
 `snmp config test`
@@ -49,7 +78,7 @@ El siguiente ejemplo muestra que el software Tiebreaker puede enviar una captura
 ....
 
 NetApp MetroCluster Tiebreaker :> snmp config test
-Sending SNMP trap to localhost. Version : V1.
+Sending SNMP trap to localhost. Version : V3.
 Successfully sent SNMP trap for event TEST_SNMP_CONFIG
 NetApp MetroCluster Tiebreaker :>
 ....

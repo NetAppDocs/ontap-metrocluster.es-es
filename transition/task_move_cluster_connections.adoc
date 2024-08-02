@@ -278,7 +278,7 @@ Debe usar el firmware más reciente compatible con los nodos IP de MetroCluster.
 .. Prepare los switches IP para la aplicación de los nuevos archivos RCF.
 +
 *** link:../install-ip/task_switch_config_broadcom.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"] **
-*** link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_switch_config_broadcom.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"]
+*** link:../install-ip/task_switch_config_cisco.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"]
 
 
 .. Descargue e instale el archivo IP RCF en función del proveedor del switch.

@@ -15,7 +15,7 @@ Tras arrancar cada nodo, se le pedirá que realice la configuración básica del
 * Debe haber cableado la configuración de MetroCluster.
 
 
-Si debe reiniciar el sistema de las nuevas controladoras, consulte link:../upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#netbooting-the-new-controllers["Netarrancando los nuevos módulos del controlador"].
+Si necesita iniciar por red las nuevas controladoras, consulte link:../upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#netboot-the-new-controllers["Arranque en red los nuevos módulos de controlador"].
 
 .Acerca de esta tarea
 Esta tarea debe realizarse en ambos clústeres de la configuración de MetroCluster.

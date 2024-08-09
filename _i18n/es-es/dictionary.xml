@@ -3025,7 +3025,6 @@
   <block id="be66634f5c72a17ac1efdaa2b09a1da6" category="paragraph"><block ref="be66634f5c72a17ac1efdaa2b09a1da6" category="inline-link-macro-rx"></block></block>
   <block id="2f4dfa9b4c405812623b1a34ea79a216" category="list-text">Toda la información sobre MetroCluster</block>
   <block id="2839ce8da1b91633a5faa834ae8e86da" category="inline-link">Informe técnico de NetApp 4375: MetroCluster de NetApp para ONTAP 9.3</block>
-  <block id="01f9eb8f1fd390bc11c63296bd1aa6ad" category="paragraph"><block ref="01f9eb8f1fd390bc11c63296bd1aa6ad" category="inline-link-rx"></block></block>
   <block id="a310e23a4d771cf01d8f1b1cad705ade" category="list-text">Una descripción técnica general de la configuración y el funcionamiento de MetroCluster.</block>
   <block id="37a197fc1fa07b7e3a700b386ca8430b" category="list-text">Prácticas recomendadas para la configuración de MetroCluster.</block>
   <block id="5bf1678517b4e7d065d78a458ca7ed44" category="inline-link">Instalación y configuración de MetroCluster estructural</block>
@@ -14066,4 +14065,5 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="0f664d89fa7312c24449004d102db687" category="list-text"><block ref="0f664d89fa7312c24449004d102db687" category="inline-link-macro-rx"></block></block>
   <block id="8a97a528989bc12cbf81ee0102a889dc" category="list-text"><block ref="8a97a528989bc12cbf81ee0102a889dc" category="inline-link-macro-rx"></block></block>
   <block id="5517f0f4079cbe32b861155b72575d78" category="paragraph">La siguiente tabla muestra las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración de IP de MetroCluster utilizando los comandos «system controller replace»:</block>
+  <block id="0ef5c60e365bf027441cd538ad7f03c9" category="paragraph"><block ref="0ef5c60e365bf027441cd538ad7f03c9" category="inline-link-rx"></block></block>
 </blocks>

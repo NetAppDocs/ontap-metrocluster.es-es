@@ -67,6 +67,7 @@ Si va a instalar un nuevo firmware de conmutador, debe instalar el firmware del 
 .Acerca de esta tarea
 * Este procedimiento interrumpe el tráfico del conmutador donde se actualiza el archivo RCF. El tráfico se reanudará una vez que se aplique el nuevo archivo RCF.
 * Realice los pasos en un conmutador a la vez, en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2.
+* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
 
 .Pasos

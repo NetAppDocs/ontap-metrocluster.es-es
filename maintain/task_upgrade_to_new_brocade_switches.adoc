@@ -24,6 +24,7 @@ https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad 
 
 * Este procedimiento no es disruptivo y tarda aproximadamente dos horas en completarse.
 * Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
+* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
 
 Las estructuras de switches se actualizan de uno en uno.

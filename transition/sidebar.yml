@@ -12,6 +12,8 @@ entries:
   - title: Preparar la transición de una configuración de IP de MetroCluster FC a
       MetroCluster
     entries:
+    - title: Active el registro de la consola
+      url: "/transition/task-enable-console-logging.html"
     - title: Requisitos para la transición de FC a IP sin interrupciones
       url: "/transition/concept_requirements_for_fc_to_ip_transition_mcc.html"
     - title: Cómo afecta la transición a los componentes de hardware de MetroCluster

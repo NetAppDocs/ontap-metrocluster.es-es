@@ -13,14 +13,21 @@ summary: Para actualizar o degradar el firmware en un switch FC de Brocade, debe
 [role="lead"]
 Para actualizar o degradar el firmware en un switch FC de Brocade, debe utilizar comandos específicos de Brocade para deshabilitar el switch, realizar y verificar el cambio de firmware, y reiniciar y volver a habilitar el switch.
 
-* Debe tener los archivos de firmware.
-* El sistema debe estar correctamente cableado.
-* Todas las rutas a las bandejas de almacenamiento deben estar disponibles.
-* Las pilas de la bandeja de discos deben ser estables.
-* La estructura del switch de FC debe estar en buen estado.
-* No puede haber componentes defectuosos en el sistema.
-* El sistema debe estar funcionando con normalidad.
-* Debe tener la contraseña de administrador y el acceso a un servidor FTP o SCP.
+.Acerca de esta tarea
+Confirme que ha comprobado y realizado las siguientes tareas para su configuración:
+
+* Tiene los archivos de firmware.
+* El sistema está cableado correctamente.
+* Todas las rutas a las bandejas de almacenamiento están disponibles.
+* Las pilas de la bandeja de discos son estables.
+* El estado de la estructura del switch de FC es bueno.
+* No hay componentes fallidos en el sistema.
+* El sistema funciona normalmente.
+* Tiene la contraseña de administrador y acceso a un servidor FTP o SCP.
+* El registro de consola está activado.
++
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"]
+
 
 
 La estructura del switch está deshabilitada durante una actualización o degradación de firmware, y la configuración de MetroCluster se basa en la segunda estructura para continuar el funcionamiento.

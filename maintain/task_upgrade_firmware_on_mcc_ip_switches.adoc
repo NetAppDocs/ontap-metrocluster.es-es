@@ -13,7 +13,10 @@ summary: Actualización del firmware en switches MetroCluster IP.
 [role="lead"]
 Es posible que deba actualizar el firmware en un switch MetroCluster IP.
 
+.Acerca de esta tarea
 Debe repetir esta tarea en cada uno de los conmutadores sucesivamente.
+
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
 [[step_1_fw_upgrade]]
 .Pasos

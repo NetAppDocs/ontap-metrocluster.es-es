@@ -13,7 +13,10 @@ summary: Debe utilizar este procedimiento específico de Brocade para reemplazar
 [role="lead"]
 Debe utilizar este procedimiento específico de Brocade para reemplazar un switch con fallos.
 
+.Acerca de esta tarea
 Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
+
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
 En los siguientes ejemplos, FC_switch_A_1 es el switch en buen estado y FC_switch_B_1 es el switch dañado. El uso del puerto del switch en los ejemplos se muestra en la siguiente tabla:
 

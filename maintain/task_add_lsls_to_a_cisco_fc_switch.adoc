@@ -13,7 +13,10 @@ summary: Es posible que deba agregar ISL a un switch si va a agregar o actualiza
 [role="lead"]
 Es posible que deba agregar ISL a un switch si va a agregar o actualizar hardware, como controladoras adicionales o más rápidas, o switches más rápidos.
 
-Los pasos que se completan en un switch también deben completarse en el otro para garantizar la conectividad de ISL.
+.Acerca de esta tarea
+* Complete todos los pasos en ambos switches para garantizar la conectividad ISL.
+* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
+
 
 .Pasos
 . Deshabilite los puertos ISL de los ISL que se van a añadir en ambos switches de la estructura:

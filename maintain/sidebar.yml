@@ -9,6 +9,8 @@ entries:
 - title: Elimine la supervisión del Mediador ONTAP o tiebreaker antes de realizar
     tareas de mantenimiento
   url: "/maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html"
+- title: Active el registro de la consola antes de realizar tareas de mantenimiento
+  url: "/maintain/enable-console-logging-before-maintenance.html"
 - title: Mantenimiento de puentes FC a SAS
   entries:
   - title: Compatibilidad con puentes FibreBridge 7600N en configuraciones MetroCluster

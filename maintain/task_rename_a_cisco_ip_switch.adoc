@@ -13,8 +13,12 @@ summary: Es posible que deba cambiar el nombre de un switch IP de Cisco a fin de
 [role="lead"]
 Es posible que deba cambiar el nombre de un switch IP de Cisco a fin de proporcionar nomenclatura coherente en toda la configuración.
 
-En los ejemplos de esta tarea, el nombre del conmutador se cambia de `myswitch` para `IP_switch_A_1`.
+.Acerca de esta tarea
+* En los ejemplos de esta tarea, el nombre del conmutador se cambia de `myswitch` para `IP_switch_A_1`.
+* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
+
+.Pasos
 . Entre al modo de configuración global:
 +
 `*configure terminal*`

@@ -26,6 +26,8 @@ NOTE: Si se utiliza un switch Cisco 9336C-FX2 en una configuración compartida q
 .Antes de empezar
 Consulte la sección *Interruptores* de la link:https://hwu.netapp.com/["Hardware Universe de NetApp"^] para verificar los transceptores compatibles.
 
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
+
 .Pasos
 . Deshabilite los puertos ISL de los ISL en ambos switches de la estructura que desea cambiar.
 +

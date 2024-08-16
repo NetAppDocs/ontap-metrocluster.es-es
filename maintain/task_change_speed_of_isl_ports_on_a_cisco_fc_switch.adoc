@@ -13,8 +13,12 @@ summary: Es posible que deba cambiar la velocidad de los puertos ISL en un switc
 [role="lead"]
 Es posible que deba cambiar la velocidad de los puertos ISL en un switch para mejorar la calidad del ISL. Las islas que viajan a mayores distancias podrían necesitar su velocidad reducida para mejorar la calidad.
 
-Debe completar todos los pasos en ambos switches para garantizar la conectividad ISL.
+.Acerca de esta tarea
+* Complete todos los pasos en ambos switches para garantizar la conectividad ISL.
+* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
+
+.Pasos
 . Deshabilite los puertos ISL de los ISL que desea cambiar la velocidad de ambos switches en la estructura:
 +
 `*FC_switch_A_1# config t*`

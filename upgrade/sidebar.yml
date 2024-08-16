@@ -44,6 +44,8 @@ entries:
   entries:
   - title: Descripción general
     url: "/upgrade/task_expand_a_two_node_mcc_fc_configuration_to_a_four_node_fc_configuration_supertask.html"
+  - title: Active el registro de la consola
+    url: "/upgrade/task-enable-console-logging-expand-fc.html"
   - title: Compruebe el estado de la configuración de MetroCluster
     url: "/upgrade/task_verify_the_state_of_the_mcc_configuration_mcc_expansion.html"
   - title: Envíe un mensaje de AutoSupport personalizado antes de añadir nodos a la
@@ -94,12 +96,7 @@ entries:
     - title: Refleje el agregado raíz en la nueva controladora
       url: "/upgrade/task_mirror_the_root_aggregates_mcc_expansion_procedure.html"
     - title: Configure las LIF de interconexión de clústeres
-      entries:
-      - title: Configure las LIF de interconexión de clústeres en puertos dedicados
-        url: "/upgrade/task_configure_intercluster_lifs_to_use_dedicated_intercluster_ports.html"
-      - title: Configure las LIF de interconexión de clústeres en puertos de datos
-          compartidos
-        url: "/upgrade/task_configure_intercluster_lifs_to_share_data_ports.html"
+      url: "/upgrade/task-configure-intercluster-lifs.html"
     - title: Cree un agregado de datos reflejados en cada nodo
       url: "/upgrade/task_create_a_mirrored_data_aggregate_on_each_node_mcc.html"
     - title: Instale las licencias para el nuevo módulo de controlador
@@ -120,6 +117,8 @@ entries:
   entries:
   - title: Descripción general
     url: "/upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html"
+  - title: Active el registro de la consola
+    url: "/upgrade/task-enable-console-logging-expand-fc-four-node.html"
   - title: Determinación de la nueva distribución de cables
     url: "/upgrade/task_determin_the_new_cable_layout_mcc_expansion.html"
   - title: Monte en racks el nuevo equipo

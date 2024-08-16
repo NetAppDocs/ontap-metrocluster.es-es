@@ -13,6 +13,11 @@ summary: Cuando se realiza la transición sin interrupciones de los nodos FC a I
 [role="lead"]
 Cuando se realiza la transición sin interrupciones de los nodos FC a IP de MetroCluster, se deben mover objetos de host SAN FC sin interrupciones de los nodos IP a FC de MetroCluster.
 
+
+
+== Mueva una carga de trabajo SAN FC de los nodos IP de MetroCluster FC a MetroCluster
+
+.Pasos
 . Configure nuevas interfaces FC (LIF) en los nodos IP de MetroCluster:
 +
 .. Si es necesario, en los nodos IP de MetroCluster, modifique los puertos FC que se utilizarán para establecer la conectividad del cliente con la personalidad de destino FC.

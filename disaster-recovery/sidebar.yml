@@ -12,6 +12,8 @@ entries:
   entries:
   - title: Antes de empezar
     url: "/disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html"
+  - title: Active el registro de la consola
+    url: "/disaster-recovery/task-enable-console-logging.html"
   - title: Sustituir el hardware e arrancar nuevas controladoras
     url: "/disaster-recovery/task_replace_hardware_and_boot_new_controllers.html"
   - title: Prepárese para regresar en una configuración IP de MetroCluster

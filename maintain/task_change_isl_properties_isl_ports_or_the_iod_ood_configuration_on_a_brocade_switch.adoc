@@ -16,6 +16,8 @@ Es posible que deba agregar ISL a un switch si va a agregar o actualizar hardwar
 .Antes de empezar
 Asegúrese de que el sistema esté configurado correctamente, de que todos los switches estructurales estén operativos y de que no haya errores.
 
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
+
 Si el equipo del enlace ISL cambia y la nueva configuración de enlace ya no admite la configuración actual, la conexión de enlaces y la entrega solicitada, entonces debe volver a configurarse la estructura para la política de enrutamiento correcta: Entrega bajo pedido (IOD) o entrega fuera de servicio (OOD).
 
 

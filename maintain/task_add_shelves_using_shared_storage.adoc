@@ -19,6 +19,7 @@ A partir de ONTAP 9.10.1, puede añadir bandejas NS224 de un MetroCluster utiliz
 * Los nodos deben ejecutar ONTAP 9.9.1 o una versión posterior.
 * Todas las bandejas NS224 conectadas actualmente deben estar conectadas a los mismos switches que MetroCluster (configuración de switch de almacenamiento compartido / MetroCluster).
 * Este procedimiento no se puede utilizar para convertir una configuración con bandejas NS224 conectadas directamente o con bandejas NS224 conectadas a switches Ethernet dedicados a una configuración mediante switches de almacenamiento compartido/MetroCluster.
+* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
 
 

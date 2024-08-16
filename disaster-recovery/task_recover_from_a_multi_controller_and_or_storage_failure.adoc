@@ -13,19 +13,25 @@ summary: 'Si el fallo de la controladora se extiende a todos los módulos de con
 [role="lead"]
 Si el fallo de una controladora se extiende a todos los módulos de controladora de un lado a un grupo de recuperación ante desastres en una configuración MetroCluster (incluida una sola controladora en una configuración MetroCluster de dos nodos) o se ha sustituido el almacenamiento, debe sustituir el equipo y reasignar la propiedad de las unidades para recuperarse de un desastre.
 
-* Es necesario revisar los procedimientos de recuperación disponibles antes de decidir utilizar este procedimiento.
+Compruebe que ha comprobado y realizado las siguientes tareas antes de utilizar este procedimiento:
+
+* Revise los procedimientos de recuperación disponibles antes de decidir utilizar este procedimiento.
 +
 link:concept_choosing_the_correct_recovery_procedure_parent_concept.html["Elección del procedimiento de recuperación correcto"]
 
-* El sitio de recuperación ante desastres debe estar cerrado.
+* Confirme que el registro de consola está activado en sus dispositivos.
++
+link:task-enable-console-logging.html["Active el registro de la consola"]
+
+* Asegúrese de que el sitio de desastre está cercado.
 +
 link:task_perform_a_forced_switchover_after_a_disaster.html#fencing-off-the-disaster-site["Esgrima fuera del lugar del desastre"].
 
-* La conmutación debe haberse realizado.
+* Verifique que se ha realizado el switchover.
 +
 link:task_perform_a_forced_switchover_after_a_disaster.html#performing-a-forced-switchover["Realizar un cambio forzado"].
 
-* Las unidades de reemplazo y los módulos de controladora deben ser nuevos y no deben tener asignada la propiedad previamente.
+* Verifique que las unidades de reemplazo y los módulos de la controladora son nuevos y no deben haberse asignado propiedad anteriormente.
 * En los ejemplos de este procedimiento se muestran configuraciones de dos o cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos de recuperación ante desastres), debe tener en cuenta cualquier error y realizar la tarea de recuperación necesaria en los módulos de controladora adicionales.
 
 

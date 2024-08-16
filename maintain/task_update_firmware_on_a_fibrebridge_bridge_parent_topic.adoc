@@ -13,6 +13,9 @@ summary: El procedimiento para actualizar el firmware del puente depende del mod
 [role="lead"]
 El procedimiento para actualizar el firmware del puente depende del modelo de puente y la versión de ONTAP.
 
+.Acerca de esta tarea
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
+
 
 
 == Actualización del firmware en puentes FibreBridge 7600N o 7500N en configuraciones que ejecuten ONTAP 9.4 y posteriores

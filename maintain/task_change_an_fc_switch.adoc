@@ -13,6 +13,7 @@ Es posible que deba cambiar el proveedor de switches FC de Cisco a Brocade o vic
 
 .Acerca de esta tarea
 * Este procedimiento se aplica cuando utiliza switches validados NetApp.
+* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 * Debe realizar los pasos de este procedimiento en una estructura a la vez, para ambas estructuras en la configuración.
 
 

@@ -13,6 +13,9 @@ summary: Es posible que deba cambiar el nombre de un switch Brocade FC para gara
 [role="lead"]
 Es posible que deba cambiar el nombre de un switch Brocade FC para garantizar una nomenclatura coherente en toda la configuración.
 
+.Acerca de esta tarea
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
+
 .Pasos
 . Deshabilite de forma persistente el switch o los switches de una estructura:
 +

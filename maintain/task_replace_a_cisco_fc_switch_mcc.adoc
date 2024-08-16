@@ -16,6 +16,8 @@ Debe utilizar pasos específicos de Cisco para reemplazar un switch FC de Cisco 
 .Antes de empezar
 Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
 
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
+
 .Acerca de esta tarea
 Este procedimiento no es disruptivo y tarda aproximadamente dos horas en completarse.
 

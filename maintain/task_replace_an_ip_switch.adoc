@@ -13,7 +13,10 @@ summary: 'Es posible que deba sustituir un switch con errores o actualizar o deg
 [role="lead"]
 Es posible que deba sustituir un switch con errores, actualizar o degradar un switch, o cambiar el uso de switches IP de MetroCluster existentes.
 
+.Acerca de esta tarea
 Este procedimiento se aplica cuando se utilizan switches validados por NetApp. Si utiliza switches compatibles con MetroCluster, consulte al proveedor de switches.
+
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
 Este procedimiento admite las siguientes conversiones:
 

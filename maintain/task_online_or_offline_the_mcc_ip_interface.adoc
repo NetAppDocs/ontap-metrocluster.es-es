@@ -13,9 +13,12 @@ summary: Al realizar tareas de mantenimiento es posible que deba desconectar el 
 [role="lead"]
 Cuando realiza tareas de mantenimiento, es posible que deba desconectar u conectar un puerto de interfaz IP de MetroCluster.
 
-Puede usar los siguientes pasos para desconectar o conectar un puerto de interfaz IP de MetroCluster.
+.Acerca de esta tarea
+link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
 .Pasos
+Puede usar los siguientes pasos para conectar un puerto de interfaz IP de MetroCluster o desconectarlo.
+
 . Configure el nivel de privilegio en Advanced.
 +
 [source, cli]

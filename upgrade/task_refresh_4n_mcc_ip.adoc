@@ -58,6 +58,8 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 == Realice el procedimiento de actualización
 
+Utilice los siguientes pasos para actualizar la configuración de IP de MetroCluster.
+
 .Pasos
 . Compruebe que tiene un dominio de retransmisión predeterminado creado en los nodos antiguos.
 +

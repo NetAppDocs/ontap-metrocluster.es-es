@@ -11058,9 +11058,7 @@
   <block id="4fbce0abe0f7baa2bbb93f9658cfc55b" category="list-text">Si el puerto Ethernet MP1 está activado, ejecute el siguiente comando:</block>
   <block id="0d0c0c98576403d7d46bc7ee7fa9fa7a" category="list-text">Actualice el firmware de FiberBridge en cada puente.</block>
   <block id="b2d9f80a5c71fe34bed7839914c2fd68" category="paragraph">Si el nuevo puente es del mismo tipo que el puente asociado, actualice el mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte la sección "actualización del firmware en un puente FibreBridge" en _MetroCluster Maintenance_.</block>
-  <block id="9013c925bc3a423f843c073690ed8081" category="list-text">[[paso 17-Reconectar-newbridge]] vuelva a conectar los cables SAS y FC a los mismos puertos del nuevo puente.</block>
   <block id="3b5ef1874490ddb39e2ab56e91c15fd9" category="admonition">Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector). En el caso de las controladoras, la orientación de los puertos SAS puede variar en función del modelo de plataforma. Por lo tanto, la orientación correcta del conector del cable SAS varía.</block>
-  <block id="6795687b051fe5f1cb692559517648dd" category="list-text">[[paso 18-verify-each-bridge]]Compruebe que cada puente puede ver todas las unidades de disco y bandejas de disco a las que está conectado el puente.</block>
   <block id="cf6dbfa4f0192b540abc550aae0f260f" category="list-text">En un navegador web compatible, introduzca la dirección IP del puente en el cuadro del navegador.</block>
   <block id="34edf66bb3dff09e9c2aaf868d030164" category="paragraph">Se te lleva a la página de inicio de ATTO FiberBridge, que tiene un enlace.</block>
   <block id="deee53e632c97e1e675751d925e92e47" category="paragraph">La página de estado de ATTO FiberBridge aparece con un menú a la izquierda.</block>
@@ -11069,10 +11067,7 @@
   <block id="2c236055dc9f8c7e58878eec298b9d3f" category="admonition">Si la respuesta de texto truncada aparece al principio de la salida, puede utilizar Telnet para conectarse al puente y, a continuación, ver toda la salida mediante el<block ref="2aa3751083baf48c1e1ddef8df4ddcc3" prefix=" " category="inline-code"></block> comando.</block>
   <block id="648c14bdefb0031763d63e4a3100a7f0" category="list-text">Compruebe que el resultado del comando muestra que el puente está conectado a todos los discos y bandejas de discos adecuados de la pila.</block>
   <block id="b9da98e99c8057fc3b9a54d9d19ff501" category="inline-xref">Paso 18</block>
-  <block id="828e19cfb619dbe3f082c13af71c8804" category="paragraph">Repetición <block ref="eecb3f0fe03b243e2ecc1f82fe37ecc5" category="inline-xref-macro-rx"></block> por cada puente restante.</block>
   <block id="9c709df0d0930ada3ab147bf9abe8f06" category="inline-xref">Paso 17</block>
-  <block id="78cffeb475b967afce30e7091b0a7aec" category="list-text">Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <block ref="34712c7e0b7391b53f3aade40f6e2ba2" category="inline-xref-macro-rx"></block>.</block>
-  <block id="daae67946266f0e5177fa51a3f38fec3" category="list-text">Repetición <block ref="eecb3f0fe03b243e2ecc1f82fe37ecc5" category="inline-xref-macro-rx"></block>.</block>
   <block id="2273b85e84dfebeb5a21bbd359461d0f" category="list-text">Si el puente está en una configuración MetroCluster estructural, vuelva a habilitar el puerto del switch FC que ha deshabilitado al principio de este procedimiento.</block>
   <block id="9a20682ddc8cef489d77b087b78b3e16" category="paragraph">Este debe ser el puerto que se conecta al puente.</block>
   <block id="253278bf8807d2fb353066f7109cc7f2" category="list-text">Desde la consola del sistema de ambos módulos de controladoras, compruebe que todos los módulos de controladoras tengan acceso a través del nuevo puente hasta las bandejas de discos (es decir, que el sistema se cableó para alta disponibilidad multivía):</block>
@@ -14099,4 +14094,14 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="764a523cf339780ca4471f143c5ae04c" category="paragraph"><block ref="d1f7a93b5f0792c01647ca314d5d7e27" prefix="" category="inline-code"></block></block>
   <block id="6e7eea4bc90b7da31497a85ace82eec8" category="paragraph"><block ref="751a8e9d76de229f9092fac6fb23b628" prefix="" category="inline-code"></block></block>
   <block id="f1fe27301697eb21073abfcd231c91ab" category="section-title">Realice el procedimiento de actualización</block>
+  <block id="a713923def413049fcd7bd32d239c3b4" category="list-text">Conecte los cables FC a los mismos puertos del nuevo puente.</block>
+  <block id="c09b16f8a5b97a430a942e2624c2ffc8" category="paragraph">Si el nuevo puente es del mismo tipo que el puente asociado, actualice al mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte <block ref="55e804464be1a7c24451c93244c66ff0" category="inline-link-macro-rx"></block></block>
+  <block id="b5a56495c6cd7b15008b12f44e1c09f9" category="list-text">[[step18-Reconect-newbridge]] Vuelva a conectar los cables SAS a los mismos puertos del nuevo puente.</block>
+  <block id="1bf1e8417c00edaec85599df5b47ee94" category="list-text">[[step19-verify-each-bridge]]Verifique que cada puente pueda ver todas las unidades de disco y las bandejas de discos a las que está conectado el puente.</block>
+  <block id="287bc804244a679c73d0cac4cb0c0b2c" category="inline-xref">Paso 19</block>
+  <block id="c582e7ac4118500a1aaf382ea318eeeb" category="paragraph">Repita <block ref="1c41b1b96665f865995fbed1d8884dfe" category="inline-xref-macro-rx"></block> para cada puente restante.</block>
+  <block id="2788b7f6b6e21bc5a33df0d4aebf4730" category="list-text">Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <block ref="4f69a23cfa1cdd17cebbee3d88ffc0e9" category="inline-xref-macro-rx"></block>.</block>
+  <block id="dd59329be100bd10605cd63312522627" category="list-text">Repetir <block ref="1c41b1b96665f865995fbed1d8884dfe" category="inline-xref-macro-rx"></block>.</block>
+  <block id="0b9029dad5ded8eb8b9621381b59b85b" category="paragraph">Use los siguientes pasos para actualizar la configuración de MetroCluster FC.</block>
+  <block id="e80b737c5dcc4e6b9a5a4eecb2dc9582" category="paragraph">Utilice los siguientes pasos para actualizar la configuración de IP de MetroCluster.</block>
 </blocks>

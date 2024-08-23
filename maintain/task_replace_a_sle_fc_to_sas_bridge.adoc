@@ -409,11 +409,12 @@ Se le solicitará que reinicie el puente.
 
 
 
+. Conecte los cables FC a los mismos puertos del nuevo puente.
 . Actualice el firmware de FiberBridge en cada puente.
 +
-Si el nuevo puente es del mismo tipo que el puente asociado, actualice el mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte la sección "actualización del firmware en un puente FibreBridge" en _MetroCluster Maintenance_.
+Si el nuevo puente es del mismo tipo que el puente asociado, actualice al mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["Actualización del firmware en un puente FiberBridge"]
 
-. [[paso 17-Reconectar-newbridge]] vuelva a conectar los cables SAS y FC a los mismos puertos del nuevo puente.
+. [[step18-Reconect-newbridge]] Vuelva a conectar los cables SAS a los mismos puertos del nuevo puente.
 +
 Es necesario sustituir los cables que conectan el puente a la parte superior o inferior de la pila de la bandeja. Los puentes FibreBridge 7600N y 7500N requieren cables mini-SAS para estas conexiones.
 
@@ -421,7 +422,7 @@ Es necesario sustituir los cables que conectan el puente a la parte superior o i
 
 NOTE: Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector). En el caso de las controladoras, la orientación de los puertos SAS puede variar en función del modelo de plataforma. Por lo tanto, la orientación correcta del conector del cable SAS varía.
 
-. [[paso 18-verify-each-bridge]]Compruebe que cada puente puede ver todas las unidades de disco y bandejas de disco a las que está conectado el puente.
+. [[step19-verify-each-bridge]]Verifique que cada puente pueda ver todas las unidades de disco y las bandejas de discos a las que está conectado el puente.
 +
 [cols="35,65"]
 |===
@@ -496,15 +497,15 @@ Tgt VendorID ProductID        Type SerialNumber
  a| 
 Correcto
  a| 
-Repetición <<step18-verify-each-bridge,Paso 18>> por cada puente restante.
+Repita <<step19-verify-each-bridge,Paso 19>> para cada puente restante.
 
 
 
  a| 
 No es correcto
  a| 
-.. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <<step17-reconnect-newbridge,Paso 17>>.
-.. Repetición <<step18-verify-each-bridge,Paso 18>>.
+.. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <<step18-reconnect-newbridge,Paso 18>>.
+.. Repetir <<step19-verify-each-bridge,Paso 19>>.
 
 
 |===

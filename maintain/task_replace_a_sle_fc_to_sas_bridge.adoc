@@ -842,11 +842,12 @@ Se le solicitará que reinicie el puente.
 
 
 
+. Conecte los cables FC a los mismos puertos del nuevo puente.
 . Actualice el firmware de FiberBridge en cada puente.
 +
-link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["Actualización del firmware en puentes FibreBridge 7600N o 7500N en configuraciones que ejecuten ONTAP 9.4 y posteriores"]
+link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["Actualización del firmware en un puente FiberBridge"]
 
-. [[paso 17-Reconectar-cables]]vuelva a conectar los cables SAS y FC a los mismos puertos del nuevo puente.
+. [[step18-reconnect-cables]]Vuelva a conectar los cables SAS a los mismos puertos del puente nuevo.
 +
 
 NOTE: Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector). En el caso de las controladoras, la orientación de los puertos SAS puede variar en función del modelo de plataforma. Por lo tanto, la orientación correcta del conector del cable SAS varía.
@@ -895,7 +896,7 @@ Repita el paso anterior para cada puente restante.
  a| 
 No es correcto
  a| 
-.. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <<step17-reconnect-cables,Paso 17>>.
+.. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <<step18-reconnect-cables,Paso 18>>.
 .. Repita el paso anterior.
 
 
@@ -1243,16 +1244,20 @@ Se le solicitará que reinicie el puente.
 
 
 . Active Health Monitoring para el puente FibreBridge 7600N o 7500N.
+. Conecte los cables FC a los puertos Fibre Channel 1 en el nuevo puente.
++
+Debe conectar mediante cable el puerto FC al mismo switch o puerto del controlador al que se había conectado el puente FibreBridge 6500N.
+
 . Actualice el firmware de FiberBridge en cada puente.
 +
-Si el nuevo puente es del mismo tipo que el puente asociado, actualice el mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware más reciente admitido por el puente y la versión de ONTAP. Consulte la sección "actualización del firmware en un puente FibreBridge" en la _Guía de mantenimiento de MetroCluster_.
+Si el nuevo puente es del mismo tipo que el puente asociado, actualice al mismo firmware que el puente asociado. Si el nuevo puente es de un tipo diferente al puente asociado, actualice al firmware y la versión más recientes de ONTAP compatibles con el puente.
 
-. [[paso17-recable]]vuelva a conectar los cables SAS y FC a los puertos SAS A y Fibre Channel 1 del nuevo puente.
++
+link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["Actualización del firmware en un puente FiberBridge"]
+
+. [[step18-recable]]Vuelva a conectar los cables SAS a los puertos SAS A en el nuevo puente.
 +
 El puerto SAS debe estar cableado al mismo puerto de bandeja al que se había conectado el puente FibreBridge 6500N.
-
-+
-El puerto FC debe estar cableado al mismo switch o puerto de controlador al que se haya conectado el puente FibreBridge 6500N.
 
 +
 
@@ -1337,7 +1342,7 @@ Repita el paso anterior para cada puente restante.
  a| 
 No es correcto
  a| 
-.. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <<step17-recable,Paso 17>>.
+.. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo <<step18-recable,Paso 18>>.
 .. Repita el paso anterior para cada puente restante.
 
 

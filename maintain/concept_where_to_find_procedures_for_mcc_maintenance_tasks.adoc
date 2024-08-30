@@ -13,8 +13,14 @@ summary: Debe asegurarse de seleccionar el procedimiento correcto al realizar ta
 [role="lead"]
 Debe asegurarse de seleccionar el procedimiento correcto al realizar tareas de mantenimiento del hardware de MetroCluster.
 
+.Procedimientos de mantenimiento para diferentes tipos de configuraciones de MetroCluster
+* Si tiene una configuración de IP de MetroCluster, revise los procedimientos que se indican en link:task-modify-ip-netmask-properties.html["Procedimientos de mantenimiento de las configuraciones IP de MetroCluster"].
+* Si tiene una configuración de MetroCluster FC, revise los procedimientos en link:task_modify_switch_or_bridge_ip_address_for_health_monitoring.html["Procedimientos de mantenimiento de configuraciones MetroCluster FC"].
+* Si no encuentra el procedimiento en la sección específica de su configuración, revise los procedimientos en link:task_replace_a_shelf_nondisruptively_in_a_stretch_mcc_configuration.html["Procedimientos de mantenimiento para todas las configuraciones MetroCluster"].
 
-NOTE: Con el lanzamiento de ONTAP 9.8, los procedimientos de ampliación y actualización de MetroCluster se han movido a la link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["Actualización y ampliación de MetroCluster"] y.. link:../transition/concept_choosing_your_transition_procedure_mcc_transition.html["Transición de FC de MetroCluster a IP de MetroCluster"].
+
+.Todos los demás procedimientos de mantenimiento
+La siguiente tabla proporciona enlaces a procedimientos relacionados con el mantenimiento de MetroCluster que no se encuentran en las tres secciones enumeradas anteriormente:
 
 |===
 
@@ -50,7 +56,7 @@ https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de ha
  a| 
 Renovación y ampliación
  a| 
-link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["Actualización y ampliación de MetroCluster®"]
+link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["Actualización y ampliación de MetroCluster"]
 
 
 
@@ -63,28 +69,6 @@ link:../transition/concept_choosing_your_transition_procedure_mcc_transition.htm
 
  a| 
 Bandeja de unidades
- a| 
-FC
- a| 
-Adición de bandejas (pila con puentes o bandeja individual)
- a| 
-link:task_hot_add_a_stack_to_exist_7500n_pair.html["Adición en caliente de una pila de bandejas de discos SAS a un par existente de puentes FibreBridge 7500N"]
-
-link:task_fb_hot_add_stack_of_shelves_and_bridges.html["Adición en caliente de una pila de bandejas de discos SAS y puentes a un sistema MetroCluster"]
-
-link:task_fb_hot_add_shelf_prepare_7500n.html["Añadir en caliente una bandeja de discos SAS a una pila de bandejas de discos SAS"]
-
-
-
- a| 
-FC
- a| 
-Eliminación de bandejas
- a| 
-link:task_hot_remove_storage_from_a_mcc_fc_configuration.html["Quitar almacenamiento en caliente de una configuración FC de MetroCluster"]
-
-
-
  a| 
 FC
  a| 
@@ -111,111 +95,5 @@ Ambas
 Adición en caliente de bandejas IOM12 a una pila de bandejas IOM6
  a| 
 https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"^]
-
-
-
- a| 
-Puente FC a SAS
- a| 
-FC
- a| 
-Sustitución del puente
- a| 
-link:task_replace_a_sle_fc_to_sas_bridge.html["Reemplazar un único puente FC-a-SAS"]
-
-link:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.html["Sustitución de un par de puentes FibreBridge 6500N con puentes 7600N o 7500N"]
-
-link:task_replace_a_sle_fc_to_sas_bridge.html#hot-swapping-a-fibrebridge-7500n-with-a-7600n-bridge["Intercambio en caliente de un FibreBridge 7500N con un puente 7600N"]
-
-
-
- a| 
-FC
- a| 
-Actualización del firmware
- a| 
-link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["Actualización del firmware en un puente FiberBridge"]
-
-
-
- a| 
-FC
- a| 
-Reemplazar un módulo de suministro de alimentación con fallos
- a| 
-link:reference_fb_replace_a_power_supply.html["Sustitución en caliente de un módulo de fuente de alimentación con fallos"]
-
-
-
- a| 
-Switch FC
- a| 
-FC
- a| 
-Actualización de switch
- a| 
-link:task_upgrade_to_new_brocade_switches.html["Renovación a nuevos switches FC de Brocade"]
-
-
-
- a| 
-FC
- a| 
-Sustitución del interruptor
- a| 
-link:task_replace_a_brocade_fc_switch_mcc.html["Reemplazar un switch FC de Brocade (MetroCluster)"]
-
-link:task_replace_a_cisco_fc_switch_mcc.html["Reemplazar un switch Cisco FC"]
-
-
-
- a| 
-FC
- a| 
-Actualización del firmware
- a| 
-link:task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html["Actualización del firmware en un switch Brocade FC"]
-
-link:task_upgrade_or_downgrad_the_firmware_on_a_cisco_fc_switch_mcc.html["Actualización del firmware en un switch de Cisco FC"]
-
-
-
- a| 
-Conmutador IP
- a| 
-IP
- a| 
-Sustitución del interruptor o cambio de uso
- a| 
-link:task_replace_an_ip_switch.html["Sustituya un switch IP o cambie el uso de los switches IP de MetroCluster existentes"]
-
-
-
- a| 
-IP
- a| 
-Actualización del firmware
- a| 
-link:task_upgrade_firmware_on_mcc_ip_switches.html["Actualizar el firmware en switches MetroCluster IP"]
-
-
-
- a| 
-IP
- a| 
-Actualización de archivo RCF
- a| 
-link:task_upgrade_rcf_files_on_mcc_ip_switches.html["Actualice los archivos RCF en switches MetroCluster IP"]
-
-link:task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html["Actualice los archivos RCF en switches IP de Cisco mediante CleanUpFiles"]
-
-
-
- a| 
-IP
- a| 
-Cambie el nombre de un conmutador
- a| 
-link:task_rename_a_cisco_ip_switch.html["Cambie el nombre de un switch IP de Cisco"]
 
 |===

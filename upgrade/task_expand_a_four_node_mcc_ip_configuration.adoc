@@ -1063,20 +1063,32 @@ Debe incorporar el nuevo grupo de recuperación ante desastres a la configuraci�
 +
 `set -privilege advanced`
 
-.. Actualice la configuración de MetroCluster en uno de los nodos nuevos:
+.. Actualice la configuración de MetroCluster en cualquiera de los nodos:
 +
-`metrocluster configure`
+[cols="30,70"]
+|===
 
-+
-En el ejemplo siguiente se muestra la configuración de MetroCluster actualizada en ambos grupos de recuperación ante desastres:
 
-+
-[listing]
-----
-cluster_A::*> metrocluster configure -refresh true
+| Si la configuración de MetroCluster tiene... | Realice lo siguiente... 
 
-[Job 726] Job succeeded: Configure is successful.
-----
+
+ a| 
+Varios agregados de datos
+ a| 
+Desde el símbolo del sistema de cualquier nodo, ejecute:
+
+`metrocluster configure <node-name>`
+
+
+
+ a| 
+Un único agregado de datos reflejados en una o en las dos ubicaciones
+ a| 
+Desde el aviso de cualquier nodo, configure la MetroCluster con el `-allow-with-one-aggregate true` parámetro:
+
+`metrocluster configure -allow-with-one-aggregate true <node-name>`
+
+|===
 .. Reinicie cada uno de los nodos nuevos:
 +
 `node reboot -node <node_name> -inhibit-takeover true`
@@ -1093,7 +1105,7 @@ cluster_A::*> metrocluster configure -refresh true
 
 +
 
-NOTE: Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es compatible con un único agregado de datos reflejados de un centro de MetroCluster, mientras que el otro sitio tiene más de un agregado de datos con mirroring.
+NOTE: Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es aceptable que una ubicación de MetroCluster tenga un único agregado de datos reflejados y la otra tenga más de un agregado de datos reflejados.
 
 +
 En el ejemplo siguiente se muestra la creación de un agregado en node_A_1-new.
@@ -1161,12 +1173,14 @@ Group Cluster Node               State          Mirroring Mode
 
 cluster_A::*>
 ----
-. Mueva los volúmenes MDV_CRS de los nodos antiguos a los nuevos con privilegios avanzados.
+. Mueva los volúmenes MDV_CRS en modo de privilegios avanzado.
 +
 .. Mostrar los volúmenes para identificar los volúmenes de MDV:
 +
+Si tiene un único agregado de datos con mirroring por sitio, mueva ambos volúmenes de MDV a este único agregado. Si tiene dos o más agregados de datos reflejados, mueva cada volumen de MDV a un agregado diferente.
 
-NOTE: Si tiene un único agregado de datos con mirroring por sitio, mueva ambos volúmenes de MDV a este único agregado. Si tiene dos o más agregados de datos reflejados, mueva cada volumen de MDV a un agregado diferente.
++
+Si va a expandir una configuración de MetroCluster de cuatro nodos a una configuración permanente de ocho nodos, debería mover uno de los volúmenes MDV al nuevo grupo de DR.
 
 +
 En el siguiente ejemplo se muestran los volúmenes MDV en `volume show` salida:

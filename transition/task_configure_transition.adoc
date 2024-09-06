@@ -678,7 +678,7 @@ cluster_A::>
 
 +
 
-NOTE: Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es compatible con un único agregado de datos reflejados de un centro de MetroCluster, mientras que el otro sitio tiene más de un agregado de datos con mirroring.
+NOTE: Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es aceptable que una ubicación de MetroCluster tenga un único agregado de datos reflejados y la otra tenga más de un agregado de datos reflejados.
 
 +
 En el ejemplo siguiente se muestra la creación de un agregado en node_A_3-IP.

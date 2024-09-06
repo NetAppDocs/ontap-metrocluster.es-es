@@ -4126,11 +4126,8 @@
   <block id="6c46e592d5f16891d3a16e5f364e031b" category="section-title">Finalización de la adición de nuevos nodos</block>
   <block id="756f29d7bcbe7decf6b979c0706fc9a1" category="paragraph">Debe incorporar el nuevo grupo de recuperación ante desastres a la configuración de MetroCluster y crear agregados de datos reflejados en los nuevos nodos.</block>
   <block id="b24de9180a5deb759a394eebcd1a0305" category="list-text">Crear agregados de datos reflejados en cada uno de los nuevos nodos de MetroCluster:</block>
-  <block id="aabce8f4cea0092b527adf5c08e57ba7" category="admonition">Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es compatible con un único agregado de datos reflejados de un centro de MetroCluster, mientras que el otro sitio tiene más de un agregado de datos con mirroring.</block>
   <block id="7062dd7205e5ed0cba84efd4203bc9cc" category="paragraph">En el ejemplo siguiente se muestra la creación de un agregado en node_A_1-new.</block>
   <block id="5172e21efeb1892262831ef5031d5316" category="list-text">Entre en el modo de privilegio avanzado:</block>
-  <block id="f00a8c2c5126c8a92b929c756950f0f8" category="list-text">Actualice la configuración de MetroCluster en uno de los nodos nuevos:</block>
-  <block id="2ae5190e09d5d39bdc4388104b1ebcd4" category="paragraph"><block ref="3b3242ced99842a6c2c16f489b78e773" prefix="" category="inline-code"></block></block>
   <block id="50457dca5a837dbab5a5d65f7d4bcf58" category="paragraph">En el ejemplo siguiente se muestra la configuración de MetroCluster actualizada en ambos grupos de recuperación ante desastres:</block>
   <block id="7d7a3fc828a61ba2a0ef14619b7c2ccb" category="list-text">Compruebe que los nodos se han añadido a su grupo de recuperación ante desastres.</block>
   <block id="d607e1acecde451facff1ac4a2c32440" category="list-text">Mueva los volúmenes MDV_CRS de los nodos antiguos a los nuevos con privilegios avanzados.</block>
@@ -14031,4 +14028,12 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="4ac7d2ae8e04576a892556ab9a493959" category="list-text">Elimine los puertos VLAN e ifgrp del dominio de retransmisión:<block ref="bd72bbf935a7a9d39c21cf3731500f70" prefix=" " category="inline-code"></block></block>
   <block id="07b3edb46d2774fa411b0f9a1b01bead" category="sidebar">Prepárese para el mantenimiento de MetroCluster</block>
   <block id="053564114ce5591908a1b29312289c15" category="sidebar">Añada bandejas a una configuración IP de MetroCluster mediante switches MetroCluster de almacenamiento compartido</block>
+  <block id="59a029b0a65d8928b8afd42fd7a5bfe2" category="admonition">Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es aceptable que una ubicación de MetroCluster tenga un único agregado de datos reflejados y la otra tenga más de un agregado de datos reflejados.</block>
+  <block id="478e4322f0111cf3e7bdad12bea24701" category="list-text">Actualice la configuración de MetroCluster en cualquiera de los nodos:</block>
+  <block id="4ad402ea3fb0bcfdc921fd3083047f45" category="paragraph">Desde el símbolo del sistema de cualquier nodo, ejecute:</block>
+  <block id="28d0a71b806dfc9c57cc495498c72954" category="paragraph">Un único agregado de datos reflejados en una o en las dos ubicaciones</block>
+  <block id="d419812c67afb77388be54f4cb41eb86" category="paragraph">Desde el aviso de cualquier nodo, configure la MetroCluster con el<block ref="d972f8bbe9b04d39b8b96b699cf921e9" prefix=" " category="inline-code"></block> parámetro:</block>
+  <block id="3635681631407e08104ac78c0039ed70" category="paragraph"><block ref="0825cd88596408a485ffc279f70b9da9" prefix="" category="inline-code"></block></block>
+  <block id="753303bac17f77fab4f01ca22a7ff80e" category="list-text">Mueva los volúmenes MDV_CRS en modo de privilegios avanzado.</block>
+  <block id="4e934a5efc9ac0d78daef92737cd79bf" category="paragraph">Si va a expandir una configuración de MetroCluster de cuatro nodos a una configuración permanente de ocho nodos, debería mover uno de los volúmenes MDV al nuevo grupo de DR.</block>
 </blocks>

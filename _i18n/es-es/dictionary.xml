@@ -2901,7 +2901,6 @@
   <block id="bc2027184e27075969cdcd60662c6642" category="sidebar">Configure los switches IP de Cisco</block>
   <block id="84a335bc70808c0497de1c62a99aaf43" category="sidebar">Configure los ajustes básicos</block>
   <block id="fb66ffdb7a65b64035629ded64b78faf" category="sidebar">Configure los switches NVIDIA IP</block>
-  <block id="2e513789c4a513cc3bc3dbb07880d342" category="sidebar">Cómo configurar configuraciones de ocho nodos</block>
   <block id="41aa5998b40e00d8eb4f7bb40bb2bc22" category="sidebar">Recopile la información necesaria</block>
   <block id="899561732a5d01981ad7459377a19442" category="sidebar">Configurar el software MetroCluster Tiebreaker o Mediator de ONTAP</block>
   <block id="4eb00e76349103bb49f834540fdce720" category="sidebar">Configure el servicio Mediator de ONTAP para el cambio automático no planificado</block>
@@ -9709,11 +9708,6 @@
   <block id="acb19996aff6d0b774650f9aa4d7212a" category="inline-link-macro">Hoja de trabajo para la configuración de IP de MetroCluster, site_B</block>
   <block id="08fcfce40ddd768f4ab6ad0534a40c73" category="paragraph"><block ref="08fcfce40ddd768f4ab6ad0534a40c73" category="inline-link-macro-rx"></block></block>
   <block id="7a56c93af328a3c1fa4e3fccdc177cb5" category="summary">En una configuración IP de MetroCluster que no está preconfigurada de fábrica, debe comprobar que el estado ha-config de la controladora y los componentes del chasis está establecido en mccip para que se inicien correctamente. Para los sistemas recibidos de fábrica, este valor está preconfigurado y no es necesario verificarlo.</block>
-  <block id="b09496e62afe76db185677ab92dd3695" category="paragraph">En una configuración IP de MetroCluster que no esté preconfigurada de fábrica, debe comprobar que el estado ha-config del controlador y los componentes del chasis está definido en «mccip» para que se inicien correctamente. Para los sistemas recibidos de fábrica, este valor está preconfigurado y no es necesario verificarlo.</block>
-  <block id="d0dddd5779102f5b72e8edf336fef717" category="list-text">Mostrar el estado de alta disponibilidad del módulo de la controladora y el chasis:</block>
-  <block id="c1420c708cdb03e8e6259f7cb1285a08" category="paragraph">El módulo del controlador y el chasis deben mostrar el valor «mccip».</block>
-  <block id="717daacc38ffb11ae03c79a7871ba94a" category="list-text">Si el estado del sistema mostrado del controlador no es "mccip", establezca el estado ha del controlador:</block>
-  <block id="1be7c4ddc79016b4335125e64b368241" category="list-text">Si el estado del sistema mostrado del chasis no es "mccip", establezca el estado ha del chasis:</block>
   <block id="a63e8da5ab0d323dfa2d8c1590db4fed" category="paragraph">Según la versión de ONTAP, debe configurar los LIF de conexión entre iguales de BGP en la SVM del nodo, no el sistema ni la SVM de datos. En 9.8, los LIF BGP son visibles en la SVM del clúster (sistema) y las SVM del nodo ya no están presentes.</block>
   <block id="e3bb1ae61b6d4dc1b02fdb23cab46189" category="paragraph">configurada, la existencia del v0a (v0b, etc.) Valida constantemente la conectividad, garantizando que una migración LIF o una conmutación al nodo de respaldo se realice correctamente (a diferencia de L2, donde una configuración rota solo es visible después de la interrupción).</block>
   <block id="b1d3a32a00e7d497fcf31c70542c202e" category="summary">Puede descargar e instalar en un tercer sitio ya sea el software MetroCluster Tiebreaker o, a partir de ONTAP 9.7, el Mediador de ONTAP.</block>
@@ -14036,4 +14030,19 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="3635681631407e08104ac78c0039ed70" category="paragraph"><block ref="0825cd88596408a485ffc279f70b9da9" prefix="" category="inline-code"></block></block>
   <block id="753303bac17f77fab4f01ca22a7ff80e" category="list-text">Mueva los volúmenes MDV_CRS en modo de privilegios avanzado.</block>
   <block id="4e934a5efc9ac0d78daef92737cd79bf" category="paragraph">Si va a expandir una configuración de MetroCluster de cuatro nodos a una configuración permanente de ocho nodos, debería mover uno de los volúmenes MDV al nuevo grupo de DR.</block>
+  <block id="dbe62ccc612e92f8dc68e42a4661fecb" category="paragraph">Si el estado de alta disponibilidad del módulo de la controladora y el chasis es incorrecto, no se puede configurar MetroCluster sin volver a inicializar el nodo. Debe corregir la configuración mediante este procedimiento y, a continuación, inicializar el sistema mediante uno de los siguientes procedimientos:</block>
+  <block id="a86b0de4e0b4c477962412e4fb878fa1" category="list-text">En una configuración IP de MetroCluster, siga los pasos descritos en <block ref="46904e83320ab310261c288a6a607871" category="inline-link-macro-rx"></block>.</block>
+  <block id="73fa02989b9da1f069817272869a683b" category="inline-link-macro">Restaure los valores predeterminados del sistema y configure el tipo de HBA en un módulo de controlador</block>
+  <block id="20e47a9aa4ad4f6197046707d54204fc" category="list-text">En una configuración de MetroCluster FC, siga los pasos que se indican en <block ref="61b5232c30227f4608eee40560fc97c5" category="inline-link-macro-rx"></block>.</block>
+  <block id="db298781944827895a870278a91cf51d" category="paragraph">Compruebe que el sistema está en modo de mantenimiento.</block>
+  <block id="8043a3bf6cce640e7454f2cd339995d4" category="cell">Tipo de configuración de MetroCluster</block>
+  <block id="b2044c373529567844418af6b99b9c47" category="cell">Estado de ALTA DISPONIBILIDAD para todos los componentes...</block>
+  <block id="3ec28b19df1922ba15c732a6c9ce26e7" category="paragraph">Configuración FC MetroCluster de ocho o cuatro nodos</block>
+  <block id="02c92aa95863fe523d726679c13e1c11" category="paragraph">Configuración IP de MetroCluster de ocho o cuatro nodos</block>
+  <block id="8d1f63834a0230ca4c300e584f887131" category="list-text">Si el estado del sistema que se muestra en la controladora no es correcto, establezca el estado de alta disponibilidad correcto para su configuración en el módulo de controladora:</block>
+  <block id="46be68db9978eb3b9ac4054e394c92ce" category="list-text">Si el estado del sistema que se muestra del chasis no es correcto, establezca el estado de alta disponibilidad correcto para su configuración en el chasis:</block>
+  <block id="330acb0fa4964235e5dabc85b0488f57" category="list-text">Repita todo este procedimiento para comprobar el estado HA en cada nodo de la configuración MetroCluster.</block>
+  <block id="84afb0fe12dfc2a5fa1e2e978393b33c" category="paragraph">Para configurar un sistema de almacenamiento en una configuración de MetroCluster FC, debe asegurarse de que el estado de alta disponibilidad de los componentes del módulo de la controladora y del chasis sea mcc o mcc-2n para que estos componentes arranquen correctamente. Aunque este valor debe preconfigurarse en los sistemas recibidos de fábrica, debe verificar el ajuste antes de continuar.</block>
+  <block id="cbc29e9b371b7013e6625c2fa3c7ec20" category="paragraph">En una configuración IP de MetroCluster, debe verificar que el estado HA-config de los componentes del controlador y del chasis esté configurado en “mccip” para que se inicien correctamente. Aunque este valor debe preconfigurarse en los sistemas recibidos de fábrica, debe verificar el ajuste antes de continuar.</block>
+  <block id="b6eb7f38a057c8f63ffc29f23e6be071" category="sidebar">Cómo configurar las configuraciones de ocho nodos</block>
 </blocks>

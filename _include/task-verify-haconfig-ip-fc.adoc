@@ -1,15 +1,6 @@
----
-permalink: install-ip/task_sw_config_verify_haconfig.html 
-sidebar: sidebar 
-keywords: metrocluster, ha-config, mccip, haconfig, verify, high-availability 
-summary: En una configuración IP de MetroCluster que no está preconfigurada de fábrica, debe comprobar que el estado ha-config de la controladora y los componentes del chasis está establecido en mccip para que se inicien correctamente. Para los sistemas recibidos de fábrica, este valor está preconfigurado y no es necesario verificarlo. 
----
-= Verificación del estado de los componentes de la configuración de alta disponibilidad
+= 
 :allow-uri-read: 
 
-
-[role="lead"]
-En una configuración IP de MetroCluster, debe verificar que el estado HA-config de los componentes del controlador y del chasis esté configurado en “mccip” para que se inicien correctamente. Aunque este valor debe preconfigurarse en los sistemas recibidos de fábrica, debe verificar el ajuste antes de continuar.
 
 [CAUTION]
 ====

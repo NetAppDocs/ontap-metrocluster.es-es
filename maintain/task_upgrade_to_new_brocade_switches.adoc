@@ -53,12 +53,9 @@ image::../media/brocade_upgr_to_g620_fab_1_down.gif[brocade actualización a g62
 +
 image::../media/brocade_upgr_to_g620_replaced_a_1.gif[brocade actualización a g620 sustituye a 1]
 
-.. Desactive los nuevos switches:
+.. Deshabilite los nuevos conmutadores ejecutando el siguiente comando en ambos conmutadores:
 +
 `switchCfgPersistentDisable`
-
-+
-El comando deshabilita ambos switches en la estructura del switch.
 
 +
 [listing]
@@ -79,8 +76,13 @@ image::../media/brocade_upgr_to_g620_replaced_b_1.gif[brocade actualización a g
 
 
 . Encienda los nuevos interruptores y deje que se inicien.
-. Descargue los archivos RCF del nuevo conmutador.
-. Aplique los archivos RCF a ambos nuevos conmutadores de la estructura, siguiendo las instrucciones de la página de descarga.
+. Configure los switches FC Brocade mediante uno de los siguientes procedimientos:
++
+link:../install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html["Configuración de switches FC Brocade con archivos RCF"]
+
++
+link:../install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["Configurar manualmente los switches FC de Brocade"]
+
 . Guarde la configuración del switch:
 +
 `cfgSave`

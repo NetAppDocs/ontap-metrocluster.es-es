@@ -577,15 +577,11 @@
   <block id="e485e2a29b3e88e7af57a872271ec004" category="list-text">Descablear y retirar el interruptor desactivado.</block>
   <block id="6ab8d2ea7c4ab8de2d0240533675a5ba" category="list-text">Instale el nuevo interruptor en el rack.</block>
   <block id="9db38090d74d3c900ffdd688465bb5e8" category="image-alt">brocade actualización a g620 sustituye a 1</block>
-  <block id="a0c9a11807b32c8820a3f0a43340ed14" category="list-text">Desactive los nuevos switches:</block>
-  <block id="7b78e18dcd3185c34c9f26454f6f184a" category="paragraph">El comando deshabilita ambos switches en la estructura del switch.</block>
   <block id="d0ec9e05561bfe12c0306959eddf56c8" category="list-text">Conecte los cables del nuevo switch mediante las asignaciones de puertos recomendadas.</block>
   <block id="98865fdc5c9769318f840c5f626b7ec2" category="list-text">Repita estos mismos pasos en el sitio MetroCluster del partner para sustituir el segundo switch de la primera estructura del switch.</block>
   <block id="5a5070abc66ad4ba93c9599236c17675" category="paragraph">Se han sustituido ambos switches de la estructura 1.</block>
   <block id="9359b4d4c7ebe7a35b725df2addeaf7b" category="image-alt">brocade actualización a g620 reemplazado b 1</block>
   <block id="0fd8560791ae174b08c82bd0ee74f32e" category="list-text">Encienda los nuevos interruptores y deje que se inicien.</block>
-  <block id="54f59ef2ee1220bd27c7e59f620f7e4a" category="list-text">Descargue los archivos RCF del nuevo conmutador.</block>
-  <block id="b71b5bca0bcdc72655be357f3c8b1c42" category="list-text">Aplique los archivos RCF a ambos nuevos conmutadores de la estructura, siguiendo las instrucciones de la página de descarga.</block>
   <block id="44a651ee20f59b8ff5887857d2eb80dc" category="list-text">Guarde la configuración del switch:</block>
   <block id="8baaacde06cbd685134e16e9023a6e85" category="list-text">Espere 10 minutos para permitir que la configuración se estabilice.</block>
   <block id="f7a6db45ff24ce0a158fab57e41dfafb" category="list-text">Al volver al símbolo del sistema del switch, compruebe la versión del firmware del switch:</block>
@@ -698,8 +694,6 @@
   <block id="012f755687424dd2475cf31eee8a99ff" category="paragraph">Los nodos FC MetroCluster (node_A_x-FC y node_B_x-FC) permanecen cableados en este momento.</block>
   <block id="b42bad79baad4f4f943c81fc37bedccd" category="list-text">Conecte los nodos IP de MetroCluster a los switches IP como se muestra en la <block ref="657bcb6c51639854c4fdede551507755" category="inline-link-macro-rx"></block>.</block>
   <block id="4852598a3e684943b3bfcba06307b21d" category="list-text">Configure los nodos IP de MetroCluster en las siguientes secciones:</block>
-  <block id="87389a8ef852aa6f8fecae947cf8fd86" category="list-text"><block ref="87389a8ef852aa6f8fecae947cf8fd86" category="inline-link-macro-rx"></block></block>
-  <block id="42aa3219583515464abe8c61ef6c61d3" category="list-text"><block ref="42aa3219583515464abe8c61ef6c61d3" category="inline-link-macro-rx"></block></block>
   <block id="fbb3c6ac39d170b58b6e9006735f762f" category="list-text">Repita estos pasos en los otros nodos IP de MetroCluster.</block>
   <block id="1e5e78662df1059700ef33c3a063b1d8" category="summary">Debe recopilar información de los nodos FC de MetroCluster existentes, enviar un mensaje de AutoSupport donde se anunciará el inicio del mantenimiento y realizar la transición de los nodos.</block>
   <block id="a286994e2be106ef6491365f1ecc470f" category="doc">Cambiar los nodos FC de MetroCluster</block>
@@ -4066,9 +4060,7 @@
   <block id="4d2a12dbb40eebfdeb323911fc06c5ce" category="list-text">Monte en rack las nuevas controladoras.</block>
   <block id="ef8a86bee8843988ee84e3ebf370fee9" category="inline-link-macro">Cableado de los switches IP</block>
   <block id="49bbf1feafd5bd1fce43e87c0b9dbd0b" category="inline-link-macro">Obteniendo información obligatoria</block>
-  <block id="1cbfeb82dbc642ca3cfc8e2db84c469c" category="list-text"><block ref="1cbfeb82dbc642ca3cfc8e2db84c469c" category="inline-link-macro-rx"></block></block>
   <block id="89ec261ce88167cf44741974c5031e50" category="inline-link-macro">Restaurando los valores predeterminados del sistema en un módulo de controlador</block>
-  <block id="251fa3a6289ecafe7b95d67056605968" category="list-text"><block ref="251fa3a6289ecafe7b95d67056605968" category="inline-link-macro-rx"></block></block>
   <block id="9db419369e9211f992a02b77873b9294" category="inline-link-macro">Asignar manualmente unidades para un pool 0 (ONTAP 9.4 y posterior)</block>
   <block id="d93785c679dd9ecbbe55df9329146a8d" category="list-text">En el modo de mantenimiento, emita el comando halt para salir del modo de mantenimiento y, a continuación, emita el comando boot_ontap para arrancar el sistema y acceder a la configuración del clúster.</block>
   <block id="ccaa4e34c729aaba9db9c5a44c41381f" category="paragraph">No complete el asistente de clúster ni el asistente para nodos en este momento.</block>
@@ -9709,7 +9701,6 @@
   <block id="08fcfce40ddd768f4ab6ad0534a40c73" category="paragraph"><block ref="08fcfce40ddd768f4ab6ad0534a40c73" category="inline-link-macro-rx"></block></block>
   <block id="7a56c93af328a3c1fa4e3fccdc177cb5" category="summary">En una configuración IP de MetroCluster que no está preconfigurada de fábrica, debe comprobar que el estado ha-config de la controladora y los componentes del chasis está establecido en mccip para que se inicien correctamente. Para los sistemas recibidos de fábrica, este valor está preconfigurado y no es necesario verificarlo.</block>
   <block id="a63e8da5ab0d323dfa2d8c1590db4fed" category="paragraph">Según la versión de ONTAP, debe configurar los LIF de conexión entre iguales de BGP en la SVM del nodo, no el sistema ni la SVM de datos. En 9.8, los LIF BGP son visibles en la SVM del clúster (sistema) y las SVM del nodo ya no están presentes.</block>
-  <block id="e3bb1ae61b6d4dc1b02fdb23cab46189" category="paragraph">configurada, la existencia del v0a (v0b, etc.) Valida constantemente la conectividad, garantizando que una migración LIF o una conmutación al nodo de respaldo se realice correctamente (a diferencia de L2, donde una configuración rota solo es visible después de la interrupción).</block>
   <block id="b1d3a32a00e7d497fcf31c70542c202e" category="summary">Puede descargar e instalar en un tercer sitio ya sea el software MetroCluster Tiebreaker o, a partir de ONTAP 9.7, el Mediador de ONTAP.</block>
   <block id="89e65a2d93c278fd151107cff24c1e27" category="doc">Configuración del software MetroCluster Tiebreaker o Mediator de ONTAP</block>
   <block id="860e1e683db2fc2e67aeec00dc74b357" category="paragraph">Debe tener un host Linux disponible que tenga conectividad de red a ambos clústeres en la configuración de MetroCluster. Los requisitos específicos se encuentran en la documentación de tiebreaker para MetroCluster o Mediator de ONTAP.</block>
@@ -10240,8 +10231,6 @@
   <block id="33d85c30487ab45d9d74c20ce219e9ee" category="paragraph">Debe completar este paso en un nodo antes de continuar al siguiente nodo.</block>
   <block id="e95cf3aef5a080c0def37ff65465786d" category="list-text">Seleccione la opción 4 en el menú de inicio y continúe.</block>
   <block id="52239e8f1ddb4afa2e6bacb01bd05eb6" category="list-text">Arranque cada nodo en el sitio B mediante la opción 4 en el menú de arranque:</block>
-  <block id="c94a009c5a39824e241500e9f7d49cad" category="summary">A partir de ONTAP 9.5, ONTAP admite conectividad de capa 3 mediante IP virtual (VIP) y Protocolo de puerta de enlace de borde (BGP).</block>
-  <block id="23b070f17dffe8e66479102b1681ffad" category="doc">Uso de IP virtual y del protocolo de puerta de enlace de borde con una configuración de MetroCluster</block>
   <block id="3771e54725752637c5b1cf7cce911622" category="list-text">Utilice los procedimientos para la conmutación negociada, la reparación y la conmutación de estado que se mencionan en la _Guía de gestión y recuperación ante desastres de MetroCluster_.</block>
   <block id="e60d9e6a9fb9bfbe61031a7440923aa7" category="paragraph"><block ref="e60d9e6a9fb9bfbe61031a7440923aa7" category="inline-link-rx"></block></block>
   <block id="449a2bdc6a969f884c1d33fb66eecea7" category="section-title">Límites de latencia y pérdida de paquetes en los ISL</block>
@@ -14031,7 +14020,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="753303bac17f77fab4f01ca22a7ff80e" category="list-text">Mueva los volúmenes MDV_CRS en modo de privilegios avanzado.</block>
   <block id="4e934a5efc9ac0d78daef92737cd79bf" category="paragraph">Si va a expandir una configuración de MetroCluster de cuatro nodos a una configuración permanente de ocho nodos, debería mover uno de los volúmenes MDV al nuevo grupo de DR.</block>
   <block id="dbe62ccc612e92f8dc68e42a4661fecb" category="paragraph">Si el estado de alta disponibilidad del módulo de la controladora y el chasis es incorrecto, no se puede configurar MetroCluster sin volver a inicializar el nodo. Debe corregir la configuración mediante este procedimiento y, a continuación, inicializar el sistema mediante uno de los siguientes procedimientos:</block>
-  <block id="a86b0de4e0b4c477962412e4fb878fa1" category="list-text">En una configuración IP de MetroCluster, siga los pasos descritos en <block ref="46904e83320ab310261c288a6a607871" category="inline-link-macro-rx"></block>.</block>
   <block id="73fa02989b9da1f069817272869a683b" category="inline-link-macro">Restaure los valores predeterminados del sistema y configure el tipo de HBA en un módulo de controlador</block>
   <block id="20e47a9aa4ad4f6197046707d54204fc" category="list-text">En una configuración de MetroCluster FC, siga los pasos que se indican en <block ref="61b5232c30227f4608eee40560fc97c5" category="inline-link-macro-rx"></block>.</block>
   <block id="db298781944827895a870278a91cf51d" category="paragraph">Compruebe que el sistema está en modo de mantenimiento.</block>
@@ -14045,4 +14033,9 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="84afb0fe12dfc2a5fa1e2e978393b33c" category="paragraph">Para configurar un sistema de almacenamiento en una configuración de MetroCluster FC, debe asegurarse de que el estado de alta disponibilidad de los componentes del módulo de la controladora y del chasis sea mcc o mcc-2n para que estos componentes arranquen correctamente. Aunque este valor debe preconfigurarse en los sistemas recibidos de fábrica, debe verificar el ajuste antes de continuar.</block>
   <block id="cbc29e9b371b7013e6625c2fa3c7ec20" category="paragraph">En una configuración IP de MetroCluster, debe verificar que el estado HA-config de los componentes del controlador y del chasis esté configurado en “mccip” para que se inicien correctamente. Aunque este valor debe preconfigurarse en los sistemas recibidos de fábrica, debe verificar el ajuste antes de continuar.</block>
   <block id="b6eb7f38a057c8f63ffc29f23e6be071" category="sidebar">Cómo configurar las configuraciones de ocho nodos</block>
+  <block id="37887b7927053bae8056fe215242ac04" category="list-text">En una configuración IP de MetroCluster, siga los pasos descritos en <block ref="e39e92837d61810422f20d9c0acf650b" category="inline-link-macro-rx"></block>.</block>
+  <block id="654458233d1a8772886f997ae2b46c7c" category="paragraph">La existencia de v0a (v0b y así sucesivamente) valida constantemente la conectividad, garantizando que la migración o la recuperación tras fallos de una LIF se realice correctamente (a diferencia de L2, donde una configuración interrumpida solo es visible tras la interrupción).</block>
+  <block id="705abb444ac66e0442a9ae4646471061" category="list-text">Deshabilite los nuevos conmutadores ejecutando el siguiente comando en ambos conmutadores:</block>
+  <block id="f67761c61087dd0914ed518ef2c5f8e3" category="list-text">Configure los switches FC Brocade mediante uno de los siguientes procedimientos:</block>
+  <block id="4aa62d2d0cdae8fdaf47d41d558bac24" category="list-text"><block ref="4aa62d2d0cdae8fdaf47d41d558bac24" category="inline-link-macro-rx"></block></block>
 </blocks>

@@ -6,6 +6,8 @@ summary: En una configuración IP de MetroCluster que no está preconfigurada de
 ---
 = Verificación del estado de los componentes de la configuración de alta disponibilidad
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -15,7 +17,7 @@ En una configuración IP de MetroCluster, debe verificar que el estado HA-config
 ====
 Si el estado de alta disponibilidad del módulo de la controladora y el chasis es incorrecto, no se puede configurar MetroCluster sin volver a inicializar el nodo. Debe corregir la configuración mediante este procedimiento y, a continuación, inicializar el sistema mediante uno de los siguientes procedimientos:
 
-* En una configuración IP de MetroCluster, siga los pasos descritos en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_verify_haconfig.html["Restaurar los valores predeterminados del sistema en un módulo de controlador"].
+* En una configuración IP de MetroCluster, siga los pasos descritos en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_restore_defaults.html["Restaurar los valores predeterminados del sistema en un módulo de controlador"].
 * En una configuración de MetroCluster FC, siga los pasos que se indican en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_the_mcc_software_in_ontap.html#restoring-system-defaults-and-configuring-the-hba-type-on-a-controller-module["Restaure los valores predeterminados del sistema y configure el tipo de HBA en un módulo de controlador"].
 
 

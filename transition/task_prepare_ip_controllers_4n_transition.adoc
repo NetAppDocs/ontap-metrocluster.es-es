@@ -30,10 +30,10 @@ Los nodos FC MetroCluster (node_A_x-FC y node_B_x-FC) permanecen cableados en es
 . Conecte los nodos IP de MetroCluster a los switches IP como se muestra en la link:../install-ip/using_rcf_generator.html["Cableado de los switches IP"].
 . Configure los nodos IP de MetroCluster en las siguientes secciones:
 +
-.. link:../install-ip/task_sw_config_gather_info.html["Obteniendo información obligatoria"]
-.. link:../install-ip/task_sw_config_restore_defaults.html["Borrar la configuración en un módulo del controlador"]
-.. link:../install-ip/task_sw_config_verify_haconfig.html["Verificación del estado de los componentes de la configuración de alta disponibilidad"]
-.. link:../install-ip/task_sw_config_assign_pool0.html["Asignar manualmente unidades para un pool 0 (ONTAP 9.4 y posterior)"]
+.. link:../install-ip/task_sw_config_gather_info.html["Recopile la información necesaria"]
+.. link:../install-ip/task_sw_config_restore_defaults.html["Restaurar los valores predeterminados del sistema en un módulo de controlador"]
+.. link:../install-ip/task_sw_config_verify_haconfig.html["Compruebe el estado de los componentes de ha-config"]
+.. link:../install-ip/task_sw_config_assign_pool0.html["Asignar unidades manualmente para el pool 0 (ONTAP 9,4 y posteriores)"]
 
 
 . En el modo de mantenimiento, emita el comando halt para salir del modo de mantenimiento y, a continuación, emita el comando boot_ontap para arrancar el sistema y acceder a la configuración del clúster.

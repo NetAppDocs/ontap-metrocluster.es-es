@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: install-ip/set-up-mcc-peering-system-manager.html 
+keywords: metrocluster, peer, peering, pair, pairing, configuration, config, mcc, HA 
+summary: A partir de ONTAP 9.8, puede gestionar las operaciones del sitio IP de MetroCluster con System Manager. Esto implica configurar dos clústeres y realizar la paridad de clústeres. 
+---
+= Configure las relaciones entre iguales de IP de MetroCluster
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.8, puede gestionar las operaciones de configuración de IP de MetroCluster con System Manager. Después de configurar dos clústeres, debe configurar la configuración de paridad entre ellos.
+
+.Antes de empezar
+Configure dos clústeres. Consulte link:set-up-mcc-site-system-manager.html["Configurar un sitio IP de MetroCluster"]el procedimiento.
+
+Diferentes administradores del sistema ubicados en los sitios geográficos de cada clúster llevan a cabo algunos pasos de este proceso. Para explicar este proceso, los clústeres se denominan "clúster del sitio A" y "clúster del sitio B".
+
+
+
+== Realice el proceso de interconexión desde la ubicación A
+
+Este proceso lo realiza un administrador del sistema en el Sitio A.
+
+.Pasos
+. Inicie sesión en Site A cluster.
+. En System Manager, seleccione *Dashboard* en la columna de navegación de la izquierda para mostrar la descripción general del clúster.
++
+La consola muestra los detalles de este clúster (Sitio A). En la sección *MetroCluster*, Site A se muestra un clúster a la izquierda.
+
+. Haga clic en *Adjuntar clúster de partners*.
+. Introduzca los detalles de las interfaces de red que permiten que los nodos del clúster del sitio A se comuniquen con los nodos del clúster del sitio B.
+. Haga clic en *Guardar y continuar*.
+. En la ventana *Adjuntar clúster de socios*, selecciona *No tengo una frase de contraseña*. Esto le permite generar una frase de contraseña.
+. Copie la frase de contraseña generada y compártela con el administrador del sistema en el sitio B.
+. Seleccione *Cerrar*.
+
+
+
+
+== Realice el proceso de interconexión desde la ubicación B.
+
+Este proceso lo lleva a cabo un administrador del sistema en el Sitio B.
+
+.Pasos
+. Inicie sesión en el clúster del sitio B.
+. En System Manager, seleccione *Dashboard* para mostrar la descripción general del clúster.
++
+La consola muestra los detalles de este clúster (sitio B). En la sección MetroCluster, el clúster del sitio B se muestra a la izquierda.
+
+. Haga clic en *Adjuntar clúster de socios* para iniciar el proceso de relaciones entre iguales.
+. Introduzca los detalles de las interfaces de red que permiten que los nodos del clúster del sitio B se comuniquen con los nodos del clúster del sitio A.
+. Haga clic en *Guardar y continuar*.
+. En la ventana *Adjuntar clúster de socios*, selecciona *Tengo una frase de contraseña*. Esto le permite introducir la frase de contraseña que recibió del administrador del sistema en el sitio A.
+. Seleccione *Peer* para completar el proceso de comparación.
+
+
+.El futuro
+Después de que el proceso de interconexión se complete correctamente, se configuran los clústeres. Consulte link:configure-mcc-site-system-manager.html["Configurar un sitio IP de MetroCluster"].

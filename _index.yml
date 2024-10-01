@@ -37,12 +37,6 @@ indexpage:
     links:
     - title: Archivos RCF de MetroCluster
       url: https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/docsandkb-tab
-  - title: Leer más
-    links:
-    - title: Arquitectura y diseño de la solución MetroCluster de NetApp | TR-4705
-      url: https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf
-    - title: Arquitectura y diseño de la solución MetroCluster IP | TR-4689
-      url: https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf
   - title: Actualice, expanda y convierta
     links:
     - title: Actualice y actualice el hardware
@@ -55,6 +49,17 @@ indexpage:
       url: "/transition/concept_choosing_your_transition_procedure_mcc_transition.html"
     - title: Actualice los archivos RCF IP de MetroCluster
       url: "/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html"
+    - title: Actualice ONTAP en clústeres de MetroCluster
+      url: https://docs.netapp.com/us-en/ontap/task_metrocluster_ANDU_upgrade.html
+  - title: Protección de datos con MetroCluster
+    links:
+    - title: Comprender la protección de datos y la recuperación ante desastres de
+        MetroCluster
+      url: "/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html"
+    - title: Lleve a cabo conmutación de sitios, reparaciones y conmutación de estado
+      url: "/manage/task_perform_switchover_for_tests_or_maintenance.html"
+    - title: Recuperación tras un desastre
+      url: "/disaster-recovery/concept_dr_workflow.html"
   - title: Firmware de ATTO Bridge
     links:
     - title: FibreBridge 7600N
@@ -69,3 +74,9 @@ indexpage:
       url: https://hwu.netapp.com/
     - title: Base de conocimientos de soporte de NetApp
       url: https://kb.netapp.com/
+  - title: Leer más
+    links:
+    - title: Arquitectura y diseño de la solución MetroCluster de NetApp | TR-4705
+      url: https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf
+    - title: Arquitectura y diseño de la solución MetroCluster IP | TR-4689
+      url: https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf

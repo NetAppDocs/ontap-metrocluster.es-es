@@ -1,7 +1,7 @@
 ---
 permalink: maintain/task-modify-ip-netmask-properties.html 
 sidebar: sidebar 
-keywords: vlan, ip, gateway,netmask, address, network, interface, subnet 
+keywords: vlan, ip, gateway,netmask, address, network, interface, subnet,metrocluster, layer 3, edit, net mask, configuration, configure,cli, system, manager 
 summary: Puede cambiar las siguientes propiedades de una interfaz IP de MetroCluster, una máscara y una dirección IP, y una puerta de enlace. Puede usar cualquier combinación de parámetros para actualizar. 
 ---
 = Modificar las propiedades de una interfaz IP de MetroCluster
@@ -15,21 +15,35 @@ A partir de ONTAP 9.10.1, puede cambiar las siguientes propiedades de una interf
 
 Es posible que deba actualizar estas propiedades, por ejemplo, si se detecta una dirección IP duplicada o si una puerta de enlace necesita cambiar en el caso de una red de capa 3 debido a cambios en la configuración del enrutador.
 
+
+
+== Modifique la dirección IP, la máscara de red y la pasarela
+
+El procedimiento que siga depende de si utiliza System Manager o la CLI de ONTAP.
+
+[role="tabbed-block"]
+====
+.System Manager
+--
+Utilice System Manager para modificar la dirección IP, la máscara de red y las propiedades de pasarela.
+
+.Paso
+Actualice la dirección IP, la máscara de red y la pasarela de cada nodo e interfaz.
+
+--
+.CLI
+--
+Utilice la CLI para modificar la dirección IP, la máscara de red y las propiedades de pasarela.
+
 .Acerca de esta tarea
 * Sólo puede cambiar una interfaz a la vez. Habrá interrupciones en el tráfico en esa interfaz hasta que se actualicen las otras interfaces y se restablezcan las conexiones.
 * Utilice la `metrocluster configuration-settings interface modify` Comando para cambiar cualquier propiedad de interfaz IP de MetroCluster.
 +
 
-NOTE: Estos comandos cambian la configuración de un nodo en particular para un puerto en particular. Para restaurar una conectividad de red completa, se necesitan comandos similares en otros puertos. De igual modo, los switches de red también deben actualizar su configuración. Por ejemplo, si la puerta de enlace se actualiza, lo ideal es que cambie en ambos nodos de un par de alta disponibilidad, ya que son los mismos. Además, el switch conectado a dichos nodos también debe actualizar su puerta de enlace.
+NOTE: Estos comandos cambian la configuración de un nodo en particular para un puerto en particular. Para restaurar una conectividad de red completa, se necesitan comandos similares en otros puertos. De igual modo, los switches de red también deben actualizar su configuración. Por ejemplo, si la puerta de enlace se actualiza, lo ideal es que cambie en ambos nodos de un par de alta disponibilidad, ya que son los mismos. El switch conectado a esos nodos también debe actualizar su puerta de enlace.
 
 * Utilice `metrocluster configuration-settings interface show` `metrocluster connection check`los comandos , , y `metrocluster connection show` para comprobar que toda la conectividad funciona en todas las interfaces.
 
-
-
-
-== Modifique la dirección IP, la máscara de red y la pasarela
-
-Realice los siguientes pasos para modificar la dirección IP, la máscara de red y la pasarela de una interfaz MetroCluster IP.
 
 .Pasos
 . Actualice la dirección IP, la máscara de red y la pasarela de un solo nodo e interfaz:
@@ -135,3 +149,6 @@ Group Cluster Node    Network Address Network Address Partner Type Config State
                       192.168.20.100  192.168.21.250  DR Auxiliary completed
 ----
 
+
+--
+====

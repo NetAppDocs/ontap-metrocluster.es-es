@@ -41,7 +41,7 @@ CAUTION: A partir de ONTAP 9.12.1, es posible habilitar la función de conmutaci
 
 NOTE: Se le pedirá el nombre de usuario y la contraseña de la cuenta de usuario administrador de Mediator.
 
-. Compruebe que la función de conmutación automática está activada:
+. Compruebe que la función de cambio automático está activada:
 +
 `metrocluster show`
 

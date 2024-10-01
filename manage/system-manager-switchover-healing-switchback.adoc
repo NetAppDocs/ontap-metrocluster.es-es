@@ -1,0 +1,143 @@
+---
+permalink: manage/system-manager-switchover-healing-switchback.html 
+sidebar: sidebar 
+keywords: switchover, perform, switchback, system, manager, operation, restore, metrocluster, functionality, ip, configuration 
+summary: Después de una conmutación, debe ejecutar las operaciones de reparación en un orden específico para restaurar la funcionalidad de MetroCluster. 
+---
+= Utilizar System Manager para llevar a cabo la conmutación de sitios y la conmutación de estado (sólo para configuraciones IP de MetroCluster)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede conmutar el control de un sitio IP de MetroCluster al otro para realizar tareas de mantenimiento o recuperarse de un problema.
+
+
+NOTE: Los procedimientos de conmutación de sitios y conmutación de estado solo se admiten para configuraciones IP de MetroCluster.
+
+
+
+== Información general sobre conmutación de sitios y conmutación de estado
+
+Un cambio puede producirse en dos instancias:
+
+* *Un cambio planificado*
++
+Este cambio lo inicia un administrador del sistema mediante System Manager. La conmutación planificada permite al administrador de sistema de un clúster local controlar los switches de manera que los servicios de datos del clúster remoto se puedan gestionar mediante el clúster local. A continuación, un administrador del sistema en la ubicación de clúster remoto puede realizar tareas de mantenimiento en el clúster remoto.
+
+* *Un cambio no planificado*
++
+En algunos casos, cuando un clúster de MetroCluster se desactiva o las conexiones entre los clústeres están inactivas, ONTAP inicia automáticamente una conmutación de sitios de modo que el clúster que sigue en ejecución se encarga de las responsabilidades de gestión de datos del clúster que está inactivo.
+
++
+Otras veces, en las que ONTAP no puede determinar el estado de uno de los clústeres, el administrador del sistema del sitio que está trabajando inicia la conmutación de sitios para tomar el control de las responsabilidades de gestión de datos del otro sitio.
+
+
+
+En el caso de cualquier tipo de procedimiento de conmutación, la funcionalidad de servicio de datos vuelve al clúster usando un proceso _regresar_.
+
+Usted lleva a cabo distintos procesos de conmutación de sitios y conmutación de estado para ONTAP 9.7 y 9.8:
+
+* <<sm97-sosb,Utilice System Manager en ONTAP 9,7 para conmutación de sitios y conmutación de estado>>
+* <<sm98-sosb,Utilice System Manager en ONTAP 9,8 para conmutación de sitios y conmutación de estado>>
+
+
+
+
+== Utilice System Manager en ONTAP 9,7 para conmutación de sitios y conmutación de estado
+
+.Pasos
+. Inicie sesión en System Manager en ONTAP 9,7.
+. Haga clic en *(Volver a la versión clásica)*.
+. Haga clic en *Configuración > MetroCluster*.
++
+System Manager verifica si es posible una conmutación negociada.
+
+. Realice uno de los siguientes subpasos cuando el proceso de validación haya finalizado:
++
+.. Si la validación falla, pero el sitio B está activo, se ha producido un error. Por ejemplo, es posible que haya un problema con un subsistema o que la duplicación de NVRAM no se sincronice.
++
+... Solucione el problema que está causando el error, haga clic en *Cerrar* y, a continuación, vuelva a comenzar en el paso 2.
+... Detenga los nodos del Sitio B, haga clic en *Cerrar* y, a continuación, realice los pasos en link:https://docs.netapp.com/us-en/ontap-system-manager-classic/online-help-96-97/task_performing_unplanned_switchover.html["Realizar una conmutación de sitios no planificada"^].
+
+
+.. Si la validación falla y el sitio B está inactivo, lo más probable es que haya un problema de conexión. Compruebe que el sitio B está caído y, a continuación, realice los pasos descritos en link:https://docs.netapp.com/us-en/ontap-system-manager-classic/online-help-96-97/task_performing_unplanned_switchover.html["Realizar una conmutación de sitios no planificada"^].
+
+
+. Haga clic en *Cambio del sitio B al sitio A* para iniciar el proceso de cambio.
+. Haga clic en *Cambiar a la nueva experiencia*.
+
+
+
+
+== Utilice System Manager en ONTAP 9,8 para conmutación de sitios y conmutación de estado
+
+
+
+=== Realizar una conmutación de sitios planificada (ONTAP 9.8)
+
+.Pasos
+. Inicie sesión en System Manager en ONTAP 9,8.
+. Seleccione *Panel*. En la sección *MetroCluster*, los dos clústeres se muestran con una conexión.
+. En el clúster local (que se muestra a la izquierda), haga clic en image:icon_kabob.gif["icono de kebab"]y seleccione *Cambio de servicios de datos remotos al sitio local*.
++
+Una vez que se valida la solicitud de conmutación de sitios, el control se transfiere del sitio remoto al sitio local. El sitio local realiza solicitudes de servicio de datos para ambos clústeres.
+
++
+El clúster remoto se reinicia, pero los componentes de almacenamiento no están activos y el clúster no ofrece servicio a las solicitudes de datos. Ahora está disponible para el mantenimiento planificado.
+
+
+
+
+NOTE: El clúster remoto no se debe utilizar para el mantenimiento de datos hasta que lleve a cabo una conmutación de estado.
+
+
+
+=== Realizar una conmutación de sitios no planificada (ONTAP 9.8)
+
+ONTAP puede iniciar automáticamente un cambio no planificado. Si ONTAP no puede determinar si es necesaria una conmutación de estado, el administrador del sistema del sitio de MetroCluster que aún se ejecuta inicia la conmutación de sitios con los siguientes pasos:
+
+.Pasos
+. Inicie sesión en System Manager en ONTAP 9,8.
+. Seleccione *Panel*.
++
+En la sección *MetroCluster*, la conexión entre los dos grupos se muestra con una “X” en él. Esto significa que no se puede detectar una conexión y que las conexiones o el clúster están inactivos.
+
+. En el clúster local (que se muestra a la izquierda), haga clic en image:icon_kabob.gif["icono de kebab"]y seleccione *Cambio de servicios de datos remotos al sitio local*.
++
+Si se produce un error en la conmutación, haga clic en el enlace "View details" en el mensaje de error y confirme la conmutación no planificada.
+
++
+Una vez que se valida la solicitud de conmutación de sitios, el control se transfiere del sitio remoto al sitio local. El sitio local realiza solicitudes de servicio de datos para ambos clústeres.
+
++
+El clúster se debe reparar antes de que vuelva a estar conectado.
+
+
+
+
+NOTE: Una vez que el clúster remoto se conecta, no se debe utilizar para el mantenimiento de datos hasta que vuelva a realizar una conmutación.
+
+
+
+=== Lleve a cabo una conmutación de estado (ONTAP 9.8)
+
+.Antes de empezar
+Si el clúster remoto estaba inactivo debido a una tarea de mantenimiento planificada o a un desastre, debería estar activo y en ejecución y esperar a que se produzca la conmutación de retorno.
+
+.Pasos
+. En el clúster local, inicie sesión en System Manager en ONTAP 9.8.
+. Seleccione *Panel*.
++
+En la sección *MetroCluster*, se muestran los dos clústeres.
+
+. En el clúster local (que se muestra a la izquierda), haga clic en image:icon_kabob.gif["icono de kebab"]y seleccione *Recuperar control*.
++
+Los datos se _cured_ primero, para verificar que los datos se han sincronizado y se han reflejado entre ambos clústeres.
+
+. Cuando la recuperación de datos esté completa, haga clic en image:icon_kabob.gif["icono de kebab"]y seleccione *Iniciar conmutación*.
++
+Una vez finalizada la conmutación de estado, ambos clústeres están activos y prestan servicio a las solicitudes de datos. Además, los datos se están reflejando y sincronizando entre los clústeres.
+
+

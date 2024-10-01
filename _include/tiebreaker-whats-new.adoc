@@ -17,6 +17,15 @@ En cada versión se incluyen mejoras del software MetroCluster tiebreaker. Estas
 
 
  a| 
+1.6P1
+ a| 
+* Actualización de bibliotecas de soporte
+* Mejoras de seguridad
+
+
+
+
+ a| 
 1,6
  a| 
 * Facilidad de instalación mejorada
@@ -46,15 +55,172 @@ En cada versión se incluyen mejoras del software MetroCluster tiebreaker. Estas
 
 == Matriz de compatibilidad de SO
 
-[cols="2,2,2,2,2,2"]
+La siguiente tabla indica los sistemas operativos admitidos para cada versión de tiebreaker.
+
 |===
-| Versión de tiebreaker | CentOS 7 - 7,9 | Red Hat 7 - 7,9 | Red Hat 8,1 - 8,7 | Red Hat 8,8 -9,2 | Rocky Linux 9.0 
+
+
+| Del SO para tiebreaker | 1.6P1 | 1,6 | 1.5 | 1,4 
 
 
  a| 
-1,6
+Rocky Linux 9.4
+ a| 
+Sí
  a| 
 No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Rocky Linux 9.0
+ a| 
+No
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Rocky Linux 8.10
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 9,4
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 9,3
+ a| 
+No
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 9,2
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 9,1
+ a| 
+No
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 9,0
+ a| 
+No
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 8,11 - 9,0
+ a| 
+No
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 8,10
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 8,9
+ a| 
+No
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 8,8
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Red Hat 8,1 - 8,7
  a| 
 No
  a| 
@@ -67,31 +233,27 @@ Sí
 
 
  a| 
-1.5
+Red Hat 7 - 7,9
+ a| 
+No
  a| 
 No
  a| 
 No
  a| 
 Sí
- a| 
-No
- a| 
-No
 
 
 
  a| 
-1,4
- a| 
-Sí
- a| 
-Sí
- a| 
-Sí
+CentOS 7 - 7,9
  a| 
 No
  a| 
 No
+ a| 
+No
+ a| 
+Sí
 
 |===

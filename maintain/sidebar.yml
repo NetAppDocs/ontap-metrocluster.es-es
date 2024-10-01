@@ -149,5 +149,7 @@ entries:
     url: "/maintain/task_move_a_metadata_volume_in_mcc_configurations.html"
   - title: Cambie el nombre de un clúster en las configuraciones de MetroCluster
     url: "/maintain/task_rename_the_cluster_for_mcc_configuration.html"
+  - title: Compruebe el estado de una configuración de MetroCluster
+    url: "/maintain/verify-health-mcc-config.html"
   - title: Dónde encontrar información adicional
     url: "/maintain/reference_where_to_find_additional_information_mcc_service_guide.html"

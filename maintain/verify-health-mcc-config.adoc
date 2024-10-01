@@ -1,0 +1,128 @@
+---
+permalink: maintain/verify-health-mcc-config.html 
+sidebar: sidebar 
+keywords: metrocluster, ip, fc, verify, health, troubleshoot, cli, system manager, error, event, problem, maintenance, fix, correction, check 
+summary: Aprenda a verificar que los componentes de MetroCluster estén en buen estado. 
+---
+= Compruebe el estado de una configuración de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aprenda a verificar que los componentes de MetroCluster estén en buen estado.
+
+.Acerca de esta tarea
+* En las configuraciones de IP y FC de MetroCluster, puede utilizar la CLI para ejecutar comandos de comprobación del estado y verificar el estado de los componentes de MetroCluster.
+* En las configuraciones IP de MetroCluster que ejecutan ONTAP 9.8 o posterior, también puede usar el administrador del sistema de ONTAP para supervisar y solucionar problemas en las alertas de comprobación del estado.
+
+
+.Pasos
+Compruebe el estado de la configuración de MetroCluster en función de si está utilizando la CLI o System Manager.
+
+[role="tabbed-block"]
+====
+.CLI
+--
+Utilice los siguientes pasos para comprobar el estado de una configuración de MetroCluster con la CLI.
+
+.Pasos
+. Compruebe que los componentes de MetroCluster están en buen estado:
++
+[source, cli]
+----
+metrocluster check run
+----
++
+[listing]
+----
+cluster_A::*> metrocluster check run
+----
++
+La operación se ejecuta en segundo plano.
+
+. Cuando `metrocluster check run` finalice la operación, muestre los resultados:
++
+[source, cli]
+----
+metrocluster check show
+----
++
+Después de unos cinco minutos, se muestran los siguientes resultados:
+
++
+[listing]
+----
+cluster_A:::*> metrocluster check show
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+clusters            ok
+connections         not-applicable
+volumes             ok
+7 entries were displayed.
+----
+. Comprobar el estado de la operación de comprobación de MetroCluster en ejecución:
++
+[source, cli]
+----
+metrocluster operation history show -job-id <id>
+----
+. Compruebe que no hay alertas de estado:
++
+[source, cli]
+----
+system health alert show
+----
+
+
+--
+.System Manager de ONTAP (solo IP de MetroCluster)
+--
+A partir de ONTAP 9.8, System Manager supervisa el estado de las configuraciones de IP de MetroCluster y ayuda a identificar y corregir los problemas que puedan presentarse.
+
+System Manager comprueba periódicamente el estado de la configuración de IP de MetroCluster. Cuando ve la sección MetroCluster en la Consola, normalmente el mensaje es "los sistemas MetroCluster están en buen estado".
+
+Sin embargo, cuando se produce un problema, el mensaje mostrará el número de eventos. Puede hacer clic en este mensaje y ver los resultados de la comprobación del estado de los siguientes componentes:
+
+* Nodo
+* Interfaz de red
+* Nivel (almacenamiento)
+* Clúster
+* Conexión
+* Volumen
+* Replicación de la configuración
+
+
+La columna *Estado* identifica qué componentes tienen problemas, y la columna *Detalles* sugiere cómo corregir el problema.
+
+.Pasos
+. En System Manager, seleccione *Panel*.
+. Vea el mensaje en la sección *MetroCluster*:
++
+.. Si el mensaje indica que la configuración de MetroCluster es correcta y que las conexiones entre los clústeres y el Mediador ONTAP están en buen estado (se muestra con marcas de comprobación), no tiene problemas para corregir.
+.. Si el mensaje enumera el número de eventos o las conexiones han caído (se muestra con una "X"), continúe con el paso siguiente.
+
+
+. Haga clic en el mensaje que muestra el número de eventos.
++
+Aparecerá el Informe de estado de MetroCluster.
+
+. Solucione los problemas que aparecen en el informe con las sugerencias de la columna *Detalles*.
+. Una vez corregidos todos los problemas, haga clic en *comprobar estado de MetroCluster*.
++
+
+NOTE: Debe realizar todas las tareas de solución de problemas antes de ejecutar la comprobación, ya que la comprobación de estado de MetroCluster utiliza una cantidad intensiva de recursos.
+
++
+La comprobación del estado de MetroCluster se ejecuta en segundo plano. Puede trabajar en otras tareas mientras espera a que finalice.
+
+
+
+--
+====

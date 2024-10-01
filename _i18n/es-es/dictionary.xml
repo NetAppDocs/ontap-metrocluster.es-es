@@ -9733,7 +9733,6 @@
   <block id="22ad9a689b8447af0ecfb5eb5b5495b3" category="list-text">Añada el servicio Mediator de ONTAP a ONTAP:</block>
   <block id="f8dc7177731310562718d80a3440fa9d" category="paragraph"><block ref="3514c4a480186e54ede98b5d0a79cc77" prefix="" category="inline-code"></block></block>
   <block id="1645e08f0bfdf72de9dd9cf2ec8208de" category="admonition">Se le pedirá el nombre de usuario y la contraseña de la cuenta de usuario administrador de Mediator.</block>
-  <block id="80e98c813fb4e1db7539339fdcc19d00" category="list-text">Compruebe que la función de conmutación automática está activada:</block>
   <block id="5c0eb063c7de9ced4fcf06367dc8cf49" category="list-text">Compruebe que el Mediator se está ejecutando.</block>
   <block id="241c04bf46a427ee9559a37db9cfc64c" category="list-text">Mostrar los discos virtuales de Mediator:</block>
   <block id="549e9ae28a978e7598586f13c962b013" category="paragraph"><block ref="01f27107dbd6f005bff7ffa285edb3da" prefix="" category="inline-code"></block></block>
@@ -10686,7 +10685,6 @@
   <block id="d7fffb0ac95f2fd216c5e3fd04365cca" category="paragraph">Es posible que deba actualizar estas propiedades, por ejemplo, si se detecta una dirección IP duplicada o si una puerta de enlace necesita cambiar en el caso de una red de capa 3 debido a cambios en la configuración del enrutador.</block>
   <block id="383d9b07e1ef0cfcfa9ec36fecccfe02" category="paragraph">Sólo puede cambiar una interfaz a la vez. Habrá interrupciones en el tráfico en esa interfaz hasta que se actualicen las otras interfaces y se restablezcan las conexiones.</block>
   <block id="8450a359c3efc774857fe0f3189456e0" category="paragraph">Utilice la<block ref="a7c7bfc3508e315ba41d4dc6412930eb" prefix=" " category="inline-code"></block> Comando para cambiar cualquier propiedad de interfaz IP de MetroCluster.</block>
-  <block id="6a644f6158922e284b18d4232a152b9f" category="admonition">Estos comandos cambian la configuración de un nodo en particular para un puerto en particular. Para restaurar una conectividad de red completa, se necesitan comandos similares en otros puertos. De igual modo, los switches de red también deben actualizar su configuración. Por ejemplo, si la puerta de enlace se actualiza, lo ideal es que cambie en ambos nodos de un par de alta disponibilidad, ya que son los mismos. Además, el switch conectado a dichos nodos también debe actualizar su puerta de enlace.</block>
   <block id="700215bf58e5cc6edce60155aeb7c44a" category="section-title">Modifique la dirección IP, la máscara de red y la pasarela</block>
   <block id="2747f7ff86cce509295bfb4ba2b1c4fa" category="list-text">Actualice la dirección IP, la máscara de red y la pasarela de un solo nodo e interfaz:<block ref="a7c7bfc3508e315ba41d4dc6412930eb" prefix=" " category="inline-code"></block></block>
   <block id="2f545dcb650b5848061814c5ce3b4cf4" category="paragraph">El siguiente comando muestra cómo actualizar la dirección IP, la máscara de red y la pasarela:</block>
@@ -12394,10 +12392,8 @@
   <block id="a7f55356cc47030db5528f30a58edfb2" category="list-text">Instale o actualice el software tiebreaker.</block>
   <block id="aad71198aa2c8b35c39182535fa9f425" category="paragraph">Utilice los siguientes pasos para una nueva instalación de tiebreaker 1,6.</block>
   <block id="73bcbbea382be16f93642da3ea4e23a7" category="list-text">Ejecute el siguiente comando en la<block ref="e9af9a0ef1d120bf3a16357375ed6d36" prefix=" " category="inline-code"></block> solicitar que comience la instalación:</block>
-  <block id="30c295d71ca99219187fc6466ee21568" category="open-title">Actualice de tiebreaker 1,5 a 1,6</block>
   <block id="8be93a7c27b9b66803ef47f46f3d4a36" category="paragraph">Utilice los siguientes pasos para actualizar la versión de software de tiebreaker 1,5 a tiebreaker 1,6.</block>
   <block id="b9a8b4d6a676fac167bcd49bac74376b" category="list-text">Ejecute el siguiente comando en la<block ref="e9af9a0ef1d120bf3a16357375ed6d36" prefix=" " category="inline-code"></block> solicitar actualización del software:</block>
-  <block id="cf316c5c67469aab7dcc16eed2309753" category="open-title">Actualice de tiebreaker 1,4 a 1,6</block>
   <block id="b6afd444ae977b739cc436bd2a8b5c0b" category="paragraph">Utilice los siguientes pasos para actualizar la versión de software de tiebreaker 1,4 a tiebreaker 1,6.</block>
   <block id="67449e50a32d34759e501e37496d3308" category="doc">Flujo de trabajo de instalación de tiebreaker</block>
   <block id="a6812db2442ae325a9ccd39373bbd9dd" category="paragraph-title">Acerca de este flujo de trabajo</block>
@@ -12420,7 +12416,6 @@
   <block id="4a558332080902b1daf6c9eb900f075a" category="summary">El procedimiento de instalación de tiebreaker que siga depende de la versión de tiebreaker que esté instalando.</block>
   <block id="686cbe9ae98dac9e3c34fe747bedda27" category="doc">Elija su procedimiento de instalación</block>
   <block id="de537937e28d6ff9bfed73c24f238620" category="paragraph">Tiebreaker 1,6</block>
-  <block id="3d0eb4e198ae6fd77a45e8e5eeab8df8" category="paragraph"><block ref="3d0eb4e198ae6fd77a45e8e5eeab8df8" category="inline-link-macro-rx"></block></block>
   <block id="92c6c9c27fa6ff626915d050a03cd801" category="doc">Actualice el host en el que se ejecuta el monitor tiebreaker</block>
   <block id="bb6cdee210874ecf03d44e914a8ca0e2" category="paragraph">Es posible que deba actualizar el host en el que se está ejecutando el monitor de tiebreaker.</block>
   <block id="5d7ada76e0c335aff8880d70d7058de7" category="list-text">Desinstale el software tiebreaker:</block>
@@ -12431,7 +12426,6 @@
   <block id="be7c560a571a01eeb644e3be4ae88e59" category="list-text">Facilidad de instalación mejorada</block>
   <block id="6106648cc4773cdde37c48ca810022c0" category="cell">Red Hat 7 - 7,9</block>
   <block id="7d04b9af5dfbfc78c7040183f68afdc4" category="cell">Red Hat 8,1 - 8,7</block>
-  <block id="33ef1f5aa9b12ecd01c340c91d8f9150" category="cell">Red Hat 8,8 -9,2</block>
   <block id="003d136e5089a4f9ae0f1df3f6fc37fa" category="cell">Rocky Linux 9.0</block>
   <block id="9d0101bb262cf2b07ff8dcfa1f6cf004" category="list-text">Necesita la contraseña de administrador y el acceso a un servidor HTTP, FTP, SFTP o Trivial File Transfer Protocol (TFTP).</block>
   <block id="c422062a1c7b3d9ed9b2282378699dc7" category="paragraph"><block ref="c422062a1c7b3d9ed9b2282378699dc7" category="inline-link-macro-rx"></block></block>
@@ -13779,7 +13773,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="b0e1fb1b9093a23db84f9fe9ec414a05" category="paragraph">Debe generar e instalar el archivo RCF en cada switch de la configuración IP de MetroCluster.</block>
   <block id="5f6300d6cef757d6670c2170d0ee50fb" category="list-text">Genere los archivos RCF de Cisco para MetroCluster IP.</block>
   <block id="f0af72ee7b95606742238881f6d3d746" category="list-text">Utilice<block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix=" " category="inline-code"></block><block ref="05f7f2ea3536c78a494ee9ec91b6fef9" prefix=" " category="inline-code"></block>los comandos , , y<block ref="1fb1e9c05efc96eb745333b035ce6d59" prefix=" " category="inline-code"></block> para comprobar que toda la conectividad funciona en todas las interfaces.</block>
-  <block id="696ca372052e4e85401e9ef266b57375" category="paragraph">Realice los siguientes pasos para modificar la dirección IP, la máscara de red y la pasarela de una interfaz MetroCluster IP.</block>
   <block id="164748ab1cab79cb53ebb8d067fb41df" category="paragraph"><block ref="3b73cc9aa0167fa80aa8a786a4871e88" prefix="" category="inline-code"></block></block>
   <block id="8c8de216c09126479bba8f0a636ceac7" category="paragraph"><block ref="34b1158d44c89ca8031563bdf424ba84" prefix="" category="inline-code"></block></block>
   <block id="711aa9967b438e020ee72c9773739e5d" category="paragraph"><block ref="c7462aa9b4e3acfeadac46864ab81636" prefix="" category="inline-code"></block></block>
@@ -14038,4 +14031,243 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="705abb444ac66e0442a9ae4646471061" category="list-text">Deshabilite los nuevos conmutadores ejecutando el siguiente comando en ambos conmutadores:</block>
   <block id="f67761c61087dd0914ed518ef2c5f8e3" category="list-text">Configure los switches FC Brocade mediante uno de los siguientes procedimientos:</block>
   <block id="4aa62d2d0cdae8fdaf47d41d558bac24" category="list-text"><block ref="4aa62d2d0cdae8fdaf47d41d558bac24" category="inline-link-macro-rx"></block></block>
+  <block id="bfa00e3106960b2480f83fadff713a4f" category="paragraph">1.6P1</block>
+  <block id="6bfcd5ea08a80cd94155fdf88dcf6123" category="paragraph">La siguiente tabla indica los sistemas operativos admitidos para cada versión de tiebreaker.</block>
+  <block id="1b768ce691e5eb1aa740065a1f672bfa" category="cell">Del SO para tiebreaker</block>
+  <block id="540490e777cd8d6d9e7c6fc96ae66c78" category="paragraph">Rocky Linux 9.4</block>
+  <block id="5462f235f897a01fa661bab622beabc8" category="paragraph">Rocky Linux 8.10</block>
+  <block id="a19c888b1dfc0d7cae495bcb3d337fc0" category="paragraph">Red Hat 9,4</block>
+  <block id="3e6f4ea6825b1c15c5caa424f32e8e56" category="paragraph">Red Hat 9,3</block>
+  <block id="990892a05d2ae7871bb10520e7d92e70" category="paragraph">Red Hat 9,2</block>
+  <block id="b846d756ce474e84306c1784e17929a2" category="paragraph">Red Hat 9,1</block>
+  <block id="a9a9af4fc514b12a09fbdb4e9dc69b3e" category="paragraph">Red Hat 9,0</block>
+  <block id="7f1240813348dba5070feb8fcbcd1ef6" category="paragraph">Red Hat 8,11 - 9,0</block>
+  <block id="dfb323b8bbf2e9913deb2acdece0c7f4" category="paragraph">Red Hat 8,10</block>
+  <block id="df0cfaadf30e71fdaa61f84b52c44994" category="paragraph">Red Hat 8,9</block>
+  <block id="04dca81afefd0df779a73a7d71167788" category="paragraph">Red Hat 8,8</block>
+  <block id="38a72bda83bf45017fe822ff4eba9612" category="summary">A partir de ONTAP 9.8, puede gestionar las operaciones de configuración de IP de MetroCluster con System Manager. Esto implica la configuración, la conexión y la configuración de dos clústeres.</block>
+  <block id="36f25b89c535d52dd7602dc98235602e" category="doc">Configurar un sitio IP de MetroCluster</block>
+  <block id="28899ffbbfaa5ea10173ff0ea7d1a3c4" category="paragraph">A partir de ONTAP 9.8, puede gestionar las operaciones de configuración de IP de MetroCluster con System Manager. Esto implica configurar dos clústeres, realizar relaciones de paridad de clústeres y configurar los clústeres.</block>
+  <block id="ab5b4f0eeffd1a9db4154301438d854e" category="paragraph">Realice los siguientes procedimientos:</block>
+  <block id="db2d063a7c49bffea6360ca914ed7b80" category="inline-link-macro">Configurar un sitio IP de MetroCluster</block>
+  <block id="6752a5e24c893d34589e26378fa69a36" category="list-text"><block ref="6752a5e24c893d34589e26378fa69a36" category="inline-link-macro-rx"></block></block>
+  <block id="666700b42fe1d56ec812d1016bf00474" category="inline-link-macro">Configure las relaciones entre iguales de IP de MetroCluster</block>
+  <block id="432b1852c060822f86f6a936e2d5a657" category="list-text"><block ref="432b1852c060822f86f6a936e2d5a657" category="inline-link-macro-rx"></block></block>
+  <block id="11de751fc3a61ece2c4369c7f228d262" category="section-title">Configure la conexión entre clústeres</block>
+  <block id="4f98dcf943b7a3cd7ed4f88ca8839b1b" category="list-text">Inicie sesión en System Manager en uno de los sitios y seleccione *Panel*.</block>
+  <block id="d3ab8079aafa01dd2443858e1958cde3" category="paragraph">En la sección *MetroCluster*, el gráfico muestra los dos clústeres que ha configurado y tiene una relación entre iguales para los sitios MetroCluster. El clúster del que está trabajando desde (clúster local) se muestra a la izquierda.</block>
+  <block id="4dbd519ea68e9fdd1535b92dd4afd5fb" category="list-text">Haga clic en *Configurar MetroCluster*. Desde esta ventana, realice los siguientes pasos:</block>
+  <block id="1786426d5d80efd6c5165d556166c28b" category="list-text">Se muestran los nodos para cada clúster en la configuración de MetroCluster. Use las listas desplegables para seleccionar los nodos del clúster local que serán partners de recuperación de desastres con los nodos del clúster remoto.</block>
+  <block id="5b4f1da4fd53e0370a93b132cee09135" category="inline-link-macro">Configure el servicio Mediator de ONTAP</block>
+  <block id="79929ab5271f1ea472573389b4d83491" category="list-text">Haga clic en la casilla de verificación si desea configurar el servicio ONTAP Mediator. Consulte <block ref="5f1311c68626dc6800182a56591c319d" category="inline-link-macro-rx"></block>.</block>
+  <block id="2e04b49bb4e33ec691ac2f426d41203d" category="list-text">Si ambos clústeres tienen una licencia para habilitar el cifrado, se muestra la sección *cifrado*.</block>
+  <block id="12d02fba21726eafac4f9ce09b0d1801" category="paragraph">Para habilitar el cifrado, introduzca una frase de contraseña.</block>
+  <block id="39391d3e9d1021130d7922046a90931b" category="list-text">Haga clic en la casilla de comprobación si desea configurar MetroCluster con una red de capa 3 compartida.</block>
+  <block id="efe042b7cd567da6e7a1991e57562f95" category="admonition">Los nodos asociados de alta disponibilidad y los switches de red que se conectan a los nodos deben tener una configuración coincidente.</block>
+  <block id="3ff0da84e96e24c0f2119aa4d9252fc8" category="list-text">Haga clic en *Guardar* para configurar los sitios MetroCluster.</block>
+  <block id="a84590effe20f7cfc7a37800f946342b" category="paragraph">En la sección *Tablero*, en la sección *MetroCluster*, el gráfico muestra una Marca de verificación en el enlace entre los dos grupos, lo que indica una conexión en buen estado.</block>
+  <block id="0a2cb077aceb828b74111b3c72d0875f" category="summary">A partir de ONTAP 9.8, puede gestionar las operaciones del sitio IP de MetroCluster con System Manager. Esto implica configurar dos clústeres y realizar la paridad de clústeres.</block>
+  <block id="2fecebbfac11150535911d877966c9e3" category="paragraph">A partir de ONTAP 9.8, puede gestionar las operaciones de configuración de IP de MetroCluster con System Manager. Después de configurar dos clústeres, debe configurar la configuración de paridad entre ellos.</block>
+  <block id="8301378659a3e958b3ed8bee628d4fed" category="paragraph">Configure dos clústeres. Consulte <block ref="6752a5e24c893d34589e26378fa69a36" category="inline-link-macro-rx"></block>el procedimiento.</block>
+  <block id="fd52b08a1d5c4aa668d8747cad70b430" category="paragraph">Diferentes administradores del sistema ubicados en los sitios geográficos de cada clúster llevan a cabo algunos pasos de este proceso. Para explicar este proceso, los clústeres se denominan "clúster del sitio A" y "clúster del sitio B".</block>
+  <block id="800f6bec4d7bccca8986aece418ad1de" category="section-title">Realice el proceso de interconexión desde la ubicación A</block>
+  <block id="91e08e596d03b4598a0cb6e18b3b7323" category="paragraph">Este proceso lo realiza un administrador del sistema en el Sitio A.</block>
+  <block id="1b22a2a59202338d982fba5bbb33fa30" category="list-text">Inicie sesión en Site A cluster.</block>
+  <block id="37d02710ca9beb5be0727430fb2162b8" category="list-text">En System Manager, seleccione *Dashboard* en la columna de navegación de la izquierda para mostrar la descripción general del clúster.</block>
+  <block id="400cef5b08c0727ecc8dc2c820f4cc03" category="paragraph">La consola muestra los detalles de este clúster (Sitio A). En la sección *MetroCluster*, Site A se muestra un clúster a la izquierda.</block>
+  <block id="6107d832d713643417cdcb1247850b8d" category="list-text">Haga clic en *Adjuntar clúster de partners*.</block>
+  <block id="1ad364a11b40005802e1f84d90d041cf" category="list-text">Introduzca los detalles de las interfaces de red que permiten que los nodos del clúster del sitio A se comuniquen con los nodos del clúster del sitio B.</block>
+  <block id="e2aa96095bb2f8cb065ca1dbb1797062" category="list-text">Haga clic en *Guardar y continuar*.</block>
+  <block id="0fb2a7e128a2eac45533dd8f9ae55f5e" category="list-text">En la ventana *Adjuntar clúster de socios*, selecciona *No tengo una frase de contraseña*. Esto le permite generar una frase de contraseña.</block>
+  <block id="c049d3b7f45a9d71a026303b72bd3c89" category="list-text">Copie la frase de contraseña generada y compártela con el administrador del sistema en el sitio B.</block>
+  <block id="4a553bf9ebe9a32a6743c78be912cfbc" category="list-text">Seleccione *Cerrar*.</block>
+  <block id="b05890405a4f635e4f56b65031e75631" category="section-title">Realice el proceso de interconexión desde la ubicación B.</block>
+  <block id="0b4aea80df80bf888adc9518474f6947" category="paragraph">Este proceso lo lleva a cabo un administrador del sistema en el Sitio B.</block>
+  <block id="dd50214e47fa588d26e3c92a3d198338" category="list-text">Inicie sesión en el clúster del sitio B.</block>
+  <block id="734cc1d7de8d108a27e917887214636f" category="list-text">En System Manager, seleccione *Dashboard* para mostrar la descripción general del clúster.</block>
+  <block id="1f10efcab03c53da22ba08cb6bbc8598" category="paragraph">La consola muestra los detalles de este clúster (sitio B). En la sección MetroCluster, el clúster del sitio B se muestra a la izquierda.</block>
+  <block id="b7c19af97bcc09d6c21203f84e692348" category="list-text">Haga clic en *Adjuntar clúster de socios* para iniciar el proceso de relaciones entre iguales.</block>
+  <block id="8ca83d09916f639dd29a3ed4f3b639b4" category="list-text">Introduzca los detalles de las interfaces de red que permiten que los nodos del clúster del sitio B se comuniquen con los nodos del clúster del sitio A.</block>
+  <block id="bfee858eb2d3fe3045afebb6acac2a29" category="list-text">En la ventana *Adjuntar clúster de socios*, selecciona *Tengo una frase de contraseña*. Esto le permite introducir la frase de contraseña que recibió del administrador del sistema en el sitio A.</block>
+  <block id="3dada8e82959cb16ca8382065e3028f9" category="list-text">Seleccione *Peer* para completar el proceso de comparación.</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">El futuro</block>
+  <block id="1d5ce8d0636fdf8fd5bc5cb4e8a960df" category="paragraph">Después de que el proceso de interconexión se complete correctamente, se configuran los clústeres. Consulte <block ref="f4b8cb4c8ba1cae03984184387785b0f" category="inline-link-macro-rx"></block>.</block>
+  <block id="6860105c09c16d5d7eaa1e78fed2b5e5" category="summary">A partir de ONTAP 9.8, puede usar System Manager para configurar un sitio IP de MetroCluster.</block>
+  <block id="466f762f177e526457605fb9ac8c08f3" category="paragraph">Un sitio MetroCluster consta de dos clústeres. Normalmente, los clústeres se encuentran en diferentes ubicaciones geográficas.</block>
+  <block id="b0d3ebac943d2ae6f9252023ec4372af" category="inline-link">Instrucciones de instalación y configuración</block>
+  <block id="ad7d040781ae344cb798e4643b544189" category="list-text">El sistema ya debe estar instalado y cableado de acuerdo con<block ref="fe37fd3178daac666b0ecf82dc69d67e" category="inline-link-rx"></block> el que se suministra con el sistema.</block>
+  <block id="3521850b1984afef04220756150edd6f" category="list-text">Las interfaces de red de clúster se deben configurar en cada nodo de cada clúster para la comunicación dentro del clúster.</block>
+  <block id="333626d7eac89dbbbfc0adb558126fa5" category="section-title">Asigne una dirección IP de gestión de nodos</block>
+  <block id="b6aad8c4ffa5342dbf2d86461d5eacd0" category="section-title">Sistema Windows</block>
+  <block id="5239b38f72ba4e5cf31c91f53e96fbed" category="paragraph">Debe conectar el equipo con Windows a la misma subred que las controladoras. De esta forma, se asigna automáticamente una dirección IP de gestión de nodos al sistema.</block>
+  <block id="3ce0ea9ab77c17a59c6c5bc699f28c5f" category="list-text">Desde el sistema Windows, abra la unidad *Network* para descubrir los nodos.</block>
+  <block id="19695fc87bb0fcfd896be28e7208553d" category="list-text">Haga doble clic en el nodo para iniciar el asistente de configuración de clúster.</block>
+  <block id="4df67b430c2c93a881bdfcb608ac9d64" category="section-title">Otros sistemas</block>
+  <block id="088e15bd429f3ce14d70d95c30e1e122" category="paragraph">Debe configurar la dirección IP de gestión de nodos para uno de los nodos del clúster. Puede usar esta dirección IP de gestión de nodos para iniciar el asistente de configuración del clúster.</block>
+  <block id="35993a777fd55e9b8652d85b9bcdb437" category="inline-link-macro">Creación del clúster en el primer nodo</block>
+  <block id="f6d314ce096e8231f7a5bc9785329bcb" category="paragraph">Consulte <block ref="6a6a97d50b361c85b6a1efd6b8465455" category="inline-link-macro-rx"></block> para obtener más información sobre la asignación de una dirección IP de gestión de nodos.</block>
+  <block id="01aefac0a86b676c1949a51d6e866a82" category="section-title">Inicialice y configure el clúster</block>
+  <block id="49fad8a8e436dfc1d8668e654044de3c" category="paragraph">Para inicializar el clúster, debe establecer una contraseña de administrador para el clúster y configurar las redes de gestión de clústeres y nodos. También puede configurar servicios como un servidor de nombres de dominio (DNS) para resolver nombres de host y un servidor NTP para sincronizar la hora.</block>
+  <block id="cc1405b96b23f7d6e3c371baa8cee9fd" category="list-text">En un navegador web, introduzca la dirección IP de gestión de nodos que haya configurado: <block ref="c3d870229fd69ece8d3d772339d7351c" category="inline-link-rx"></block></block>
+  <block id="b4ab57535e2494a9072f367bc0cc66ac" category="paragraph">System Manager detecta automáticamente los nodos restantes del clúster.</block>
+  <block id="b32feae1add7ad238c11b701aebd6a4d" category="list-text">En la ventana *inicializar sistema de almacenamiento*, realice lo siguiente:</block>
+  <block id="0723981d0cd8540448ade0ad0c2bce4f" category="list-text">Introduzca los datos de configuración de la red de gestión del clúster.</block>
+  <block id="d9e5bca04bba2210fd7133286123d23b" category="list-text">Introduzca las direcciones IP de gestión de nodos para todos los nodos.</block>
+  <block id="89b17fac13461899552af00e761c444f" category="list-text">Proporcione los detalles de DNS.</block>
+  <block id="f2cf1382fae972d1f657f56bdf1ccd2f" category="list-text">En la sección *otros*, active la casilla de verificación con la etiqueta *usar servicio de hora (NTP)* para agregar los servidores de hora.</block>
+  <block id="d385f8f7be7049af17b707b814da972d" category="paragraph">Al hacer clic en *Enviar*, espere a que se cree y configure el clúster. A continuación, se produce un proceso de validación.</block>
+  <block id="e66cf0363da426ff5fc40b5dff923ee7" category="paragraph-title">El futuro</block>
+  <block id="fb0527aaad3b8834bb5bd8b9aaac2d14" category="paragraph">Después de instalar, inicializar y configurar ambos clústeres, siga el procedimiento [Set up MetroCluster IP peering].</block>
+  <block id="5a8cb11351ec1c2ae0f6ece191a675b3" category="section-title">Configure ONTAP en un vídeo de clúster nuevo</block>
+  <block id="de87e59d2852e752153034440b599942" category="summary">Con System Manager, puede realizar tareas para gestionar Mediator.</block>
+  <block id="4a75c782083d91f8442fa0793b7cfbf5" category="doc">Gestionar el mediador de ONTAP con System Manager</block>
+  <block id="a92f4998e6033fa7b4c91230afa4eb31" category="paragraph">Con System Manager, puede realizar tareas para gestionar ONTAP Mediator.</block>
+  <block id="58d9a382438a6ccf3362b70996f2217e" category="paragraph-title">Acerca de estas tareas</block>
+  <block id="06d19fcd882f22629288f03ed5b7cdbf" category="paragraph">A partir de ONTAP 9.8, puede usar System Manager como una interfaz simplificada para gestionar una configuración de IP de MetroCluster de cuatro nodos, que puede incluir un Mediador ONTAP instalado en una tercera ubicación.</block>
+  <block id="7cd65d7812b2b9ccfca9369428e81afc" category="paragraph">A partir de ONTAP 9.14,1, puede usar System Manager para realizar también estas operaciones para un sitio IP de MetroCluster de ocho nodos. Aunque no puede configurar o expandir un sistema de ocho nodos con System Manager, si ya configuró un sistema IP de MetroCluster de ocho nodos, podrá realizar estas operaciones.</block>
+  <block id="cf5d5c60759eb97116f97dba2f94928f" category="paragraph">Realice las siguientes tareas para gestionar el Mediador de ONTAP.</block>
+  <block id="34c30a40821bf0600cbb66a443eaa256" category="cell">Para realizar esta tarea...</block>
+  <block id="ed48cbb0bf6ff16f983dee37b0fa56db" category="cell">Realice estas acciones...</block>
+  <block id="fbdb3c4696d4af3abdd40a7c4d39dff1" category="paragraph">Configure el servicio de Mediator</block>
+  <block id="5887ba6bb1083b1733f935c989ce8798" category="paragraph">Los dos clústeres de los sitios de MetroCluster deben tener una relación entre iguales.</block>
+  <block id="e41b8f6d50b100db120f723ab2d80b55" category="list-text">En el Administrador del sistema de ONTAP 9.8, seleccione *clúster &gt; Configuración*.</block>
+  <block id="5ad3e303fff11348579be9fa7186a3bf" category="inline-image-macro">El icono Actions</block>
+  <block id="91137d8840d5756932cbbe95191ebef9" category="list-text">En la sección *Mediator*, haga clic en el <block ref="7d54718dbc3f6ea214f7c0852ad5f778" category="inline-image-macro-rx" type="image"></block>.</block>
+  <block id="08e18262fd4a21acec4d96a4a34ce874" category="list-text">En la ventana *Configurar Mediator*, haga clic en *Agregar+*.</block>
+  <block id="7106fd9d66839587984098b5b110af62" category="list-text">Introduzca los detalles de configuración del Mediador ONTAP.</block>
+  <block id="4454fd0f209c519ab968807065d1d63d" category="paragraph">Puede introducir los siguientes detalles al configurar un mediador de ONTAP con System Manager.</block>
+  <block id="2396a51918b19da4a570bb6eeefaf733" category="list-text">La dirección IP del Mediador.</block>
+  <block id="bf3c0dfedfed52264992478ab75c11ab" category="list-text">El nombre de usuario.</block>
+  <block id="818e503323563216b4a9556e8c414a99" category="list-text">La contraseña.</block>
+  <block id="db76a646cbffaec942b46f13ae610cdf" category="paragraph">Activar o desactivar el cambio automático asistido por mediador (MAUSO)</block>
+  <block id="8a9b7c6da233afe1b94f2908370636ae" category="list-text">En System Manager, haga clic en *Panel*.</block>
+  <block id="33ba5213ca4a1cf4e94a02d0ba4e50a8" category="list-text">Desplácese hasta la sección MetroCluster.</block>
+  <block id="9b5ce2fc82e55a2629051893f8d8d4ff" category="inline-image-macro">icono de menú</block>
+  <block id="8048f4b95111b36ae736e0db22032afc" category="list-text">Haga clic en <block ref="fc003bdefc684d1fa6047f466b3a4572" category="inline-image-macro-rx" type="image"></block> junto al nombre del sitio de MetroCluster.</block>
+  <block id="5451b90704453cd0f976a20853b71515" category="list-text">Seleccione *Activar* o *Desactivar*.</block>
+  <block id="e7d8532df0bf3db8251352a8238be289" category="list-text">Introduzca el nombre de usuario y la contraseña del administrador, luego haga clic en *Habilitar* o *Deshabilitar*.</block>
+  <block id="1f48f2b275c8a8c7c346ee84a099bf8d" category="admonition">Puede activar o desactivar el Mediador cuando se puede acceder a él y ambos sitios están en modo “Normal”. El Mediador sigue estando disponible cuando MAUSO está activado o desactivado si el sistema MetroCluster está en buen estado.</block>
+  <block id="7f4fa61d4e9b9b925c8fb71469e17d9d" category="paragraph">Elimine Mediator de la configuración de MetroCluster</block>
+  <block id="90e2fb7737ff30cfb4976eadc47866a4" category="list-text">Selecciona *Eliminar Mediador*.</block>
+  <block id="08c3fe5d52a59ab36d7b3b7acab670d1" category="list-text">Introduzca el nombre de usuario y la contraseña del administrador, luego haga clic en *Eliminar*.</block>
+  <block id="7f4010553b429e7c90d3b1f0da9fa64b" category="paragraph">Compruebe el estado del Mediador</block>
+  <block id="88696f657e6e364490e66c4462936660" category="inline-link-macro">Compruebe el estado de una configuración de MetroCluster</block>
+  <block id="b01e706bfb46755bbdbe42d170a1b23a" category="paragraph">Realice los pasos específicos de System Manager en <block ref="1dc6f14de17f840d44d583754a4c8527" category="inline-link-macro-rx"></block>.</block>
+  <block id="d643e31d547d643afdddd05a8a4f7112" category="paragraph">Realice una conmutación de sitios y una conmutación de retorno</block>
+  <block id="95232b2668851dd7e6d065abeee1ed20" category="inline-link-macro">Utilizar System Manager para llevar a cabo la conmutación de sitios y la conmutación de estado (sólo para configuraciones IP de MetroCluster)</block>
+  <block id="94728a8f449ff84b5ac878653ab4ad67" category="paragraph">Realice los pasos indicados en <block ref="5b3a204b8bc535419d3d88f0ef6f3046" category="inline-link-macro-rx"></block>.</block>
+  <block id="a4d7653998b91da503a24fc71e65ad4f" category="list-text">Compruebe que la función de cambio automático está activada:</block>
+  <block id="b03614d885f56be6dafeebbbaa010a5f" category="paragraph">El procedimiento que siga depende de si utiliza System Manager o la CLI de ONTAP.</block>
+  <block id="26ed02718973e705cd69ee6e109400e0" category="open-title">System Manager</block>
+  <block id="a8f22e0a130b300278ead25d693a43d5" category="paragraph">Utilice System Manager para modificar la dirección IP, la máscara de red y las propiedades de pasarela.</block>
+  <block id="7cdf282c18fa11c6df4d9d55af90d450" category="paragraph">Actualice la dirección IP, la máscara de red y la pasarela de cada nodo e interfaz.</block>
+  <block id="91af5705f16502125e8b2187e64202c0" category="open-title">CLI</block>
+  <block id="f9a65892b48ad466104ac3eb33403881" category="paragraph">Utilice la CLI para modificar la dirección IP, la máscara de red y las propiedades de pasarela.</block>
+  <block id="0efcd0c9061820674001fdd91f087bf1" category="admonition">Estos comandos cambian la configuración de un nodo en particular para un puerto en particular. Para restaurar una conectividad de red completa, se necesitan comandos similares en otros puertos. De igual modo, los switches de red también deben actualizar su configuración. Por ejemplo, si la puerta de enlace se actualiza, lo ideal es que cambie en ambos nodos de un par de alta disponibilidad, ya que son los mismos. El switch conectado a esos nodos también debe actualizar su puerta de enlace.</block>
+  <block id="1e7bea8d62062fd522d5f5c2523a3c72" category="summary">Aprenda a verificar que los componentes de MetroCluster estén en buen estado.</block>
+  <block id="f505230c63d40beb8fbcb47fba267ed7" category="list-text">En las configuraciones de IP y FC de MetroCluster, puede utilizar la CLI para ejecutar comandos de comprobación del estado y verificar el estado de los componentes de MetroCluster.</block>
+  <block id="8b0de0e20dd0b02520681f56e79ebae0" category="list-text">En las configuraciones IP de MetroCluster que ejecutan ONTAP 9.8 o posterior, también puede usar el administrador del sistema de ONTAP para supervisar y solucionar problemas en las alertas de comprobación del estado.</block>
+  <block id="1583d2d97747ba72311f2e67c5e8cbb4" category="paragraph">Compruebe el estado de la configuración de MetroCluster en función de si está utilizando la CLI o System Manager.</block>
+  <block id="37dcbbe313fadb76f239174825a5a989" category="paragraph">Utilice los siguientes pasos para comprobar el estado de una configuración de MetroCluster con la CLI.</block>
+  <block id="c4a17569a8bf29b7e14beddf0509bffc" category="list-text">Cuando<block ref="c2966f2f3bfc7e81dae5df7c44ce66ea" prefix=" " category="inline-code"></block> finalice la operación, muestre los resultados:</block>
+  <block id="207b1edaa970369e13d7a443fcd16244" category="open-title">System Manager de ONTAP (solo IP de MetroCluster)</block>
+  <block id="a2c21bc044f933ab565d513bcc14eb44" category="paragraph">A partir de ONTAP 9.8, System Manager supervisa el estado de las configuraciones de IP de MetroCluster y ayuda a identificar y corregir los problemas que puedan presentarse.</block>
+  <block id="d679b550fc7e920c8d317b30292d5b72" category="paragraph">System Manager comprueba periódicamente el estado de la configuración de IP de MetroCluster. Cuando ve la sección MetroCluster en la Consola, normalmente el mensaje es "los sistemas MetroCluster están en buen estado".</block>
+  <block id="744b05e9d4a2bf5cfaf4233e162b7287" category="paragraph">Sin embargo, cuando se produce un problema, el mensaje mostrará el número de eventos. Puede hacer clic en este mensaje y ver los resultados de la comprobación del estado de los siguientes componentes:</block>
+  <block id="fbebc6739678d32573bdcc8e7d9712a2" category="list-text">Interfaz de red</block>
+  <block id="9db57734568bdbbb6cb1f1ae0e91c96e" category="list-text">Nivel (almacenamiento)</block>
+  <block id="249694a485fc5d3289c38986b4f8e887" category="list-text">Clúster</block>
+  <block id="c2cc7082a89c1ad6631a2f66af5f00c0" category="list-text">Conexión</block>
+  <block id="bd7a9717d29c5ddcab1bc175eda1e298" category="list-text">Volumen</block>
+  <block id="21094294c878b9478fc6a4481429dd3b" category="list-text">Replicación de la configuración</block>
+  <block id="b06582224c79e1b61467fdec14da2228" category="paragraph">La columna *Estado* identifica qué componentes tienen problemas, y la columna *Detalles* sugiere cómo corregir el problema.</block>
+  <block id="1d1e5cd96b3e552f9fc410fb90447401" category="list-text">En System Manager, seleccione *Panel*.</block>
+  <block id="68c5b182341ec0270d2cfc783a5cb3a8" category="list-text">Vea el mensaje en la sección *MetroCluster*:</block>
+  <block id="2e957c43738afa0268a948e2ddbfc90a" category="list-text">Si el mensaje indica que la configuración de MetroCluster es correcta y que las conexiones entre los clústeres y el Mediador ONTAP están en buen estado (se muestra con marcas de comprobación), no tiene problemas para corregir.</block>
+  <block id="5ead04b6add34a12036cdfd7b3076e12" category="list-text">Si el mensaje enumera el número de eventos o las conexiones han caído (se muestra con una "X"), continúe con el paso siguiente.</block>
+  <block id="5eade9ac1d44db33dfd4a3c509a9f1db" category="list-text">Haga clic en el mensaje que muestra el número de eventos.</block>
+  <block id="2c0ee5124aa4e5392364a27cc1881b73" category="paragraph">Aparecerá el Informe de estado de MetroCluster.</block>
+  <block id="0d5b953768363f4a9dfdd80e2f7c966b" category="list-text">Solucione los problemas que aparecen en el informe con las sugerencias de la columna *Detalles*.</block>
+  <block id="b9a9a239553d33237233de0bfd8f65f6" category="list-text">Una vez corregidos todos los problemas, haga clic en *comprobar estado de MetroCluster*.</block>
+  <block id="e4fd105ae14d31c18bec3c48cfbb91dd" category="admonition">Debe realizar todas las tareas de solución de problemas antes de ejecutar la comprobación, ya que la comprobación de estado de MetroCluster utiliza una cantidad intensiva de recursos.</block>
+  <block id="aafba8024f058e44bbc108aceb7544c0" category="paragraph">La comprobación del estado de MetroCluster se ejecuta en segundo plano. Puede trabajar en otras tareas mientras espera a que finalice.</block>
+  <block id="f3f0554af4f46e3b78864e3ee8cf634d" category="paragraph">Puede conmutar el control de un sitio IP de MetroCluster al otro para realizar tareas de mantenimiento o recuperarse de un problema.</block>
+  <block id="e332e690f18abf1e6fbf15bb2839f91f" category="admonition">Los procedimientos de conmutación de sitios y conmutación de estado solo se admiten para configuraciones IP de MetroCluster.</block>
+  <block id="476bb76a6bf7614cd646479d690f0355" category="section-title">Información general sobre conmutación de sitios y conmutación de estado</block>
+  <block id="4e487442ec743c75d773efc8d7eb4975" category="paragraph">Un cambio puede producirse en dos instancias:</block>
+  <block id="7d22a9492e26d8b6f7e62e754b8038bc" category="list-text">*Un cambio planificado*</block>
+  <block id="122a8d927b5f2bfbd5c05e151d100ecf" category="paragraph">Este cambio lo inicia un administrador del sistema mediante System Manager. La conmutación planificada permite al administrador de sistema de un clúster local controlar los switches de manera que los servicios de datos del clúster remoto se puedan gestionar mediante el clúster local. A continuación, un administrador del sistema en la ubicación de clúster remoto puede realizar tareas de mantenimiento en el clúster remoto.</block>
+  <block id="e8fac69a545ec9a20c2f066fd2d5c64c" category="list-text">*Un cambio no planificado*</block>
+  <block id="7ee58ef1472684aca1fe0fe874b6d592" category="paragraph">En algunos casos, cuando un clúster de MetroCluster se desactiva o las conexiones entre los clústeres están inactivas, ONTAP inicia automáticamente una conmutación de sitios de modo que el clúster que sigue en ejecución se encarga de las responsabilidades de gestión de datos del clúster que está inactivo.</block>
+  <block id="97ea4ec8c53cbd7aa2f77e41af35214d" category="paragraph">Otras veces, en las que ONTAP no puede determinar el estado de uno de los clústeres, el administrador del sistema del sitio que está trabajando inicia la conmutación de sitios para tomar el control de las responsabilidades de gestión de datos del otro sitio.</block>
+  <block id="b04fc1c1a947340b6295bca4e15296fa" category="paragraph">En el caso de cualquier tipo de procedimiento de conmutación, la funcionalidad de servicio de datos vuelve al clúster usando un proceso _regresar_.</block>
+  <block id="3a6a5031743305019642718d6b386a76" category="paragraph">Usted lleva a cabo distintos procesos de conmutación de sitios y conmutación de estado para ONTAP 9.7 y 9.8:</block>
+  <block id="e6930e280c751418022003bf9fa97d63" category="inline-xref">Utilice System Manager en ONTAP 9,7 para conmutación de sitios y conmutación de estado</block>
+  <block id="fbb89290a9f0639df9fd99dd91afccee" category="list-text"><block ref="256c277ba57abb095e4dc34a115bfd87" category="inline-xref-macro-rx"></block></block>
+  <block id="90984242656b59b4ec4bc8b2dc652b47" category="inline-xref">Utilice System Manager en ONTAP 9,8 para conmutación de sitios y conmutación de estado</block>
+  <block id="7bf20936df7319e027dcb25cf3be240e" category="list-text"><block ref="b26721d6058aa62e04e032c9956f0274" category="inline-xref-macro-rx"></block></block>
+  <block id="84e994bcb8ec0880899d43da827eb4f8" category="list-text">Inicie sesión en System Manager en ONTAP 9,7.</block>
+  <block id="ef676a956a1111a97c4b6d5a5313ec0c" category="list-text">Haga clic en *(Volver a la versión clásica)*.</block>
+  <block id="c6b17260f6c04748cb3b263e07841d9c" category="list-text">Haga clic en *Configuración &gt; MetroCluster*.</block>
+  <block id="9512c15d06f8ebc094a9ff5468e46042" category="paragraph">System Manager verifica si es posible una conmutación negociada.</block>
+  <block id="1184e7d21efeb90e1213fb76b1a8ab92" category="list-text">Realice uno de los siguientes subpasos cuando el proceso de validación haya finalizado:</block>
+  <block id="d70c82e05495e05abc2021dc54100a96" category="list-text">Si la validación falla, pero el sitio B está activo, se ha producido un error. Por ejemplo, es posible que haya un problema con un subsistema o que la duplicación de NVRAM no se sincronice.</block>
+  <block id="158ad5b32c8309811884b5700c04c866" category="list-text">Solucione el problema que está causando el error, haga clic en *Cerrar* y, a continuación, vuelva a comenzar en el paso 2.</block>
+  <block id="2da490367d961d43e4786cecfbde3d6b" category="inline-link-macro">Realizar una conmutación de sitios no planificada</block>
+  <block id="37950e07940a13e856cb50dc1a9291b9" category="list-text">Detenga los nodos del Sitio B, haga clic en *Cerrar* y, a continuación, realice los pasos en <block ref="fb6c16196bc2d21511884d5617718b51" category="inline-link-macro-rx"></block>.</block>
+  <block id="47cb9ca4992d157c03e7725803af8e2a" category="list-text">Si la validación falla y el sitio B está inactivo, lo más probable es que haya un problema de conexión. Compruebe que el sitio B está caído y, a continuación, realice los pasos descritos en <block ref="fb6c16196bc2d21511884d5617718b51" category="inline-link-macro-rx"></block>.</block>
+  <block id="f40d6676f14af4f7006dc55f7866a8cc" category="list-text">Haga clic en *Cambio del sitio B al sitio A* para iniciar el proceso de cambio.</block>
+  <block id="3fa63b2ebfe34a52015afed9c4be0676" category="list-text">Haga clic en *Cambiar a la nueva experiencia*.</block>
+  <block id="a0bbb21498df4682785de3ad118d2112" category="section-title">Realizar una conmutación de sitios planificada (ONTAP 9.8)</block>
+  <block id="7032cb0fb8b2c734e0b3330b170287a8" category="list-text">Inicie sesión en System Manager en ONTAP 9,8.</block>
+  <block id="d86b98757fa72a3091b65699a17b3724" category="list-text">Seleccione *Panel*. En la sección *MetroCluster*, los dos clústeres se muestran con una conexión.</block>
+  <block id="b7833a52299d966f41b82417259c5239" category="inline-image-macro">icono de kebab</block>
+  <block id="6b466076a02d34c371b188caa9b5a5ea" category="list-text">En el clúster local (que se muestra a la izquierda), haga clic en <block ref="2f6e127087f9ef4b927e204474c5d0b2" category="inline-image-macro-rx" type="image"></block>y seleccione *Cambio de servicios de datos remotos al sitio local*.</block>
+  <block id="aa0bfd6a3a3db9e5b0409213f48708d9" category="paragraph">Una vez que se valida la solicitud de conmutación de sitios, el control se transfiere del sitio remoto al sitio local. El sitio local realiza solicitudes de servicio de datos para ambos clústeres.</block>
+  <block id="3c8328130d9ea4793e2bc9f3551b90e0" category="paragraph">El clúster remoto se reinicia, pero los componentes de almacenamiento no están activos y el clúster no ofrece servicio a las solicitudes de datos. Ahora está disponible para el mantenimiento planificado.</block>
+  <block id="6f83354e8ce958bae1f9ffca3c39c278" category="admonition">El clúster remoto no se debe utilizar para el mantenimiento de datos hasta que lleve a cabo una conmutación de estado.</block>
+  <block id="defaf88320e88f259a284fdbcd5986c2" category="section-title">Realizar una conmutación de sitios no planificada (ONTAP 9.8)</block>
+  <block id="ef7ccb5f4ce99dc2e349e8c6c47a3d17" category="paragraph">ONTAP puede iniciar automáticamente un cambio no planificado. Si ONTAP no puede determinar si es necesaria una conmutación de estado, el administrador del sistema del sitio de MetroCluster que aún se ejecuta inicia la conmutación de sitios con los siguientes pasos:</block>
+  <block id="612770839809215b203a58fa260be49e" category="list-text">Seleccione *Panel*.</block>
+  <block id="940768454917470cad252dfa341a9bae" category="paragraph">En la sección *MetroCluster*, la conexión entre los dos grupos se muestra con una “X” en él. Esto significa que no se puede detectar una conexión y que las conexiones o el clúster están inactivos.</block>
+  <block id="0b85c3b32c8fd95dfef8906dc740c0b2" category="paragraph">Si se produce un error en la conmutación, haga clic en el enlace "View details" en el mensaje de error y confirme la conmutación no planificada.</block>
+  <block id="b2a8c150e46a4d6da48aa21c7035a5ec" category="paragraph">El clúster se debe reparar antes de que vuelva a estar conectado.</block>
+  <block id="dacd599c11508c590c3afe8309bc777e" category="admonition">Una vez que el clúster remoto se conecta, no se debe utilizar para el mantenimiento de datos hasta que vuelva a realizar una conmutación.</block>
+  <block id="b7066bce35bcdc9bde30393cfe83bbdd" category="section-title">Lleve a cabo una conmutación de estado (ONTAP 9.8)</block>
+  <block id="83d20468f433e569baf2f41de2670745" category="paragraph">Si el clúster remoto estaba inactivo debido a una tarea de mantenimiento planificada o a un desastre, debería estar activo y en ejecución y esperar a que se produzca la conmutación de retorno.</block>
+  <block id="a91ed0fc67b86b9a97667032dc887550" category="list-text">En el clúster local, inicie sesión en System Manager en ONTAP 9.8.</block>
+  <block id="e722eda52729a565e292380da3b9cd9e" category="paragraph">En la sección *MetroCluster*, se muestran los dos clústeres.</block>
+  <block id="3964a12029e4869f90c22d4b7b86e4d7" category="list-text">En el clúster local (que se muestra a la izquierda), haga clic en <block ref="2f6e127087f9ef4b927e204474c5d0b2" category="inline-image-macro-rx" type="image"></block>y seleccione *Recuperar control*.</block>
+  <block id="9650db837519c6f15dca6f446f677c65" category="paragraph">Los datos se _cured_ primero, para verificar que los datos se han sincronizado y se han reflejado entre ambos clústeres.</block>
+  <block id="76cc37c77093b53852f92d0bedaab777" category="list-text">Cuando la recuperación de datos esté completa, haga clic en <block ref="2f6e127087f9ef4b927e204474c5d0b2" category="inline-image-macro-rx" type="image"></block>y seleccione *Iniciar conmutación*.</block>
+  <block id="99ce5ee29ba72294092dc372ec9cdde8" category="paragraph">Una vez finalizada la conmutación de estado, ambos clústeres están activos y prestan servicio a las solicitudes de datos. Además, los datos se están reflejando y sincronizando entre los clústeres.</block>
+  <block id="1634280924da564c571e77a82a5ca015" category="paragraph">Tiebreaker 1,6 o posterior</block>
+  <block id="10090a98eb5a0c97ffdfee7c207fcda3" category="inline-link-macro">Instale tiebreaker 1,6 o posterior</block>
+  <block id="01edf779844a94aabbe0472729e9db87" category="paragraph"><block ref="01edf779844a94aabbe0472729e9db87" category="inline-link-macro-rx"></block></block>
+  <block id="96e17598e0060c107f4db8b804505693" category="inline-link-macro">Documentación de productos Rocky Linux</block>
+  <block id="98f9ad5cd8db49b652b4f699146c5868" category="list-text"><block ref="98f9ad5cd8db49b652b4f699146c5868" category="inline-link-macro-rx"></block></block>
+  <block id="95bf514988fe6b2ae6d2c4683d39fc01" category="paragraph">Realice una nueva instalación o actualización a tiebreaker 1,6 o tiebreaker 1.6P1 en el sistema operativo Linux del host para supervisar las configuraciones de MetroCluster.</block>
+  <block id="a83518fbb29b384795513d23f16fd04e" category="section-title">Instale o actualice a tiebreaker 1.6P1</block>
+  <block id="d09d293bdd140120cf0307019e78b0cd" category="paragraph">Puede instalar tiebreaker 1.6P1 o actualizar a tiebreaker 1.6P1 desde tiebreaker 1,6, 1,5 o 1,4.</block>
+  <block id="05a80bec4c4faf7292bd76d0ea9f6892" category="list-text">Descargue el software MetroCluster tiebreaker 1.6P1.</block>
+  <block id="1363760bda4dfedc53bb20d35c4168e0" category="open-title">Instale tiebreaker 1.6P1</block>
+  <block id="0497a99a53a8d060e80a9df590a19dc2" category="paragraph">Siga estos pasos para una nueva instalación de tiebreaker 1.6P1.</block>
+  <block id="0c1fd6dcabaf349cd3a6aa337ab277da" category="open-title">Actualización 1,6 a 1.6P1</block>
+  <block id="ac34f0a5488c43ea34fb716ad2b99542" category="paragraph">Siga estos pasos para actualizar la versión de software de tiebreaker 1,6 a tiebreaker 1.6P1.</block>
+  <block id="c9c37d73e375ec3a682ea8da2ddda245" category="admonition">Después de actualizar a tiebreaker 1.6P1 de 1,6, elimina los monitores existentes y vuelve a añadir la configuración de MetroCluster para la supervisión.</block>
+  <block id="5fd58ebc01ff0738d8e9d5d32822a902" category="list-text">Elimine y vuelva a añadir la configuración de MetroCluster siguiendo los pasos de <block ref="eb6675758f8fdd2ff1cefe24d56fcfaa" category="inline-link-macro-rx"></block>.</block>
+  <block id="aeaf036ca6e5c33b5742d712e2156fbb" category="open-title">Actualización 1,5 a 1.6P1</block>
+  <block id="bbda4afc2f394a21e70bf3c4c7453f1d" category="paragraph">Siga estos pasos para actualizar la versión de software de tiebreaker 1,5 a tiebreaker 1.6P1.</block>
+  <block id="e9465edd6afc2f3bafbc90e1474f330a" category="open-title">Actualización 1,4 a 1.6P1</block>
+  <block id="507339937a8a4d04acddad9a85364c30" category="paragraph">Siga estos pasos para actualizar la versión de software de tiebreaker 1,4 a tiebreaker 1.6P1.</block>
+  <block id="0981d7670ea8cbff51e1b8ebf522d26f" category="section-title">Instale o actualice a tiebreaker 1,6</block>
+  <block id="a04a5cbd4bb79cf4f0cf1dc258588888" category="paragraph">Puede instalar tiebreaker 1,6 o actualizar a tiebreaker 1,6 desde tiebreaker 1,5 o 1,4.</block>
+  <block id="0f9ed37231c3e05c40c3439b54c05a31" category="open-title">Actualizar 1,5 a 1,6</block>
+  <block id="6377e594d18868747f42ff493652c09e" category="open-title">Actualizar 1,4 a 1,6</block>
+  <block id="27a3d314127445dc4a7f93184b84d65e" category="sidebar">Actualice ONTAP en clústeres de MetroCluster</block>
+  <block id="4e04b2ebfeef2f344cfa9299a14a7f15" category="sidebar">Protección de datos con MetroCluster</block>
+  <block id="eb2ce2e6e8dd207e0722c727b11bf523" category="sidebar">Configure el software MetroCluster con la CLI</block>
+  <block id="ae58261cc60a8a566f51001fa9647cc8" category="sidebar">Configure el software MetroCluster mediante System Manager</block>
+  <block id="7dbb00295563db0482d1cd647c85ce79" category="sidebar">Gestione ONTAP Mediator con System Manager</block>
+  <block id="08df7de62062ac541a6aa573389a0bff" category="sidebar">Compruebe el estado de una configuración de MetroCluster</block>
 </blocks>

@@ -645,6 +645,14 @@ Debe responder con `y` cuando se le pida que continúe en modo avanzado y vea el
 
 NOTE: La mejor práctica es tener varios agregados de datos reflejados. Cuando solo hay un agregado con mirroring, hay menos protección, ya que los volúmenes de metadatos se encuentran en el mismo agregado, en lugar de en agregados separados.
 
+. Reinicie cada uno de los nodos nuevos:
++
+`node reboot -node <node_name> -inhibit-takeover true`
+
++
+
+NOTE: No es necesario reiniciar los nodos en un orden específico, pero debe esperar a que un nodo se arranque completamente y se establezcan todas las conexiones antes de reiniciar el siguiente nodo.
+
 . Compruebe que los nodos se hayan añadido a su grupo de recuperación ante desastres:
 +
 `metrocluster node show`

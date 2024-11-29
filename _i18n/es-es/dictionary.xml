@@ -282,7 +282,6 @@
   <block id="1f06fb185175c42c17ad8392e330767e" category="paragraph">Deberá responder con "'y'" cuando se le solicite continuar en el modo avanzado y ver el símbolo del sistema del modo avanzado (*&gt;).</block>
   <block id="3240aad2738f70e3ab16c6dadcff4f64" category="list-text">Actualice el firmware del puente:</block>
   <block id="4b3afe92d6efd942da2f6c9cc0193156" category="list-text">Compruebe que la actualización del firmware se haya completado:</block>
-  <block id="e8ecfd692141a2af654944f772388550" category="paragraph"><block ref="35cf6f7333734661dc09591dc27f71cd" prefix="" category="inline-code"></block></block>
   <block id="57218ce2b3683cc3d220300cdb1a5112" category="paragraph">Después de aproximadamente 10 minutos, el nuevo firmware está totalmente instalado y el estado del trabajo será correcto:</block>
   <block id="1023e499127e1c9705dbc019dc65ffca" category="list-text">Complete los pasos según si la administración en banda está habilitada y qué versión de ONTAP ejecuta el sistema:</block>
   <block id="ad4a04ec96320f2893d5f6989086846f" category="list-text">Si ejecuta ONTAP 9.4, la administración en banda no es compatible y el comando debe emitirse desde la consola de puente:</block>
@@ -295,7 +294,6 @@
   <block id="2667ea3cde22695f6975f497f96d298f" category="list-text">Compruebe que el puente se ha reiniciado correctamente:</block>
   <block id="6e4b7fcf9090d34cd27cab087264a169" category="paragraph">El sistema debe cablearse para obtener alta disponibilidad multivía (ambas controladoras tienen acceso a través de los puentes que conectan a las bandejas de discos de cada pila).</block>
   <block id="67fe76fc6c243ad7a07dba1bedbd68be" category="list-text">Compruebe que el firmware FiberBridge se ha actualizado:</block>
-  <block id="871912239094dc44baa2ec93ffb8d632" category="paragraph"><block ref="d6532f205af7738fbda4ce33335d4e04" prefix="" category="inline-code"></block></block>
   <block id="f7600c022afd87e76a4e915ac9399e45" category="list-text">Compruebe que las particiones se actualizan desde el indicador del puente:</block>
   <block id="06e7ec6ae7f944544771022d467d0496" category="paragraph"><block ref="c27e24b8b45de3e3c43ee4f5da981459" prefix="" category="inline-code"></block></block>
   <block id="98e693f628e7057fb87edf44897d2df1" category="paragraph">La imagen flash primaria muestra la nueva imagen de firmware, mientras que la imagen flash secundaria muestra la imagen anterior.</block>
@@ -303,17 +301,6 @@
   <block id="aebdbdde32f31274fe9fc6e75b482c32" category="list-text">Compruebe que ambas imágenes flash se han actualizado a la misma versión.</block>
   <block id="1b7c547e0c44744faa2a37c6b0435cc2" category="paragraph">La salida debe mostrar la misma versión para ambas particiones.</block>
   <block id="bb7439d72897f5b031319c5576c3cc67" category="list-text">Repita los pasos 5 a 13 en el puente siguiente hasta que todos los puentes de la configuración de MetroCluster se hayan actualizado.</block>
-  <block id="2d0700f1234a9f9dd9937555291170ec" category="paragraph">"'_maintenance-window-in-hours_'" especifica la duración de la ventana de mantenimiento, con un máximo de 72 horas. Si el mantenimiento se completa antes de que haya transcurrido el tiempo, puede invocar un mensaje de AutoSupport que indique el final del período de mantenimiento:</block>
-  <block id="8c3f1a5045c47c008de3de6fa5352da3" category="list-text">Descargue el archivo de firmware del puente siguiendo los pasos del 1 al 3 del procedimiento en la página Descarga de firmware de ATTO FiberBridge.</block>
-  <block id="3083b982cc912e364f9e1bc28cc6915a" category="list-text">Haga una copia de la página de descarga del firmware de ATTO FiberBridge y de las notas de la versión como referencia cuando se le indique que debe actualizar el firmware en cada puente.</block>
-  <block id="ae87d5531ab43f90dedaa89f103356a1" category="list-text">Actualice el puente:</block>
-  <block id="8458ea1c3c1ea2053887d2f331da77f4" category="paragraph">*ATENCIÓN:* Asegúrese de que encienda el puente individual ahora. Si espera y enciende y apague ambos puentes en una pila simultáneamente, es posible que la controladora pierda acceso a las unidades, lo que podría provocar un fallo complejo o una caída de varios discos.</block>
-  <block id="6eee07f1028e6e37c9b9675c78a3ecab" category="paragraph">El puente debería reiniciarse.</block>
-  <block id="86b1ef008f18b43ce62a9069606c0c6d" category="list-text">Desde la consola de cualquiera de las controladoras, compruebe que el puente se ha reiniciado correctamente:</block>
-  <block id="7eb8d2db2d90e516a56d7472a56b99bd" category="list-text">Desde la consola de cualquiera de los controladores, compruebe que se ha actualizado el firmware FibreBridge:</block>
-  <block id="ed0f0385ac6d639a877dbd50ffe09fc9" category="list-text">Repita los subpasos anteriores en el mismo puente para actualizar la segunda partición.</block>
-  <block id="c1e404b965bd033d8d0a2284a04382d6" category="list-text">Compruebe que ambas particiones se han actualizado:</block>
-  <block id="f716521a03deca3c493b0dbaa94f969c" category="list-text">Repita el paso anterior en el puente siguiente hasta que todos los puentes de la configuración de MetroCluster se hayan actualizado.</block>
   <block id="a9733891a1b8160bc2f571546823514c" category="summary">Es posible que deba cambiar el nombre de un switch Brocade FC para garantizar una nomenclatura coherente en toda la configuración.</block>
   <block id="c95ea8c49f1e5245197103a12093b72d" category="doc">Cambiar el nombre a un switch FC de Brocade</block>
   <block id="b044c3fa2f61740e7d76f71cfbedde29" category="list-text">Deshabilite de forma persistente el switch o los switches de una estructura:</block>
@@ -11054,7 +11041,6 @@
   <block id="a30979175999bc3f18e8d51521e83241" category="list-text">Desde el símbolo del sistema del controlador, compruebe el estado de los puentes:</block>
   <block id="58526b08e7cdc669652273e38d20baba" category="paragraph">Debe ejecutar los siguientes comandos: +</block>
   <block id="e7013fdf65a177830d12725f4024101f" category="inline-link-macro">Actualización del firmware en puentes FibreBridge 7600N o 7500N en configuraciones que ejecuten ONTAP 9.4 y posteriores</block>
-  <block id="2ff283b5fcea4bdb853d6b9da8d8948c" category="paragraph"><block ref="2ff283b5fcea4bdb853d6b9da8d8948c" category="inline-link-macro-rx"></block></block>
   <block id="9f08d83ff8539a60ce02d5d7293917e8" category="list-text">Verifique que cada puente pueda ver todas las unidades de disco y bandejas de discos a las que está conectado el puente:</block>
   <block id="34b31b511691b7714789cb330c0bb039" category="paragraph">Repita el paso anterior para cada puente restante.</block>
   <block id="30e93ef6aed941f2711c93aadc09b0fb" category="list-text">Repita el paso anterior.</block>
@@ -12902,11 +12888,6 @@ Se aplica a todas las configuraciones MetroCluster.</block>
   <block id="480cf83fd6c463ccef2ed2a9d0dce2c4" category="list-text">Introduzca el<block ref="bedfcd4488b13f5b7062e121a6a8baa5" prefix=" " category="inline-code"></block> comando para habilitar los puertos de forma persistente. Esto se debe hacer en ambos conmutadores del sitio superviviente.</block>
   <block id="9f6a23c1abc971d714730192ce961b96" category="paragraph">Siga las instrucciones de <block ref="9c0d52e0ce7a57d643217990aba10043" category="inline-link-macro-rx"></block> Para llevar a cabo operaciones de reparación y conmutación de estado de acuerdo con su configuración de MetroCluster.</block>
   <block id="0b4bc6296d77be28e33d3b50e0ea0797" category="paragraph"><block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block></block>
-  <block id="e49bc35e0118f2b5a5904c13e1833761" category="section-title">Actualización del firmware en FibreBridge 7500N en configuraciones que ejecutan ONTAP 9,3.x y versiones anteriores</block>
-  <block id="1a5e839afe7a716dd2640f7fdb69669a" category="paragraph">Es posible que necesite actualizar el firmware de los puentes FibreBridge para verificar que tiene las últimas características o para resolver posibles problemas. Este procedimiento debe utilizarse para FibreBridge 7500N en configuraciones que ejecuten ONTAP 9,3.x.</block>
-  <block id="ef1eae725a44cfeb66559e3d3e94f7ec" category="paragraph">A partir de ONTAP 9.3, puede utilizar el comando de actualización del firmware del puente de almacenamiento ONTAP para actualizar el firmware del puente en los puentes FibreBridge 7500N.</block>
-  <block id="05791e70fbe1537753bf5a023b7623eb" category="list-text">Instale el firmware en el puente FibreBridge 7500N.</block>
-  <block id="c1a1962dd8879c856d3b821c9622f94c" category="paragraph">Debe consultar las instrucciones proporcionadas en la sección «`Actualizar firmware » del _Manual de instalación y funcionamiento de ATTO FibreBridge 7500N_.</block>
   <block id="24ea961e35f1e60e606fd840735a7b80" category="summary">Si necesita realizar el mantenimiento del sitio o reubicar un solo sitio en una configuración IP de MetroCluster, debe saber cómo apagar y encender el sitio.</block>
   <block id="064c811af1591c939040fba47365213b" category="doc">Apagar y encender un sitio único en una configuración IP de MetroCluster</block>
   <block id="b66411bb5022a5619d62ef25fa47b67f" category="paragraph">En configuraciones IP de MetroCluster que ejecutan ONTAP 9,5 o una versión anterior, los nodos del sitio de recuperación ante desastres no arrancan automáticamente en ONTAP y los complejos permanecen sin conexión.</block>
@@ -13855,33 +13836,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="dff95cb9e5adc8c22082286195b9c18b" category="list-text"><block ref="dff95cb9e5adc8c22082286195b9c18b" category="inline-link-macro-rx"></block></block>
   <block id="86e4bcdd91ae737b95a3cf066dd128f7" category="paragraph">Los ID de sistema antiguos y nuevos se identificaron en <block ref="e3858d0d76295d35179b2ac088c574f3" category="inline-link-macro-rx"></block>.</block>
   <block id="f411a218519aacec5088cc5a3d23eb64" category="paragraph">Los ID de sistema antiguos y nuevos se identificaron en <block ref="372daca62ea6308294fd70c00fcc8af2" category="inline-link-macro-rx"></block>.</block>
-  <block id="11ceccfd751fe28a61b558ba07583aff" category="section-title">Número admitido de discos y estantes en los puentes FibreBridge 7600N y 7500N</block>
-  <block id="ff2961229b46cc89dffec4aab67d010d" category="paragraph">Las siguientes tablas muestran el número de discos y estantes que se admiten detrás de un par de puentes FibreBridge 7600N y 7500N.</block>
-  <block id="b8cbb75a8c2b1413bcddd7c532ccc064" category="list-text">Se aplica el primer límite que alcances.</block>
-  <block id="2a3f0c8b0ca6744889b3ffa76d4b9f5b" category="list-text">Si se utilizan bandejas DS460C, solo pueden usarse hasta 240 unidades, lo cual equivale a 4 bandejas.</block>
-  <block id="5ccf1f9193b673f77fa0a023f0c64238" category="list-text">Si se utilizan bandejas DS212C, solo pueden usarse hasta 120 unidades, lo cual equivale a 10 bandejas.</block>
-  <block id="402fb729f11d0452c518d4172b605b2c" category="paragraph-title">Número de discos admitido</block>
-  <block id="c75f82dd210bf38bdd42ff246823dd9e" category="paragraph">Revise el número de discos compatibles detrás de un par de puentes FibreBridge 7600N o 7500N:</block>
-  <block id="3baa66bdd3ca9158478ad78d6079db1c" category="cell">Configuración de discos</block>
-  <block id="3d0bf05155f3dfd0eeccf9e953d46156" category="cell">Tipo de disco</block>
-  <block id="eda8b8dec444e51f3afb1c089a183afc" category="cell">Discos totales por par de puente</block>
-  <block id="4a761ba24826218f4585e8feddc64d7c" category="cell">Todos los SSD</block>
-  <block id="34df20bab5e85dc75bfc94ef569cced9" category="cell">SSD</block>
-  <block id="b0df25be54449fa53d1180d01ad8bdc5" category="cell">Todos los HDD</block>
-  <block id="9c2dc227590d4220750b52b21b0aeb99" category="cell">HDD</block>
-  <block id="335f5352088d7d9bf74191e006d8e24c" category="cell">240</block>
-  <block id="de97ed9eb6dc112873264b693e05c88c" category="cell">Mixto (96 SSD)</block>
-  <block id="0a09c8844ba8f0936c20bd791130d6b6" category="cell">144</block>
-  <block id="1b48b5dfad482eb966c69b885c217e13" category="cell">Mixto (72 SSD)</block>
-  <block id="006f52e9102a8d3be2fe5614f42ba989" category="cell">168</block>
-  <block id="79fa5a72c63f064bf5ae4709ac221926" category="cell">Mixto (48 SSD)</block>
-  <block id="58a2fc6ed39fd083f55d4182bf88826d" category="cell">192</block>
-  <block id="1c151db89d2679449be5c45bb7b8d994" category="cell">Mixto (24 SSD)</block>
-  <block id="45fbc6d3e05ebd93369ce542e8f2322d" category="cell">216</block>
-  <block id="c742d6affaef84b501d784319fca6de4" category="paragraph-title">Cantidad de bandejas admitida</block>
-  <block id="22daa6b9c9c5e98028929434af5223de" category="paragraph">Revise el número de estantes compatibles detrás de un par de puentes FibreBridge 7600N y 7500N:</block>
-  <block id="ca7ac3a83947da614de147e934674475" category="cell">Cantidad total de bandejas</block>
-  <block id="699b4f79215d191584653efebf156e52" category="cell">Mixto</block>
   <block id="04e334293a29a0fcdf98b56004e27edc" category="section-title">Switches conformes a MetroCluster frente a switches validados de NetApp</block>
   <block id="5c5c34d5e7843e9424f3ca2380ae18ea" category="list-text"><block ref="5c5c34d5e7843e9424f3ca2380ae18ea" category="inline-link-macro-rx"></block></block>
   <block id="a629fe794ff2e51df541a99e4468ebb2" category="paragraph">Si necesita iniciar por red las nuevas controladoras, consulte <block ref="a7e3b7fa9390de21e9e66df9d4048c53" category="inline-link-macro-rx"></block>.</block>
@@ -14272,7 +14226,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="c540a55c1af8888d4507b7c80af2d372" category="list-text">Actualice el firmware del puente y especifique el nombre de usuario necesario:</block>
   <block id="e9b9a2eac9e5ccde661c85666e1bebfc" category="list-text">Escriba la contraseña cuando se le solicite en la salida, como se muestra en el ejemplo siguiente:</block>
   <block id="9f81eba7dfa3609b17894df364395597" category="paragraph">El siguiente ejemplo muestra que el trabajo “ystem bridge firmware update” todavía se está ejecutando:</block>
-  <block id="92289ea5a47b731862869f48712c9527" category="list-text">Ejecute<block ref="e595c34083a230fd789d64c7de21c72a" prefix=" " category="inline-code"></block> el comando.</block>
   <block id="52e06a42c952a2b1bdb77dfc0f6f90ff" category="paragraph"><block ref="a51df89c214b1838fdbc8273e8704555" prefix="" category="inline-code"></block></block>
   <block id="968258a4c4370a9f6fe8b87ce4255cca" category="paragraph"><block ref="6604a22a7f45489dfc4b36fa6c37c036" prefix="" category="inline-code"></block></block>
   <block id="afdf08fe53823e29ce4e277959c64b1e" category="paragraph">Compatibilidad de movilidad de datos de SVM para migrar configuraciones de MetroCluster</block>
@@ -14288,4 +14241,30 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="0cb8709673d91d9b41f7a2d9110be6db" category="paragraph">Actualización del firmware de Fibrebridge con credenciales</block>
   <block id="cca6b3113bea250bb0e5ecb42fcd1f6b" category="paragraph">Puede actualizar el firmware en los puentes de Fibrebridge utilizando credenciales si el servidor los requiere para descargar el paquete de firmware.</block>
   <block id="7f35c16e72037a8dea668c5bb0e6327d" category="paragraph"><block ref="7f35c16e72037a8dea668c5bb0e6327d" category="inline-link-macro-rx"></block></block>
+  <block id="dd5e73f11c8453deab39cc51184b718c" category="admonition">Se recomienda utilizar la gestión en banda con acceso IP desactivado para mejorar la seguridad al limitar la conectividad física al puente.</block>
+  <block id="794172cd90da1900d6103d0859717cae" category="section-title">Límites de puente FibreBridge 7600N y 7500N y reglas de conexión</block>
+  <block id="6640e784b645fe9fb8ac2e43bbd6435c" category="paragraph">Revise los límites y consideraciones al conectar los puentes FibreBridge 7600N y 7500N.</block>
+  <block id="2578541f645016c0cd8de75379c88d3e" category="list-title">Límites de puente FibreBridge 7600N y 7500N</block>
+  <block id="33993760dba186d29e6c1b1c4a5a9eb6" category="list-text">El número máximo de unidades HDD y SSD combinadas es 240.</block>
+  <block id="0ea95754c61ccceaa6093ef60f306589" category="list-text">El número máximo de unidades SSD es 96.</block>
+  <block id="6aa9ec42d5ec998ae8c42e6ff59ac177" category="list-text">El número máximo de SSD por puerto SAS es 48.</block>
+  <block id="3443a5a71e5726152a93cb7f1222c252" category="list-text">El número máximo de bandejas por puerto SAS es 10.</block>
+  <block id="c15552ec0e1dcd2dc0268b8f8853f8b0" category="list-title">Reglas de fijación de puentes FibreBridge 7600N y 7500N</block>
+  <block id="cd4785cfe3cc59dcc3af8a0b3d1c2d26" category="list-text">No mezcle unidades SSD y HDD en el mismo puerto SAS.</block>
+  <block id="bfbbc9e02b02d4cba470cc14b2b71995" category="list-text">Distribuya las bandejas uniformemente en los puertos SAS.</block>
+  <block id="b2d9a3d2403921e9bad0f2de39898557" category="list-text">No debe tener bandejas DS460 en el mismo puerto SAS que los demás tipos de bandeja (por ejemplo, bandejas DS212 o DS224).</block>
+  <block id="881aa664fe300b14a430d83d71657f1b" category="paragraph-title">Configuración de ejemplo</block>
+  <block id="4849ab8ff2c4f06051acea06836aec90" category="paragraph">La siguiente muestra un ejemplo de configuración para conectar cuatro bandejas DS224 con unidades SSD y seis bandejas de DS224 TB con unidades HDD:</block>
+  <block id="b13899cc9055a7a129cc3597a28caf33" category="cell">Puerto SAS</block>
+  <block id="b559966ca417caecbc925fd04a9d4253" category="cell">Bandejas y unidades</block>
+  <block id="a56114e15d97418161a772996c894a0c" category="cell">Puerto SAS-A</block>
+  <block id="823cebd40c22009076dea45c51d568b3" category="cell">Bandejas 2x DS224 con unidades SSD</block>
+  <block id="d375b409cacda3ce9f6afe9379e101ce" category="cell">Puerto SAS-B</block>
+  <block id="0b7b249cf6a212613080ac29d6eda992" category="cell">Puerto SAS-C</block>
+  <block id="c394385c28e9969eb81c66b053fd009c" category="cell">Bandejas 3x DS224 con unidades de disco duro</block>
+  <block id="f7cdd2784709f45955fc9f25497956ae" category="cell">Puerto SAS-D</block>
+  <block id="e5246bcdb743ec1c543a9253bc3a20f0" category="inline-link-macro">Sitio de soporte de Broadcom</block>
+  <block id="7e8efc833fbde0ff722d85e00415edec" category="list-text">Descargue el firmware del switch de la <block ref="7b0bfad9e7dd6186ed0f14c867034109" category="inline-link-macro-rx"></block>.</block>
+  <block id="e6d64e0eb5e781bce7f755d1457a9170" category="paragraph"><block ref="b2f8990b0f3f5de2520bc483556b14eb" prefix="" category="inline-code"></block></block>
+  <block id="b0782c02cc2d2b20315a3f6a825b3fbe" category="list-text">Ejecute<block ref="2586ba33015a99bfc10dda523f819039" prefix=" " category="inline-code"></block> el comando.</block>
 </blocks>

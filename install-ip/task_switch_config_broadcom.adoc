@@ -308,6 +308,7 @@ Esta tarea debe repetirse en cada switch de la configuración de IP de MetroClus
 
 ====
 .Pasos
+. Descargue el firmware del switch de la link:https://www.broadcom.com/support/bes-switch["Sitio de soporte de Broadcom"^].
 . Compruebe si su versión de EFOS cumple con FIPS o no cumple con FIPS mediante el uso de `show fips status` comando. En los ejemplos siguientes: `IP_switch_A_1` Está utilizando EFOS y EFOS compatibles con FIPS `IP_switch_A_2` Utiliza EFOS no compatibles con FIPS.
 +
 *Ejemplo 1*

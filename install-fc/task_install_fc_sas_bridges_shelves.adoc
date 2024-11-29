@@ -47,95 +47,45 @@ La disponibilidad de la gestión en banda de los puentes depende de la versión 
 Los comandos de la CLI puente se pueden emitir desde la interfaz ONTAP `storage bridge run-cli -name _bridge_name_ -command _bridge_command_name_` En la interfaz de ONTAP.
 
 
-NOTE: Se recomienda el uso de la gestión en banda con acceso IP desactivado para mejorar la seguridad limitando la conectividad física del puente.
+NOTE: Se recomienda utilizar la gestión en banda con acceso IP desactivado para mejorar la seguridad al limitar la conectividad física al puente.
 
 
 
-== Número admitido de discos y estantes en los puentes FibreBridge 7600N y 7500N
+== Límites de puente FibreBridge 7600N y 7500N y reglas de conexión
 
-Las siguientes tablas muestran el número de discos y estantes que se admiten detrás de un par de puentes FibreBridge 7600N y 7500N.
+Revise los límites y consideraciones al conectar los puentes FibreBridge 7600N y 7500N.
 
-[NOTE]
-====
-* Se aplica el primer límite que alcances.
-* Si se utilizan bandejas DS460C, solo pueden usarse hasta 240 unidades, lo cual equivale a 4 bandejas.
-* Si se utilizan bandejas DS212C, solo pueden usarse hasta 120 unidades, lo cual equivale a 10 bandejas.
+.Límites de puente FibreBridge 7600N y 7500N
+* El número máximo de unidades HDD y SSD combinadas es 240.
+* El número máximo de unidades SSD es 96.
+* El número máximo de SSD por puerto SAS es 48.
+* El número máximo de bandejas por puerto SAS es 10.
 
 
-====
-.Número de discos admitido
-Revise el número de discos compatibles detrás de un par de puentes FibreBridge 7600N o 7500N:
+.Reglas de fijación de puentes FibreBridge 7600N y 7500N
+* No mezcle unidades SSD y HDD en el mismo puerto SAS.
+* Distribuya las bandejas uniformemente en los puertos SAS.
+* No debe tener bandejas DS460 en el mismo puerto SAS que los demás tipos de bandeja (por ejemplo, bandejas DS212 o DS224).
 
-[cols="3*"]
+
+.Configuración de ejemplo
+La siguiente muestra un ejemplo de configuración para conectar cuatro bandejas DS224 con unidades SSD y seis bandejas de DS224 TB con unidades HDD:
+
+[cols="2*"]
 |===
-| Configuración de discos | Tipo de disco | Discos totales por par de puente 
+| Puerto SAS | Bandejas y unidades 
 
 
-| Todos los SSD | SSD | 96 
+| Puerto SAS-A | Bandejas 2x DS224 con unidades SSD 
 
 
-| Todos los HDD | HDD | 240 
+| Puerto SAS-B | Bandejas 2x DS224 con unidades SSD 
 
 
-.2+| Mixto (96 SSD) | SSD | 96 
+| Puerto SAS-C | Bandejas 3x DS224 con unidades de disco duro 
 
 
-| HDD | 144 
-
-
-.2+| Mixto (72 SSD) | SSD | 72 
-
-
-| HDD | 168 
-
-
-.2+| Mixto (48 SSD) | SSD | 48 
-
-
-| HDD | 192 
-
-
-.2+| Mixto (24 SSD) | SSD | 24 
-
-
-| HDD | 216 
-|===
-.Cantidad de bandejas admitida
-Revise el número de estantes compatibles detrás de un par de puentes FibreBridge 7600N y 7500N:
-
-[cols="3*"]
-|===
-| Configuración de discos | Tipo de disco | Cantidad total de bandejas 
-
-
-| Todos los SSD | SSD | 4 
-
-
-| Todos los HDD | HDD | 10 
-
-
-.2+| Mixto | SSD | 1 
-
-
-| HDD | 9 
-
-
-.2+| Mixto | SSD | 2 
-
-
-| HDD | 8 
-
-
-.2+| Mixto | SSD | 3 
-
-
-| HDD | 7 
-
-
-.2+| Mixto | SSD | 4 
-
-
-| HDD | 6 
+| Puerto SAS-D | Bandejas 3x DS224 con unidades de disco duro 
 |===
 
 

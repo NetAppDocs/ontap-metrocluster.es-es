@@ -14270,4 +14270,5 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="ad084693a846cdc2cf77ad2bb2e7382a" category="paragraph"><block ref="1c61f86d2f111f8c80a5d8ff728df70d" prefix="" category="inline-code"></block></block>
   <block id="5f9a9e91fc7e98f1998a1dcee4eab83f" category="paragraph">Compruebe que solo va a incluir unidades de la bandeja no reflejada en el agregado.</block>
   <block id="6f1eb898d916ac10201421006f5406e2" category="admonition">También puede usar<block ref="2ee4c97cd7e2dff2e12ae3225818c09b" prefix=" " category="inline-code"></block> el parámetro del comando para especificar los discos que desea usar para el agregado.</block>
+  <block id="668c968f31daa1f3b0b86ddf4b09543e" category="list-text">Debe crear un objeto de subred antes de crear una LIF. Un objeto de subred permite a ONTAP determinar los destinos de conmutación por error en el clúster de destino porque tiene un dominio de retransmisión asociado.</block>
 </blocks>

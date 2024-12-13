@@ -2444,8 +2444,6 @@ En el ejemplo siguiente se muestran dos conjuntos de zonas desactivados:
 +
 *** ZoneSet_A en FC_switch_A_1 en VSAN 10
 *** ZoneSet_B en FC_switch_B_1 en VSAN 20
-
-
 +
 [listing]
 ----
@@ -2453,6 +2451,8 @@ FC_switch_A_1# no zoneset activate name ZoneSet_A vsan 10
 
 FC_switch_B_1# no zoneset activate name ZoneSet_B vsan 20
 ----
+
+
 .. Después de desactivar todos los conjuntos de zonas, borre la base de datos de zonas:
 +
 `clear zone database _zone-name_`

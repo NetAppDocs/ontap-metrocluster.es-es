@@ -212,6 +212,7 @@ Al crear las LIF, debe tener en cuenta las siguientes directrices:
 * ARP difusiones: Debe habilitar las difusiones ARP entre los dos clústeres.
 * LIF duplicadas: No debe crear varias LIF en la misma dirección IP (LIF duplicadas) en un espacio IP.
 * Configuraciones de NFS Y SAN: Debe utilizar diferentes máquinas virtuales de almacenamiento (SVM) para los agregados no reflejados y reflejados.
+* Debe crear un objeto de subred antes de crear una LIF. Un objeto de subred permite a ONTAP determinar los destinos de conmutación por error en el clúster de destino porque tiene un dominio de retransmisión asociado.
 
 
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, installing, fc-to-sas, fc, sas, bridges, disk, shelves, atto, fibrebridge 
 summary: Puede instalar y cablear los puentes de ATTO FiberBridge y las bandejas de discos SAS cuando agregue nuevo almacenamiento a la configuración. 
 ---
-= Instalar puentes de FC a SAS y bandejas de discos SAS
+= Instale los puentes de FC a SAS y las bandejas de discos SAS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -89,7 +89,7 @@ La siguiente muestra un ejemplo de configuración para conectar cuatro bandejas 
 |===
 
 
-== Preparación de la instalación
+== Prepare la instalación
 
 Cuando esté preparando la instalación de los puentes como parte del nuevo sistema MetroCluster, debe asegurarse de que el sistema cumple determinados requisitos, entre los que se incluyen los requisitos de configuración y configuración de los puentes. Otros requisitos incluyen la descarga de los documentos necesarios, la utilidad de navegación rápida de ATTO y el firmware del puente.
 
@@ -112,7 +112,8 @@ Las Notas de la versión de producto _ATTO_ tienen una lista actualizada de expl
 
 .Pasos
 . Descargue el _Installation and Service Guide_ correspondiente a su modelo de bandeja de discos:
-. Acceda al sitio web de ATTO utilizando el enlace proporcionado para el modelo FiberBridge y descargue el manual y la utilidad Quickav.
++
+.. Acceda al sitio web de ATTO utilizando el enlace proporcionado para el modelo FiberBridge y descargue el manual y la utilidad Quickav.
 +
 [NOTE]
 ====
@@ -121,6 +122,8 @@ El _ATTO FiberBridge Installation and Operation Manual_ de su puente de modelos 
 Puede acceder a este y a otros contenidos del sitio web de ATTO usando el enlace proporcionado en la página Descripción de ATTO Fiberbridge.
 
 ====
+
+
 . Recopile el hardware y la información necesaria para usar las interfaces de gestión de puentes recomendadas, la GUI de ATTO ExpressNAV y la utilidad ATTO Quickav:
 +
 .. Determine un nombre de usuario y una contraseña no predeterminados (para acceder a los puentes).
@@ -139,7 +142,7 @@ Los clientes activos de VPN hacen que falle la exploración de navegación rápi
 
 
 
-== Instalar el puente FC-a-SAS y las bandejas SAS
+== Instale el puente FC-to-SAS y las bandejas SAS
 
 Después de asegurarse de que el sistema cumple todos los requisitos de "'preparación para la instalación'", puede instalar su nuevo sistema.
 
@@ -173,7 +176,7 @@ NOTE: Las bandejas SAS en las configuraciones MetroCluster no son compatibles co
 
 
 
-=== Habilitar el acceso al puerto IP en el puente FibreBridge 7600N si es necesario
+=== Active el acceso al puerto IP en el puente FibreBridge 7600N si es necesario
 
 Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar de otro modo el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP (FTP, ExpressNAV, ICMP o navegación rápida), puede activar los servicios de acceso a través del puerto de consola.
 
@@ -187,7 +190,7 @@ A partir de ONTAP 9.8, la gestión en banda_ de los puentes es compatible de for
 Esta tarea es necesaria si está *no* utilizando la administración en banda para administrar los puentes. En este caso, debe configurar el puente a través del puerto de administración Ethernet.
 
 .Pasos
-. Acceda a la interfaz de consola del puente conectando un cable serie al puerto serie del puente FibreBridge 7600N.
+. Acceda a la interfaz de la consola del puente conectando un cable serie al puerto serie del puente FibreBridge 7600N.
 . Mediante la consola, habilite los servicios de acceso y, a continuación, guarde la configuración:
 +
 `set closeport none`
@@ -233,7 +236,7 @@ SNMP es el único protocolo que requiere un comando de habilitación aparte.
 
 
 
-=== Configurar los puentes de FC a SAS
+=== Configure los puentes FC a SAS
 
 Antes de cablear el modelo de los puentes FC-a-SAS, debe configurar los ajustes en el software FibreBridge.
 
@@ -358,7 +361,7 @@ NOTE: La velocidad FCDataRate que seleccione se limita a la velocidad máxima ad
 
 Si utiliza la CLI, debe ejecutar el siguiente comando:
 
-`set FCDataRate _port-number_ _port-speed_`
+`set FCDataRate <port-number> <port-speed>`
 
 --
 .. Si está configurando un puente FibreBridge 7500N, configure el modo de conexión que el puerto utiliza para ptp.
@@ -370,14 +373,14 @@ NOTE: El ajuste FCConnMode no es necesario al configurar un puente FibreBridge 7
 Si utiliza la CLI, debe ejecutar el siguiente comando:
 
 +
-`set FCConnMode _port-number_ ptp`
+`set FCConnMode <port-number> ptp`
 
 .. Si está configurando un puente FibreBridge 7600N o 7500N, debe configurar o deshabilitar el puerto FC2.
 +
 *** Si está utilizando el segundo puerto, debe repetir los subpasos anteriores para el puerto FC2.
 *** Si no utiliza el segundo puerto, debe deshabilitar el puerto:
 +
-`FCPortDisable _port-number_`
+`FCPortDisable <port-number>`
 
 +
 En el ejemplo siguiente se muestra la deshabilitación del puerto de FC 2:
@@ -484,23 +487,20 @@ link:../maintain/index.html["Mantener componentes de MetroCluster"]
 
 
 
-.Información relacionada
-link:task_fb_new_install.html["Gestión en banda de los puentes FC a SAS"]
 
 
-
-=== Cableado de las bandejas de discos a los puentes
+=== Conecte los estantes de discos a los puentes
 
 Debe utilizar los puentes FC-a-SAS correctos para cablear las bandejas de discos.
 
 .Opciones
-* <<cabling_fb_7600N_7500N_with_iom12,Cableado de un puente FibreBridge 7600N o 7500N con bandejas de discos con módulos IOM12>>
-* <<cabling_fb_7600N_7500N_with_iom6_iom3,Cableado de un puente FibreBridge 7600N o 7500N con bandejas de discos que utilicen módulos IOM6 o IOM3>>
+* <<cabling_fb_7600N_7500N_with_iom12,Conecte el cable de un puente FibreBridge 7600N o 7500N con bandejas de discos utilizando módulos IOM12>>
+* <<cabling_fb_7600N_7500N_with_iom6_iom3,Conecte los cables de un puente FibreBridge 7600N o 7500N con bandejas de discos que utilicen módulos IOM6 o IOM3>>
 
 
 
 
-==== Cableado de un puente FibreBridge 7600N o 7500N con bandejas de discos con módulos IOM12
+==== Conecte el cable de un puente FibreBridge 7600N o 7500N con bandejas de discos utilizando módulos IOM12
 
 Después de configurar el puente, puede iniciar el cableado del nuevo sistema.
 
@@ -510,7 +510,7 @@ En el caso de las bandejas de discos, inserte un conector de cable SAS con la pe
 .Pasos
 . Conecte en cadena las bandejas de discos en cada pila:
 +
-.. Comenzando por la primera bandeja lógica de la pila, conecte el puerto IOM A 3 al puerto IOM A 1 de la siguiente bandeja hasta que cada IOM A de la pila esté conectado.
+.. Comenzando por la primera bandeja lógica de la pila, conecte IOM A puerto 3 a IOM A puerto 1 en la siguiente bandeja hasta que cada IOM A de la pila esté conectado.
 .. Repita el subpaso anterior para el IOM B.
 .. Repita los subpasos anteriores para cada pila.
 
@@ -545,7 +545,7 @@ image::../media/mcc_cabling_bridge_and_sas3_stack_with_7500n_and_multiple_stacks
 
 
 
-==== Cableado de un puente FibreBridge 7600N o 7500N con bandejas utilizando módulos IOM6 o IOM3
+==== Conecte el cable a un puente FibreBridge 7600N o 7500N con estantes con módulos IOM6 o IOM3
 
 Después de configurar el puente, puede iniciar el cableado del nuevo sistema. El puente FibreBridge 7600N o 7500N utiliza conectores mini-SAS y admite bandejas que utilizan módulos IOM6 o IOM3.
 
@@ -582,7 +582,7 @@ image::../media/mcc_cabling_bridge_and_sas_stack_with_7500n_four_stacks.gif[puen
 
 
 
-=== Verificación de la conectividad y el cableado de los puentes de los puertos FC de puente
+=== Verifique la conectividad del puente y el cableado de los puertos FC puente
 
 Es necesario verificar que cada puente pueda detectar todas las unidades de disco y, a continuación, conectar cada puente a los switches FC locales.
 
@@ -664,7 +664,7 @@ No es correcto
  a| 
 .. Compruebe si hay cables SAS sueltos o corrija el cableado SAS repitiendo el cableado.
 +
-<<Cableado de las bandejas de discos a los puentes>>
+<<Conecte los estantes de discos a los puentes>>
 
 .. Repetición <<step1_bridge,Paso 1>>.
 
@@ -682,13 +682,13 @@ Consulte las asignaciones de puertos para su versión de ONTAP.
 
 
 .Información relacionada
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
-
 Debe verificar que está utilizando las asignaciones de puertos especificadas al conectar los switches FC cuando utiliza ONTAP 9.1 y versiones posteriores.
 
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
 
 
-== Asegurar o desfijar el puente FiberBridge
+
+== Asegure o desasegure el puente FiberBridge
 
 Para deshabilitar fácilmente los protocolos Ethernet potencialmente no seguros en un puente, comenzando con ONTAP 9.5 puede proteger el puente. De esta forma se desactivan los puertos Ethernet del puente. También puede volver a habilitar el acceso Ethernet.
 

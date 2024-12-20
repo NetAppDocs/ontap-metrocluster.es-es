@@ -896,7 +896,7 @@ Reparación automática de los agregados después de deshabilitar la conmutació
 
 == Elimine las configuraciones de la interfaz y desinstale las controladoras antiguas
 
-Debe mover las LIF de datos a un puerto común, quitar las VLAN y los grupos de interfaces de las controladoras anteriores y, a continuación, desinstalar físicamente las controladoras.
+Compruebe la ubicación de LIF correcta. A continuación, elimine las VLAN y los grupos de interfaces de las controladoras antiguas y desinstale físicamente las controladoras.
 
 .Acerca de esta tarea
 * Estos pasos se realizan en las controladoras antiguas (node_B_1-old, node_B_2-old).
@@ -960,6 +960,10 @@ Repita el comando para cada LIF de interconexión de clústeres que no esté en 
 
 . [[controller_manual_upgrade_prepare_network_ports_3]]Asigne el puerto de inicio de todas las LIF de datos de la controladora antigua a un puerto común que sea el mismo en los módulos de controladora antiguos y nuevos.
 +
+
+CAUTION: Si las controladoras antigua y nueva no disponen de un puerto común, no necesitará modificar las LIF de datos. Sáltese este paso y vaya directamente a <<upgrades_manual_without_matching_ports,Paso 4>>.
+
++
 .. Mostrar las LIF:
 +
 `network interface show`
@@ -989,7 +993,7 @@ network interface modify -vserver vs0 -lif datalif1 -home-port e0d
 ----
 
 
-. Modificar los dominios de retransmisión para quitar los puertos VLAN y físicos que se deben eliminar:
+. [[upgrades_manual_without_matching_ports]] Modifique los dominios de difusión para eliminar la VLAN y los puertos físicos que deben eliminarse:
 +
 `broadcast-domain remove-ports -broadcast-domain <broadcast-domain-name> -ports <node-name:port-id>`
 
@@ -1796,19 +1800,36 @@ Confirmar que las LIF se alojan en los nodos y puertos adecuados, según lo asig
 * Consulte el plan de asignación de puertos que ha creado en link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["Asignando los puertos de los nodos antiguos a los nodos nuevos"].
 
 
+
+CAUTION: Debe verificar que la ubicación de las LIF de datos sea correcta en los nodos nuevos antes de volver a cambiar. Cuando conmuta la configuración, ONTAP intenta reanudar el tráfico en el puerto de inicio que utilizan las LIF. Se puede producir un fallo de E/S cuando la conexión del puerto de inicio al puerto del switch y la VLAN es incorrecta.
+
 .Pasos
-. Verifique que los LIF se alojan en el nodo y los puertos apropiados antes de regresar.
+. Compruebe que las LIF están alojadas en el nodo y los puertos adecuados antes de volver a cambiar.
 +
 .. Cambie al nivel de privilegio avanzado:
 +
 `set -privilege advanced`
 
-.. Anule la configuración de puertos para garantizar una ubicación correcta de las LIF:
+.. Muestre las LIF y confirme que cada LIF de datos está utilizando el puerto de inicio correcto:
 +
-`vserver config override -command "network interface modify -vserver <svm-name> -home-port <active_port_after_upgrade> -lif <lif_name> -home-node <new_node_name>`
+`network interface show`
+
+.. Modifique los LIF que no estén utilizando el puerto raíz correcto:
++
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-port <port-id>`
+
++
+Si el comando devuelve un error, puede anular la configuración del puerto:
+
++
+`vserver config override -command "network interface modify -vserver <svm-name> -home-port <active_port_after_upgrade> -lif <lif_name> -home-node <new_node_name>"`
 
 +
 Al introducir el comando de modificación de la interfaz de red dentro del `vserver config override` no se puede utilizar la función de tabulación automática. Puede crear la red `interface modify` con la opción de autocompletar y, a continuación, escríbala en la `vserver config override` comando.
+
+.. Confirme que todas las LIF de datos se encuentran ahora en el puerto de inicio correcto:
++
+`network interface show`
 
 .. Vuelva al nivel de privilegio de administrador:
 +

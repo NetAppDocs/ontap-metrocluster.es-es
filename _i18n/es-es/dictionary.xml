@@ -3620,7 +3620,6 @@
   <block id="3579c4d393b95e31540a220033fd8ed1" category="list-text">Compruebe que los agregados de datos conmutados están conmutados de nuevo:</block>
   <block id="8cd0d40510908161a7cef017a8d217a9" category="paragraph"><block ref="773df797e06568bea1288447c8921502" prefix="" category="inline-code"></block></block>
   <block id="5a64108d7ac092878672067dc635803d" category="paragraph">En el siguiente ejemplo, aggr_b2 en el nodo B2 ha vuelto a activarse:</block>
-  <block id="7b173496e8f6041144abc83f7e17506f" category="list-text">Compruebe que todas las SVM sincronizada en destino del clúster superviviente estén inactivas (y que muestran un estado de administrador de «parada») y que las SVM sincronizada en origen del clúster de desastre estén en funcionamiento:</block>
   <block id="529311fd1dafee8998290952c2b30156" category="paragraph"><block ref="c70b3db0a26508c0192b84ef7e14e0eb" prefix="" category="inline-code"></block></block>
   <block id="90755aace4dbf79660e4f610c3481e12" category="paragraph">Los agregados de sincronización-destino de la configuración de MetroCluster adjuntan automáticamente el sufijo "'-mc'" a su nombre para ayudar a identificarlos.</block>
   <block id="842c1547cc0bfd1bffb5a2f2520f3453" category="list-text">Confirme que las operaciones de conmutación de estado han sido realizadas correctamente mediante el<block ref="0d47d8f5f26b2a71aacf597494f0adbb" prefix=" " category="inline-code"></block> comando.</block>
@@ -4793,7 +4792,6 @@
   <block id="84662b9fedef1d258fb8d10005e76090" category="list-text">Emita el siguiente comando en cluster_A:</block>
   <block id="10e690310a4775deb6bc703a3d667b8c" category="paragraph"><block ref="71b269d201dc030c963a1b0b33ee014f" prefix="" category="inline-code"></block></block>
   <block id="982f6eba58d95bda2318d44b2dcea2e3" category="paragraph">Reparación automática de los agregados después de deshabilitar la conmutación negociada durante la actualización de la controladora.</block>
-  <block id="0486f17c3c2c0ba93636ea2cc6f050dd" category="paragraph">Debe mover las LIF de datos a un puerto común, quitar las VLAN y los grupos de interfaces de las controladoras anteriores y, a continuación, desinstalar físicamente las controladoras.</block>
   <block id="895a79b8b51d133ae9c32d8cb48b9eb7" category="list-text">Estos pasos se realizan en las controladoras antiguas (node_B_1-old, node_B_2-old).</block>
   <block id="4339dfdd37f410724931874e2a95e452" category="list-text">Arranque los nodos antiguos e inicie sesión en los nodos:</block>
   <block id="d88bda4b2500817109e6d220b8faf816" category="list-text">Eliminar puertos VLAN: +<block ref="56861be30bd559cfda1c2248e29baf00" prefix=" " category="inline-code"></block></block>
@@ -5730,38 +5728,22 @@
   <block id="7a0c2e686d14eac5cabd2f1b223952e5" category="paragraph">VIP funciona con la mayoría de los protocolos basados en IP (NFS, SMB e iSCSI).</block>
   <block id="babbebe817de4ac640d017ba3dca7743" category="summary">Los componentes de MetroCluster deben instalarse físicamente, cablearse y configurarse en ambos sitios geográficos. Los pasos son ligeramente diferentes para un sistema con bandejas de discos nativas, en lugar de un sistema con LUN de cabina.</block>
   <block id="43441b39bffebee3ed9f59ea9dc91306" category="image-alt">flujo de trabajo instalación y configuración del hardware con conexión sas de 2 nodos</block>
-  <block id="4b82b05e56bc303e7e70ebb815ebfc6c" category="summary">Debe cablear los puentes al módulo de la controladora en una configuración MetroCluster de dos nodos conectada mediante puente.</block>
-  <block id="468824e6d6059f37612b1e891b27c464" category="doc">Conectar el cableado de los puentes de FC a SAS al módulo de la controladora en una configuración MetroCluster de dos nodos conectada a puente</block>
-  <block id="a977177241046fa392e812a609420ace" category="list-text">[[paso 1-Verify-detect]]Compruebe que cada puente puede detectar todas las unidades de disco y bandejas de disco a las que está conectado el puente.</block>
   <block id="51618dab77295eddd5c15097ed80ca2d" category="cell">Si utiliza...</block>
   <block id="8d7a98cf0e3de35b46f4b4e7fca074f1" category="paragraph">GUI DE ATTO ExpressNAV</block>
   <block id="281dc8254fa2b1d3b1bb2349471c1b69" category="list-text">En un explorador web compatible, introduzca la dirección IP de un puente en el cuadro del explorador.</block>
-  <block id="3a23706b743b24f9521e22417f1d30d0" category="paragraph">Se le llevará a la página de inicio de ATTO FiberBridge del enlace de puente para la dirección IP introducida.</block>
-  <block id="6a711c2982ba094c44be794ffb3bf1a2" category="list-text">Haga clic en el vínculo e introduzca su nombre de usuario y la contraseña que ha designado al configurar el puente.</block>
   <block id="2c289d2564b7ae64ce5ddd32d176f7d8" category="paragraph">La página de estado de ATTO FiberBridge del puente aparece con un menú a la izquierda.</block>
   <block id="33c31ec720ddb611e48abaebec39e651" category="list-text">Haga clic en *Avanzado* en el menú.</block>
-  <block id="13174ed6300232fa48d1a5b59eb7e2f4" category="list-text">Ejecute el siguiente comando y, a continuación, haga clic en *Enviar*: +<block ref="2aa3751083baf48c1e1ddef8df4ddcc3" prefix=" " category="inline-code"></block></block>
   <block id="e8d7052a5c5d6f5275211cad62210ccd" category="paragraph">Conexión de puerto serie</block>
-  <block id="337d79852891a37d41285c9101c3fff4" category="paragraph">Ejecute el siguiente comando:</block>
   <block id="9dd06574fbddaf5fab3ebc3605d80dae" category="paragraph"><block ref="2aa3751083baf48c1e1ddef8df4ddcc3" prefix="" category="inline-code"></block></block>
   <block id="3fff43b275954b2824b3aee6836ae256" category="paragraph">La<block ref="2aa3751083baf48c1e1ddef8df4ddcc3" prefix=" " category="inline-code"></block> la salida del comando muestra los dispositivos (discos y bandejas de discos) conectados al puente. Las líneas de salida están numeradas secuencialmente para que pueda contar rápidamente los dispositivos.</block>
-  <block id="3d40cc4f5f094dc369c0eb1e445aecea" category="admonition">Si aparece "'respuesta de texto truncada'" al principio de la salida, puede utilizar Telnet para conectarse al puente y ejecutar el mismo comando para ver toda la salida.</block>
   <block id="436b7e523e46e6ba6d8fedac266d39ab" category="paragraph">La siguiente salida muestra que hay 10 discos conectados:</block>
-  <block id="4948cb8b3eded5b39ec6d64f06687462" category="list-text">Compruebe que el resultado del comando muestra que el puente está conectado a todos los discos y bandejas de discos de la pila que se supone que está conectado.</block>
   <block id="29219bad186be0330f9ec59a1f483a14" category="cell">Si la salida es...</block>
   <block id="d0a3892a5b340ce4f3472dc7595dce02" category="paragraph">Correcto</block>
   <block id="6f4a225b29c0975663d0e4b9e1f4547f" category="inline-xref">Paso 1</block>
   <block id="065575055836b7cada67fa8852ea3ef7" category="paragraph">Repetición <block ref="760439458840ee59fb7794af4bb5b199" category="inline-xref-macro-rx"></block> por cada puente restante.</block>
   <block id="03f13166de52c74a41327e27684b674e" category="paragraph">No es correcto</block>
   <block id="1d1fa4befa7e2188095e2cc64c17fc9e" category="list-text">Compruebe si hay cables SAS sueltos o corrija el cableado SAS representando las bandejas de discos en los puentes.</block>
-  <block id="9e67b76e63359167fbde69e351c8b8b0" category="inline-link-macro">Cableado de las bandejas de discos a los puentes</block>
-  <block id="4c86d491f2865662ab58a2679a13b3ab" category="paragraph"><block ref="4c86d491f2865662ab58a2679a13b3ab" category="inline-link-macro-rx"></block></block>
   <block id="fa5d02c46c643a9eedee519211b4d9d4" category="list-text">Repetición <block ref="760439458840ee59fb7794af4bb5b199" category="inline-xref-macro-rx"></block> por cada puente restante.</block>
-  <block id="b29b8c83f7d8c55b39ae87067330f426" category="list-text">[[paso 3-cable-cada-puente]]Conecte cada puente a los módulos de controlador:</block>
-  <block id="4422c879aa9ea654583488de1d4d4e82" category="list-text">Conecte el puerto 1 de FC del puente a un puerto FC en el módulo de la controladora en cluster_A.</block>
-  <block id="db0e7a22facf5e7460258a2022b5e9d5" category="list-text">Conecte el puerto FC 2 del puente a un puerto FC en el módulo de la controladora en cluster_B.</block>
-  <block id="48dda5bb7b1f8b58b068fa47d9879c67" category="paragraph">Si el módulo de la controladora está configurado con más de un adaptador de FC, no conecte los dos puertos de puente al mismo adaptador. Debe distribuir el puerto FC 1 al adaptador A y el puerto FC 2 al adaptador B para evitar un único punto de error.</block>
-  <block id="67d7a49e616a0e579f0506ada050a36b" category="image-alt">red de conexión de clústeres entre iguales</block>
   <block id="2d5ce426423eeeead4f35769cd8b1b27" category="inline-xref">Paso 3</block>
   <block id="13044932159e150c28f3e3cabd33ea68" category="list-text">Repetición <block ref="92a9f0aaafd1755c239f3740bca9b5f0" category="inline-xref-macro-rx"></block> en los otros puentes hasta que se hayan cableado todos los puentes.</block>
   <block id="bb124d064acc3f4f119d2f39280a9588" category="summary">Si no ha recibido el equipo ya instalado en armarios, debe montar los componentes en rack.</block>
@@ -6075,8 +6057,6 @@
   <block id="93ba9bcaf75f3b305567eed2f5797513" category="summary">Puede instalar y cablear los puentes de ATTO FiberBridge y las bandejas de discos SAS cuando agregue nuevo almacenamiento a la configuración.</block>
   <block id="a9ed40443a225cecce5742ada138b243" category="doc">Instalar puentes de FC a SAS y bandejas de discos SAS</block>
   <block id="a2d4b828805dc92004efb97c8e85045a" category="paragraph">Para los sistemas recibidos de fábrica, los puentes FC a SAS están preconfigurados y no requieren configuración adicional.</block>
-  <block id="632ac78de4a389af16d655089761a651" category="paragraph">En este procedimiento se asume que está utilizando las interfaces de gestión de puentes recomendadas: La GUI de ATTO ExpressNAV y la utilidad de ATTO Quickav.</block>
-  <block id="132ab6e1ba78a445b535028fd5d74260" category="paragraph">Utilice la GUI de ATTO ExpressNAV para configurar y administrar un puente y actualizar el firmware del puente. Puede utilizar la utilidad ATTO Quickav para configurar el puerto 1 de gestión de Ethernet de puente.</block>
   <block id="b6b0aa1e441ae0f9c94362e6f0aae763" category="paragraph">En su lugar, puede utilizar otras interfaces de administración, si es necesario, como un puerto serie o Telnet para configurar y administrar un puente y configurar el puerto de administración Ethernet 1 y FTP para actualizar el firmware del puente.</block>
   <block id="76545d4e8668be942098ed242d25351a" category="image-alt">instalación y configuración del puente de flujo de trabajo</block>
   <block id="4a4442f93bedaff86c4d502cdec5989f" category="summary">Debe conectar los puertos del módulo de la controladora utilizados para la interconexión de clústeres de manera que tengan conectividad con el clúster en el sitio de socios.</block>
@@ -6138,8 +6118,6 @@
   <block id="debcce82c611702acb08dd65c65bba26" category="list-text">Compruebe la configuración de MetroCluster en busca de errores y compruebe que esté operativa.</block>
   <block id="bce6e50d132e2d8b90bf22b569c48d10" category="paragraph">Debe utilizar los procedimientos de las siguientes secciones del <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>:</block>
   <block id="f6593cf23130819e409398933f0aaaf0" category="list-text">Verificación del funcionamiento de la alta disponibilidad local</block>
-  <block id="d08fe7e603a9a3906a2ac376ce5a88c1" category="summary">Cuando esté preparando la instalación de los puentes como parte del nuevo sistema MetroCluster, debe asegurarse de que el sistema cumple ciertos requisitos. Esto incluye cumplir los requisitos de configuración y configuración de los puentes. Otros requisitos incluyen la descarga de los documentos necesarios, la utilidad de navegación rápida de ATTO y el firmware del puente.</block>
-  <block id="6f47fdb0056f04198e0f13d4914a9c42" category="doc">Preparación de la instalación</block>
   <block id="58eb0a3f95df2104f4ac005bbd51d244" category="list-text">Su sistema ya debe instalarse en un rack si no se ha enviado en un armario del sistema.</block>
   <block id="f824444af694573f23438938a9e1aa1e" category="list-text">La configuración debe utilizar modelos de hardware y versiones de software compatibles.</block>
   <block id="b5281259f02365989ee0c66878541c97" category="paragraph">En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.</block>
@@ -6643,7 +6621,6 @@
   <block id="cf6d9b50978330ba1a392e795fe7b74f" category="paragraph">Se admite un mínimo de una bandeja en cada sitio.</block>
   <block id="40478efcbffc865e999b3e1e2108a0cc" category="paragraph">Para obtener más información sobre la mezcla de estantes, consulte:<block ref="532c1f47a9370f9e21538610051f3830" category="inline-link-rx"></block></block>
   <block id="dddcbe39d238e711998c52c432aeaa31" category="summary">Debe utilizar los puentes FC-a-SAS correctos para cablear las bandejas de discos.</block>
-  <block id="d970522a2c535f4a798076f2c36b8af8" category="paragraph">Debe utilizar los puentes FC-a-SAS correctos para cablear estas bandejas de discos.</block>
   <block id="9f7478d92348559576a9b780c5262d0e" category="summary">Después de configurar el puente, puede iniciar el cableado del sistema. El puente FibreBridge 7600N o 7500N utiliza conectores mini-SAS y admite bandejas que utilizan módulos IOM6 o IOM3.</block>
   <block id="f80a33b608fae76a65bf5266714d4698" category="doc">Cableado de un puente FibreBridge 7600N o 7500N con bandejas utilizando módulos IOM6 o IOM3</block>
   <block id="d9d70d3ed9a2589db6cb3f63716e81bd" category="paragraph">Los módulos IOM3 no son compatibles con puentes FibreBridge 7600N.</block>
@@ -8520,15 +8497,12 @@
   <block id="4bba2584f57904f148583d5ad0ce4a34" category="list-text">Ver el estado de los puentes:</block>
   <block id="b937671578dea012b5d9e0ca996417fc" category="list-text">Asegure el puente:</block>
   <block id="cf574293b8ab8a752912f9e7ad222e6b" category="paragraph"><block ref="0b02d3243d42e6632b22b713b73ab2d3" prefix="" category="inline-code"></block></block>
-  <block id="98e83072472ff49bb361fe30e4df171e" category="paragraph"><block ref="98e83072472ff49bb361fe30e4df171e" category="inline-link-macro-rx"></block></block>
   <block id="fcf216ba8187b4017a22716585d4a6fa" category="paragraph">Después de configurar el puente, puede iniciar el cableado del nuevo sistema.</block>
-  <block id="779c08e01ec265d0aff357c180fceb48" category="list-text">Comenzando por la primera bandeja lógica de la pila, conecte el puerto IOM A 3 al puerto IOM A 1 de la siguiente bandeja hasta que cada IOM A de la pila esté conectado.</block>
   <block id="46fee005531651ebcbae735c06b5ef74" category="list-text">Encienda las bandejas de discos y, a continuación, defina los ID de bandeja.</block>
   <block id="a7a19c162ddb589e248198c402b08a0c" category="list-text">Para la primera pila de bandejas de discos, conecte el cable IOM A de la primera bandeja al puerto SAS A en FibreBridge A y conecte el cable IOM B de la última bandeja al puerto SAS A en FibreBridge B.</block>
   <block id="2c5e8c1a90d9fac55613816da8484fd4" category="paragraph">Después de configurar el puente, puede iniciar el cableado del nuevo sistema. El puente FibreBridge 7600N o 7500N utiliza conectores mini-SAS y admite bandejas que utilizan módulos IOM6 o IOM3.</block>
   <block id="f7e3d93b4c145bf696a9e6f193ce4fb7" category="list-text">Para pilas de bandejas adicionales, repita los pasos anteriores con el siguiente puerto SAS disponible en los puentes FibreBridge, usando el puerto B para una segunda pila, el puerto C para una tercera pila y el puerto D para una cuarta pila.</block>
   <block id="7dd4f77a1d8a0add44b6d788582b503a" category="paragraph">Espere al menos 10 segundos antes de conectar el puerto. Los conectores de cable SAS están codificados; cuando están orientados correctamente a un puerto SAS, el conector hace clic en su lugar y el LED LNK del puerto SAS de la bandeja de discos se ilumina en verde. En el caso de las bandejas de discos, inserte un conector de cable SAS con la pestaña extraíble orientada hacia abajo (en la parte inferior del conector).</block>
-  <block id="8cbdbb5be51e2a78d7b472e23327b938" category="section-title">Verificación de la conectividad y el cableado de los puentes de los puertos FC de puente</block>
   <block id="605157b79e898676481d263489be287d" category="paragraph">Es necesario verificar que cada puente pueda detectar todas las unidades de disco y, a continuación, conectar cada puente a los switches FC locales.</block>
   <block id="bf532d59144bc55a10c7ae835f098f56" category="paragraph">Se le lleva a la página de inicio de ATTO FiberBridge del puente para el que ingresó la dirección IP, que tiene un enlace.</block>
   <block id="c7634b5b5412c39c95e0120e8096c9c1" category="list-text">Haga clic en el vínculo e introduzca su nombre de usuario y la contraseña que ha designado al configurar el puente.</block>
@@ -9031,17 +9005,12 @@
   <block id="dd260fceadc543756cd15e2830c9ea71" category="list-text">Si va a habilitar SNMP, también debe ejecutar el siguiente comando:</block>
   <block id="7916572f780670b32d722f9441c26db4" category="list-text">Configure el puerto de la consola serie en ATTO FibreBridge estableciendo la velocidad del puerto en 115000 baudios:</block>
   <block id="d239a1837adf4e352883e5bb91938a87" category="paragraph"><block ref="743438c7d27353d7a14ae301420f2953" prefix="" category="inline-code"></block></block>
-  <block id="63f92d601e0f07d76d9c59bbdcfeed47" category="paragraph"><block ref="25dfa3c9e1bfe0dbadf9eaffa9e73bb8" prefix="" category="inline-code"></block></block>
   <block id="a21a379f45bf979b7778722f7375ec61" category="paragraph"><block ref="8a89f0e1c0327cc269ba15d40c40c8bd" prefix="" category="inline-code"></block></block>
   <block id="6034c41ee64b1c1443ab14b13a6b7527" category="paragraph"><block ref="8f137b3d6f98c0d92bc734abeaf601bd" prefix="" category="inline-code"></block></block>
-  <block id="4e14469d1b9cb5857e2b83704c8ab8d4" category="list-text"><block ref="d277051460abcb0f3a19fb6f4b09af32" category="inline-xref-macro-rx"></block></block>
-  <block id="1098ebf3ac123d908705a49af90988ba" category="inline-xref">Cableado de un puente FibreBridge 7600N o 7500N con bandejas de discos que utilicen módulos IOM6 o IOM3</block>
-  <block id="572e966b8fd8a186b019d7c5d26ff32c" category="list-text"><block ref="f3f03af6d08c988efd686559fcd15483" category="inline-xref-macro-rx"></block></block>
   <block id="8bfac37f0565c6922aeced47caf18f6a" category="list-text">[[step1_bridge]] Compruebe que cada puente pueda detectar todas las unidades de disco y bandejas de disco a las que está conectado:</block>
   <block id="7584130e58d7e346035eb6eabd58a612" category="list-text">Consulte los dispositivos conectados mediante el comando sastargets y, a continuación, haga clic en *Enviar*.</block>
   <block id="26b17225b626fb9238849fd60eabdf60" category="paragraph">+</block>
   <block id="eb443924112f8c71329400ac78de9284" category="paragraph">Repetición <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block> por cada puente restante.</block>
-  <block id="0aeba4fd83ea38faeb00ddbf389be6ad" category="paragraph"><block ref="48f604bdf2d3bf06f58ee9f10e668948" category="inline-xref-macro-rx"></block></block>
   <block id="2c0892c11c37aec07e0a746c4c7fbe0d" category="list-text">Repetición <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block>.</block>
   <block id="9f39b4378a3d44f4f0a500c832ddf6b3" category="list-text">La<block ref="dd3c323b9985b4657ab16220491093ca" prefix=" " category="inline-code"></block> Se puede utilizar el comando para volver a habilitar los puertos Ethernet.</block>
   <block id="896822419043c00441403336af7e4108" category="paragraph"><block ref="5f8bb868da3c9f5bcaacc421bb460f0b" prefix="" category="inline-code"></block></block>
@@ -12106,7 +12075,6 @@
   <block id="cbabd53b8268cb963ad7b2c67de0b634" category="paragraph">Dado que las LUN se notifican únicamente en las interfaces de nodos FC de MetroCluster, el cliente solo muestra rutas a través de nodos FC. Esto se puede ver en la salida del<block ref="41dc2c94e82e1c56ba876085acf5a974" prefix=" " category="inline-code"></block> y..<block ref="2fbf63deae0938cf669e6ca451f1eb2c" prefix=" " category="inline-code"></block> comandos.</block>
   <block id="7162464dfaefdef75b18029dcb1bb1f1" category="list-text">Vuelva a analizar el bus SCSI en el host para detectar las rutas recién añadidas:<block ref="9e65638d5d13acb691c4bec2ede5a483" prefix=" " category="inline-code"></block></block>
   <block id="9b3bd2afae038f8967e9373560a3b6d2" category="list-text">Vuelva a escanear el bus SCSI en el cliente:<block ref="06653a48f6165608045bd55ec32d95fb" prefix=" " category="inline-code"></block></block>
-  <block id="77139d079fd912afd88e4ca7f5623393" category="paragraph">Si el módulo del controlador está configurado con un adaptador FC de cuatro puertos, verifique que las pilas de almacenamiento no estén conectadas a dos puertos FC del mismo ASIC. El puerto a y el puerto b comparten el mismo ASIC, y el puerto c y el puerto d comparten el mismo ASIC. No conecte una pila de bandejas al puerto a y al puerto b. En su lugar, utilice los puertos a y c o utilice los puertos b y d para evitar un único punto de fallo si falla un ASIC.</block>
   <block id="9df52fd51f68e1f0a1c54d87fbcf2d9f" category="paragraph">Solo necesita el software Tierbreaker si desea supervisar dos clústeres y el estado de conectividad entre ellos desde un tercer sitio. El software tiebreaker reside en un host Linux en el tercer sitio y permite que cada partner de un clúster distinga entre un fallo de ISL, cuando los enlaces entre sitios están inactivos, y un fallo del sitio.</block>
   <block id="776aa0db93dc60ccb39a1a2bac58edd0" category="paragraph">El software tiebreaker puede supervisar hasta 15 configuraciones de MetroCluster simultáneamente. Admite una combinación de configuraciones MetroCluster IP, MetroCluster FC y MetroCluster con ampliación.</block>
   <block id="2c6d3f6cb9e7e0273e71c2ee07e103ef" category="paragraph">Según el sistema operativo Linux del host, debe instalar un servidor MySQL o MariaDB antes de instalar o actualizar el software tiebreaker.</block>
@@ -13627,7 +13595,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="fb0d5feb3def76f90b6408f32f99f4b7" category="list-text">Si se crea un nuevo dominio de retransmisión para los puertos de datos en las controladoras recién actualizadas, elimine el dominio de retransmisión:</block>
   <block id="3ab5e50e5fd6dc477690730212c6785f" category="admonition">Elimine sólo el nuevo dominio de difusión. No elimine ninguno de los dominios de difusión que existían antes de iniciar la actualización.</block>
   <block id="8cb8d05546274856c8c2cb56b7cd62ac" category="paragraph"><block ref="7bbb7f17a19e67be5ebaaa8410749ad2" prefix="" category="inline-code"></block></block>
-  <block id="c46b37082c4b8a5ecb54ed082719f5fa" category="paragraph"><block ref="6ed2488c75aad6332e02665ab7c30031" prefix="" category="inline-code"></block></block>
   <block id="a51de836d51a26774e16aa7066519185" category="paragraph"><block ref="6a6db1083e2f8c53b07cc196dec3cafb" prefix="" category="inline-code"></block></block>
   <block id="641cba091515001a3bb48d030bddd608" category="section-title">Actualice los nodos en cluster_A</block>
   <block id="2ce39beb4bd7e0662d271e0be20e56c4" category="paragraph">Antes de iniciar la actualización, revise las siguientes consideraciones para verificar que la configuración sea compatible.</block>
@@ -14271,4 +14238,94 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="5f9a9e91fc7e98f1998a1dcee4eab83f" category="paragraph">Compruebe que solo va a incluir unidades de la bandeja no reflejada en el agregado.</block>
   <block id="6f1eb898d916ac10201421006f5406e2" category="admonition">También puede usar<block ref="2ee4c97cd7e2dff2e12ae3225818c09b" prefix=" " category="inline-code"></block> el parámetro del comando para especificar los discos que desea usar para el agregado.</block>
   <block id="668c968f31daa1f3b0b86ddf4b09543e" category="list-text">Debe crear un objeto de subred antes de crear una LIF. Un objeto de subred permite a ONTAP determinar los destinos de conmutación por error en el clúster de destino porque tiene un dominio de retransmisión asociado.</block>
+  <block id="6d42a1c65d48ed3ec77f037a50004258" category="list-text">Si utiliza una red dedicada para la supervisión del estado, cada nodo debe tener una LIF de gestión de nodos en esa red dedicada.</block>
+  <block id="b729f80ba307f8a8e8ea6189b1ed6313" category="paragraph">NetApp solo admite las siguientes herramientas para supervisar los componentes de una configuración de MetroCluster FC:</block>
+  <block id="f60d1385c75cfef525be8497e2137ee8" category="list-text">Asesor de red de Brocade (BNA)</block>
+  <block id="138e272b0320fc1ffcdc8dee378b177b" category="list-text">SANnav. De Brocade</block>
+  <block id="865e9b4ef52f3b0d3050c8b3c14eb660" category="list-text">Active IQ Config Advisor</block>
+  <block id="5ed4e53c285d1a7046c38f429a94ef7b" category="list-text">Supervisión de estado de NetApp (ONTAP)</block>
+  <block id="fb4d5d69523a984853a5295db93de123" category="list-text">Recopilador de datos de MetroCluster (MC_DC)</block>
+  <block id="0d48c29aadd238b08bcb06f357acd9d8" category="section-title">Prepare la instalación</block>
+  <block id="e30f0ace1e7e67755e7318eeab1b0204" category="section-title">Instale el puente FC-to-SAS y las bandejas SAS</block>
+  <block id="0dc04f427f83d4c5afa311fe8042eddc" category="list-text">Acceda a la interfaz de la consola del puente conectando un cable serie al puerto serie del puente FibreBridge 7600N.</block>
+  <block id="2323990b6fbb7b7ee5ee14dbdb21eaf0" category="section-title">Configure los puentes FC a SAS</block>
+  <block id="ff48ad0dc104d3885573fa0f45161299" category="paragraph"><block ref="77d54c8e2e9adc9e2bc031facbe82b7c" prefix="" category="inline-code"></block></block>
+  <block id="a21e2af264b592c03f6b1f88af93dd36" category="paragraph"><block ref="a32ef1a4f91191b408d6aa3ceeed03a8" prefix="" category="inline-code"></block></block>
+  <block id="49cc2eac13c61da60904b157e05ec5dc" category="paragraph"><block ref="e9580cd86794b774ad27b65b0a805b73" prefix="" category="inline-code"></block></block>
+  <block id="b2c196d04c27ee6d1c55877714d8d6f9" category="section-title">Conecte los estantes de discos a los puentes</block>
+  <block id="4273704f66fca16606c90100e4c57808" category="inline-xref">Conecte el cable de un puente FibreBridge 7600N o 7500N con bandejas de discos utilizando módulos IOM12</block>
+  <block id="242108261e892329ec8e41357fad0678" category="list-text"><block ref="57fecdddd64dc6d4f5e9d97874ea43bc" category="inline-xref-macro-rx"></block></block>
+  <block id="e3136c071e40d473a2ed2f7295c2ead2" category="inline-xref">Conecte los cables de un puente FibreBridge 7600N o 7500N con bandejas de discos que utilicen módulos IOM6 o IOM3</block>
+  <block id="e88d980772f7b12fbca752322a5e5307" category="list-text"><block ref="e59f261da41fd9be2eaf7f1b955dc162" category="inline-xref-macro-rx"></block></block>
+  <block id="e42bb9af7fd1e3b1641a18782a424fb0" category="list-text">Comenzando por la primera bandeja lógica de la pila, conecte IOM A puerto 3 a IOM A puerto 1 en la siguiente bandeja hasta que cada IOM A de la pila esté conectado.</block>
+  <block id="df728bff4207a1d17e007189ab445eaa" category="section-title">Conecte el cable a un puente FibreBridge 7600N o 7500N con estantes con módulos IOM6 o IOM3</block>
+  <block id="8a6b192e89e003168a9dec4c4b9059a7" category="section-title">Verifique la conectividad del puente y el cableado de los puertos FC puente</block>
+  <block id="1127370baf663b49c7993f8a6ab9f41e" category="paragraph"><block ref="eba7ba40406886cad3add195d043cd08" category="inline-xref-macro-rx"></block></block>
+  <block id="d277bf5cc4237c95ff26e4f98eefaf07" category="paragraph">Instale y conecte mediante cable puentes ATTO FibreBridge y bandejas de discos SAS cuando añada nuevo almacenamiento a la configuración.</block>
+  <block id="760e34100c7db8b067f655d415a342c1" category="paragraph">Cuando se utiliza gestión en banda, los puentes se pueden gestionar y supervisar desde la CLI de ONTAP mediante la conexión de FC al puente. No se requiere acceso físico al puente a través de los puertos Ethernet del puente, lo que reduce la vulnerabilidad de seguridad del puente.</block>
+  <block id="74f6533c5153d90867b32b519b275c65" category="list-text">Antes de ONTAP 9,5, solo se admite la gestión fuera de banda de SNMP.</block>
+  <block id="967c96558959e91e943843e6263ec970" category="paragraph">Los comandos de la CLI de puente se pueden emitir desde el comando de la interfaz de ONTAP<block ref="52f6597c8dcf79b6137c2435b9c9efcb" prefix=" " category="inline-code"></block> en la interfaz de ONTAP.</block>
+  <block id="d22ab9487f4f57c6ecf56a0875e0c070" category="paragraph">Cuando se esté preparando para instalar los puentes como parte de su nuevo sistema MetroCluster, debe verificar que el sistema cumpla ciertos requisitos, incluidos los requisitos de configuración y configuración de los puentes. Otros requisitos incluyen la descarga de los documentos necesarios, la utilidad de navegación rápida de ATTO y el firmware del puente.</block>
+  <block id="9d46de9346ca8af89ab03ed382fc9ab1" category="paragraph">En el<block ref="a5900d751cd970c3de875b616ebb9e28" category="inline-link-rx"></block>, puede utilizar el campo *Solución de almacenamiento* para seleccionar su solución de MetroCluster. Puede utilizar el *Explorador de componentes* para seleccionar los componentes y la versión de ONTAP para refinar su búsqueda. Puede seleccionar *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.</block>
+  <block id="1654c802242a5762f6e28996b1f5e854" category="list-text">Cada controladora FC debe tener un puerto FC disponible para que un puente se pueda conectar.</block>
+  <block id="4178aa1558026aafc5b0376eacf267e6" category="list-text">Debe estar familiarizado con la forma de manejar cables SAS, las consideraciones y las prácticas recomendadas para la instalación y el cableado de bandejas de discos.</block>
+  <block id="e0661cfc6d44d7098774766995e5913c" category="list-text">También se aplican a los puentes FibreBridge los requisitos de conectividad del sistema para distancias máximas para bandejas de discos, controladores FC y dispositivos de cinta de backup que utilizan cables de fibra óptica multimodo de 50 micras.</block>
+  <block id="7bcf16804afe2d3ed86d658c4f355f74" category="paragraph"><block ref="eece6350c77c4c173bc5eac22d38a3d8" prefix="" category="inline-code"></block></block>
+  <block id="8f94293e801572ab9458b1e91111b45b" category="list-text">Comenzando por la primera bandeja lógica de la pila, conecte el IOM Un puerto 3 al a IOM un puerto 1 de la siguiente bandeja hasta que cada IOM A de la pila esté conectado.</block>
+  <block id="a73aaf062bae9a1d7a52d1bdd78a1927" category="section-title">Compruebe la conectividad del puente y conecte los puentes FC a SAS a los puertos FC de la controladora</block>
+  <block id="40eba83ddff63a60c0f3132156cbb034" category="paragraph">Debe conectar los puentes a los puertos FC de la controladora en una configuración de MetroCluster conectada a puente de dos nodos.</block>
+  <block id="3ce46fc9a15b5c37d69e1d5ae43448c1" category="list-text">[[step1-verify-detect]]Verifique que cada puente pueda detectar todas las unidades de disco y las bandejas de discos a las que está conectado el puente:</block>
+  <block id="78d9123f52b553c11386801c7e6ee30c" category="list-text">Compruebe que el resultado del comando muestra que el puente está conectado a los discos y las bandejas de discos correctos en la pila.</block>
+  <block id="84be3f4668a661e6d6ab8a9c8e8b7640" category="list-text">[[step3-cable-each-bridge]]Conecte cada puente a los puertos FC del controlador:</block>
+  <block id="1832e58c6444b28a1738bf5e7d5f4bad" category="list-text">Conectar el puerto FC 1 del puente a un puerto FC en la controladora en cluster_A.</block>
+  <block id="147fb5a8c36cf6f6239310bbf3fbd96d" category="list-text">Conectar el puerto FC 2 del puente a un puerto FC en la controladora en cluster_B.</block>
+  <block id="620ef8e255d79ca87184c0f6bd5b96c6" category="list-text">Si la controladora se configura con un adaptador FC de cuatro puertos, asegúrese de que los puentes de ninguno de los extremos de la pila de almacenamiento no estén conectados a dos puertos FC del mismo ASIC. Por ejemplo:</block>
+  <block id="7def08188c3514b9c48ff9e90fc4b0e8" category="list-text">El puerto a y el puerto b comparten el mismo ASIC.</block>
+  <block id="02ab53167e774ae8d9d95cd3bfbfc09a" category="list-text">El puerto c y el puerto d comparten el mismo ASIC.</block>
+  <block id="00476bfdbf527b84c0b7fbcbde326f75" category="paragraph">En este ejemplo, conecte FC_BRIDGE_A_1 al puerto A y FC_BRIDGE_A2 al puerto c.</block>
+  <block id="db25c93b70e2d449bc0eacd997bc5392" category="list-text">Si la controladora está configurada con más de un adaptador de FC, no conecte los puentes de ningún extremo de la pila de almacenamiento al mismo adaptador.</block>
+  <block id="860a61ba6dae3941046ced6d468fe4e9" category="paragraph">En esta situación, debe conectar FC_BRIDGE_A_1 a un puerto FC integrado y conectar FC_BRIDGE_A_2 a un puerto FC de un adaptador en una ranura de expansión.</block>
+  <block id="fdd11dfe0e9d69317902be2abf4845cf" category="inline-image-macro">Ilustración de una red de clústeres de paridad</block>
+  <block id="56571215fb83a5614f4f1ed3deb7e93c" category="paragraph"><block ref="56571215fb83a5614f4f1ed3deb7e93c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c451d21d9b1e4faa6b241f172e690c0b" category="paragraph"><block ref="deceade8c0d17544f65a6ede664b23e2" prefix="" category="inline-code"></block></block>
+  <block id="be4fd0012ddc006ea303591c9df6f76d" category="paragraph"><block ref="39b06b9a26b49c3db6d9409a6abaa9d8" prefix="" category="inline-code"></block></block>
+  <block id="9e1d9b9e8b88355df08194559af6865a" category="summary">Durante una conmutación de sitios, no se deben ejecutar ciertas operaciones.</block>
+  <block id="fa33dcb38c0cd6e15dd757f1ef3072ee" category="doc">Limitaciones cuando la configuración de MetroCluster está cambiando</block>
+  <block id="5722cde27dfa05f795a5466b6d0859c9" category="paragraph">Cuando el sistema está en conmutación, no se deben llevar a cabo ciertas operaciones. Obtenga información sobre las operaciones restringidas cuando el sistema está en switchover.</block>
+  <block id="b72a4837907e7fef0771c42da901c811" category="section-title">Operaciones restringidas en la conmutación de sitios</block>
+  <block id="1b5f91752d52b3bac4319cf07ea0efb8" category="paragraph">Las siguientes operaciones no son compatibles cuando el sistema está en switchover:</block>
+  <block id="272c8dfc8e0821088d85ed5d0fe037a8" category="list-text">Creación o eliminación de agregados y volúmenes</block>
+  <block id="d825dd35fde2fe33a56ef95c52f545a0" category="list-text">Crear o eliminar SVM</block>
+  <block id="8c120d60e412429a6f43b748c02dc233" category="list-text">Crear o eliminar LIF</block>
+  <block id="9cc6607cba1650bc799439425f9b085e" category="list-text">Agregar o quitar discos (solo si se van a sustituir como parte de un procedimiento de recuperación)</block>
+  <block id="8fe0d36b4759e6e40b887b096584644e" category="list-text">Realizar cambios de configuración en la recuperación ante desastres de SVM de SnapMirror</block>
+  <block id="d6509169a6409458c70d9934cd8159d0" category="list-text">Modificar dominios de retransmisión existentes o crear nuevos dominios de retransmisión</block>
+  <block id="0e4fc6663e95531e1c48cb8fcdc5fc7c" category="list-text">Modificación de subredes de red</block>
+  <block id="be2a1f6ebcf2096180a7211fc2d40f49" category="section-title">Reemplazo de hardware en la conmutación</block>
+  <block id="1bf38e1e76b1ffa01784928faef533bd" category="paragraph">Use los siguientes procedimientos para reemplazar el hardware del controlador cuando el sistema está en el cambio:</block>
+  <block id="35ee9e73034b599a0e2236f1e215fb3d" category="list-text">Si necesita reemplazar un controlador del mismo tipo, en el sitio no se encuentra en la conmutación, siga el procedimiento a <block ref="9b067f6cfdd46edd11b6f92353f05956" category="inline-link-macro-rx"></block>.</block>
+  <block id="787b5b0c67b18976c91dc3f6628778e0" category="list-text">Si necesita sustituir los módulos de la controladora y el chasis mientras los nodos estén conmutados en el sitio superviviente, apague ambas controladoras y, a continuación, lleve a cabo el procedimiento a.<block ref="9b067f6cfdd46edd11b6f92353f05956" category="inline-link-macro-rx"></block></block>
+  <block id="49ad2bb3d2de07281d3d8fd2e16644ed" category="list-text">Si necesita sustituir una controladora por otro tipo de controladora, siga el procedimiento para la configuración en <block ref="1bee30f9c5932b39ca60631e46d351c4" category="inline-link-macro-rx"></block>.</block>
+  <block id="e9e319505f06fc728bd8dcb2a9b67412" category="list-text">Si el sistema está en conmutación debido a un fallo en la controladora o si se produce un fallo de la controladora durante la conmutación, primero debe sustituir el hardware de la controladora, realizar un regreso y, a continuación, actualizar la controladora:</block>
+  <block id="d54ffc167bc880d77acd9d1b6d020080" category="list-text">Para sustituir el hardware del controlador y realizar el cambio, siga <block ref="9b067f6cfdd46edd11b6f92353f05956" category="inline-link-macro-rx"></block>.</block>
+  <block id="f63242f4292325b063838517abc2c1a1" category="list-text">Después de sustituir el hardware, realice una actualización de la controladora con los procedimientos que se indican en <block ref="1bee30f9c5932b39ca60631e46d351c4" category="inline-link-macro-rx"></block>.</block>
+  <block id="1dc725a140606a258f54d59d9ad3d9bd" category="list-text">Verifique que todas las SVM sync-destination del cluster superviviente estén latentes (mostrando un estado operativo de “alto”):</block>
+  <block id="5dfed22feb54647dbd9e9ae827290f6b" category="paragraph"><block ref="67611e9f528c6078257c414670af6b52" prefix="" category="inline-code"></block></block>
+  <block id="1225fe0de146a130add7eeefae9e0925" category="list-text">Compruebe que las SVM de origen sincronizado en el clúster de desastres están activas y en ejecución:</block>
+  <block id="ad29c49a8377862a59f9aae0ab4431cd" category="paragraph">Compruebe la ubicación de LIF correcta. A continuación, elimine las VLAN y los grupos de interfaces de las controladoras antiguas y desinstale físicamente las controladoras.</block>
+  <block id="253982549e381b6f58f66b3e289a0a83" category="admonition">Si las controladoras antigua y nueva no disponen de un puerto común, no necesitará modificar las LIF de datos. Sáltese este paso y vaya directamente a <block ref="45cc57eb3654a2ae89efabc6fb9d271a" category="inline-xref-macro-rx"></block>.</block>
+  <block id="ba20cbe478ea7b912f1d044734df2884" category="list-text">[[upgrades_manual_without_matching_ports]] Modifique los dominios de difusión para eliminar la VLAN y los puertos físicos que deben eliminarse:</block>
+  <block id="ae359c5763df3f6130f697d17d090551" category="admonition">Debe verificar que la ubicación de las LIF de datos sea correcta en los nodos nuevos antes de volver a cambiar. Cuando conmuta la configuración, ONTAP intenta reanudar el tráfico en el puerto de inicio que utilizan las LIF. Se puede producir un fallo de E/S cuando la conexión del puerto de inicio al puerto del switch y la VLAN es incorrecta.</block>
+  <block id="1c780702501fd89538731057505e0a04" category="list-text">Compruebe que las LIF están alojadas en el nodo y los puertos adecuados antes de volver a cambiar.</block>
+  <block id="bc12d3bc2a2c1526b655930b56efc183" category="list-text">Muestre las LIF y confirme que cada LIF de datos está utilizando el puerto de inicio correcto:</block>
+  <block id="b98ffe19185977668c0712d9626bb6b1" category="list-text">Modifique los LIF que no estén utilizando el puerto raíz correcto:</block>
+  <block id="823bc5ae6e724dd8994efcc4dbeb49d2" category="paragraph">Si el comando devuelve un error, puede anular la configuración del puerto:</block>
+  <block id="ec14487a214982a1ea6572636724761f" category="paragraph"><block ref="afdc229346561af3e5aba3a6d67eea09" prefix="" category="inline-code"></block></block>
+  <block id="c9ba655979127851f6a6f01489815e47" category="list-text">Confirme que todas las LIF de datos se encuentran ahora en el puerto de inicio correcto:</block>
+  <block id="fd7b222b3cb6aff1e0aef0b1e7a16998" category="paragraph">Para permitir que las redes se reanuden de forma limpia en las nuevas controladoras, debe comprobar que la ubicación del LIF sea correcta y quitar la configuración de redes de las controladoras antiguas.</block>
+  <block id="ef1038ce81a2c9d70181057dd381a59a" category="admonition">Si las controladoras antigua y nueva no disponen de un puerto común, no necesitará modificar las LIF de datos. Sáltese este paso y vaya directamente a <block ref="186451ebe57c46550834233237ebac90" category="inline-xref-macro-rx"></block>.</block>
+  <block id="3432abc562d1049e115fc0bcb6f569ab" category="list-text">[[upgrades_assisted_without_matching_ports]] Modifique los dominios de difusión para eliminar la VLAN y los puertos físicos que deben eliminarse:</block>
+  <block id="07bfa9093a8ef293dfd6099e38fde255" category="list-text">Compruebe que MetroCluster está configurado correctamente. Compruebe el estado del nodo:</block>
+  <block id="d64694bac02c7b4eea890e175a53a0c7" category="paragraph">Compruebe que las LIF están alojadas en los nodos adecuados antes de continuar con la operación de conmutación de estado automática.</block>
+  <block id="db85d3fd5e7d7beaa319d4ebe299145b" category="sidebar">Limitaciones cuando el sistema está realizando la conmutación</block>
 </blocks>

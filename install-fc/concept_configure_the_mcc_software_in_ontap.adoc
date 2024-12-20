@@ -3033,6 +3033,15 @@ A partir de Fabric OS 9,0.1, SNMPv2 no se admite para la supervisión de estado 
 
 
 ====
+NetApp solo admite las siguientes herramientas para supervisar los componentes de una configuración de MetroCluster FC:
+
+* Asesor de red de Brocade (BNA)
+* SANnav. De Brocade
+* Active IQ Config Advisor
+* Supervisión de estado de NetApp (ONTAP)
+* Recopilador de datos de MetroCluster (MC_DC)
+
+
 
 
 ==== Configurar los switches FC de MetroCluster para supervisar el estado

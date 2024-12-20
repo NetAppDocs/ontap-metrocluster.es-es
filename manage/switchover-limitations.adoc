@@ -1,0 +1,52 @@
+---
+permalink: manage/switchover-limitations.html 
+sidebar: sidebar 
+keywords: switchover, perform, heal, operation, restore, metrocluster, functionality, fc, configuration, ip, limitations, 
+summary: Durante una conmutación de sitios, no se deben ejecutar ciertas operaciones. 
+---
+= Limitaciones cuando la configuración de MetroCluster está cambiando
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando el sistema está en conmutación, no se deben llevar a cabo ciertas operaciones. Obtenga información sobre las operaciones restringidas cuando el sistema está en switchover.
+
+
+
+== Operaciones restringidas en la conmutación de sitios
+
+Las siguientes operaciones no son compatibles cuando el sistema está en switchover:
+
+* Creación o eliminación de agregados y volúmenes
+* Crear o eliminar SVM
+* Crear o eliminar LIF
+* Agregar o quitar discos (solo si se van a sustituir como parte de un procedimiento de recuperación)
+* Realizar cambios de configuración en la recuperación ante desastres de SVM de SnapMirror
+* Modificar dominios de retransmisión existentes o crear nuevos dominios de retransmisión
+* Modificación de subredes de red
+
+
+
+
+== Reemplazo de hardware en la conmutación
+
+Use los siguientes procedimientos para reemplazar el hardware del controlador cuando el sistema está en el cambio:
+
+* Si necesita reemplazar un controlador del mismo tipo, en el sitio no se encuentra en la conmutación, siga el procedimiento a link:../disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html["Recupere datos de un fallo del almacenamiento o de una controladora múltiple"].
++
+** Si necesita sustituir los módulos de la controladora y el chasis mientras los nodos estén conmutados en el sitio superviviente, apague ambas controladoras y, a continuación, lleve a cabo el procedimiento a.link:../disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html["Recupere datos de un fallo del almacenamiento o de una controladora múltiple"]
+
+
+* Si necesita sustituir una controladora por otro tipo de controladora, siga el procedimiento para la configuración en link:../upgrade/concept_choosing_controller_upgrade_mcc.html["Elija un procedimiento de actualización de la controladora"].
++
+** Si el sistema está en conmutación debido a un fallo en la controladora o si se produce un fallo de la controladora durante la conmutación, primero debe sustituir el hardware de la controladora, realizar un regreso y, a continuación, actualizar la controladora:
++
+... Para sustituir el hardware del controlador y realizar el cambio, siga link:../disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html["Recupere datos de un fallo del almacenamiento o de una controladora múltiple"].
+... Después de sustituir el hardware, realice una actualización de la controladora con los procedimientos que se indican en link:../upgrade/concept_choosing_controller_upgrade_mcc.html["Elija un procedimiento de actualización de la controladora"].
+
+
+
+
+

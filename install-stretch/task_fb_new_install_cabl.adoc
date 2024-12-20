@@ -1,14 +1,8 @@
 ---
 permalink: install-stretch/task_fb_new_install_cabl.html 
-sidebar: sidebar 
-keywords: metrocluster, stretch, installation, cable, disk, shelves, bridges 
-summary: Debe utilizar los puentes FC-a-SAS correctos para cablear las bandejas de discos. 
+redirect: ontap-metrocluster/install-stretch/task_fb_new_install.html 
 ---
-= Cableado de las bandejas de discos a los puentes
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Debe utilizar los puentes FC-a-SAS correctos para cablear estas bandejas de discos.

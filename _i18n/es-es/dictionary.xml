@@ -801,7 +801,6 @@
   <block id="ab15e3a0446aa2c30baef0a6d039dff1" category="list-text">Las plataformas nuevas y existentes deben ser una combinación que admita la transición.</block>
   <block id="c5ca83d0e723113560fb2c95b33b532b" category="inline-link-macro">Plataformas compatibles para realizar transiciones sin interrupciones</block>
   <block id="fd8a65566a0bac859d93882f20cc0c7d" category="paragraph"><block ref="fd8a65566a0bac859d93882f20cc0c7d" category="inline-link-macro-rx"></block></block>
-  <block id="1c80ea06ae866b6e42e9d266e0cb8906" category="list-text">Debe ser compatible con una configuración de clúster conmutada.</block>
   <block id="2b114f6498e5132b0cbcc04ccda11d53" category="list-text">Debe cumplir con todos los requisitos y el cableado según se describe en los procedimientos _MetroCluster Installation and Configuration_.</block>
   <block id="b6d1ddb6b8631d474ee650e1dd150c29" category="summary">Debe seleccionar un procedimiento de transición según la configuración existente de FC de MetroCluster.</block>
   <block id="e420954c9496e6eb99455a2aac546e3f" category="doc">Cómo elegir el procedimiento de transición</block>
@@ -1149,7 +1148,6 @@
   <block id="ee6ed7097775dc1dd54c183bab7fabca" category="list-text">FC de MetroCluster es un clúster sin switches, por lo que se requieren nuevos switches.</block>
   <block id="f6ee19cc42b9955140e50bd5845ab941" category="list-text">MetroCluster FC es un clúster con switches, pero los switches IP existentes no son compatibles con la configuración IP de MetroCluster.</block>
   <block id="f2e4f8254f9371aba3bca00c7ae823a3" category="list-text">Desea utilizar diferentes switches para la configuración de IP de MetroCluster.</block>
-  <block id="4ee1b040d263e389d67330e3d505f6c5" category="paragraph">Consulte _Hardware Universe_ de NetApp_ para obtener información sobre el modelo de plataforma y la compatibilidad con switches.</block>
   <block id="52f72ede6203ab699b41d971d336eaed" category="summary">Con los nuevos nodos añadidos, debe completar los pasos de transición y configurar los nodos IP de MetroCluster.</block>
   <block id="ac4f7ed0780d8b54e6eb410d7adcd458" category="doc">Configurar los nodos nuevos y completar la transición</block>
   <block id="2f27031fa0ef15874103f9c3c2bb2cdb" category="section-title">Configurar los nodos IP de MetroCluster y deshabilitar la transición</block>
@@ -11772,8 +11770,6 @@
   <block id="65cc666ecd4a5bdf3c624b12e425c91f" category="admonition">Es necesario reiniciar la controladora para cambiar la configuración.</block>
   <block id="57d89ae0fa9051439d76f5f61398fa16" category="list-text">Reinicie la controladora llevando a cabo una toma de control de alta disponibilidad (HA) en ambas direcciones.</block>
   <block id="ee587f5bd979b8f81d1cbf341f0b2470" category="list-text">Si tiene una configuración de ocho nodos, debe repetir todo el procedimiento a partir de <block ref="e821f1828723ededc57f2e891aea4a6a" category="inline-link-macro-rx"></block> Para cada uno de los grupos de recuperación de desastres FC.</block>
-  <block id="bb6c47f32358fe5242b175ac608f7d32" category="list-text">Si tiene una configuración de ocho nodos, todos los nodos deben ejecutar ONTAP 9.13.1 o una versión posterior.</block>
-  <block id="d8e49cb116ea5302a217647ce0506ea6" category="list-text">Si tiene una configuración de cuatro nodos, todos los nodos deben ejecutar ONTAP 9,8 o una versión posterior.</block>
   <block id="b8c86c478bbb73c53f5440966b9fb7d1" category="list-text">No exceda los límites de objeto de la "parte inferior" de las plataformas en la combinación. Aplique el límite inferior de objetos de las dos plataformas.</block>
   <block id="c5c0eb8cddac9e2347091241dce72719" category="list-text">Si los límites de la plataforma de destino son inferiores a los límites de MetroCluster, debe volver a configurar el MetroCluster para que sea igual o inferior a los límites de la plataforma de destino antes de agregar los nuevos nodos.</block>
   <block id="dc63943b5b97ad0f10f23219d6f93cd4" category="list-text">Modifique la dirección IP del par de clústeres de los nodos IP transitados para cada clúster:</block>
@@ -14328,4 +14324,16 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="f4c0383379a5ae93d0b5e4c4f8586e47" category="open-title">Sistemas que utilizan puertos compartidos clúster/alta disponibilidad</block>
   <block id="fce1683696c48d3d34e98e19d634ae19" category="open-title">Sistemas que usan puertos MetroCluster/HA compartidos</block>
   <block id="eabf799ca909dc7fa9808c3abb476773" category="paragraph">Introduzca la contraseña de autenticación cuando se le solicite.</block>
+  <block id="8c62b33499e87d946c3be674c109e802" category="inline-link-macro">Expanda a una configuración IP de MetroCluster de ocho nodos</block>
+  <block id="d3f54bf5e1d7bcb93c8d615f71713d7f" category="paragraph">Si utiliza switches MetroCluster de almacenamiento compartido, solo puede realizar la transición a una configuración de IP de MetroCluster de cuatro nodos. No se admite la transición a una configuración de IP de MetroCluster de ocho nodos mediante switches MetroCluster de almacenamiento compartido. Después de completar la transición a una configuración de IP de MetroCluster para cuatro nodos, <block ref="6dee49609367b51155e32a3a9526bace" category="inline-link-macro-rx"></block>puede .</block>
+  <block id="2e6fac9e7be327118126470b28ac80e9" category="paragraph">Consulte la<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> para obtener información sobre los modelos de plataforma y la compatibilidad con los switches.</block>
+  <block id="e77208401ec89552ec5e85789d235879" category="paragraph">Antes de iniciar el proceso de transición, compruebe que la configuración cumple los requisitos.</block>
+  <block id="1229d62fc62771990d4aca35e86babbb" category="paragraph">Puede realizar una transición de FC a IP sin interrupciones si la configuración cumple los siguientes requisitos:</block>
+  <block id="c93eb5b603c598e0771b611b95a1f13a" category="list-text">Si tiene una configuración de ocho nodos, todos los nodos ejecutan ONTAP 9.13.1 o una versión posterior.</block>
+  <block id="fbe14351123598a8a64fee33aa1a2a2b" category="list-text">Si tiene una configuración de cuatro nodos, todos los nodos ejecutan ONTAP 9,8 o una versión posterior.</block>
+  <block id="d7b625bf0290f633deca10fab483feb9" category="list-text">Las plataformas nuevas y existentes son una combinación compatible para la transición.</block>
+  <block id="449f221b85b0830ccbe6f932311166dc" category="list-text">La configuración admite una configuración de clúster de switches.</block>
+  <block id="ec4312d0db3bce928129e7e5c3a58d73" category="paragraph"><block ref="ec4312d0db3bce928129e7e5c3a58d73" category="inline-link-rx"></block></block>
+  <block id="c42a1c17fcba2c3f1c614f6d301144e6" category="paragraph">Si utiliza switches MetroCluster de almacenamiento compartido, solo puede realizar la transición a una configuración de IP de MetroCluster de cuatro nodos. No se admite la transición a una configuración de IP de MetroCluster de ocho nodos mediante switches MetroCluster de almacenamiento compartido. Después de completar la transición a una configuración de IP de MetroCluster para cuatro nodos, <block ref="6dee49609367b51155e32a3a9526bace" category="inline-link-macro-rx"></block>puede .</block>
+  <block id="fb9168c2e293c1ba8ecd781a9f35d00f" category="list-text">La configuración cumple todos los requisitos y se realiza mediante cable como se describe en los siguientes procedimientos _Instalación y configuración de MetroCluster_.</block>
 </blocks>

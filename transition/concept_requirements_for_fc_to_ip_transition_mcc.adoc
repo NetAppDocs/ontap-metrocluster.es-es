@@ -11,19 +11,28 @@ summary: Antes de iniciar el proceso de transición, debe asegurarse de que la c
 
 
 [role="lead"]
-Antes de iniciar el proceso de transición, debe asegurarse de que la configuración cumpla los requisitos.
+Antes de iniciar el proceso de transición, compruebe que la configuración cumple los requisitos.
 
-* Si tiene una configuración de ocho nodos, todos los nodos deben ejecutar ONTAP 9.13.1 o una versión posterior.
-* Si tiene una configuración de cuatro nodos, todos los nodos deben ejecutar ONTAP 9,8 o una versión posterior.
-* Las plataformas nuevas y existentes deben ser una combinación que admita la transición.
+Puede realizar una transición de FC a IP sin interrupciones si la configuración cumple los siguientes requisitos:
+
+* Si tiene una configuración de ocho nodos, todos los nodos ejecutan ONTAP 9.13.1 o una versión posterior.
+* Si tiene una configuración de cuatro nodos, todos los nodos ejecutan ONTAP 9,8 o una versión posterior.
+* Las plataformas nuevas y existentes son una combinación compatible para la transición.
 +
 link:concept_choosing_your_transition_procedure_mcc_transition.html["Plataformas compatibles para realizar transiciones sin interrupciones"]
 
-* Debe ser compatible con una configuración de clúster conmutada.
+* La configuración admite una configuración de clúster de switches.
 +
-https://hwu.netapp.com["Hardware Universe de NetApp"]
+https://hwu.netapp.com["Hardware Universe"^]
 
-* Debe cumplir con todos los requisitos y el cableado según se describe en los procedimientos _MetroCluster Installation and Configuration_.
+
+
+[CAUTION]
+====
+Si utiliza switches MetroCluster de almacenamiento compartido, solo puede realizar la transición a una configuración de IP de MetroCluster de cuatro nodos. No se admite la transición a una configuración de IP de MetroCluster de ocho nodos mediante switches MetroCluster de almacenamiento compartido. Después de completar la transición a una configuración de IP de MetroCluster para cuatro nodos, link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["Expanda a una configuración IP de MetroCluster de ocho nodos"]puede .
+
+====
+* La configuración cumple todos los requisitos y se realiza mediante cable como se describe en los siguientes procedimientos _Instalación y configuración de MetroCluster_.
 +
 link:../install-fc/index.html["Instalación y configuración de MetroCluster estructural"]
 

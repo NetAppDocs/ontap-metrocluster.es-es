@@ -232,7 +232,7 @@ e0a y e0b
  a| 
 e3a, e3b
  a| 
-No hay puerto que coincida. Después de la actualización, debe volver a crear los puertos del clúster.link:task_prepare_cluster_ports_on_the_exist_controller.html["Preparar puertos del clúster en un módulo de controladora existente"]
+No hay puerto que coincida. Después de la actualización, vuelva a crear los puertos del clúster. link:task_prepare_cluster_ports_on_the_exist_controller.html["Preparar puertos del clúster en un módulo de controladora existente"]
 
 
 
@@ -869,15 +869,14 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 === Borrar la configuración en un módulo del controlador
 
-[role="lead"]
 Antes de utilizar un nuevo módulo de controladora en la configuración de MetroCluster, debe borrar la configuración existente.
 
 .Pasos
-. Si es necesario, detenga el nodo para mostrar el símbolo del sistema del CARGADOR:
+. Si es necesario, detenga el nodo para mostrar `LOADER` el símbolo del sistema:
 +
 `halt`
 
-. En el símbolo del sistema del CARGADOR, establezca las variables de entorno en los valores predeterminados:
+. En la `LOADER` petición de datos, defina las variables de entorno en los valores predeterminados:
 +
 `set-defaults`
 
@@ -885,7 +884,7 @@ Antes de utilizar un nuevo módulo de controladora en la configuración de Metro
 +
 `saveenv`
 
-. En el símbolo del sistema del CARGADOR, inicie el menú de arranque:
+. En el `LOADER` prompt, inicie el menú de arranque:
 +
 `boot_ontap menu`
 

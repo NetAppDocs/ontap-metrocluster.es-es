@@ -1,0 +1,57 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-switchover.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: Cambie la configuración a SITE_A para que las plataformas del SITE_B se puedan actualizar. 
+---
+= Realice una conmutación de la configuración IP de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cambie la configuración a SITE_A para que las plataformas del SITE_B se puedan actualizar.
+
+.Acerca de esta tarea
+Esta tarea debe realizarse en site_A.
+
+Después de completar esta tarea:
+
+* Cluster_A está activo y suministra datos para ambos sitios.
+* Cluster_B está inactivo y listo para comenzar el proceso de actualización.
+
+
+image::../media/mcc_upgrade_cluster_a_in_switchover.png[Muestra cluster_A está listo para la actualización y cluster_B está en switchover]
+
+.Pasos
+. Cambie de la configuración de MetroCluster a site_A para que los nodos de site_B puedan actualizarse:
++
+.. Emita el siguiente comando en cluster_A:
++
+`metrocluster switchover -controller-replacement true`
+
++
+La operación puede tardar varios minutos en completarse.
+
+.. Supervise la operación de switchover:
++
+`metrocluster operation show`
+
+.. Una vez finalizada la operación, confirme que los nodos están en estado de conmutación:
++
+`metrocluster show`
+
+.. Compruebe el estado de los nodos de MetroCluster:
++
+`metrocluster node show`
+
++
+La reparación automática de los agregados tras la conmutación negociada se deshabilita durante la actualización de una controladora.
+
+
+
+
+
+.El futuro
+link:upgrade-mcc-ip-manual-uninstall-controllers.html["Elimine las configuraciones de la interfaz y desinstale las controladoras antiguas"].

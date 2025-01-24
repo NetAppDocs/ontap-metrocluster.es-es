@@ -1,0 +1,27 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-console-logging.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: Active el inicio de sesión de la consola en sus dispositivos antes de realizar la actualización del controlador. 
+---
+= Habilite el registro de la consola antes de la actualización IP de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active el inicio de sesión de la consola en sus dispositivos antes de realizar la actualización del controlador.
+
+NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y realice las siguientes acciones al realizar este procedimiento:
+
+* Deje la función AutoSupport habilitada durante el mantenimiento.
+* Active un mensaje de AutoSupport de mantenimiento antes y después de las tareas de mantenimiento para deshabilitar la creación de casos durante la actividad de mantenimiento.
++
+Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^].
+
+* Habilite el registro de sesiones para cualquier sesión de CLI. Para obtener instrucciones sobre cómo activar el registro de sesiones, consulte la sección Salida de sesión de registro en el artículo de la Base de conocimientos link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP"^].
+
+
+.El futuro
+Revise la información de link:upgrade-mcc-ip-system-controller-replace-set-bootarg.html["Establecer el arranque necesario (para las actualizaciones de los sistemas introducidos en la versión 9.15.1 o posterior)"] para confirmar si necesita establecer un inicio necesario en el sistema existente.

@@ -19,7 +19,8 @@ Revise estas consideraciones antes de utilizar las tablas:
 * Las siguientes tablas muestran el uso del puerto para el sitio A. El mismo cableado se utiliza para el centro B.
 * Los switches no pueden configurarse con puertos de diferentes velocidades (por ejemplo, una combinación de puertos de 100 Gbps y puertos de 40 Gbps).
 * Realizar un seguimiento del grupo de puertos de MetroCluster (MetroCluster 1, MetroCluster 2, etc.). Necesitará esta información cuando utilice la herramienta RcfFileGenerator como se describe más adelante en este procedimiento de configuración.
-* La https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"] también ofrece información general sobre el cableado por puerto para cada switch. Utilice esta información general sobre el cableado para verificar el cableado.
+* Debe conectar todos los nodos de la misma manera. Si hay diferentes opciones de combinación de puertos disponibles para cablear los nodos, todos los nodos deben usar las mismas combinaciones de puertos. Por ejemplo, e1a en node1 y e1a en node2 deben conectarse a un conmutador. De igual forma, el segundo puerto de ambos nodos debe conectarse al segundo switch.
+*  https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"^]También ofrece información general del cableado por puerto para cada switch. Utilice esta información general sobre el cableado para verificar el cableado.
 
 
 

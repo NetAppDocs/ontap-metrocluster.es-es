@@ -1,0 +1,134 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-reassign-root-agg.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: Reasigne los discos de agregado raíz al nuevo módulo de controlador, con los ID de sistema que ha recopilado anteriormente. 
+---
+= Reasigne los discos de agregado raíz al nuevo módulo de controlador IP de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Reasigne los discos de agregado raíz al nuevo módulo de controlador, con los ID de sistema que ha recopilado anteriormente.
+
+.Acerca de esta tarea
+Esta tarea se realiza en modo de mantenimiento.
+
+Los ID de sistema antiguos se identificaron en link:upgrade-mcc-ip-system-controller-replace-prechecks.html#gather-information-before-the-upgrade["Recopile información antes de la actualización"].
+
+Los ejemplos de este procedimiento utilizan controladoras con los siguientes ID de sistema:
+
+|===
+
+
+| Nodo | ID del sistema antiguo | Nuevo ID del sistema 
+
+
+ a| 
+Node_B_1
+ a| 
+4068741254
+ a| 
+1574774970
+
+|===
+.Pasos
+. Conecte todas las demás conexiones a los nuevos módulos de controladora (FC-VI, almacenamiento, interconexión de clúster, etc.).
+. Detenga el sistema e inicie en modo de mantenimiento desde la `LOADER` prompt:
++
+`boot_ontap maint`
+
+. Muestre los discos propiedad de node_B_1-old:
++
+`disk show -a`
+
++
+El resultado del comando muestra el ID del sistema del nuevo módulo de la controladora (1574774970). Sin embargo, los discos del agregado raíz siguen siendo propiedad del ID de sistema anterior (4068741254). Este ejemplo no muestra las unidades que son propiedad de otros nodos en la configuración de MetroCluster.
+
++
+
+CAUTION: Antes de continuar con la reasignación de discos, compruebe que la salida de los discos pool0 y pool1 que pertenecen al agregado raíz del nodo se muestren `disk show`. En el ejemplo siguiente, la salida enumera los discos pool0 y pool1 que son propiedad de node_B_1-old.
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 1574774970
+
+  DISK         OWNER                     POOL   SERIAL NUMBER    HOME                      DR HOME
+------------   -------------             -----  -------------    -------------             -------------
+...
+rr18:9.126L44 node_B_1-old(4068741254)   Pool1  PZHYN0MD         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:9.126L49 node_B_1-old(4068741254)   Pool1  PPG3J5HA         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L21 node_B_1-old(4068741254)   Pool1  PZHTDSZD         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L2  node_B_1-old(4068741254)   Pool0  S0M1J2CF         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L3  node_B_1-old(4068741254)   Pool0  S0M0CQM5         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:9.126L27 node_B_1-old(4068741254)   Pool0  S0M1PSDW         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+...
+----
+. Reasigne los discos de agregado raíz de las bandejas de unidades a la nueva controladora:
++
+`disk reassign -s <old-sysid> -d <new-sysid>`
+
++
+
+NOTE: Si el sistema IP de MetroCluster está configurado con la partición avanzada de discos, debe incluir el ID del sistema de partner de DR ejecutando `disk reassign -s old-sysid -d new-sysid -r dr-partner-sysid` el comando.
+
++
+En el siguiente ejemplo, se muestra la reasignación de unidades:
+
++
+[listing]
+----
+*> disk reassign -s 4068741254 -d 1574774970
+Partner node must not be in Takeover mode during disk reassignment from maintenance mode.
+Serious problems could result!!
+Do not proceed with reassignment if the partner is in takeover mode. Abort reassignment (y/n)? n
+
+After the node becomes operational, you must perform a takeover and giveback of the HA partner node to ensure disk reassignment is successful.
+Do you want to continue (y/n)? Jul 14 19:23:49 [localhost:config.bridge.extra.port:error]: Both FC ports of FC-to-SAS bridge rtp-fc02-41-rr18:9.126L0 S/N [FB7500N107692] are attached to this controller.
+y
+Disk ownership will be updated on all disks previously belonging to Filer with sysid 4068741254.
+Do you want to continue (y/n)? y
+----
+. Compruebe que todos los discos se reasignan según se espera:
++
+`disk show`
+
++
+[listing]
+----
+*> disk show
+Local System ID: 1574774970
+
+  DISK        OWNER                      POOL   SERIAL NUMBER   HOME                      DR HOME
+------------  -------------              -----  -------------   -------------             -------------
+rr18:8.126L18 node_B_1-new(1574774970)   Pool1  PZHYN0MD        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:9.126L49 node_B_1-new(1574774970)   Pool1  PPG3J5HA        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L21 node_B_1-new(1574774970)   Pool1  PZHTDSZD        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L2  node_B_1-new(1574774970)   Pool0  S0M1J2CF        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:9.126L29 node_B_1-new(1574774970)   Pool0  S0M0CQM5        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L1  node_B_1-new(1574774970)   Pool0  S0M1PSDW        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+*>
+----
+. Mostrar el estado del agregado:
++
+`aggr status`
+
++
+[listing]
+----
+*> aggr status
+           Aggr            State       Status           Options
+aggr0_node_b_1-root        online      raid_dp, aggr    root, nosnap=on,
+                           mirrored                     mirror_resync_priority=high(fixed)
+                           fast zeroed
+                           64-bit
+----
+. Repita los pasos anteriores en el nodo asociado (node_B_2-new).
+
+
+.El futuro
+link:upgrade-mcc-ip-system-controller-replace-boot-new-controllers.html["Arranque las nuevas controladoras y restaure la configuración de LIF"].

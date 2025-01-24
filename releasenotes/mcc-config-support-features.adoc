@@ -23,7 +23,12 @@ Para obtener información detallada sobre problemas conocidos, limitaciones y pr
  a| 
 Compatibilidad de movilidad de datos de SVM para migrar configuraciones de MetroCluster
  a| 
-ONTAP admite la migración de una SVM desde una pareja de alta disponibilidad que no es MetroCluster a una configuración de MetroCluster o desde una configuración MetroCluster a una pareja de alta disponibilidad que no es MetroCluster. No se puede migrar un SVM entre configuraciones de MetroCluster.
+ONTAP admite las siguientes migraciones de SVM de MetroCluster:
+
+* Migración de una SVM entre una pareja de alta disponibilidad que no es MetroCluster y una configuración MetroCluster IP
+* Migración de una SVM entre dos configuraciones MetroCluster IP
+* Migración de una SVM entre una configuración MetroCluster FC y una configuración MetroCluster IP
+
 
 link:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html["Movilidad de datos de SVM"^]
  a| 
@@ -58,7 +63,7 @@ Compatibilidad con almacenamiento de objetos S3 en agregados reflejados y no ref
  a| 
 Puede habilitar un servidor de almacenamiento de objetos S3 en una SVM en un agregado reflejado o no reflejado en configuraciones de MetroCluster IP y FC.
 
-https://docs.netapp.com/us-en/ontap/s3-config/index.html["Información general de la configuración de S3"]
+https://docs.netapp.com/us-en/ontap/s3-config/index.html["Información general de la configuración de S3"^]
  a| 
 ONTAP 9.14.1
 
@@ -69,7 +74,7 @@ Compatibilidad para aprovisionar un bloque de S3 en agregados reflejados y no re
  a| 
 Puede crear un bucket en un agregado reflejado o no reflejado en las configuraciones de MetroCluster.
 
-https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-mcc-task.html["Cree un bucket en un agregado reflejado o no reflejado en una configuración de MetroCluster"]
+https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-mcc-task.html["Cree un bucket en un agregado reflejado o no reflejado en una configuración de MetroCluster"^]
  a| 
 ONTAP 9.12.1
 
@@ -91,7 +96,7 @@ Compatibilidad con IPsec para el protocolo de host front-end en configuraciones 
  a| 
 La compatibilidad con IPsec para el protocolo de host front-end (como NFS e iSCSI) está disponible en configuraciones FAS de MetroCluster IP y MetroCluster.
 
-https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html["Configurar la seguridad IP (IPsec) a través del cifrado de cable"]
+https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html["Configurar la seguridad IP (IPsec) a través del cifrado de cable"^]
  a| 
 ONTAP 9.11.1
 
@@ -111,7 +116,7 @@ Reflejos FabricPool en configuraciones MetroCluster
  a| 
 Puede configurar un FabricPool reflejado en configuraciones de MetroCluster para organizar los datos inactivos en dos zonas de fallos distintas.
 
-https://docs.netapp.com/us-en/ontap/fabricpool/setup-object-stores-mcc-task.html["Configuración de almacenes de objetos para FabricPool en una configuración de MetroCluster"]
+https://docs.netapp.com/us-en/ontap/fabricpool/setup-object-stores-mcc-task.html["Configuración de almacenes de objetos para FabricPool en una configuración de MetroCluster"^]
  a| 
 ONTAP 9,7
 

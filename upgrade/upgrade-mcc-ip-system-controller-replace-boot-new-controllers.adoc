@@ -1,0 +1,264 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-boot-new-controllers.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: Reinicie las controladoras desde el menú de arranque para actualizar la imagen flash de la controladora. Se requieren pasos adicionales si está configurado el cifrado. 
+---
+= Arranque las nuevas controladoras IP de MetroCluster y restaure la configuración de LIF
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Arranque las nuevas controladoras y compruebe que las LIF estén alojadas en los nodos y puertos adecuados antes de reanudar la operación mediante `system controller replace resume` el comando.
+
+
+
+== Arranque las nuevas controladoras
+
+Inicie las nuevas controladoras. Verifique que las variables de arranque sean correctas y, si es necesario, realice los pasos de recuperación de cifrado.
+
+.Acerca de esta tarea
+Esta tarea debe realizarse en todas las controladoras nuevas.
+
+.Pasos
+. Detenga el nodo:
++
+`halt`
+
+. Si se configura el gestor de claves externo, defina los bootargs relacionados:
++
+`setenv bootarg.kmip.init.ipaddr <ip-address>`
+
++
+`setenv bootarg.kmip.init.netmask <netmask>`
+
++
+`setenv bootarg.kmip.init.gateway <gateway-address>`
+
++
+`setenv bootarg.kmip.init.interface <interface-id>`
+
+. Mostrar el menú de inicio:
++
+`boot_ontap menu`
+
+. Si se utiliza el cifrado de raíz, seleccione la opción de menú de inicio para la configuración de administración de claves.
++
+|===
+
+
+| Si está usando... | Seleccione esta opción del menú de inicio... 
+
+
+ a| 
+Gestión de claves incorporada
+ a| 
+Opción «'10»
+
+Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+
+
+
+ a| 
+Gestión de claves externas
+ a| 
+Opción «'11»
+
+Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+
+|===
+. Desde el menú de inicio, ejecute la opción «'6'».
++
+
+NOTE: La opción '`6`' reinicia el nodo dos veces antes de que se complete el proceso.
+
++
+Responda con «`y`» a las indicaciones de cambio de ID del sistema. Espere a que aparezcan los segundos mensajes de reinicio:
+
++
+[listing]
+----
+Successfully restored env file from boot media...
+
+Rebooting to load the restored env file...
+----
++
+Durante uno de los reinicios después de la opción “`6`”, el mensaje de confirmación `Override system ID? {y|n}` aparece. Introduzca `y`.
+
+. Si se utiliza el cifrado de raíz, seleccione de nuevo la opción de menú de inicio para la configuración de administración de claves.
++
+|===
+
+
+| Si está usando... | Seleccione esta opción del menú de inicio... 
+
+
+ a| 
+Gestión de claves incorporada
+ a| 
+Opción «'10»
+
+Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+
+
+
+ a| 
+Gestión de claves externas
+ a| 
+Opción «'11»
+
+Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+
+|===
++
+En función del ajuste del gestor de claves, realice el procedimiento de recuperación seleccionando la opción «'10'» o la opción «'11'», seguida de la opción «'6'» en el primer símbolo del sistema del menú de arranque. Para arrancar los nodos por completo, puede que necesite repetir el procedimiento de recuperación seguido de la opción «'1'» (arranque normal).
+
+. Arrancar los nodos:
++
+`boot_ontap`
+
+. Espere a que los nodos sustituidos se inicien.
++
+Si alguno de los nodos está en modo de toma de control, realice una devolución mediante el `storage failover giveback` comando.
+
+. Verifique que todos los puertos estén en un dominio de retransmisión:
++
+.. Vea los dominios de retransmisión:
++
+`network port broadcast-domain show`
+
+.. Si se crea un nuevo dominio de retransmisión para los puertos de datos en las controladoras recién actualizadas, elimine el dominio de retransmisión:
++
+
+NOTE: Elimine sólo el nuevo dominio de difusión. No elimine ninguno de los dominios de difusión que existían antes de iniciar la actualización.
+
++
+`broadcast-domain delete -broadcast-domain <broadcast_domain_name>`
+
+.. Añada cualquier puerto a un dominio de retransmisión según sea necesario.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["Añada o quite puertos de un dominio de retransmisión"^]
+
+.. Añada el puerto físico que alojará las LIF de interconexión de clústeres en el dominio de retransmisión correspondiente.
+.. Modifique las LIF de interconexión de clústeres para usar el puerto físico nuevo como puerto principal.
+.. Después de poner en marcha las LIF de interconexión de clústeres, compruebe el estado de paridad del clúster y vuelva a establecer la relación de clústeres entre iguales según sea necesario.
++
+Es posible que deba volver a configurar la relación de clústeres entre iguales.
+
++
+link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["Cree una relación de paridad entre clústeres"]
+
+.. Vuelva a crear las VLAN y los grupos de interfaces según sea necesario.
++
+La pertenencia a la VLAN y al grupo de interfaces puede ser diferente de la del nodo antiguo.
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["Cree una VLAN"^]
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["Combine puertos físicos para crear grupos de interfaces"^]
+
+.. Compruebe que el clúster asociado sea accesible y que la configuración se haya resincronizado correctamente en el clúster de asociado:
++
+`metrocluster switchback -simulate true`
+
+
+
+. Si se utiliza el cifrado, restaure las claves con el comando correcto para la configuración de gestión de claves.
++
+|===
+
+
+| Si está usando... | Se usa este comando... 
+
+
+ a| 
+Gestión de claves incorporada
+ a| 
+`security key-manager onboard sync`
+
+Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["Restaure las claves de cifrado de gestión de claves incorporadas"^].
+
+
+
+ a| 
+Gestión de claves externas
+ a| 
+`security key-manager external restore -vserver <svm-name> -node <node-name> -key-server <host_name|IP_address:port> -key-id <key_id> -key-tag key_tag <node-name>`
+
+Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["Restaure las claves de cifrado de gestión de claves externas"^].
+
+|===
+. Compruebe que MetroCluster está configurado correctamente. Compruebe el estado del nodo:
++
+`metrocluster node show`
+
++
+Verifique que los nuevos nodos (site_B) estén en *esperando el estado de regreso* desde el sitio_A.
+
+
+
+
+
+== Verifique y restaure la configuración de LIF
+
+Compruebe que las LIF están alojadas en los nodos adecuados antes de continuar con la operación de conmutación de estado automática.
+
+.Acerca de esta tarea
+* Esta tarea se realiza en el sitio_B.
+
+
+
+CAUTION: Debe verificar que la ubicación de las LIF de datos sea correcta en los nodos nuevos antes de volver a cambiar. Cuando conmuta la configuración, ONTAP intenta reanudar el tráfico en el puerto de inicio que utilizan las LIF. Se puede producir un fallo de E/S cuando la conexión del puerto de inicio al puerto del switch y la VLAN es incorrecta.
+
+.Pasos
+. Compruebe que las LIF están alojadas en el nodo y los puertos adecuados antes de volver a cambiar.
++
+.. Cambie al nivel de privilegio avanzado:
++
+`set -privilege advanced`
+
+.. Muestre las LIF y confirme que cada LIF de datos está utilizando el puerto de inicio correcto:
++
+`network interface show`
+
+.. Modifique los LIF que no estén utilizando el puerto raíz correcto:
++
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-port <port-id>`
+
++
+Si el comando devuelve un error, puede anular la configuración del puerto:
+
++
+`vserver config override -command "network interface modify -vserver <svm-name> -home-port <active_port_after_upgrade> -lif <lif_name> -home-node <new_node_name>"`
+
++
+Al introducir el comando de modificación de la interfaz de red dentro del `vserver config override` no se puede utilizar la función de tabulación automática. Puede crear la red `interface modify` con la opción de autocompletar y, a continuación, escríbala en la `vserver config override` comando.
+
+.. Confirme que todas las LIF de datos se encuentran ahora en el puerto de inicio correcto:
++
+`network interface show`
+
+.. Vuelva al nivel de privilegio de administrador:
++
+`set -privilege admin`
+
+
+
+. Revierte las interfaces a su nodo de inicio:
++
+`network interface revert * -vserver <svm-name>`
+
++
+Realice este paso en todas las SVM según sea necesario.
+
+. Reanude la operación:
++
+`system controller replace resume`
+
+
+
+.El futuro
+link:upgrade-mcc-ip-system-controller-replace-complete-upgrade.html["Complete la actualización de la controladora"].

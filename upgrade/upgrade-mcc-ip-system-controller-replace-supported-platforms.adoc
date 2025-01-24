@@ -1,0 +1,50 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-supported-platforms.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: Antes de iniciar la actualización de la controladora IP de MetroCluster, es necesario comprobar que la combinación de actualización sea compatible. 
+---
+= Actualizaciones de la controladora IP de MetroCluster admitidas mediante comandos de sustitución de la controladora del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de iniciar la actualización de la controladora IP de MetroCluster, es necesario comprobar que la combinación de actualización sea compatible.
+
+Encuentre su plataforma *Source* en las tablas de actualización del controlador MetroCluster en esta sección. Si la intersección de la fila de la plataforma *Source* y la columna de la plataforma *Target* está en blanco, la actualización no es compatible.
+
+Antes de iniciar la actualización, revise las siguientes consideraciones para verificar que la configuración sea compatible.
+
+* Si la plataforma no aparece en la lista, no existe una combinación de actualización de controladoras compatible.
+* Cuando se realiza una actualización del controlador, el tipo de plataforma anterior y el nuevo *debe* coincidir:
++
+** Puede actualizar un sistema FAS a un sistema FAS o un AFF A-Series a un AFF A-Series.
+** No puede actualizar un sistema FAS a un AFF A-Series ni un AFF A-Series a un AFF C-Series.
++
+Por ejemplo, si la plataforma que desea actualizar es FAS8200, puede actualizar a la versión FAS9000. No puede actualizar un sistema FAS8200 a un sistema AFF A700.
+
+
+
+* Todos los nodos (antiguos y nuevos) de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Consulte link:https://hwu.netapp.com["Hardware Universe"^]la para obtener la versión mínima compatible de ONTAP para su combinación.
+
+
+.Actualizaciones de controladoras IP de AFF y FAS MetroCluster admitidas
+La siguiente tabla muestra las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración de IP de MetroCluster utilizando los comandos «system controller replace»:
+
+image:../media/mccip_assisted_controller_upgrade_comb.png["Muestra las combinaciones de plataformas admitidas para actualizaciones IP de MetroCluster con comandos de reemplazo de controladoras del sistema."]
+
+* Nota 1: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.
+* Nota 2: La plataforma de destino no puede tener unidades internas hasta que finalice la actualización de la controladora. Es posible añadir las unidades internas después de la actualización.
+* Nota 3: Requiere la sustitución de los módulos del controlador.
+* Nota 4: Requiere módulos IOM para convertir las controladoras anteriores en una bandeja SAS externa. Consulte la link:https://hwu.netapp.com/["Hardware Universe"^] para ver los módulos IOM compatibles.
+
+
+.Actualizaciones de la controladora IP de ASA MetroCluster admitidas
+No se admite la actualización de controladoras mediante `system controller replace` comandos en sistemas ASA.
+
+Consulte link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Seleccione un método de actualización o actualización"]para conocer los procedimientos adicionales.
+
+.El futuro
+Revise la link:upgrade-mcc-ip-system-controller-replace-requirements.html["requisitos para usar este procedimiento de actualización"].

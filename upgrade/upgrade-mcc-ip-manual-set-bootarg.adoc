@@ -1,0 +1,113 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-set-bootarg.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc, bootarg 
+summary: Las actualizaciones de los sistemas introducidos en ONTAP 9.15.1 o versiones posteriores requieren establecer un arranque para poder continuar con la actualización de la controladora. 
+---
+= Establecer el arranque necesario (para actualizaciones de IP de MetroCluster de los sistemas introducidos en ONTAP 9.15.1 o versiones posteriores)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las actualizaciones de la controladora en los sistemas incluidos en ONTAP 9.15.1 o versiones posteriores requieren que se establezca un arranque para poder iniciar la actualización.
+
+
+
+== Paso 1: Determine el arranque que necesita configurar en los controladores antiguos
+
+Todas las actualizaciones compatibles para los siguientes sistemas requieren que se establezca un arranque en las controladoras anteriores antes de realizar la actualización de la controladora:
+
+* AFF A70, AFF A90, AFF A1K
+* FAS70, FAS90
+* AFF C80
+* AFF A50, AFF A20, AFF A30
+* AFF C30 y AFF C60
+
+
+
+CAUTION: Si va a actualizar a cualquiera de los sistemas enumerados, * debe * establecer un arranque necesario en el sistema existente antes de realizar la actualización. Para todas las demás actualizaciones, puede omitir esta tarea e ir directamente a link:upgrade-mcc-ip-prepare-system.html["Prepare el sistema para la actualización"].
+
+La mayoría de las actualizaciones de sistemas introducidos en ONTAP 9.15.1 o versiones posteriores requieren que establezca el `hw.cxgbe.toe_keepalive_disable` arranque en las antiguas controladoras. Sin embargo, algunas rutas de actualización requieren que defina el `bootarg.siw.interop_enabled` arranque en su lugar.
+
+Utilice la siguiente tabla para determinar qué inicio debe definir para su combinación de actualización específica.
+
+[cols="2*"]
+|===
+| Para esta actualización... | Establecer el inicio... 
+
+
+| De AFF A250 a AFF A30 | `bootarg.siw.interop_enabled` 
+
+
+| De AFF C250 a AFF C30 | `bootarg.siw.interop_enabled` 
+
+
+| De AFF A150 a AFF A20 | `bootarg.siw.interop_enabled` 
+
+
+| De AFF A220 a AFF A20 | `bootarg.siw.interop_enabled` 
+
+
+| Todas las demás renovaciones admitidas a los sistemas AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30 o AFF C60 | `hw.cxgbe.toe_keepalive_disable` 
+|===
+
+
+== Paso 2: Establezca el arranque requerido en los controladores antiguos
+
+Esta tarea es *SOLO* requerida cuando se actualiza a un sistema AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30 o AFF C60.
+
+.Pasos
+. Detenga un nodo en cada sitio y permita que su compañero de alta disponibilidad realice una toma de control de almacenamiento del nodo:
++
+`halt  -node <node_name>`
+
+. Defina el inicio necesario para la combinación de actualización. Ya ha determinado el arranque que necesita establecer mediante el uso de la tabla en <<upgrade_paths_bootarg_manual,determine qué inicio debe definir>>.
++
+[role="tabbed-block"]
+====
+.hw.cxgbe.toe_keepalive_disable
+--
+.. En `LOADER` el símbolo del sistema del nodo detenido, introduzca lo siguiente:
++
+`setenv hw.cxgbe.toe_keepalive_disable 1`
+
++
+`saveenv`
+
++
+`printenv hw.cxgbe.toe_keepalive_disable`
+
+
+
+--
+.bootarg.siw.interop_enabled
+--
+.. En `LOADER` el símbolo del sistema del nodo detenido, introduzca lo siguiente:
++
+`setenv bootarg.siw.interop_enabled 1`
+
++
+`saveenv`
+
++
+`printenv bootarg.siw.interop_enabled`
+
+
+
+--
+====
+. Arrancar el nodo:
++
+`boot_ontap`
+
+. Cuando el nodo arranque, realice un retorno al nodo en el símbolo del sistema:
++
+`storage failover giveback -ofnode <node_name>`
+
+. Repita los pasos en cada nodo del grupo de recuperación ante desastres que se esté actualizando.
+
+
+.El futuro
+link:upgrade-mcc-ip-prepare-system.html["Prepare el sistema para la actualización"].

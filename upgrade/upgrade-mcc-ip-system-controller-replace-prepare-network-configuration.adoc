@@ -1,0 +1,177 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-prepare-network-configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: Una vez que se recopila información y se reanuda la operación, la operación de automatización continúa con la conmutación de sitios. 
+---
+= Preparar la configuración de red de las antiguas controladoras IP de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una vez que se recopila información y se reanuda la operación, la operación de automatización continúa con la conmutación de sitios.
+
+.Antes de empezar
+Antes de iniciar la conmutación, la operación de automatización se pone en pausa para que pueda comprobar manualmente que todas las LIF están «'más'» en el sitio B. En caso necesario, llevar cualquier LIF «desposeída» a «arriba» y reanudar la operación de automatización utilizando el `system controller replace resume` comando.
+
+La operación de automatización inicia las operaciones de conmutación de sitios. Una vez finalizadas estas operaciones, la operación se detiene en *PAUSE para la intervención del usuario* para que pueda montar en rack e instalar los controladores, arrancar los controladores asociados y reasignar los discos agregados raíz al nuevo módulo del controlador desde la copia de seguridad flash usando la `sysids` recopilada anteriormente.
+
+.Acerca de esta tarea
+* Esta tarea se debe realizar en cada uno de los nodos antiguos.
+* Usted utiliza la información recopilada en link:upgrade-mcc-ip-system-controller-replace-prechecks.html#gather-information-before-the-upgrade["Recopile información antes de la actualización"].
+
+
+.Pasos
+. Arranque los nodos antiguos y después inicie sesión en los nodos:
++
+`boot_ontap`
+
+. Modifique las LIF de interconexión de clústeres de las controladoras antiguas para que usen un puerto raíz diferente a los puertos utilizados para la interconexión de alta disponibilidad o la interconexión de recuperación ante desastres IP de MetroCluster en las nuevas controladoras.
++
+
+NOTE: Este paso es necesario para una actualización correcta.
+
++
+Las LIF de interconexión de clústeres de las controladoras antiguas deben usar un puerto inicial diferente al de los puertos utilizados para la interconexión de alta disponibilidad o la interconexión de recuperación ante desastres IP de MetroCluster en las nuevas controladoras. Por ejemplo, cuando se actualiza a controladoras AFF A90, los puertos de interconexión de alta disponibilidad son e1a y e7a, y los puertos de interconexión de recuperación ante desastres IP de MetroCluster son E2B y E3b. Debe mover las LIF de interconexión de clústeres de las controladoras anteriores si están alojadas en los puertos e1a, e7a, E2B o E3b.
+
++
+Para la distribución y asignación de puertos en los nuevos nodos, consulte la https://hwu.netapp.com["Hardware Universe"].
+
++
+.. En las controladoras antiguas, vea las LIF de interconexión de clústeres:
++
+`network interface show  -role intercluster`
+
++
+Una de las siguientes acciones dependerá de si las LIF de interconexión de clústeres de las controladoras anteriores usan los mismos puertos que los utilizados para la interconexión de alta disponibilidad o la interconexión MetroCluster IP DR en las nuevas controladoras.
+
++
+[cols="2*"]
+|===
+| Si las LIF de interconexión de clústeres... | Vaya a... 
+
+
+| Utilice el mismo puerto de inicio | <<controller_replace_upgrade_prepare_network_ports_2b,Subpaso b>> 
+
+
+| Utilice un puerto de inicio diferente | <<controller_replace_upgrade_prepare_network_ports_3,Paso 3>> 
+|===
+.. [[controller_replace_upgrade_prepare_network_ports_2b]]Modifique las LIF de interconexión de clústeres para utilizar un puerto raíz diferente:
++
+`network interface modify -vserver <vserver> -lif <intercluster_lif> -home-port <port-not-used-for-ha-interconnect-or-mcc-ip-dr-interconnect-on-new-nodes>`
+
+.. Compruebe que todas las LIF de interconexión de clústeres se encuentran en sus nuevos puertos principales:
++
+`network interface show -role intercluster -is-home  false`
+
++
+El resultado del comando debe estar vacío, lo que indica que todas las LIF de interconexión de clústeres están en sus respectivos puertos principales.
+
+.. Revierta los LIF que no estén en sus puertos raíz:
++
+`network interface revert -lif <intercluster_lif>`
+
++
+Repita el comando para cada LIF de interconexión de clústeres que no esté en el puerto de inicio.
+
+
+
+. [[controller_replace_upgrade_prepare_network_ports_3]]Asigne el puerto raíz de todas las LIF de datos de la controladora antigua a un puerto común que sea el mismo en los módulos de controladora antiguos y nuevos.
++
+
+CAUTION: Si las controladoras antigua y nueva no disponen de un puerto común, no necesitará modificar las LIF de datos. Sáltese este paso y vaya directamente a <<upgrades_assisted_without_matching_ports,Paso 4>>.
+
++
+.. Mostrar las LIF:
++
+`network interface show`
+
++
+Todos los LIF de datos, incluidos SAN y NAS, serán «propios» de administrador y «inactivos» operacionalmente, ya que están en el sitio de la conmutación (cluster_A).
+
+.. Revise el resultado para encontrar un puerto de red física común que sea el mismo en las controladoras anterior y nueva que no se use como puerto de clúster.
++
+Por ejemplo, «'e0d» es un puerto físico de las controladoras antiguas y también está presente en las nuevas controladoras. «'e0d'» no se utiliza como puerto de clúster ni de ningún otro modo en las nuevas controladoras.
+
++
+Consulte la link:https://hwu.netapp.com/["Hardware Universe"^] para obtener información sobre el uso del puerto de cada modelo de plataforma.
+
+.. Modifique todas las LIF de datos para utilizar el puerto común como puerto de inicio:
++
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-port <port-id>`
+
++
+En el siguiente ejemplo, esto es «'e0d'».
+
++
+Por ejemplo:
+
++
+[listing]
+----
+network interface modify -vserver vs0 -lif datalif1 -home-port e0d
+----
+
+
+. [[upgrades_assisted_without_matching_ports]] Modifique los dominios de difusión para eliminar la VLAN y los puertos físicos que deben eliminarse:
++
+`broadcast-domain remove-ports -broadcast-domain <broadcast-domain-name>-ports <node-name:port-id>`
+
++
+Repita este paso para todos los puertos VLAN y físicos.
+
+. Quite todos los puertos VLAN que utilizan puertos de clúster como puertos miembro y grupos de interfaces usando puertos de clúster como puertos miembro.
++
+.. Eliminar puertos VLAN:
++
+`network port vlan delete -node <node-name> -vlan-name <portid-vlandid>`
+
++
+Por ejemplo:
+
++
+[listing]
+----
+network port vlan delete -node node1 -vlan-name e1c-80
+----
+.. Quite puertos físicos de los grupos de interfaces:
++
+`network port ifgrp remove-port -node <node-name> -ifgrp <interface-group-name> -port <portid>`
+
++
+Por ejemplo:
+
++
+[listing]
+----
+network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
+----
+.. Quite los puertos VLAN y grupos de interfaces del dominio de retransmisión:
++
+`network port broadcast-domain remove-ports -ipspace <ipspace> -broadcast-domain <broadcast-domain-name>-ports <nodename:portname,nodename:portname>,..`
+
+.. Modifique los puertos de grupo de interfaces para que utilicen otros puertos físicos como miembro, según sea necesario:
++
+`ifgrp add-port -node <node-name> -ifgrp <interface-group-name> -port <port-id>`
+
+
+
+. Detenga los nodos:
++
+`halt -inhibit-takeover true -node <node-name>`
+
++
+Este paso debe realizarse en ambos nodos.
+
+. Compruebe que los nodos se encuentran en `LOADER` el prompt y recopile y conserve las variables de entorno actuales.
+. Recopile los valores bootarg:
++
+`printenv`
+
+. Apague los nodos y las bandejas en el sitio donde se está actualizando la controladora.
+
+
+.El futuro
+link:upgrade-mcc-ip-system-controller-replace-setup-new-controllers.html["Configure y reinicie las nuevas controladoras"].

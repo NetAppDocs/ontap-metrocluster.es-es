@@ -850,7 +850,7 @@ Esta tarea debe realizarse en el sitio que contiene las controladoras que se est
 Los switches de Site_A se actualizarán cuando se actualicen las controladoras de Site_A.
 
 .Pasos
-. Prepare los switches IP para la aplicación de los nuevos archivos RCF.
+. Prepare los switches IP para la aplicación de los nuevos RFC.
 +
 Siga los pasos de la sección para su proveedor de switches:
 
@@ -860,14 +860,14 @@ Siga los pasos de la sección para su proveedor de switches:
 ** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["Restablece el switch NVIDIA IP SN2100 a los valores predeterminados de fábrica"]
 
 
-. Descargue e instale los archivos RCF.
+. Descargue e instale los RCF.
 +
 Siga los pasos de la sección para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descargue e instale los archivos Broadcom RCF"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["Descargue e instale los archivos Cisco IP RCF"]
-** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["Descargue e instale los archivos NVIDIA IP RCF"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["Descargue e instale los RCFs de Broadcom"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["Descargue e instale los Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["Descargue e instale los NVIDIA IP RCF"]
 
 
 

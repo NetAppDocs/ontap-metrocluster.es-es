@@ -13,9 +13,9 @@ summary: El uso del puerto en una configuración IP de MetroCluster depende del 
 [role="lead"]
 El uso del puerto en una configuración IP de MetroCluster depende del modelo del switch y el tipo de plataforma.
 
-Los switches no se pueden utilizar con puertos ISL remotos de diferentes velocidades (por ejemplo, un puerto de 25 Gbps conectado a un puerto ISL de 10 Gbps).
+Revise las siguientes consideraciones antes de utilizar las tablas de configuración:
 
-.Revise esta información antes de utilizar las tablas:
+* No puede usar los switches con puertos ISL remotos de diferentes velocidades (por ejemplo, un puerto de 25 Gbps conectado a un puerto ISL de 10 Gbps).
 * Si se configura la transición del switch para MetroCluster FC a IP, se usan los siguientes puertos en función de la plataforma objetivo que se elija:
 +
 [cols="75,25"]
@@ -63,13 +63,16 @@ AFF A220
 | FAS500f AFF C250, ASA C250 AFF A250, ASA A250 | <<table_2_bes_53248,Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 2)>> 
 
 
-| FAS8200, AFF A300 | <<table_3_bes_53248,Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 3)>> 
+| AFF A20 AFF C30, AFF A30 AFF C60 | <<table_3_bes_53248,Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 3)>> 
 
 
-| AFF A320 | <<table_4_bes_53248,Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 4)>> 
+| FAS8200, AFF A300 | <<table_4_bes_53248,Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 4)>> 
 
 
-| FAS8300 AFF C400, ASA C400 AFF A400, ASA A400 FAS8700 | <<table_5_bes_53248,Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 5)>> 
+| AFF A320 | <<table_5_bes_53248,Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 5)>> 
+
+
+| FAS8300 AFF C400, ASA C400 AFF A400, ASA A400 FAS8700 | <<table_6_bes_53248,Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 6)>> 
 |===
 .Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 1)
 Revise las asignaciones de puertos de plataforma para conectar un sistema AFF A150, ASA A150, FAS2750 o AFF A220 a un conmutador Broadcom BES-53248:
@@ -90,14 +93,22 @@ image::../media/mcc_ip_cabling_a_aff_asa_c250_a250_fas500f_to_a_broadcom_bes_532
 
 
 .Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 3)
-Revise las asignaciones de puertos de plataforma para cablear un sistema FAS8200 o AFF A300 a un conmutador Broadcom BES-53248:
+Revise las asignaciones de puertos de plataforma para conectar un sistema AFF A20, AFF C30, AFF A30 o AFF C60 a un conmutador Broadcom BES-53248:
 
-image::../media/mcc-ip-cabling-a-aff-a300-or-fas8200-to-a-broadcom-bes-53248-switch.png[Muestra asignaciones de puertos de plataforma BES-53248 de Broadcom]
+image:../media/mcc-ip-cabling-aff-a20-a30-c30-c60-to-a-broadcom-bes-53248-switch.png["Muestra asignaciones de puertos de plataforma BES-53248 de Broadcom"]
 
 * *Nota 1*: El uso de estos puertos requiere una licencia adicional.
 
 
 .Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 4)
+Revise las asignaciones de puertos de plataforma para cablear un sistema FAS8200 o AFF A300 a un conmutador Broadcom BES-53248:
+
+image::../media/mcc-ip-cabling-a-aff-a300-or-fas8200-to-a-broadcom-bes-53248-switch-9161.png[Muestra asignaciones de puertos de plataforma BES-53248 de Broadcom]
+
+* *Nota 1*: El uso de estos puertos requiere una licencia adicional.
+
+
+.Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 5)
 Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A320 a un conmutador Broadcom BES-53248:
 
 image::../media/mcc-ip-cabling-a-aff-a320-to-a-broadcom-bes-53248-switch.png[Muestra asignaciones de puertos de plataforma BES-53248 de Broadcom]
@@ -109,7 +120,7 @@ Esta configuración no admite las funciones que requieren un clúster conmutado.
 
 
 
-.Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 5)
+.Asignaciones de puertos de plataforma Broadcom BES-53248 (grupo 6)
 Revise las asignaciones de puertos de plataforma al cable A FAS8300, AFF C400, ASA C400, AFF A400, ASA A400, o sistema FAS8700 a un conmutador Broadcom BES-53248:
 
 image::../media/mcc-ip-cabling-a-fas8300-a400-c400-or-fas8700-to-a-broadcom-bes-53248-switch.png[Muestra asignaciones de puertos de plataforma BES-53248 de Broadcom]

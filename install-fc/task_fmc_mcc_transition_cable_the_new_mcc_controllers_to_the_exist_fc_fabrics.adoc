@@ -11,7 +11,7 @@ summary: En cada controladora de la configuración de Clustered ONTAP MetroClust
 
 
 [role="lead"]
-En cada controladora de la configuración de Clustered ONTAP MetroCluster, los adaptadores de FC-VI y los HBA deben cablearse a puertos específicos de los switches FC existentes.
+En cada controladora de la configuración de ONTAP MetroCluster, el adaptador FC-VI y los HBA deben cablearse a puertos específicos de los switches FC existentes.
 
 .Pasos
 . Conecte los puertos FC-VI y HBA de acuerdo con la tabla siguiente:

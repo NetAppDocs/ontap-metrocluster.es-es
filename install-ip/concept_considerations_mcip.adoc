@@ -156,3 +156,6 @@ No los crean ni los modifican los comandos de la interfaz de red.
 * No conmutan al nodo de respaldo, pero siguen asociados al puerto en el que se crearon.
 * Las configuraciones de IP de MetroCluster utilizan puertos Ethernet específicos (según la plataforma) para las interfaces IP de MetroCluster.
 
+
+
+CAUTION: No utilice las direcciones IP 169.254.17.x o 169.254.18.x al crear interfaces IP de MetroCluster para evitar conflictos con las direcciones IP de interfaz generadas automáticamente del sistema en el mismo rango.

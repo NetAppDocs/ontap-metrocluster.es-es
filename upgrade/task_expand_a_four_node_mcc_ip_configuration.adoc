@@ -104,7 +104,7 @@ En las siguientes tablas se muestran las combinaciones de plataformas admitidas 
 .Combinaciones de ampliación AFF y FAS MetroCluster IP compatibles
 En la siguiente tabla se muestran las combinaciones de plataformas admitidas para ampliar un sistema AFF o FAS en una configuración IP de MetroCluster:
 
-image::../media/mccip_expand_ip_8node_9161.png[Combinaciones de plataforma para configuraciones de 8 nodos]
+image::../media/mccip_expand_ip_8node_9161-updated.png[Combinaciones de plataforma para configuraciones de 8 nodos]
 
 * *Nota 1*: Se requiere ONTAP 9.9.1 o posterior (o la versión mínima de ONTAP admitida en la plataforma) para estas combinaciones.
 * *Nota 2*: Se requiere ONTAP 9.13.1 o posterior (o la versión mínima de ONTAP admitida en la plataforma) para estas combinaciones.
@@ -208,7 +208,6 @@ Rangos de VLAN válidos:
 
 * Ambos grupos de DR utilizan las mismas VLAN al ampliar de una configuración MetroCluster de cuatro nodos a otra de ocho nodos.
 * Si no se pueden configurar ambos grupos de DR con la misma VLAN, debe actualizar el grupo de DR que no admite `vlan-id` el parámetro para utilizar una VLAN que sea compatible con el otro grupo de DR.
-* Dependiendo de la versión de ONTAP, puede cambiar algunas propiedades de la interfaz IP de MetroCluster después de la configuración inicial. Consulte link:../maintain/task-modify-ip-netmask-properties.html["Modificar las propiedades de una interfaz IP de MetroCluster"] para obtener más información sobre qué es compatible.
 
 
 
@@ -693,6 +692,7 @@ cluster_A::>
 +
 [NOTE]
 ====
+** No utilice las direcciones IP 169.254.17.x o 169.254.18.x al crear interfaces IP de MetroCluster para evitar conflictos con las direcciones IP de interfaz generadas automáticamente del sistema en el mismo rango.
 ** Si es compatible, puede especificar una VLAN diferente (no predeterminada) superior a 100 (entre 101 y 4095) con el `-vlan-id` parámetro del `metrocluster configuration-settings interface create` comando. Consulte <<Consideraciones sobre las VLAN al añadir un nuevo grupo de DR>> para obtener información sobre la plataforma compatible.
 ** Puede configurar las interfaces IP de MetroCluster desde cualquier clúster.
 

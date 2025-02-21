@@ -18,7 +18,7 @@ En todas las configuraciones, cada uno de los dos sitios MetroCluster se configu
  a| 
 Número de controladoras
  a| 
-Cuatro u ocho*
+Cuatro u ocho^1^
  a| 
 Cuatro u ocho
  a| 
@@ -207,15 +207,15 @@ Sí
 Sí
 
 |===
-*Importante*
+*Notas*
 
-Tenga en cuenta las siguientes consideraciones en cuanto a las configuraciones IP de MetroCluster de ocho nodos:
+. Consulte las siguientes consideraciones sobre las configuraciones de IP de MetroCluster de ocho nodos:
++
+** Las configuraciones de ocho nodos son compatibles a partir de ONTAP 9.9.1.
+** Solo se admiten los switches MetroCluster validados por NetApp (solicitados a NetApp).
+** No se admiten las configuraciones que utilizan conexiones de back-end enrutadas por IP (capa 3).
 
-* Las configuraciones de ocho nodos son compatibles a partir de ONTAP 9.9.1.
-* Solo se admiten los switches MetroCluster validados por NetApp (solicitados a NetApp).
-* No se admiten las configuraciones que utilizan conexiones de back-end enrutadas por IP (capa 3).
-* No se admiten las configuraciones que utilizan redes privadas de capa 2 compartidas.
-* No se admiten las configuraciones que utilizan un switch compartido Cisco 9336C-FX2.
+
 
 
 

@@ -717,7 +717,6 @@ NOTE: Los puertos IP de MetroCluster y switch conectados no se conectan hasta qu
 
 .Acerca de esta tarea
 * Debe crear dos interfaces para cada nodo. Las interfaces deben estar asociadas a las VLAN definidas en el archivo MetroCluster RCF.
-* Dependiendo de la versión de ONTAP, puede cambiar algunas propiedades de la interfaz IP de MetroCluster después de la configuración inicial. Consulte link:../maintain/task-modify-ip-netmask-properties.html["Modificar las propiedades de una interfaz IP de MetroCluster"] para obtener más información sobre qué es compatible.
 * Debe crear todos los puertos de interfaz IP "A" de MetroCluster en la misma VLAN y todos los puertos de interfaz IP de MetroCluster "B" en la otra VLAN. Consulte link:concept_considerations_mcip.html["Consideraciones sobre la configuración de IP de MetroCluster"].
 * A partir de ONTAP 9.9.1, si utiliza una configuración de capa 3, también debe especificar el `-gateway` Al crear interfaces IP de MetroCluster. Consulte link:../install-ip/concept_considerations_layer_3.html["Consideraciones sobre las redes de área amplia de capa 3"].
 +
@@ -921,6 +920,10 @@ cluster_B
 . Cree las interfaces en node_A_1.
 +
 .. Configure la interfaz en el puerto "e5a" en "node_A_1":
++
+
+CAUTION: No utilice las direcciones IP 169.254.17.x o 169.254.18.x al crear interfaces IP de MetroCluster para evitar conflictos con las direcciones IP de interfaz generadas automáticamente del sistema en el mismo rango.
+
 +
 `metrocluster configuration-settings interface create -cluster-name <cluster_name> -home-node <node_name> -home-port e5a -address <ip_address> -netmask <netmask>`
 

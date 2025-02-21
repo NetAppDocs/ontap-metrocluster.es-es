@@ -28,6 +28,51 @@ La operación de automatización inicia las operaciones de conmutación de sitio
 +
 `boot_ontap`
 
+. Si el sistema al que va a actualizar NO se encuentra en la siguiente tabla, compruebe que las interfaces IP de MetroCluster estén utilizando direcciones IP compatibles.
++
+|===
+
+
+| Sistemas AFF y ASA | Sistemas FAS 
+
+
+ a| 
+** AFF A150, ASA A150
+** AFF A220
+** AFF C250, ASA C250
+** AFF A250, ASA A250
+** AFF A300
+** AFF A320
+** AFF C400, ASA C400
+** AFF A400, ASA A400
+** A700 de AFF
+** AFF C800, ASA C800
+** AFF A800, ASA A800
+** AFF A900, ASA A900
+
+ a| 
+** FAS2750
+** FAS500f
+** FAS8200
+** FAS8300
+** FAS8700
+** FAS9000
+** FAS9500
+
+
+|===
++
+.. Compruebe las direcciones IP de las interfaces de MetroCluster en las controladoras antiguas:
++
+`metrocluster configuration-settings interface show`
+
+.. Si las interfaces de MetroCluster utilizan direcciones IP de 169.254.17.x o 169.254.18.x, consulte link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/How_to_modify_the_properties_of_a_MetroCluster_IP_interface["Artículo de la base de conocimientos sobre cómo modificar las propiedades de una interfaz IP de MetroCluster"^]para modificar las direcciones IP de la interfaz antes de continuar con la actualización.
++
+
+CAUTION: La actualización a cualquier sistema que no aparezca en la tabla no se admite si las interfaces MetroCluster están configuradas con direcciones IP 169.254.17.x o 169.254.18.x.
+
+
+
 . Modifique las LIF de interconexión de clústeres de las controladoras antiguas para que usen un puerto raíz diferente a los puertos utilizados para la interconexión de alta disponibilidad o la interconexión de recuperación ante desastres IP de MetroCluster en las nuevas controladoras.
 +
 
@@ -56,7 +101,7 @@ Una de las siguientes acciones dependerá de si las LIF de interconexión de cl�
 | Utilice el mismo puerto de inicio | <<controller_replace_upgrade_prepare_network_ports_2b,Subpaso b>> 
 
 
-| Utilice un puerto de inicio diferente | <<controller_replace_upgrade_prepare_network_ports_3,Paso 3>> 
+| Utilice un puerto de inicio diferente | <<controller_replace_upgrade_prepare_network_ports_3,Paso 4>> 
 |===
 .. [[controller_replace_upgrade_prepare_network_ports_2b]]Modifique las LIF de interconexión de clústeres para utilizar un puerto raíz diferente:
 +
@@ -81,7 +126,7 @@ Repita el comando para cada LIF de interconexión de clústeres que no esté en 
 . [[controller_replace_upgrade_prepare_network_ports_3]]Asigne el puerto raíz de todas las LIF de datos de la controladora antigua a un puerto común que sea el mismo en los módulos de controladora antiguos y nuevos.
 +
 
-CAUTION: Si las controladoras antigua y nueva no disponen de un puerto común, no necesitará modificar las LIF de datos. Sáltese este paso y vaya directamente a <<upgrades_assisted_without_matching_ports,Paso 4>>.
+CAUTION: Si las controladoras antigua y nueva no disponen de un puerto común, no necesitará modificar las LIF de datos. Sáltese este paso y vaya directamente a <<upgrades_assisted_without_matching_ports,Paso 5>>.
 
 +
 .. Mostrar las LIF:
@@ -89,7 +134,7 @@ CAUTION: Si las controladoras antigua y nueva no disponen de un puerto común, n
 `network interface show`
 
 +
-Todos los LIF de datos, incluidos SAN y NAS, serán «propios» de administrador y «inactivos» operacionalmente, ya que están en el sitio de la conmutación (cluster_A).
+Todos los LIF de datos, incluidos SAN y NAS, serán «activos» y «abandonados» operativamente, ya que se encuentran en el sitio de conmutación (cluster_A).
 
 .. Revise el resultado para encontrar un puerto de red física común que sea el mismo en las controladoras anterior y nueva que no se use como puerto de clúster.
 +

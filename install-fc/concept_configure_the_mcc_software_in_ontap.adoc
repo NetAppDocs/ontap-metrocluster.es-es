@@ -3021,6 +3021,9 @@ También debe configurar contraseñas en cuentas sin utilizar para asegurarlas y
 
 Debe realizar algunos pasos de configuración especiales antes de supervisar los componentes en una configuración de MetroCluster.
 
+
+NOTE: Para mayor seguridad, NetApp recomienda configurar SNMPv2 o SNMPv3 para supervisar el estado del switch.
+
 .Acerca de esta tarea
 Estas tareas solo se aplican a sistemas con puentes FC a SAS.
 
@@ -3049,7 +3052,7 @@ NetApp solo admite las siguientes herramientas para supervisar los componentes d
 En una configuración MetroCluster estructural, debe realizar algunos pasos de configuración adicionales para supervisar los switches FC.
 
 
-NOTE: A partir de ONTAP 9.8, el `storage switch` el comando se sustituye por `system switch`. Los siguientes pasos muestran el `storage switch` Pero si ejecuta ONTAP 9.8 o una versión posterior, el `system switch` el comando es preferido.
+NOTE: A partir de ONTAP 9,8, el `storage switch` comando se reemplaza por `system switch fibre-channel`. Los pasos siguientes muestran `storage switch` el comando, pero si ejecuta ONTAP 9,8 o una versión posterior, `system switch fibre-channel` se recomienda el comando.
 
 .Pasos
 . Añada un switch con una dirección IP a cada nodo MetroCluster:

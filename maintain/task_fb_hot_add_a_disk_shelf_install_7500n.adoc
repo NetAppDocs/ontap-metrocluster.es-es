@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, hot, add, disk, shelf 
 summary: Puede añadir una bandeja de discos en activo cuando desee aumentar el almacenamiento sin reducir el rendimiento. 
 ---
-= Añadir en caliente una bandeja de discos
+= Agregue en caliente una bandeja de discos SAS a una pila de bandejas de discos SAS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,14 +13,79 @@ summary: Puede añadir una bandeja de discos en activo cuando desee aumentar el 
 [role="lead"]
 Puede añadir una bandeja de discos en activo cuando desee aumentar el almacenamiento sin reducir el rendimiento.
 
-* El sistema debe cumplir todos los requisitos de link:task_fb_hot_add_shelf_prepare_7500n.html["Preparar la adición en caliente de bandejas de discos SAS"].
-* El entorno debe satisfacer una de las siguientes situaciones para añadir una bandeja en caliente:
+
+
+== Paso 1: Prepárese para agregar en caliente una bandeja de discos SAS
+
+Para prepararse para la adición en caliente de una bandeja de discos SAS, debe descargar documentos junto con el firmware de las unidades de disco y de la bandeja de discos.
+
+.Antes de empezar
+* Compruebe que el sistema sea una configuración compatible y que ejecute una versión compatible de ONTAP.
+* Confirmar que todas las unidades de disco y las bandejas de discos del sistema ejecutan la versión de firmware más reciente.
++
+Se recomienda actualizar el firmware de discos y de bandeja en toda la configuración de MetroCluster antes de añadir bandejas.
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["Actualización, reversión o degradación"]
+
+
+
+[NOTE]
+====
+Si el sistema ejecuta una versión de ONTAP compatible, admite una combinación de módulos IOM12 y IOM6 módulos. Para establecer si la versión de ONTAP es compatible con la mezcla de bandejas, consulte link:https://imt.netapp.com/matrix/["Herramienta de matriz de interoperabilidad (IMT)"^]. Si la versión de ONTAP no es compatible y no puede actualizar o degradar los módulos IOM en la pila existente o de la bandeja nueva que se debe añadir a una combinación compatible de módulos IOM, tendrá que realizar una de las siguientes acciones:
+
+* Inicie una nueva pila en un nuevo puerto SAS (si lo admite el par de puente).
+* Inicie una nueva pila en un par de puente adicional.
+
+
+====
+.Pasos
+. Descargue o consulte los siguientes documentos desde el sitio de soporte de NetApp:
++
+** https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad"]
+** El _Guía de instalación_ correspondiente al modelo de bandeja de discos.
+
+
+. Compruebe que la bandeja de discos que desea añadir en caliente es compatible.
++
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad"^]
+
+. Descargue el firmware de disco y de bandeja de discos más reciente:
++
+
+NOTE: En este paso, solo completará la parte de descarga de las instrucciones. Es necesario seguir los pasos de <<step_2_hot_add_shelf,añada en caliente una bandeja de discos>> para instalar la bandeja de discos.
+
++
+.. Descargue el firmware del disco y haga una copia de las instrucciones del firmware del disco para consultarla más adelante.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descargas de NetApp: Firmware de la unidad de disco"^]
+
+.. Descargue el firmware de la bandeja de discos y haga una copia de las instrucciones del firmware de la bandeja de discos para referencia posterior.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Descargas de NetApp: Firmware de bandeja de discos"^]
+
+
+
+
+
+
+
+== Paso 2: Añada en caliente una bandeja de discos
+
+Utilice el siguiente procedimiento para agregar en caliente una bandeja de discos a una pila.
+
+.Antes de empezar
+* Compruebe que el sistema cumple todos los requisitos indicados en <<prepare_to_hot_add_disk,Prepárese para añadir bandejas de discos SAS en caliente>>.
+* Compruebe que el entorno cumple una de las siguientes situaciones antes de añadir una bandeja en caliente:
 +
 ** Tiene dos puentes FibreBridge 7500N conectados a una pila de bandejas de discos SAS.
 ** Tiene dos puentes FibreBridge 7600N conectados a una pila de bandejas de discos SAS.
 ** Tiene un puente FibreBridge 7500N y un puente FibreBridge 7600N conectado a una pila de bandejas de discos SAS.
 
 
+
+
+.Acerca de esta tarea
 * Este procedimiento sirve para añadir de forma activa una bandeja de discos a la última bandeja de discos de una pila.
 +
 Este procedimiento se escribe suponiendo que la última bandeja de discos de una pila está conectada desde el IOM A al puente A y de IOM B al puente B.
@@ -29,22 +94,22 @@ Este procedimiento se escribe suponiendo que la última bandeja de discos de una
 * Debe añadir en caliente un número igual de bandejas de discos en cada sitio.
 * Si va a añadir más de una bandeja de discos en activo, debe añadir una bandeja de discos en activo a la vez.
 +
-
-NOTE: Cada par de puentes FibreBridge 7500N o 7600N puede soportar hasta cuatro pilas.
-
+Cada par de puentes FibreBridge 7500N o 7600N puede soportar hasta cuatro pilas.
 
 
 
-IMPORTANT: Para añadir una bandeja de discos en caliente, es necesario actualizar el firmware de las unidades de disco en la bandeja de discos en activo ejecutando el `storage disk firmware update` comando en modo avanzado. La ejecución de este comando puede provocar interrupciones si el firmware en las unidades de disco existentes en el sistema es una versión anterior.
+[CAUTION]
+====
+Para añadir una bandeja de discos en caliente, es necesario actualizar el firmware de las unidades de disco en la bandeja de discos en activo ejecutando el `storage disk firmware update` comando en modo avanzado. La ejecución de este comando puede provocar interrupciones si el firmware en las unidades de disco existentes en el sistema es una versión anterior.
 
+Si inserta un cable SAS en el puerto incorrecto, después de quitar el cable de un puerto SAS, debe esperar al menos 120 segundos antes de conectar el cable en un puerto SAS diferente. Si no lo hace, el sistema no reconocerá que ha movido el cable a un puerto diferente.
 
-IMPORTANT: Si inserta un cable SAS en el puerto incorrecto, al quitar el cable de un puerto SAS, debe esperar al menos 120 segundos antes de enchufar el cable a un puerto SAS diferente. Si no lo hace, el sistema no reconocerá que el cable se ha movido a otro puerto.
-
+====
 .Pasos
 . Puesta a tierra apropiadamente usted mismo.
 . Compruebe la conectividad de la bandeja de discos desde la consola del sistema de cualquier controladora:
 +
-`*sysconfig -v*`
+`sysconfig -v`
 
 +
 La salida es similar a la siguiente:
@@ -74,12 +139,12 @@ cisco_A_1-1:9.126L2   : NETAPP   X421_HCOBD450A10 NA01 418.0GB (879097968 520B/s
 ----
 
 
-. Compruebe si el sistema tiene la asignación automática de discos habilitada desde la consola de cualquiera de las controladoras:
+. Compruebe si el sistema tiene habilitada la asignación automática de discos desde la consola de cualquiera de las controladoras:
 +
-`*storage disk option show*`
+`storage disk option show`
 
 +
-La directiva de asignación automática se muestra en la columna asignación automática.
+La política de asignación automática se muestra en la columna Asignación automática.
 
 +
 [listing]
@@ -91,22 +156,21 @@ node_A_1             on           on           on           default
 node_A_2             on           on           on           default
 2 entries were displayed.
 ----
-. Si el sistema no tiene la asignación automática de disco habilitada o si las unidades de disco de la misma pila son propiedad de ambas controladoras, asigne unidades de disco a los pools adecuados.
+. Si el sistema no tiene la asignación automática de discos habilitada, o si las unidades de disco de la misma pila son propiedad de las dos controladoras, asigne las unidades de disco a los pools correspondientes.
 +
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"]
 
 +
 [NOTE]
 ====
-Si va a dividir una única pila de bandejas de discos entre dos controladoras, la asignación automática de discos debe deshabilitarse antes de asignar la propiedad de disco; de lo contrario, cuando asigna cualquier unidad de disco única, las unidades de disco restantes pueden asignarse automáticamente a la misma controladora y a un pool.
+** Si va a dividir una única pila de bandejas de discos entre dos controladoras, la asignación automática de discos debe deshabilitarse antes de asignar la propiedad de disco; de lo contrario, al asignar cualquier unidad de disco única, las unidades de disco restantes pueden asignarse automáticamente a la misma controladora y pool.
++
+El `storage disk option modify -node <node-name> -autoassign off` comando deshabilita la asignación automática de disco.
 
-La `storage disk option modify -node _node-name_ -autoassign off` el comando deshabilita la asignación automática de discos.
+** No es posible añadir unidades a agregados o volúmenes hasta que se haya actualizado el firmware de la unidad de disco y de la bandeja de discos.
+
 
 ====
-+
-
-NOTE: Las unidades de disco no deben añadirse a agregados o volúmenes hasta que se haya actualizado el firmware de la unidad de disco y de la bandeja de discos.
-
 . Actualice el firmware de la bandeja de discos a la versión más reciente mediante las instrucciones para el firmware descargado.
 +
 Puede ejecutar los comandos en el procedimiento desde la consola del sistema de cualquier controladora.
@@ -144,14 +208,14 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Descar
 
 +
 .. Cambie al nivel de privilegio avanzado: +
-`*set -privilege advanced*`
+`set -privilege advanced`
 +
 Debe responder con `*y*` cuando se le solicite que continúe en el modo avanzado y vea el símbolo del sistema del modo avanzado (*>).
 
 .. Actualice el firmware de la unidad de disco a la versión más reciente desde la consola del sistema: +
-`*storage disk firmware update*`
+`storage disk firmware update`
 .. Vuelva al nivel de privilegio de administrador: +
-`*set -privilege admin*`
+`set -privilege admin`
 .. Repita los mismos pasos anteriores en la otra controladora.
 
 
@@ -159,28 +223,28 @@ Debe responder con `*y*` cuando se le solicite que continúe en el modo avanzado
 +
 .. Compruebe si el sistema es multivía:
 +
-`*node run -node _node-name_ sysconfig -a*`
+`node run -node <node-name> sysconfig -a`
 
 .. Compruebe si hay alertas de estado en ambos clústeres: +
-`*system health alert show*`
+`system health alert show`
 .. Confirme la configuración del MetroCluster y que el modo operativo es normal: +
-`*metrocluster show*`
+`metrocluster show`
 .. Realice una comprobación de MetroCluster: +
-`*metrocluster check run*`
+`metrocluster check run`
 .. Mostrar los resultados de la comprobación de MetroCluster:
 +
-`*metrocluster check show*`
+`metrocluster check show`
 
 .. Compruebe si hay alertas de estado en los switches (si existen):
 +
-`*storage switch show*`
+`storage switch show`
 
-.. Ejecute Config Advisor.
+.. Ejecute Active IQ Config Advisor.
 +
 https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descargas de NetApp: Config Advisor"]
 
 .. Después de ejecutar Config Advisor, revise el resultado de la herramienta y siga las recomendaciones del resultado para solucionar los problemas detectados.
 
 
-. Si va a añadir más de una bandeja de discos en activo, repita los pasos anteriores para cada bandeja de discos que va a añadir en caliente.
+. Si va a agregar en caliente más de una bandeja de discos, repita los pasos anteriores para cada bandeja de discos que desee agregar en caliente.
 

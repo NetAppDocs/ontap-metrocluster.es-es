@@ -4298,11 +4298,11 @@ FC1
 23
 
 |===
-Usted puede conectar puentes adicionales usando los puertos 25 a 48 siguiendo el mismo patrón.
+Puede conectar puentes adicionales utilizando los puertos 25 a 48 siguiendo el mismo patrón.
 
 
 
-== El uso de puertos Cisco para ISL en una configuración de ocho nodos en una configuración MetroCluster que ejecuta ONTAP 9.1 o posterior
+== Uso de puerto Cisco para ISL en una configuración MetroCluster de ocho nodos que ejecuta ONTAP 9,1 o posterior
 
 En la siguiente tabla se muestra el uso de puertos ISL. El uso del puerto ISL es el mismo en todos los switches de la configuración.
 

@@ -2,15 +2,42 @@
 :allow-uri-read: 
 
 
-Los sistemas enumerados en la siguiente tabla utilizan *puertos MetroCluster/HA compartidos*.
-
-+ Todos los demás sistemas utilizan *cluster compartido/puertos HA*.
-
-+
+[role="tabbed-block"]
+====
+.Clúster compartido/puertos de alta disponibilidad
+--
+Los sistemas enumerados en la siguiente tabla utilizan puertos compartidos clúster/alta disponibilidad:
 
 [cols="2*"]
 |===
-| Sistemas AFF y ASA que utilizan puertos MetroCluster/HA compartidos | Sistemas FAS que utilizan puertos compartidos MetroCluster/HA 
+| Sistemas AFF y ASA | Sistemas FAS 
+
+
+ a| 
+* AFF A20
+* AFF A30
+* AFF C30
+* AFF A50
+* AFF C60
+* AFF C80
+* AFF A70
+* AFF A90
+* AFF A1K
+
+ a| 
+* FAS70
+* FAS90
+
+
+|===
+--
+.Puertos MetroCluster/HA compartidos
+--
+Los sistemas detallados en la siguiente tabla utilizan puertos MetroCluster/HA compartidos:
+
+[cols="2*"]
+|===
+| Sistemas AFF y ASA | Sistemas FAS 
 
 
  a| 
@@ -38,3 +65,5 @@ Los sistemas enumerados en la siguiente tabla utilizan *puertos MetroCluster/HA 
 
 
 |===
+--
+====

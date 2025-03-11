@@ -11,63 +11,17 @@ summary: Es posible que necesite actualizar un archivo RCF en un conmutador Metr
 
 
 [role="lead"]
-Es posible que necesite actualizar un archivo RCF en un conmutador MetroCluster IP. Por ejemplo, si la versión del archivo RCF que ejecuta en los switches no es compatible con la versión de ONTAP, la versión del firmware del switch o ambos.
+Es posible que deba actualizar un archivo de archivo de configuración de referencia (RCF) en un conmutador IP de MetroCluster. Por ejemplo, si la versión de RCF que ejecuta en los switches no es compatible con la versión de ONTAP, la versión de firmware del switch o ambos.
 
+.Antes de empezar
+* Si va a instalar un nuevo firmware de conmutador, debe instalar el firmware del conmutador antes de actualizar el archivo RCF.
+* Antes de actualizar el RCF, link:task_upgrade_firmware_on_mcc_ip_switches.html["Compruebe que el RCF es compatible"].
+* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
-
-== Compruebe que el archivo RCF es compatible
-
-Si va a cambiar la versión de ONTAP o la versión de firmware del switch, debe comprobar que tiene un archivo RCF compatible con esa versión. Si utiliza el generador RCF, se generará el archivo RCF correcto.
-
-.Pasos
-. Utilice los siguientes comandos de los conmutadores para comprobar la versión del archivo RCF:
-+
-[cols="30,70"]
-|===
-
-
-| Desde este switch... | Emita este comando... 
-
-
- a| 
-Switch Broadcom
- a| 
-`(IP_switch_A_1) # show clibanner`
-
-
-
- a| 
-Switch Cisco
- a| 
-`IP_switch_A_1# show banner motd`
-
-|===
-+
-Para cualquiera de los dos conmutadores, busque la línea en la salida que indica la versión del archivo RCF. Por ejemplo, la siguiente salida procede de un conmutador Cisco, que indica que la versión del archivo RCF es "'v1.80'".
-
-+
-....
-Filename : NX3232_v1.80_Switch-A2.txt
-....
-. Para comprobar qué archivos son compatibles con una versión, conmutador y plataforma ONTAP específica, utilice el RcfFileGenerator. Si puede generar el archivo RCF para la configuración que tiene o a la que desea actualizar, se admite.
-. Para verificar que el firmware del switch es compatible, consulte lo siguiente:
-+
-** https://hwu.netapp.com["Hardware Universe"]
-** https://imt.netapp.com/matrix/["Matriz de interoperabilidad de NetApp"^]
-
-
-
-
-
-
-== Actualice los archivos RCF
-
-Si va a instalar un nuevo firmware de conmutador, debe instalar el firmware del conmutador antes de actualizar el archivo RCF.
 
 .Acerca de esta tarea
-* Este procedimiento interrumpe el tráfico del conmutador donde se actualiza el archivo RCF. El tráfico se reanudará una vez que se aplique el nuevo archivo RCF.
+* Este procedimiento interrumpe el tráfico del conmutador donde se actualiza el archivo RCF. El tráfico se reanuda cuando se aplica el nuevo archivo RCF.
 * Realice los pasos en un conmutador a la vez, en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2.
-* link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
 
 .Pasos

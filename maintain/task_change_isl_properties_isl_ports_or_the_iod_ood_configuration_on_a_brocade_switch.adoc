@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, change, isl, properties, isl, ports, iod, configuration, brocade, switch 
 summary: Es posible que deba agregar ISL a un switch si va a agregar o actualizar hardware, como controladoras o switches adicionales o más rápidos. 
 ---
-= Cambiar las propiedades de ISL, los puertos ISL o la configuración IOD/OOD en un switch de Brocade
+= Cambie las propiedades de ISL, los puertos ISL o la configuración de IOD/OOD en un switch Brocade
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

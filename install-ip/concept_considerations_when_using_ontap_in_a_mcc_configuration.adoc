@@ -90,7 +90,11 @@ Para obtener información general sobre el uso de FabricPool, consulte https://d
 +
 Puede ser el espacio IP predeterminado, o bien un espacio IP que haya creado una administración. Este espacio IP se usará para las configuraciones de configuración del almacén de objetos FabricPool.
 
-* Para el espacio IP seleccionado, cada clúster debe tener una LIF de interconexión de clústeres definida que pueda llegar al almacén de objetos externo
+* Para el espacio IP seleccionado, cada clúster debe tener una LIF de interconexión de clústeres definida que pueda llegar al almacén de objetos externo.
+* La migración de SVM no se admite con FabricPool cuando el origen o el destino son un clúster de MetroCluster.
++
+link:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html["Obtenga más información sobre la movilidad de datos de las máquinas virtuales de almacenamiento"^].
+
 
 
 

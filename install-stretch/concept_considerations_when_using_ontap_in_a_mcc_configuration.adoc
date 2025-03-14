@@ -77,7 +77,7 @@ Para obtener información general sobre el uso de FabricPool, consulte link:http
 +
 Puede ser el espacio IP predeterminado, o bien un espacio IP que haya creado una administración. Este espacio IP se usará para las configuraciones de configuración del almacén de objetos FabricPool.
 
-* Para el espacio IP seleccionado, cada clúster debe tener una LIF de interconexión de clústeres definida que pueda llegar al almacén de objetos externo
+* Para el espacio IP seleccionado, cada clúster debe tener una LIF de interconexión de clústeres definida que pueda llegar al almacén de objetos externo.
 
 
 

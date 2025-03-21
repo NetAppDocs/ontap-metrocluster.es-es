@@ -1393,10 +1393,10 @@ No aplicable
 |===
 
 
-=== Configuraciones de bandeja que utilizan FibreBridge 7500N o 7600N con ambos puertos FC (FC1 o FC2).
+=== Configuraciones de bandeja que utilizan FibreBridge 7500N o 7600N con ambos puertos FC (FC1 y FC2)
 
 .MetroCluster 1 o el grupo de recuperación ante desastres 1
-La siguiente tabla muestra las configuraciones de bandeja admitidas en MetroCluster 1 o del grupo DR 1 para puentes FibreBridge 7500N o 7600N que utilizan los dos puertos FC (FC1 o FC2). Debe tener en cuenta lo siguiente al utilizar esta tabla de configuración:
+La siguiente tabla muestra las configuraciones de bandeja admitidas en MetroCluster 1 o del grupo DR 1 para puentes FibreBridge 7500N o 7600N utilizando los dos puertos FC (FC1 y FC2). Debe tener en cuenta lo siguiente al utilizar esta tabla de configuración:
 
 * En los switches 6510 y DCX 8510-8, puede conectar puentes adicionales a los puertos 16-19.
 * En los switches 6520, puede conectar por cable puentes adicionales a los puertos 16-21 y 24-45.

@@ -7712,8 +7712,6 @@
   <block id="6eadef8f58c5652471c6fde6bd5bcea0" category="list-text">Metro-E y TDM (SONET/SDH) no son compatibles, y no se admite ningún encuadre o señalización nativo no FC.</block>
   <block id="50e3a52a02d2d225339b996dd2aae728" category="paragraph">Metro-E significa que la trama o la señalización Ethernet se produce de forma nativa en una distancia de metro o a través de algún multiplexado de división de tiempo (TDM), conmutación de etiquetas multiprotocolo (MPLS) o multiplexación de división de longitud de onda (WDM).</block>
   <block id="fcdc08d4065e5763ed7b6bf90f0fa228" category="list-text">Las extensiones TDMS, FCR (enrutamiento FC nativo) o FCIP no son compatibles con la estructura de switches FC MetroCluster.</block>
-  <block id="13032557b3a76e59b63458b53f6d1410" category="list-text">Algunos switches de la estructura del switch FC de MetroCluster admiten cifrado o compresión, y en ocasiones admiten ambos.</block>
-  <block id="82224eb6f53e517d9764730a573763df" category="paragraph"><block ref="82224eb6f53e517d9764730a573763df" category="inline-link-rx"></block></block>
   <block id="b54ac66ca0ca34c593eeed1fe8cd4e03" category="list-text">No se admite la función Brocade Virtual Fabric (VF).</block>
   <block id="c51b448f36df4e8b4b68e7af4df4c6b8" category="list-text">Se admite la división en zonas de FC basada en el puerto de dominio, pero no se admite la división en zonas basada en el nombre a nivel mundial (WWN).</block>
   <block id="5f864e9896e626c0a0c857ef2de8b1d6" category="list-text">Compruebe que las licencias estén instaladas:</block>
@@ -12907,10 +12905,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="1f9fcd1010f1e0dd33b166603da0ce84" category="paragraph">Transición de una configuración FC MetroCluster a una configuración IP MetroCluster de AFF A250 ó FAS500f</block>
   <block id="56d5901b9c1bf4f73e626ae675e092f1" category="paragraph">Puede realizar la transición de una configuración FC de MetroCluster a una configuración IP de MetroCluster de AFF A250 o FAS500f.</block>
   <block id="082e2199f2e8e7e6ff724185b8487f99" category="paragraph"><block ref="082e2199f2e8e7e6ff724185b8487f99" category="inline-link-rx"></block></block>
-  <block id="1e18e1f9085022bf9b99cbfaf58ab4d5" category="paragraph">Configuración de la dirección IP de MetroCluster de capa 3 en configuraciones IP de MetroCluster</block>
-  <block id="6b289b60214afb640cb3b88389dfe97e" category="paragraph">Puede editar la dirección IP, la máscara de red y la pasarela de MetroCluster para los nodos en una configuración de capa 3.</block>
-  <block id="bacf5875940eb96c091917a5d1b9e1ad" category="inline-link">Modificar la dirección, la máscara de red y la pasarela en una IP de MetroCluster</block>
-  <block id="bf130f5d7d338872a9f3b57415d62749" category="paragraph"><block ref="bf130f5d7d338872a9f3b57415d62749" category="inline-link-rx"></block></block>
   <block id="cdafe0852c5285bf1f5846616c50f62d" category="paragraph">Actualización de controladoras simplificada de nodos en una configuración MetroCluster FC</block>
   <block id="407ce0bae822f5f1b99e4d9c2a25b062" category="paragraph">Se ha simplificado el procedimiento de actualización para el proceso de actualización mediante la conmutación de sitios y la conmutación de estado.</block>
   <block id="f897370f92c3d8ec5324c468747e4210" category="paragraph"><block ref="f897370f92c3d8ec5324c468747e4210" category="inline-link-rx"></block></block>
@@ -14705,4 +14699,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="02637489efdd2722934159348bf04810" category="section-title">Configuraciones de bandeja que utilizan FibreBridge 7500N o 7600N con ambos puertos FC (FC1 y FC2)</block>
   <block id="19c5470fc0cd91ca38fde0aea868fce3" category="paragraph">La siguiente tabla muestra las configuraciones de bandeja admitidas en MetroCluster 1 o del grupo DR 1 para puentes FibreBridge 7500N o 7600N utilizando los dos puertos FC (FC1 y FC2). Debe tener en cuenta lo siguiente al utilizar esta tabla de configuración:</block>
   <block id="844fb1aaef97c4328b587658a21a78d2" category="paragraph">Si utiliza un adaptador QSFP-a-SFP+, es posible que deba configurar el puerto ISL en el modo de velocidad nativo en lugar del modo de velocidad de salida. Consulte la documentación del proveedor de switches para determinar el modo de velocidad del puerto ISL.</block>
+  <block id="1894908b5d36f7ab21f7b1b1afcc630c" category="list-text">Los siguientes switches FC de Brocade son compatibles con el cifrado WAN ISL y la compresión para las estructuras de back-end de MetroCluster FC:</block>
+  <block id="0df6785d5da501ba31bbeb3f6ee67c24" category="list-text">Brocade G630</block>
 </blocks>

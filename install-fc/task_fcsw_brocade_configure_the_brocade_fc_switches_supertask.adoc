@@ -50,12 +50,15 @@ Se pueden utilizar diferentes longitudes en los diferentes tejidos. Se debe util
 Metro-E significa que la trama o la señalización Ethernet se produce de forma nativa en una distancia de metro o a través de algún multiplexado de división de tiempo (TDM), conmutación de etiquetas multiprotocolo (MPLS) o multiplexación de división de longitud de onda (WDM).
 
 * Las extensiones TDMS, FCR (enrutamiento FC nativo) o FCIP no son compatibles con la estructura de switches FC MetroCluster.
-* Algunos switches de la estructura del switch FC de MetroCluster admiten cifrado o compresión, y en ocasiones admiten ambos.
+* Los siguientes switches FC de Brocade son compatibles con el cifrado WAN ISL y la compresión para las estructuras de back-end de MetroCluster FC:
 +
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp (IMT)"]
+** Brocade G720
+** Brocade G630
+** Brocade G620
+** Brocade 6520
 
-+
-En IMT, puede utilizar el campo solución de almacenamiento para seleccionar su solución de MetroCluster. Utilice el *Explorador de componentes* para seleccionar los componentes y la versión ONTAP para refinar la búsqueda. Puede hacer clic en *Mostrar resultados* para mostrar la lista de configuraciones compatibles que coinciden con los criterios.
+
+
 
 * No se admite la función Brocade Virtual Fabric (VF).
 * Se admite la división en zonas de FC basada en el puerto de dominio, pero no se admite la división en zonas basada en el nombre a nivel mundial (WWN).

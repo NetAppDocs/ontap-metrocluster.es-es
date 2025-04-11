@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, active, iq, unified, manager, system, configuration 
 summary: Active IQ Unified Manager y ONTAP System Manager pueden utilizarse para gestionar los clústeres mediante la interfaz gráfica de usuario y supervisar la configuración. 
 ---
-= Uso de Active IQ Unified Manager y System Manager de ONTAP para obtener más información acerca de la configuración y supervisión
+= Utilice Active IQ Unified Manager y System Manager de ONTAP para ampliar la configuración y supervisión
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -18,4 +18,4 @@ Cada nodo tiene instalado ONTAP System Manager de forma previa. Para cargar Syst
 También se puede usar Active IQ Unified Manager para supervisar la configuración de MetroCluster.
 
 .Información relacionada
-http://docs.netapp.com["Documentación de Active IQ Unified Manager y System Manager de ONTAP"^]
+link:https://docs.netapp.com/us-en/active-iq-unified-manager/["Documentación de Active IQ Unified Manager"^]

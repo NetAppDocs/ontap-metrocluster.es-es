@@ -375,7 +375,7 @@ Las particiones de cada bandeja se utilizan para crear el agregado raíz. El agr
  a| 
 48 unidades (unidades externas e internas)
  a| 
-Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente. Las unidades en las bandejas externas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente.
+Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente. Las unidades en las bandejas externas se dividen en cuatro grupos iguales (cuartos). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
  a| 
 Cada uno de los dos complejos del agregado raíz incluye:
 
@@ -430,7 +430,7 @@ Las particiones de cada bandeja se utilizan para crear el agregado raíz. El agr
  a| 
 48 unidades (unidades externas e internas)
  a| 
-Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente. Las unidades en las bandejas externas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente.
+Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente. Las unidades en las bandejas externas se dividen en cuatro grupos iguales (cuartos). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
  a| 
 Cada uno de los dos complejos del agregado raíz incluye:
 
@@ -803,6 +803,44 @@ Unidades mínimas admitidas (por sitio)
 24 unidades
  a| 
 Las unidades se dividen en cuatro grupos iguales (trimestres). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+No aplicable
+
+|===
+
+
+=== Asignación de discos en los sistemas FAS50
+
+|===
+
+
+| Pautas | Unidades por sitio | Reglas de asignación de unidades | Diseño ADP para partición raíz 
+
+
+.2+| Unidades mínimas recomendadas (por sitio)  a| 
+48 unidades (solo unidades externas, no unidades internas)
+ a| 
+Las unidades de cada bandeja externa se dividen en dos grupos iguales (mitades). Cada media bandeja se asigna automáticamente a un pool aparte.
+ a| 
+No aplicable
+
+
+
+ a| 
+48 unidades (unidades externas e internas)
+ a| 
+Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente. Las unidades en las bandejas externas se dividen en cuatro grupos iguales (cuartos). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
+ a| 
+No aplicable
+
+
+
+ a| 
+Unidades mínimas admitidas (por sitio)
+ a| 
+24 unidades
+ a| 
+Las unidades se dividen en cuatro grupos iguales. Cada bandeja de trimestres se asigna automáticamente a un pool aparte.
  a| 
 No aplicable
 

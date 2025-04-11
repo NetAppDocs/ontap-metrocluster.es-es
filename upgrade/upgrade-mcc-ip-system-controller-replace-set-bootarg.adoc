@@ -24,6 +24,7 @@ Todas las actualizaciones compatibles para los siguientes sistemas requieren que
 * AFF C80
 * AFF A50, AFF A20, AFF A30
 * AFF C30 y AFF C60
+* FAS50
 
 
 
@@ -50,13 +51,13 @@ Utilice la siguiente tabla para determinar qué inicio debe definir para su comb
 | De AFF A220 a AFF A20 | `bootarg.siw.interop_enabled` 
 
 
-| Todas las demás renovaciones admitidas a los sistemas AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30 o AFF C60 | `hw.cxgbe.toe_keepalive_disable` 
+| Todas las demás actualizaciones admitidas a los sistemas AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30, AFF C60 o FAS50 | `hw.cxgbe.toe_keepalive_disable` 
 |===
 
 
 == Paso 2: Establezca el arranque requerido en los controladores antiguos
 
-Esta tarea es *SOLO* requerida cuando se actualiza a un sistema AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30 o AFF C60.
+Esta tarea es *SOLO* requerida cuando se actualiza a un sistema AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30, AFF C60 o FAS50.
 
 .Pasos
 . Detenga un nodo en cada sitio y permita que su compañero de alta disponibilidad realice una toma de control de almacenamiento del nodo:

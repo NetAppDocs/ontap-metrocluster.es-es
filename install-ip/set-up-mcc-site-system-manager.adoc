@@ -72,7 +72,7 @@ System Manager detecta automáticamente los nodos restantes del clúster.
 Al hacer clic en *Enviar*, espere a que se cree y configure el clúster. A continuación, se produce un proceso de validación.
 
 .El futuro
-Después de instalar, inicializar y configurar ambos clústeres, siga el procedimiento [Set up MetroCluster IP peering].
+Después de instalar, inicializar y configurar ambos clústeres, siga link:../install-ip/set-up-mcc-peering-system-manager.html["Configure las relaciones entre iguales de IP de MetroCluster"]el procedimiento.
 
 
 

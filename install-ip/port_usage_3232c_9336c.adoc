@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cabling, cable, component, link, site, management, network, networks, hardware, component, switch, cluster, connection, management, data, configuring, configure 
 summary: El uso del puerto en una configuración IP de MetroCluster depende del modelo del switch y el tipo de plataforma. 
 ---
-= Asignaciones de puertos de la plataforma para los switches Cisco 3232C o Cisco 9336C
+= Asignaciones de puertos de la plataforma para los switches Cisco 3232C o Cisco 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -44,80 +44,97 @@ Al cablear más de una configuración MetroCluster a un switch Cisco 3132Q-V, de
 
 Utilice la siguiente tabla para determinar qué tabla de cableado debe seguir.
 
-[cols="2*"]
+[cols="25,75"]
 |===
 | Si el sistema es... | Utilice esta tabla de cableado... 
 
 
-| AFF A150, ASA A150, FAS2750, AFF A220 FAS500f, AFF C250, ASA C250, AFF A250, ASA A250 | <<table_1_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 1)>> 
+| AFF A150, ASA A150 FAS2750, AFF A220 FAS500f, AFF C250, ASA C250 AFF A250, ASA A250 | <<table_1_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 1)>> 
 
 
-| AFF A20 | <<table_2_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 2)>> 
+| AFF A20 | <<table_2_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 2)>> 
 
 
-| AFF A30, AFF C30 AFF C60 | <<table_3_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 3)>> 
+| AFF A30, AFF C30 FAS50 AFF C60  a| 
+La tabla que siga depende de si está utilizando una tarjeta Ethernet 25G (grupo 3a) o 100g (grupo 3b).
+
+* <<table_3a_cisco_3232c_9336c,Asignaciones de puertos de plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 3a - 25G)>>
+* <<table_3b_cisco_3232c_9336c,Asignaciones de puertos de plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 3b - 100g)>>
 
 
-| FAS8200, AFF A300 | <<table_4_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 4)>> 
 
 
-| AFF A320 FAS8300, AFF C400, ASA C400, FAS8700 AFF A400, ASA A400 | <<table_5_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 5)>> 
+| FAS8200, AFF A300 | <<table_4_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 4)>> 
 
 
-| AFF A50 | <<table_6_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 6)>> 
+| AFF A320 FAS8300, AFF C400, ASA C400, FAS8700 AFF A400, ASA A400 | <<table_5_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 5)>> 
 
 
-| FAS9000, AFF A700 AFF C800, ASA C800, AFF A800, ASA A800 FAS9500, AFF A900, ASA A900 | <<table_7_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 7)>> 
+| AFF A50 | <<table_6_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 6)>> 
 
 
-| FAS70, AFF A70 AFF C80 FAS90, AFF A90 AFF A1K | <<table_8_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 8)>> 
+| FAS9000, AFF A700 AFF C800, ASA C800, AFF A800, ASA A800 FAS9500, AFF A900, ASA A900 | <<table_7_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 7)>> 
+
+
+| FAS70, AFF A70 AFF C80 FAS90, AFF A90 AFF A1K | <<table_8_cisco_3232c_9336c,Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 8)>> 
 |===
-.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 1)
-Revise las asignaciones de puertos de plataforma para cablear un AFF A150, ASA A150, FAS2750, AFF A220, FAS500f, sistema AFF C250, ASA C250, AFF A250 o ASA A250 a un switch Cisco 3232C o 9336C:
+.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 1)
+Revise las asignaciones de puertos de plataforma para cablear un AFF A150, ASA A150, FAS2750, AFF A220, FAS500f, sistema AFF C250, ASA C250, AFF A250 o ASA A250 a un switch Cisco 3232C o 9336C-FX2:
 
-image:../media/mcc-ip-cabling-a150-a220-a250-to-a-cisco-3232c-or-cisco-9336c-switch-9161.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C"]
+image:../media/mcc-ip-cabling-a150-a220-a250-to-a-cisco-3232c-or-cisco-9336c-switch-9161.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2"]
 
-.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 2)
-Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A20 a un switch Cisco 3232C o 9336C:
+.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 2)
+Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A20 a un switch Cisco 3232C o 9336C-FX2:
 
-image:../media/mcc-ip-cabling-aff-a20-9161.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C"]
+image:../media/mcc-ip-cabling-aff-a20-9161.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2"]
 
-.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 3)
-Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A30, AFF C30 o AFF C60 a un switch Cisco 3232C o 9336C:
+.Asignaciones de puertos de plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 3a)
+Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A30, AFF C30, AFF C60 o FAS50 a un switch Cisco 3232C o 9336C-FX2 mediante una tarjeta Ethernet 25G de cuatro puertos.
 
-image:../media/mcc-ip-cabling-aff-a30-c30-c60-9161.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C"]
 
-.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 4)
-Revise las asignaciones de puertos de plataforma para cablear un sistema FAS8200 o AFF A300 a un switch Cisco 3232C o 9336C:
+NOTE: Esta configuración requiere una tarjeta Ethernet 25G de cuatro puertos en la ranura 4 para conectar el clúster local y las interfaces de alta disponibilidad.
 
-image::../media/mcc-ip-cabling-a-aff-a300-or-fas8200-to-a-cisco-3232c-or-cisco-9336c-switch-9161.png[Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C]
+image:../media/mccip-cabling-a30-c30-fas50-c60-25G.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2"]
+
+.Asignaciones de puertos de plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 3b)
+Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A30, AFF C30, AFF C60 o FAS50 a un switch Cisco 3232C o 9336C-FX2 mediante una tarjeta Ethernet 100g DE dos puertos.
+
+
+NOTE: Esta configuración requiere una tarjeta Ethernet 100g de dos puertos en la ranura 4 para conectar el clúster local y las interfaces de alta disponibilidad.
+
+image:../media/mccip-cabling-a30-c30-fas50-c60-100G.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2"]
+
+.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 4)
+Revise las asignaciones de puertos de plataforma para cablear un sistema FAS8200 o AFF A300 a un switch Cisco 3232C o 9336C-FX2:
+
+image::../media/mccip-cabling-fas8200-a300-updated.png[Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2]
 
 Si va a realizar una actualización desde archivos RCF anteriores, es posible que la configuración de cableado esté utilizando puertos del grupo «MetroCluster 4» (puertos 25/26 y 29/30).
 
-.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 5)
-Revise las asignaciones de puertos de plataforma para cablear un AFF A320, FAS8300, AFF C400, ASA C400, FAS8700, sistema AFF A400 o ASA A400 a un switch Cisco 3232C o 9336C:
+.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 5)
+Revise las asignaciones de puertos de plataforma para cablear un AFF A320, FAS8300, AFF C400, ASA C400, FAS8700, sistema AFF A400 o ASA A400 a un switch Cisco 3232C o 9336C-FX2:
 
-image::../media/mcc_ip_cabling_a320_a400_cisco_3232C_or_9336c_switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C]
+image::../media/mcc_ip_cabling_a320_a400_cisco_3232C_or_9336c_switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2]
 
 
 NOTE: El uso de puertos en el grupo «MetroCluster 4» requiere ONTAP 9.13.1 o posterior.
 
-.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 6)
-Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A50 a un switch Cisco 3232C o 9336C:
+.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 6)
+Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A50 a un switch Cisco 3232C o 9336C-FX2:
 
-image::../media/mcc-ip-cabling-aff-a50-cisco-3232c-9336c-9161.png[Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C]
+image::../media/mcc-ip-cabling-aff-a50-cisco-3232c-9336c-9161.png[Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2]
 
-.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 7)
-Revise las asignaciones de puertos de plataforma al cable A FAS9000, AFF A700, AFF C800, ASA C800, AFF A800, sistema ASA A800, FAS9500, AFF A900 o ASA A900 a un switch Cisco 3232C o 9336C:
+.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 7)
+Revise las asignaciones de puertos de plataforma al cable A FAS9000, AFF A700, AFF C800, ASA C800, AFF A800, sistema ASA A800, FAS9500, AFF A900 o ASA A900 a un switch Cisco 3232C o 9336C-FX2:
 
-image::../media/mcc_ip_cabling_fas9000_a700_fas9500_a800_a900_cisco_3232C_or_9336c_switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C]
+image::../media/mcc_ip_cabling_fas9000_a700_fas9500_a800_a900_cisco_3232C_or_9336c_switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2]
 
 *Nota 1*: Utilice los puertos E4A y E4E o E4A y E8a si utiliza un adaptador X91440A (40Gbps). Use los puertos E4A y e4b o E4A y E8a si usa un adaptador de X91153A GbE (100Gbps).
 
 
 NOTE: El uso de puertos en el grupo «MetroCluster 4» requiere ONTAP 9.13.1 o posterior.
 
-.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C (grupo 8)
-Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A70, FAS70, AFF C80, FAS90, AFF A90 o AFF A1K a un switch Cisco 3232C o 9336C:
+.Asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2 (grupo 8)
+Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A70, FAS70, AFF C80, FAS90, AFF A90 o AFF A1K a un switch Cisco 3232C o 9336C-FX2:
 
-image:../media/mcc-ip-cabling-a90-fas90-c80-fas70-a70-a1k-cisco-3232C-or-9336c-switch-updated.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C"]
+image:../media/mccip-cabling-a70-fas70-a90-c80-fas90-a1k-updated.png["Muestra asignaciones de puertos de la plataforma Cisco 3232C o Cisco 9336C-FX2"]

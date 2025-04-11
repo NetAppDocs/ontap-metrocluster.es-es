@@ -30,10 +30,17 @@ Por ejemplo, si la plataforma que desea actualizar es FAS8200, puede actualizar 
 * Todos los nodos (antiguos y nuevos) de la configuración de MetroCluster deben ejecutar la misma versión de ONTAP. Consulte link:https://hwu.netapp.com["Hardware Universe"^]la para obtener la versión mínima compatible de ONTAP para su combinación.
 
 
-.Actualizaciones de controladoras IP de AFF y FAS MetroCluster admitidas
-La siguiente tabla muestra las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración de IP de MetroCluster utilizando los comandos «system controller replace»:
 
-image:../media/mccip_assisted_controller_upgrade_comb.png["Muestra las combinaciones de plataformas admitidas para actualizaciones IP de MetroCluster con comandos de reemplazo de controladoras del sistema."]
+
+== Actualizaciones de controladoras IP de AFF y FAS MetroCluster admitidas
+
+En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster utilizando los comandos «system controller replace», divididos en dos grupos.
+
+* *El Grupo 1* muestra combinaciones para actualizaciones a sistemas AFF A150, AFF A20, FAS2750, FAS8300, FAS500f, AFF C250, AFF A250, FAS50, AFF C30, AFF A30, FAS8200, AFF C400, AFF A400, AFF A220, AFF A300, AFF A320 y FAS8700.
+* *El Grupo 2* muestra combinaciones para actualizaciones a sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF A800, FAS9500, AFF A900, AFF C80, FAS90, AFF A90 y AFF A1K.
+
+
+Las siguientes notas se aplican a ambos grupos:
 
 * Nota 1: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.
 * Nota 2: La plataforma de destino no puede tener unidades internas hasta que finalice la actualización de la controladora. Es posible añadir las unidades internas después de la actualización.
@@ -41,7 +48,27 @@ image:../media/mccip_assisted_controller_upgrade_comb.png["Muestra las combinaci
 * Nota 4: Requiere módulos IOM para convertir las controladoras anteriores en una bandeja SAS externa. Consulte la link:https://hwu.netapp.com/["Hardware Universe"^] para ver los módulos IOM compatibles.
 
 
-.Actualizaciones de la controladora IP de ASA MetroCluster admitidas
+[role="tabbed-block"]
+====
+.Grupo de combinaciones AFF y FAS 1
+--
+Revise las combinaciones admitidas para actualizar sistemas AFF A150, AFF A20, FAS2750, FAS8300, FAS500f, AFF C250, AFF A250, FAS50, AFF C30, AFF A30, FAS8200, AFF C400, AFF A400, AFF A220, AFF A300, AFF A320 y FAS8700.
+
+image:../media/assisted-group-1.png[""]
+
+--
+.Grupo de combinaciones AFF y FAS 2
+--
+Revise las combinaciones admitidas para actualizar sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF, FAS9500, AFF A900, AFF A800 C80, FAS90, AFF A90 y AFF A1K.
+
+image:../media/assisted-group-2.png[""]
+
+--
+====
+
+
+== Actualizaciones de la controladora IP de ASA MetroCluster admitidas
+
 No se admite la actualización de controladoras mediante `system controller replace` comandos en sistemas ASA.
 
 Consulte link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Seleccione un método de actualización o actualización"]para conocer los procedimientos adicionales.

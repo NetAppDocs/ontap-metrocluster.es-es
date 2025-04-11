@@ -1,0 +1,48 @@
+= 
+:allow-uri-read: 
+
+
+Dependiendo de la versión de ONTAP, puede configurar el NTP desde la pestaña *Clúster* o *Insights* en la interfaz de usuario del administrador del sistema.
+
+[role="tabbed-block"]
+====
+.Clúster
+--
+En el Administrador del sistema, puede configurar el NTP desde la pestaña *Clúster* usando dos opciones diferentes, dependiendo de su versión de ONTAP:
+
+.ONTAP 9.8 o posterior:
+Utilice los siguientes pasos para sincronizar el NTP desde la pestaña *Clúster* en ONTAP 9,8 o posterior.
+
+.Pasos
+. Vaya a *Cluster > Overview*
+. A continuación, seleccione la image:icon-more-kebab-blue-bg.jpg["Más"] opción y seleccione *Editar*.
+. En la ventana *Editar detalles del clúster*, seleccione la opción *+Agregar* debajo de Servidores NTP.
+. Agregue el nombre, la ubicación y especifique la dirección IP del servidor de hora.
+. Luego, selecciona *Guardar*.
+. Repita los pasos para cualquier servidor de hora adicional.
+
+
+.ONTAP 9.11.1 o posterior:
+Utilice los siguientes pasos para sincronizar el NTP desde la ventana *Insights* en la pestaña *Cluster* en ONTAP 9.11.1 o posterior.
+
+.Pasos
+. Vaya a *Cluster > Overview*
+. Desplácese hacia abajo hasta la ventana *Insights* de la página, busque *Muy pocos servidores NTP están configurados* y luego seleccione *Fix it*.
+. Especifique la dirección IP del servidor de hora y, a continuación, seleccione *Guardar*.
+. Repita el paso anterior para cualquier servidor de hora adicional.
+
+
+--
+.Información
+--
+En ONTAP 9.11.1 o posterior, también puede configurar el NTP usando la pestaña *Insights* en el Administrador del sistema:
+
+.Pasos
+. Vaya a la pestaña *Insights* en la interfaz de usuario de System Manager.
+. Desplácese hacia abajo hasta *Muy pocos servidores NTP están configurados* y seleccione *Arreglo*.
+. Especifique la dirección IP del servidor de hora y, a continuación, seleccione *Guardar*.
+. Repita el paso anterior para cualquier servidor de hora adicional.
+
+
+--
+====

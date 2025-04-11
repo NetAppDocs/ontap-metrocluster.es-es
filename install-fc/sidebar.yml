@@ -265,6 +265,9 @@ entries:
 - title: Cómo utilizar Active IQ Unified Manager y System Manager de ONTAP para llevar
     a cabo tareas de configuración y supervisión
   entries:
+  - title: Obtenga información sobre el uso de Active IQ Unified Manager y System
+      Manager para tareas adicionales de configuración y supervisión
+    url: "/install-fc/concept-fc-oncommand-management.html"
   - title: Sincronice la hora del sistema con NTP
     url: "/install-fc/task_synchronize_the_system_time_us_ntp.html"
 - title: Consideraciones que tener en cuenta al utilizar ONTAP en una configuración

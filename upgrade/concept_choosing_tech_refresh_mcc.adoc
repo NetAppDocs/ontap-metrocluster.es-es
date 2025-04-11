@@ -24,14 +24,42 @@ El procedimiento de actualización del sistema que utilice dependerá del modelo
 * Consulte la link:https://hwu.netapp.com["Hardware Universe"^] para límites de plataforma.
 
 
-.Combinaciones de actualizaciones tecnológicas AFF y FAS MetroCluster IP admitidas
-En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster:
 
-image::../media/mcc-ip-techrefresh-comb-9161.png[Combinaciones de actualizaciones tecnológicas IP de MetroCluster]
 
-*Nota 1:* Esta combinación requiere ONTAP 9.13.1 o posterior.
+=== Combinaciones de actualizaciones tecnológicas AFF y FAS MetroCluster IP admitidas
 
-.Combinaciones de actualizaciones tecnológicas IP de ASA MetroCluster admitidas
+La siguiente tabla muestra las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración de IP de MetroCluster. Las tablas se dividen en dos grupos:
+
+* *El Grupo 1* muestra combinaciones para los sistemas AFF A150, AFF A20, FAS2750, FAS8300, FAS500f, AFF C250, AFF A250, FAS50, AFF C30, AFF A30, FAS8200, AFF A300, AFF A400, AFF A220, AFF C400, AFF A320 y FAS8700.
+* *El Grupo 2* muestra combinaciones para los sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF A800, FAS9500, AFF A900, AFF C80, FAS90, AFF A90 y AFF A1K.
+
+
+Las siguientes notas se aplican a ambos grupos:
+
+* Nota 1: Esta combinación requiere ONTAP 9.13.1 o posterior.
+
+
+[role="tabbed-block"]
+====
+.Grupo de combinaciones AFF y FAS 1
+--
+Revise las combinaciones de actualización del sistema para sistemas AFF A150, AFF A20, FAS2750, FAS8300, FAS500f, AFF C250, AFF A250, FAS50, AFF C30, AFF A30, FAS8200, AFF A300, AFF A400, AFF A220, AFF C400, AFF A320 y FAS8700.
+
+image:../media/tech-refresh-ip-group-1.png[""]
+
+--
+.Grupo de combinaciones AFF y FAS 2
+--
+Revise las combinaciones de actualización del sistema de los sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF A800, FAS9500, AFF A900, AFF C80, FAS90, AFF A90 y AFF A1K.
+
+image:../media/tech-refresh-ip-group-2.png[""]
+
+--
+====
+
+
+=== Combinaciones de actualizaciones tecnológicas IP de ASA MetroCluster admitidas
+
 En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema ASA en una configuración IP de MetroCluster:
 
 image::../media/mcc-ip-techrefresh-asa-9161.png[Combinaciones de actualizaciones tecnológicas de la ASA IP de MetroCluster]
@@ -47,12 +75,18 @@ image::../media/mcc-ip-techrefresh-asa-9161.png[Combinaciones de actualizaciones
 * Consulte la link:https://hwu.netapp.com["Hardware Universe"^] para límites de plataforma.
 
 
-.Combinaciones de actualizaciones técnicas FC de AFF y FAS MetroCluster admitidas
+
+
+=== Combinaciones de actualizaciones técnicas FC de AFF y FAS MetroCluster admitidas
+
 En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración de MetroCluster FC:
 
 image::../media/metrocluster_fc_tech_refresh.png[actualización tecnológica de MetroCluster fc]
 
-.Combinaciones de actualizaciones tecnológicas FC de ASA MetroCluster admitidas
+
+
+=== Combinaciones de actualizaciones tecnológicas FC de ASA MetroCluster admitidas
+
 En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema ASA en una configuración de MetroCluster FC:
 
 [cols="3*"]

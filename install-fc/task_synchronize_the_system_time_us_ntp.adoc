@@ -2,38 +2,64 @@
 permalink: install-fc/task_synchronize_the_system_time_us_ntp.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, synchronize, system, time, ntp 
-summary: 'Cada clúster necesita su propio servidor de protocolo de tiempo de red \(NTP\) para sincronizar el tiempo entre los nodos y sus clientes. Puede utilizar el cuadro de diálogo Edit DateTime de System Manager para configurar el servidor NTP.' 
+summary: 'Cada clúster necesita su propio servidor de protocolo de tiempo de red \(NTP\) para sincronizar el tiempo entre los nodos y sus clientes.' 
 ---
-= Sincronización de la hora del sistema mediante NTP
+= Sincronice la hora del sistema con NTP
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cada clúster necesita su propio servidor de protocolo de tiempo de redes (NTP) para sincronizar la hora entre los nodos y sus clientes. Puede utilizar el cuadro de diálogo Edit DateTime de System Manager para configurar el servidor NTP.
-
-.Antes de empezar
-Debe haber descargado e instalado System Manager. System Manager está disponible en el sitio de soporte de NetApp.
+Cada clúster necesita su propio servidor de protocolo de tiempo de redes (NTP) para sincronizar la hora entre los nodos y sus clientes.
 
 .Acerca de esta tarea
 * No se puede modificar la configuración de la zona horaria de un nodo con errores o el nodo asociado después de que se produzca la toma de control.
 * Cada clúster de la configuración de MetroCluster FC debería tener su propio servidor NTP independiente o servidores que utilizan los nodos, los switches FC y los puentes FC a SAS del sitio MetroCluster.
-+
-Si utiliza el software MetroCluster Tiebreaker, también debe tener su propio servidor NTP separado.
+* Si utiliza el software MetroCluster Tiebreaker, también debe tener su propio servidor NTP separado.
 
 
+Dependiendo de la versión de ONTAP, puede configurar el NTP desde la pestaña *Clúster* o *Insights* en la interfaz de usuario del administrador del sistema.
+
+[role="tabbed-block"]
+====
+.Clúster
+--
+En el Administrador del sistema, puede configurar el NTP desde la pestaña *Clúster* usando dos opciones diferentes, dependiendo de su versión de ONTAP:
+
+.ONTAP 9.8 o posterior:
+Utilice los siguientes pasos para sincronizar el NTP desde la pestaña *Clúster* en ONTAP 9,8 o posterior.
 
 .Pasos
-. En la página de inicio, haga doble clic en el sistema de almacenamiento adecuado.
-. Expanda la jerarquía *Cluster* en el panel de navegación izquierdo.
-. En el panel de navegación, haga clic en *Configuración* > *Herramientas del sistema* > *Fecha y hora*.
-. Haga clic en *Editar*.
-. Seleccione la zona horaria.
-. Especifique las direcciones IP de los servidores de hora y, a continuación, haga clic en *Agregar*.
-+
-Debe añadir un servidor NTP a la lista de servidores de hora. El controlador de dominio puede ser un servidor autorizado.
+. Vaya a *Cluster > Overview*
+. A continuación, seleccione la image:icon-more-kebab-blue-bg.jpg["Más"] opción y seleccione *Editar*.
+. En la ventana *Editar detalles del clúster*, seleccione la opción *+Agregar* debajo de Servidores NTP.
+. Agregue el nombre, la ubicación y especifique la dirección IP del servidor de hora.
+. Luego, selecciona *Guardar*.
+. Repita los pasos para cualquier servidor de hora adicional.
 
-. Haga clic en *Aceptar*.
-. Compruebe los cambios realizados en los ajustes de fecha y hora en la ventana *Fecha y hora*.
 
+.ONTAP 9.11.1 o posterior:
+Utilice los siguientes pasos para sincronizar el NTP desde la ventana *Insights* en la pestaña *Cluster* en ONTAP 9.11.1 o posterior.
+
+.Pasos
+. Vaya a *Cluster > Overview*
+. Desplácese hacia abajo hasta la ventana *Insights* de la página, busque *Muy pocos servidores NTP están configurados* y luego seleccione *Fix it*.
+. Especifique la dirección IP del servidor de hora y, a continuación, seleccione *Guardar*.
+. Repita el paso anterior para cualquier servidor de hora adicional.
+
+
+--
+.Información
+--
+En ONTAP 9.11.1 o posterior, también puede configurar el NTP usando la pestaña *Insights* en el Administrador del sistema:
+
+.Pasos
+. Vaya a la pestaña *Insights* en la interfaz de usuario de System Manager.
+. Desplácese hacia abajo hasta *Muy pocos servidores NTP están configurados* y seleccione *Arreglo*.
+. Especifique la dirección IP del servidor de hora y, a continuación, seleccione *Guardar*.
+. Repita el paso anterior para cualquier servidor de hora adicional.
+
+
+--
+====

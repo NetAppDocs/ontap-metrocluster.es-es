@@ -11,7 +11,10 @@ summary: Las actualizaciones de los sistemas introducidos en ONTAP 9.15.1 o vers
 
 
 [role="lead"]
-Las actualizaciones de los sistemas introducidos en ONTAP 9.15.1 o versiones posteriores requieren que establezca un arranque para poder continuar con la actualización.
+Las actualizaciones de sistemas introducidos en ONTAP 9.15.1 o versiones posteriores requieren que establezca un arranque en las controladoras antiguas antes de iniciar la actualización.
+
+
+NOTE: Debe establecer el inicio necesario en todos los nodos antiguos de ambos sitios antes de iniciar la actualización.
 
 
 
@@ -60,7 +63,7 @@ Utilice la siguiente tabla para determinar qué inicio debe definir para su comb
 Esta tarea es *SOLO* requerida cuando se actualiza a un sistema AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30, AFF C60 o FAS50.
 
 .Pasos
-. Detenga un nodo en cada sitio y permita que su compañero de alta disponibilidad realice una toma de control de almacenamiento del nodo:
+. Detenga un nodo en ambos sitios y permita a su compañero de alta disponibilidad realizar una toma de control de almacenamiento del nodo:
 +
 `halt  -node <node_name>`
 
@@ -107,7 +110,7 @@ Esta tarea es *SOLO* requerida cuando se actualiza a un sistema AFF A70, AFF A90
 +
 `storage failover giveback -ofnode <node_name>`
 
-. Repita los pasos en cada nodo del grupo de recuperación ante desastres que se esté actualizando.
+. Repita los pasos en los cuatro nodos del grupo de recuperación ante desastres que está actualizando.
 
 
 .El futuro

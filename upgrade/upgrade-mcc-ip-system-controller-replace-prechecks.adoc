@@ -117,7 +117,7 @@ Siga los pasos de la sección para su proveedor de switches:
 
 == Realizar comprobaciones previas del sistema
 
-Antes de que se inicien las comprobaciones previas, si se instala ONTAP Mediator, se detecta y elimina automáticamente. Para confirmar la eliminación, se le pedirá que introduzca un nombre de usuario y una contraseña. Cuando complete la actualización, o si fallan las comprobaciones previas o si elige no continuar con la actualización, debe hacerlo manualmentelink:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["Vuelva a configurar el servicio ONTAP Mediator"].
+Antes de que se inicien las comprobaciones previas, si se instala ONTAP Mediator, se detecta y elimina automáticamente. Para confirmar la eliminación, se le pedirá que introduzca un nombre de usuario y una contraseña. Cuando complete la actualización, o si fallan las comprobaciones previas o si elige no continuar con la actualización, debe hacerlo manualmentelink:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["reconfigurar ONTAP Mediator"].
 
 En cualquier momento durante la actualización, puede ejecutar el `system controller replace show` o. `system controller replace show-details` Comando del sitio A para comprobar el estado. Si los comandos devuelven un resultado en blanco, espere unos minutos y vuelva a ejecutar el comando.
 

@@ -37,7 +37,7 @@ En la sección *MetroCluster*, el gráfico muestra los dos clústeres que ha con
 . Haga clic en *Configurar MetroCluster*. Desde esta ventana, realice los siguientes pasos:
 +
 .. Se muestran los nodos para cada clúster en la configuración de MetroCluster. Use las listas desplegables para seleccionar los nodos del clúster local que serán partners de recuperación de desastres con los nodos del clúster remoto.
-.. Haga clic en la casilla de verificación si desea configurar el servicio ONTAP Mediator. Consulte link:./task-sm-mediator.html["Configure el servicio Mediator de ONTAP"].
+.. Haga clic en la casilla de verificación si desea configurar ONTAP Mediator. Consulte link:./task-sm-mediator.html["Configurar el mediador de ONTAP"].
 .. Si ambos clústeres tienen una licencia para habilitar el cifrado, se muestra la sección *cifrado*.
 +
 Para habilitar el cifrado, introduzca una frase de contraseña.

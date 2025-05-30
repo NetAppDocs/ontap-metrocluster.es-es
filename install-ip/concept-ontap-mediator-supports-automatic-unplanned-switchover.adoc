@@ -1,17 +1,17 @@
 ---
 permalink: install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html 
 sidebar: sidebar 
-keywords: ontap, mediator, service, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, forced 
+keywords: ontap, mediator, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, forced 
 summary:  
 ---
-= Cómo admite el Mediador ONTAP la conmutación automática no planificada
+= Cómo ONTAP Mediator admite la conmutación automática no planificada
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP Mediator proporciona LUN de buzón para almacenar información de estado acerca de los nodos IP de MetroCluster. Estos LUN se coubican con el Mediador ONTAP, que se ejecuta en un host Linux físicamente independiente de los sitios MetroCluster. Los nodos IP de MetroCluster pueden utilizar la información del buzón para supervisar el estado de sus partners de recuperación ante desastres e implementar una conmutación de sitios no planificada asistida por mediador (MAUSO) en caso de desastre.
+ONTAP Mediator proporciona LUN de buzón para almacenar información de estado sobre los nodos IP de MetroCluster. Estos LUN se ubican junto con ONTAP Mediator, que se ejecuta en un host Linux físicamente separado de los sitios de MetroCluster. Los nodos IP de MetroCluster pueden utilizar la información del buzón para supervisar el estado de sus partners de recuperación ante desastres e implementar una conmutación de sitios no planificada asistida por mediador (MAUSO) en caso de desastre.
 
 
 NOTE: MAUSO no es compatible con las configuraciones de MetroCluster FC.

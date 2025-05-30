@@ -11,9 +11,9 @@ summary: Con cada versión se proporcionan nuevas funciones del Mediador ONTAP. 
 
 
 [role="lead"]
-En cada versión se incluyen nuevas mejoras del Mediador de ONTAP.  Esto es lo nuevo.
+Con cada versión se proporcionan nuevas mejoras de ONTAP Mediator. Esto es lo nuevo.
 
-Para obtener más información sobre la instalación o actualización de ONTAP Mediator en la configuración de MetroCluster, puede ir link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["Prepare la instalación del servicio Mediador ONTAP"^].
+Para obtener detalles sobre la instalación o actualización de ONTAP Mediator en su configuración de MetroCluster, puede visitar link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["Prepárese para instalar ONTAP Mediator"^] .
 
 [cols="75,25"]
 |===
@@ -27,14 +27,14 @@ La conmutación automática no planificada asistida por mediador (MAUSO) es comp
 
 Si un sitio se cierra correctamente debido a un cierre ambiental, se activa MAUSO.
 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["Cómo admite el Mediador ONTAP la conmutación automática no planificada"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["Cómo ONTAP Mediator admite la conmutación automática no planificada"]
  a| 
 ONTAP 9.13.1
 
 
 
  a| 
-Soporte inicial para el servicio ONTAP Mediator en configuraciones IP de MetroCluster
+Soporte inicial para ONTAP Mediator en configuraciones IP de MetroCluster
  a| 
 ONTAP 9,7
 

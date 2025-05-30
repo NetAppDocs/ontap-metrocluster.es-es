@@ -282,7 +282,7 @@ dr-group-id cluster    node      node-systemid dr-partner-systemid
 ----
 
 
-. Para las configuraciones IP de MetroCluster que utilizan el servicio Mediator de ONTAP, obtenga la dirección IP del servicio Mediator de ONTAP:
+. Para las configuraciones de IP de MetroCluster que utilizan ONTAP Mediator, obtenga la dirección IP de ONTAP Mediator:
 +
 `storage iscsi-initiator show -node * -label mediator`
 

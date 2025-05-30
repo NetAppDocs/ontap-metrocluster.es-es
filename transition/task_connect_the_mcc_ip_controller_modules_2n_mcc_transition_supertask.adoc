@@ -89,8 +89,9 @@ https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de ha
 Siga los pasos para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"]
-** link:../install-ip/task_switch_config_cisco.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["Restablezca el conmutador IP Broadcom a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_cisco.html#resetting-the-cisco-ip-switch-to-factory-defaults["Restablezca el conmutador IP de Cisco a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["Restablece el switch NVIDIA IP SN2100 a los valores predeterminados de fábrica"]
 
 
 . Descargue e instale los archivos RCF.
@@ -98,8 +99,9 @@ Siga los pasos para su proveedor de switches:
 Siga los pasos para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["Descarga e instalación de los archivos Broadcom RCF"]
-** link:../install-ip/task_switch_config_cisco.html["Descarga e instalación de los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_broadcom.html["Descargue e instale los archivos Broadcom IP RCF"]
+** link:../install-ip/task_switch_config_cisco.html["Descargue e instale los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["Descargue e instale los archivos NVIDIA RCF"]]
 
 
 . Encienda la primera controladora nueva (node_A_1-IP) y pulse Ctrl-C para interrumpir el proceso de arranque y mostrar el aviso del CARGADOR.

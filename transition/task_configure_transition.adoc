@@ -604,7 +604,7 @@ aggr_data_a2
 Debe incorporar el nuevo grupo de recuperación ante desastres a la configuración de MetroCluster y crear agregados de datos reflejados en los nuevos nodos.
 
 .Pasos
-. Configure la MetroCluster en función de si tiene uno o varios agregados de datos:
+. Configure el MetroCluster dependiendo de si hay uno o varios agregados de datos en ambos clústeres:
 +
 |===
 
@@ -613,7 +613,7 @@ Debe incorporar el nuevo grupo de recuperación ante desastres a la configuraci�
 
 
  a| 
-Varios agregados de datos
+Múltiples agregados de datos en ambos clústeres
  a| 
 Desde el símbolo del sistema de cualquier nodo, configure MetroCluster:
 
@@ -625,7 +625,7 @@ NOTE: Debe ejecutarse `metrocluster configure` y *no* `metrocluster configure -r
 
 
  a| 
-Un único agregado de datos reflejado
+Un único agregado de datos reflejados en ambos clústeres
  a| 
 .. Desde el símbolo del sistema de cualquier nodo, cambie al nivel de privilegio avanzado:
 +

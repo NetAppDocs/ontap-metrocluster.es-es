@@ -20,24 +20,23 @@ Si está utilizando switches existentes, vaya al link:task_move_cluster_connecti
 . Instale y monte en rack los nuevos switches IP.
 . Prepare los switches IP para la aplicación de los nuevos archivos RCF.
 +
-Siga los pasos de la sección correspondiente a su proveedor de switches desde el link:../install-ip/using_rcf_generator.html["Instalación y configuración de IP de MetroCluster"]
+Siga los pasos de la sección para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom"]
-** link:../install-ip/task_switch_config_cisco.html["Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["Restablezca el conmutador IP Broadcom a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_cisco.html#resetting-the-cisco-ip-switch-to-factory-defaults["Restablezca el conmutador IP de Cisco a los valores predeterminados de fábrica"]
+** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["Restablece el switch NVIDIA IP SN2100 a los valores predeterminados de fábrica"]
 
 
 . Actualice el firmware del conmutador a una versión compatible, si es necesario.
 . Utilice la herramienta de generador RCF para crear el archivo RCF en función del proveedor del switch y de los modelos de plataforma y, a continuación, actualice los switches con el archivo.
 +
-Siga los pasos de la sección correspondiente a su proveedor de switches desde _MetroCluster IP Installation and Configuration_.
+Siga los pasos de la sección para su proveedor de switches:
 
 +
-link:../install-ip/concept_considerations_differences.html["Instalación y configuración de IP de MetroCluster"]
-
-+
-** link:../install-ip/task_switch_config_broadcom.html["Descarga e instalación de los archivos Broadcom IP RCF"]
-** link:../install-ip/task_switch_config_cisco.html["Descarga e instalación de los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_broadcom.html["Descargue e instale los archivos Broadcom IP RCF"]
+** link:../install-ip/task_switch_config_cisco.html["Descargue e instale los archivos Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-cumulus-software["Descargue e instale los archivos NVIDIA RCF"]
 
 
 

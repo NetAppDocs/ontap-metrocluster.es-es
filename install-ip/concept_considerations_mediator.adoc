@@ -19,7 +19,7 @@ Las distintas configuraciones de MetroCluster realizan una conmutación de sitio
 +
 En estas configuraciones, SE inicia AUSO si las controladoras fallan pero el almacenamiento (y los puentes, si existen) permanecen operativos.
 
-* *Configuraciones IP de MetroCluster utilizando el servicio Mediator de ONTAP (ONTAP 9.7 y posterior)*
+* *Configuraciones de IP de MetroCluster usando ONTAP Mediator (ONTAP 9.7 y posteriores)*
 +
 En estas configuraciones, MAUSO se inicia en las mismas circunstancias que SAUSO, como se ha descrito anteriormente, y también tras un fallo completo de las instalaciones (controladores, almacenamiento y switches).
 

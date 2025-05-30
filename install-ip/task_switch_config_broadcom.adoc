@@ -151,11 +151,15 @@ Burned In MAC Address.......................... D8:C4:97:56:87:D7
 
 (Routing) #
 ----
-. Si lo desea, configure el servidor SSH.
+. Configure el servidor SSH.
 +
+[NOTE]
+====
+** El archivo RCF desactiva el protocolo Telnet. Si no configura el servidor SSH, sólo puede acceder al puente utilizando la conexión de puerto serie.
+** Debe configurar el servidor SSH para poder utilizar la recopilación de registros y otras herramientas externas.
 
-NOTE: El archivo RCF desactiva el protocolo Telnet. Si no configura el servidor SSH, sólo puede acceder al puente utilizando la conexión de puerto serie.
 
+====
 +
 .. Generar claves RSA.
 +

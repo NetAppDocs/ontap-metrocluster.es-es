@@ -448,13 +448,13 @@ Se debe reflejar cualquier agregado raíz que no tenga el estado de reflejo.
 
 
 
-== Reconfiguración del servicio Mediador ONTAP (configuraciones IP de MetroCluster)
+== Reconfiguración del mediador de ONTAP (configuraciones de IP de MetroCluster)
 
-Si tiene una configuración IP de MetroCluster configurada con el servicio Mediador de ONTAP, debe eliminar y volver a configurar la asociación con el mediador.
+Si tiene una configuración de IP de MetroCluster que se configuró con ONTAP Mediator, debe eliminar y volver a configurar la asociación con ONTAP Mediator.
 
 .Antes de empezar
-* Debe tener la dirección IP, el nombre de usuario y la contraseña del servicio Mediador ONTAP.
-* El servicio Mediator de ONTAP debe estar configurado y funcionando en el host Linux.
+* Debe tener la dirección IP, el nombre de usuario y la contraseña de ONTAP Mediator.
+* ONTAP Mediator debe estar configurado y funcionando en el host Linux.
 
 
 .Pasos
@@ -554,7 +554,7 @@ Debe responder con `y` cuando se le solicite que continúe en el modo avanzado y
 
 
 
-. En el caso de configuraciones IP de MetroCluster que utilicen el servicio Mediator de ONTAP, confirme que el servicio Mediator está activo y en funcionamiento.
+. Para las configuraciones de IP de MetroCluster que utilizan ONTAP Mediator, confirme que ONTAP Mediator esté activo y en funcionamiento.
 +
 .. Compruebe que los discos del Mediator son visibles para el sistema:
 +

@@ -122,7 +122,17 @@ NOTE: Los puertos internos están integrados en el hardware de la controladora (
 | Modelo de plataforma | Adaptador Gigabit Ethernet necesario | Ranura necesaria para el adaptador | Puertos 
 
 
-| AFF A900, ASA A900 y FAS9500 | X91146A | Ranura 5, ranura 7 | e5b, e7b 
+ a| 
+AFF A900, ASA A900 y FAS9500
+ a| 
+X91146A
+ a| 
+Ranura 5, ranura 7
+ a| 
+e5b, e7b
+
+Nota: Los puertos e5a y e7a solo se pueden usar para LIF entre clústeres. No se pueden usar para un LIF de datos.
+
 
 
  a| 
@@ -284,7 +294,10 @@ En la configuración mínima compatible, cada pool tiene la siguiente distribuci
 
 En una configuración mínima compatible, se necesita al menos una bandeja por sitio.
 
-Las configuraciones de MetroCluster son compatibles con RAID-DP y RAID4.
+Las configuraciones de MetroCluster admiten RAID-DP, RAID4 y RAID-TEC.
+
+
+NOTE: A partir de ONTAP 9,4, las configuraciones IP de MetroCluster admiten nuevas instalaciones mediante la asignación de discos automática y ADP (partición avanzada de unidades). Consulte link:../install-ip/concept_considerations_drive_assignment.html["Consideraciones para la asignación automática de unidades y sistemas ADP"] si desea obtener más información.
 
 
 

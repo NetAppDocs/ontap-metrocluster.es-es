@@ -37,7 +37,7 @@ myswitch(config)#
 `*switchname new-switch-name*`
 
 +
-Si va a cambiar el nombre de ambos switches de la estructura, utilice el mismo comando de cada switch.
+Si va a cambiar el nombre de ambos conmutadores en la red, utilice el mismo comando en cada conmutador.
 
 +
 El símbolo del sistema de la CLI cambia para reflejar el nuevo nombre:

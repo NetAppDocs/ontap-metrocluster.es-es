@@ -1,0 +1,24 @@
+---
+permalink: install-ip/configure-cshm-mccip.html 
+sidebar: sidebar 
+keywords: ip, switch, connection, configuring, configure, snmp, health, monitoring 
+summary: Puede configurar los conmutadores IP para que utilicen SNMPv3 para la supervisión del estado. 
+---
+= Descripción general de la supervisión del estado del conmutador en una configuración IP de MetroCluster
+:allow-uri-read: 
+
+
+[role="lead"]
+El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración.
+
+
+
+== Notas importantes para configurar CSHM en una configuración IP de MetroCluster
+
+Esta sección contiene los pasos genéricos para configurar SNMPv3 y la recopilación de registros en switches Cisco, Broadcom y NVIDIA SN2100. Debe seguir los pasos para una versión de firmware de switch compatible con una configuración IP de MetroCluster. Consulte la link:https://hwu.netapp.com/["Hardware Universe"^] para verificar las versiones de firmware compatibles.
+
+En una configuración de MetroCluster, se configura la supervisión del estado únicamente en los conmutadores del clúster local.
+
+Para la recopilación de registros con switches Broadcom y Cisco, se debe crear un nuevo usuario en el switch para cada clúster que tenga habilitada la recopilación de registros. En una configuración MetroCluster, esto significa que MetroCluster 1, MetroCluster 2, MetroCluster 3 y MetroCluster 4 requieren la configuración de un usuario independiente en los switches. Estos switches no admiten varias claves SSH para el mismo usuario. Cualquier configuración de recopilación de registros adicional realizada sobrescribe las claves SSH preexistentes para el usuario.
+
+Antes de configurar el CSHM, debe deshabilitar los ISL no utilizados para evitar alertas de ISL innecesarias.

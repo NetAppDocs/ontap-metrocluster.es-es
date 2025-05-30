@@ -1,0 +1,263 @@
+---
+permalink: install-ip/task-configure-log-collection-mccip.html 
+sidebar: sidebar 
+keywords: ip, switch, connection, configuring, configure, log, collection, snmp, debugging 
+summary: Puede configurar los conmutadores IP para que utilicen SNMPv3 para la supervisión del estado. 
+---
+= Configurar la recopilación de registros en un conmutador IP de MetroCluster
+:allow-uri-read: 
+
+
+[role="lead"]
+En una configuración de IP de MetroCluster, puede configurar la recopilación de registros para recopilar registros de conmutadores con fines de depuración.
+
+
+CAUTION: En los switches Broadcom y Cisco, se requiere un nuevo usuario para cada clúster con recopilación de registros. Por ejemplo, MetroCluster 1, MetroCluster 2, MetroCluster 3 y MetroCluster 4 requieren la configuración de un usuario independiente en los switches. No se admiten varias claves SSH para el mismo usuario.
+
+.Acerca de esta tarea
+El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración de la recopilación, solicitando registros detallados de *Soporte* y habilitando una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.
+
+*NOTA:* Si habilita el modo FIPS, debe completar lo siguiente:
+
+[NOTE]
+====
+. Vuelva a generar las claves SSH en el switch siguiendo las instrucciones del proveedor.
+. Regenerar claves SSH en ONTAP mediante `debug system regenerate-systemshell-key-pair`
+. Volver a ejecutar la rutina de configuración de la recogida de registros con `system switch ethernet log setup-password` el comando
+
+
+====
+
+
+== Antes de empezar
+
+* El usuario debe tener acceso a los comandos de cambio `show` . Si no están disponibles, cree un nuevo usuario y otorgue los permisos necesarios al usuario.
+* La monitorización del estado del interruptor debe estar activada para el interruptor. Verifique esto asegurándose de que  `Is Monitored:` El campo se establece en *verdadero* en la salida del  `system switch ethernet show` dominio.
+* Para la recopilación de registros con switches Broadcom y Cisco:
++
+** Los usuarios deben tener Privileges de administrador de red.
+** Se debe crear un usuario nuevo en el switch de cada configuración del clúster con la recopilación de registros habilitada. Estos switches no admiten varias claves SSH para el mismo usuario. Cualquier configuración de recopilación de registros adicional realizada sobrescribe las claves SSH preexistentes para el usuario.
+
+
+* Para la recopilación de registros de soporte con conmutadores NVIDIA, se debe permitir que _user_ para la recopilación de registros ejecute `cl-support` el comando sin tener que proporcionar una contraseña. Para permitir este uso, ejecute el comando:
++
+`echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
+
+
+
+
+
+== Pasos
+
+[role="tabbed-block"]
+====
+.ONTAP 9.15.1 y versiones posteriores
+--
+. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
++
+*NOTA:* Si responde *y* a la solicitud de especificación del usuario, asegúrese de que el usuario tenga los permisos necesarios como se describe en <<Antes de empezar>> .
+
++
+[source, cli]
+----
+system switch ethernet log setup-password
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
+
+
+
+NOTE: Para CL 5.11.1, cree el usuario *cumulus* y responda *y* al siguiente mensaje: ¿Desea especificar un usuario distinto de admin para la recopilación de registros? {y|n}: *y*
+
+. [[paso 2]]Habilitar la recopilación periódica de registros:
++
+[source, cli]
+----
+system switch ethernet log modify -device <switch-name> -periodic-enabled true
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log modify -device cs1 -periodic-enabled true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+*cs1*: Periodic log collection has been scheduled to run every hour.
+
+cluster1::*> *system switch ethernet log modify -device cs2 -periodic-enabled true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+*cs2*: Periodic log collection has been scheduled to run every hour.
+
+cluster1::*> *system switch ethernet log show*
+                                          Periodic    Periodic    Support
+Switch                                    Log Enabled Log State   Log State
+
+cs1                                       true        scheduled   never-run
+cs2                                       true        scheduled   never-run
+2 entries were displayed.
+----
+. Solicitar recogida de registros de soporte:
++
+[source, cli]
+----
+system switch ethernet log collect-support-log -device <switch-name>
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log collect-support-log -device cs1*
+
+*cs1*: Waiting for the next Ethernet switch polling cycle to begin support collection.
+
+cluster1::*> *system switch ethernet log collect-support-log -device cs2*
+
+*cs2*: Waiting for the next Ethernet switch polling cycle to begin support collection.
+
+cluster1::*> *system switch ethernet log show
+                                          Periodic    Periodic    Support
+Switch                                    Log Enabled Log State   Log State
+
+cs1                                       false       halted      initiated
+cs2                                       true        scheduled   initiated
+2 entries were displayed.
+----
+. Para ver todos los detalles de la recogida de registros, incluida la habilitación, el mensaje de estado, la marca de hora y el nombre de archivo anteriores de la recogida periódica, el estado de la solicitud, el mensaje de estado, y la marca de hora y el nombre de archivo anteriores de la recogida de soporte, utilice lo siguiente:
++
+[source, cli]
+----
+system switch ethernet log show -instance
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log show -instance*
+
+                    Switch Name: cs1
+           Periodic Log Enabled: true
+            Periodic Log Status: Periodic log collection has been scheduled to run every hour.
+    Last Periodic Log Timestamp: 3/11/2024 11:02:59
+          Periodic Log Filename: cluster1:/mroot/etc/log/shm-cluster-info.tgz
+          Support Log Requested: false
+             Support Log Status: Successfully gathered support logs - see filename for their location.
+     Last Support Log Timestamp: 3/11/2024 11:14:20
+           Support Log Filename: cluster1:/mroot/etc/log/shm-cluster-log.tgz
+
+                    Switch Name: cs2
+           Periodic Log Enabled: false
+            Periodic Log Status: Periodic collection has been halted.
+    Last Periodic Log Timestamp: 3/11/2024 11:05:18
+          Periodic Log Filename: cluster1:/mroot/etc/log/shm-cluster-info.tgz
+          Support Log Requested: false
+             Support Log Status: Successfully gathered support logs - see filename for their location.
+     Last Support Log Timestamp: 3/11/2024 11:18:54
+           Support Log Filename: cluster1:/mroot/etc/log/shm-cluster-log.tgz
+2 entries were displayed.
+----
+
+
+--
+.ONTAP 9.14.1 y anteriores
+--
+. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
++
+*NOTA:* Si responde `y` a la solicitud de especificación del usuario, asegúrese de que el usuario tiene los permisos necesarios como se describe en <<Antes de empezar>>.
+
++
+[source, cli]
+----
+system switch ethernet log setup-password
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
+
+
+
+NOTE: Para CL 5.11.1, cree el usuario *cumulus* y responda *y* al siguiente mensaje: ¿Desea especificar un usuario distinto de admin para la recopilación de registros? {y|n}: *y*
+
+. [[paso 2]] Para solicitar la recopilación de registros de soporte y habilitar la recopilación periódica, ejecute el siguiente comando. Esto inicia ambos tipos de recopilación de registros: Los registros detallados `Support` y una recogida de datos por hora `Periodic` .
++
+[source, cli]
+----
+system switch ethernet log modify -device <switch-name> -log-request true
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+----
++
+Espere 10 minutos y compruebe que se complete la recopilación de registros:
+
++
+[source, cli]
+----
+system switch ethernet log show
+----
+
+
+--
+====
+
+CAUTION: Si la función de recopilación de registros informa de algún estado de error (visible en la salida de `system switch ethernet log show`), consulte link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cshm/log-collection-troubleshoot.html["Solución de problemas de recopilación de registros"^] para obtener más información.

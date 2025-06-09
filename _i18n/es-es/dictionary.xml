@@ -12515,7 +12515,6 @@ Se aplica a todas las configuraciones MetroCluster.</block>
   <block id="2900f8420dafccee0a2692e48506c6cb" category="open-title">Si los nodos se encuentran en el símbolo del SISTEMA DEL CARGADOR:</block>
   <block id="796bd1c27d5eea106367802d9fd5bd0e" category="paragraph">Ejecute el comando:<block ref="ce54ef17bebf280339d340bd40dff593" prefix=" " category="inline-code"></block></block>
   <block id="4129cca17421055c633ccbc72f65d61f" category="list-text">Cuando se complete el arranque del nodo, compruebe que se han duplicado los agregados raíz.</block>
-  <block id="f691b46b240bca97e906bfb1366247a7" category="paragraph">Si existen ambos complejos, la resincronización se iniciará automáticamente. Si falla un plex, destruirlo y vuelva a establecer la relación de reflejo mediante el siguiente comando para volver a crear el mirror:</block>
   <block id="9abd59a18f57d6cb4282adb209f8b563" category="list-text">Tiene dos puentes FibreBridge 7600N conectados a una pila de bandejas de discos SAS.</block>
   <block id="fc35f0bbf60965f7ec34001ad687a3f3" category="list-text">Tiene un puente FibreBridge 7500N y un puente FibreBridge 7600N conectado a una pila de bandejas de discos SAS.</block>
   <block id="3ed94c5d90da7ee057d27e4a111e2d56" category="list-text">Apague el puente ATTO y retire los cables de alimentación conectados al puente.</block>
@@ -12562,7 +12561,6 @@ Se aplica a todas las configuraciones MetroCluster.</block>
   <block id="b13f7000aa5add9a5264da17e3dc4f67" category="list-text">Detenga los nodos ejecutando el siguiente comando en cada nodo:</block>
   <block id="de48c3af46bd57dad9f2ad02bbb26041" category="paragraph"><block ref="8a921c8973814d1a72edcc98a6686da9" prefix="" category="inline-code"></block></block>
   <block id="84b0c3d7ab439004e978c709f15fc230" category="paragraph">Debe apagar el siguiente equipo en el orden indicado:</block>
-  <block id="98734a3d5b75c8baf95c27fbc27a15f1" category="list-text">Reubique físicamente todo el hardware, las controladoras de almacenamiento, los switches IP, FibreBridges y las bandejas de almacenamiento.</block>
   <block id="1cef707d96d59ea52cd45984a36d2f11" category="list-text">Encienda los interruptores IP.</block>
   <block id="ac8327044a4ce63889944095a1b6aed8" category="list-text">Encienda las bandejas teniendo tiempo suficiente para que se enciendan por completo.</block>
   <block id="d5061566f9570e151daa3fd59fb31405" category="list-text">Compruebe que el almacenamiento local sea visible en el nodo en modo de mantenimiento:</block>
@@ -14666,7 +14664,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="c452f245605b541913c8927f2fb39f4b" category="inline-link-macro">Consideraciones para la asignación automática de unidades y sistemas ADP</block>
   <block id="9648215f493ab7d57f334a1db39291f3" category="admonition">A partir de ONTAP 9,4, las configuraciones IP de MetroCluster admiten nuevas instalaciones mediante la asignación de discos automática y ADP (partición avanzada de unidades). Consulte <block ref="b265df9824eecc73bbbf36d6341665a3" category="inline-link-macro-rx"></block> si desea obtener más información.</block>
   <block id="cbeca2fa89a3ea8f375e96b634c42759" category="doc">Configurar SNMPv3 en los conmutadores IP de MetroCluster</block>
-  <block id="630f606ab1d9cdb74f5fddde24450385" category="paragraph">Esta tarea muestra los pasos genéricos para configurar SNMPv3 en un conmutador. Es posible que algunas de las versiones de firmware del conmutador mencionadas no sean compatibles con una configuración IP de MetroCluster.</block>
   <block id="578f5e3d8693dd5b8f97c29bf9aec80b" category="paragraph">Debe seguir los pasos para una versión de firmware del conmutador compatible con una configuración IP de MetroCluster. Consulte la <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> para verificar las versiones de firmware compatibles.</block>
   <block id="1451684986f1c945fdb4e4f2a8b904be" category="list-text">SNMPv3 solo es compatible con ONTAP 9.12.1 y versiones posteriores.</block>
   <block id="e43f0bacec59589637fec825db76ae04" category="list-text">ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 y versiones posteriores solucionan estos dos problemas:</block>
@@ -14692,7 +14689,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="c19095c0c8945d1d4e4e73ec7a11354c" category="paragraph">Configure un nombre de usuario SNMPv3 SNMPv3_USER en los conmutadores NVIDIA SN2100 que ejecutan CLI 5.4.0:</block>
   <block id="cd12738ab621b27db86ca1b02e9d118c" category="open-title">NVIDIA - CL 5.11.0</block>
   <block id="1d478fc1ce1613a790d5d77707c188f6" category="paragraph">Configure un nombre de usuario SNMPv3 SNMPv3_USER en los conmutadores NVIDIA SN2100 que ejecutan CLI 5.11.0:</block>
-  <block id="8ec049d1fe155ff0c4df415c3d4691e2" category="doc">Descripción general de la supervisión del estado del conmutador en una configuración IP de MetroCluster</block>
   <block id="8ae4eeaa7baed19106cc30ea02483c5e" category="paragraph">El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración.</block>
   <block id="4ae61f4d1ec2f0efafd8ee4274e49ccf" category="section-title">Notas importantes para configurar CSHM en una configuración IP de MetroCluster</block>
   <block id="b38569be2d36a20e8902840c1ea976fe" category="paragraph">Esta sección contiene los pasos genéricos para configurar SNMPv3 y la recopilación de registros en switches Cisco, Broadcom y NVIDIA SN2100. Debe seguir los pasos para una versión de firmware de switch compatible con una configuración IP de MetroCluster. Consulte la <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> para verificar las versiones de firmware compatibles.</block>
@@ -14897,4 +14893,18 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="eb781ca5db4579a64062bcf161d91cbe" category="sidebar">Verificar la monitorización del conmutador Ethernet</block>
   <block id="3ef38a7332e8a3a92f8540dfdb80708d" category="sidebar">Configuración de ONTAP Mediator desde una configuración IP de MetroCluster</block>
   <block id="84e085c408a358fe4e512066e45c3837" category="sidebar">Administrar ONTAP Mediator con el Administrador del sistema</block>
+  <block id="d2dfa94f0ec6119f137b05b65f72b726" category="open-title">Si un plex falla:</block>
+  <block id="a3d50ad07bbec0a08b055954bb66cfcb" category="list-text">Destruir el plex fallido:</block>
+  <block id="eb10fb6e54a620d06a2f18c1a660ffe4" category="paragraph"><block ref="10736eb62e72d120f2dcaa0fe0b7666f" prefix="" category="inline-code"></block></block>
+  <block id="b78dcdf12c052d8955dc51b3b3b7b105" category="list-text">Restablezca la relación con el espejo recreando el espejo:</block>
+  <block id="e6534782a81c039714b69e68abd6dd24" category="open-title">Si un plex está fuera de línea:</block>
+  <block id="5bf31f2147933b41528417b67db14d59" category="paragraph">En línea el plex:</block>
+  <block id="db0df63b9e668f95fb18ff3a3c311c03" category="paragraph"><block ref="abdcc012bb91335575fa83e50f5bd9f2" prefix="" category="inline-code"></block></block>
+  <block id="173d04d1482af7bc613216daa9c54d3b" category="open-title">Si ambos plexos están presentes:</block>
+  <block id="0cb322072bf2ca0a4a593635bde1f36d" category="paragraph">Este procedimiento muestra los pasos genéricos para configurar SNMPv3 en un conmutador. Es posible que algunas de las versiones de firmware del conmutador mencionadas no sean compatibles con una configuración IP de MetroCluster.</block>
+  <block id="00f60657daab6d52f5bc57575661559b" category="list-text">Reubicar físicamente todo el hardware, controladores de almacenamiento, conmutadores IP y estantes de almacenamiento.</block>
+  <block id="ba17277e87e849f2a38d0126b17905d8" category="list-text">Verifique que el almacenamiento sea visible desde el modo de mantenimiento.</block>
+  <block id="ef1806576a0dffd58481510c7525ed90" category="list-text">Arrancar en modo de mantenimiento:</block>
+  <block id="41af2ca5f1002ab08c75f010d70581a4" category="list-text">Compruebe que el almacenamiento está visible en el sitio superviviente.</block>
+  <block id="b496741d8a784412385f91b26ad4e4f1" category="list-text">Verifique que el almacenamiento local sea visible desde el nodo en modo de mantenimiento:</block>
 </blocks>

@@ -186,11 +186,34 @@ Ejecute el comando: `boot_ontap`
 ====
 . Cuando se complete el arranque del nodo, compruebe que se han duplicado los agregados raíz.
 +
-Si existen ambos complejos, la resincronización se iniciará automáticamente. Si falla un plex, destruirlo y vuelva a establecer la relación de reflejo mediante el siguiente comando para volver a crear el mirror:
+[role="tabbed-block"]
+====
+.Si un plex falla:
+--
+.. Destruir el plex fallido:
++
+`storage aggregate plex delete -aggregate <aggregate_name> -plex <plex_name>`
 
+.. Restablezca la relación con el espejo recreando el espejo:
 +
 `storage aggregate mirror -aggregate <aggregate-name>`
 
+
+
+--
+.Si un plex está fuera de línea:
+--
+En línea el plex:
+
+`storage aggregate plex online -aggregate <aggregate_name> -plex <plex_name>`
+
+--
+.Si ambos plexos están presentes:
+--
+La resincronización se inicia automáticamente.
+
+--
+====
 . Simule la operación de regreso:
 +
 .. Desde el símbolo del sistema del nodo superviviente, cambie al nivel de privilegio avanzado:

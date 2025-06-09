@@ -278,7 +278,7 @@ Una vez apagado el sitio, puede comenzar a realizar tareas de mantenimiento. Est
 
 .Pasos
 . Verifique que el cableado de todos los componentes se registre con cuidado para poder volver a conectarlo correctamente en la nueva ubicación.
-. Reubique físicamente todo el hardware, las controladoras de almacenamiento, los switches IP, FibreBridges y las bandejas de almacenamiento.
+. Reubicar físicamente todo el hardware, controladores de almacenamiento, conmutadores IP y estantes de almacenamiento.
 . Configure los puertos ISL y compruebe la conectividad entre sitios.
 +
 .. Encienda los interruptores IP.
@@ -325,14 +325,22 @@ Si el inicio automático está activado, pulse `Ctrl+C` para detener el arranque
 CAUTION: No encienda las bandejas antes de encender las controladoras. De este modo se evita que las controladoras realicen un arranque no intencionado en ONTAP.
 
 . Encienda las bandejas teniendo tiempo suficiente para que se enciendan por completo.
-. Verifique que el almacenamiento esté visible.
+. Verifique que el almacenamiento sea visible desde el modo de mantenimiento.
 +
-.. Compruebe que el almacenamiento está visible en el sitio superviviente. Vuelva a conectar los complejos sin conexión para reiniciar la operación de resincronización y restablecer SyncMirror.
-.. Compruebe que el almacenamiento local sea visible en el nodo en modo de mantenimiento:
+.. Arrancar en modo de mantenimiento:
++
+`boot_ontap maint`
+
+.. Compruebe que el almacenamiento está visible en el sitio superviviente.
+.. Verifique que el almacenamiento local sea visible desde el nodo en modo de mantenimiento:
 +
 `disk show -v`
 
 
+
+. Detenga los nodos:
++
+`halt`
 
 . Restablezca la configuración de MetroCluster.
 +

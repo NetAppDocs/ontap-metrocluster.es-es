@@ -11,8 +11,7 @@ summary: Puede configurar los conmutadores IP para que utilicen SNMPv3 para la s
 [role="lead"]
 En las configuraciones IP de MetroCluster, puede configurar SNMPv3 para supervisar el estado de los switches IP.
 
-.Acerca de esta tarea
-Esta tarea muestra los pasos genéricos para configurar SNMPv3 en un conmutador. Es posible que algunas de las versiones de firmware del conmutador mencionadas no sean compatibles con una configuración IP de MetroCluster.
+Este procedimiento muestra los pasos genéricos para configurar SNMPv3 en un conmutador. Es posible que algunas de las versiones de firmware del conmutador mencionadas no sean compatibles con una configuración IP de MetroCluster.
 
 Debe seguir los pasos para una versión de firmware del conmutador compatible con una configuración IP de MetroCluster. Consulte la link:https://hwu.netapp.com["Hardware Universe"^] para verificar las versiones de firmware compatibles.
 

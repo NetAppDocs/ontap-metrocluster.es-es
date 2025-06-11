@@ -62,11 +62,14 @@ entries:
       url: "/install-ip/using_rcf_generator.html"
     - title: Asignaciones de puertos de la plataforma para los switches Cisco 3132Q-V.
       url: "/install-ip/port_usage_3132q.html"
-    - title: Asignaciones de puertos de la plataforma para los switches Cisco 3232C
-        o Cisco 9336C-FX2
+    - title: Asignaciones de puertos de plataforma para conmutadores Cisco 3232C o
+        Cisco 9336C-FX2 de 36 puertos
       url: "/install-ip/port_usage_3232c_9336c.html"
-    - title: Asignaciones de puertos de plataforma para un switch Cisco 9336C-FX2
-        que conecta almacenamiento NS224
+    - title: Asignaciones de puertos de plataforma para un conmutador Cisco 9336C-FX2
+        de 12 puertos
+      url: "/install-ip/port-usage-9336c-fx-2-12-port.html"
+    - title: Asignaciones de puertos de plataforma para un conmutador Cisco 9336C-FX2
+        de 36 puertos que conecta el almacenamiento NS224
       url: "/install-ip/port_usage_9336c_shared.html"
     - title: Asignaciones de puertos de plataforma para switches IP BES-53248 compatibles
         con Broadcom

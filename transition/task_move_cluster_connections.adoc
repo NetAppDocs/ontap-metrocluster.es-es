@@ -74,26 +74,26 @@ La interfaz del clúster local en el nodo FC
 
 
  a| 
-Cisco 3232C o 9336C-FX2
+Cisco 3232C o 9336C-FX2 (36 puertos)
  a| 
 Cualquiera
  a| 
 5, 6 o 13, 14
 
-*Nota:* Los puertos de conmutación 13 y 14 solo se pueden usar cuando se seleccionan dos modos de velocidad.
+*Nota:* Para utilizar los puertos de conmutador 13 y 14, debe seleccionar dos modos de velocidad.
  a| 
 La interfaz del clúster local en el nodo FC
 
 
 
  a| 
-Cisco 9336C-FX2 compartido
+Cisco 9336C-FX2 compartido (36 puertos)
  a| 
 Cualquiera
  a| 
 3, 4 o 11, 12
 
-*Nota:* Los puertos de conmutación 11 y 12 solo se pueden usar cuando se seleccionan dos modos de velocidad.
+*Nota:* Para utilizar los puertos de conmutador 11 y 12, debe seleccionar dos modos de velocidad.
  a| 
 La interfaz del clúster local en el nodo FC
 
@@ -133,7 +133,7 @@ Cualquiera
  a| 
 5, 6 o 11, 12
 
-*Nota:* Los puertos de conmutación 11 y 12 solo se pueden usar cuando se seleccionan dos modos de velocidad.
+*Nota:* Para utilizar los puertos de conmutador 11 y 12, debe seleccionar dos modos de velocidad.
  a| 
 La interfaz del clúster local en el nodo FC
 

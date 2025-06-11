@@ -17,11 +17,17 @@ Debe comprender cómo utilizar la información de las tablas de puertos para gen
 Revise estas consideraciones antes de utilizar las tablas:
 
 * Las siguientes tablas muestran el uso del puerto para el sitio A. El mismo cableado se utiliza para el centro B.
-* Los switches no pueden configurarse con puertos de diferentes velocidades (por ejemplo, una combinación de puertos de 100 Gbps y puertos de 40 Gbps).
+* No se pueden configurar los conmutadores con puertos de diferentes velocidades (por ejemplo, una combinación de puertos de 100 Gbps y puertos de 40 Gbps).
 * Realizar un seguimiento del grupo de puertos de MetroCluster (MetroCluster 1, MetroCluster 2, etc.). Necesitará esta información cuando utilice la herramienta RcfFileGenerator como se describe más adelante en este procedimiento de configuración.
 * Debe conectar todos los nodos de la misma manera. Si hay diferentes opciones de combinación de puertos disponibles para cablear los nodos, todos los nodos deben usar las mismas combinaciones de puertos. Por ejemplo, e1a en node1 y e1a en node2 deben conectarse a un conmutador. De igual forma, el segundo puerto de ambos nodos debe conectarse al segundo switch.
 *  https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"^]También ofrece información general del cableado por puerto para cada switch. Utilice esta información general sobre el cableado para verificar el cableado.
 
+
+
+
+== Cableado de dos configuraciones de MetroCluster a los switches
+
+Al cablear más de una configuración MetroCluster a un switch, cablee cada MetroCluster según la tabla correspondiente. Por ejemplo, si conecta un FAS2750 y un AFF A700 al mismo switch, cablee el FAS2750 según "MetroCluster 1" en la Tabla 1, y el AFF A700 según "MetroCluster 2" o "MetroCluster 3" en la Tabla 2. No puede conectar físicamente el sistema FAS2750 y el AFF A700 como "MetroCluster 1".
 
 
 
@@ -30,7 +36,7 @@ Revise estas consideraciones antes de utilizar las tablas:
 Para la configuración de MetroCluster que ejecuta ONTAP 9.8 y versiones anteriores, algunos procedimientos que se realizan para realizar la transición de una actualización requieren la adición de un segundo grupo de recuperación ante desastres de cuatro nodos a la configuración para crear una configuración temporal de ocho nodos.  A partir de ONTAP 9,9.1, se admiten las configuraciones permanentes de MetroCluster de ocho nodos.
 
 .Acerca de esta tarea
-Para dichas configuraciones, utilice el mismo método que se describe anteriormente. En lugar de una segunda MetroCluster, está cablear un grupo de recuperación ante desastres de cuatro nodos adicional.
+Para configuraciones de ocho nodos, utilice el mismo método descrito anteriormente. En lugar de una segunda MetroCluster, está cablear un grupo de recuperación ante desastres de cuatro nodos adicional.
 
 Por ejemplo, la configuración incluye lo siguiente:
 

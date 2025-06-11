@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cabling, cable, component, link, site, management, network, networks, hardware, component, shared, switch, cluster, connection, management, data, configuring, configure 
 summary: El uso del puerto en una configuración IP de MetroCluster depende del modelo del switch y el tipo de plataforma. 
 ---
-= Asignaciones de puertos de plataforma para un switch Cisco 9336C-FX2 que conecta almacenamiento NS224
+= Asignaciones de puertos de plataforma para un conmutador Cisco 9336C-FX2 de 36 puertos que conecta el almacenamiento NS224
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,10 +15,20 @@ El uso del puerto en una configuración IP de MetroCluster depende del modelo de
 
 Revise las siguientes consideraciones antes de utilizar las tablas de configuración:
 
-* Al conectar mediante cable un switch Cisco 9336C-FX2 que conecta el almacenamiento de NS224, solo puede disponer de un máximo de dos configuraciones MetroCluster o grupos de recuperación de desastres, al menos una configuración MetroCluster o un grupo de recuperación de desastres debe admitir bandejas NS224 conectadas a switches. Las plataformas que no admiten bandejas NS224 conectadas a switches solo pueden conectarse como segunda configuración de MetroCluster o como segundo grupo de recuperación ante desastres.
+* Las tablas de esta sección son para conmutadores Cisco 9336C-FX2 de 36 puertos cuando al menos una configuración de MetroCluster o un grupo DR conecta estantes NS224 al conmutador MetroCluster.
++
+Si tiene un conmutador Cisco 9336C-FX2 de 36 puertos que no se conecta al almacenamiento NS224, utilice las tablas en link:port_usage_3232c_9336c.html["Asignaciones de puertos de plataforma para conmutadores Cisco 3232C o Cisco 9336C-FX2 de 36 puertos"] .
+
++
+Si tiene un conmutador Cisco 9336C-FX2 de 12 puertos, utilice las tablas en link:port-usage-9336c-fx-2-12-port.html["Asignaciones de puertos de plataforma para conmutadores Cisco 9336C-FX2 de 12 puertos"] .
+
 +
 
-CAUTION: Solo se utilizan estas tablas cuando al menos una configuración MetroCluster o un grupo DR está conectando las bandejas de NS224 al switch MetroCluster. Si utiliza switches de almacenamiento dedicado para conectar las bandejas de NS224, conecte los switches según las tablas de la link:port_usage_3232c_9336c.html["Asignaciones de puertos de la plataforma para los switches Cisco 3232C o Cisco 9336C-FX2"].
+NOTE: El conmutador Cisco 9336C-FX2 de 12 puertos no admite la conexión de estantes NS224 al conmutador MetroCluster.
+
+* Al cablear un switch Cisco 9336C-FX2 que conecta un almacenamiento NS224, solo se pueden tener dos configuraciones de MetroCluster o grupos de recuperación ante desastres (DR). Al menos una configuración de MetroCluster o un grupo de DR debe conectar estanterías NS224 al switch MetroCluster. Solo se pueden conectar plataformas que no conecten estanterías NS224 conectadas al switch como una segunda configuración de MetroCluster o como un segundo grupo de DR.
++
+Si su segundo MetroCluster o grupo DR no conecta los estantes NS224 al conmutador MetroCluster, siga las instrucciones <<tables_not_connecting_ns224,Tablas de cableado para controladores que no se conectan a los estantes NS224 conectados al interruptor>> .
 
 * RcfFileGenerator solo muestra plataformas elegibles cuando se selecciona la primera plataforma.
 * Para conectar una configuración MetroCluster de ocho o dos nodos se requiere ONTAP 9.14.1 o una versión posterior.

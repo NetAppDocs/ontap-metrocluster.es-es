@@ -132,6 +132,9 @@ La configuración de MetroCluster en un AFF A900 o FAS9500 requiere 8 puertos FC
 
 Antes de actualizar los archivos RCF y el cableado de la configuración de MetroCluster estructural AFF A900 o FAS9500, debe comprobar el estado y la conectividad de la configuración.
 
+
+CAUTION: del Este error indica una discrepancia en el tamaño de la NVRAM entre los nodos de cada sitio y es el comportamiento esperado cuando hay diferentes modelos de plataforma en ambos sitios. grupo de recuperación ante desastres.
+
 .Pasos
 . Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
 +

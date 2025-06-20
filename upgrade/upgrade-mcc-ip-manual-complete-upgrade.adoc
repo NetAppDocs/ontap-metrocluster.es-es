@@ -66,7 +66,7 @@ Debe repetir las tareas de actualización para actualizar los nodos en cluster_A
 .Pasos
 . Repita los pasos para actualizar los nodos en cluster_A, empezando por link:upgrade-mcc-ip-manual-requirements.html["Prepare la actualización"].
 +
-Al realizar las tareas, se revierten todas las referencias de ejemplo a los clústeres y los nodos. Por ejemplo, cuando se dé el ejemplo para cambiar de cluster_A, se cambiará de cluster_B.
+Al repetir el procedimiento, se invierten todas las referencias de ejemplo a los clústeres y nodos. Por ejemplo, cuando se dé el ejemplo para cambiar de cluster_A, se cambiará de cluster_B.
 
 
 

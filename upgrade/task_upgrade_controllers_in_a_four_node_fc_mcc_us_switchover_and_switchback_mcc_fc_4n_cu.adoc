@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, nondisruptive, controller, switchover, switchback, fc, configuration, net, boot, root, aggregate, mcc 
 summary: 'Puede utilizar la operación de conmutación de sitios de MetroCluster para proporcionar un servicio no disruptivo a los clientes mientras se actualizan los módulos de la controladora del clúster de partners. Como parte de este procedimiento, no se pueden actualizar otros componentes (como bandejas de almacenamiento o switches).' 
 ---
-= Actualización de controladoras en una configuración MetroCluster FC mediante conmutación de sitios y conmutación de estado
+= Actualice controladoras en una configuración MetroCluster FC mediante la conmutación de sitios y la conmutación de estado
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -113,15 +113,18 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 
 
-== Preparando la actualización
+== Prepare la actualización
 
 Antes de realizar cambios en la configuración existente de MetroCluster, debe comprobar el estado de la configuración, preparar las nuevas plataformas y realizar otras tareas diversas.
 
 
 
-=== Comprobación del estado de la configuración de MetroCluster
+=== Compruebe el estado de la configuración de MetroCluster
 
-Debe verificar el estado y la conectividad de la configuración de MetroCluster antes de realizar la actualización.
+Verifique el estado y la conectividad de la configuración de MetroCluster antes de realizar la actualización.
+
+
+CAUTION: del Este error indica una discrepancia en el tamaño de la NVRAM entre los nodos de cada sitio y es el comportamiento esperado cuando hay diferentes modelos de plataforma en ambos sitios. grupo de recuperación ante desastres.
 
 .Pasos
 . Compruebe el funcionamiento de la configuración de MetroCluster en ONTAP:
@@ -208,7 +211,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Descar
 
 
 
-=== Asignando los puertos de los nodos antiguos a los nodos nuevos
+=== Asigne puertos de los nodos antiguos a los nuevos
 
 Debe planificar la asignación de las LIF en los puertos físicos de los nodos antiguos a los puertos físicos en los nodos nuevos.
 
@@ -232,7 +235,7 @@ e0a y e0b
  a| 
 e3a, e3b
  a| 
-No hay puerto que coincida. Después de la actualización, vuelva a crear los puertos del clúster. link:task_prepare_cluster_ports_on_the_exist_controller.html["Preparar puertos del clúster en un módulo de controladora existente"]
+No hay puerto que coincida. Después de la actualización, vuelva a crear los puertos del clúster. link:task_prepare_cluster_ports_on_the_exist_controller.html["Prepare los puertos del clúster en un módulo de controladora existente"]
 
 
 
@@ -401,7 +404,7 @@ Puerto de interconexión de clústeres
 
 
 
-=== Obteniendo información antes de la actualización
+=== Recopile información antes de la actualización
 
 Antes de actualizar, se debe recopilar información sobre cada uno de los nodos antiguos y, si es necesario, ajustar los dominios de retransmisión de red, quitar las VLAN y los grupos de interfaces, y recopilar información de cifrado.
 
@@ -512,14 +515,14 @@ Necesitará la contraseña más adelante en el procedimiento de actualización.
 
 
 
-=== Eliminar la configuración existente del tiebreaker o de otro software de supervisión
+=== Elimine la configuración existente del tiebreaker o del otro software de supervisión
 
 Si la configuración existente se supervisa con la configuración de tiebreaker para MetroCluster u otras aplicaciones de terceros (por ejemplo, ClusterLion) que pueden iniciar una conmutación de sitios, debe eliminar la configuración de MetroCluster del tiebreaker o de otro software antes de la transición.
 
 .Pasos
 . Elimine la configuración de MetroCluster existente del software Tiebreaker.
 +
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["Eliminación de las configuraciones de MetroCluster"]
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["Eliminar configuraciones de MetroCluster"]
 
 . Elimine la configuración de MetroCluster existente de cualquier aplicación de terceros que pueda iniciar la conmutación.
 +
@@ -529,7 +532,7 @@ Consulte la documentación de la aplicación.
 
 
 
-=== Envío de un mensaje de AutoSupport personalizado antes del mantenimiento
+=== Envíe un mensaje de AutoSupport personalizado antes de realizar el mantenimiento
 
 Antes de realizar el mantenimiento, debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que se está realizando el mantenimiento. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción.
 
@@ -556,7 +559,7 @@ Esta tarea debe realizarse en cada sitio MetroCluster.
 
 
 
-== Cambiar de la configuración de MetroCluster
+== Cambie la configuración de MetroCluster
 
 Debe cambiar la configuración a site_A para que las plataformas en site_B puedan actualizarse.
 
@@ -646,7 +649,7 @@ cluster_A::> metrocluster operation show
 
 
 
-== Preparar la configuración de red de las controladoras antiguas
+== Prepare la configuración de red de las controladoras antiguas
 
 Para garantizar que la red se reanude correctamente en las nuevas controladoras, debe mover los LIF a un puerto común y, a continuación, quitar la configuración de red de las controladoras antiguas.
 
@@ -747,7 +750,7 @@ Este paso debe realizarse en ambos nodos.
 
 
 
-== Quitar las plataformas antiguas
+== Eliminar las plataformas antiguas
 
 Deben eliminarse las controladoras anteriores de la configuración.
 
@@ -763,13 +766,13 @@ Esta tarea se realiza en el sitio_B.
 
 
 
-== Configurar las nuevas controladoras
+== Configure las nuevas controladoras
 
 Debe montar en rack e instalar las controladoras, realizar la configuración necesaria en modo de mantenimiento y, a continuación, arrancar las controladoras y comprobar la configuración de LIF en las controladoras.
 
 
 
-=== Configurar las nuevas controladoras
+=== Configure las nuevas controladoras
 
 Debe montar en rack y cablear las nuevas controladoras.
 
@@ -799,7 +802,7 @@ https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de ha
 
 
 
-=== Netarrancando los nuevos controladores
+=== Arranque por red las nuevas controladoras
 
 Después de instalar los nodos nuevos, debe reiniciar el sistema para asegurarse de que los nuevos nodos estén ejecutando la misma versión de ONTAP que los nodos originales. El término arranque desde red significa que se arranca desde una imagen ONTAP almacenada en un servidor remoto. Al prepararse para reiniciar el sistema, debe colocar una copia de la imagen de arranque ONTAP 9 en un servidor web al que pueda acceder el sistema.
 
@@ -867,7 +870,7 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 
 
-=== Borrar la configuración en un módulo del controlador
+=== Borrar la configuración de un módulo de controlador
 
 Antes de utilizar un nuevo módulo de controladora en la configuración de MetroCluster, debe borrar la configuración existente.
 
@@ -906,7 +909,7 @@ Responda `yes` a la solicitud de confirmación.
 
 
 
-=== Restaurar la configuración de HBA
+=== Restaure la configuración de HBA
 
 Dependiendo de la presencia y configuración de tarjetas HBA en el módulo de controlador, debe configurarlas correctamente para el uso de su sitio.
 
@@ -988,7 +991,7 @@ FC
 
 
 
-=== Configurar el estado de alta disponibilidad en las nuevas controladoras y el chasis
+=== Establezca el estado de alta disponibilidad en las controladoras y el chasis nuevos
 
 Debe comprobar el estado de alta disponibilidad de las controladoras y el chasis y, si es necesario, actualizar el estado para que coincida con la configuración del sistema.
 
@@ -1056,7 +1059,7 @@ Reasigne los discos del agregado raíz al nuevo módulo de la controladora media
 .Acerca de esta tarea
 Esta tarea se realiza en modo de mantenimiento.
 
-Los ID antiguos del sistema se identificaron en link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["Obteniendo información antes de la actualización"].
+Los ID de sistema antiguos se identificaron en link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["Recopile información antes de la actualización"].
 
 Los ejemplos de este procedimiento utilizan controladoras con los siguientes ID de sistema:
 
@@ -1164,7 +1167,7 @@ aggr0_node_b_1-root    online      raid_dp, aggr    root, nosnap=on,
 
 
 
-=== Arrancar las nuevas controladoras
+=== Arranque las nuevas controladoras
 
 Debe reiniciar los controladores desde el menú de arranque para actualizar la imagen flash de la controladora. Se requieren pasos adicionales si está configurado el cifrado.
 
@@ -1356,7 +1359,7 @@ Si alguno de los nodos está en modo de toma de control, realice un retorno al n
 
 .. Añada cualquier puerto a un dominio de retransmisión según sea necesario.
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["Agregar o quitar puertos de un dominio de retransmisión"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["Añada o quite puertos de un dominio de retransmisión"]
 
 .. Agregue el puerto físico que alojará las LIF de interconexión de clústeres en el dominio de retransmisión correspondiente.
 .. Modifique las LIF de interconexión de clústeres para usar el puerto físico nuevo como puerto principal.
@@ -1365,17 +1368,17 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58
 Es posible que deba volver a configurar la relación de clústeres entre iguales.
 
 +
-link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#peering-the-clusters["Creación de una relación de paridad entre clústeres"]
+link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#peering-the-clusters["Cree una relación de paridad entre clústeres"]
 
 .. Vuelva a crear las VLAN y los grupos de interfaces según sea necesario.
 +
 La pertenencia a la VLAN y al grupo de interfaces puede ser diferente de la del nodo antiguo.
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["Creación de una VLAN"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["Cree una VLAN"^]
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["Combinación de puertos físicos para crear grupos de interfaces"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["Combine puertos físicos para crear grupos de interfaces"^]
 
 
 
@@ -1408,7 +1411,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
 
 
 
-=== Verificación de la configuración de LIF
+=== Compruebe la configuración de LIF
 
 Verifique que los LIF se alojan en el nodo o los puertos adecuados antes de regresar. Deben realizarse los siguientes pasos
 
@@ -1454,7 +1457,7 @@ Antes de la operación de conmutación de estado, debe instalar licencias para l
 
 
 
-== Volver a cambiar la configuración de MetroCluster
+== Vuelva a cambiar la configuración de MetroCluster
 
 Una vez configuradas las nuevas controladoras, volverá a cambiar la configuración de MetroCluster para que la configuración regrese a su funcionamiento normal.
 
@@ -1517,7 +1520,7 @@ Si una conmutación de regreso tarda mucho tiempo en terminar, puede comprobar e
 
 
 
-== Comprobar el estado de la configuración de MetroCluster
+== Compruebe el estado de la configuración de MetroCluster
 
 Después de actualizar los módulos de controladora, debe verificar el estado de la configuración de MetroCluster.
 
@@ -1559,20 +1562,20 @@ Este es el comportamiento esperado debido a que una controladora no coincide dur
 
 
 
-== Actualizar los nodos en cluster_A
+== Actualice los nodos en cluster_A
 
 Debe repetir las tareas de actualización en cluster_A.
 
 .Paso
-. Repita los pasos para actualizar los nodos en cluster_A, empezando por link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["Preparando la actualización"].
+. Repita los pasos para actualizar los nodos en cluster_A, empezando por link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["Prepare la actualización"].
 +
-Al realizar las tareas, se revierten todas las referencias de ejemplo a los clústeres y los nodos. Por ejemplo, cuando se dé el ejemplo para cambiar de cluster_A, se cambiará de cluster_B.
+Al repetir el procedimiento, se invierten todas las referencias de ejemplo a los clústeres y nodos. Por ejemplo, cuando se dé el ejemplo para cambiar de cluster_A, se cambiará de cluster_B.
 
 
 
 
 
-== Envío de un mensaje de AutoSupport personalizado tras el mantenimiento
+== Envíe un mensaje personalizado de AutoSupport tras el mantenimiento
 
 Después de completar la actualización, debe enviar un mensaje de AutoSupport que indique el fin del mantenimiento para que se pueda reanudar la creación automática de casos.
 
@@ -1590,9 +1593,9 @@ Después de completar la actualización, debe enviar un mensaje de AutoSupport q
 
 
 
-== Restaurar la supervisión de tiebreaker
+== Supervisión de tiebreaker para restaurar
 
 Si la configuración de MetroCluster se ha configurado previamente para la supervisión por parte del software Tiebreaker, puede restaurar la conexión de tiebreaker.
 
-. Utilice los pasos de http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["Adición de configuraciones de MetroCluster"^] En _MetroCluster tiebreaker instalación y configuración_.
+. Utilice los pasos en  http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["Agregue configuraciones de MetroCluster"^] en _Instalación y configuración del desempate de MetroCluster_.
 

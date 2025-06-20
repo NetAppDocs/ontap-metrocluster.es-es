@@ -11,21 +11,23 @@ summary: Después de revisar todos los requisitos y prepararse para la transici�
 
 
 [role="lead"]
-Debe mover las interfaces de clúster de la configuración de MetroCluster FC a los switches IP.
+Mueva las interfaces de clúster de configuración de MetroCluster FC a los conmutadores IP.
 
 
 
-== Mueva las conexiones del clúster en los nodos FC de MetroCluster
+== Paso 1: Mover las conexiones del clúster en los nodos FC de MetroCluster
 
-Debe mover las conexiones del clúster de los nodos FC de MetroCluster a los switches IP. Los pasos dependen de si se utilizan los switches IP existentes o si se utilizan nuevos switches IP.
+Traslade las conexiones del clúster en los nodos FC de MetroCluster a los conmutadores IP. Los pasos a seguir dependerán de si utiliza conmutadores IP existentes o nuevos.
 
-Debe realizar esta tarea en ambos sitios MetroCluster.
+.Acerca de esta tarea
+* Realiza esta tarea en ambos sitios de MetroCluster.
+
 
 
 
 === Qué conexiones mover
 
-En la siguiente tarea se asume un módulo de controladora que utiliza dos puertos para las conexiones del clúster. Algunos modelos de módulos de controladora utilizan cuatro o más puertos para la conexión del clúster. En ese caso, a efectos de este ejemplo, los puertos se dividen en dos grupos, alternando puertos entre los dos grupos
+La siguiente tarea asume que un módulo controlador utiliza dos puertos para las conexiones del clúster. Algunos modelos de módulos de controladora utilizan cuatro o más puertos para la conexión del clúster. En este ejemplo, los puertos se dividen en dos grupos, alternando los puertos entre ambos.
 
 En la siguiente tabla se muestran los puertos de ejemplo utilizados en esta tarea.
 
@@ -68,6 +70,19 @@ La siguiente tabla muestra a qué puertos del switch se conectan los nodos FC. P
 Cualquiera
  a| 
 5, 6
+ a| 
+La interfaz del clúster local en el nodo FC
+
+
+
+ a| 
+Cisco 9336C-FX2 (12 puertos)
+ a| 
+Cualquiera
+ a| 
+3, 4 o 11, 12
+
+*Nota:* Para utilizar los puertos de conmutador 11 y 12, debe seleccionar dos modos de velocidad.
  a| 
 La interfaz del clúster local en el nodo FC
 
@@ -140,10 +155,11 @@ La interfaz del clúster local en el nodo FC
 |===
 
 
-=== Mover las conexiones del clúster local cuando se utilizan nuevos switches IP
+=== Mueva las conexiones del clúster local al utilizar nuevos conmutadores IP
 
-Si utiliza switches IP nuevos, debe mover físicamente las conexiones de clúster de los nodos FC de MetroCluster existentes a los switches nuevos.
+Si está utilizando nuevos conmutadores IP, mueva físicamente las conexiones del clúster de los nodos FC de MetroCluster existentes a los nuevos conmutadores.
 
+.Pasos
 . Mueva las conexiones De Un clúster de Un grupo de nodos FC de MetroCluster a los nuevos switches IP.
 +
 Utilice los puertos descritos en <<Qué conexiones mover>>.
@@ -262,12 +278,14 @@ cluster_A::*>
 
 
 
-=== Mover las conexiones del clúster local cuando se reutilizan switches IP existentes
+=== Mover las conexiones del clúster local al reutilizar conmutadores IP existentes
 
-Si va a reutilizar conmutadores IP existentes, debe actualizar el firmware, reconfigurar los conmutadores con los archivos de configuración de referencia (RCF) correctos y mover las conexiones a los puertos correctos un conmutador cada vez.
+Si está reutilizando conmutadores IP existentes, actualice el firmware, reconfigure los conmutadores con los archivos de configuración de referencia (RCF) correctos y mueva las conexiones a los puertos correctos, un conmutador a la vez.
 
+.Acerca de esta tarea
 Esta tarea sólo es necesaria si los nodos FC están conectados a switches IP existentes y se están reutilizando los switches.
 
+.Pasos
 . Desconecte las conexiones del clúster local que se conectan a switch_A_1_IP
 +
 .. Desconecte los puertos Del grupo A del switch IP existente.
@@ -391,10 +409,11 @@ Cluster-A::*>
 
 
 
-== Verificar que las conexiones del clúster se han movido y que el clúster esté en buen estado
+== Paso 2: Verifique que las conexiones del clúster se hayan movido y que el clúster esté en buen estado
 
-Para garantizar que la conectividad sea adecuada y que la configuración esté lista para continuar con el proceso de transición, debe comprobar que las conexiones de clúster se han movido correctamente, se han reconocido los switches de clúster y que el clúster esté en buen estado.
+Para garantizar que haya una conectividad adecuada y que la configuración esté lista para continuar con el proceso de transición, verifique que las conexiones del clúster se hayan movido correctamente, que los conmutadores del clúster se hayan reconocido y que el clúster esté en buen estado.
 
+.Pasos
 . Compruebe que todos los puertos del clúster estén en funcionamiento:
 +
 `network port show -ipspace Cluster`

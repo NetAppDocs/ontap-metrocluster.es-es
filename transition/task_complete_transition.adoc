@@ -15,7 +15,7 @@ Para completar la transición, debe comprobar el funcionamiento de la nueva conf
 
 . Compruebe la configuración de IP de MetroCluster.
 +
-Debe realizar este paso en cada clúster.
+Debe realizar este paso en cada clúster en el modo de privilegio avanzado.
 
 +
 En el ejemplo siguiente se muestra el resultado de cluster_A.
@@ -25,7 +25,7 @@ En el ejemplo siguiente se muestra el resultado de cluster_A.
 cluster_A::> cluster show
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  ------------
-node_A_1-IP          true    true          true
+node_A_1-IP          true    true          false
 node_A_2-IP          true    true          false
 2 entries were displayed.
 
@@ -39,7 +39,7 @@ En el siguiente ejemplo se muestra el resultado de cluster_B.
 cluster_B::> cluster show
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  ------------
-node_B_1-IP          true    true          true
+node_B_1-IP          true    true          false
 node_B_2-IP          true    true          false
 2 entries were displayed.
 

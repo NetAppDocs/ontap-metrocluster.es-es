@@ -115,25 +115,37 @@ Siga los pasos de la sección para su proveedor de switches:
 
 
 
-== Realizar comprobaciones previas del sistema
+== Iniciar la operación de reemplazo del controlador
 
-Antes de que se inicien las comprobaciones previas, si se instala ONTAP Mediator, se detecta y elimina automáticamente. Para confirmar la eliminación, se le pedirá que introduzca un nombre de usuario y una contraseña. Cuando complete la actualización, o si fallan las comprobaciones previas o si elige no continuar con la actualización, debe hacerlo manualmentelink:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["reconfigurar ONTAP Mediator"].
+Cuando se inicia la operación de reemplazo del controlador automatizado, la operación emite una serie de comprobaciones previas y luego se pausa para que pueda recopilar manualmente la información relacionada con la configuración.
+
+.Acerca de esta tarea
+Antes de que comiencen las comprobaciones de MetroCluster, si ONTAP Mediator está instalado, se detecta y se elimina automáticamente. Para confirmar la eliminación, se le pedirá que introduzca un nombre de usuario y una contraseña. Al finalizar la actualización, si las comprobaciones previas fallan o si decide no continuar con la actualización, deberá hacerlo manualmente. link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["Vuelva a configurar el servicio ONTAP Mediator"] .
 
 En cualquier momento durante la actualización, puede ejecutar el `system controller replace show` o. `system controller replace show-details` Comando del sitio A para comprobar el estado. Si los comandos devuelven un resultado en blanco, espere unos minutos y vuelva a ejecutar el comando.
 
 .Pasos
-. Inicie el procedimiento de sustitución de controladora automatizado del sitio A para sustituir las controladoras en el sitio B:
+. Ejecute el siguiente comando desde el sitio A para reemplazar los controladores en el sitio B:
 +
 `system controller replace start -nso true`
 
 +
-La operación automatizada ejecuta las comprobaciones previas. Si no se encuentra ningún problema, la operación se coloca en pausa para recopilar manualmente la información relacionada con la configuración.
-
-+
 [NOTE]
 ====
-** Si no ejecuta el `system controller replace start -nso true` Comando, el procedimiento de actualización de controladora elige la conmutación de sitios y la conmutación de estado automatizadas basadas en NSO como el procedimiento predeterminado en los sistemas IP de MetroCluster.
-** Se muestran el sistema de origen actual y todos los sistemas de destino compatibles. Si sustituyó la controladora de origen con una controladora que tiene una versión de ONTAP diferente o una plataforma no compatible, la operación de automatización se detiene e informa de un error después de que se arrancan los nuevos nodos. Para que el clúster vuelva a estar en buen estado, debe seguir el procedimiento de recuperación manual.
+** Si no utiliza el  `-nso true` parámetro en el comando, el procedimiento de actualización del controlador elige el cambio y la conversión automáticos basados en NSO como el procedimiento predeterminado en los sistemas IP de MetroCluster.
+** Si se repite el procedimiento en un sitio, tras haber reemplazado los controladores en el otro, se produce un error debido a una discrepancia entre los nodos de cada sitio. Este es el comportamiento esperado cuando hay diferentes modelos de plataforma en ambos sitios.
++
+Si solo se devuelve el error de falta de coincidencia, puede utilizar el  `-skip-metrocluster-check true` opción con el  `system controller replace start` Comando para omitir las comprobaciones de MetroCluster.
+
+
+
+====
++
+La operación automatizada ejecuta las comprobaciones. Si no se encuentra ningún problema, la operación se coloca en pausa para recopilar manualmente la información relacionada con la configuración.
+
++
+Se muestran el sistema de origen actual y todos los sistemas de destino compatibles. Si ha reemplazado el controlador de origen por uno con una versión de ONTAP diferente o una plataforma incompatible, la operación de automatización se detiene y genera un error después del arranque de los nuevos nodos. Para restablecer el clúster a un estado correcto, siga el procedimiento de recuperación manual.
+
 +
 La `system controller replace start` el comando puede informar el siguiente error de las comprobaciones previas:
 
@@ -148,9 +160,6 @@ Node-A-1    Failed         MetroCluster check failed. Reason : MCC check showed 
 +
 Compruebe si se ha producido este error porque ha reflejado agregados o debido a otro problema de agregado. Verifique que todos los agregados reflejados estén en buen estado y no degradado o con estado de reflejo degradado. Si este error se debe únicamente a agregados no reflejados, puede seleccionar la opción para anular este error `-skip-metrocluster-check true` en la `system controller replace start` comando. Si puede accederse al almacenamiento remoto, los agregados no reflejados entran en línea tras realizar la conmutación. Si el enlace de almacenamiento remoto falla, los agregados no reflejados no pueden conectarse.
 
-
-
-====
 . Para recopilar manualmente la información de configuración, inicie sesión en el sitio B y siga los comandos enumerados en el mensaje de la consola en `system controller replace show` o. `system controller replace show-details` comando.
 
 

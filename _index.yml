@@ -1,6 +1,13 @@
 ---
 indexpage:
   title: Documentación de MetroCluster
+  summary: Las configuraciones de NetApp MetroCluster combinan clustering basado en
+    cabinas con replicación síncrona para proporcionar una disponibilidad continua,
+    duplicando de inmediato todos sus datos de misión crítica transacción por transacción.
+    Las configuraciones de MetroCluster mejoran las operaciones no disruptivas y de
+    alta disponibilidad incorporadas del hardware de NetApp y del software de almacenamiento
+    ONTAP, y ofrecen una capa adicional de protección para todo el entorno de host
+    y almacenamiento.
   keywords: metrocluster configuration, array-based, clustering, synchronous, replication,
     duplicating, mission critical data
   lead: Las configuraciones de NetApp MetroCluster combinan clustering basado en cabinas

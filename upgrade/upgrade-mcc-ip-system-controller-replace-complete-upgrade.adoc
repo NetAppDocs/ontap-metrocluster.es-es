@@ -55,6 +55,17 @@ Al repetir el procedimiento, se invierten todas las referencias de ejemplo a los
 
 
 
+== Vuelva a agregar unidades internas al nuevo controlador
+
+Si actualizó de un sistema que solo tiene unidades externas a un sistema con unidades externas e internas (discos y controladores en el mismo chasis), puede agregar o reacomodar los discos que extrajo o desacopló de las ranuras internas del nuevo sistema. Puede hacerlo en cualquier momento después de que la actualización se complete en ambos sitios y el clúster esté en buen estado.
+
+Después de volver a agregar o volver a colocar las unidades, se pueden usar en ONTAP según sea necesario.
+
+
+NOTE: Esta tarea solo se aplica a determinadas combinaciones de mejoras. Consulte link:upgrade-mcc-ip-system-controller-replace-restore-hba-set-ha.html#remove-internal-drives-from-the-chassis-on-the-new-controller["Retire las unidades internas del chasis del nuevo controlador"] si desea obtener más información.
+
+
+
 == Vuelva a configurar ONTAP Mediator
 
 Configure manualmente ONTAP Mediator que se eliminó automáticamente antes de iniciar la actualización.

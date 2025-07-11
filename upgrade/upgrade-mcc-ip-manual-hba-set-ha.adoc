@@ -162,5 +162,18 @@ El nodo debe detenerse en la `LOADER>` prompt.
 . Recopile variables de entorno: `printenv`
 
 
+
+
+== Retire las unidades internas del chasis del nuevo controlador
+
+Cuando actualiza desde un sistema que solo tiene unidades externas a un sistema que tiene unidades externas e internas (discos y controladores en el mismo chasis), debe quitar o desinstalar todas las unidades internas del nuevo sistema hasta que haya completado la actualización.
+
+
+CAUTION: Esta tarea es obligatoria para una actualización exitosa del controlador en los sistemas afectados.
+
+, debe quitar o desinstalar las unidades internas del nuevo sistema.
+
+Después de completar esta tarea, no debería haber unidades internas accesibles. Agregará las unidades al nuevo controlador más adelante en el procedimiento.
+
 .El futuro
 link:upgrade-mcc-ip-manual-apply-rcf-set-bootarg.html["Actualice los RFC del switch y defina los valores de inicio de IP de MetroCluster"].

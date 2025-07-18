@@ -14,7 +14,7 @@ summary: Opcionalmente, puede crear agregados de datos no reflejados para datos 
 Opcionalmente, puede crear agregados de datos no reflejados para datos que no requieren el mirroring redundante que proporcionan las configuraciones de MetroCluster.
 
 .Acerca de esta tarea
-* Debe conocer qué unidades o LUN de cabina se utilizarán en el nuevo agregado.
+* Verifique que sepa qué unidades se utilizarán en el nuevo agregado.
 * Si tiene varios tipos de unidades en el sistema (almacenamiento heterogéneo), debe comprender cómo verificar que se selecciona el tipo de unidad correcto.
 
 
@@ -24,7 +24,7 @@ IMPORTANT: En las configuraciones de IP de MetroCluster, no se puede acceder a l
 
 NOTE: Los agregados no reflejados deben ser locales para el nodo a los que pertenecen.
 
-* Las unidades y los LUN de cabina son propiedad de un nodo específico; cuando se crea un agregado, todas las unidades de ese agregado deben ser propiedad del mismo nodo, que se convierte en el nodo inicial para ese agregado.
+* Las unidades son propiedad de un nodo específico; cuando se crea un agregado, todas las unidades de ese agregado deben ser propiedad del mismo nodo, que se convierte en el nodo inicial para ese agregado.
 * Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster.
 * _Administración de discos y agregados_ contiene más información sobre el mirroring de agregados.
 
@@ -56,14 +56,14 @@ Puede especificar las siguientes opciones:
 
 +
 ** Nodo principal del agregado (es decir, el nodo al que pertenece el agregado en un funcionamiento normal)
-** Lista de unidades específicas o LUN de cabina que se añadirán al agregado
+** Lista de unidades específicas que se añadirán al agregado
 ** Cantidad de unidades que se incluirán
 ** Estilo de suma de comprobación que se utilizará para el agregado
 ** El tipo de unidades que se van a utilizar
 ** El tamaño de las unidades que se van a utilizar
 ** Conduzca la velocidad que se va a utilizar
 ** Tipo de RAID para grupos RAID en el agregado
-** Cantidad máxima de unidades o LUN de cabina que se pueden incluir en un grupo RAID
+** Cantidad máxima de unidades que se pueden incluir en un grupo RAID
 ** Si se permiten unidades con RPM diferentes
 +
 Para obtener más información acerca de estas opciones, consulte `storage aggregate create` página de manual.

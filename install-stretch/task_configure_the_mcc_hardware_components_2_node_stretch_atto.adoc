@@ -2,7 +2,7 @@
 permalink: install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_atto.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, cable, two, nose, bridge, attached, stretch, configuration 
-summary: Los componentes de MetroCluster deben instalarse físicamente, cablearse y configurarse en ambos sitios geográficos. Los pasos son ligeramente diferentes para un sistema con bandejas de discos nativas, en lugar de un sistema con LUN de cabina. 
+summary: Los componentes de MetroCluster deben instalarse físicamente, cablearse y configurarse en ambos sitios geográficos. 
 ---
 = Cableado de una configuración de MetroCluster elástico de dos nodos conectada a puente
 :allow-uri-read: 
@@ -11,6 +11,6 @@ summary: Los componentes de MetroCluster deben instalarse físicamente, cablears
 
 
 [role="lead"]
-Los componentes de MetroCluster deben instalarse físicamente, cablearse y configurarse en ambos sitios geográficos. Los pasos son ligeramente diferentes para un sistema con bandejas de discos nativas, en lugar de un sistema con LUN de cabina.
+Los componentes de MetroCluster deben instalarse físicamente, cablearse y configurarse en ambos sitios geográficos.
 
 image::../media/workflow_hardware_installation_and_configuration_2_node_bridge_attached.gif[flujo de trabajo instalación del hardware y configuración de puente de 2 nodos conectado]

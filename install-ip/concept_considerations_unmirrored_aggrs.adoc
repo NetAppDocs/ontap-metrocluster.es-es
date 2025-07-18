@@ -1,10 +1,10 @@
 ---
 permalink: install-ip/concept_considerations_unmirrored_aggrs.html 
 sidebar: sidebar 
-keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, mediator, tiebreaker 
 summary: Si la configuración incluye agregados no reflejados, debe tener en cuenta los posibles problemas de acceso tras las operaciones de conmutación. 
 ---
-= Uso de agregados no reflejados
+= Obtenga información sobre los agregados no reflejados en las configuraciones de IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,34 +15,41 @@ Si la configuración incluye agregados no reflejados, debe tener en cuenta los p
 
 
 
-== Consideraciones sobre los agregados no reflejados y los espacios de nombres jerárquicos
+== Agregados no reflejados y espacios de nombres jerárquicos
 
 Si utiliza espacios de nombres jerárquicos, debe configurar la ruta de unión de modo que todos los volúmenes de esa ruta estén en agregados reflejados o solo en agregados no reflejados. La configuración de una combinación de agregados no reflejados y reflejados en la ruta de unión puede impedir el acceso a los agregados no reflejados después de la operación de conmutación.
 
 
 
-== Consideraciones sobre los agregados no reflejados, el volumen de metadatos de CRS y los volúmenes raíz de la SVM de datos
+== Agregados sin espejo y mantenimiento que requiere corte de energía
 
-El volumen de metadatos del servicio de replicación de configuración (CRS) y los volúmenes raíz de la SVM de datos deben estar en un agregado reflejado. No se pueden mover estos volúmenes a un agregado no reflejado. Si se encuentran en agregados sin mirroring, las operaciones de conmutación de sitios y conmutación de estado negociadas son vetadas. El comando MetroCluster check proporciona una advertencia si este es el caso.
+Si realiza una conmutación negociada para mantenimiento que requiere un apagado de energía en todo el sitio, primero debe desconectar manualmente todos los agregados no reflejados que sean propiedad del sitio del desastre.
 
-
-
-== Consideraciones sobre agregados y SVM no reflejados
-
-Las instancias de SVM solo deben configurarse en agregados reflejados o solo en agregados no reflejados. La configuración de una combinación de agregados no reflejados y sin mirroring puede provocar una operación de conmutación por cierre que supere los 120 segundos y provocar una interrupción de los datos si los agregados no reflejados no se encuentran en línea.
+Si no se desconectan los agregados no replicados del sitio del desastre, los nodos del sitio superviviente podrían dejar de funcionar debido a pánicos de múltiples discos. Esto puede ocurrir si los agregados no replicados conmutados se desconectan o se pierden debido a la pérdida de conectividad con el almacenamiento del sitio del desastre si se produce un corte de energía o una pérdida de ISL.
 
 
 
-== Consideraciones sobre agregados y SAN no reflejados
+== Agregados no reflejados, volúmenes de metadatos CRS y volúmenes raíz de SVM de datos
 
-Antes de ONTAP 9.9.1, no se debe ubicar un LUN en un agregado no reflejado. Configurar un LUN en un agregado no reflejado puede provocar una operación de conmutación por encima de 120 segundos y una interrupción del servicio de los datos.
-
-
-
-== Consideraciones sobre la adición de bandejas de almacenamiento para agregados no reflejados
+El volumen de metadatos del servicio de replicación de configuración (CRS) y los volúmenes raíz de la SVM de datos deben estar en un agregado reflejado. No se pueden mover estos volúmenes a un agregado no reflejado. Si se encuentran en un agregado no reflejado, las operaciones de cambio y retroceso negociadas se vetan y  `metrocluster check` El comando devuelve una advertencia.
 
 
-NOTE: Si va a añadir bandejas que se utilizarán para agregados no reflejados en una configuración IP de MetroCluster, debe hacer lo siguiente:
+
+== Agregados no reflejados y SVM
+
+Debe configurar las SVM solo en agregados reflejados o no reflejados. Configurar las SVM en una combinación de agregados reflejados y no reflejados puede resultar en una operación de conmutación que supere los 120 segundos. Esto puede provocar una interrupción de los datos si los agregados no reflejados no se conectan.
+
+
+
+== Agregados no reflejados y SAN
+
+Antes de ONTAP 9.9.1, un LUN no debía ubicarse en un agregado no reflejado. Configurar un LUN en un agregado no reflejado puede provocar una operación de conmutación por encima de 120 segundos y una interrupción del servicio de los datos.
+
+
+
+== Agregue estantes de almacenamiento para agregados sin espejo
+
+Si agrega estantes y desea usarlos para agregados no reflejados en una configuración de IP de MetroCluster , debe hacer lo siguiente:
 
 . Antes de iniciar el procedimiento para añadir las bandejas, emita el siguiente comando:
 +

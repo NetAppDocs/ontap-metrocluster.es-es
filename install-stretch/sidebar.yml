@@ -72,20 +72,7 @@ entries:
   url: "/install-stretch/concept_considerations_for_using_virtual_ip_and_border_gateway_protocol_with_a_mcc_configuration.html"
 - title: Pruebe la configuración de MetroCluster
   url: "/install-stretch/task_test_the_mcc_configuration.html"
-- title: Conexiones en configuraciones de MetroCluster con ampliación con LUN de cabina
-  entries:
-  - title: Descripción general
-    url: "/install-stretch/concept_stretch_mcc_configuration_with_array_luns.html"
-  - title: Ejemplo de una configuración de MetroCluster con ampliación con LUN de
-      cabina
-    url: "/install-stretch/reference_example_of_a_stretch_mcc_configuration_with_array_luns.html"
-  - title: Ejemplos de configuraciones MetroCluster con ampliación de dos nodos con
-      discos y LUN de cabina
-    url: "/install-stretch/reference_examples_of_two_node_stretch_mcc_configurations_with_disks_and_array_luns.html"
-  - title: Ejemplo de una configuración MetroCluster con ampliación con cabinas de
-      almacenamiento E-Series
-    url: "/install-stretch/reference_example_of_a_stretch_mcc_configuration_with_e_series_storage_arrays.html"
-- title: Consideraciones que tener en cuenta al eliminar las configuraciones de MetroCluster
+- title: Eliminar configuraciones de MetroCluster
   url: "/install-stretch/concept_considerations_when_removing_mcc_configurations.html"
 - title: Cómo utilizar Active IQ Unified Manager y System Manager de ONTAP para llevar
     a cabo tareas de configuración y supervisión

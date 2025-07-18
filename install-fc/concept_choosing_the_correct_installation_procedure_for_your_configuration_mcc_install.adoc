@@ -1,43 +1,8 @@
 ---
 permalink: install-fc/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html 
-sidebar: sidebar 
-keywords: metrocluster, fabric, installation, correct, procedure, configuration 
-summary: Debe elegir el procedimiento de instalación correcto en función de si utiliza LUN de FlexArray, el número de nodos en la configuración de MetroCluster y si va a compartir una estructura de switch de FC existente que utilice un MetroCluster de estructura 7-Mode. 
+redirect: ontap-metrocluster/index.html 
 ---
-= Elección del procedimiento de instalación correcto para su configuración
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Debe elegir el procedimiento de instalación correcto en función de si utiliza LUN de FlexArray, el número de nodos en la configuración de MetroCluster y si va a compartir una estructura de switch de FC existente que utilice un MetroCluster de estructura 7-Mode.
-
-image::../media/workflow_select_your_metrocluster_configuration_fabric.gif[flujo de trabajo, seleccione su estructura de configuración de MetroCluster]
-
-|===
-
-
-| Para este tipo de instalación... | Utilice estos procedimientos... 
-
-
- a| 
-Configuración conectada a la estructura con discos NetApp (nativos)
- a| 
-. link:task_configure_the_mcc_hardware_components_fabric.html["Cableado de una configuración MetroCluster estructural"]
-. link:concept_configure_the_mcc_software_in_ontap.html["Configuración del software MetroCluster en ONTAP"]
-
-
-
-
- a| 
-Configuración estructural cuando se comparte con una estructura de switches FC existente
-
-Solo es compatible como configuración temporal con una configuración MetroCluster de estructura 7-Mode mediante switches Brocade 6510.
- a| 
-. link:task_configure_the_mcc_hardware_components_fabric.html["Cableado de una configuración MetroCluster estructural"]
-. link:task_fmc_mcc_transition_configure_the_mcc_hardware_for_share_a_7_mode_brocade_6510_fc_fabric_dure_transition.html["Configuración del hardware de MetroCluster para compartir una estructura 7-Mode Brocade 6510 FC durante la transición"]
-. link:concept_configure_the_mcc_software_in_ontap.html["Configuración del software MetroCluster en ONTAP"]
-
-
-|===

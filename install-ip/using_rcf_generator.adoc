@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cabling, cable, component, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure, rcf, file, generator, RcfFileGenerator 
 summary: Debe comprender cómo utilizar la información de las tablas de puertos para generar correctamente los archivos RCF. 
 ---
-= Utilizar las tablas de puertos con la herramienta RcfFileGenerator o varias configuraciones de MetroCluster
+= Cómo utilizar las tablas de puertos con múltiples configuraciones de IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

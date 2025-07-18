@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ip, switch, configuring 
 summary: Debe configurar los switches IP para proporcionar conectividad IP de MetroCluster back-end. 
 ---
-= Configurar los switches
+= Elija el procedimiento correcto de configuración del conmutador IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Debe configurar los switches IP para proporcionar conectividad IP de MetroCluster back-end.
+Debe configurar los switches IP para proporcionar conectividad IP MetroCluster back-end. El procedimiento a seguir dependerá del proveedor de su conmutador.
 
 * link:../install-ip/task_switch_config_broadcom.html["Configure los switches IP de Broadcom"]
 * link:../install-ip/task_switch_config_cisco.html["Configure los switches IP de Cisco"]

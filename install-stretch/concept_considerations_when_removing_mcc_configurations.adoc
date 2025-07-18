@@ -4,14 +4,16 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, considerations, remove, configurations 
 summary: 'Puede quitar la configuración MetroCluster de todos los nodos de un grupo de recuperación ante desastres \(DR\). Tras eliminar la configuración de MetroCluster, todas las interconexiones y la conectividad de disco deben ajustarse para que estén en estado admitido. Si necesita quitar la configuración de MetroCluster, póngase en contacto con el soporte técnico.' 
 ---
-= Consideraciones que tener en cuenta al eliminar las configuraciones de MetroCluster
+= Eliminar configuraciones de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puede quitar la configuración de MetroCluster de todos los nodos de un grupo de recuperación ante desastres (DR). Tras eliminar la configuración de MetroCluster, todas las interconexiones y la conectividad de disco deben ajustarse para que estén en estado admitido. Si necesita quitar la configuración de MetroCluster, póngase en contacto con el soporte técnico.
+Si necesita quitar la configuración de MetroCluster, póngase en contacto con el soporte técnico.
+
+Comuníquese con el soporte técnico de NetApp y consulte la guía adecuada para su configuración en link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_nodes_from_a_MetroCluster_configuration_-_Resolution_Guide["Cómo quitar nodos de una configuración de MetroCluster: Guía de resolución."^]
 
 
-IMPORTANT: No puede revertir la desconfiguración de MetroCluster. Este proceso solo debe realizarse con la ayuda del soporte técnico. Póngase en contacto con el soporte técnico de NetApp y consulte la guía adecuada para su configuración en link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_nodes_from_a_MetroCluster_configuration_-_Resolution_Guide["Cómo quitar nodos de una configuración de MetroCluster: Guía de resolución."^]
+CAUTION: No puede revertir la desconfiguración de MetroCluster. Este proceso solo debe realizarse con la ayuda del soporte técnico. Tras eliminar la configuración de MetroCluster, todas las interconexiones y la conectividad de disco deben ajustarse para que estén en estado admitido.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, configuration, ontap, node-level, configuration, node, site, relationship, configuring, configure, 
 summary: Debe configurar cada nodo en la configuración de MetroCluster en ONTAP, incluidas las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. También debe implementar la relación de MetroCluster entre los dos sitios. 
 ---
-= Configuración del software MetroCluster en ONTAP
+= Configure el software MetroCluster en ONTAP
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -16,3 +16,9 @@ Debe configurar cada nodo en la configuración de MetroCluster en ONTAP, incluid
 Si un módulo del controlador falla durante la configuración, consulte link:../disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html#controller-module-failure-scenarios-during-metrocluster-installation["Escenarios de fallos del módulo de la controladora durante la instalación de MetroCluster"].
 
 image::../media/workflow_mcc_ip_high_level_node_and_cluster_configuration_software.svg[workflow mcc ip de alto nivel de nodo y software de configuración de clúster]
+
+
+
+== Configurar las configuraciones de IP de MetroCluster de ocho nodos
+
+Una configuración MetroCluster de ocho nodos consta de dos grupos de recuperación ante desastres. Para configurar el primer grupo de recuperación ante desastres, complete las tareas de esta sección. Después de configurar el primer grupo de recuperación ante desastres, puede seguir los pasos para link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["ampliar una configuración IP de MetroCluster de cuatro nodos a una configuración de ocho nodos"] .

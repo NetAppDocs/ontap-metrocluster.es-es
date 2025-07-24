@@ -1,0 +1,868 @@
+---
+permalink: install-fc/cisco-fc-port-config-controllers.html 
+sidebar: sidebar 
+keywords: ONTAP, FC, Cisco, metrocluster, switch, cabling, controllers, port, 
+summary: Aprenda a cablear los conmutadores FC Cisco 9124V, 9148S, 9148V, 9250i y 9396S a sus controladores. 
+---
+= Uso del puerto Cisco para controladores en una configuración FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga información sobre las asignaciones de puertos necesarias para cablear los conmutadores FC Cisco 9124V, 9148S, 9148V, 9250i y 9396S a sus controladores.
+
+En las tablas se muestran las configuraciones máximas admitidas, con ocho módulos de controladora en dos grupos de recuperación ante desastres. Para configuraciones más pequeñas, ignore las filas para los módulos de controladora adicionales.
+
+[NOTE]
+====
+* Para Cisco 9132T, consulte link:cisco-9132t-fc-port-config-controllers.html["Uso del puerto Cisco 9132T para controladores en una configuración MetroCluster FC"] .
+* Los conmutadores Cisco 9124V y 9250i no son compatibles con configuraciones MetroCluster de ocho nodos.
+
+
+====
+
+
+== MetroCluster 1 o el grupo de recuperación ante desastres 1
+
+La siguiente tabla muestra las configuraciones de controlador admitidas en MetroCluster 1 o grupo DR 1 en conmutadores Cisco (excluido 9132T).
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 9124V* | *Puerto 9148S* | *Puerto 9148V* | *Puerto 9250i* | *Puerto 9396S* 
+
+
+ a| 
+controller_x_1
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+3
+ a| 
+n / A
+ a| 
+3
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+3
+ a| 
+n / A
+ a| 
+3
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+4
+ a| 
+n / A
+ a| 
+4
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+4
+ a| 
+n / A
+ a| 
+4
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+13
+ a| 
+3
+ a| 
+13
+ a| 
+3
+ a| 
+3
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+13
+ a| 
+3
+ a| 
+13
+ a| 
+3
+ a| 
+3
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+14
+ a| 
+4
+ a| 
+14
+ a| 
+4
+ a| 
+4
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+14
+ a| 
+4
+ a| 
+14
+ a| 
+4
+ a| 
+4
+
+
+
+ a| 
+controller_x_2
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+7
+ a| 
+n / A
+ a| 
+7
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+7
+ a| 
+n / A
+ a| 
+7
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+8
+ a| 
+n / A
+ a| 
+8
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+8
+ a| 
+n / A
+ a| 
+8
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+15
+ a| 
+7
+ a| 
+15
+ a| 
+7
+ a| 
+7
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+15
+ a| 
+7
+ a| 
+15
+ a| 
+7
+ a| 
+7
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+16
+ a| 
+8
+ a| 
+16
+ a| 
+8
+ a| 
+8
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+16
+ a| 
+8
+ a| 
+16
+ a| 
+8
+ a| 
+8
+
+|===
+
+
+== MetroCluster 2 o el grupo de recuperación ante desastres 2
+
+La siguiente tabla muestra las configuraciones de controlador admitidas en MetroCluster 2 o el grupo DR 2 en los conmutadores Cisco (excluido el 9132T).
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 9124V* | *Puerto 9148S* | *Puerto 9148V* | *Puerto 9250i* | *Puerto 9396S* 
+
+
+ a| 
+controller_x_3
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+n / A
+ a| 
+25
+ a| 
+25
+ a| 
+n / A
+ a| 
+49
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+n / A
+ a| 
+25
+ a| 
+25
+ a| 
+n / A
+ a| 
+49
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+n / A
+ a| 
+26
+ a| 
+26
+ a| 
+n / A
+ a| 
+50
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+n / A
+ a| 
+26
+ a| 
+26
+ a| 
+n / A
+ a| 
+50
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+27
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+27
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+28
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+28
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+n / A
+ a| 
+27
+ a| 
+37
+ a| 
+n / A
+ a| 
+51
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+n / A
+ a| 
+27
+ a| 
+37
+ a| 
+n / A
+ a| 
+51
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+n / A
+ a| 
+28
+ a| 
+38
+ a| 
+n / A
+ a| 
+52
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+n / A
+ a| 
+28
+ a| 
+38
+ a| 
+n / A
+ a| 
+52
+
+
+
+ a| 
+controller_x_4
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+n / A
+ a| 
+29
+ a| 
+29
+ a| 
+n / A
+ a| 
+53
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+n / A
+ a| 
+29
+ a| 
+29
+ a| 
+n / A
+ a| 
+53
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+n / A
+ a| 
+30
+ a| 
+30
+ a| 
+n / A
+ a| 
+54
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+n / A
+ a| 
+30
+ a| 
+30
+ a| 
+n / A
+ a| 
+54
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+31
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+31
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+32
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+32
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+n / A
+ a| 
+31
+ a| 
+39
+ a| 
+n / A
+ a| 
+55
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+n / A
+ a| 
+31
+ a| 
+39
+ a| 
+n / A
+ a| 
+55
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+n / A
+ a| 
+32
+ a| 
+40
+ a| 
+n / A
+ a| 
+56
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+1
+ a| 
+n / A
+ a| 
+32
+ a| 
+40
+ a| 
+n / A
+ a| 
+56
+
+|===

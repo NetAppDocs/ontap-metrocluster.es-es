@@ -1,0 +1,276 @@
+---
+permalink: install-fc/cisco-9132t-fc-port-config-bridges.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Cisco, metrocluster 
+summary: Obtenga información sobre las asignaciones de puertos necesarias para conectar conmutadores FC Cisco 9132T a puentes FC a SAS mediante ambos puertos FC. 
+---
+= Uso del puerto Cisco 9132T para puentes FC a SAS en una configuración FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga información sobre las asignaciones de puertos necesarias para conectar conmutadores FC Cisco 9132T a puentes FC a SAS mediante ambos puertos FC.
+
+
+NOTE: Solo se admite una (1) pila de puente utilizando conmutadores Cisco 9132T con módulo 1xLEM.
+
+
+
+== MetroCluster 1 o el grupo de recuperación ante desastres 1
+
+La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 1 o grupo de recuperación ante desastres 1 para puentes FibreBridge 7500N o 7600N que utilizan ambos puertos FC (FC1 y FC2) en switches Cisco 9132T. Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En configuraciones de cuatro nodos, puede conectar puentes adicionales a los puertos LEM2-1 a LEM2-8 en los conmutadores Cisco 9132T con 2xLEM.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta a FC_switch...* | *9132T 1x LEM (cuatro nodos)* | *9132T 2x LEM (cuatro nodos)* | *9132T 2x LEM (ocho nodos)* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1
+ a| 
+LEM1-13
+ a| 
+LEM1-13
+ a| 
+LEM1-9
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+LEM1-13
+ a| 
+LEM1-13
+ a| 
+LEM1-9
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1
+ a| 
+LEM1-14
+ a| 
+LEM1-14
+ a| 
+LEM1-10
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+LEM1-14
+ a| 
+LEM1-14
+ a| 
+LEM1-10
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+LEM1-15
+ a| 
+LEM1-11
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+LEM1-15
+ a| 
+LEM1-11
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+LEM1-16
+ a| 
+LEM1-12
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+LEM1-16
+ a| 
+LEM1-12
+
+|===
+
+
+== MetroCluster 2 o el grupo de recuperación ante desastres 2
+
+La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 2 o el grupo 2 de recuperación ante desastres para puentes FibreBridge 7500N o 7600N que utilizan ambos puertos FC (FC1 y FC2) en switches Cisco 9132T. Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En configuraciones de ocho nodos, puede conectar puentes adicionales a los puertos LEM2-13 a LEM2-16 en los conmutadores Cisco 9132T con 2 LEM.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta a FC_switch...* | *9132T 1x LEM (cuatro nodos)* | *9132T 2x LEM (cuatro nodos)* | *9132T 2x LEM (ocho nodos)* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM1-9
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM1-9
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM1-10
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM1-10
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM1-11
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM1-11
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM1-12
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM1-12
+
+|===

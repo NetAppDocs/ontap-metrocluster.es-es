@@ -1,0 +1,1258 @@
+---
+permalink: install-fc/cisco-fc-port-config-bridges.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Cisco, metrocluster 
+summary: Obtenga información sobre las asignaciones de puertos necesarias para cablear los conmutadores FC Cisco 9124V, 9148S, 9148V, 9250i y 9396S a puentes FC a SAS. 
+---
+= Uso del puerto Cisco para puentes FC a SAS en una configuración FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conozca las asignaciones de puertos necesarias para conectar switches FC Cisco 9124V, 9148S, 9148V, 9250i y 9396S a puentes FC a SAS. Las asignaciones de puertos varían según si los puentes utilizan uno o dos puertos FC.
+
+
+NOTE: Para Cisco 9132T, consulte link:cisco-9132t-fc-port-config-bridges.html["Uso del puerto Cisco 9132t para puentes FC a SAS en una configuración FC de MetroCluster"] .
+
+
+
+== Configuraciones de bandeja que utilizan FibreBridge 7500N o 7600N con ambos puertos FC (FC1 y FC2)
+
+
+
+=== MetroCluster 1 o el grupo de recuperación ante desastres 1
+
+La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 1 o el grupo 1 de recuperación ante desastres mediante puentes FibreBridge 7500N o 7600N y ambos puertos FC (FC1 y FC2) en switches Cisco (excepto el 9132T). Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Cisco 9124V y 9148V, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 21 a 24.
+* En los conmutadores Cisco 9250i, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 17 a 40.
+* En los conmutadores Cisco 9396S, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 17 a 32.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 9124V* | *Puerto 9148S* | *Puerto 9148V* | *Puerto 9250i* | *Puerto 9396S* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1
+ a| 
+13
+ a| 
+9
+ a| 
+13
+ a| 
+9
+ a| 
+9
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+13
+ a| 
+9
+ a| 
+13
+ a| 
+9
+ a| 
+9
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1
+ a| 
+14
+ a| 
+10
+ a| 
+14
+ a| 
+10
+ a| 
+10
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+14
+ a| 
+10
+ a| 
+14
+ a| 
+10
+ a| 
+10
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1
+ a| 
+15
+ a| 
+11
+ a| 
+15
+ a| 
+11
+ a| 
+11
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+15
+ a| 
+11
+ a| 
+15
+ a| 
+11
+ a| 
+11
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1
+ a| 
+16
+ a| 
+12
+ a| 
+16
+ a| 
+12
+ a| 
+12
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+16
+ a| 
+12
+ a| 
+16
+ a| 
+12
+ a| 
+12
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+1
+ a| 
+17
+ a| 
+13
+ a| 
+17
+ a| 
+13
+ a| 
+13
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+17
+ a| 
+13
+ a| 
+17
+ a| 
+13
+ a| 
+13
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+1
+ a| 
+18
+ a| 
+14
+ a| 
+18
+ a| 
+14
+ a| 
+14
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+18
+ a| 
+14
+ a| 
+18
+ a| 
+14
+ a| 
+14
+
+
+
+ a| 
+Pila 4
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+1
+ a| 
+19
+ a| 
+15
+ a| 
+19
+ a| 
+15
+ a| 
+15
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+19
+ a| 
+15
+ a| 
+19
+ a| 
+15
+ a| 
+15
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+1
+ a| 
+20
+ a| 
+16
+ a| 
+20
+ a| 
+16
+ a| 
+16
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+20
+ a| 
+16
+ a| 
+20
+ a| 
+16
+ a| 
+16
+
+|===
+
+
+=== MetroCluster 2 o el grupo de recuperación ante desastres 2
+
+La siguiente tabla muestra las configuraciones de estantería compatibles en MetroCluster 2 o el grupo 2 de recuperación ante desastres con FibreBridge 7500N o 7600N y ambos puertos FC (FC1 y FC2) en switches Cisco (excepto el 9132T). Tenga en cuenta lo siguiente al utilizar las tablas de cableado:
+
+* Los conmutadores Cisco 9124V y 9250i no son compatibles con configuraciones MetroCluster de ocho nodos
+* En los conmutadores Cisco 9148V, puede conectar puentes MetroCluster 2 (grupo DR 2) adicionales a los puertos 45 a 48.
+* En los conmutadores Cisco 9396S, puede conectar puentes MetroCluster 2 (grupo DR 2) adicionales a los puertos 65 a 80.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 9124V* | *Puerto 9148S* | *Puerto 9148V* | *Puerto 9250i* | *Puerto 9396S* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+33
+ a| 
+37
+ a| 
+n / A
+ a| 
+57
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+33
+ a| 
+37
+ a| 
+n / A
+ a| 
+57
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+34
+ a| 
+38
+ a| 
+n / A
+ a| 
+58
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+34
+ a| 
+38
+ a| 
+n / A
+ a| 
+58
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+35
+ a| 
+39
+ a| 
+n / A
+ a| 
+59
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+35
+ a| 
+39
+ a| 
+n / A
+ a| 
+59
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+36
+ a| 
+40
+ a| 
+n / A
+ a| 
+60
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+36
+ a| 
+40
+ a| 
+n / A
+ a| 
+60
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+37
+ a| 
+41
+ a| 
+n / A
+ a| 
+61
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+37
+ a| 
+41
+ a| 
+n / A
+ a| 
+61
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+38
+ a| 
+42
+ a| 
+n / A
+ a| 
+62
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+38
+ a| 
+42
+ a| 
+n / A
+ a| 
+62
+
+
+
+ a| 
+Pila 4
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+39
+ a| 
+43
+ a| 
+n / A
+ a| 
+63
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+39
+ a| 
+43
+ a| 
+n / A
+ a| 
+63
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+40
+ a| 
+44
+ a| 
+n / A
+ a| 
+64
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+40
+ a| 
+44
+ a| 
+n / A
+ a| 
+64
+
+|===
+
+
+== Configuraciones de bandeja que utilizan FibreBridge 7500N o 7600N con solo un puerto FC (FC1 Gb o FC2 Gb)
+
+
+
+=== MetroCluster 1 o el grupo de recuperación ante desastres 1
+
+La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 1 o el grupo de recuperación ante desastres 1 para puentes FibreBridge 7500N o 7600N que utilizan un puerto FC (FC1 o FC2) en switches Cisco (excepto el 9132T). El archivo de configuración de referencia (RCF) no admite un puerto FC en puentes FibreBridge, por lo que debe configurar manualmente los switches de canal de fibra de back-end.
+
+link:../install-fc/task_fcsw_cisco_configure_a_cisco_switch_supertask.html["Configure los switches Cisco FC manualmente"]
+
+Debe tener en cuenta lo siguiente al utilizar las tablas de cableado:
+
+* En los conmutadores Cisco 9124V y 9148V, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 21 a 24.
+* En los conmutadores Cisco 9250i, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 17 a 40.
+* En los conmutadores Cisco 9396S, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 17 a 32.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 9124V* | *Puerto 9148S* | *Puerto 9148V* | *Puerto 9250i* | *Puerto 9396S* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+1
+ a| 
+13
+ a| 
+9
+ a| 
+13
+ a| 
+9
+ a| 
+9
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+2
+ a| 
+13
+ a| 
+9
+ a| 
+13
+ a| 
+9
+ a| 
+9
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+1
+ a| 
+14
+ a| 
+10
+ a| 
+14
+ a| 
+10
+ a| 
+10
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+2
+ a| 
+14
+ a| 
+10
+ a| 
+14
+ a| 
+10
+ a| 
+10
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+1
+ a| 
+15
+ a| 
+11
+ a| 
+15
+ a| 
+11
+ a| 
+11
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+2
+ a| 
+15
+ a| 
+11
+ a| 
+15
+ a| 
+11
+ a| 
+11
+
+
+
+ a| 
+Pila 4
+ a| 
+bridge_x_4a
+ a| 
+1
+ a| 
+16
+ a| 
+12
+ a| 
+16
+ a| 
+12
+ a| 
+12
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+2
+ a| 
+16
+ a| 
+12
+ a| 
+16
+ a| 
+12
+ a| 
+12
+
+
+
+ a| 
+Pila 5
+ a| 
+bridge_x_5a
+ a| 
+1
+ a| 
+17
+ a| 
+13
+ a| 
+17
+ a| 
+13
+ a| 
+13
+
+
+
+ a| 
+bridge_x_5b
+ a| 
+2
+ a| 
+17
+ a| 
+13
+ a| 
+17
+ a| 
+13
+ a| 
+13
+
+
+
+ a| 
+Pila 6
+ a| 
+bridge_x_6a
+ a| 
+1
+ a| 
+18
+ a| 
+14
+ a| 
+18
+ a| 
+14
+ a| 
+14
+
+
+
+ a| 
+bridge_x_6b
+ a| 
+2
+ a| 
+18
+ a| 
+14
+ a| 
+18
+ a| 
+14
+ a| 
+14
+
+
+
+ a| 
+Pila 7
+ a| 
+bridge_x_7a
+ a| 
+1
+ a| 
+19
+ a| 
+15
+ a| 
+19
+ a| 
+15
+ a| 
+15
+
+
+
+ a| 
+bridge_x_7b
+ a| 
+2
+ a| 
+19
+ a| 
+15
+ a| 
+19
+ a| 
+15
+ a| 
+15
+
+
+
+ a| 
+Pila 8
+ a| 
+bridge_x_8a
+ a| 
+1
+ a| 
+20
+ a| 
+16
+ a| 
+20
+ a| 
+16
+ a| 
+16
+
+
+
+ a| 
+bridge_x_8b
+ a| 
+2
+ a| 
+20
+ a| 
+16
+ a| 
+20
+ a| 
+16
+ a| 
+16
+
+|===
+
+
+=== MetroCluster 2 o el grupo de recuperación ante desastres 2
+
+La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 2 o el grupo 2 de recuperación ante desastres para puentes FibreBridge 7500N o 7600N que utilizan un puerto FC (FC1 o FC2) en switches Cisco (excepto 9132T). Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* Los conmutadores Cisco 9124V y 9250i no son compatibles con configuraciones MetroCluster de ocho nodos.
+* En los conmutadores Cisco 9148V, puede conectar puentes adicionales del grupo MetroCluster 2 o DR 2 a los puertos 45 a 48.
+* En los conmutadores Cisco 9396S, puede conectar puentes adicionales del grupo MetroCluster 2 o DR 2 a los puertos 65 a 80.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 9124V* | *Puerto 9148S* | *Puerto 9148V* | *Puerto 9250i* | *Puerto 9396S* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+1
+ a| 
+n / A
+ a| 
+33
+ a| 
+37
+ a| 
+n / A
+ a| 
+57
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+2
+ a| 
+n / A
+ a| 
+33
+ a| 
+37
+ a| 
+n / A
+ a| 
+57
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+1
+ a| 
+n / A
+ a| 
+34
+ a| 
+38
+ a| 
+n / A
+ a| 
+58
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+2
+ a| 
+n / A
+ a| 
+34
+ a| 
+38
+ a| 
+n / A
+ a| 
+58
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+1
+ a| 
+n / A
+ a| 
+35
+ a| 
+39
+ a| 
+n / A
+ a| 
+59
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+2
+ a| 
+n / A
+ a| 
+35
+ a| 
+39
+ a| 
+n / A
+ a| 
+59
+
+
+
+ a| 
+Pila 4
+ a| 
+bridge_x_4a
+ a| 
+1
+ a| 
+n / A
+ a| 
+36
+ a| 
+40
+ a| 
+n / A
+ a| 
+60
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+2
+ a| 
+n / A
+ a| 
+36
+ a| 
+40
+ a| 
+n / A
+ a| 
+60
+
+
+
+ a| 
+Pila 5
+ a| 
+bridge_x_5a
+ a| 
+1
+ a| 
+n / A
+ a| 
+37
+ a| 
+41
+ a| 
+n / A
+ a| 
+61
+
+
+
+ a| 
+bridge_x_5b
+ a| 
+2
+ a| 
+n / A
+ a| 
+37
+ a| 
+41
+ a| 
+n / A
+ a| 
+61
+
+
+
+ a| 
+Pila 6
+ a| 
+bridge_x_6a
+ a| 
+1
+ a| 
+n / A
+ a| 
+38
+ a| 
+42
+ a| 
+n / A
+ a| 
+62
+
+
+
+ a| 
+bridge_x_6b
+ a| 
+2
+ a| 
+n / A
+ a| 
+38
+ a| 
+42
+ a| 
+n / A
+ a| 
+62
+
+
+
+ a| 
+Pila 7
+ a| 
+bridge_x_7a
+ a| 
+1
+ a| 
+n / A
+ a| 
+39
+ a| 
+43
+ a| 
+n / A
+ a| 
+63
+
+
+
+ a| 
+bridge_x_7b
+ a| 
+2
+ a| 
+n / A
+ a| 
+39
+ a| 
+43
+ a| 
+n / A
+ a| 
+63
+
+
+
+ a| 
+Pila 8
+ a| 
+bridge_x_8a
+ a| 
+1
+ a| 
+n / A
+ a| 
+40
+ a| 
+44
+ a| 
+n / A
+ a| 
+64
+
+
+
+ a| 
+bridge_x_8b
+ a| 
+2
+ a| 
+n / A
+ a| 
+40
+ a| 
+44
+ a| 
+n / A
+ a| 
+64
+
+|===

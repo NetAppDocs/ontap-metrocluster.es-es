@@ -1,0 +1,62 @@
+---
+permalink: install-fc/fc-switch-port-assignment-overview.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Brocade, ISL, Cisco, metrocluster, switch, cabling, port, assignment 
+summary: Debe verificar que esté utilizando las asignaciones de puerto especificadas al cablear los conmutadores FC. 
+---
+= Asignaciones de puertos para conmutadores FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe verificar que esté utilizando las asignaciones de puerto especificadas al cablear los conmutadores FC.
+
+Puede reconfigurar los puertos que no se utilizan para conectar puertos de iniciadores, puertos FC-VI o ISL para que funcionen como puertos de almacenamiento. Sin embargo, si utiliza los RCF compatibles, debe modificar la zonificación según corresponda.
+
+Si utiliza los RCF compatibles, es posible que los puertos ISL no se conecten a los mismos puertos que se muestran y sea necesario reconfigurarlos manualmente.
+
+Si configuró sus switches con las asignaciones de puertos de ONTAP 9, puede seguir usando las asignaciones anteriores. Sin embargo, las nuevas configuraciones con ONTAP 9.1 o posterior deben usar las asignaciones de puertos que se muestran aquí.
+
+
+
+== Directrices generales para el cableado
+
+Debe tener en cuenta las siguientes directrices al utilizar las tablas de cableado:
+
+* Los switches de Brocade y Cisco utilizan distintos números de puertos:
++
+** En los switches Brocade, el primer puerto está numerado como 0.
+** En los switches Cisco, el primer puerto está numerado como 1.
+
+
+* El cableado es el mismo para cada switch de FC en la estructura de switches.
+* Puede solicitar sistemas de almacenamiento de AFF A300 y FAS8200 con una de las dos opciones de conectividad FC-VI:
++
+** Los puertos internos 0e y 0f configurados en modo FC-VI.
+** Puertos 1a y 1b en una tarjeta FC-VI en la ranura 1.
+
+
+* Los sistemas de almacenamiento A700 y FAS9000 de AFF requieren cuatro puertos FC-VI. En las siguientes tablas se muestra el cableado de los switches FC con cuatro puertos FC-VI en cada controladora, excepto en el switch Cisco 9250i.
++
+Para otros sistemas de almacenamiento, utilice el cableado que se muestra en las tablas pero ignore el cableado para los puertos c y d. de FC-VI
+
++
+Puede dejar esos puertos vacíos.
+
+* Los sistemas de almacenamiento AFF A400 y FAS8300 utilizan los puertos 2a y 2b para la conectividad FC-VI.
+* Si tiene dos configuraciones de MetroCluster que comparten ISL, utilice las mismas asignaciones de puertos que para un cableado MetroCluster de ocho nodos.
+* La cantidad de ISL que conecte puede variar según los requisitos del sitio.
+* Consulte la sección sobre consideraciones sobre ISL.
++
+link:concept_considerations_isls_mcfc.html["Consideraciones sobre ISL"]
+
+
+
+
+
+== Pautas de cableado de AFF A900 y FAS9500
+
+* Los sistemas de almacenamiento AFF A900 o FAS9500 requieren ocho puertos FC-VI. Si está utilizando un AFF A900 o FAS9500, debe utilizar la configuración de ocho puertos. Si la configuración incluye los otros modelos de sistema de almacenamiento, utilice el cableado que se muestra en las tablas pero ignore el cableado para los puertos FC-VI innecesarios.
+

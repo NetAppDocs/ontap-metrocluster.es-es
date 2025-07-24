@@ -64,7 +64,7 @@ FC_switch_A_1:admin> switchCfgPersistentDisable
 ----
 .. Conecte los cables del nuevo switch mediante las asignaciones de puertos recomendadas.
 +
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para conmutadores FC"]
 
 .. Repita estos mismos pasos en el sitio MetroCluster del partner para sustituir el segundo switch de la primera estructura del switch.
 +

@@ -353,7 +353,7 @@ Cada puerto debe configurarse por separado.
 
 Consulte las siguientes secciones para identificar los puertos F (switch a nodo) de su configuración:
 
-* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para conmutadores FC"]
 
 
 Esta tarea debe realizarse en cada switch de la configuración de MetroCluster.
@@ -1184,7 +1184,7 @@ FC_switch_B_1# copy running-config startup-config
 
 
 .Información relacionada
-Debe verificar que está utilizando las asignaciones de puertos especificadas al conectar los switches FC cuando utiliza ONTAP 9.1 y versiones posteriores. Consulte link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
+Debe verificar que esté utilizando las asignaciones de puertos especificadas al cablear los conmutadores FC. Consulte link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para conmutadores FC"]
 
 
 

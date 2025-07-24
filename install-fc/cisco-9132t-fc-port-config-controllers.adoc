@@ -1,0 +1,680 @@
+---
+permalink: install-fc/cisco-9132t-fc-port-config-controllers.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Cisco, metrocluster 
+summary: Obtenga información sobre las asignaciones de puertos necesarias para cablear los conmutadores Cisco 9132T FC a sus controladores. 
+---
+= Uso del puerto Cisco 9132T para controladores en una configuración MetroCluster FC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga información sobre las asignaciones de puertos necesarias para cablear los conmutadores Cisco 9132T FC a sus controladores.
+
+En la siguiente tabla se muestran las configuraciones de las controladoras que utilizan FibreBridge 7500N o 7600N usando ambos puertos FC (FC1 y FC2). Las tablas muestran las configuraciones máximas admitidas con cuatro y ocho módulos de controladora en dos grupos de recuperación ante desastres.
+
+
+NOTE: Para las configuraciones de ocho nodos, debe ejecutar la división en zonas de forma manual porque no se proporcionan los RCF.
+
+
+
+== MetroCluster 1 o el grupo de recuperación ante desastres 1
+
+La siguiente tabla muestra las configuraciones de controlador compatibles con MetroCluster 1 o el grupo de recuperación ante desastres 1 en los switches Cisco 9132T. Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* Los sistemas AFF A900 y FAS9500 tienen ocho puertos FC-VI (a, b, c y d para FC-VI-1 y FC-VI-2).
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta a FC_switch...* | *9132T 1x LEM (cuatro nodos)* | *9132T 2x LEM (cuatro nodos)* | *9132T 2x LEM (ocho nodos)* 
+
+
+ a| 
+controller_x_1
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+LEM1-1
+ a| 
+LEM1-1
+ a| 
+LEM1-1
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+LEM1-1
+ a| 
+LEM1-1
+ a| 
+LEM1-1
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+LEM1-2
+ a| 
+LEM1-2
+ a| 
+LEM1-2
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+LEM1-2
+ a| 
+LEM1-2
+ a| 
+LEM1-2
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+LEM1-3
+ a| 
+LEM1-3
+ a| 
+n / A
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+LEM1-3
+ a| 
+LEM1-3
+ a| 
+n / A
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+LEM1-4
+ a| 
+LEM1-4
+ a| 
+n / A
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+LEM1-4
+ a| 
+LEM1-4
+ a| 
+n / A
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+LEM1-5
+ a| 
+LEM1-5
+ a| 
+LEM1-3
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+LEM1-5
+ a| 
+LEM1-5
+ a| 
+LEM1-3
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+LEM1-6
+ a| 
+LEM1-6
+ a| 
+LEM1-4
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+LEM1-6
+ a| 
+LEM1-6
+ a| 
+LEM1-4
+
+
+
+ a| 
+controller_x_2
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+LEM1-7
+ a| 
+LEM1-7
+ a| 
+LEM1-5
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+LEM1-7
+ a| 
+LEM1-7
+ a| 
+LEM1-5
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+LEM1-8
+ a| 
+LEM1-8
+ a| 
+LEM1-6
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+LEM1-8
+ a| 
+LEM1-8
+ a| 
+LEM1-6
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+LEM1-9
+ a| 
+LEM1-9
+ a| 
+n / A
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+LEM1-9
+ a| 
+LEM1-9
+ a| 
+n / A
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+LEM1-10
+ a| 
+LEM1-10
+ a| 
+n / A
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+LEM1-10
+ a| 
+LEM1-10
+ a| 
+n / A
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+LEM1-11
+ a| 
+LEM1-11
+ a| 
+LEM1-7
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+LEM1-11
+ a| 
+LEM1-11
+ a| 
+LEM1-7
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+LEM1-12
+ a| 
+LEM1-12
+ a| 
+LEM1-8
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+LEM1-12
+ a| 
+LEM1-12
+ a| 
+LEM1-8
+
+|===
+
+
+== MetroCluster 2 o el grupo de recuperación ante desastres 2
+
+La siguiente tabla muestra las configuraciones compatibles con el controlador Cisco 9132T para MetroCluster 2 o el grupo de recuperación ante desastres 2 en switches Cisco 9132T. Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* Los sistemas AFF A900 y FAS9500 tienen ocho puertos FC-VI (a, b, c y d para FC-VI-1 y FC-VI-2).
+* MetroCluster 2 o el grupo DR 2 no son compatibles con los conmutadores Cisco 9132T para sistemas AFF A900 y FAS9500 .
+* MetroCluster 2 o el grupo DR 2 solo se admite en configuraciones de MetroCluster de ocho nodos
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta a FC_switch...* | *9132T 1x LEM (cuatro nodos)* | *9132T 2x LEM (cuatro nodos)* | *9132T 2x LEM (ocho nodos)* 
+
+
+ a| 
+controller_x_3
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-1
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-1
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-2
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-2
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-3
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-3
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-4
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-4
+
+
+
+ a| 
+controller_x_4
+ a| 
+Puerto a FC-VI-1
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-5
+
+
+
+ a| 
+Puerto b FC-VI-1
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-5
+
+
+
+ a| 
+Puerto c FC-VI-1
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-6
+
+
+
+ a| 
+Puerto d de FC-VI-1
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-6
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-7
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-7
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-8
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+LEM2-8
+
+|===

@@ -1,0 +1,1617 @@
+---
+permalink: install-fc/brocade-fc-port-config-controllers.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Brocade, metrocluster 
+summary: Las siguientes tablas muestran el uso de puertos en los conmutadores Brocade . Muestran la configuración máxima admitida, con cuatro módulos de controlador por grupo de recuperación ante desastres. 
+---
+= Uso del puerto Brocade para controladores en una configuración FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga información sobre las asignaciones de puertos necesarias para cablear los conmutadores Brocade FC a sus controladores.
+
+Las siguientes tablas muestran la configuración máxima admitida, con cuatro módulos de controlador por grupo de recuperación ante desastres. Para configuraciones más pequeñas, ignore las filas de los módulos de controlador adicionales. Tenga en cuenta que solo se admiten ocho ISL en los switches Brocade 6510, Brocade DCX 8510-8, G620, G630, G620-1, G630-1, G720 y G730.
+
+Revise la siguiente información antes de utilizar estas tablas:
+
+* No se muestra el uso de puertos para los switches Brocade 6505, G610 y G710 en una configuración MetroCluster de ocho nodos. Debido al número limitado de puertos, la asignación de puertos debe realizarse sitio por sitio, según el modelo del módulo controlador y el número de ISL y pares de puentes en uso.
+* El conmutador Brocade DCX 8510-8 puede utilizar el mismo diseño de puerto que el conmutador 6510 *_or_* 7840.
+* Los conmutadores Brocade 6520, 7810 y 7840 no son compatibles con sistemas que utilizan ocho puertos FC-VI (sistemas AFF A900 y FAS9500 ).
+* Los conmutadores Brocade 7810 solo admiten un grupo DR.
+
+
+
+
+== MetroCluster 1 o el grupo de recuperación ante desastres 1
+
+La siguiente tabla muestra las configuraciones de controlador admitidas en MetroCluster 1 o el grupo DR 1 en conmutadores Brocade .
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 6505, G610, G710* | *6510, puerto DCX 8510-8* | *Puerto 6520* | *Puerto 7810* | *Puerto 7840* | *Puerto G620, G620-1, G630, G630-1* | *Puerto G720, G730* 
+
+
+ a| 
+controller_x_1
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+0
+ a| 
+0
+ a| 
+0
+ a| 
+0
+ a| 
+0
+ a| 
+0
+ a| 
+0
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+0
+ a| 
+0
+ a| 
+0
+ a| 
+0
+ a| 
+0
+ a| 
+0
+ a| 
+0
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+ a| 
+1
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+16
+ a| 
+20
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+16
+ a| 
+2
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+16
+ a| 
+20
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+16
+ a| 
+2
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+17
+ a| 
+21
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+17
+ a| 
+3
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+17
+ a| 
+21
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+17
+ a| 
+3
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+8
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+2
+ a| 
+8
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+3
+ a| 
+3
+ a| 
+3
+ a| 
+3
+ a| 
+3
+ a| 
+3
+ a| 
+9
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+3
+ a| 
+3
+ a| 
+3
+ a| 
+3
+ a| 
+3
+ a| 
+3
+ a| 
+9
+
+
+
+ a| 
+controller_x_2
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+4
+ a| 
+4
+ a| 
+4
+ a| 
+4
+ a| 
+4
+ a| 
+4
+ a| 
+4
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+4
+ a| 
+4
+ a| 
+4
+ a| 
+4
+ a| 
+4
+ a| 
+4
+ a| 
+4
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+ a| 
+5
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+18
+ a| 
+22
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+20
+ a| 
+6
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+18
+ a| 
+22
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+20
+ a| 
+6
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+19
+ a| 
+23
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+21
+ a| 
+7
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+19
+ a| 
+23
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+21
+ a| 
+7
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+12
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+6
+ a| 
+12
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+7
+ a| 
+7
+ a| 
+7
+ a| 
+7
+ a| 
+7
+ a| 
+7
+ a| 
+13
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+7
+ a| 
+7
+ a| 
+7
+ a| 
+7
+ a| 
+7
+ a| 
+7
+ a| 
+13
+
+|===
+
+
+== MetroCluster 2 o el grupo de recuperación ante desastres 2
+
+La siguiente tabla muestra las configuraciones de controlador admitidas en MetroCluster 2 o el grupo DR 2 en conmutadores Brocade .
+
+[cols="10*"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 6505, G610, G710* | *6510, puerto DCX 8510-8* | *Puerto 6520* | *Puerto 7810* | *Puerto 7840* | *Puerto G620, G620-1, G630, G630-1* | *Puerto G720, G730* 
+
+
+ a| 
+controller_x_3
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+n / A
+ a| 
+24
+ a| 
+48
+ a| 
+n / A
+ a| 
+12
+ a| 
+18
+ a| 
+18
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+n / A
+ a| 
+24
+ a| 
+48
+ a| 
+n / A
+ a| 
+12
+ a| 
+18
+ a| 
+18
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+n / A
+ a| 
+25
+ a| 
+49
+ a| 
+n / A
+ a| 
+13
+ a| 
+19
+ a| 
+19
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+n / A
+ a| 
+25
+ a| 
+49
+ a| 
+n / A
+ a| 
+13
+ a| 
+19
+ a| 
+19
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+36
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+36
+ a| 
+24
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+36
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+36
+ a| 
+24
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+37
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+37
+ a| 
+25
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+37
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+37
+ a| 
+25
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+n / A
+ a| 
+26
+ a| 
+50
+ a| 
+n / A
+ a| 
+14
+ a| 
+24
+ a| 
+26
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+n / A
+ a| 
+26
+ a| 
+50
+ a| 
+n / A
+ a| 
+14
+ a| 
+24
+ a| 
+26
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+n / A
+ a| 
+27
+ a| 
+51
+ a| 
+n / A
+ a| 
+15
+ a| 
+25
+ a| 
+27
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+n / A
+ a| 
+27
+ a| 
+51
+ a| 
+n / A
+ a| 
+15
+ a| 
+25
+ a| 
+27
+
+
+
+ a| 
+controller_x_4
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+n / A
+ a| 
+28
+ a| 
+52
+ a| 
+n / A
+ a| 
+16
+ a| 
+22
+ a| 
+22
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+n / A
+ a| 
+28
+ a| 
+52
+ a| 
+n / A
+ a| 
+16
+ a| 
+22
+ a| 
+22
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+n / A
+ a| 
+29
+ a| 
+53
+ a| 
+n / A
+ a| 
+17
+ a| 
+23
+ a| 
+23
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+n / A
+ a| 
+29
+ a| 
+53
+ a| 
+n / A
+ a| 
+17
+ a| 
+23
+ a| 
+23
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+38
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+38
+ a| 
+28
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+38
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+38
+ a| 
+28
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+n / A
+ a| 
+39
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+39
+ a| 
+29
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+n / A
+ a| 
+39
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+39
+ a| 
+29
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+n / A
+ a| 
+30
+ a| 
+54
+ a| 
+n / A
+ a| 
+18
+ a| 
+28
+ a| 
+30
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+n / A
+ a| 
+30
+ a| 
+54
+ a| 
+n / A
+ a| 
+18
+ a| 
+28
+ a| 
+30
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+n / A
+ a| 
+31
+ a| 
+55
+ a| 
+n / A
+ a| 
+19
+ a| 
+29
+ a| 
+31
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+n / A
+ a| 
+31
+ a| 
+55
+ a| 
+n / A
+ a| 
+19
+ a| 
+29
+ a| 
+31
+
+|===
+
+
+== MetroCluster 3 o grupo DR 3
+
+La siguiente tabla muestra las configuraciones de controlador admitidas en MetroCluster 3 o el grupo DR 3 en conmutadores Brocade .
+
+[cols="2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto G630, G630-1* | *Puerto G730* 
+
+
+ a| 
+controller_x_5
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+48
+ a| 
+48
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+48
+ a| 
+48
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+49
+ a| 
+49
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+49
+ a| 
+49
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+64
+ a| 
+50
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+64
+ a| 
+50
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+65
+ a| 
+51
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+65
+ a| 
+51
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+50
+ a| 
+56
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+50
+ a| 
+56
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+51
+ a| 
+57
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+51
+ a| 
+57
+
+
+
+ a| 
+controller_x_6
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+52
+ a| 
+52
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+52
+ a| 
+52
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+53
+ a| 
+53
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+53
+ a| 
+53
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+68
+ a| 
+54
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+68
+ a| 
+54
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+69
+ a| 
+55
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+69
+ a| 
+55
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+54
+ a| 
+60
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+54
+ a| 
+60
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+55
+ a| 
+61
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+55
+ a| 
+61
+
+|===
+
+
+== MetroCluster 4 o grupo DR 4
+
+La siguiente tabla muestra las configuraciones de controlador admitidas en MetroCluster 4 o el grupo DR 4 en conmutadores Brocade .
+
+[cols="2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto G630, G630-1* | *Puerto G730* 
+
+
+ a| 
+controller_x_7
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+66
+ a| 
+66
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+66
+ a| 
+66
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+67
+ a| 
+67
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+67
+ a| 
+67
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+84
+ a| 
+72
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+84
+ a| 
+72
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+85
+ a| 
+73
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+85
+ a| 
+73
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+72
+ a| 
+74
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+72
+ a| 
+74
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+73
+ a| 
+75
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+73
+ a| 
+75
+
+
+
+ a| 
+controller_x_8
+ a| 
+Puerto a FC-VI
+ a| 
+1
+ a| 
+70
+ a| 
+70
+
+
+
+ a| 
+Puerto FC-VI b
+ a| 
+2
+ a| 
+70
+ a| 
+70
+
+
+
+ a| 
+Puerto FC-VI c
+ a| 
+1
+ a| 
+71
+ a| 
+71
+
+
+
+ a| 
+Puerto d de FC-VI
+ a| 
+2
+ a| 
+71
+ a| 
+71
+
+
+
+ a| 
+Puerto a FC-VI-2
+ a| 
+1
+ a| 
+86
+ a| 
+76
+
+
+
+ a| 
+Puerto b FC-VI-2
+ a| 
+2
+ a| 
+86
+ a| 
+76
+
+
+
+ a| 
+Puerto c FC-VI-2
+ a| 
+1
+ a| 
+87
+ a| 
+77
+
+
+
+ a| 
+Puerto d de FC-VI-2
+ a| 
+2
+ a| 
+87
+ a| 
+77
+
+
+
+ a| 
+Puerto HBA a
+ a| 
+1
+ a| 
+76
+ a| 
+78
+
+
+
+ a| 
+Puerto HBA b
+ a| 
+2
+ a| 
+76
+ a| 
+78
+
+
+
+ a| 
+Puerto HBA c
+ a| 
+1
+ a| 
+77
+ a| 
+79
+
+
+
+ a| 
+Puerto HBA d
+ a| 
+2
+ a| 
+77
+ a| 
+79
+
+|===

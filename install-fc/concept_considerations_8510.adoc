@@ -15,7 +15,7 @@ Al preparar la instalación de MetroCluster, debe comprender la arquitectura de 
 
 * Los switches DCX 8510-8 utilizados en las configuraciones de MetroCluster deben adquirirse en NetApp.
 * Para la escalabilidad, debe dejar un segmento de puerto entre las configuraciones de MetroCluster si el cableado sólo dos MetroClusters en módulos de 4 x 48 puertos. Esto le permite ampliar el uso de puertos en las configuraciones de MetroCluster sin necesidad de realizar ninguna presentación.
-* Cada switch Brocade DCX 8510-8 en la configuración MetroCluster debe estar configurado correctamente para los puertos ISL y las conexiones de almacenamiento. Para conocer el uso del puerto, consulte la siguiente sección: link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"].
+* Cada switch Brocade DCX 8510-8 de la configuración MetroCluster debe estar configurado correctamente para los puertos ISL y las conexiones de almacenamiento. Para obtener información sobre el uso de los puertos, consulte la siguiente sección: link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para conmutadores FC"] .
 * Los ISL no se pueden compartir y cada MetroCluster requiere dos ISL para cada estructura.
 * El switch DCX 8510-8 utilizado para la conectividad MetroCluster back-end no debe utilizarse para ninguna otra conectividad.
 +

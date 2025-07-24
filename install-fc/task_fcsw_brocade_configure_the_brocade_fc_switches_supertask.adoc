@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: MetroCluster configurations 
 summary: Debe configurar cada una de las estructuras de switches de Brocade en la configuración de MetroCluster. 
 ---
-= Configuración manual de los switches Brocade FC
+= Configurar manualmente los switches FC de Brocade
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -66,7 +66,7 @@ Metro-E significa que la trama o la señalización Ethernet se produce de forma 
 
 
 
-== Revisión de los requisitos de licencia de Brocade
+== Revisar los requisitos de la licencia de Brocade
 
 Se necesitan ciertas licencias para los switches de una configuración de MetroCluster. Debe instalar estas licencias en los cuatro switches.
 
@@ -104,7 +104,7 @@ Si no tiene estas licencias, debe ponerse en contacto con su representante de ve
 
 
 
-== Configurar los valores del switch Brocade FC a los valores predeterminados de fábrica
+== Establezca los valores del interruptor Brocade FC a los valores predeterminados de fábrica
 
 Debe ajustar el conmutador a sus valores predeterminados de fábrica para garantizar una configuración correcta. Además, debe asignar un nombre exclusivo a cada switch.
 
@@ -325,7 +325,7 @@ FC_switch_B_1:admin> reboot
 
 
 
-== Configuración de los ajustes básicos del switch
+== Configurar los ajustes básicos del conmutador
 
 Debe configurar la configuración global básica, incluido el ID de dominio, para los switches Brocade.
 
@@ -473,7 +473,7 @@ FC_switch_A_1:admin> iodshow
 NOTE: Al configurar ONTAP en los módulos de controlador, OOD debe configurarse explícitamente en cada módulo de controlador de la configuración de MetroCluster.
 
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["Configurar la entrega bajo pedido o la entrega fuera de servicio de tramas en el software ONTAP"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["Configurar la entrega en orden o fuera de orden de fotogramas en el software ONTAP"]
 
 
 
@@ -660,7 +660,7 @@ FC_switch_B_1:admin> switchcfgpersistentenable
 
 
 
-== Configuración de los ajustes básicos del switch en un switch Brocade DCX 8510-8
+== Configurar los ajustes básicos del conmutador en un conmutador Brocade DCX 8510-8
 
 Debe configurar la configuración global básica, incluido el ID de dominio, para los switches Brocade.
 
@@ -760,7 +760,7 @@ link:concept_prepare_for_the_mcc_installation.html["Requisitos para usar un swit
 
 
 
-== Configuración de los puertos E en los switches FC de Brocade mediante puertos FC
+== Configurar puertos E en conmutadores FC de Brocade mediante puertos FC
 
 En el caso de los switches Brocade en los que se configuran los enlaces Inter-Switch (ISL) mediante puertos FC, debe configurar los puertos del switch en cada estructura del switch que conecte el ISL. Estos puertos ISL también se conocen como puertos E-ports.
 
@@ -912,7 +912,7 @@ Ge11 (10 Gbps)
 
 
 
-.4+| Brocade G610  a| 
+.4+| Brocade G610, G710  a| 
 Puerto ISL 1
  a| 
 20
@@ -1259,7 +1259,7 @@ FC_switch_B_1:admin> trunkshow
 
 
 .Información relacionada
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"]
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para conmutadores FC"]
 
 
 
@@ -1419,7 +1419,7 @@ FC_switch_A_1:root> portshow fcipcircuit all
 
 
 
-== Configuración de puertos ve de 40 Gbps en conmutadores FC Brocade 7810 y 7840
+== Configurar puertos VE de 40 Gbps en los conmutadores FC Brocade 7810 y 7840
 
 Cuando se utilizan los dos puertos ve de 40 GbE (que utilizan FCIP) para ISL, debe crear interfaces IP en cada puerto y configurar túneles y circuitos FCIP en cada túnel.
 
@@ -1572,7 +1572,7 @@ FC_switch_A_1:root> portshow fcipcircuit all
 
 
 
-== Configurar los puertos que no son de E en el switch Brocade
+== Configurar los puertos no E en el conmutador Brocade
 
 Debe configurar los puertos que no son E-puertos en el switch de FC. En una configuración MetroCluster, son los puertos que conectan el switch a los iniciadores de HBA, las interconexiones FC-VI y los puentes FC a SAS. Estos pasos deben realizarse en cada puerto.
 
@@ -1662,7 +1662,7 @@ Non-DFE                             ..  ..  ..  ..  ..  ..  ..  ..  ..
 
 
 
-== Configurar la compresión en puertos ISL en un switch Brocade G620
+== Configurar la compresión en los puertos ISL en un conmutador Brocade G620
 
 Si utiliza switches Brocade G620 y habilita la compresión en los ISL, debe configurarse en cada E-Port de los switches.
 
@@ -1724,13 +1724,13 @@ Port   Configured    Active   Configured   Active  Speed
 ----
 
 
-== Configuración de la división en zonas en switches Brocade FC
+== Configurar la zonificación en los conmutadores Brocade FC
 
 Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento.
 
 
 
-=== División en zonas para los puertos FC-VI
+=== Zonificar los puertos FC-VI
 
 Para cada grupo de recuperación ante desastres de la MetroCluster, debe configurar dos zonas para las conexiones FC-VI que permiten el tráfico de la controladora a la controladora. Estas zonas contienen puertos del switch FC que se conectan a los puertos FC-VI del módulo de la controladora. Estas zonas son zonas de calidad de servicio.
 
@@ -1948,7 +1948,7 @@ QOSH2_MC1_FAB_2_FCVI (6520)
 |===
 
 
-=== División en zonas para puentes FibreBridge 7500N o 7600N usando un puerto FC
+=== Puentes de zona FibreBridge 7500N o 7600N que utilizan un puerto FC
 
 Si utiliza puentes FibreBridge 7500N o 7600N utilizando solo uno de los dos puertos FC, debe crear zonas de almacenamiento para los puertos puente. Tiene que comprender las zonas y los puertos asociados antes de configurar las zonas.
 
@@ -2027,7 +2027,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 *DRGROUP 1 : MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1:*
 
 |===
-| Switch FC | Sitio | Dominio del switch | Brocade 6505, 6510, 6520, G620 o puerto de switch G610 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto de conmutador Brocade 6505, 6510, 6520, G620, G610 o G710 | Conecta a... 
 
 
 | FC_switch_A_1 | A. | 5 | 2 | Puerto 0a de la controladora_a_1 
@@ -2067,7 +2067,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 *DRGROUP 1 : MC1_INIT_GRP_1_SITE_A_STK_GRP_1_BOTR_FC1:*
 
 |===
-| Switch FC | Sitio | Dominio del switch | Brocade 6505, 6510, 6520, G620 o puerto de switch G610 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto de conmutador Brocade 6505, 6510, 6520, G620, G610 o G710 | Conecta a... 
 
 
 | FC_switch_A_1 | A. | 6 | 2 | Controller_A_1 Puerto 0b 
@@ -2111,7 +2111,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 *DRGROUP 1 : MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC1:*
 
 |===
-| Switch FC | Sitio | Dominio del switch | Brocade 6505, 6510, 6520, G620 o puerto de switch G610 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto de conmutador Brocade 6505, 6510, 6520, G620, G610 o G710 | Conecta a... 
 
 
 | FC_switch_A_1 | A. | 5 | 2 | Puerto 0a de la controladora_a_1 
@@ -2151,7 +2151,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 *DRGROUP 1 : MC1_INIT_GRP_1_SITE_A_STK_GRP_2_BOTR_FC1:*
 
 |===
-| Switch FC | Sitio | Dominio del switch | Brocade 6505, 6510, 6520, G620 o puerto de switch G610 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto de conmutador Brocade 6505, 6510, 6520, G620, G610 o G710 | Conecta a... 
 
 
 | FC_switch_A_1 | A. | 6 | 2 | Controller_A_1 Puerto 0b 
@@ -2195,7 +2195,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 *MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC1:*
 
 |===
-| Switch FC | Sitio | Dominio del switch | Switch Brocade 6505, 6510, 6520, G620 o G610 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Conmutador Brocade 6505, 6510, 6520, G620, G610 o G710 | Conecta a... 
 
 
 | FC_switch_A_1 | A. | 5 | 2 | Puerto 0a de la controladora_a_1 
@@ -2235,7 +2235,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 *DRGROUP 1 : MC1_INIT_GRP_1_SITE_B_STK_GRP_1_BOTA_FC1:*
 
 |===
-| Switch FC | Sitio | Dominio del switch | Switch Brocade 6505, 6510, 6520, G620 o G610 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Conmutador Brocade 6505, 6510, 6520, G620, G610 o G710 | Conecta a... 
 
 
 | FC_switch_A_1 | A. | 6 | 2 | Controller_A_1 Puerto 0b 
@@ -2279,7 +2279,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 *DRGROUP 1 : MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC1:*
 
 |===
-| Switch FC | Sitio | Dominio del switch | Brocade 6505, 6510, 6520, G620 o puerto de switch G610 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto de conmutador Brocade 6505, 6510, 6520, G620, G610 o G710 | Conecta a... 
 
 
 | FC_switch_A_1 | A. | 5 | 2 | Puerto 0a de la controladora_a_1 
@@ -2319,7 +2319,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 *DRGROUP 1 : MC1_INIT_GRP_1_SITE_B_STK_GRP_2_BOTA_FC1:*
 
 |===
-| Switch FC | Sitio | Dominio del switch | Brocade 6505, 6510, 6520, G620 o puerto de switch G610 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto de conmutador Brocade 6505, 6510, 6520, G620, G610 o G710 | Conecta a... 
 
 
 | FC_switch_A_1 | A. | 6 | 2 | Controller_A_1 Puerto 0b 
@@ -2391,7 +2391,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 |===
 
 
-=== División en zonas para puentes FibreBridge 7500N con ambos puertos FC
+=== Puentes Zone FibreBridge 7500N que utilizan ambos puertos FC
 
 Si utiliza puentes FibreBridge 7500N con ambos puertos FC, debe crear zonas de almacenamiento para los puertos de puente. Tiene que comprender las zonas y los puertos asociados antes de configurar las zonas.
 
@@ -2470,7 +2470,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | 6505 / 6510 / G610 / G620 | 6520 puertos | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710/G620 | 6520 puertos | Conecta a... 
 
 
  a| 
@@ -2564,7 +2564,7 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -2668,7 +2668,7 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_1_BOT_FC1
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | 6505 / 6510 / G610 | 6520 | G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | 6505 / 6510 / G610 / G710 | 6520 | G620 | Conecta a... 
 
 
  a| 
@@ -2772,7 +2772,7 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC2
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | 6505 / 6510 / G610 | 6520 | G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | 6505 / 6510 / G610 / G710 | 6520 | G620 | Conecta a... 
 
 
  a| 
@@ -2880,7 +2880,7 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_1_BOT_FC2
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -2984,7 +2984,7 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC1
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3084,7 +3084,7 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_2_BOT_FC1
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3188,7 +3188,7 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC2
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3296,7 +3296,7 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_2_BOT_FC2
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3400,7 +3400,7 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC1
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3504,7 +3504,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_1_BOT_FC1
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3606,7 +3606,7 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC2
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3714,7 +3714,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_1_BOT_FC2
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3818,7 +3818,7 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC1
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -3922,7 +3922,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC1
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -4026,7 +4026,7 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC2
 |===
 
 
-| Switch FC | Sitio | Dominio del switch | Puerto 6505 / 6510 / G610 | 6520 puertos | Puerto G620 | Conecta a... 
+| Switch FC | Sitio | Dominio del switch | Puerto 6505/6510/G610/G710 | 6520 puertos | Puerto G620 | Conecta a... 
 
 
  a| 
@@ -4280,7 +4280,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC2
 |===
 
 
-=== Configuración de la división en zonas en switches Brocade FC
+=== Ubica los conmutadores Brocade FC
 
 Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento, con zonas para los puertos y las zonas de FC-VI para los puertos de almacenamiento.
 
@@ -4399,7 +4399,7 @@ zone: MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1
 
 
 
-== Configuración del cifrado ISL en switches Brocade 6510 o G620
+== Configurar el cifrado ISL en los conmutadores Brocade 6510 o G620
 
 En los switches Brocade 6510 o G620, puede utilizar de forma opcional la función de cifrado de Brocade en las conexiones ISL. Si desea utilizar la función de cifrado, debe realizar pasos de configuración adicionales en cada switch de la configuración de MetroCluster.
 
@@ -4418,7 +4418,7 @@ Los pasos deben realizarse en ambos switches de la misma estructura.
 
 
 
-=== Deshabilitación de Virtual Fabric
+=== Deshabilitar la red virtual
 
 Para configurar el cifrado ISL, debe deshabilitar la estructura virtual en los cuatro switches que se usan en una configuración MetroCluster.
 
@@ -4432,7 +4432,7 @@ Para configurar el cifrado ISL, debe deshabilitar la estructura virtual en los c
 
 
 
-=== Configure la carga útil
+=== Establezca la carga útil
 
 Después de deshabilitar la estructura virtual, debe establecer la carga útil o el tamaño del campo de datos en ambos switches de la estructura.
 
@@ -4459,7 +4459,7 @@ El tamaño del campo de datos no debe ser superior a 2048.
 
 
 
-=== Configuración de la política de autenticación
+=== Defina la directiva de autenticación
 
 Debe configurar la política de autenticación y los parámetros asociados.
 
@@ -4552,7 +4552,7 @@ Auth Policy is set to ON
 
 
 
-=== Activación del cifrado ISL en switches Brocade
+=== Habilite el cifrado ISL en switches de Brocade
 
 Después de configurar la política de autenticación y el secreto de autenticación, debe habilitar el cifrado ISL en los puertos para que surta efecto.
 

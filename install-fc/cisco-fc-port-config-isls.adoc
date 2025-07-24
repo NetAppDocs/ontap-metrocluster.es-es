@@ -1,0 +1,148 @@
+---
+permalink: install-fc/cisco-fc-port-config-isls.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Cisco, metrocluster 
+summary: Obtenga información sobre las asignaciones de puertos necesarias para cablear los conmutadores FC Cisco 9124V, 9148S, 9148V, 9250i y 9396S a ISL. 
+---
+= Uso del puerto Cisco para ISL en una configuración FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga información sobre las asignaciones de puertos necesarias para cablear los conmutadores FC Cisco 9124V, 9148S, 9148V, 9250i y 9396S a ISL.
+
+En la siguiente tabla se muestra el uso de puertos ISL. El uso del puerto ISL es el mismo en todos los switches de la configuración.
+
+[NOTE]
+====
+* Para Cisco 9132T, consulte link:cisco-9132t-fc-port-config-isls.html["Uso del puerto Cisco 9132T para ISL en una configuración FC de MetroCluster"] .
+* El conmutador Cisco 9250i requiere una licencia de 24 puertos.
+
+
+====
+[cols="2a,2a,2a,2a,2a,2a"]
+|===
+| *Puerto ISL* | *Puerto 9124V* | *Puerto 9148S* | *Puerto 9148V* | *Puerto 9250i* | *Puerto 9396S* 
+
+
+ a| 
+Puerto ISL 1
+ a| 
+9
+ a| 
+20
+ a| 
+9
+ a| 
+12
+ a| 
+44
+
+
+
+ a| 
+Puerto ISL 2
+ a| 
+10
+ a| 
+24
+ a| 
+10
+ a| 
+16
+ a| 
+48
+
+
+
+ a| 
+Puerto ISL 3
+ a| 
+11
+ a| 
+44
+ a| 
+11
+ a| 
+20
+ a| 
+92
+
+
+
+ a| 
+Puerto ISL 4
+ a| 
+12
+ a| 
+48
+ a| 
+12
+ a| 
+24
+ a| 
+96
+
+
+
+ a| 
+Puerto ISL 5
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+33
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto ISL 6
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+34
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto ISL 7
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+35
+ a| 
+n / A
+ a| 
+n / A
+
+
+
+ a| 
+Puerto ISL 8
+ a| 
+n / A
+ a| 
+n / A
+ a| 
+36
+ a| 
+n / A
+ a| 
+n / A
+
+|===

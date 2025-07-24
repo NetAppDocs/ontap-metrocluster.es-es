@@ -16,7 +16,7 @@ Debe descargar el archivo de configuración de referencia (RCF) en cada switch d
 .Acerca de esta tarea
 Para utilizar estos archivos RCF, el sistema debe ejecutar ONTAP 9.1 o posterior y debe utilizar el diseño de puerto para ONTAP 9.1 o posterior.
 
-Si tiene pensado utilizar sólo uno de los puertos FC de los puentes FibreBridge, configure los switches de canal de fibra back-end manualmente siguiendo las instrucciones de la sección, link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para los switches FC cuando se utiliza ONTAP 9.1 y versiones posteriores"].
+Si planea utilizar solo uno de los puertos FC en los puentes FibreBridge, configure los conmutadores de canal de fibra de back-end manualmente siguiendo las instrucciones que se encuentran en la sección link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para conmutadores FC"] .
 
 .Pasos
 . Consulte la tabla de archivos RCF de la página de descarga de Brocade RCF e identifique el archivo RCF correcto para cada switch de la configuración.

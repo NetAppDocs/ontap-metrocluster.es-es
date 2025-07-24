@@ -1,0 +1,1252 @@
+---
+permalink: install-fc/brocade-fc-port-config-bridges.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Brocade, metrocluster 
+summary: Las siguientes tablas muestran el uso del puerto en los conmutadores Brocade . 
+---
+= Uso del puerto Brocade para puentes FC a SAS en una configuración FC de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conozca las asignaciones de puertos necesarias para conectar switches FC de Brocade a puentes FC a SAS. Las asignaciones de puertos varían según si los puentes utilizan uno o dos puertos FC.
+
+
+NOTE: Los conmutadores Brocade 7810 solo admiten un grupo DR.
+
+
+
+== Configuraciones de estante que utilizan puentes FibreBridge 7500N o 7600N utilizando ambos puertos FC (FC1 y FC2)
+
+
+
+=== MetroCluster 1 o el grupo de recuperación ante desastres 1
+
+La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 1 o el grupo de recuperación ante desastres 1 para puentes FibreBridge 7500N o 7600N que utilizan ambos puertos FC (FC1 y FC2) en conmutadores Brocade . Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Brocade 6505, G610, G710, G620, G620-1, G630 y G630-1, puede conectar puentes adicionales a los puertos 12 a 15.
+* En los conmutadores Brocade 6510 y DCX 8510-8, puede conectar puentes adicionales a los puertos 12 a 19.
+* En los conmutadores Brocade 6520, puede conectar puentes adicionales a los puertos 12-21 y 24-45.
+* En los conmutadores Brocade 7810 y 7840, MetroCluster 1 o el grupo DR 1 solo admiten dos pilas de puente.
+* En los conmutadores Brocade G720 y G730, puede conectar puentes adicionales a los puertos 16 a 21.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 6505, G610, G710* | *6510, puerto DCX 8510-8* | *Puerto 6520* | *Puerto 7810* | *Puerto 7840* | *Puerto G620, G620-1, G630, G630-1* | *Puerto G720, G730* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+10
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+10
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+11
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+11
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+14
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+14
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+15
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+15
+
+|===
+
+
+=== MetroCluster 2 o el grupo de recuperación ante desastres 2
+
+La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 2 o el grupo de recuperación ante desastres 2 para puentes FibreBridge 7500N o 7600N que utilizan ambos puertos FC (FC1 y FC2) en conmutadores Brocade . Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Brocade 6510, DCX 8510-8 y 7840, MetroCluster 2 o el grupo DR 2 solo admiten dos pilas de puente.
+* En los conmutadores Brocade 6520, puede conectar puentes adicionales a los puertos 60 a 69 y 72 a 93.
+* En los conmutadores Brocade G620, G620-1, G630 y G630-1, puede conectar puentes adicionales a los puertos 32 a 35.
+* En los conmutadores Brocade G720 y G730, puede conectar puentes adicionales a los puertos 36 a 39.
+* No se muestra el uso de puertos para los switches Brocade 6505, G610 y G710 en una configuración MetroCluster de ocho nodos. Debido al número limitado de puertos, estos se asignan sitio por sitio, según el modelo del controlador y la cantidad de ISL y pares de puentes que se utilicen.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 6505, G610, G710* | *6510, puerto DCX 8510-8* | *Puerto 6520* | *Puerto 7810* | *Puerto 7840* | *Puerto G620, G620-1, G630, G630-1* | *Puerto G720, G730* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+32
+ a| 
+56
+ a| 
+n / A
+ a| 
+20
+ a| 
+26
+ a| 
+32
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+32
+ a| 
+56
+ a| 
+n / A
+ a| 
+20
+ a| 
+26
+ a| 
+32
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+33
+ a| 
+57
+ a| 
+n / A
+ a| 
+21
+ a| 
+27
+ a| 
+33
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+33
+ a| 
+57
+ a| 
+n / A
+ a| 
+21
+ a| 
+27
+ a| 
+33
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+34
+ a| 
+58
+ a| 
+n / A
+ a| 
+22
+ a| 
+30
+ a| 
+34
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+34
+ a| 
+58
+ a| 
+n / A
+ a| 
+22
+ a| 
+30
+ a| 
+34
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1
+ a| 
+n / A
+ a| 
+35
+ a| 
+59
+ a| 
+n / A
+ a| 
+23
+ a| 
+31
+ a| 
+35
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+n / A
+ a| 
+35
+ a| 
+59
+ a| 
+n / A
+ a| 
+23
+ a| 
+31
+ a| 
+35
+
+|===
+
+
+=== MetroCluster 3 o grupo DR 3
+
+La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 3 o el grupo 3 de recuperación ante desastres para puentes FibreBridge 7500N o 7600N que utilizan ambos puertos FC (FC1 y FC2) en conmutadores Brocade . Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Brocade G630 y G630-1, puede conectar puentes adicionales a los puertos 60 a 63.
+* En los conmutadores Brocade G730, puede conectar puentes adicionales a los puertos 64, 65, 68 y 69.
+
+
+[cols="2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto G630, G630-1* | *Puerto G730* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1
+ a| 
+56
+ a| 
+58
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+56
+ a| 
+58
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1
+ a| 
+57
+ a| 
+59
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+57
+ a| 
+59
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1
+ a| 
+58
+ a| 
+62
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+58
+ a| 
+62
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1
+ a| 
+59
+ a| 
+63
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+59
+ a| 
+63
+
+|===
+
+
+=== MetroCluster 4 o grupo DR 4
+
+La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 4 o el grupo de recuperación ante desastres 4 para puentes FibreBridge 7500N o 7600N que utilizan ambos puertos FC (FC1 y FC2) en conmutadores Brocade . Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Brocade G630 y G630-1, puede conectar puentes adicionales a los puertos 80 a 83.
+* En los conmutadores Brocade G730, puede conectar puentes adicionales a los puertos 84 a 95.
+
+
+[cols="2a,2a,2a,2a,2a,2a"]
+|===
+2+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto G630, G630-1* | *Puerto G730* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1
+ a| 
+74
+ a| 
+80
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+74
+ a| 
+80
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1
+ a| 
+75
+ a| 
+81
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+75
+ a| 
+81
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1
+ a| 
+78
+ a| 
+82
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+78
+ a| 
+82
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1
+ a| 
+79
+ a| 
+83
+
+
+
+ a| 
+FC2
+ a| 
+2
+ a| 
+79
+ a| 
+83
+
+|===
+
+
+== Configuraciones de bandeja que utilizan FibreBridge 7500N o 7600N con solo un puerto FC (FC1 Gb o FC2 Gb)
+
+
+
+=== MetroCluster 1 o el grupo de recuperación ante desastres 1
+
+La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 1 o grupo de recuperación ante desastres 1 con FibreBridge 7500N o 7600N y un solo puerto FC (FC1 o FC2) en conmutadores Brocade . Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Brocade 6505, G610, G710, G620, G620-1, G630 y G630-1, hay puertos de puente adicionales del 12 al 15.
+* En los conmutadores Brocade 6510 y DCX 8510-8, puede conectar puentes adicionales a los puertos 12 a 19.
+* En los conmutadores Brocade 6520, puede conectar puentes adicionales a los puertos 16-21 y 24-45.
+* En los conmutadores Brocade G720 y G730, puede conectar puentes adicionales a los puertos 16 a 21.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 6505, G610, G710* | *6510, puerto DCX 8510-8* | *Puerto 6520* | *Puerto 7810* | *Puerto 7840* | *Puerto G620, G620-1, G630, G630-1* | *Puerto G720, G730* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+1
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+10
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+2
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+8
+ a| 
+10
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+1
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+11
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+2
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+9
+ a| 
+11
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+1
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+14
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+2
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+10
+ a| 
+14
+
+
+
+ a| 
+Pila 4
+ a| 
+bridge_x_4a
+ a| 
+1
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+15
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+2
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+11
+ a| 
+15
+
+|===
+
+
+=== MetroCluster 2 o el grupo de recuperación ante desastres 2
+
+La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 2 o el grupo de recuperación ante desastres 2 para puentes FibreBridge 7500N o 7600N que utilizan un puerto FC (FC1 o FC2) en conmutadores Brocade . Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Brocade 6520, puede conectar puentes adicionales a los puertos 60 a 69 y 72 a 93.
+* En los conmutadores Brocade G620, G620-1, G630, G630-1, puede conectar puentes adicionales a los puertos 32 a 35.
+* En los conmutadores Brocade G720 y G730, puede conectar puentes adicionales a los puertos 36 a 39.
+* No se muestra el uso de puertos para los switches Brocade 6505, G610 y G710 en una configuración MetroCluster de ocho nodos. Debido al número limitado de puertos, estos se asignan sitio por sitio, según el modelo del controlador y la cantidad de ISL y pares de puentes que se utilicen.
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto 6505, G610, G710* | *6510, puerto DCX 8510-8* | *Puerto 6520* | *Puerto 7810* | *Puerto 7840* | *Puerto G620, G620-1, G630, G630-1* | *Puerto G720, G730* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+1
+ a| 
+n / A
+ a| 
+32
+ a| 
+56
+ a| 
+n / A
+ a| 
+20
+ a| 
+26
+ a| 
+32
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+2
+ a| 
+n / A
+ a| 
+32
+ a| 
+56
+ a| 
+n / A
+ a| 
+20
+ a| 
+26
+ a| 
+32
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+1
+ a| 
+n / A
+ a| 
+33
+ a| 
+57
+ a| 
+n / A
+ a| 
+21
+ a| 
+27
+ a| 
+33
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+2
+ a| 
+n / A
+ a| 
+33
+ a| 
+57
+ a| 
+n / A
+ a| 
+21
+ a| 
+27
+ a| 
+33
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+1
+ a| 
+n / A
+ a| 
+34
+ a| 
+58
+ a| 
+n / A
+ a| 
+22
+ a| 
+30
+ a| 
+34
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+2
+ a| 
+n / A
+ a| 
+34
+ a| 
+58
+ a| 
+n / A
+ a| 
+22
+ a| 
+30
+ a| 
+34
+
+
+
+ a| 
+Pila 4
+ a| 
+bridge_x_4a
+ a| 
+1
+ a| 
+n / A
+ a| 
+35
+ a| 
+59
+ a| 
+n / A
+ a| 
+23
+ a| 
+31
+ a| 
+35
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+2
+ a| 
+n / A
+ a| 
+35
+ a| 
+59
+ a| 
+n / A
+ a| 
+23
+ a| 
+31
+ a| 
+35
+
+|===
+
+
+=== MetroCluster 3 o grupo DR 3
+
+La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 3 o el grupo 3 de recuperación ante desastres para puentes FibreBridge 7500N o 7600N que utilizan un puerto FC (FC1 o FC2) en conmutadores Brocade . Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Brocade G630 y G630-1, puede conectar puentes adicionales a los puertos 60 a 63.
+* En los conmutadores Brocade G730, puede conectar puentes adicionales a los puertos 64, 65, 68, 69.
+
+
+[cols="2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto G630, G630-1* | *Puerto G730* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+1
+ a| 
+56
+ a| 
+58
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+2
+ a| 
+56
+ a| 
+58
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+1
+ a| 
+57
+ a| 
+59
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+2
+ a| 
+57
+ a| 
+59
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+1
+ a| 
+58
+ a| 
+62
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+2
+ a| 
+58
+ a| 
+62
+
+
+
+ a| 
+Pila 4
+ a| 
+bridge_x_4a
+ a| 
+1
+ a| 
+59
+ a| 
+63
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+2
+ a| 
+59
+ a| 
+63
+
+|===
+
+
+=== MetroCluster 4 o grupo DR 4
+
+La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 4 o el grupo de recuperación ante desastres 4 para puentes FibreBridge 7500N o 7600N que utilizan un puerto FC (FC1 o FC2) en conmutadores Brocade . Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
+
+* En los conmutadores Brocade G630 y G630-1, puede conectar puentes adicionales a los puertos 80 a 83.
+* En los conmutadores Brocade G730, puede conectar puentes adicionales a los puertos 84 a 95.
+
+
+[cols="2a,2a,2a,2a,2a"]
+|===
+| *Componente* | *Puerto* | *Se conecta al conmutador FC...* | *Puerto G630, G630-1* | *Puerto G730* 
+
+
+ a| 
+Pila 1
+ a| 
+bridge_x_1a
+ a| 
+1
+ a| 
+74
+ a| 
+80
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+2
+ a| 
+74
+ a| 
+80
+
+
+
+ a| 
+Pila 2
+ a| 
+bridge_x_2a
+ a| 
+1
+ a| 
+75
+ a| 
+81
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+2
+ a| 
+75
+ a| 
+81
+
+
+
+ a| 
+Pila 3
+ a| 
+bridge_x_3a
+ a| 
+1
+ a| 
+78
+ a| 
+82
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+2
+ a| 
+78
+ a| 
+82
+
+
+
+ a| 
+Pila 4
+ a| 
+bridge_x_4a
+ a| 
+1
+ a| 
+79
+ a| 
+83
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+2
+ a| 
+79
+ a| 
+83
+
+|===

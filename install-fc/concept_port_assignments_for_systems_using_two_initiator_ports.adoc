@@ -11,32 +11,45 @@ summary: Puede configurar sistemas FAS8020, AFF8020, FAS8200 y AFF A300 utilizan
 
 
 [role="lead"]
-Puede configurar sistemas FAS8020, AFF8020, FAS8200 y AFF A300 utilizando un único puerto de iniciador para cada estructura y dos puertos de iniciador para cada controladora.
+Puede configurar los sistemas FAS8200 y AFF A300 utilizando un solo puerto iniciador para cada estructura y dos puertos iniciadores para cada controlador.
 
-Puede seguir el cableado para el puente FibreBridge 7500N o 7600N usando solo un puerto FC (FC1 o FC2). En lugar de usar cuatro iniciadores, conecte solo dos iniciadores y deje los otros dos que están conectados al puerto del switch vacío.
+Puede seguir el cableado del puente FibreBridge 7600N usando solo un puerto FC (FC1 o FC2). En lugar de usar cuatro iniciadores, conecte solo dos y deje vacíos los otros dos conectados al puerto del switch.
 
-Si la división en zonas se realiza manualmente, siga la división en zonas utilizada para un puente FibreBridge 7500N o 7600N mediante un puerto FC (FC1 o FC2). En esta situación, se agrega un puerto de iniciador en lugar de dos a cada miembro de la zona por estructura.
+Si la zonificación se realiza manualmente, siga la zonificación utilizada para un puente FibreBridge 7600N con un puerto FC (FC1 o FC2). En este caso, se añade un puerto iniciador en lugar de dos a cada miembro de zona por estructura.
 
 Puede cambiar la zonificación o realizar una actualización de un FibreBridge 6500N a un FibreBridge 7500N mediante el procedimiento de link:../maintain/task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"].
 
-En la siguiente tabla se muestran las asignaciones de puertos para los switches de FC cuando se utiliza ONTAP 9.1 y versiones posteriores.
+La siguiente tabla muestra las asignaciones de puertos para los conmutadores Brocade FC cuando se utiliza un solo puerto iniciador para cada estructura y dos puertos iniciadores para cada controlador.
 
+[cols="2a,2a,2a,2a"]
 |===
-
-
 4+| Configuraciones que utilicen FibreBridge 7500N o 7600N con solo un puerto FC (FC1 o FC2) 
 
 
-4+| *MetroCluster 1 o Grupo DR 1* 
+ a| 
+*MetroCluster 1 o Grupo DR 1*
 
 
-.2+| *Componente* .2+| *Puerto* 2+| *Modelos de conmutador Brocade 6505, 6510, 6520, 7840, G620, G610 y DCX 8510-8* 
+
+ a| 
+*Componente*
+ a| 
+*Puerto*
+ a| 
+*6505, 6510, 6520, 7840, G620, G630, G610, G710, G720, G730 y DCX 8510-8*
 
 
-| *Se conecta al conmutador FC...* | *Se conecta al puerto del conmutador...* 
+
+ a| 
+*Se conecta al conmutador FC...*
+ a| 
+*Se conecta al puerto del conmutador...*
 
 
-.8+| controller_x_1  a| 
+
+ a| 
+controller_x_1
+ a| 
 Puerto a FC-VI
  a| 
 1
@@ -145,74 +158,5 @@ bridge_x_yb
 2
  a| 
 11
-
-|===
-En la siguiente tabla se muestran las asignaciones de puertos para los switches de FC cuando se utiliza ONTAP 9.0.
-
-|===
-
-
-4+| *Configuración de dos nodos de MetroCluster* 
-
-
-.2+| *Componente* .2+| *Puerto* 2+| *Brocade 6505, 6510, o DCX 8510-8* 
-
-
-| *FC_switch_x_1* | *FC_switch_x_2* 
-
-
- a| 
-controller_x_1
- a| 
-Puerto a FC-VI
- a| 
-0
- a| 
--
-
-
-
- a| 
-Puerto FC-VI b
- a| 
--
- a| 
-0
-
-
-
- a| 
-Puerto HBA a
- a| 
-1
- a| 
--
-
-
-
- a| 
-Puerto HBA b
- a| 
--
- a| 
-1
-
-
-
- a| 
-Puerto HBA c
- a| 
-2
- a| 
--
-
-
-
- a| 
-Puerto HBA d
- a| 
--
- a| 
-2
 
 |===

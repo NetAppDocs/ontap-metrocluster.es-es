@@ -2,17 +2,27 @@
 :allow-uri-read: 
 
 
-A partir de ONTAP 9.15.1, puede configurar el cifrado integral para cifrar el tráfico de back-end, como NVlog y los datos de replicación de almacenamiento, entre los sitios en una configuración de IP de MetroCluster.
+A partir de ONTAP 9.15.1, puede configurar el cifrado de extremo a extremo en los sistemas compatibles para cifrar el tráfico de back-end, como NVlog y datos de replicación de almacenamiento, entre los sitios en una configuración de IP de MetroCluster .
 
 .Acerca de esta tarea
 * Para realizar esta tarea, debe ser un administrador de clústeres.
 * Para poder configurar el cifrado integral, se debe link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-external-key-management-concept.html["Configure la gestión de claves externas"^].
 * Revise los sistemas compatibles y la versión mínima de ONTAP requerida para configurar el cifrado integral en una configuración de IP de MetroCluster:
 +
+[cols="2*"]
 |===
-
-
 | Versión de ONTAP mínima | Sistemas compatibles 
+
+
+ a| 
+ONTAP 9.17.1
+ a| 
+** AFF A800, AFF C800
+** AFF A20, AFF A30, AFF C30, AFF A50, AFF C60
+** AFF A70, AFF A90, AFF A1K, AFF C80
+** FAS50, FAS70, FAS90
+
+
 
 
  a| 

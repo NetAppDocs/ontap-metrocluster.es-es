@@ -5893,7 +5893,6 @@
   <block id="a7280a534488b174058b01f6b7c2177a" category="list-text">Descargue el _Installation and Service Guide_ correspondiente a su modelo de bandeja de discos:</block>
   <block id="845f1fadfa26464b1ad0d5fdde0f2d35" category="list-text">Acceda al sitio web de ATTO utilizando el enlace proporcionado para el modelo FiberBridge y descargue el manual y la utilidad Quickav.</block>
   <block id="31adc96d18cde8c45dc670356d68d2c2" category="paragraph">El _ATTO FiberBridge Installation and Operation Manual_ de su puente de modelos contiene más información acerca de las interfaces de administración.</block>
-  <block id="c172b09d1d6e3e38ddabe6e69de61d7e" category="paragraph">Puede acceder a este y a otros contenidos del sitio web de ATTO usando el enlace proporcionado en la página Descripción de ATTO Fiberbridge.</block>
   <block id="e7d7dd4b0ed1390861be4c86a9efc49a" category="list-text">Recopile el hardware y la información necesaria para usar las interfaces de gestión de puentes recomendadas, la GUI de ATTO ExpressNAV y la utilidad ATTO Quickav:</block>
   <block id="88384b9796d1abfc3783ef914dcb1204" category="list-text">Determine un nombre de usuario y una contraseña no predeterminados (para acceder a los puentes).</block>
   <block id="e1e77b7559e73e7da0cd695a2c7ad2e9" category="paragraph">Debe cambiar el nombre de usuario y la contraseña predeterminados.</block>
@@ -9764,7 +9763,6 @@
   <block id="954cf183768e64d8661262d395f991eb" category="summary">Puede utilizar la combinación de un puerto serie, Telnet y FTP para administrar los puentes FiberBridge en lugar de las interfaces de administración recomendadas. El sistema debe cumplir los requisitos de la interfaz correspondiente antes de instalar los puentes.</block>
   <block id="df54e439b189f0a180ac382a0c0533c3" category="doc">Requisitos para utilizar otras interfaces para configurar y gestionar puentes FiberBridge</block>
   <block id="f9117ecda083d7dbba9bda8b853dfd61" category="paragraph">Puede utilizar un puerto serie o Telnet para configurar el puente y el puerto de administración Ethernet 1 y para administrar el puente. Puede utilizar FTP para actualizar el firmware del puente.</block>
-  <block id="10efc1f4cdd8df067f8c263803a86181" category="paragraph">Puede acceder a este documento en el sitio web de ATTO usando el enlace proporcionado en la página ATTO Fiberbridge Description.</block>
   <block id="0626485f170944286cfbe3e303f2f1f5" category="section-title">Puerto serie</block>
   <block id="bac03fd8b856c63b4cd0a766637a03e3" category="paragraph">Al utilizar el puerto serie para configurar y administrar un puente, y para configurar el puerto de administración Ethernet 1, el sistema debe cumplir los siguientes requisitos:</block>
   <block id="3f75bca71e0ec800ca02ffb657b4c3ab" category="list-text">Un cable serie (que se conecta desde el puerto serie de puente a un puerto serie (COM) en el equipo que está utilizando para la instalación)</block>
@@ -12806,8 +12804,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="ef78f11e7aec890f1dc53f6a0176cdf4" category="inline-link-macro">Configurar las LIF de IP virtual (VIP)</block>
   <block id="43d93948b7becfd15462e91085fd63cc" category="paragraph"><block ref="43d93948b7becfd15462e91085fd63cc" category="inline-link-macro-rx"></block></block>
   <block id="94ffd34b73e540c50265688d834cea45" category="paragraph">ONTAP 9.13,1 GA</block>
-  <block id="0cb8709673d91d9b41f7a2d9110be6db" category="paragraph">Actualización del firmware de Fibrebridge con credenciales</block>
-  <block id="cca6b3113bea250bb0e5ecb42fcd1f6b" category="paragraph">Puede actualizar el firmware en los puentes de Fibrebridge utilizando credenciales si el servidor los requiere para descargar el paquete de firmware.</block>
   <block id="7f35c16e72037a8dea668c5bb0e6327d" category="paragraph"><block ref="7f35c16e72037a8dea668c5bb0e6327d" category="inline-link-macro-rx"></block></block>
   <block id="dd5e73f11c8453deab39cc51184b718c" category="admonition">Se recomienda utilizar la gestión en banda con acceso IP desactivado para mejorar la seguridad al limitar la conectividad física al puente.</block>
   <block id="794172cd90da1900d6103d0859717cae" category="section-title">Límites de puente FibreBridge 7600N y 7500N y reglas de conexión</block>
@@ -13682,16 +13678,12 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="507731d894d9ee976f7066af87b9f8dd" category="list-text">*El Grupo 2* muestra combinaciones para los sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF A800, FAS9500, AFF A900, AFF C80, FAS90, AFF A90 y AFF A1K.</block>
   <block id="631b6e3500618cca623678eeea878eff" category="list-text">Nota 1: Esta combinación requiere ONTAP 9.13.1 o posterior.</block>
   <block id="abb7cc70e284f0ed722020e127761cca" category="paragraph">Revise las combinaciones de actualización del sistema para sistemas AFF A150, AFF A20, FAS2750, FAS8300, FAS500f, AFF C250, AFF A250, FAS50, AFF C30, AFF A30, FAS8200, AFF A300, AFF A400, AFF A220, AFF C400, AFF A320 y FAS8700.</block>
-  <block id="59ff548a332288bd57d4f0ca4aa314e6" category="paragraph"><block ref="59ff548a332288bd57d4f0ca4aa314e6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2c5d494e02cd7d07ceac57455beee52d" category="paragraph">Revise las combinaciones de actualización del sistema de los sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF A800, FAS9500, AFF A900, AFF C80, FAS90, AFF A90 y AFF A1K.</block>
-  <block id="528441634286ef2ca2ed32e39f67505e" category="paragraph"><block ref="528441634286ef2ca2ed32e39f67505e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a1b5a467b5c765105dcad39cc0ff04c3" category="paragraph">En las siguientes tablas se muestran las combinaciones de plataformas admitidas para ampliar un sistema AFF o FAS en una configuración IP de MetroCluster. Las tablas se dividen en dos grupos:</block>
   <block id="6252dce29b710e0cb61942b23fc053a5" category="list-text">Nota 1: Se requiere ONTAP 9.9.1 o posterior (o la versión mínima de ONTAP admitida en la plataforma) para estas combinaciones.</block>
   <block id="2077cee62d2dc819ca10d6e3f6a4f59b" category="list-text">Nota 2: Se requiere ONTAP 9.13.1 o posterior (o la versión mínima de ONTAP admitida en la plataforma) para estas combinaciones.</block>
   <block id="9bc3cb19080afd7c3475f6c80b5ee013" category="paragraph">Revise las combinaciones de ampliación para sistemas AFF A150, AFF A20, FAS2750, FAS8300, FAS500f, AFF C250, AFF A250, FAS50, AFF C30, AFF A30, FAS8200, AFF A300, AFF A400, AFF A220, AFF C400, AFF A320 y FAS8700.</block>
-  <block id="503da6450f4dc7f5885bedbd17199939" category="paragraph"><block ref="503da6450f4dc7f5885bedbd17199939" category="inline-image-macro-rx" type="image"></block></block>
   <block id="99032e371bac241eac644b68481b2c7c" category="paragraph">Revise las combinaciones de ampliación de los sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF A800, FAS9500, AFF A900, AFF C80, FAS90, AFF A90 y AFF A1K.</block>
-  <block id="0bd384b68663640af8e4d0e1b69579ff" category="paragraph"><block ref="0bd384b68663640af8e4d0e1b69579ff" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5667d434150380e4826a9c5749e3611d" category="cell">Todas las demás actualizaciones admitidas a los sistemas AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30, AFF C60 o FAS50</block>
   <block id="1f33c4b21d6c848bec5712e27807c50a" category="paragraph">Esta tarea es *SOLO* requerida cuando se actualiza a un sistema AFF A70, AFF A90, AFF A1K, FAS70, FAS90, AFF C80, AFF A50, AFF A20, AFF A30, AFF C30, AFF C60 o FAS50.</block>
   <block id="63856cfb46890240aad0d97a958b298b" category="paragraph">En la siguiente tabla se muestran las combinaciones de plataformas admitidas para actualizar un sistema AFF o FAS en una configuración IP de MetroCluster utilizando los comandos «system controller replace», divididos en dos grupos.</block>
@@ -14349,7 +14341,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="ddb7605ec5049e970ab35c9ad2ff89fc" category="list-text">Los sistemas AFF A400, AFF C400, ASA A400, ASA C400, AFF C80, AFF A70 y AFF A50 tienen los siguientes límites actualizados:</block>
   <block id="c5053b59fbc1700ab606b123bbd97a75" category="list-text">Límites de FlexVol volume por agregado (individual o múltiple): 625</block>
   <block id="fe57c6f7ead75bdf60c675612c2792a2" category="list-text">Límites de FlexVol volume por par de alta disponibilidad (HA): 2500</block>
-  <block id="f7411497578d3c715ce980056c9a3dc5" category="list-text">Límites de FlexVol volume por clúster MetroCluster : 5000</block>
   <block id="e012362a4f10b2d00ba77a0342c80c6d" category="list-text">La cantidad máxima de volúmenes FlexVol por par HA aumentó de 1600 a 2500.</block>
   <block id="6dea0f46f4307533bbff7dfe880a75ea" category="sidebar">Aprenda a utilizar las tablas de asignación de puertos para conmutadores FC</block>
   <block id="ae6b17a796a400159e3071c16b88da41" category="sidebar">Uso del puerto Brocade para controladores</block>
@@ -14361,4 +14352,14 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="3099965dec41589836e8937197d5c208" category="sidebar">Uso del puerto Cisco 9132T para controladores</block>
   <block id="25e9b3ef06577abf9b26600f0c390fc3" category="sidebar">Uso del puerto Cisco 9132T para puentes FC a SAS</block>
   <block id="b25c20328b0418f22f0fbc4d47e42988" category="sidebar">Uso del puerto Cisco 9132T para ISL</block>
+  <block id="79af6547f35e1e15ddacae6867176717" category="paragraph">Puede acceder a este y otros contenidos del sitio web de ATTO utilizando el enlace proporcionado en la página de descripción de ATTO FibreBridge.</block>
+  <block id="545e852011a81da0cd8b5b2d3cc504fd" category="paragraph">Puede acceder a este documento en el sitio web de ATTO utilizando el enlace proporcionado en la página de descripción de ATTO FibreBridge.</block>
+  <block id="c95f44b3e8c72a1c6ef8a499c761690a" category="list-text">Límites de FlexVol volume por clúster: 5000</block>
+  <block id="45fc6e02d529201467decbef1f3eacab" category="paragraph">Consulte la <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> Para más información.</block>
+  <block id="567a833b899417b8be640e2472fc9c60" category="paragraph">Actualización del firmware de FibreBridge mediante credenciales</block>
+  <block id="5a870516b9d31d269ea6a8afce2ec1e6" category="paragraph">Puede actualizar el firmware en los puentes FibreBridge usando credenciales si el servidor las requiere para descargar el paquete de firmware.</block>
+  <block id="8474060528358956023cd7dd6e922365" category="paragraph"><block ref="8474060528358956023cd7dd6e922365" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b422edb1dc6d4a214adab9c76d2349ad" category="paragraph"><block ref="b422edb1dc6d4a214adab9c76d2349ad" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d75d3909245f6be3f0b1d65e8247b183" category="paragraph"><block ref="d75d3909245f6be3f0b1d65e8247b183" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4c9562556794c6d64ce9c73693133ac9" category="paragraph"><block ref="4c9562556794c6d64ce9c73693133ac9" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

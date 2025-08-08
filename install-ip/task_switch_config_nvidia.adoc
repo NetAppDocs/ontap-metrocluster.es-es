@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip, switch, connection, configuring, configure, NVIDIA, factory defaults, MSN2100, SN2100 
 summary: Debe configurar los switches IP de NVIDIA para que se usen como interconexión de clúster y para la conectividad IP de MetroCluster back-end. 
 ---
-= Configure el conmutador NVIDIA IP SN2100
+= Configurar el conmutador NVIDIA IP SN2100 para la interconexión de clústeres y la conectividad IP de MetroCluster de backend
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

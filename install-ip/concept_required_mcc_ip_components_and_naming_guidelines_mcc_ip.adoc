@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: plan, metrocluster, ip, configuration, planning, require, hardware, software, clarity, conventions, component, documentation, naming, name, requirement, support, redundancy, switch, ontap, cluster, controller, module, gigabit, ethernet, adapter, pool, drive, drive, location, consideration, partial, populate, shelves, shelf, aff, a800, internal, iom12, iom, module, stack, four-node, raid-dp, raid4, AFF A800 internal drives 
 summary: Al planificar la configuración IP de MetroCluster, debe comprender los componentes de hardware y software necesarios y compatibles. Para mayor comodidad y claridad, también debe comprender las convenciones de nomenclatura que se utilizan para los componentes en ejemplos de la documentación. 
 ---
-= Componentes de MetroCluster IP y convenciones de nomenclatura necesarias
+= Componentes de configuración de IP y convenciones de nomenclatura de MetroCluster necesarios
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cabling, cable, component, peering, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure 
 summary: Debe cablear los puertos del módulo de controladora que se utilizan para la conexión de clústeres entre iguales, la gestión y la conectividad de datos. 
 ---
-= Cableado de los puertos de conexión, datos y gestión de las controladoras
+= Conecte los puertos del módulo controlador ONTAP en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

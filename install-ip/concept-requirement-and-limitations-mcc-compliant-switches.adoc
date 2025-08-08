@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant, limitations 
 summary: A partir de ONTAP 9.7, las configuraciones de IP de MetroCluster pueden utilizar switches compatibles con MetroCluster. Estos son switches que no están validados por NetApp pero cumplen con las especificaciones de NetApp. En este tema se describen los requisitos generales y las limitaciones de los switches compatibles con MetroCluster. 
 ---
-= Requisitos y limitaciones al utilizar switches que cumplen con la normativa de MetroCluster
+= Requisitos y limitaciones para los conmutadores compatibles con MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, controller, assign drives, pool 0, disk assign 
 summary: Si no recibió los sistemas preconfigurados de fábrica, es posible que tenga que asignar manualmente el pool 0 unidades. Según el modelo de plataforma y si el sistema está utilizando ADP, debe asignar manualmente unidades al pool 0 para cada nodo de la configuración IP de MetroCluster. El procedimiento que utilice dependerá de la versión de ONTAP que esté utilizando. 
 ---
-= Asignar manualmente unidades al pool 0
+= Asignar manualmente unidades al grupo 0 en una configuración de IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

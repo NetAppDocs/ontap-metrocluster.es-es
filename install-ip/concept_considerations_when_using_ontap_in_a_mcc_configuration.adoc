@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, metrocluster, configuration, aware, consideration, license, licensing, cluster, perform, volume, operation, nvfail, snapmirror, system, manager, flexcache, support, fabricpool, flexgroup, job, schedule, peer, ldap, client, replication, network, lif, creation, guideline, svm, disaster, recovery, output, storage, aggregate, plex, show, command, indeterminate, switchover, modify, flag, switchover 
 summary: Al utilizar ONTAP en una configuración de MetroCluster, debe tener en cuenta ciertas consideraciones para la licencia, la paridad con clústeres fuera de la configuración de MetroCluster, la realización de operaciones de volumen, las operaciones NVFAIL y otras operaciones de ONTAP. 
 ---
-= Consideraciones que tener en cuenta al utilizar ONTAP en una configuración de MetroCluster
+= Requisitos y consideraciones para las operaciones de ONTAP con configuraciones de IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -26,7 +26,6 @@ NOTE: Para Cisco 9132T, consulte link:cisco-9132t-fc-port-config-bridges.html["U
 
 La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 1 o el grupo 1 de recuperación ante desastres mediante puentes FibreBridge 7500N o 7600N y ambos puertos FC (FC1 y FC2) en switches Cisco (excepto el 9132T). Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
 
-* En los conmutadores Cisco 9124V y 9148V, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 21 a 24.
 * En los conmutadores Cisco 9250i, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 17 a 40.
 * En los conmutadores Cisco 9396S, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 17 a 32.
 
@@ -45,11 +44,11 @@ FC1
  a| 
 1
  a| 
-13
+17
  a| 
 9
  a| 
-13
+17
  a| 
 9
  a| 
@@ -62,11 +61,11 @@ FC2
  a| 
 2
  a| 
-13
+17
  a| 
 9
  a| 
-13
+17
  a| 
 9
  a| 
@@ -81,11 +80,11 @@ FC1
  a| 
 1
  a| 
-14
+18
  a| 
 10
  a| 
-14
+18
  a| 
 10
  a| 
@@ -98,11 +97,11 @@ FC2
  a| 
 2
  a| 
-14
+18
  a| 
 10
  a| 
-14
+18
  a| 
 10
  a| 
@@ -119,11 +118,11 @@ FC1
  a| 
 1
  a| 
-15
+19
  a| 
 11
  a| 
-15
+19
  a| 
 11
  a| 
@@ -136,11 +135,11 @@ FC2
  a| 
 2
  a| 
-15
+19
  a| 
 11
  a| 
-15
+19
  a| 
 11
  a| 
@@ -155,11 +154,11 @@ FC1
  a| 
 1
  a| 
-16
+20
  a| 
 12
  a| 
-16
+20
  a| 
 12
  a| 
@@ -172,11 +171,11 @@ FC2
  a| 
 2
  a| 
-16
+20
  a| 
 12
  a| 
-16
+20
  a| 
 12
  a| 
@@ -193,11 +192,11 @@ FC1
  a| 
 1
  a| 
-17
+21
  a| 
 13
  a| 
-17
+21
  a| 
 13
  a| 
@@ -210,11 +209,11 @@ FC2
  a| 
 2
  a| 
-17
+21
  a| 
 13
  a| 
-17
+21
  a| 
 13
  a| 
@@ -229,11 +228,11 @@ FC1
  a| 
 1
  a| 
-18
+22
  a| 
 14
  a| 
-18
+22
  a| 
 14
  a| 
@@ -246,11 +245,11 @@ FC2
  a| 
 2
  a| 
-18
+22
  a| 
 14
  a| 
-18
+22
  a| 
 14
  a| 
@@ -267,11 +266,11 @@ FC1
  a| 
 1
  a| 
-19
+23
  a| 
 15
  a| 
-19
+23
  a| 
 15
  a| 
@@ -284,11 +283,11 @@ FC2
  a| 
 2
  a| 
-19
+23
  a| 
 15
  a| 
-19
+23
  a| 
 15
  a| 
@@ -303,11 +302,11 @@ FC1
  a| 
 1
  a| 
-20
+24
  a| 
 16
  a| 
-20
+24
  a| 
 16
  a| 
@@ -320,11 +319,11 @@ FC2
  a| 
 2
  a| 
-20
+24
  a| 
 16
  a| 
-20
+24
  a| 
 16
  a| 
@@ -337,8 +336,7 @@ FC2
 
 La siguiente tabla muestra las configuraciones de estantería compatibles en MetroCluster 2 o el grupo 2 de recuperación ante desastres con FibreBridge 7500N o 7600N y ambos puertos FC (FC1 y FC2) en switches Cisco (excepto el 9132T). Tenga en cuenta lo siguiente al utilizar las tablas de cableado:
 
-* Los conmutadores Cisco 9124V y 9250i no son compatibles con configuraciones MetroCluster de ocho nodos
-* En los conmutadores Cisco 9148V, puede conectar puentes MetroCluster 2 (grupo DR 2) adicionales a los puertos 45 a 48.
+* Los conmutadores Cisco 9124V y 9250i no son compatibles con configuraciones MetroCluster de ocho nodos.
 * En los conmutadores Cisco 9396S, puede conectar puentes MetroCluster 2 (grupo DR 2) adicionales a los puertos 65 a 80.
 
 
@@ -360,7 +358,7 @@ n / A
  a| 
 33
  a| 
-37
+41
  a| 
 n / A
  a| 
@@ -377,7 +375,7 @@ n / A
  a| 
 33
  a| 
-37
+41
  a| 
 n / A
  a| 
@@ -396,7 +394,7 @@ n / A
  a| 
 34
  a| 
-38
+42
  a| 
 n / A
  a| 
@@ -413,7 +411,7 @@ n / A
  a| 
 34
  a| 
-38
+42
  a| 
 n / A
  a| 
@@ -434,7 +432,7 @@ n / A
  a| 
 35
  a| 
-39
+43
  a| 
 n / A
  a| 
@@ -451,7 +449,7 @@ n / A
  a| 
 35
  a| 
-39
+43
  a| 
 n / A
  a| 
@@ -470,7 +468,7 @@ n / A
  a| 
 36
  a| 
-40
+44
  a| 
 n / A
  a| 
@@ -487,7 +485,7 @@ n / A
  a| 
 36
  a| 
-40
+44
  a| 
 n / A
  a| 
@@ -508,7 +506,7 @@ n / A
  a| 
 37
  a| 
-41
+45
  a| 
 n / A
  a| 
@@ -525,7 +523,7 @@ n / A
  a| 
 37
  a| 
-41
+45
  a| 
 n / A
  a| 
@@ -544,7 +542,7 @@ n / A
  a| 
 38
  a| 
-42
+46
  a| 
 n / A
  a| 
@@ -561,7 +559,7 @@ n / A
  a| 
 38
  a| 
-42
+46
  a| 
 n / A
  a| 
@@ -582,7 +580,7 @@ n / A
  a| 
 39
  a| 
-43
+47
  a| 
 n / A
  a| 
@@ -599,7 +597,7 @@ n / A
  a| 
 39
  a| 
-43
+47
  a| 
 n / A
  a| 
@@ -618,7 +616,7 @@ n / A
  a| 
 40
  a| 
-44
+48
  a| 
 n / A
  a| 
@@ -635,7 +633,7 @@ n / A
  a| 
 40
  a| 
-44
+48
  a| 
 n / A
  a| 
@@ -656,7 +654,6 @@ link:../install-fc/task_fcsw_cisco_configure_a_cisco_switch_supertask.html["Conf
 
 Debe tener en cuenta lo siguiente al utilizar las tablas de cableado:
 
-* En los conmutadores Cisco 9124V y 9148V, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 21 a 24.
 * En los conmutadores Cisco 9250i, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 17 a 40.
 * En los conmutadores Cisco 9396S, puede conectar puentes adicionales del grupo MetroCluster 1 o DR 1 a los puertos 17 a 32.
 
@@ -673,11 +670,11 @@ bridge_x_1a
  a| 
 1
  a| 
-13
+17
  a| 
 9
  a| 
-13
+17
  a| 
 9
  a| 
@@ -690,11 +687,11 @@ bridge_x_1b
  a| 
 2
  a| 
-13
+17
  a| 
 9
  a| 
-13
+17
  a| 
 9
  a| 
@@ -709,11 +706,11 @@ bridge_x_2a
  a| 
 1
  a| 
-14
+18
  a| 
 10
  a| 
-14
+18
  a| 
 10
  a| 
@@ -726,11 +723,11 @@ bridge_x_2b
  a| 
 2
  a| 
-14
+18
  a| 
 10
  a| 
-14
+18
  a| 
 10
  a| 
@@ -745,11 +742,11 @@ bridge_x_3a
  a| 
 1
  a| 
-15
+19
  a| 
 11
  a| 
-15
+19
  a| 
 11
  a| 
@@ -762,11 +759,11 @@ bridge_x_3b
  a| 
 2
  a| 
-15
+19
  a| 
 11
  a| 
-15
+19
  a| 
 11
  a| 
@@ -781,11 +778,11 @@ bridge_x_4a
  a| 
 1
  a| 
-16
+20
  a| 
 12
  a| 
-16
+20
  a| 
 12
  a| 
@@ -798,11 +795,11 @@ bridge_x_4b
  a| 
 2
  a| 
-16
+20
  a| 
 12
  a| 
-16
+20
  a| 
 12
  a| 
@@ -817,11 +814,11 @@ bridge_x_5a
  a| 
 1
  a| 
-17
+21
  a| 
 13
  a| 
-17
+21
  a| 
 13
  a| 
@@ -834,11 +831,11 @@ bridge_x_5b
  a| 
 2
  a| 
-17
+21
  a| 
 13
  a| 
-17
+21
  a| 
 13
  a| 
@@ -853,11 +850,11 @@ bridge_x_6a
  a| 
 1
  a| 
-18
+22
  a| 
 14
  a| 
-18
+22
  a| 
 14
  a| 
@@ -870,11 +867,11 @@ bridge_x_6b
  a| 
 2
  a| 
-18
+22
  a| 
 14
  a| 
-18
+22
  a| 
 14
  a| 
@@ -889,11 +886,11 @@ bridge_x_7a
  a| 
 1
  a| 
-19
+23
  a| 
 15
  a| 
-19
+23
  a| 
 15
  a| 
@@ -906,11 +903,11 @@ bridge_x_7b
  a| 
 2
  a| 
-19
+23
  a| 
 15
  a| 
-19
+23
  a| 
 15
  a| 
@@ -925,11 +922,11 @@ bridge_x_8a
  a| 
 1
  a| 
-20
+24
  a| 
 16
  a| 
-20
+24
  a| 
 16
  a| 
@@ -942,11 +939,11 @@ bridge_x_8b
  a| 
 2
  a| 
-20
+24
  a| 
 16
  a| 
-20
+24
  a| 
 16
  a| 
@@ -960,7 +957,6 @@ bridge_x_8b
 La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 2 o el grupo 2 de recuperación ante desastres para puentes FibreBridge 7500N o 7600N que utilizan un puerto FC (FC1 o FC2) en switches Cisco (excepto 9132T). Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
 
 * Los conmutadores Cisco 9124V y 9250i no son compatibles con configuraciones MetroCluster de ocho nodos.
-* En los conmutadores Cisco 9148V, puede conectar puentes adicionales del grupo MetroCluster 2 o DR 2 a los puertos 45 a 48.
 * En los conmutadores Cisco 9396S, puede conectar puentes adicionales del grupo MetroCluster 2 o DR 2 a los puertos 65 a 80.
 
 
@@ -980,7 +976,7 @@ n / A
  a| 
 33
  a| 
-37
+41
  a| 
 n / A
  a| 
@@ -997,7 +993,7 @@ n / A
  a| 
 33
  a| 
-37
+41
  a| 
 n / A
  a| 
@@ -1016,7 +1012,7 @@ n / A
  a| 
 34
  a| 
-38
+42
  a| 
 n / A
  a| 
@@ -1033,7 +1029,7 @@ n / A
  a| 
 34
  a| 
-38
+42
  a| 
 n / A
  a| 
@@ -1052,7 +1048,7 @@ n / A
  a| 
 35
  a| 
-39
+43
  a| 
 n / A
  a| 
@@ -1069,7 +1065,7 @@ n / A
  a| 
 35
  a| 
-39
+43
  a| 
 n / A
  a| 
@@ -1088,7 +1084,7 @@ n / A
  a| 
 36
  a| 
-40
+44
  a| 
 n / A
  a| 
@@ -1105,7 +1101,7 @@ n / A
  a| 
 36
  a| 
-40
+44
  a| 
 n / A
  a| 
@@ -1124,7 +1120,7 @@ n / A
  a| 
 37
  a| 
-41
+45
  a| 
 n / A
  a| 
@@ -1141,7 +1137,7 @@ n / A
  a| 
 37
  a| 
-41
+45
  a| 
 n / A
  a| 
@@ -1160,7 +1156,7 @@ n / A
  a| 
 38
  a| 
-42
+46
  a| 
 n / A
  a| 
@@ -1177,7 +1173,7 @@ n / A
  a| 
 38
  a| 
-42
+46
  a| 
 n / A
  a| 
@@ -1196,7 +1192,7 @@ n / A
  a| 
 39
  a| 
-43
+47
  a| 
 n / A
  a| 
@@ -1213,7 +1209,7 @@ n / A
  a| 
 39
  a| 
-43
+47
  a| 
 n / A
  a| 
@@ -1232,7 +1228,7 @@ n / A
  a| 
 40
  a| 
-44
+48
  a| 
 n / A
  a| 
@@ -1249,7 +1245,7 @@ n / A
  a| 
 40
  a| 
-44
+48
  a| 
 n / A
  a| 

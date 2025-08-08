@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: test, metrocluster, configuration, failure, correct, operation, metrocluster, verify, negotiate, switchover, heal, manual, switchback, power, line, disruption, loss, single, storage, shelf 
 summary: Es posible probar situaciones de errores para confirmar el funcionamiento correcto de la configuración de MetroCluster. 
 ---
-= Probando la configuración de MetroCluster
+= Pruebe el cambio de nodo ONTAP para su configuración de IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

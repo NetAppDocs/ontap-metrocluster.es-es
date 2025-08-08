@@ -124,7 +124,7 @@ NOTE: La cuenta de usuario que especifique durante la instalación de tiebreaker
 
 * Utilice el cifrado de la base de datos
 +
-** Se admite el cifrado de datos en reposo. link:https://mariadb.com/kb/en/data-at-rest-encryption-overview/["Más información sobre el cifrado de datos en reposo"^]
+** Se admite el cifrado de datos en reposo.link:https://mariadb.com/docs/server/security/securing-mariadb/securing-mariadb-encryption/encryption-data-at-rest-encryption/data-at-rest-encryption-overview["Más información sobre el cifrado de datos en reposo"^]
 ** Los datos en tránsito no están cifrados. Los datos en vuelo usan una conexión de archivos "SOCKS" local.
 ** FIPS conformidad para MariaDB -- no es necesario habilitar FIPS conformidad con la base de datos. La instalación del host en modo conforme a FIPS es suficiente.
 +
@@ -148,7 +148,7 @@ link:https://dev.mysql.com/doc/refman/8.0/en/access-control.html["Control de acc
 link:https://dev.mysql.com/doc/refman/8.0/en/security-against-attack.html["Hacer que MySQL sea seguro contra atacantes"^]
 
 +
-link:https://mariadb.com/kb/en/securing-mariadb/["Asegurar MariaDB"^]
+link:https://mariadb.com/docs/server/security/securing-mariadb["Asegurar MariaDB"^]
 
 * Asegure la instalación del almacén
 +

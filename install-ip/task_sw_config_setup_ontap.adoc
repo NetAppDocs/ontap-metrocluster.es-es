@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, ontap, setup 
 summary: Tras arrancar cada nodo, se le pedirá que realice la configuración básica del nodo y del clúster. Después de configurar el clúster, volverá a la CLI de ONTAP para crear agregados y crear la configuración de MetroCluster. 
 ---
-= Configurar ONTAP
+= Configurar nodos ONTAP en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

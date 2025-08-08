@@ -1,10 +1,10 @@
 ---
 permalink: install-ip/task-nvidia-health-monitoring.html 
 sidebar: sidebar 
-keywords: install, applicable, configuration, file, nvidia, cluster, switch, health, monitor, ontap, 
+keywords: install, applicable, configuration, file, nvidia, cluster, switch, health, monitor, ontap 
 summary: Puede utilizar este procedimiento para instalar el archivo de configuración correspondiente para la supervisión del estado del switch del clúster de los switches de clúster NVIDIA SN2100. 
 ---
-= Instale el archivo de configuración del monitor de estado del switch Ethernet
+= Instale el archivo de configuración del Monitor de estado del conmutador Ethernet para un conmutador IP NVIDIA SN2100 MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

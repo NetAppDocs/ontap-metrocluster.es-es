@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: isl, isls, layer 2, layer 3, shared switch 
 summary: 'Esta sección contiene los requisitos de los enlaces entre switches (ISL) que llevan el tráfico MetroCluster en todas las configuraciones IP de MetroCluster y topologías de red.' 
 ---
-= Consideraciones sobre ISL
+= Requisitos para enlaces entre conmutadores (ISL) en configuraciones IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip, switch, connection, configuring, configure, broadcom, snmp, health, monitoring 
 summary: Puede configurar los conmutadores IP para que utilicen SNMPv3 para la supervisión del estado. 
 ---
-= Configurar SNMPv3 en los conmutadores IP de MetroCluster
+= Configurar SNMPv3 para supervisar el estado de los conmutadores IP de MetroCluster
 :allow-uri-read: 
 
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, mediator, tiebreaker 
 summary: Debe comprender cómo acceden las controladoras al almacenamiento remoto y cómo funcionan las direcciones IP de MetroCluster. 
 ---
-= Consideraciones sobre la configuración de IP de MetroCluster
+= Obtenga información sobre el almacenamiento remoto y las configuraciones de IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, mediator, configure, connect 
 summary: Si desea conectar los nodos MetroCluster a una instancia diferente de Mediador de ONTAP, debe desconfigurar y volver a configurar la conexión del Mediador en el software ONTAP. 
 ---
-= Conexión de una configuración de MetroCluster a una instancia diferente de Mediador de ONTAP
+= Conecte una configuración de IP de MetroCluster a una instancia de ONTAP Mediator diferente
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

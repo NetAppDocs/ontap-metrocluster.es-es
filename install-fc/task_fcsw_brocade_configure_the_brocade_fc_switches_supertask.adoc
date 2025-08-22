@@ -479,23 +479,16 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_th
 
 
 
-. Compruebe que el switch utiliza el método de licencia de puerto dinámico.
+. Si está ejecutando una versión anterior a FOS 9.0, verifique que el conmutador esté usando el método de licencia dinámico Port on Demand (POD).
++
+
+NOTE: En Fabric OS 9,0 y posterior, el método de licencia es dinámico de forma predeterminada. El método de licencia estática no es compatible.
+
 +
 .. Ejecute el comando license:
 +
-[role="tabbed-block"]
-====
-.Para Fabric OS 8,2.x y versiones anteriores
---
-Ejecute el comando `licenseport --show`.
+`licenseport --show`
 
---
-.Para Fabric OS 9,0 y posterior
---
-Ejecute el comando `license --show -port`.
-
---
-====
 +
 [listing]
 ----
@@ -541,10 +534,6 @@ FC_switch_A_1:admin> licenseport --method dynamic
 The POD method has been changed to dynamic.
 Please reboot the switch now for this change to take effect
 ----
-+
-
-NOTE: En Fabric OS 9,0 y posterior, el método de licencia es dinámico de forma predeterminada. El método de licencia estática no es compatible.
-
 
 
 . Habilite el reto de T11-FC-ZONE-SERVER-MIB para que pueda ofrecer una supervisión de estado correcta de los switches de ONTAP:

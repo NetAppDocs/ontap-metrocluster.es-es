@@ -112,27 +112,19 @@ FC_switch_A_1:admin> portcfgdefault <port number>
 +
 Debe completar este paso para cada puerto.
 
-. Compruebe que el switch utiliza el método de puerto dinámico bajo demanda (POD).
+. Si está ejecutando una versión anterior a FOS 9.0, verifique que el conmutador esté usando el método de puerto a pedido (POD) dinámico.
 +
 
-NOTE: En las versiones de SO Brocade Fabric anteriores a la 8.0, se ejecutan los siguientes comandos como administrador, y para las versiones 8.0 y posteriores, se ejecutan como raíz.
+NOTE: En Fabric OS 9,0 y posterior, el método de licencia es dinámico de forma predeterminada. El método de licencia estática no es compatible.
+
++
+En las versiones de SO Brocade Fabric anteriores a la 8.0, se ejecutan los siguientes comandos como administrador, y para las versiones 8.0 y posteriores, se ejecutan como raíz.
 
 +
 .. Ejecute el comando license:
 +
-[role="tabbed-block"]
-====
-.Para Fabric OS 8,2.x y versiones anteriores
---
-Ejecute el comando `licenseport --show`.
+`licenseport --show` .
 
---
-.Para Fabric OS 9,0 y posterior
---
-Ejecute el comando `license --show -port`.
-
---
-====
 +
 [listing]
 ----
@@ -150,19 +142,8 @@ FC_switch_A_1:admin> rootaccess --set consoleonly
 ----
 .. Ejecute el comando license:
 +
-[role="tabbed-block"]
-====
-.Para Fabric OS 8,2.x y versiones anteriores
---
-Ejecute el comando `licenseport --show`.
+`licenseport --show` .
 
---
-.Para Fabric OS 9,0 y posterior
---
-Ejecute el comando `license --show -port`.
-
---
-====
 +
 [listing]
 ----
@@ -182,10 +163,6 @@ FC_switch_A_1:admin> licenseport --method dynamic
 The POD method has been changed to dynamic.
 Please reboot the switch now for this change to take effect
 ----
-+
-
-NOTE: En Fabric OS 9,0 y posterior, el método de licencia es dinámico de forma predeterminada. El método de licencia estática no es compatible.
-
 
 
 . Reinicie el switch:

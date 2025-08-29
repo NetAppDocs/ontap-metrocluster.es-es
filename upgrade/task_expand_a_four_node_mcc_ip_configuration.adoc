@@ -1138,7 +1138,7 @@ Debe incorporar el nuevo grupo de recuperación ante desastres a la configuraci�
 +
 `set -privilege advanced`
 
-.. Actualice la configuración de MetroCluster en cualquiera de los nodos:
+.. Actualice la configuración de MetroCluster en cualquiera de los nodos recién agregados:
 +
 [cols="30,70"]
 |===

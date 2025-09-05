@@ -88,9 +88,6 @@ entries:
       - title: Agregue en caliente una bandeja de discos SAS a una pila de bandejas
           de discos SAS
         url: "/maintain/task_fb_hot_add_a_disk_shelf_install_7500n.html"
-      - title: Añada en caliente una bandeja de discos IOM12 a una pila de bandejas
-          de discos IOM6, en una configuración MetroCluster con conexión a puente
-        url: "/maintain/task_hot_add_an_iom12_disk_shelf_to_a_stack_of_iom6_disk_shelves.html"
   - title: Quitar el almacenamiento de una configuración FC de MetroCluster en caliente
     url: "/maintain/task_hot_remove_storage_from_a_mcc_fc_configuration.html"
   - title: Apagar y encender un único sitio con una configuración de MetroCluster

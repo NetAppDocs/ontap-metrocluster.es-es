@@ -108,12 +108,6 @@ NOTE: Los puentes FibreBridge 6500N no se admiten en configuraciones que ejecute
 
 * Los puentes FibreBridge 7600N o 7500N admiten hasta cuatro pilas SAS.
 * Cada pila puede utilizar distintos modelos de IOM.
-+
-No se admite una combinación de módulos IOM12 y módulos IOM3 dentro de la misma pila de almacenamiento. Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila de almacenamiento si el sistema ejecuta una versión admitida de ONTAP.
-
-+
-Los módulos IOM compatibles dependen de la versión de ONTAP que esté ejecutando.
-
 * La nomenclatura debe ser única en la configuración de MetroCluster.
 
 
@@ -161,8 +155,6 @@ En una configuración con una bandeja parcialmente ocupada, las unidades deben d
 == Mezcla módulos IOM12 e IOM 6 en una pila
 
 Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la herramienta de matriz de interoperabilidad (IMT) para ver si la versión de ONTAP admite la combinación de bandejas. https://imt.netapp.com/matrix/["IMT"^]
-
-Para obtener más información sobre la mezcla de estantes, consulte: https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"]
 
 
 

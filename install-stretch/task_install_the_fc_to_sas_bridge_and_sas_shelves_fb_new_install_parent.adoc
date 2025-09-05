@@ -25,7 +25,6 @@ NOTE: Todos los discos del grupo de recuperación ante desastres (DR) deben usar
 +
 https://hwu.netapp.com["Hardware Universe de NetApp"]
 
-* No se admite una combinación de módulos IOM12 y módulos IOM3 dentro de la misma pila de almacenamiento. Se admite una mezcla de módulos IOM12 y módulos IOM6 dentro de la misma pila de almacenamiento si el sistema ejecuta una versión admitida de ONTAP.
 
 
 [NOTE]

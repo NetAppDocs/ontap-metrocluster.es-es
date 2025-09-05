@@ -354,5 +354,3 @@ Si este sistema se ocupa de 16 unidades, deben distribuirse simétricamente entr
 == Mezcla módulos IOM12 e IOM 6 en una pila
 
 Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la https://imt.netapp.com/matrix/["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^] Para ver si su versión de ONTAP admite la mezcla de bandejas.
-
-Para obtener más información sobre la mezcla de estantes, consulte https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Bandejas añadidas en caliente con módulos IOM12 a una pila de bandejas con módulos IOM6"^]

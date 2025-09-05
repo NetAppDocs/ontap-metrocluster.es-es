@@ -36,7 +36,7 @@ La _Guía de instalación y mantenimiento_ del modelo de bandeja de discos propo
 +
 .. Para la primera pila de bandejas de discos, conecte el cable IOM A de la primera bandeja al puerto SAS A en FibreBridge A. Conecte el cable IOM B de la última bandeja al puerto SAS A en FibreBridge B.
 .. Para pilas de bandejas adicionales, repita el paso anterior con el siguiente puerto SAS disponible en los puentes FibreBridge, usando el puerto B para la segunda pila, el puerto C para la tercera pila y el puerto D para la cuarta pila.
-.. Durante el cableado, conecte las pilas basadas en módulos IOM12 e IOM3/IOM6 al mismo puente siempre que estén conectados a puertos SAS independientes.
+.. Durante el cableado, conecte las pilas basadas en módulos IOM12 al mismo puente siempre que estén conectadas a puertos SAS separados.
 +
 
 NOTE: Cada pila puede utilizar distintos modelos de IOM, pero todas las bandejas de discos de una pila deben utilizar el mismo modelo.

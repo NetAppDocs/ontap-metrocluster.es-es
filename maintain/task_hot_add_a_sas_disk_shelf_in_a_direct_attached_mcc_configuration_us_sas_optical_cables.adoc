@@ -15,7 +15,6 @@ Puede utilizar cables ópticos SAS para añadir en caliente una bandeja de disco
 
 * Este procedimiento no es disruptivo y tarda aproximadamente dos horas en completarse.
 * Necesita la contraseña de administrador y el acceso a un servidor FTP o SCP.
-* Si va a añadir una bandeja IOM12 a una pila de bandejas IOM6, consulte link:https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Añadir en caliente bandejas IOM12 a una pila de bandejas IOM6"].
 
 
 Esta tarea se aplica a una configuración de MetroCluster FC en la que el almacenamiento está conectado directamente a las controladoras de almacenamiento con cables SAS. No se aplica a configuraciones FC de MetroCluster mediante puentes FC a SAS o estructuras de switches FC.

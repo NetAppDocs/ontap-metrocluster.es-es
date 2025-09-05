@@ -2418,7 +2418,7 @@ Debe asignar los puertos del switch a zonas separadas para aislar el tráfico de
 .Acerca de esta tarea
 Estos pasos deben realizarse en las dos estructuras del switch de FC.
 
-Los siguientes pasos usan la división en zonas descrita en la sección Zoning para FibreBridge 7500N en una configuración MetroCluster de cuatro nodos. Consulte link:task_fcsw_cisco_configure_a_cisco_switch_supertask.html#configuring-fcip-ports-for-a-dual-isl-on-cisco-9250i-fc-switches["División en zonas para los puertos FC-VI"].
+Los siguientes pasos utilizan la zonificación descrita en la sección Zonificación para un FibreBridge 7500N en una configuración MetroCluster de cuatro nodos.
 
 .Pasos
 . Borrar las zonas y zonas existentes, si están presentes.

@@ -152,12 +152,6 @@ En una configuración con una bandeja parcialmente ocupada, las unidades deben d
 
 
 
-== Mezcla módulos IOM12 e IOM 6 en una pila
-
-Su versión de ONTAP debe admitir la mezcla de bandejas. Consulte la herramienta de matriz de interoperabilidad (IMT) para ver si la versión de ONTAP admite la combinación de bandejas. https://imt.netapp.com/matrix/["IMT"^]
-
-
-
 == Convenciones de nomenclatura de puentes
 
 Los puentes utilizan el siguiente ejemplo de nombre:

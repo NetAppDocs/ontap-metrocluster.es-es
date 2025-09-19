@@ -4,28 +4,17 @@ sidebar: sidebar
 keywords:  
 summary: A partir de ONTAP 9.8, puede quitar un grupo de recuperación ante desastres de una configuración MetroCluster de ocho nodos para crear una configuración MetroCluster de cuatro nodos. 
 ---
-= Eliminación de un grupo de recuperación ante desastres
+= Eliminar un grupo de DR de una configuración de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-A partir de ONTAP 9.8, puede quitar un grupo de recuperación ante desastres de una configuración MetroCluster de ocho nodos para crear una configuración MetroCluster de cuatro nodos.
+A partir de ONTAP 9.8, puede eliminar un grupo de recuperación ante desastres (DR) de una configuración de MetroCluster de ocho nodos para crear una configuración de MetroCluster de cuatro nodos.
 
-Este procedimiento es compatible con ONTAP 9.8 y versiones posteriores. Para los sistemas que ejecutan ONTAP 9.7 o una versión anterior, consulte el artículo de la base de conocimientos
 
-link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_a_DR-Group_from_a_MetroCluster["Cómo quitar un grupo de recuperación ante desastres de una configuración de MetroCluster"]
-
-https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"]
-
-Una configuración de ocho nodos incluye ocho nodos organizados como dos grupos de recuperación ante desastres de cuatro nodos.
-
-image::../media/mcc_dr_groups_8_node.gif[mcc grupos dr de 8 nodos]
-
-Al eliminar un grupo de recuperación ante desastres, cuatro nodos permanecen en la configuración.
-
-image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
+NOTE: Utilice estos pasos durante los flujos de trabajo de transición y actualización del sistema.
 
 
 
@@ -43,7 +32,18 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 
 
-== Quite los nodos del grupo DR de cada clúster
+== Eliminar los nodos del grupo DR de cada clúster
+
+Este procedimiento es compatible a partir de ONTAP 9.8.  Para sistemas que ejecutan ONTAP 9.7 o anterior, consulte el artículo de la base de conocimientos:link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_a_DR-Group_from_a_MetroCluster["Cómo quitar un grupo de recuperación ante desastres de una configuración de MetroCluster"^] .
+
+.Acerca de esta tarea
+Una configuración de ocho nodos incluye ocho nodos organizados como dos grupos de recuperación ante desastres de cuatro nodos.
+
+image::../media/mcc_dr_groups_8_node.gif[mcc grupos dr de 8 nodos]
+
+Cuando se elimina un grupo de DR, quedan cuatro nodos en la configuración.
+
+image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
 
 .Antes de empezar
 * Este paso debe ejecutarse en ambos clústeres.
@@ -51,13 +51,13 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 
 .Pasos
-. Prepárese para la eliminación del grupo de recuperación ante desastres, si no lo ha hecho todavía.
+. Prepárese para eliminar el grupo DR si aún no lo ha hecho.
 +
 .. Mueva todos los volúmenes de datos a otro grupo de recuperación ante desastres.
-.. Si el grupo de recuperación de desastres que se va a quitar contiene volúmenes de reflejo de uso compartido de carga, no se pueden mover.  Vuelva a crear todos los volúmenes de reflejos con uso compartido de carga en otro grupo de recuperación ante desastres y, a continuación, elimine los volúmenes de reflejo de uso compartido de carga del grupo de recuperación ante desastres que se van a quitar.
+.. Si el grupo de DR que se va a eliminar tiene volúmenes espejo de reparto de carga, vuelva a crear todos los volúmenes espejo de reparto de carga en otro grupo de DR y elimínelos del grupo de DR que se va a eliminar.
 .. Mueva todos los volúmenes de metadatos MDV_CRS a otro grupo de DR siguiendo el link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html["Mover un volumen de metadatos en configuraciones de MetroCluster"] procedimiento.
 .. Elimine todos los volúmenes de metadatos MDV_aud que puedan existir en el grupo de recuperación ante desastres que se va a quitar.
-.. Elimine todos los agregados de datos del grupo de recuperación ante desastres que se van a eliminar, como se muestra en el ejemplo siguiente:
+.. Eliminar todos los agregados de datos en el grupo de DR que se van a eliminar:
 +
 [listing]
 ----
@@ -70,25 +70,29 @@ ClusterB::> aggr delete -aggregate aggregate_name
 
 NOTE: Los agregados raíz no se eliminan.
 
-.. Mueva las LIF de datos a sin conexión.
-`network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin down`
-.. Migrar todas las LIF de datos a los nodos principales de otro grupo de recuperación ante desastres. +
-`network interface show -home-node _old_node_`
+.. Migre todos los LIF de datos NAS que utiliza para NFS y CIFS (SMB) a los nodos locales en otro grupo de recuperación ante desastres. + 
+`network interface show -home-node <old_node>`
 +
-`network interface modify -vserver _svm-name_ -lif _data-lif_ -home-node _new_node_ -home-port _port-id_`
+`network interface migrate -vserver <svm_name> -lif <data_lif> -destination-node <new_node> -destination-port <port>`
 
-.. Vuelva a conectar las LIF de datos.
-`network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin up`
+.. Mueva los LIF de datos al nuevo nodo de inicio en otro grupo de DR.
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-node <new_node> -home-port <port>`
 .. Migrar la LIF de gestión del clúster a un nodo inicial en otro grupo de recuperación ante desastres.
 +
 `network interface show -role cluster-mgmt`
 
 +
-`network interface modify -vserver _svm-name_ -lif _cluster_mgmt_ -home-node _new_node_ -home-port _port-id_`
+`network interface modify -vserver <svm-name> -lif <cluster_mgmt> -home-node <new_node> -home-port <port-id>`
 
 +
-La gestión de nodos y los LIF entre clústeres no se migran.
+[NOTE]
+====
+*** La gestión de nodos y los LIF entre clústeres no se migran.  Cree nuevos LIF de administración de nodos y entre clústeres en los nodos del grupo de recuperación ante desastres según sea necesario.
+*** No es posible migrar ni mover interfaces FCP utilizadas para el acceso a bloques (SAN) entre los nodos.  Cree nuevas interfaces FCP según sea necesario.
+*** Las LIF SAN iSCSI deben estar inactivas antes de que se puedan actualizar el nodo local y el puerto local.
 
+
+====
 .. Transfiera el valor épsilon a un nodo de otro grupo de recuperación ante desastres, si fuera necesario.
 +
 [listing]
@@ -119,6 +123,9 @@ ClusterB::*> set admin
 En el siguiente ejemplo, se muestra la eliminación de la configuración del grupo DR en cluster_A.
 
 +
+.Ejemplo
+[%collapsible]
+====
 [listing]
 ----
 cluster_A::*>
@@ -152,19 +159,127 @@ Do you want to continue? {y|n}: y
 
 cluster_A::*>
 ----
+====
 
 
 . Repita el paso anterior en el clúster del partner.
-. Si está en una configuración IP de MetroCluster, quite las conexiones MetroCluster en los nodos del grupo de recuperación ante desastres antiguo.
+. Deshabilite la conmutación por error de almacenamiento en los nodos del antiguo grupo de recuperación ante desastres:
 +
-Estos comandos se pueden emitir desde cualquier clúster y se pueden aplicar a todo el grupo de recuperación ante desastres que abarca ambos clústeres.
+`storage failover modify -node <node-name> -enable false`
+
+. Si está en una configuración de IP de MetroCluster , realice los siguientes pasos para eliminar los plexos remotos de los agregados raíz y quitar la propiedad del disco en los nodos del antiguo grupo de DR.
++
+Estos pasos deben realizarse para ambos nodos del par HA en cada sitio.
+
++
+.. Mostrar los plexos remotos de agregados raíz en los nodos del grupo de DR que se va a eliminar:
++
+`storage aggregate plex show -aggregate <root_aggr_name> -pool 1`
+
+.. Eliminar los plexos remotos:
++
+`storage aggregate plex delete -aggregate <root_aggr_name> -plex <plex_from_previous_step>`
+
+.. Identifique los discos remotos que pertenecen a los nodos del grupo de recuperación ante desastres.
++
+Los comandos que utilice dependerán de si está utilizando discos particionados/compartidos o discos completos:
+
++
+
+NOTE: Utilice una lista separada por comas en el `-owner <node_names>` campo para especificar los nombres de los nodos en el grupo DR que se eliminará.
+
++
+[role="tabbed-block"]
+====
+.Discos particionados/compartidos:
+--
+... Configure el nivel de privilegio en Advanced:
++
+`set advanced`
+
+... Mostrar los discos remotos:
++
+`storage disk show -pool Pool1 -owner <node_names> -partition-ownership`
+
+
+
+--
+.Discos enteros:
+--
+... Configure el nivel de privilegio en Advanced:
++
+`set advanced`
+
+... Mostrar los discos remotos:
++
+`storage disk show -pool Pool1 -owner <node_names>`
+
+
+
+--
+====
+.. Deshabilitar la asignación automática de discos:
++
+`disk option modify -node <node_names_in_the_DR_group_to_be_deleted>  -autoassign off`
+
+.. Eliminar la propiedad de los discos pool1 en cada nodo del grupo DR que se va a eliminar.  Realice estos pasos en cada nodo que desee eliminar.
++
+... Vaya al nodeshell:
++
+`run -node <node_name>`
+
+... Identifique los discos del pool1:
++
+`aggr status -s`
+
++
+Se muestran todos los discos de repuesto, incluidos los discos de repuesto pool0 y pool1 propiedad del nodo.
+
+... Eliminar la propiedad del disco para cada disco de repuesto del pool1:
++
+`disk remove_ownership <disk_name>`
+
++
+Para los discos particionados, elimine la propiedad de la partición y luego elimine la propiedad del disco contenedor.
+
+
+
+
+
+. Si está en una configuración de IP de MetroCluster , elimine las conexiones de MetroCluster en los nodos del antiguo grupo de DR.
++
+Estos comandos se pueden emitir desde cualquiera de los clústeres y se aplican a todo el grupo de DR que abarca ambos clústeres.
 
 +
 .. Desconectar las conexiones:
 +
-`metrocluster configuration-settings connection disconnect _dr-group-id_`
+`metrocluster configuration-settings connection disconnect -dr-group-id <dr_group_id>`
 
++
+.Ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster_A::*> metrocluster configuration-settings connection disconnect -dr-group-id 1
+
+Warning: For the nodes in the DR group 1, this command will remove the existing connections that are used to mirror NV logs and access remote storage.
+Do you want to continue? {y|n}: y
+
+Warning: Before proceeding with disconnect, you must verify the following:
+      1. Unmirrored aggregates do not have disks in remote plexes.
+      2. Aggregates are not mirrored.
+      3. No disks are assigned in Pool1.
+      4. Storage failover is not enabled.
+      Follow the "MetroCluster Installation and Configuration guide" for detailed instructions to verify this.
+Do you want to continue? {y|n}: y
+----
+====
 .. Elimine las interfaces MetroCluster en los nodos del antiguo grupo de recuperación ante desastres:
++
+
+NOTE: Este paso debe repetirse en cada nodo del grupo DR.
+
 +
 `metrocluster configuration-settings interface delete`
 
@@ -174,32 +289,30 @@ Estos comandos se pueden emitir desde cualquier clúster y se pueden aplicar a t
 
 . Desunir los nodos del grupo de recuperación ante desastres antiguo.
 +
-Debe realizar este paso en cada clúster.
+Realice este paso en cada clúster.
 
 +
 .. Configure el nivel de privilegio avanzado:
 +
 `set -privilege advanced`
 
-.. Desactive la conmutación al nodo de respaldo del almacenamiento:
-+
-`storage failover modify -node _node-name_ -enable false`
-
-.. Unirte al nodo: +
-`cluster unjoin -node _node-name_`
+.. Desunir el nodo: +
+`cluster unjoin -node <node-name>`
 +
 Repita este paso con el otro nodo local del grupo de recuperación ante desastres antiguo.
 
-.. Configure el nivel de privilegio admin: +
+.. Establecer el nivel de privilegio de administrador:
++
 `set -privilege admin`
 
 
-. Volver a habilitar el clúster de alta disponibilidad en el nuevo grupo de recuperación ante desastres:
+
+. Verifique que la alta disponibilidad del clúster esté habilitada en el nuevo grupo de recuperación ante desastres.  Si es necesario, vuelva a habilitar la alta disponibilidad del clúster:
 +
 `cluster ha modify -configured true`
 
 +
-Debe realizar este paso en cada clúster.
+Realice este paso en cada clúster.
 
 . Detenga, apague y retire los módulos de controladora y las bandejas de almacenamiento antiguos.
 

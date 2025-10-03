@@ -40,13 +40,13 @@ Cuando se añaden nodos nuevos a un clúster existente sin un dominio de retrans
 * Este procedimiento provoca interrupciones y tarda aproximadamente cuatro horas en completarse.
 * Antes de realizar este procedimiento, la configuración FC de MetroCluster consta de dos clústeres de un solo nodo:
 +
-image::../media/mcc_dr_groups_2_node.gif[mcc grupos dr 2 nodos]
+image::../media/mcc_dr_groups_2_node.gif[Configuración de MetroCluster FC con dos nodos antes de la expansión]
 
 +
 Una vez completado este procedimiento, la configuración de MetroCluster FC consta de dos pares de alta disponibilidad, uno en cada sitio:
 
 +
-image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
+image::../media/mcc_dr_groups_4_node.gif[Configuración de MetroCluster FC con cuatro nodos después de la expansión]
 
 * Ambos sitios deben ser ampliados igualmente.
 +
@@ -59,4 +59,4 @@ El tiempo para inicializar los discos depende del tamaño de los discos.
 * Este procedimiento utiliza el siguiente flujo de trabajo:
 
 
-image::../media/workflow_mcc_2_to_4_node_expansion_high_level.gif[flujo de trabajo mcc de 2 a 4 nodos de expansión de alto nivel]
+image::../media/workflow_mcc_2_to_4_node_expansion_high_level.gif[Flujo de trabajo para la expansión de MetroCluster FC de 2 a 4 nodos]

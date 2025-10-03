@@ -28,11 +28,11 @@ Este procedimiento no es compatible con versiones anteriores de ONTAP ni con con
 
 Antes de realizar este procedimiento, la configuración de FC de MetroCluster consta de cuatro nodos, con un par de alta disponibilidad en cada sitio:
 
-image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
+image::../media/mcc_dr_groups_4_node.gif[Configuración de MetroCluster FC con cuatro nodos antes de la expansión]
 
 Una vez finalizado este procedimiento, la configuración de MetroCluster FC está compuesta por dos pares de alta disponibilidad en cada sitio:
 
-image::../media/mcc_dr_groups_8_node.gif[mcc grupos dr de 8 nodos]
+image::../media/mcc_dr_groups_8_node.gif[Configuración de MetroCluster FC con ocho nodos después de la expansión]
 
 Ambos sitios deben ser ampliados igualmente. Una configuración FC de MetroCluster no puede consistir en un número desigual de nodos.
 

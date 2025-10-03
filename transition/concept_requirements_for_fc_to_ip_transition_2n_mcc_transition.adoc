@@ -83,7 +83,7 @@ Debe añadirse almacenamiento adicional, si es necesario, para acomodar las dos 
 Esto puede requerir bandejas de almacenamiento adicionales, como se muestra en la siguiente ilustración.
 
 +
-image::../media/transition_2n_4_new_ip_nodes_on_the_shelves.png[realice la transición de 4 nodos ip nuevos en las bandejas]
+image::../media/transition_2n_4_new_ip_nodes_on_the_shelves.png[Transición con cuatro nuevos nodos IP en los estantes existentes]
 
 +
 Debe tener entre 14 y 18 unidades adicionales cada una para la tercera y cuarta controladora (node_A_2-IP y node_B_2-IP):
@@ -112,7 +112,7 @@ Debe seguir el flujo de trabajo específico para garantizar que la transición s
 
 Mientras se prepara para la transición, planee el viaje entre los sitios. Tenga en cuenta que, una vez montados en rack y cableados, se necesita acceso mediante terminal en serie a los nodos. El acceso de Service Processor no está disponible hasta que se configuren los nodos.
 
-image::../media/workflow_2n_transition_bsaic.png[flujo de trabajo 2n transición bsaic]
+image::../media/workflow_2n_transition_bsaic.png[Flujo de trabajo para la transición de dos nodos]
 
 
 

@@ -60,7 +60,7 @@ No se admiten servicios de uso compartido de enlaces como enlaces de conmutació
 
 Los switches back-end de MetroCluster están conectados a la red del cliente.
 
-image::../media/MCC_layer2.png[MCC layer2]
+image::../media/MCC_layer2.png[Configuración de red de capa 2 de MetroCluster]
 
 Los switches intermedios proporcionados por el cliente deben cumplir los siguientes requisitos:
 
@@ -101,7 +101,7 @@ Para los demás sistemas, debe configurar la VLAN cuando crea las interfaces de 
 
 Los switches back-end de MetroCluster están conectados a la red IP enrutada, ya sea directamente a los routers (como se muestra en el siguiente ejemplo simplificado) o a través de otros switches intermedios.
 
-image::../media/mcc_layer3_backend.png[mcc layer3 back-end]
+image::../media/mcc_layer3_backend.png[Configuración de la red backend de capa 3 de MetroCluster]
 
 El entorno de MetroCluster está configurado y cableado como configuración IP de MetroCluster estándar, tal y como se describe en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_parts_of_an_ip_mcc_configuration_mcc_ip.html["Configure los componentes de hardware de MetroCluster"]. Al realizar el procedimiento de instalación y cableado, debe realizar los pasos específicos de una configuración de capa 3. Lo siguiente se aplica a las configuraciones de la capa 3:
 
@@ -138,11 +138,11 @@ Cuando el tráfico MetroCluster atraviesa un ISL en una red intermedia, debe com
 
 En el siguiente diagrama se ofrece una descripción general de los ajustes necesarios cuando se utilizan switches Cisco validados por NetApp:
 
-image::../media/switch_traffic_with_cisco_switches.png[cambie el tráfico con switches cisco]
+image::../media/switch_traffic_with_cisco_switches.png[Configuraciones necesarias al utilizar conmutadores Cisco validados por NetApp para el tráfico de MetroCluster]
 
 El siguiente diagrama proporciona una descripción general de la configuración necesaria para una red compartida cuando los conmutadores externos son conmutadores IP Broadcom.
 
-image::../media/switch_traffic_with_broadcom_switches.png[cambie el tráfico con switches broadcom]
+image::../media/switch_traffic_with_broadcom_switches.png[Configuraciones necesarias para la red compartida al utilizar conmutadores IP Broadcom]
 
 En este ejemplo se crean las siguientes directivas y mapas para el tráfico MetroCluster:
 

@@ -24,7 +24,7 @@ En su lugar, puede utilizar otras interfaces de administración, si es necesario
 
 Este procedimiento utiliza el siguiente flujo de trabajo:
 
-image::../media/workflow_bridge_installation_and_configuration.gif[instalación y configuración del puente de flujo de trabajo]
+image::../media/workflow_bridge_installation_and_configuration.gif[Flujo de trabajo para la instalación y configuración del puente FC a SAS]
 
 
 
@@ -524,7 +524,7 @@ NOTE: Cada pila puede utilizar distintos modelos de IOM, pero todas las bandejas
 
 En la siguiente ilustración se muestran las bandejas de discos conectadas a un par de puentes FibreBridge 7600N o 7500N:
 
-image::../media/mcc_cabling_bridge_and_sas3_stack_with_7500n_and_multiple_stacks.gif[puente de cableado mcc y pila sas3 con 7500n y varias pilas]
+image::../media/mcc_cabling_bridge_and_sas3_stack_with_7500n_and_multiple_stacks.gif[Configuración de cableado FibreBridge de MetroCluster con múltiples pilas SAS3]
 
 --
 

@@ -498,7 +498,7 @@ Esta tarea debe realizarse en site_A.
 
 Tras completar esta tarea, el sitio_A está activo y está sirviendo datos para ambos sitios. El centro_B está inactivo y listo para comenzar el proceso de actualización, como se muestra en la siguiente ilustración. (Esta ilustración también se aplica a la actualización de FAS9000 a una controladora FAS9500).
 
-image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[mcc actualiza el clúster a en el cambio A900]
+image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[Sitio_B inactivo y listo para actualizar]
 
 .Pasos
 . Cambie de la configuración de MetroCluster a site_A para que los nodos de site_B puedan actualizarse:

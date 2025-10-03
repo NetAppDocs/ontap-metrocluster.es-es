@@ -39,11 +39,11 @@ Este procedimiento es compatible a partir de ONTAP 9.8.  Para sistemas que ejecu
 .Acerca de esta tarea
 Una configuración de ocho nodos incluye ocho nodos organizados como dos grupos de recuperación ante desastres de cuatro nodos.
 
-image::../media/mcc_dr_groups_8_node.gif[mcc grupos dr de 8 nodos]
+image::../media/mcc_dr_groups_8_node.gif[Configuración de MetroCluster con ocho nodos en dos grupos de recuperación ante desastres]
 
 Cuando se elimina un grupo de DR, quedan cuatro nodos en la configuración.
 
-image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
+image::../media/mcc_dr_groups_4_node.gif[Configuración de MetroCluster con cuatro nodos después de la eliminación del grupo de recuperación ante desastres]
 
 .Antes de empezar
 * Este paso debe ejecutarse en ambos clústeres.

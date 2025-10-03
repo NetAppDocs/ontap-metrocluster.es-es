@@ -24,7 +24,7 @@ NOTE: Si comparte un ISL con tráfico que no sea de MetroCluster, debe verificar
 
 En esta topología, dos sitios distintos están conectados mediante vínculos directos. Estos enlaces pueden estar entre los dispositivos xWDM y TDM o switches. La capacidad de los ISL no está dedicada al tráfico de MetroCluster, sino que se comparte con otro tráfico que no sea de MetroCluster.
 
-image::../media/mcc_ip_networking_with_shared_isls.gif[redes ip de mcc con islas compartidas]
+image::../media/mcc_ip_networking_with_shared_isls.gif[Ejemplo de red IP de MetroCluster con ISL compartidos]
 
 
 
@@ -33,7 +33,7 @@ image::../media/mcc_ip_networking_with_shared_isls.gif[redes ip de mcc con islas
 En esta topología, los sitios de MetroCluster no están conectados directamente, sino que MetroCluster y el tráfico de host viajan a través de una red.
 La red puede consistir en una serie de xWDM y TDM y switches, pero a diferencia de la configuración compartida con ISLs directos, los enlaces no son directos entre los sitios. Dependiendo de la infraestructura entre los sitios, cualquier combinación de configuraciones de red es posible.
 
-image::../media/mcc_ip_networking_with_intermediate_private_networks.gif[redes ip de mcc con redes privadas intermedias]
+image::../media/mcc_ip_networking_with_intermediate_private_networks.gif[Ejemplo de red IP de MetroCluster con redes privadas intermedias]
 
 
 
@@ -44,7 +44,7 @@ En esta topología, dos configuraciones de MetroCluster independientes comparten
 
 NOTE: Tanto «MetroCluster One» como «MetroCluster two» pueden ser una configuración MetroCluster de ocho nodos o dos configuraciones MetroCluster de cuatro nodos.
 
-image::../media/mcc_ip_two_mccs_sharing_the_same_shared_network_sx.gif[mcc ip dos cmc que comparten la misma red compartida sx]
+image::../media/mcc_ip_two_mccs_sharing_the_same_shared_network_sx.gif[Cableado IP de MetroCluster con dos configuraciones que comparten la misma red intermedia]
 
 
 
@@ -52,4 +52,4 @@ image::../media/mcc_ip_two_mccs_sharing_the_same_shared_network_sx.gif[mcc ip do
 
 Dos configuraciones de MetroCluster separadas comparten el mismo switch intermedio, donde un MetroCluster se configura usando switches validados por NetApp en una configuración de capa 2 compartida (MetroCluster One) y el otro MetroCluster se configura usando switches compatibles con MetroCluster y se conectan directamente a los switches intermedios (MetroCluster Two).
 
-image::../media/mcc_ip_unsupported_two_mccs_direct_to_shared_switches.png[mcc ip no compatible dos cmc directamente a conmutadores compartidos]
+image::../media/mcc_ip_unsupported_two_mccs_direct_to_shared_switches.png[Ejemplo de configuración no compatible de dos MetroClusters conectados directamente a conmutadores compartidos]

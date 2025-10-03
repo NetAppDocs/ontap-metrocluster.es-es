@@ -15,7 +15,7 @@ Los dos clústeres de la configuración de MetroCluster tienen una relación ent
 
 Las LIF de interconexión de clústeres deben configurarse en cada nodo de la configuración de MetroCluster y los clústeres deben configurarse para paridad. Los puertos con las LIF de interconexión de clústeres están conectados a la red de paridad de clústeres proporcionada por el cliente. La replicación de la configuración de SVM se realiza en esta red a través del servicio de replicación de configuración.
 
-image::../media/mcc_hw_architecture_cluster_peering.gif[mcc hw architecture cluster peering]
+image::../media/mcc_hw_architecture_cluster_peering.gif[Arquitectura de hardware que muestra la red de emparejamiento de clústeres en la configuración de MetroCluster]
 
 .Información relacionada
 link:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html["Una ilustración de los pares de alta disponibilidad locales en una configuración MetroCluster"]

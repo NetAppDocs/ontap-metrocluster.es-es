@@ -13,7 +13,7 @@ summary: Debe configurar cada nodo en la configuración de MetroCluster en ONTAP
 [role="lead"]
 Debe configurar cada nodo en la configuración de MetroCluster en ONTAP, incluidas las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. También debe implementar la relación de MetroCluster entre los dos sitios.
 
-image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[flujo de trabajo: software de configuración de nodos y clústeres de alto nivel]
+image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[Flujo de trabajo para la configuración de nodos y clústeres de alto nivel]
 
 
 

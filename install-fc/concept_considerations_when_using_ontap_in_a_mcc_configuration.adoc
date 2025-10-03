@@ -422,14 +422,14 @@ Un origen puede ser una SVM sincronizada en origen antes de realizar una conmuta
 La siguiente imagen muestra el comportamiento de recuperación ante desastres de SVM en un estado estable:
 
 +
-image::../media/svm_dr_normal_behavior.gif[comportamiento normal de recuperación ante desastres de svm]
+image::../media/svm_dr_normal_behavior.gif[Recuperación ante desastres de SVM durante la operación en estado estable]
 
 * Cuando la SVM sincronizada en origen es el origen de una relación de recuperación ante desastres de SVM, la información de las relaciones de recuperación ante desastres de la SVM de origen se replica en el partner de MetroCluster.
 +
 Esto permite que las actualizaciones de recuperación ante desastres de SVM continúen después de una conmutación, como se muestra en la siguiente imagen:
 
 +
-image::../media/svm_dr_image_2.gif[imagen de dr de svm 2]
+image::../media/svm_dr_image_2.gif[Recuperación ante desastres de SVM después de la conmutación]
 
 * Durante los procesos de conmutación de sitios y conmutación de estado, la replicación al destino de recuperación ante desastres de SVM puede fallar.
 +
@@ -447,7 +447,7 @@ Durante la resincronización, el origen de recuperación ante desastres de las m
 
 Durante la resincronización, la SVM de origen (cluster_A) actúa temporalmente como una SVM de destino, como se muestra en la siguiente imagen:
 
-image::../media/svm_dr_resynchronization.gif[resincronización de recuperación ante desastres de svm]
+image::../media/svm_dr_resynchronization.gif[Resincronización de recuperación ante desastres de SVM]
 
 
 

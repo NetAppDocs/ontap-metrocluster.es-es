@@ -15,7 +15,7 @@ En configuraciones MetroCluster de ocho o cuatro nodos, cada sitio consta de con
 
 Las operaciones locales de conmutación por error y devolución del servicio de alta disponibilidad se realizan con los comandos de conmutación por error del almacenamiento, del mismo modo que una configuración que no sea de MetroCluster.
 
-image::../media/mcc_hw_architecture_local_ha.gif[mcc hw architecture, ha local]
+image::../media/mcc_hw_architecture_local_ha.gif[Pares de alta disponibilidad locales de la arquitectura de hardware de MetroCluster]
 
 .Información relacionada
 link:concept_illustration_of_redundant_fc_to_sas_bridges.html["Ilustración de los puentes FC a SAS redundantes"]

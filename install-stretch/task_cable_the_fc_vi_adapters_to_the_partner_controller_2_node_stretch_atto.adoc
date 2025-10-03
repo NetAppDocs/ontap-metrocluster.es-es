@@ -16,7 +16,7 @@ Los adaptadores de FC-VI de cada controladora deben cablearse directamente a su 
 .Pasos
 . Conecte el cable de los puertos FC-VI.
 +
-image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[cableado mcc controlador fc vi al compañero]
+image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[Cableado del controlador FC VI de MetroCluster al socio]
 
 +
 La ilustración anterior es una representación típica del cableado necesario. Los puertos FC-VI específicos varían según el módulo de la controladora.

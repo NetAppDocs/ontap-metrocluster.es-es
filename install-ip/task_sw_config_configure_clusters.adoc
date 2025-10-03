@@ -650,7 +650,7 @@ Este procedimiento se debe realizar en uno de los clústeres de la configuració
 
 NOTE: Las relaciones de recuperación ante desastres no se pueden cambiar una vez que se han creado los grupos de recuperación ante desastres.
 
-image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
+image::../media/mcc_dr_groups_4_node.gif[Grupos de recuperación ante desastres de MetroCluster en una configuración de cuatro nodos]
 
 .Pasos
 . Compruebe que los nodos están listos para la creación del grupo de recuperación ante desastres introduciendo el siguiente comando en cada nodo:

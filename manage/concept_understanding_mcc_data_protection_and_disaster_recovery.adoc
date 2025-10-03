@@ -33,7 +33,7 @@ Los dos clústeres de la red con una relación entre iguales ofrecen recuperaci�
 
 En la siguiente ilustración, se muestra una configuración de MetroCluster FC. La funcionalidad de alta disponibilidad es la misma en las configuraciones IP de MetroCluster, salvo que los switches de clúster proporcionan la interconexión de alta disponibilidad.
 
-image::../media/mcc_hw_architecture_local_ha.gif[mcc hw architecture, ha local]
+image::../media/mcc_hw_architecture_local_ha.gif[HA local en una configuración de MetroCluster]
 
 .Información relacionada
 link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["Configuración de alta disponibilidad"^]
@@ -83,11 +83,11 @@ En una conmutación correcta de clúster A al clúster B, SVM_cluster_A se detie
 
 
 
-image::../media/mcc_mirroring_of_svms.gif[mirroring de mcc de svm]
+image::../media/mcc_mirroring_of_svms.gif[Duplicación de SVM de MetroCluster]
 
 Si se produce una conmutación, el plex remoto del clúster superviviente se conecta y la SVM secundaria comienza a servir los datos.
 
-image::../media/mcc_svms_after_switchover.gif[mcc svm después de la conmutación]
+image::../media/mcc_svms_after_switchover.gif[SVM de MetroCluster después del cambio]
 
 La disponibilidad de complejos remotos tras la conmutación depende del tipo de configuración de MetroCluster:
 
@@ -163,7 +163,7 @@ En la siguiente ilustración, se muestra cómo se reflejan los pools de discos e
 
 IMPORTANT: Si se utilizan agregados híbridos, puede producirse una degradación del rendimiento después de que falle un SyncMirror plex debido al llenado de la capa del disco de estado sólido (SSD).
 
-image::../media/mcc_mirroring_of_pools.gif[mcc mirroring de pools]
+image::../media/mcc_mirroring_of_pools.gif[Duplicación de grupos de almacenamiento de MetroCluster]
 
 
 
@@ -185,9 +185,9 @@ En una configuración MetroCluster de cuatro nodos, la caché no volátil de cad
 
 
  a| 
-image:../media/mcc_nvram_quartering.gif[""]
+image:../media/mcc_nvram_quartering.gif["Almacenamiento en caché no volátil en la configuración de MetroCluster"]
  a| 
-image:../media/mcc_nvram_split_in_non_mcc_ha_pair.gif[""]
+image:../media/mcc_nvram_split_in_non_mcc_ha_pair.gif["División de caché no volátil en par HA que no es MetroCluster"]
 
 |===
 Las cachés no volátiles almacenan el siguiente contenido:
@@ -212,7 +212,7 @@ En una configuración MetroCluster de dos nodos, no hay ninguna partición auxil
 
 Por ejemplo, la memoria caché local de un nodo (node_A_1) se refleja tanto de forma local como remota en los sitios MetroCluster. En la siguiente ilustración, se muestra que la caché local de node_A_1 se refleja en el partner de alta disponibilidad (node_A_2) y el partner de recuperación ante desastres (node_B_1):
 
-image::../media/mcc_nvram_mirroring_example.gif[ejemplo de mirroring de nvram de mcc]
+image::../media/mcc_nvram_mirroring_example.gif[Ejemplo de duplicación de NVRAM de MetroCluster]
 
 
 
@@ -222,7 +222,7 @@ Si la toma de control de alta disponibilidad local se realiza en una configuraci
 
 Por ejemplo, node_B_1 falla y es tomado por node_B_2. La caché local de node_A_1 ya no se puede reflejar en node_B_1. El mirroring cambia al partner auxiliar de recuperación ante desastres, node_B_2.
 
-image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[mcc nvram, ejemplo de mirroring dinámico dr aux]
+image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[Duplicación de NVRAM de MetroCluster con auxiliar de DR]
 
 
 
@@ -557,7 +557,7 @@ El ID del propietario original del disco dentro de la configuración de MetroClu
 |===
 La siguiente ilustración y tabla proporcionan un ejemplo de cómo cambia la propiedad de un disco en la agrupación de discos del nodo_A_1, ubicado físicamente en cluster_B.
 
-image::../media/mcc_disk_ownership.gif[propiedad de disco mcc]
+image::../media/mcc_disk_ownership.gif[Propiedad del disco de MetroCluster]
 
 |===
 
@@ -839,7 +839,7 @@ Esta función se aplica a las configuraciones IP de MetroCluster que ejecuten ON
 
 Los comandos de reparación manual siguen siendo necesarios en las configuraciones IP de MetroCluster que ejecutan ONTAP 9.4 y versiones anteriores.
 
-image::../media/mcc_so_sb_with_autoheal.gif[mcc so sb con cura automática]
+image::../media/mcc_so_sb_with_autoheal.gif[Conmutación y retroceso de MetroCluster con recuperación automática]
 
 
 
@@ -865,7 +865,7 @@ Puede confirmar el estado de los nodos del sitio de desastre y que las operacion
 
 
 
-image::../media/mcc_uso_with_autoheal.gif[mcc uso con cura automática]
+image::../media/mcc_uso_with_autoheal.gif[Cambio no programado de MetroCluster con recuperación automática]
 
 
 

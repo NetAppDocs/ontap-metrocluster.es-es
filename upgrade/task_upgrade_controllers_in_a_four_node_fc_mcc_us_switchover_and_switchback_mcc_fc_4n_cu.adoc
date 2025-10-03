@@ -568,7 +568,7 @@ Esta tarea debe realizarse en site_A.
 
 Tras completar esta tarea, Cluster_A está activo y está sirviendo datos para ambos sitios. Cluster_B está inactivo y está listo para comenzar el proceso de actualización, como se muestra en la siguiente ilustración.
 
-image::../media/mcc_upgrade_cluster_a_in_switchover.png[mcc actualiza el clúster a sin cambio]
+image::../media/mcc_upgrade_cluster_a_in_switchover.png[Sitio_B inactivo y listo para actualización después del cambio de MetroCluster]
 
 .Pasos
 . Cambie de la configuración de MetroCluster a site_A para que los nodos de site_B puedan actualizarse:
@@ -1464,7 +1464,7 @@ Una vez configuradas las nuevas controladoras, volverá a cambiar la configuraci
 .Acerca de esta tarea
 En esta tarea, realizará la operación de conmutación de estado y regresará la configuración de MetroCluster al funcionamiento normal. Los nodos en site_A siguen esperando una actualización.
 
-image::../media/mcc_upgrade_cluster_a_switchback.png[mcc actualiza el clúster a una regreso]
+image::../media/mcc_upgrade_cluster_a_switchback.png[Sitio_A en espera de actualización después del cambio de MetroCluster]
 
 .Pasos
 . Emita el `metrocluster node show` Comando en site_B y compruebe la salida.

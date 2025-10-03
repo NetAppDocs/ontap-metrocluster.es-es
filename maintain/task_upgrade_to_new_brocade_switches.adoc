@@ -31,7 +31,7 @@ Las estructuras de switches se actualizan de uno en uno.
 
 Al final de este procedimiento, los cuatro interruptores se actualizarán a interruptores nuevos.
 
-image::../media/brocade_upgr_to_g620_replacement_completed.gif[se ha completado la actualización de brocade a sustitución de g620]
+image::../media/brocade_upgr_to_g620_replacement_completed.gif[Actualización de Brocade a G620 después de su finalización]
 
 .Pasos
 . Desactive la primera estructura del switch:
@@ -44,14 +44,14 @@ image::../media/brocade_upgr_to_g620_replacement_completed.gif[se ha completado 
 FC_switch_A_1:admin> switchCfgPersistentDisable
 ----
 +
-image::../media/brocade_upgr_to_g620_fab_1_down.gif[brocade actualización a g620 fabuloso 1 menos]
+image::../media/brocade_upgr_to_g620_fab_1_down.gif[Actualización de Brocade a G620 con tejido 1 reducido]
 
 . Sustituya los switches antiguos en un sitio de MetroCluster.
 +
 .. Descablear y retirar el interruptor desactivado.
 .. Instale el nuevo interruptor en el rack.
 +
-image::../media/brocade_upgr_to_g620_replaced_a_1.gif[brocade actualización a g620 sustituye a 1]
+image::../media/brocade_upgr_to_g620_replaced_a_1.gif[Actualización de Brocade a G620 con A1 reemplazado]
 
 .. Deshabilite los nuevos conmutadores ejecutando el siguiente comando en ambos conmutadores:
 +
@@ -71,7 +71,7 @@ link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.htm
 Se han sustituido ambos switches de la estructura 1.
 
 +
-image::../media/brocade_upgr_to_g620_replaced_b_1.gif[brocade actualización a g620 reemplazado b 1]
+image::../media/brocade_upgr_to_g620_replaced_b_1.gif[Actualización de Brocade a G620 con B1 reemplazado]
 
 
 
@@ -175,4 +175,4 @@ Debe responder con "'y'" cuando se le solicite continuar en el modo avanzado y v
 
 Después de repetir los pasos, se han actualizado los cuatro switches y la configuración de MetroCluster funciona correctamente.
 
-image::../media/brocade_upgr_to_g620_replacement_completed.gif[se ha completado la actualización de brocade a sustitución de g620]
+image::../media/brocade_upgr_to_g620_replacement_completed.gif[Flujo de trabajo para MetroCluster después de reemplazar y actualizar el conmutador Brocade G620]

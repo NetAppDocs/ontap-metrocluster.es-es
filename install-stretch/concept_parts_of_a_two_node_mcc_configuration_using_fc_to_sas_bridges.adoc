@@ -34,7 +34,7 @@ La red de paridad de clústeres ofrece conectividad para el mirroring de la conf
 
 En la siguiente ilustración, se muestra una vista simplificada de la configuración de MetroCluster. En algunas conexiones, una sola línea representa varias conexiones redundantes entre los componentes. No se muestran las conexiones de red de datos y gestión.
 
-image::../media/mcc_hardware_architecture_both_clusters_2_node_atto.gif[arquitectura de hardware de mcc ambos clústeres 2 nodos atto]
+image::../media/mcc_hardware_architecture_both_clusters_2_node_atto.gif[Arquitectura de hardware MetroCluster de dos nodos, ambos clústeres con puentes FC a SAS]
 
 * La configuración consta de dos clústeres de un solo nodo.
 * Cada sitio tiene una o varias pilas de almacenamiento SAS.

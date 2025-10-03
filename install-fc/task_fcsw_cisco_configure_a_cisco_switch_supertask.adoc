@@ -1606,7 +1606,7 @@ Esta tarea solo se realiza en configuraciones que utilizan un ISL doble por estr
 
 Esta tarea se debe realizar en cada switch FC.
 
-image::../media/fcip_ports_dual_isl.gif[fcip con puertos isl dobles]
+image::../media/fcip_ports_dual_isl.gif[Diagrama que muestra los puertos FCIP con configuración ISL dual en cada conmutador]
 
 La tarea y los ejemplos utilizan las siguientes tablas de configuración de perfiles:
 

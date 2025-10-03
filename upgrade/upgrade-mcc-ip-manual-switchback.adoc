@@ -13,7 +13,7 @@ summary: Realice la operación de conmutación para devolver la configuración d
 [role="lead"]
 Realice la operación de conmutación para devolver la configuración de MetroCluster a su funcionamiento normal. Los nodos en site_A siguen esperando una actualización.
 
-image::../media/mcc_upgrade_cluster_a_switchback.png[mcc actualiza el clúster a una regreso]
+image::../media/mcc_upgrade_cluster_a_switchback.png[Sitio_A en espera de actualización después del cambio de MetroCluster]
 
 .Pasos
 . Emita el `metrocluster node show` Comando en site_B y compruebe la salida.

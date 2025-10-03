@@ -13,7 +13,7 @@ summary: 'Cada estructura de switches incluye vínculos entre switches \(ISL\) q
 [role="lead"]
 Cada estructura de switches incluye vínculos entre switches (ISL) que conectan los sitios. Los datos se replican de un sitio a otro a través del ISL. Cada estructura de switches debe estar en diferentes rutas físicas para conseguir redundancia.
 
-image::../media/mcc_hw_architecture_switch_fabrics.gif[mcc renovación de switches de arquitectura de hardware]
+image::../media/mcc_hw_architecture_switch_fabrics.gif[Arquitectura de hardware de MetroCluster , redes de conmutación redundantes]
 
 .Información relacionada
 link:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html["Una ilustración de los pares de alta disponibilidad locales en una configuración MetroCluster"]

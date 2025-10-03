@@ -29,7 +29,7 @@ Debe saber cómo se implementan las direcciones IP y las interfaces de MetroClus
 
 En una configuración IP de MetroCluster, la replicación del almacenamiento y la caché no volátil entre las parejas de alta disponibilidad y los partners de recuperación ante desastres se realiza a través de enlaces dedicados de gran ancho de banda en la estructura IP de MetroCluster. Las conexiones iSCSI se utilizan para la replicación del almacenamiento. Los switches IP también se utilizan para todo el tráfico dentro del clúster dentro de los clústeres locales. El tráfico MetroCluster se mantiene separado del tráfico dentro del clúster mediante subredes IP y VLAN independientes. La estructura IP de MetroCluster es diferente y distinta de la red de interconexión de clústeres entre iguales.
 
-image::../media/mcc_ip_ip_subnets.gif[subredes ip de mcc]
+image::../media/mcc_ip_ip_subnets.gif[Separación de subredes IP y VLAN de MetroCluster]
 
 La configuración de IP de MetroCluster requiere dos direcciones IP en cada nodo que estén reservadas para la estructura de IP de MetroCluster back-end. Las direcciones IP reservadas se asignan a las interfaces lógicas de IP (LIF) de MetroCluster durante la configuración inicial y tienen los siguientes requisitos:
 

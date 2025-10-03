@@ -13,7 +13,7 @@ summary: Los puentes FC a SAS proporcionan un puente de protocolos entre los dis
 [role="lead"]
 Los puentes FC a SAS proporcionan un puente de protocolos entre los discos conectados a SAS y la estructura de switches FC.
 
-image::../media/mcc_hw_architecture_shelf_stacks.gif[mcc pilas de bandejas de arquitectura de hardware]
+image::../media/mcc_hw_architecture_shelf_stacks.gif[Puentes FC a SAS con arquitectura de hardware que muestran pilas de estanterías]
 
 .Información relacionada
 link:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html["Una ilustración de los pares de alta disponibilidad locales en una configuración MetroCluster"]

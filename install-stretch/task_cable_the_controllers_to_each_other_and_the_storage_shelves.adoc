@@ -18,7 +18,7 @@ Esta tarea debe realizarse en los dos sitios MetroCluster.
 .Pasos
 . Conecte el cable de los puertos FC-VI.
 +
-image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[cableado mcc controlador fc vi al compañero]
+image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[Cableado del controlador FC VI de MetroCluster al socio]
 
 +
 La ilustración anterior es una conexión de cable representativa típica. Los puertos FC-VI específicos varían en función del módulo de la controladora.
@@ -39,6 +39,6 @@ La ilustración anterior es una conexión de cable representativa típica. Los p
 En la siguiente ilustración se muestran las conexiones. Su uso de puerto puede ser diferente en función de los puertos SAS y FC-VI disponibles en el módulo de la controladora.
 
 +
-image::../media/mcc_two_node_optical_sas_space_configuration.png[mcc configuración de dos nodos de espacio sas óptico]
+image::../media/mcc_two_node_optical_sas_space_configuration.png[Configuración SAS óptica de dos nodos]
 
 

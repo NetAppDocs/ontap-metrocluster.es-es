@@ -132,7 +132,7 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["Recuperac
 Este escenario también se aplica a configuraciones MetroCluster de cuatro nodos.
 
 +
-image::../media/mcc_dr_groups_8_node_with_a_single_controller_failure.gif[mcc dr agrupa a 8 nodos con fallo de controladora única]
+image::../media/mcc_dr_groups_8_node_with_a_single_controller_failure.gif[Grupos de recuperación ante desastres de MetroCluster de ocho nodos con falla de un solo controlador]
 
 
 
@@ -146,7 +146,7 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["Recuperac
 
 Este escenario también se aplica a configuraciones MetroCluster de cuatro nodos.
 
-image::../media/mcc_dr_groups_8_node_with_a_multi_controller_failure.gif[mcc dr agrupa a 8 nodos con fallo de varias controladoras]
+image::../media/mcc_dr_groups_8_node_with_a_multi_controller_failure.gif[Grupos de recuperación ante desastres de MetroCluster de ocho nodos con falla de múltiples controladores]
 
 
 
@@ -167,7 +167,7 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["Recuperac
 
 
 
-image::../media/mcc_dr_groups_8_node_with_two_single_controller_failures.gif[mcc dr agrupa a 8 nodos con dos fallos de controladora individual]
+image::../media/mcc_dr_groups_8_node_with_two_single_controller_failures.gif[Grupos de recuperación ante desastres de MetroCluster de ocho nodos con dos fallas de un solo controlador]
 
 
 
@@ -181,7 +181,7 @@ Puede utilizar el procedimiento de reemplazo de FRU de módulo de controladora e
 
 https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de hardware de ONTAP"^]
 
-image::../media/mcc_dr_groups_8_node_with_a_3_controller_failure.gif[mcc dr agrupa a 8 nodos con un fallo de controladora 3]
+image::../media/mcc_dr_groups_8_node_with_a_3_controller_failure.gif[Grupos de recuperación ante desastres de MetroCluster de ocho nodos con tres fallas de controlador]
 
 
 
@@ -199,4 +199,4 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["Recuperac
 
 
 
-image::../media/mcc_dr_groups_2_node_with_a_single_controller_failure.gif[mcc dr agrupa a 2 nodos con fallo de controladora única]
+image::../media/mcc_dr_groups_2_node_with_a_single_controller_failure.gif[Grupos de recuperación ante desastres de MetroCluster de dos nodos con falla de un solo controlador]

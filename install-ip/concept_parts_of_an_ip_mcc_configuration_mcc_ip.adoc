@@ -41,7 +41,7 @@ La red de paridad de clústeres ofrece conectividad para el mirroring de la conf
 
 
 
-image::../media/mcc_ip_hardware_architecture_mcc_ip.gif[arquitectura de hardware ip de mcc ip ip]
+image::../media/mcc_ip_hardware_architecture_mcc_ip.gif[Arquitectura de hardware IP de MetroCluster]
 
 
 
@@ -51,7 +51,7 @@ Una configuración IP de MetroCluster consta de un grupo de recuperación ante d
 
 En la siguiente ilustración, se muestra la organización de los nodos en una configuración de MetroCluster de cuatro nodos:
 
-image::../media/mcc_dr_groups_4_node.gif[mcc grupos dr de 4 nodos]
+image::../media/mcc_dr_groups_4_node.gif[Grupos de recuperación ante desastres de MetroCluster en una configuración de cuatro nodos]
 
 
 
@@ -61,7 +61,7 @@ Cada sitio de MetroCluster consta de controladoras de almacenamiento configurada
 
 Las operaciones locales de conmutación por error y devolución del servicio de alta disponibilidad se realizan con los comandos de conmutación por error del almacenamiento, del mismo modo que una configuración que no sea de MetroCluster.
 
-image::../media/mcc_ip_hardware_architecture_ha_pairs.gif[arquitectura de hardware ip de mcc pares de alta disponibilidad]
+image::../media/mcc_ip_hardware_architecture_ha_pairs.gif[Pares de alta disponibilidad de arquitectura de hardware IP de MetroCluster]
 
 .Información relacionada
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["Conceptos de ONTAP"]
@@ -72,7 +72,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["
 
 En general, los clústeres de ONTAP incluyen una red de interconexión de clúster para el tráfico entre los nodos del clúster. En configuraciones de IP de MetroCluster, esta red también se utiliza para transportar tráfico de replicación de datos entre los sitios de MetroCluster.
 
-image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[interconexión ip de arquitectura de hardware ip de mcc]
+image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[Arquitectura de hardware IP de MetroCluster Interconexión IP]
 
 Cada nodo de la configuración IP de MetroCluster tiene interfaces dedicadas para la conexión con la red IP back-end:
 
@@ -82,7 +82,7 @@ Cada nodo de la configuración IP de MetroCluster tiene interfaces dedicadas par
 
 En la siguiente ilustración se muestran estas interfaces. El uso de puertos mostrado es para un sistema A700 o FAS9000 de AFF.
 
-image::../media/mcc_ip_lif_usage.gif[uso de ip de mcc]
+image::../media/mcc_ip_lif_usage.gif[Uso de LIF de IP de MetroCluster]
 
 .Información relacionada
 link:concept_considerations_mcip.html["Consideraciones sobre la configuración de IP de MetroCluster"]
@@ -95,7 +95,7 @@ Los dos clústeres de la configuración de MetroCluster tienen una relación ent
 
 Las LIF de interconexión de clústeres deben configurarse en cada nodo de la configuración de MetroCluster y los clústeres deben configurarse para paridad. Los puertos con las LIF de interconexión de clústeres están conectados a la red de paridad de clústeres proporcionada por el cliente. La replicación de la configuración de SVM se realiza en esta red a través del servicio de replicación de configuración.
 
-image::../media/mcc_ip_hardware_architecture_cluster_peering_network.gif[mcc arquitectura de hardware ip red de interconexión de clústeres]
+image::../media/mcc_ip_hardware_architecture_cluster_peering_network.gif[Red de emparejamiento de clústeres con arquitectura de hardware IP de MetroCluster]
 
 .Información relacionada
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Configuración exprés de relación entre iguales de clústeres y SVM"]

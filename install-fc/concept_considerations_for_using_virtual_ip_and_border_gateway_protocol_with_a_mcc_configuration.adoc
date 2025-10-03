@@ -15,7 +15,7 @@ A partir de ONTAP 9.5, ONTAP admite conectividad de capa 3 mediante IP virtual (
 
 Revise las siguientes directrices e ilustraciones cuando planifique su solución de capa 3. Para obtener más información sobre la implantación de VIP y BGP en ONTAP, consulte link:https://docs.netapp.com/us-en/ontap/networking/configure_virtual_ip_@vip@_lifs.html["Configure los LIF de IP virtuales"^].
 
-image::../media/vip_and_bgp_in_metrocluster_2.png[vip y bgp en MetroCluster 2]
+image::../media/vip_and_bgp_in_metrocluster_2.png[Protocolo de IP virtual y de puerta de enlace fronteriza en MetroCluster]
 
 
 

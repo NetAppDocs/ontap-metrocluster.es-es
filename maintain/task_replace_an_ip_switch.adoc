@@ -28,7 +28,7 @@ Por ejemplo, para expandir una configuración IP de MetroCluster de una configur
 Si desea reemplazar un interruptor fallido por el mismo tipo de interruptor, solo debe reemplazar el interruptor fallido. Si desea actualizar o degradar un conmutador, debe ajustar dos switches que se encuentren en la misma red. Hay dos switches en la misma red cuando se conectan a un enlace entre switches (ISL) y no se encuentran en el mismo sitio. Por ejemplo, la Red 1 incluye IP_SWITCH_A_1 e IP_SWITCH_B_1, y la Red 2 incluye IP_SWITCH_A_2 e IP_SWITCH_B_2, como se muestra en el diagrama siguiente:
 
 +
-image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[interconexión ip de arquitectura de hardware ip de mcc]
+image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[Arquitectura de hardware IP de MetroCluster que muestra enlaces entre conmutadores y tipos de conmutadores]
 
 +
 
@@ -64,7 +64,7 @@ Los campos resaltados en esta hoja de trabajo indican lo siguiente:
 * Azul: Puertos que son conexiones nuevas.
 
 
-image:../media/mcc_port_usage_workflow.png[""]
+image:../media/mcc_port_usage_workflow.png["Flujo de trabajo para el uso del puerto IP de MetroCluster y los cambios de cableado durante el reemplazo del conmutador"]
 
 .Pasos
 . [[ALL_step1]]Compruebe el estado de la configuración.

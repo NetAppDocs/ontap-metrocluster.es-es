@@ -115,7 +115,7 @@ En este caso, debe comenzar con el siguiente paso para intercambiar en caliente 
 
 El siguiente diagrama muestra un ejemplo de la configuración inicial, en la que cuatro puentes FibreBridge 6500N conectan dos pilas de almacenamiento SAS:
 
-image::../media/consolidating_stacks_before.gif[consolidación de pilas antes]
+image::../media/consolidating_stacks_before.gif[Consolidación de pilas antes del reemplazo de FibreBridge]
 
 .Pasos
 . Siguiendo las siguientes directrices, intercambie en caliente el puente superior FibreBridge 6500N con un puente FibreBridge 7600N o 7500N utilizando el procedimiento de link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N"]:
@@ -128,7 +128,7 @@ Esta es la misma conexión que se hizo al puerto FC1 del puente FibreBridge 6500
 
 
 +
-image::../media/consolidating_stacks_1st_7500n_in_place.gif[consolidación de las pilas 1ro 7500n en su lugar]
+image::../media/consolidating_stacks_1st_7500n_in_place.gif[Consolidación de pilas con el primer FibreBridge 7500N instalado]
 
 . Confirme la conectividad con los discos conectados en puente y que el nuevo FibreBridge 7500N esté visible en la configuración:
 +
@@ -188,7 +188,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 +
 Esta es la misma conexión que se hizo al puerto FC1 del puente FibreBridge 6500N.
 
-** No conecte el puerto FC1 del puente FibreBridge 7600N o 7500N en este momento.image:../media/consolidating_stacks_2nd_7500n_in_place.gif[""]
+** No conecte el puerto FC1 del puente FibreBridge 7600N o 7500N en este momento.image:../media/consolidating_stacks_2nd_7500n_in_place.gif["Consolidación de pilas con el segundo FibreBridge 7500N instalado"]
 
 
 . Confirmar la conectividad con los discos conectados en puente:
@@ -267,28 +267,28 @@ NOTE: Espere al menos 10 segundos antes de conectar el puerto. Los conectores de
 El cable se muestra en azul en el siguiente ejemplo:
 
 +
-image::../media/consolidating_stacks_sas_top_before.gif[la consolidación de pilas sas anteriores]
+image::../media/consolidating_stacks_sas_top_before.gif[Consolidación de pilas SAS antes del cableado a FibreBridge 7500N]
 
 . Con un cable con un conector mini-SAS, conecte el mismo puerto SAS de la bandeja de almacenamiento al puerto SAS B del puente Top FibreBridge 7600N o 7500N.
 +
 El cable se muestra en azul en el siguiente ejemplo:
 
 +
-image::../media/consolidating_stacks_sas_top_after.gif[la consolidación de las pilas sas top después]
+image::../media/consolidating_stacks_sas_top_after.gif[Cableado superior de SAS después de la consolidación]
 
 . Retire el cable que conecta el puerto SAS A del puente FibreBridge 6500N inferior a la bandeja SAS superior, asegurándose de anotar el puerto SAS de la bandeja de almacenamiento a la que se conecta.
 +
 Este cable se muestra en verde en el siguiente ejemplo:
 
 +
-image::../media/consolidating_stacks_sas_bottom_before.gif[la consolidación de las pilas sas inferiores anteriormente]
+image::../media/consolidating_stacks_sas_bottom_before.gif[Cableado SAS verde antes de la consolidación en el estante inferior]
 
 . Con un cable con un conector mini-SAS, conecte el mismo puerto SAS de la bandeja de almacenamiento al puerto SAS B del puente FibreBridge 7600N o 7500N inferior.
 +
 Este cable se muestra en verde en el siguiente ejemplo:
 
 +
-image::../media/consolidating_stacks_sas_bottom_after.gif[la consolidación de las pilas sas abajo después]
+image::../media/consolidating_stacks_sas_bottom_after.gif[Cableado inferior de SAS después de la consolidación]
 
 . Confirmar la conectividad con los discos conectados en puente:
 +
@@ -351,7 +351,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 Cada pila SAS debe estar conectada al mismo puerto SAS del puente superior e inferior. Por ejemplo, si la conexión superior de la pila está conectada al puerto SAS B del puente superior, la conexión inferior debe estar conectada al puerto SAS B del puente inferior.
 
 +
-image::../media/consolidation_sas_bottom_connection_4_stacks.gif[conexión inferior sas de consolidación de 4 pilas]
+image::../media/consolidation_sas_bottom_connection_4_stacks.gif[Cableado inferior SAS para cuatro pilas]
 
 
 
@@ -374,7 +374,7 @@ Los cambios en la división en zonas son necesarios para evitar problemas con ON
 
 El siguiente diagrama muestra la división en zonas en site_A antes de los cambios:
 
-image::../media/zoning_consolidation_site_a_before.gif[antes del sitio de consolidación de particiones a]
+image::../media/zoning_consolidation_site_a_before.gif[Consolidación de la zonificación en el sitio A antes de los cambios de FibreBridge]
 
 .Pasos
 . Actualice las zonas de almacenamiento de los switches FC eliminando la mitad de los puertos iniciadores de cada zona existente y creando zonas nuevas para los puertos FC2 FibreBridge 7500N.
@@ -479,7 +479,7 @@ Marrón discontinuo + naranja
 |===
 El siguiente diagrama muestra la división en zonas en site_A después de la consolidación:
 
-image::../media/zoning_consolidation_site_a_after.gif[sitio de consolidación de particiones a después]
+image::../media/zoning_consolidation_site_a_after.gif[Consolidación de la zonificación en el sitio A después de los cambios en FibreBridge]
 
 
 
@@ -519,11 +519,11 @@ La división en zonas debe haberse ajustado para proporcionar zonas para los seg
 .Pasos
 . Conecte el puerto FC2 del puente superior al puerto correcto en FC_switch_A_2.
 +
-image::../media/consolidating_stacks_sas_ports_recabled.gif[consolidación de paquetes puertos sas a la que se han vuelto a presentar]
+image::../media/consolidating_stacks_sas_ports_recabled.gif[Cableado del puerto FC2 después de la consolidación a FC_switch_A_2]
 
 . Conecte el puerto FC1 del puente inferior al puerto correcto en FC_switch_A_1.
 +
-image::../media/consolidating_stacks_final.gif[consolidación de pilas finales]
+image::../media/consolidating_stacks_final.gif[Cableado de consolidación de pila final]
 
 . Confirmar la conectividad con los discos conectados en puente:
 +

@@ -13,7 +13,7 @@ summary: Si desea probar la funcionalidad MetroCluster o realizar un mantenimien
 [role="lead"]
 Si desea probar la funcionalidad MetroCluster o realizar un mantenimiento planificado, puede realizar una conmutación de sitios negociada en la que un clúster está conectado correctamente al clúster de partners. A continuación, puede reparar y volver a cambiar la configuración.
 
-image::../media/workflow_performing_nso_and_switchback.gif[flujo de trabajo con nso y regreso]
+image::../media/workflow_performing_nso_and_switchback.gif[Flujo de trabajo para realizar cambios negociados de conmutación y retroceso]
 
 
 NOTE: A partir de ONTAP 9.6, las operaciones de conmutación de sitios y conmutación de estado pueden realizarse en las configuraciones IP de MetroCluster con System Manager de ONTAP.

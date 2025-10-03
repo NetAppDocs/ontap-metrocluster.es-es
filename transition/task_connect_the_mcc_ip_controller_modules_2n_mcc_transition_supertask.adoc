@@ -30,7 +30,7 @@ Estos pasos se deben realizar en cada uno de los nodos IP de MetroCluster.
 
 En el ejemplo siguiente, se añaden dos bandejas de almacenamiento adicionales en cada sitio para proporcionar almacenamiento para acomodar los nuevos módulos de controladora.
 
-image::../media/transition_2n_4_new_ip_nodes_and_shelves.png[transition 2n 4 nodos y bandejas ip nuevos]
+image::../media/transition_2n_4_new_ip_nodes_and_shelves.png[Cableado de nuevos nodos IP y estantes para la transición]
 
 .Pasos
 . Planifique la colocación de los nuevos módulos de controladora y bandejas de almacenamiento según sea necesario.
@@ -588,7 +588,7 @@ Estos pasos se realizan en los siguientes nodos:
 * Node_B_2-IP
 
 
-image::../media/transition_2n_booting_a_2_and_b_2.png[transición 2n arranque a 2 y b 2]
+image::../media/transition_2n_booting_a_2_and_b_2.png[Arranque de nuevos nodos IP durante la transición]
 
 .Pasos
 . Arranque los nuevos nodos mediante la opción de arranque «'9c'».
@@ -802,7 +802,8 @@ node_A_1-IP
              Data: interface_reachable
              ICMP: interface_reachable true       true            true
 node_A_2-IP
-           cluster_B                   node_B_1-IP
+
+image::../media/transition_2n_booting_a_2_and_b_2.png["Booting new IP nodes during transition"]
              Data: interface_reachable
              ICMP: interface_reachable true       true            true
                                        node_B_2-IP

@@ -15,7 +15,7 @@ A partir de ONTAP 9.8, se pueden realizar la transición de cargas de trabajo y 
 
 En la siguiente ilustración, se ofrece una vista simplificada de la configuración antes y después de este procedimiento de transición.
 
-image::../media/transition_2n_begin_to_end.png[la transición 2n empieza a terminar]
+image::../media/transition_2n_begin_to_end.png[Transición de una configuración FC de dos nodos a una configuración IP de cuatro nodos]
 
 * Este procedimiento se admite en sistemas que ejecutan ONTAP 9.8 y versiones posteriores.
 * Este procedimiento es disruptivo.

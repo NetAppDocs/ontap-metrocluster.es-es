@@ -64,7 +64,7 @@ Cluster_A_2::> storage aggregate show -aggr dataA_2_data
 En el siguiente ejemplo se muestra un par de puentes que conectan una sola pila SAS, que contiene la bandeja de destino:
 
 +
-image::../media/mcc_shelf_replacement_bridges_with_a_single_stack.gif[puentes de sustitución de bandejas mcc con una única pila]
+image::../media/mcc_shelf_replacement_bridges_with_a_single_stack.gif[Puentes de sustitución de estanterías con una sola pila]
 
 +
 Los puertos 8 y 9 de cada switch conectan los puentes a la red.
@@ -107,7 +107,7 @@ FC_switch_A_2(config)# end
 En el siguiente ejemplo se muestra un par de puentes que conectan cuatro pilas SAS. La pila SAS 2 contiene la bandeja objetivo:
 
 +
-image::../media/mcc_shelf_replacement_bridges_with_four_stacks.gif[puentes de sustitución de bandejas mcc con cuatro pilas]
+image::../media/mcc_shelf_replacement_bridges_with_four_stacks.gif[Puentes de sustitución de estanterías con cuatro pilas]
 
 +
 El puerto SAS B conecta los puentes a la bandeja de destino. Al deshabilitar solo el puerto SAS B en ambas bandejas, las otras pilas SAS pueden seguir sirviendo datos durante el procedimiento de reemplazo.

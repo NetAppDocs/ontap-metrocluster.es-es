@@ -37,6 +37,6 @@ link:task_perform_a_forced_switchover_after_a_disaster.html#performing-a-forced-
 
 Este procedimiento utiliza el siguiente flujo de trabajo:
 
-image::../media/workflow_smoking_crater_recovery.png[flujo de trabajo que fuma recuperación de cráteres]
+image::../media/workflow_smoking_crater_recovery.png[Flujo de trabajo para la recuperación de fallos de múltiples controladores]
 
 Este procedimiento se puede usar cuando se realizó la recuperación en un sistema que estaba en transición media cuando se produjo el error. En ese caso, deberá llevar a cabo los pasos adecuados al preparar la conmutación de regreso, tal como se indica en el procedimiento.

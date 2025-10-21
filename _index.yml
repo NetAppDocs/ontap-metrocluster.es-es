@@ -69,10 +69,8 @@ indexpage:
       url: "/disaster-recovery/concept_dr_workflow.html"
   - title: Firmware de ATTO Bridge
     links:
-    - title: FibreBridge 7600N
-      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+7600N
-    - title: FibreBridge 7500N
-      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+7500N
+    - title: Descargas de firmware de ATTO FibreBridge
+      url: https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/downloads-tab
   - title: Más recursos
     links:
     - title: Config Advisor de NetApp

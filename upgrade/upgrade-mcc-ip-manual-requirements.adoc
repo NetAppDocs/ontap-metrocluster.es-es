@@ -14,6 +14,9 @@ summary: Compruebe que el sistema cumpla todos los requisitos antes de ejecutar 
 Compruebe que el sistema cumpla todos los requisitos antes de ejecutar la actualización de la controladora.
 
 
+CAUTION: *Debes realizar este procedimiento tal como está escrito cada vez que actualices tus controladores.* Cuando se lanzan nuevas plataformas, es posible que se deban seguir pasos nuevos o modificados. Por ejemplo, al actualizar a plataformas introducidas en ONTAP 9.15.1 o posterior, debe link:upgrade-mcc-ip-manual-set-bootarg.html["Establezca el bootarg requerido"] y realizar otros pasos adicionales para una actualización exitosa.
+
+
 
 == Plataformas compatibles con este procedimiento
 

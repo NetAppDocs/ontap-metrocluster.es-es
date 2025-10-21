@@ -20,7 +20,7 @@ Es posible probar situaciones de errores para confirmar el funcionamiento correc
 Puede probar la operación de conmutación negociada (planificada) para confirmar la disponibilidad de datos ininterrumpida.
 
 .Acerca de esta tarea
-Esta prueba valida que la disponibilidad de los datos no se ve afectada (excepto para los protocolos Microsoft Server Message Block (SMB) y Solaris Fibre Channel) conmutando el clúster al segundo centro de datos.
+Esta prueba valida que la disponibilidad de los datos no se ve afectada (excepto los protocolos SMB y Fibre Channel) al cambiar el clúster al segundo centro de datos.
 
 Esta prueba debería tardar unos 30 minutos.
 
@@ -100,8 +100,6 @@ Remote: cluster_B               not-reachable          -
 +
 [listing]
 ----
-cluster_A::>  metrocluster operation show
-
 cluster_A::> metrocluster operation show
   Operation: switchover
       State: successful
@@ -142,7 +140,7 @@ Group Cluster Node               State          Mirroring Mode
               node_A_1         configured     enabled   heal roots completed
       cluster_B
               node_B_2         unreachable    -         switched over
-42 entries were displayed.metrocluster operation show
+42 entries were displayed.
 ----
 . Compruebe que todos los agregados se han replicado:
 +

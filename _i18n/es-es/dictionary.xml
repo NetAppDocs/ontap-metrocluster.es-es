@@ -2079,8 +2079,6 @@
   <block id="086931408c5e31d7ddeb337f5faf83eb" category="paragraph"><block ref="b0b01614edded1dbef1e1334c4f5723d" prefix="" category="inline-code"></block></block>
   <block id="45793c6373c7317ce40fb3f662407b87" category="list-text">Asigne discos sin propietario a pool0 en el nodo local</block>
   <block id="f433c39c3c339b913b2223e31d633f9d" category="list-text">Vuelva al modo de mantenimiento.</block>
-  <block id="b89bea07847accf12561ace475459c4d" category="list-text">Arrancar el nodo en Mantenimiento:</block>
-  <block id="fd02d447099008ddc827133dc034246f" category="paragraph"><block ref="fb866cc030e3e6a5a60ea75e17f86cea" prefix="" category="inline-code"></block></block>
   <block id="77036813f81882d81f97721da98db74b" category="list-text">Detenga los nodos: +<block ref="4a1bde0ea8bcda2a591f42646813c477" prefix=" " category="inline-code"></block></block>
   <block id="6b94bbc1027af03d0236cf3e340aaee9" category="list-text">Tras arrancar los nodos, compruebe el estado del nodo:</block>
   <block id="0161fa0543afb66faaedd2d30421113b" category="inline-link-macro">Preparación para regresar en una configuración IP de MetroCluster</block>
@@ -6321,7 +6319,6 @@
   <block id="feda56ed0396074f051138ea4466f982" category="doc">Probando la configuración de MetroCluster</block>
   <block id="397065d1ea76a7267c1165f18aff1479" category="section-title">Verificación de la conmutación negociada</block>
   <block id="85977d467dedfc86d900cfc49456f320" category="paragraph">Puede probar una operación de conmutación negociada (planificada) para confirmar la disponibilidad de datos ininterrumpida.</block>
-  <block id="3b84985a3046a49bcea85f56e3a28bac" category="paragraph">Esta prueba valida que la disponibilidad de los datos no se ve afectada (excepto para los protocolos Microsoft Server Message Block (SMB) y Solaris Fibre Channel) conmutando el clúster al segundo centro de datos.</block>
   <block id="224eed3317652f7fd4510c7cd1f9c926" category="paragraph">Esta prueba debería tardar unos 30 minutos.</block>
   <block id="962f0cdcd4aeaa5d7a845c907458b869" category="paragraph">Este procedimiento tiene los siguientes resultados esperados:</block>
   <block id="1faa3b4e66d97f34777f91b4ea9930d9" category="list-text">La<block ref="803740ddd57a4d0c8a51c6ede10e3096" prefix=" " category="inline-code"></block> el comando presentará un símbolo del sistema de advertencia.</block>
@@ -9189,7 +9186,6 @@
   <block id="af6415b8e23291050b1c66bd2a86ffaf" category="paragraph">Debe hacer una comprobación después de la configuración inicial y después de realizar cualquier cambio en la configuración de MetroCluster.</block>
   <block id="def4f4e87a159ca662e15a890598d539" category="paragraph">También debe hacer una comprobación antes de una operación de conmutación negociada (planificada) o de conmutación de estado.</block>
   <block id="7ad4770864f194efb59a5eb45626bdf3" category="list-text">Mostrar resultados más detallados del comando check run de MetroCluster más reciente:</block>
-  <block id="2e012ade7bab556f0392337c78739376" category="paragraph">En el siguiente ejemplo se muestra el resultado del comando check cluster show de MetroCluster para una configuración de MetroCluster de cuatro nodos en buen estado. Indica que los clústeres están listos para ejecutar una conmutación de sitios negociada, si es necesario.</block>
   <block id="ccc25c1a9a6f63d4acf6c9390b850b64" category="section-title">Completando la configuración de ONTAP</block>
   <block id="938a9f49acfde2902a8737d1aadbf6a1" category="paragraph">Después de configurar, habilitar y comprobar la configuración de MetroCluster, puede continuar para completar la configuración del clúster añadiendo SVM, interfaces de red y otras funcionalidades de ONTAP según sea necesario.</block>
   <block id="14681192c7f80e2d7631c3a070df9619" category="doc">Asignaciones de puertos de la plataforma para los switches Cisco 3132Q-V.</block>
@@ -11765,8 +11761,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="daf3fcb291d6eb9e42a7777197caa458" category="sidebar">Convertir MetroCluster FC a MetroCluster IP</block>
   <block id="822970998ef8866cd59ed6ba8d63af83" category="sidebar">Actualice los archivos RCF IP de MetroCluster</block>
   <block id="b7c02f1bc7ffc889ddb9e99702663c56" category="sidebar">Firmware de ATTO Bridge</block>
-  <block id="ddac5beff5f77bf22595caa98bac08f9" category="sidebar">FibreBridge 7600N</block>
-  <block id="dcb741f9e6e5d6050aeb3d8fd347e9fd" category="sidebar">FibreBridge 7500N</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">Más recursos</block>
   <block id="fa0344a10c89a05b4e9232391d5feb01" category="sidebar">Config Advisor de NetApp</block>
   <block id="3f2b90ec5a9b43745b9c8c9fedf48d8d" category="sidebar">Base de conocimientos de soporte de NetApp</block>
@@ -13816,7 +13810,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="912e887f8c2036c3f03ac7df63957dfd" category="paragraph">9336C-FX2 (36 puertos)</block>
   <block id="5f972a786e3a36fb039bc945267e120a" category="paragraph">3132Q-V</block>
   <block id="f403fff2bbc7f3e506dae47b9dff52fc" category="paragraph">3232C</block>
-  <block id="addb9e70976c2f94b8ccfc3736a31888" category="paragraph-title">Información adicional</block>
   <block id="38c9e66a6eb25313e0ea3390ba7ee1fc" category="cell">Si su MetroCluster existente contiene...</block>
   <block id="afe6ad7caef50aaad15afb83c6f40ca0" category="cell">Y la plataforma que estás agregando es...</block>
   <block id="12f30f47d5034530ccaa816ade9953fc" category="paragraph">Un sistema AFF que utiliza *puertos de alta disponibilidad/clúster compartidos*:</block>
@@ -14424,4 +14417,11 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="55eb6bfcca1bd3820b0fdab3d788f833" category="image-alt">Instalación del módulo NVRAM en el chasis: alinear y bloquear en su lugar</block>
   <block id="40a8cc8505d7467bde3321410a6e4017" category="image-alt">Instalación del módulo controlador en el chasis: alinear, asentar y cablear</block>
   <block id="ede06bff35d481aeb275fc59e8e85067" category="image-alt">Sitio_A en espera de actualización después del cambio de MetroCluster</block>
+  <block id="cee412eec19a9c7ecf8848f3e299f815" category="list-text">Arranque el nodo en modo de mantenimiento:</block>
+  <block id="a9efd65de6ec4fcf881629fcb763598c" category="paragraph">Esta prueba valida que la disponibilidad de los datos no se ve afectada (excepto los protocolos SMB y Fibre Channel) al cambiar el clúster al segundo centro de datos.</block>
+  <block id="85d885cec8ed47ee2262192224675e42" category="paragraph-title">Información importante si está agregando un modelo de plataforma más antiguo</block>
+  <block id="5176f2410e7713f8043052235a3684ca" category="inline-link-macro">Establezca el bootarg requerido</block>
+  <block id="101589f08b3d384effc16cfe928ff010" category="admonition">*Debes realizar este procedimiento tal como está escrito cada vez que actualices tus controladores.* Cuando se lanzan nuevas plataformas, es posible que se deban seguir pasos nuevos o modificados. Por ejemplo, al actualizar a plataformas introducidas en ONTAP 9.15.1 o posterior, debe <block ref="c06c0a0b6c863a89cb5464010bbb6325" category="inline-link-macro-rx"></block> y realizar otros pasos adicionales para una actualización exitosa.</block>
+  <block id="362bfa10bf4c8597f25d4428db1f1ff6" category="admonition">*Debes realizar este procedimiento tal como está escrito cada vez que actualices tus controladores.* Cuando se lanzan nuevas plataformas, es posible que se deban seguir pasos nuevos o modificados. Por ejemplo, al actualizar a plataformas introducidas en ONTAP 9.15.1 o posterior, debe <block ref="cecfc2493a1700137e5c8906925909ad" category="inline-link-macro-rx"></block> y realizar otros pasos adicionales para una actualización exitosa.</block>
+  <block id="8fe05c00237e990eab631a7b042cf93c" category="sidebar">Descargas de firmware de ATTO FibreBridge</block>
 </blocks>

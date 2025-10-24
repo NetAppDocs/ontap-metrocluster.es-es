@@ -1,5 +1,5 @@
 ---
-permalink: install-ip/manage-monitor.html 
+permalink: install-ip/monitor-manage.html 
 sidebar: sidebar 
 keywords: ip, switch, connection, manage, broadcom, snmp, health, monitoring 
 summary: 'En la mayoría de los casos, los conmutadores Ethernet son descubiertos automáticamente por ONTAP y monitoreados por CSHM. El archivo de configuración de referencia (RCF) aplicado al switch, entre otras cosas, habilita el protocolo de detección de Cisco (CDP) y/o el protocolo de detección de capa de enlace (LLDP).' 

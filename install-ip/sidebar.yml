@@ -109,7 +109,7 @@ entries:
     - title: Configurar la recopilación de registros en los conmutadores IP de MetroCluster
       url: "/install-ip/task-configure-log-collection-mccip.html"
     - title: Administrar la supervisión del conmutador Ethernet
-      url: "/install-ip/manage-monitor.html"
+      url: "/install-ip/monitor-manage.html"
     - title: Verificar la monitorización del conmutador Ethernet
       url: "/install-ip/task-monitor-verify-mccip.html"
 - title: Configure el software MetroCluster en ONTAP

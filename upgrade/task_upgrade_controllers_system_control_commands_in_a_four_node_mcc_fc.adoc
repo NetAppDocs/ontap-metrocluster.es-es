@@ -264,7 +264,7 @@ Necesitará la contraseña más adelante en el procedimiento de actualización.
 Si la configuración existente se supervisa con la configuración de tiebreaker para MetroCluster u otras aplicaciones de terceros (por ejemplo, ClusterLion) que pueden iniciar una conmutación de sitios, debe eliminar la configuración de MetroCluster del tiebreaker o de otro software antes de sustituir el controlador antiguo.
 
 .Pasos
-. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["Quitar la configuración de MetroCluster existente"] Del software Tiebreaker.
+. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metrocluster-configurations["Quitar la configuración de MetroCluster existente"] del software Tiebreaker.
 . Elimine la configuración de MetroCluster existente de cualquier aplicación de terceros que pueda iniciar la conmutación.
 +
 Consulte la documentación de la aplicación.

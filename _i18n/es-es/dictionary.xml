@@ -1316,7 +1316,6 @@
   <block id="34996021b2242b1689cf2c93fe281ab0" category="paragraph">Esta tarea se realiza en la configuración de MetroCluster FC.</block>
   <block id="9784a9ef130e7d3b3d90574becda9acb" category="paragraph"><block ref="186162657961c9fecba1f65b046ed19b" prefix="" category="inline-code"></block></block>
   <block id="cbd4d4672378f350894bea8cdbc4bb91" category="list-text">Compruebe que los nodos no estén en modo ha:</block>
-  <block id="99121f5c6ebd942309c1151523466608" category="paragraph"><block ref="99121f5c6ebd942309c1151523466608" category="inline-link-macro-rx"></block></block>
   <block id="4ae19dc34e740fff9da77fec565653a1" category="summary">A partir de ONTAP 9.8, se puede realizar una transición sin interrupciones de una configuración MetroCluster FC de dos nodos y mover datos desde las bandejas de unidades existentes aunque las bandejas de almacenamiento existentes no sean compatibles con los nuevos nodos IP de MetroCluster.</block>
   <block id="8a532061ed88c0b4cc8381f7f929de61" category="list-text">Este procedimiento solo se debe utilizar si los modelos de bandeja de almacenamiento existentes no son compatibles con los nuevos modelos de plataforma IP de MetroCluster.</block>
   <block id="fb5117e043a4d64b796d5d9d74f05477" category="section-title">Requisitos para la transición cuando no se admiten bandejas en los nuevos nodos</block>
@@ -1496,7 +1495,6 @@
   <block id="8c68cd7d416145e6c302ae3f9f273347" category="summary">Puede obtener más información sobre la configuración y el funcionamiento de MetroCluster en la documentación de NetApp.</block>
   <block id="af0774f5fa525955d74c2e77f5dab7e6" category="summary">Una vez finalizada la transición de la configuración de MetroCluster, puede reanudar la supervisión con tiebreaker o con la utilidad Mediator.</block>
   <block id="36588e2aa5ad4fcf60167b3daa06db5a" category="list-text">Utilice el procedimiento adecuado para su configuración.</block>
-  <block id="7efa6fc838c006d396e42638b4ff25d1" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block></block>
   <block id="ee4957fd1b2278c172ab2c174b366bd6" category="summary">Puede observar mensajes de alerta durante la transición. Estas alertas se pueden ignorar con seguridad. Además, algunas herramientas no están disponibles durante la transición.</block>
   <block id="28787c2222f3804bae5ca71ee7fa0280" category="doc">Mensajes de alerta y soporte de herramientas durante la transición</block>
   <block id="75734a8a0482f0c04e6e8dee03f1e2d6" category="list-text">ARS puede estar alerta durante la transición.</block>
@@ -2494,8 +2492,6 @@
   <block id="da82ec774885b0fd4ea7e17756ffc01b" category="paragraph"><block ref="7565cd8285a4a137102f1417e0a1dc93" prefix="" category="inline-code"></block></block>
   <block id="c4aa541ec1b33e5e76d09363d75995f8" category="paragraph">El siguiente ejemplo muestra que el software Tiebreaker puede enviar una captura de SNMP para el evento TEST_SNMP_CONFIG:</block>
   <block id="88360ff6d6d5e3d5d618e2ab14b30049" category="summary">Tras la instalación del software Tiebreaker, puede agregar o modificar configuraciones de MetroCluster o eliminarlas del software de tiebreaker.</block>
-  <block id="84b5999a36db8b18180d5b58bd61c503" category="doc">Configuración del software Tiebreaker</block>
-  <block id="1f160d9eb389f42ea44f6394967f985f" category="section-title">Iniciar la CLI del software Tiebreaker</block>
   <block id="c3dadd67840f8db5df2397f22e3266bd" category="list-text">Inicie la CLI desde el símbolo del sistema del host en el que ha instalado el software:</block>
   <block id="cefc8e2ff0cb055845c8a3c508972733" category="paragraph"><block ref="9863953089f44f1bb0cb848350608390" prefix="" category="inline-code"></block></block>
   <block id="cd3614b020be0845e7a33285fe90290c" category="paragraph">Después de instalar el software MetroCluster Tiebreaker de NetApp, puede añadir más configuraciones de MetroCluster de una en una.</block>
@@ -4740,7 +4736,6 @@
   <block id="bebcf28331e2ef1173754b217ce3b9d4" category="list-text">Si se configuró el gestor de claves incorporado:<block ref="32ba7af89b7557f6e3e6d80a922080ce" prefix=" " category="inline-code"></block>+ necesitará la frase de contraseña más adelante en el procedimiento de actualización.</block>
   <block id="10a7f52b07c24ded6796ce7b186bcafe" category="list-text">Recopile los ID del sistema de los nodos existentes:<block ref="4d3b009b80c640171a18324e0d1bf109" prefix=" " category="inline-code"></block></block>
   <block id="1cefe6fb0bd3a21a29c31cc3652723ce" category="section-title">Elimine la supervisión de Mediator o tiebreaker</block>
-  <block id="61324fd73aeb16a8318bff07556941ad" category="paragraph"><block ref="222561f9cba21343a81a9b2ee1890d68" category="inline-link-macro-rx"></block> En el _MetroCluster Tiebreaker Contenido de instalación y configuración_</block>
   <block id="2c8c38da3af9290bc8367a776b867b51" category="section-title">Envíe un mensaje de AutoSupport personalizado antes de realizar el mantenimiento</block>
   <block id="9db835e4c4f6ecab5779d22af305de38" category="paragraph">Antes de realizar el mantenimiento, debe emitir un mensaje de AutoSupport para notificar al soporte técnico que se está realizando el mantenimiento. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción.</block>
   <block id="0cd13c32173979ae3ca88ab25050c571" category="section-title">Cambie la configuración de MetroCluster</block>
@@ -4878,7 +4873,6 @@
   <block id="be30a56e6d2717e49b1a24ec4b5435b9" category="paragraph">Debe repetir las tareas de actualización en site_A.</block>
   <block id="98c99ee34c8774fa11a9a533fe708618" category="paragraph">Al realizar las tareas, se invierten todas las referencias de ejemplo a los sitios y nodos. Por ejemplo, cuando se da el ejemplo para cambiar de sitio_A, se cambiará de sitio_B.</block>
   <block id="4a73711f675c6d654d190ca9589e5da1" category="section-title">Restaure la supervisión de tiebreaker o de Mediator</block>
-  <block id="0c429b26fd1db8d4b7bb104d284c1cea" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> En la sección _MetroCluster Tiebreaker instalación y configuración_.</block>
   <block id="26eeb9c2ed8ad703fd7436c1c5091b0b" category="section-title">Envíe un mensaje personalizado de AutoSupport tras el mantenimiento</block>
   <block id="c305ce21377f146200c5e9ef13536599" category="summary">Puede usar esta operación de conmutación de sitios automatizada y guiada de MetroCluster para realizar una actualización de controladoras sin interrupciones para una configuración FC MetroCluster de cuatro nodos.</block>
   <block id="66c25daffc009801ab74d25814bedafb" category="paragraph">Puede usar esta operación de conmutación de sitios automatizada y guiada de MetroCluster para realizar una actualización de controladoras sin interrupciones en una configuración FC MetroCluster de cuatro nodos. Como parte de este procedimiento, no se pueden actualizar otros componentes (como bandejas de almacenamiento o switches).</block>
@@ -5065,7 +5059,6 @@
   <block id="bc7aab32c224c2ee49642086c4c9aa59" category="list-text">Este procedimiento se admite en sistemas que ejecutan ONTAP 9.8 y versiones posteriores.</block>
   <block id="75aa8d2f84e0be26d2847e91f37f74e2" category="list-text">Para evitar la generación automática de casos de soporte, envíe un mensaje de AutoSupport para indicar que la actualización está en curso.</block>
   <block id="3e47f65a0c143cd4a51a7540fd2001fa" category="list-text">Emita el siguiente comando: +<block ref="9062a94bcc646043cfb8c2ffec3011d8" prefix=" " category="inline-code"></block></block>
-  <block id="f0c5b568bbaab2490082e4d2aaf08123" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> En _MetroCluster Tiebreaker instalación y configuración_.</block>
   <block id="6fc32e58ee37ceb6ca0bb1590e84ab08" category="doc">Actualice controladoras de AFF A700/FAS9000 a AFF A900/FAS9500 en una configuración FC de MetroCluster mediante conmutación de sitios y conmutación de estado (ONTAP 9.10.1 o posterior).</block>
   <block id="8a51355d335889c9ddb7276ab9a129ab" category="paragraph">Puede utilizar la operación de conmutación de sitios de MetroCluster para proporcionar un servicio no disruptivo a los clientes mientras se actualizan los módulos de la controladora del clúster de partners. No puede actualizar otros componentes (como bandejas de almacenamiento o switches) como parte de este procedimiento.</block>
   <block id="b93e6d7c2789cd393ddbb5ccdfac4676" category="paragraph">No puede actualizar otros componentes de la configuración, como bandejas de almacenamiento o switches, al mismo tiempo.</block>
@@ -5116,7 +5109,6 @@
   <block id="447b7bdefc8e750f8d7dab18bb9172ea" category="list-text">Node_B_2-A700: 537035354</block>
   <block id="50d704bfae735cf9f8824da705413abc" category="paragraph">Para obtener más información, consulte<block ref="0abbdd13a8c045ec09bd7c54eb2d0bef" category="inline-link-rx"></block>.</block>
   <block id="c455927c47d829e25595da49b62049ba" category="section-title">Elimine la configuración existente del tiebreaker o del otro software de supervisión</block>
-  <block id="222561f9cba21343a81a9b2ee1890d68" category="paragraph"><block ref="222561f9cba21343a81a9b2ee1890d68" category="inline-link-macro-rx"></block></block>
   <block id="18d71f6f9b2869ce694a656dc6e2f46c" category="paragraph">Tras completar esta tarea, el sitio_A está activo y está sirviendo datos para ambos sitios. El centro_B está inactivo y listo para comenzar el proceso de actualización, como se muestra en la siguiente ilustración. (Esta ilustración también se aplica a la actualización de FAS9000 a una controladora FAS9500).</block>
   <block id="104b8a291f0127f5923408928b5ee7e9" category="section-title">Quite el módulo de la controladora A700 o FAS9000 de AFF y el NVS en site_B</block>
   <block id="fbb702216c9d47455a0b8dbde9a6a6ca" category="paragraph">Debe eliminar las controladoras antiguas de la configuración.</block>
@@ -5202,7 +5194,6 @@
   <block id="09d09b12e62bbea5812e7cd6ee644ddd" category="list-text">Repita los pasos para actualizar los nodos en el sitio_A, empezando por <block ref="0e6ccb461a8e4072917a7db8187a2ba6" category="inline-link-macro-rx"></block>.</block>
   <block id="aef044e8d9907a55ceb4a933de45cc66" category="paragraph">Al realizar las tareas, se invierten todas las referencias de ejemplo a los sitios y nodos. Por ejemplo, cuando se da el ejemplo para cambiar de sitio_A, se cambiará de Site_B.</block>
   <block id="641ef094fd6e3f18fc8a62270dc2b543" category="section-title">Supervisión de tiebreaker para restaurar</block>
-  <block id="81fe00b955881476878ae80a1ff92b24" category="list-text">Siga los pasos de: <block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> En la sección _MetroCluster Tiebreaker instalación y configuración_.</block>
   <block id="2629484c812e864cba4938a84b1d7271" category="summary">Debe instalar físicamente el nuevo módulo de controladora en el chasis y, a continuación, cablearlo.</block>
   <block id="e06c32def93f754432d67e40cc7bdb62" category="doc">Instalación y cableado del nuevo módulo de controlador</block>
   <block id="11927ea1b82ae05c35c1f1d5c4441652" category="list-text">Si tiene un módulo de expansión de I/o (IOXM) en su sistema y están creando un par de alta disponibilidad de chasis único, debe descablear y quitar el IOXM.</block>
@@ -11516,7 +11507,6 @@ Se aplica a todas las configuraciones MetroCluster.</block>
   <block id="3929d13da5d4b97eff76f8a6ec8c5501" category="list-text">Acceda a <block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block> para descargar los archivos utilizados para realizar el arranque desde red del sistema.</block>
   <block id="94416aa661a92cc8d67b1bd6459ef472" category="list-text">Para obtener información sobre qué combinaciones de actualizaciones de plataforma son compatibles, revise la tabla de actualización FC de MetroCluster en  <block ref="9595cfad5a4deb04d4a443245fae3f76" category="inline-link-macro-rx"></block>.</block>
   <block id="332fe4e638c485c04f214b0a13747f6d" category="list-text">Puede usar este procedimiento para actualizar las controladoras en una configuración FC de MetroCluster de cuatro nodos mediante una conmutación de sitios y conmutación de estado automatizadas basadas en NSO. Si desea realizar una actualización de una controladora mediante la reubicación de agregados (ARL), consulte <block ref="0fe967effd4f0eaf84576f897dbfd368" category="inline-link-macro-rx"></block>. Se recomienda usar el procedimiento automatizado basado en NSO.</block>
-  <block id="75132a926df50e23a26bd72dde0371b7" category="list-text"><block ref="46f4c9c8d582aa241b60c75ea3bcb2c9" category="inline-link-macro-rx"></block> Del software Tiebreaker.</block>
   <block id="0b22fb8d0feec85055f45c8c4a298766" category="list-text">Si se le solicita que continúe el procedimiento, introduzca<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>, Y cuando se le solicite el paquete, escriba la dirección URL:</block>
   <block id="84ea00dba7c6a1cf0426e58385307e4f" category="paragraph"><block ref="5b9047ebb0d87499d679fd69fbda42cf" prefix="" category="inline-code"></block></block>
   <block id="b57c06e6dad65cb8a7fb01050706349f" category="paragraph">Puede usar ONTAP System Manager, dirigiendo el navegador web a la dirección IP de administración del clúster (\https://172.17.12.153).</block>
@@ -12824,7 +12814,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="92f5715a55706897a1d8dd41533ea2ad" category="paragraph">Debe repetir las tareas de actualización para actualizar los nodos en cluster_A en el sitio A.</block>
   <block id="c0d421f4948fca7693af31b81667650d" category="list-text">Repita los pasos para actualizar los nodos en cluster_A, empezando por <block ref="fdc81b8422a2d3a4dc8579b364ffd7ac" category="inline-link-macro-rx"></block>.</block>
   <block id="9708813a6edf75a072848cc8c19d1d0b" category="inline-link-macro">Agregue configuraciones de MetroCluster</block>
-  <block id="1452de87b0c5b157dc8a7594223b5265" category="paragraph"><block ref="9b8797650089db2aa56d22b65e4ec45b" category="inline-link-macro-rx"></block>.</block>
   <block id="337d2ccc4953efb0209e4bf2012ca1be" category="summary">Active el inicio de sesión de la consola en sus dispositivos antes de realizar la actualización del controlador.</block>
   <block id="ec75a12b665b34d0cdc8d12746fc8cfa" category="doc">Habilite el registro de la consola antes de actualizar la controladora IP de MetroCluster</block>
   <block id="f31a964269837fa383f7baad3584db47" category="inline-link-macro">Establecer el arranque necesario (para las actualizaciones de los sistemas introducidos en la versión 9.15.1 o posterior)</block>
@@ -13837,7 +13826,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="a787053687877f10051bad9d8a2c320b" category="paragraph">Verifique el estado y la conectividad de la configuración de MetroCluster antes de realizar la actualización.</block>
   <block id="ac471314e8ba72086a54a227b4a6abe8" category="paragraph">No hay puerto que coincida. Después de la actualización, vuelva a crear los puertos del clúster. <block ref="c40693a26d31adda8e50d2bd3c959775" category="inline-link-macro-rx"></block></block>
   <block id="02f80d1409d40adabdcd4b00959239b0" category="inline-link-macro">Eliminar configuraciones de MetroCluster</block>
-  <block id="c4a00ba197c84f92cac51496436d38e3" category="paragraph"><block ref="c4a00ba197c84f92cac51496436d38e3" category="inline-link-macro-rx"></block></block>
   <block id="9950d05faf2c2104ac64b2891c5a8822" category="section-title">Eliminar las plataformas antiguas</block>
   <block id="d723056ef76e64c3b3faae704eb71dd4" category="paragraph">Los ID de sistema antiguos se identificaron en <block ref="6b24ae8f1e4581fe7e87c8c4194af177" category="inline-link-macro-rx"></block>.</block>
   <block id="75a193e4d11dd894af19600ff20d5c03" category="paragraph"><block ref="75a193e4d11dd894af19600ff20d5c03" category="inline-link-rx"></block></block>
@@ -14426,4 +14414,25 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="1e2cb5bcdb8947c91d9b70a1c5ee21c0" category="list-text">La velocidad ISL mínima requerida depende del modelo de plataforma:</block>
   <block id="fe25d0e834bbf213fee0bc910f4a7054" category="list-text">En los sistemas AFF A1K y AFF A90 , la velocidad ISL debe ser de al menos 100 Gbps. Para usar una velocidad ISL diferente se requiere una Solicitud de Variación de Producto Característica (FPVR). Para presentar un FPVR, comuníquese con su equipo de ventas.</block>
   <block id="9260215cd28aa0daaf49857a4307ca43" category="list-text">En todas las demás plataformas, la velocidad ISL debe ser al menos de 10 Gbps.</block>
+  <block id="d1de43c2b2a882d5549ca6caea0cd796" category="paragraph"><block ref="5659c81fbc5304275ab0c57df4fa5e4d" category="inline-link-macro-rx"></block> en la sección _Instalación y configuración de MetroCluster Tiebreaker_.</block>
+  <block id="e91d78e049c73a532e8c4014365c7f0d" category="doc">Configurar el software MetroCluster Tiebreaker</block>
+  <block id="2369e844c90397a4181ffafd2f64be4a" category="section-title">Inicie la interfaz de línea de comandos (CLI) del software Tiebreaker.</block>
+  <block id="157265493f45de2399bb80a595184137" category="section-title">Certificados de importación</block>
+  <block id="d300dfa20523cd7fb435a3f19eeaa42c" category="paragraph">Para habilitar la supervisión sin interrupciones en Tiebreaker 1.6 o posterior, debe importar el certificado Secure Sockets Layer (SSL) del servidor, el certificado intermedio (si existe) y el certificado raíz de ONTAP al almacén de claves en la Máquina Virtual Java (JVM).</block>
+  <block id="0516bb5d84f5cf404394a670c34b9a44" category="list-text">Esta tarea es necesaria en Tiebreaker 1.6 o posterior.</block>
+  <block id="f6484eb9f6332a380224c51c4ff965b5" category="list-text">Esta tarea se realiza después de haber agregado correctamente una configuración de MetroCluster a Tiebreaker o si caducan sus certificados.</block>
+  <block id="637b609978ba2d910c8867550742b9e9" category="list-text">Ejecute el siguiente comando para cada certificado que necesite importar (servidor SSL, intermedio o raíz).</block>
+  <block id="31a3f75f34ce843c2ab3b773d9072924" category="paragraph"><block ref="599a2d70deb4d0bbc781269687e6189f" prefix="" category="inline-code"></block></block>
+  <block id="ffcde617fee5d26e3005c8a089c3ecd6" category="list-text">El<block ref="b8b954588c74798aed8b6a1a5c867bec" prefix=" " category="inline-code"></block> El valor especifica el nombre del archivo del certificado que desea importar.</block>
+  <block id="eb2fdb57a4efd845d6aeb1d9d0f9042f" category="list-text">El<block ref="1f4e0d0417f12bfdf15fa538de9f9f9a" prefix=" " category="inline-code"></block> El valor especifica el nombre con el que desea almacenar el certificado después de importarlo a la JVM.</block>
+  <block id="61946575308b3d651099211c764d921e" category="paragraph">El siguiente ejemplo muestra cómo importar un certificado raíz con el nombre de archivo<block ref="a62f7df2640c2a527e31c848f274ea05" prefix=" " category="inline-code"></block> y un certificado de servidor SSL con el nombre de archivo<block ref="ca11bb462642b431904085550b5375b6" prefix=" " category="inline-code"></block>:</block>
+  <block id="7efb1ea0d372ab5c16aca840df49ca79" category="paragraph"><block ref="7efb1ea0d372ab5c16aca840df49ca79" category="inline-link-macro-rx"></block></block>
+  <block id="5659c81fbc5304275ab0c57df4fa5e4d" category="paragraph"><block ref="5659c81fbc5304275ab0c57df4fa5e4d" category="inline-link-macro-rx"></block></block>
+  <block id="a212e7395bb60258b12e96d4b25f0a25" category="paragraph"><block ref="5659c81fbc5304275ab0c57df4fa5e4d" category="inline-link-macro-rx"></block> en _Instalación y configuración de MetroCluster Tiebreaker_.</block>
+  <block id="67431d9e5972e3763ce39925ca6172fe" category="paragraph"><block ref="67431d9e5972e3763ce39925ca6172fe" category="inline-link-macro-rx"></block></block>
+  <block id="34e872e7651a932e20637ef1b9ef55f0" category="list-text">Siga los pasos que se indican a continuación: <block ref="5659c81fbc5304275ab0c57df4fa5e4d" category="inline-link-macro-rx"></block> en la sección _Instalación y configuración de MetroCluster Tiebreaker_.</block>
+  <block id="c8e5fb4095abed5cb973a724e5e4cca7" category="paragraph"><block ref="67431d9e5972e3763ce39925ca6172fe" category="inline-link-macro-rx"></block> en el contenido de _Instalación y configuración de MetroCluster Tiebreaker_</block>
+  <block id="50579aa28b2b0ac01c180e6e07119273" category="paragraph"><block ref="50579aa28b2b0ac01c180e6e07119273" category="inline-link-macro-rx"></block></block>
+  <block id="9a1a464601bee502d12616aa9be06bb3" category="list-text"><block ref="d77847ddf2a5535e4974575f39191ae2" category="inline-link-macro-rx"></block> del software Tiebreaker.</block>
+  <block id="ba13dd5c52c50f7bb5ef919e4d340c98" category="paragraph"><block ref="83029083d25b0153769c6039afb8beb5" category="inline-link-macro-rx"></block>.</block>
 </blocks>

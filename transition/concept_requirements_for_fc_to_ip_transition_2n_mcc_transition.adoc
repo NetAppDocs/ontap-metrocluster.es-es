@@ -741,7 +741,7 @@ Si la configuración existente se supervisa con la configuración de tiebreaker 
 .Pasos
 . Elimine la configuración de MetroCluster existente del software Tiebreaker.
 +
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["Eliminación de las configuraciones de MetroCluster"]
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metrocluster-configurations["Eliminación de las configuraciones de MetroCluster"]
 
 . Elimine la configuración de MetroCluster existente de cualquier aplicación de terceros que pueda iniciar la conmutación.
 +

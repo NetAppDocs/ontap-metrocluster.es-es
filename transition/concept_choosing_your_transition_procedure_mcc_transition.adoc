@@ -113,9 +113,15 @@ Cuatro u ocho nodos
  a| 
 No disruptivas
  a| 
-Las nuevas plataformas admiten las nuevas bandejas de almacenamiento.
+Se requieren nuevas estanterías de almacenamiento en las nuevas plataformas.  Una vez finalizada la transición, se retiran del clúster los controladores, estantes y discos antiguos.
  a| 
 link:concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["Enlace al procedimiento"]
+
+*Nota:* Este procedimiento admite las siguientes transiciones de FC a IP:
+
+* De una configuración MetroCluster FC de cuatro nodos a una configuración MetroCluster IP de cuatro nodos
+* De una configuración MetroCluster FC de ocho nodos a una configuración MetroCluster IP de ocho nodos
+
 
 
 

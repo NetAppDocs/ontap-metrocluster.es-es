@@ -15,9 +15,9 @@ Puede realizar transiciones no disruptivas de cargas de trabajo y datos de una c
 
 A partir de ONTAP 9.13.1, este procedimiento es compatible con las configuraciones IP de MetroCluster en las que MetroCluster y las bandejas de unidades están conectadas a los mismos switches IP (una configuración de switch de almacenamiento compartido).
 
-A partir de ONTAP 9.13.1, puede ejecutar una transición no disruptiva de cargas de trabajo y datos desde una configuración FC de MetroCluster de ocho nodos existente a una nueva configuración de IP de MetroCluster.
+A partir de ONTAP 9.13.1, puede realizar una transición no disruptiva de cargas de trabajo y datos desde una configuración MetroCluster FC de ocho nodos existente a una nueva configuración MetroCluster IP de ocho nodos.  Este procedimiento se utiliza para realizar la transición de un grupo FC DR de cuatro nodos, eliminar el grupo FC DR vacío y, a continuación, repetir el procedimiento para el segundo grupo FC DR. 
 
-A partir de ONTAP 9,8, puede realizar una transición no disruptiva de cargas de trabajo y datos desde una configuración FC de MetroCluster de cuatro nodos existente a una nueva configuración de IP de MetroCluster.
+A partir de ONTAP 9.8, puede realizar una transición no disruptiva de cargas de trabajo y datos desde una configuración MetroCluster FC de cuatro nodos existente a una nueva configuración MetroCluster IP de cuatro nodos.  Una vez completada la transición, puede ampliarla a una configuración IP de MetroCluster de ocho nodos si fuera necesario. Verlink:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["Expanda una configuración IP de MetroCluster"] .
 
 * Este procedimiento no es disruptivo.
 +
@@ -28,6 +28,10 @@ La configuración de MetroCluster puede continuar sirviendo datos durante la ope
 Si tiene una configuración MetroCluster FC de dos nodos, consulte link:concept_choosing_your_transition_procedure_mcc_transition.html["Cómo elegir el procedimiento de transición"].
 
 * Este procedimiento describe los pasos necesarios para realizar la transición de un grupo FC de DR de cuatro nodos. Si tiene una configuración de ocho nodos (dos grupos DR de FC), debe repetir el procedimiento completo para cada grupo de DR de FC.
++
+
+NOTE: Cuando agregue o elimine un grupo DR como parte de este procedimiento, debe verificar que la eliminación o adición del grupo DR se haya realizado correctamente antes de agregar o eliminar otro grupo DR.
+
 * Debe cumplir con todos los requisitos y seguir todos los pasos del procedimiento.
 
 

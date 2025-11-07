@@ -223,6 +223,15 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 
 . Repita estos pasos para unir node_B_3-IP y node_B_4-IP a cluster_B.
+. Si está utilizando el Administrador de claves integrado, realice los siguientes pasos desde el clúster donde agregó un nuevo nodo:
++
+.. Sincronizar la configuración del administrador de claves:
++
+`security key-manager onboard sync`
+
+.. Introduzca la contraseña del administrador de claves a bordo cuando se le solicite.
+
+
 
 
 

@@ -21,6 +21,17 @@ Para obtener información detallada sobre problemas conocidos, limitaciones y pr
 
 
  a| 
+Compatibilidad con Flash Cache para sistemas FAS50 en configuraciones IP de MetroCluster
+ a| 
+La caché flash es compatible con los sistemas FAS50 en configuraciones IP MetroCluster .
+
+link:../install-ip/concept_considerations_drive_assignment.html#disk-assignment-on-fas50-systems-with-flash-cache["Asignación de discos en sistemas FAS50 con caché flash"]
+ a| 
+ONTAP 9.18.1
+
+
+
+ a| 
 Compatibilidad con IP de MetroCluster para cifrado integral
  a| 
 El cifrado de extremo a extremo es compatible con los siguientes sistemas para cifrar el tráfico de back-end, como NVlog y datos de replicación de almacenamiento, entre los sitios en una configuración de IP de MetroCluster .

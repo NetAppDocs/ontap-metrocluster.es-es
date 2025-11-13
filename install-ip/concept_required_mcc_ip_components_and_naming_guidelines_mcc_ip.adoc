@@ -274,8 +274,6 @@ link:concept_considerations_drive_assignment.html["Obtenga más información sob
 
 == Requisitos de pool y unidad (compatible como mínimo)
 
-Se recomiendan ocho bandejas de discos SAS (cuatro bandejas en cada sitio) para permitir la propiedad de los discos por bandeja.
-
 Una configuración IP de MetroCluster de cuatro nodos requiere la configuración mínima en cada sitio:
 
 * Cada nodo tiene al menos un pool local y un pool remoto en el sitio.

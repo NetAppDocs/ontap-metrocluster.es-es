@@ -5,6 +5,7 @@ entries:
 - title: Descripción general
   url: "/install-stretch/index.html"
 - title: Prepare la instalación de MetroCluster
+  pdf-filename: Prepárese para la instalación extendida de MetroCluster
   entries:
   - title: Diferencias entre las configuraciones de ONTAP MetroCluster
     url: "/install-stretch/concept_considerations_differences.html"

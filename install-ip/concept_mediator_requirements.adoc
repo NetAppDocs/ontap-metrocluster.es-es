@@ -21,9 +21,9 @@ Los siguientes requisitos se aplican a un grupo de recuperación ante desastres 
 +
 La conectividad entre el Mediador ONTAP y cada sitio debe ser de dos dominios de fallo diferentes.
 
-* ONTAP Mediator puede admitir hasta cinco configuraciones de MetroCluster simultáneamente.
 * ONTAP 9.7 y versiones posteriores admiten conmutación automática sin planificar.
-* IPv6 no es compatible con ONTAP Mediator.
+* A partir de ONTAP 9.18.1 y ONTAP Mediator 1.11, una sola instancia de ONTAP Mediator puede administrar hasta diez configuraciones de MetroCluster simultáneamente.  En versiones anteriores, ONTAP Mediator puede admitir hasta cinco configuraciones de MetroCluster simultáneamente.
+* A partir de ONTAP 9.18.1, se admite IPv6 para ONTAP Mediator 1.11 o posterior en una configuración IP de MetroCluster .
 
 
 
@@ -64,7 +64,6 @@ Se requiere una conectividad independiente entre cada sitio y el Mediador ONTAP.
 Debe asegurarse de que la configuración cumpla con varios requisitos del host.
 
 * ONTAP Mediator debe instalarse en un sitio externo que esté físicamente separado de los dos clústeres de ONTAP.
-* Mediator de ONTAP es compatible con un número máximo de cinco configuraciones MetroCluster.
 * ONTAP Mediator no requiere más que los requisitos mínimos del sistema operativo host para CPU y memoria (RAM).
 * Además de los requisitos mínimos del sistema operativo host, debe haber disponible al menos 30 GB de espacio adicional en disco utilizable.
 +

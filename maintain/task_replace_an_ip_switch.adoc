@@ -240,6 +240,10 @@ NOTE: Si actualiza o degrada las redes, repita todos los pasos para la segunda r
 ----
 network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert true
 ----
+. Revertir todos los LIF del clúster que no están actualmente en sus puertos de origen a sus puertos de origen:
++
+`network interface revert -vserver * -lif *`
+
 . De manera opcional, mueva las bandejas NS224.
 +
 Si va a volver a configurar una configuración IP de MetroCluster que no conecta las bandejas de NS224 a los switches IP de MetroCluster, utilice el procedimiento adecuado para añadir o mover las bandejas NS224:

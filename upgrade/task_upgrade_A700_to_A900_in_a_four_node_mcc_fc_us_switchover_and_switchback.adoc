@@ -796,12 +796,22 @@ NOTE: Ignore el siguiente mensaje: `This procedure is not supported for Non-Disr
 
 . Lleve a cabo los siguientes pasos para reiniciar el módulo del controlador:
 +
-.. Introduzca `n` para omitir la recuperación del backup cuando aparezca la siguiente solicitud:
-`Do you want to restore the backup configuration now? {y|n}`
-.. Introduzca `y` para reiniciar cuando vea el siguiente aviso:
-`The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}`
+.. Ingresar `n` para omitir la recuperación de la copia de seguridad cuando vea el siguiente mensaje:
++
+[listing]
+----
+Do you want to restore the backup configuration now? {y|n} n
+----
+.. Ingresar `y` para reiniciar cuando vea el siguiente mensaje:
++
+`The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n} y`
+
 +
 El módulo del controlador se reinicia pero se detiene en el menú de arranque porque se reformateó el dispositivo de arranque y es necesario restaurar los datos de configuración.
+
++
+
+NOTE: Debe reiniciar el nodo para poder utilizar el software recién instalado.
 
 
 

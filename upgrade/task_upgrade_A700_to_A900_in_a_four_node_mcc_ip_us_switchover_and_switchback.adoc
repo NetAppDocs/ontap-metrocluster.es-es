@@ -705,10 +705,23 @@ Utilice siempre netboot para actualizar el nodo nuevo a la imagen deseada. Si ut
 `\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>\_image.tgz`
 . Lleve a cabo los siguientes pasos para reiniciar el módulo del controlador:
 +
-.. Introduzca `n` para omitir la recuperación del backup cuando aparezca la siguiente solicitud:
-`Do you want to restore the backup configuration now? {y|n}`
-.. Introduzca ``y to reboot when you see the following prompt:
-`The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}``El módulo del controlador se reinicia pero se detiene en el menú de arranque porque se reformateó el dispositivo de arranque y es necesario restaurar los datos de configuración.
+.. Ingresar `n` para omitir la recuperación de la copia de seguridad cuando vea el siguiente mensaje:
++
+....
+Do you want to restore the backup configuration now? {y|n} n
+....
+.. Ingresar `y` para reiniciar cuando vea el siguiente mensaje:
++
+....
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n} y
+....
++
+El módulo del controlador se reinicia pero se detiene en el menú de arranque porque se reformateó el dispositivo de arranque y es necesario restaurar los datos de configuración.
+
++
+
+NOTE: Debe reiniciar el nodo para poder utilizar el software recién instalado.
+
 
 
 . En el aviso, ejecute el `wipeconfig` comando para borrar cualquier configuración previa en el soporte de arranque:

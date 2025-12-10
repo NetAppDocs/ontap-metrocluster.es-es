@@ -18,7 +18,9 @@ entries:
     entries:
     - title: Elija su procedimiento de instalación
       url: "/tiebreaker/install-choose-procedure.html"
-    - title: Instale tiebreaker 1,6 o posterior
+    - title: Instalar Tiebreaker 1.7
+      url: "/tiebreaker/tb-17-install.html"
+    - title: Instalar Tiebreaker 1.6 o 1.6P1
       url: "/tiebreaker/tb-16-install.html"
     - title: Instale tiebreaker 1,5
       entries:
@@ -46,6 +48,8 @@ entries:
   url: "/tiebreaker/concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html"
 - title: Requisitos de firewall para MetroCluster Tiebreaker
   url: "/tiebreaker/reference_firewall_requirements_for_mcc_tiebreaker.html"
+- title: Simular un cambio usando MetroCluster Tiebreaker
+  url: "/tiebreaker/switchover-simulation.html"
 - title: Archivos de registro de eventos de MetroCluster Tiebreaker
   url: "/tiebreaker/concept-mcc-tiebreaker-event-logs.html"
 - title: Dónde encontrar información adicional

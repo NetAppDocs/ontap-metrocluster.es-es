@@ -11,7 +11,7 @@ summary: A partir de Tiebreaker 1.7, puede simular un cambio para verificar el f
 
 
 [role="lead"]
-A partir de Tiebreaker 1.7, puede simular un cambio para probar la funcionalidad de cambio de Tiebreaker de MetroCluster .
+A partir de MetroCluster Tiebreaker 1.7, puede simular un cambio para probar la funcionalidad de cambio de Tiebreaker.
 
 .Acerca de esta tarea
 * El `monitor switchover-simulate` El comando solo es compatible con Tiebreaker 1.7 o posterior.

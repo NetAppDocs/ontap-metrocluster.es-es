@@ -14380,8 +14380,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="8fe05c00237e990eab631a7b042cf93c" category="sidebar">Descargas de firmware de ATTO FibreBridge</block>
   <block id="4500ea599da00d6db7bf0ffa4e13554f" category="section-title">Requisitos de ISL de MetroCluster</block>
   <block id="1e2cb5bcdb8947c91d9b70a1c5ee21c0" category="list-text">La velocidad ISL mínima requerida depende del modelo de plataforma:</block>
-  <block id="fe25d0e834bbf213fee0bc910f4a7054" category="list-text">En los sistemas AFF A1K y AFF A90 , la velocidad ISL debe ser de al menos 100 Gbps. Para usar una velocidad ISL diferente se requiere una Solicitud de Variación de Producto Característica (FPVR). Para presentar un FPVR, comuníquese con su equipo de ventas.</block>
-  <block id="9260215cd28aa0daaf49857a4307ca43" category="list-text">En todas las demás plataformas, la velocidad ISL debe ser al menos de 10 Gbps.</block>
   <block id="e91d78e049c73a532e8c4014365c7f0d" category="doc">Configurar el software MetroCluster Tiebreaker</block>
   <block id="2369e844c90397a4181ffafd2f64be4a" category="section-title">Inicie la interfaz de línea de comandos (CLI) del software Tiebreaker.</block>
   <block id="157265493f45de2399bb80a595184137" category="section-title">Certificados de importación</block>
@@ -14527,4 +14525,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="a72abbb5319ccc5e06e530d32ebda9a2" category="list-text">Siga los pasos que se indican a continuación: <block ref="c1e5bf8480750ae5cad48df028e9ef8f" category="inline-link-macro-rx"></block> en la sección _Instalación y configuración de MetroCluster Tiebreaker_.</block>
   <block id="cbefd3f7361c94b64426b0cea58a0328" category="paragraph"><block ref="fea9123e6c4e9558906e90d28dff7dce" category="inline-link-macro-rx"></block>.</block>
   <block id="7c6d58b5ff7d328112a439ee0ef9df40" category="paragraph">A partir de MetroCluster Tiebreaker 1.7, puede simular un cambio para probar la funcionalidad de cambio de Tiebreaker.</block>
+  <block id="e4e3590eb665c0a0f5d5b3467636e5a7" category="list-text">A partir de ONTAP 9.18.1, las plataformas con una velocidad de puerto backend IP de MetroCluster de 100 G requieren una velocidad de enlace ISL mínima de 100 Gbps. Para utilizar una velocidad ISL diferente se requiere una solicitud de variación de características (FPVR). Para presentar un FPVR, comuníquese con su equipo de ventas de NetApp .</block>
+  <block id="deaa86cf36be952b15db4ccf35d9a39d" category="list-text">En todas las demás plataformas, la velocidad mínima de enlace ISL admitida es de 10 Gbps.</block>
 </blocks>

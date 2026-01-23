@@ -332,7 +332,7 @@ CAUTION: No encienda las bandejas antes de encender las controladoras. De este m
 `boot_ontap maint`
 
 .. Compruebe que el almacenamiento está visible en el sitio superviviente.
-.. Verifique que el almacenamiento local sea visible desde el nodo en modo de mantenimiento:
+.. Verifica que el almacenamiento local y remoto sea visible desde el nodo en modo de mantenimiento:
 +
 `disk show -v`
 

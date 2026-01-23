@@ -16,6 +16,7 @@ Para actualizar o degradar el firmware en un switch FC de Brocade, debe utilizar
 .Acerca de esta tarea
 Confirme que ha comprobado y realizado las siguientes tareas para su configuración:
 
+* Verifica que tu nueva versión de firmware sea compatible con tu solución. Consulta el link:https://hwu.netapp.com/["Hardware Universe"^] para más información.
 * Tiene los archivos de firmware.
 * El sistema está cableado correctamente.
 * Todas las rutas a las bandejas de almacenamiento están disponibles.

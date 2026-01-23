@@ -13703,7 +13703,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="ba17277e87e849f2a38d0126b17905d8" category="list-text">Verifique que el almacenamiento sea visible desde el modo de mantenimiento.</block>
   <block id="ef1806576a0dffd58481510c7525ed90" category="list-text">Arrancar en modo de mantenimiento:</block>
   <block id="41af2ca5f1002ab08c75f010d70581a4" category="list-text">Compruebe que el almacenamiento está visible en el sitio superviviente.</block>
-  <block id="b496741d8a784412385f91b26ad4e4f1" category="list-text">Verifique que el almacenamiento local sea visible desde el nodo en modo de mantenimiento:</block>
   <block id="93ba613931cbee0caca0df20b5380feb" category="doc">Asignaciones de puertos de plataforma para conmutadores Cisco 9336C-FX2 de 12 puertos</block>
   <block id="a696f18cbd32872428df323dcf124b0f" category="list-text">Las tablas de esta sección son para conmutadores Cisco 9336C-FX2 de 12 puertos.</block>
   <block id="9e1541acccf8eedc84b54f8f9ba9022a" category="inline-link-macro">Asignaciones de puertos de plataforma para conmutadores Cisco 3232C o Cisco 9336C-FX2 de 36 puertos</block>
@@ -14527,4 +14526,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="7c6d58b5ff7d328112a439ee0ef9df40" category="paragraph">A partir de MetroCluster Tiebreaker 1.7, puede simular un cambio para probar la funcionalidad de cambio de Tiebreaker.</block>
   <block id="e4e3590eb665c0a0f5d5b3467636e5a7" category="list-text">A partir de ONTAP 9.18.1, las plataformas con una velocidad de puerto backend IP de MetroCluster de 100 G requieren una velocidad de enlace ISL mínima de 100 Gbps. Para utilizar una velocidad ISL diferente se requiere una solicitud de variación de características (FPVR). Para presentar un FPVR, comuníquese con su equipo de ventas de NetApp .</block>
   <block id="deaa86cf36be952b15db4ccf35d9a39d" category="list-text">En todas las demás plataformas, la velocidad mínima de enlace ISL admitida es de 10 Gbps.</block>
+  <block id="e8c32d7ccca6662808649d7c3e536c38" category="list-text">Verifica que el almacenamiento local y remoto sea visible desde el nodo en modo de mantenimiento:</block>
+  <block id="613654d6d797f748d730bca666bd5f45" category="list-text">Verifica que tu nueva versión de firmware sea compatible con tu solución. Consulta el <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> para más información.</block>
 </blocks>

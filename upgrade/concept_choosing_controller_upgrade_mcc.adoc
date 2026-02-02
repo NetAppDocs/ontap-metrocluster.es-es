@@ -65,7 +65,7 @@ Las siguientes notas se aplican a ambos grupos:
 * Nota 1: Para esta actualización, utilice el procedimiento link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html["Actualice controladoras de AFF A700/FAS9000 a AFF A900/FAS9500 en una configuración IP de MetroCluster mediante conmutación de sitios y conmutación de estado (ONTAP 9.10.1 o posterior)."]
 * Nota 2: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.
 * Nota 3: La plataforma de destino no puede tener unidades internas hasta que finalice la actualización de la controladora. Es posible añadir las unidades internas después de la actualización.
-* Nota 4: Requiere la sustitución de los módulos del controlador.
+* Nota 4: las actualizaciones de sistemas integrados (disco y controladores en el mismo chasis) requieren la sustitución de los módulos controladores, conservando el chasis y los discos existentes.
 * Nota 5: Requiere módulos IOM para convertir las controladoras anteriores en una bandeja SAS externa. Consulte la link:https://hwu.netapp.com/["Hardware Universe"^] para ver los módulos IOM compatibles.
 
 
@@ -82,7 +82,7 @@ image:../media/manual-upgrade-combination-group-1.png["Muestra las combinaciones
 --
 Revise las combinaciones admitidas para actualizar sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF, FAS9500, AFF A900, AFF A800 C80, FAS90, AFF A90 y AFF A1K.
 
-image:../media/manual-upgrade-combination-group-2-a90-fas90.png["Muestra las combinaciones de actualización admitidas para las plataformas del grupo 2"]
+image:../media/manual-upgrade-combination-group-2-a90-fas90-updated.png["Muestra las combinaciones de actualización admitidas para las plataformas del grupo 2"]
 
 --
 ====

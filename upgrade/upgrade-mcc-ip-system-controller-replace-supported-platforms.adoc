@@ -44,8 +44,9 @@ Las siguientes notas se aplican a ambos grupos:
 
 * Nota 1: Las actualizaciones de controladoras se admiten en sistemas que ejecutan ONTAP 9.13.1 o posterior.
 * Nota 2: La plataforma de destino no puede tener unidades internas hasta que finalice la actualización de la controladora. Es posible añadir las unidades internas después de la actualización.
-* Nota 3: Requiere la sustitución de los módulos del controlador.
-* Nota 4: Requiere módulos IOM para convertir las controladoras anteriores en una bandeja SAS externa. Consulte la link:https://hwu.netapp.com/["Hardware Universe"^] para ver los módulos IOM compatibles.
+* Nota 3: las actualizaciones de sistemas integrados (disco y controladores en el mismo chasis) requieren la sustitución de los módulos controladores, conservando el chasis y los discos existentes.
+* Nota 4: Requiere módulos IOM para convertir los controladores antiguos en un estante SAS externo. Consulta la link:https://hwu.netapp.com/["Hardware Universe"^] para ver los módulos IOM compatibles.
+* Nota 5: requiere ONTAP 9.18.1GA o posterior.
 
 
 [role="tabbed-block"]
@@ -61,7 +62,7 @@ image:../media/assisted-group-1.png["Muestra las combinaciones de actualización
 --
 Revise las combinaciones admitidas para actualizar sistemas AFF C60, AFF A50, FAS70, FAS9000, AFF A700, AFF A70, AFF C800, AFF, FAS9500, AFF A900, AFF A800 C80, FAS90, AFF A90 y AFF A1K.
 
-image:../media/assisted-group-2-updated.png["Muestra las combinaciones de actualización AFF y FAS del grupo 2"]
+image:../media/assisted-group-2-a70-a90-updated.png["Muestra las combinaciones de actualización AFF y FAS del grupo 2"]
 
 --
 ====

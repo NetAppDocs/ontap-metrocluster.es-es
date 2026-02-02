@@ -21,6 +21,28 @@ Para obtener información detallada sobre problemas conocidos, limitaciones y pr
 
 
  a| 
+Soporte en la nube de SnapMirror para volúmenes MetroCluster FlexGroup
+ a| 
+SnapMirror cloud admite operaciones de copia de seguridad y restauración para volúmenes FlexGroup en configuraciones MetroCluster.
+
+link:https://docs.netapp.com/us-en/ontap/data-protection/cloud-backup-with-snapmirror-task.html#delete-a-snapmirror-cloud-relationship["Haz una copia de seguridad de los datos en la nube usando ONTAP SnapMirror"^]
+ a| 
+ONTAP 9.18.1GA
+
+
+
+ a| 
+Nuevas combinaciones de actualización compatibles para actualizaciones de controladores IP MetroCluster usando comandos `system controller replace`
+ a| 
+Agrega compatibilidad para actualizar un AFF A70 a un sistema AFF A90 o un FAS70 a un sistema FAS90 usando  `system controller replace` comandos en una configuración IP de MetroCluster.
+
+link:../upgrade/upgrade-mcc-ip-system-controller-replace.html["Actualizar controladoras en MetroCluster IP de cuatro nodos mediante conmutación de sitios y conmutación de estado con comandos de sustitución de controladoras del sistema (ONTAP 9.13.1 y versiones posteriores)"]
+ a| 
+ONTAP 9.18.1GA
+
+
+
+ a| 
 Compatibilidad con Flash Cache para sistemas FAS50 en configuraciones IP de MetroCluster
  a| 
 La caché flash es compatible con los sistemas FAS50 en configuraciones IP MetroCluster .

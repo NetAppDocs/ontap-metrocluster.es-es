@@ -1187,9 +1187,13 @@ NOTE: No es necesario reiniciar los nodos en un orden específico, pero debe esp
 `storage aggregate create -aggregate <aggregate-name> -node <node-name> -diskcount <no-of-disks> -mirror true`
 
 +
+[NOTE]
+====
+** Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es aceptable que una ubicación de MetroCluster tenga un único agregado de datos reflejados y la otra tenga más de un agregado de datos reflejados.
+** Los nombres de los agregados deben ser únicos en todos los sitios MetroCluster. Esto significa que no puedes tener dos agregados diferentes con el mismo nombre en el sitio A y en el sitio B.
 
-NOTE: Debe crear al menos un agregado de datos reflejados por sitio. Se recomienda tener dos agregados de datos reflejados por sitio en nodos IP de MetroCluster para alojar los volúmenes de MDV, sin embargo se admite un solo agregado por sitio (pero no se recomienda). Es aceptable que una ubicación de MetroCluster tenga un único agregado de datos reflejados y la otra tenga más de un agregado de datos reflejados.
 
+====
 +
 En el ejemplo siguiente se muestra la creación de un agregado en node_A_1-new.
 

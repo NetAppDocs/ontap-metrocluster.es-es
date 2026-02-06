@@ -1,16 +1,7 @@
----
-permalink: upgrade/task_create_a_mirrored_data_aggregate_on_each_node_mcc.html 
-sidebar: sidebar 
-keywords: metrocluster, upgrade, create, mirrored, data, aggregate, node 
-summary: Debe crear un agregado de datos reflejados en cada nodo del grupo de recuperación ante desastres. 
----
-= Crea un agregado de datos reflejados en cada nodo FC de MetroCluster
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
 Debe crear un agregado de datos reflejados en cada nodo del grupo de recuperación ante desastres.
 
 .Acerca de esta tarea

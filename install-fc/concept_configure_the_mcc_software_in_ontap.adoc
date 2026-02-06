@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: configure, configuring, metrocluster, software, ontap 
 summary: Debe configurar cada nodo en la configuración de MetroCluster en ONTAP, incluidas las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. 
 ---
-= Configuración del software MetroCluster en ONTAP
+= Configura el software MetroCluster FC en ONTAP
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Debe configurar cada nodo en la configuración de MetroCluster en ONTAP, incluidas las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. También debe implementar la relación de MetroCluster entre los dos sitios.
+Debes configurar cada nodo en la configuración de MetroCluster FC en ONTAP, incluidas las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. También debes implementar la relación de MetroCluster entre los dos sitios.
 
 image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[Flujo de trabajo para la configuración de nodos y clústeres de alto nivel]
 
@@ -89,7 +89,7 @@ Cuando cree el clúster por primera vez, necesita la siguiente información:
  a| 
 Nombre del clúster
 
-Ejemplo utilizado en esta guía: Site_A
+Ejemplo utilizado en este procedimiento: Sitio_A
  a| 
 
 
@@ -132,7 +132,7 @@ Para cada nodo del clúster, necesita una dirección IP de gestión, una máscar
  a| 
 Nodo 1
 
-Ejemplo utilizado en esta guía: Controller_A_1
+Ejemplo utilizado en este procedimiento: Controller_A_1
  a| 
  a| 
  a| 
@@ -145,7 +145,7 @@ Nodo 2
 
 No es necesario si se usa una configuración MetroCluster de dos nodos (un nodo en cada sitio).
 
-Ejemplo utilizado en esta guía: Controller_A_2
+Ejemplo utilizado en este procedimiento: Controller_A_2
  a| 
  a| 
  a| 
@@ -388,7 +388,7 @@ Cuando cree el clúster por primera vez, necesita la siguiente información:
  a| 
 Nombre del clúster
 
-Ejemplo utilizado en esta guía: Site_B
+Ejemplo usado en este procedimiento: site_B
  a| 
 
 
@@ -431,7 +431,7 @@ Para cada nodo del clúster, necesita una dirección IP de gestión, una máscar
  a| 
 Nodo 1
 
-Ejemplo utilizado en esta guía: Controller_B_1
+Ejemplo usado en este procedimiento: controller_B_1
  a| 
  a| 
  a| 
@@ -444,7 +444,7 @@ Nodo 2
 
 No es necesario para configuraciones MetroCluster de dos nodos (un nodo en cada sitio).
 
-Ejemplo utilizado en esta guía: Controller_B_2
+Ejemplo usado en este procedimiento: controller_B_2
  a| 
  a| 
  a| 
@@ -2509,6 +2509,7 @@ Debe crear un agregado de datos reflejados en cada nodo del grupo de recuperaci�
 * Si tiene varios tipos de unidades en el sistema (almacenamiento heterogéneo), debe comprender cómo puede asegurarse de seleccionar el tipo de unidad correcto.
 * Las unidades son propiedad de un nodo específico; cuando se crea un agregado, todas las unidades de ese agregado deben ser propiedad del mismo nodo, que se convierte en el nodo inicial para ese agregado.
 * Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster. Consulte link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Gestión de discos y agregados"^].
+* Los nombres de los agregados deben ser únicos en todos los sitios MetroCluster. Esto significa que no puedes tener dos agregados diferentes con el mismo nombre en el sitio A y en el sitio B.
 
 
 .Pasos

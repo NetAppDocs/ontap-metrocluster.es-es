@@ -17,7 +17,7 @@ Revise las siguientes consideraciones antes de utilizar las tablas de configurac
 
 * Las tablas de esta sección son para conmutadores Cisco 9336C-FX2 de 36 puertos cuando al menos una configuración de MetroCluster o un grupo DR conecta estantes NS224 al conmutador MetroCluster.
 +
-Si tiene un conmutador Cisco 9336C-FX2 de 36 puertos que no se conecta al almacenamiento NS224, utilice las tablas en link:port_usage_3232c_9336c.html["Asignaciones de puertos de plataforma para conmutadores Cisco 3232C o Cisco 9336C-FX2 de 36 puertos"] .
+Si tienes un switch Cisco 9336C-FX2 de 36 puertos y no planeas conectar almacenamiento NS224 al switch, usa las tablas en link:port_usage_3232c_9336c.html["Asignaciones de puertos de plataforma para conmutadores Cisco 3232C o Cisco 9336C-FX2 de 36 puertos"].
 
 +
 Si tiene un conmutador Cisco 9336C-FX2 de 12 puertos, utilice las tablas en link:port-usage-9336c-fx-2-12-port.html["Asignaciones de puertos de plataforma para conmutadores Cisco 9336C-FX2 de 12 puertos"] .
@@ -26,7 +26,7 @@ Si tiene un conmutador Cisco 9336C-FX2 de 12 puertos, utilice las tablas en link
 
 NOTE: El conmutador Cisco 9336C-FX2 de 12 puertos no admite la conexión de estantes NS224 al conmutador MetroCluster.
 
-* Al cablear un switch Cisco 9336C-FX2 que conecta un almacenamiento NS224, solo se pueden tener dos configuraciones de MetroCluster o grupos de recuperación ante desastres (DR). Al menos una configuración de MetroCluster o un grupo de DR debe conectar estanterías NS224 al switch MetroCluster. Solo se pueden conectar plataformas que no conecten estanterías NS224 conectadas al switch como una segunda configuración de MetroCluster o como un segundo grupo de DR.
+* Cuando conectas un switch Cisco 9336C-FX2 a almacenamiento NS224, solo puedes tener un máximo de dos configuraciones MetroCluster o grupos DR. Al menos una configuración MetroCluster o grupo DR debe conectar estanterías NS224 al switch MetroCluster. Si una de tus configuraciones MetroCluster o grupos DR es un sistema que no admite estanterías NS224, solo se puede conectar como la segunda configuración MetroCluster o grupo DR.
 +
 Si su segundo MetroCluster o grupo DR no conecta los estantes NS224 al conmutador MetroCluster, siga las instrucciones <<tables_not_connecting_ns224,Tablas de cableado para controladores que no se conectan a los estantes NS224 conectados al interruptor>> .
 

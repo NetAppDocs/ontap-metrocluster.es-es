@@ -1,0 +1,42 @@
+---
+permalink: install-ip/update-mediator-timeout.html 
+sidebar: sidebar 
+keywords: ontap, metrocluster, mediator, timeout, settings, change, update, default, value 
+summary:  
+---
+= Aumenta el tiempo de espera predeterminado del buzón de ONTAP Mediator en configuraciones IP de MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los nodos IP de MetroCluster pueden acceder a los discos de buzón de ONTAP Mediator usando sesiones iSCSI, que tienen un tiempo de espera de conexión predeterminado de 10 segundos, incluyendo un solo reintento después de 5 segundos. Dependiendo de tu versión de ONTAP y tu entorno, puedes aumentar el tiempo de espera del buzón hasta un máximo de 60 segundos para evitar interrupciones en la conmutación de sitios no planificada asistida por Mediator (MAUSO).
+
+NetApp recomienda que aumentes el tiempo de espera predeterminado de la conexión del buzón si usas protocolos de redundancia de red (como HSRP o VRRP), protocolos de evitación de bucles (como STP) o si la latencia de red en tu entorno supera el tiempo de espera predeterminado de 10 segundos.
+
+.Antes de empezar
+Deberías evaluar la ventana de interrupción, es decir, el tiempo que tarda en volver a conectar los nodos IP de MetroCluster al ONTAP Mediator. Si tarda más de 10 segundos, deberías establecer el valor de tiempo de espera para que sea unos segundos mayor que el tiempo que tarda en volver a conectar los nodos IP de MetroCluster.
+
+Si la conectividad se mantiene de forma independiente desde cada sitio y la interrupción en un sitio no afecta la conectividad con ONTAP Mediator desde el sitio superviviente, el valor predeterminado de 10 segundos es suficiente y no deberías cambiar el tiempo de espera del buzón.
+
+.Acerca de esta tarea
+* Las siguientes versiones de ONTAP admiten aumentar el tiempo de espera del buzón de ONTAP Mediator:
++
+** ONTAP 9.18.1GA o posterior
+** ONTAP 9.17.1P3 o versiones posteriores de parches de ONTAP 9.17.1
+** ONTAP 9.16.1P10 o versiones posteriores de parches de ONTAP 9.16.1
+** ONTAP 9.15.1P16 o versiones posteriores de parches de ONTAP 9.15.1
+
+
+* Aumentar el tiempo de espera del buzón es compatible con todas las versiones de ONTAP Mediator.
+* El intervalo admitido para el valor de tiempo de espera es de 10 a 60 segundos. Si especificas un valor fuera del intervalo, ONTAP lo cambia automáticamente al valor predeterminado de 10 segundos.
+* Si tarda más de 10 segundos para que los nodos de MetroCluster se vuelvan a conectar al ONTAP Mediator, deberías establecer el valor de tiempo de espera en unos segundos más que el tiempo que tardan los nodos en conectarse.
+
+
+.Paso
+. Para aumentar el tiempo de espera predeterminado del buzón de ONTAP Mediator, consulta el link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/How_to_Increase_Mediator_Mailbox_Timeout_for_environments_where_network_latency_exceeds_10_seconds["NetApp artículo de base de conocimientos: cómo aumentar el tiempo de espera del buzón del mediador en entornos donde la latencia de red supera los 10 segundos"^]
+
+
+.Información relacionada
+link:concept-ontap-mediator-supports-automatic-unplanned-switchover.html["Conoce más sobre cómo ONTAP Mediator admite la conmutación de sitios automática no planificada en configuraciones IP de MetroCluster."]

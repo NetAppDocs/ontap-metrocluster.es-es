@@ -40,6 +40,16 @@ Esta tarea debe realizarse en todas las controladoras nuevas.
 +
 `setenv bootarg.kmip.init.interface <interface-id>`
 
+. Comprueba si el partner-sysid es correcto:
++
+`printenv partner-sysid`
+
++
+Si el sid del socio no es correcto, configúrelo:
+
++
+`setenv partner-sysid <partner-sysID>`
+
 . Mostrar el menú de inicio:
 +
 `boot_ontap menu`
@@ -86,6 +96,20 @@ Rebooting to load the restored env file...
 ----
 +
 Durante uno de los reinicios después de la opción “`6`”, el mensaje de confirmación `Override system ID? {y|n}` aparece. Introduzca `y`.
+
+. En `LOADER` la petición de datos, verifique los valores de inicio y actualice los valores según sea necesario.
++
+Usa los pasos en link:upgrade-mcc-ip-system-controller-replace-apply-rcf-set-bootarg.html#set-the-metrocluster-ip-bootarg-variables["Establezca las variables bootarg de MetroCluster IP"].
+
+. Verifica que el partner-sysid es correcto:
++
+`printenv partner-sysid`
+
++
+Si el sid del socio no es correcto, configúrelo:
+
++
+`setenv partner-sysid <partner-sysID>`
 
 . Si se utiliza el cifrado de raíz, seleccione de nuevo la opción de menú de inicio para la configuración de administración de claves.
 +
@@ -143,7 +167,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58
 
 .. Añada el puerto físico que alojará las LIF de interconexión de clústeres en el dominio de retransmisión correspondiente.
 .. Modifique las LIF de interconexión de clústeres para usar el puerto físico nuevo como puerto principal.
-.. Después de poner en marcha las LIF de interconexión de clústeres, compruebe el estado de paridad del clúster y vuelva a establecer la relación de clústeres entre iguales según sea necesario.
+.. Después de que los LIF interclúster estén activados, verifica el estado del clúster de iguales y restablece la interconexión de clústeres según sea necesario.
 +
 Es posible que deba volver a configurar la relación de clústeres entre iguales.
 

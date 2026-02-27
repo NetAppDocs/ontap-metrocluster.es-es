@@ -26,11 +26,24 @@ Si tiene un conmutador Cisco 9336C-FX2 de 12 puertos, utilice las tablas en link
 
 NOTE: El conmutador Cisco 9336C-FX2 de 12 puertos no admite la conexión de estantes NS224 al conmutador MetroCluster.
 
-* Cuando conectas un switch Cisco 9336C-FX2 a almacenamiento NS224, solo puedes tener un máximo de dos configuraciones MetroCluster o grupos DR. Al menos una configuración MetroCluster o grupo DR debe conectar estanterías NS224 al switch MetroCluster. Si una de tus configuraciones MetroCluster o grupos DR es un sistema que no admite estanterías NS224, solo se puede conectar como la segunda configuración MetroCluster o grupo DR.
+* Cuando conectas un switch Cisco 9336C-FX2 a almacenamiento NS224, solo puedes tener un máximo de dos configuraciones MetroCluster o grupos DR. Al menos una configuración MetroCluster o grupo DR debe conectar estanterías NS224 al switch MetroCluster.
 +
-Si su segundo MetroCluster o grupo DR no conecta los estantes NS224 al conmutador MetroCluster, siga las instrucciones <<tables_not_connecting_ns224,Tablas de cableado para controladores que no se conectan a los estantes NS224 conectados al interruptor>> .
+Si una de tus configuraciones de MetroCluster o grupos DR no conecta los estantes NS224 al switch MetroCluster, sigue la <<tables_not_connecting_ns224,Tablas de cableado para controladores que no se conectan a los estantes NS224 conectados al interruptor>>.
 
 * RcfFileGenerator solo muestra plataformas elegibles cuando se selecciona la primera plataforma.
+* Si estás ampliando una configuración normal de MetroCluster que no admite almacenamiento NS224 conectado a conmutador y quieres añadir una configuración de MetroCluster que tenga almacenamiento NS224 conectado a conmutador, revisa la siguiente información:
++
+** En la herramienta link:https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"^], primero tienes que seleccionar la plataforma que admite almacenamiento NS224 conectado a conmutador y luego seleccionar la plataforma que no admite almacenamiento NS224 conectado a conmutador.
++
+Esto significa que cuando generes el RCF para tu nueva configuración, puede que tengas que seleccionar las plataformas en la herramienta RcfFileGenerator en el siguiente orden:
+
++
+... Selecciona la plataforma que admite el almacenamiento NS224 conectado a conmutador en el *segundo campo desplegable*.
+... Selecciona la plataforma que no admite el almacenamiento NS224 conectado a conmutador en el *primer campo desplegable*.
+
+
+
+
 * Para conectar una configuración MetroCluster de ocho o dos nodos se requiere ONTAP 9.14.1 o una versión posterior.
 
 

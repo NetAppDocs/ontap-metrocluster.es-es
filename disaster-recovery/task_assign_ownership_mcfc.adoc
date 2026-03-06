@@ -53,9 +53,7 @@ Los módulos del controlador tienen los siguientes ID originales del sistema:
 | Número de nodos en la configuración de MetroCluster | Nodo | ID original del sistema 
 
 
- a| 
-Cuatro
- a| 
+.4+| Cuatro  a| 
 Node_a_1
  a| 
 4068741258
@@ -66,13 +64,16 @@ Node_a_1
 Node_A_2
  a| 
 4068741260
+
+
+
  a| 
 Node_B_1
-
-
-
  a| 
 4068741254
+
+
+
  a| 
 Node_B_2
  a| 
@@ -80,12 +81,17 @@ Node_B_2
 
 
 
- a| 
-Dos
- a| 
+.2+| Dos  a| 
 Node_a_1
  a| 
 4068741258
+
+
+
+ a| 
+Node_B_1
+ a| 
+4068741254
 
 |===
 Al asignar las unidades, debe tener en cuenta los siguientes puntos:

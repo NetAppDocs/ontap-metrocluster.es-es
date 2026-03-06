@@ -78,7 +78,7 @@ CS5
 
 * Clasificación para tráfico de iSCSI:
 +
-** Coincidencia: Puerto TCP 62500, origen, destino o ambos
+** Coincidencia: puerto TCP 65200, origen, destino o ambos
 ** Partido opcional: COS 4
 ** Partido opcional: DSCP 32
 ** Establezca DSCP 32

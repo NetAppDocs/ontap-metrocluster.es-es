@@ -11150,7 +11150,6 @@ La red puede consistir en una serie de xWDM y TDM y switches, pero a diferencia 
   <block id="f530740ac9e609fc21d073ac7a1005eb" category="list-text">Establezca COS 5</block>
   <block id="905698c568b08ffae010badfede2c3d9" category="list-text">Opcional: Ajuste de tasa a 20Gbps</block>
   <block id="6f9086eed365c3a2db1521fa98bb7fad" category="list-text">Clasificación para tráfico de iSCSI:</block>
-  <block id="bfee253ff06448698780744ab1762cba" category="list-text">Coincidencia: Puerto TCP 62500, origen, destino o ambos</block>
   <block id="b6b4cd52ee0814cd111c7646f3ec71cf" category="list-text">Partido opcional: COS 4</block>
   <block id="bc0161255c709f2bfdb09ade9fbc1364" category="list-text">Partido opcional: DSCP 32</block>
   <block id="18b58e1c9302e2acb18218c02c62dab7" category="list-text">Establezca DSCP 32</block>
@@ -14476,7 +14475,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="6671def4e7da861590fb38e5fc66314e" category="list-text">Selecciona la plataforma que no admite el almacenamiento NS224 conectado a conmutador en el *primer campo desplegable*.</block>
   <block id="ddbce4d78273fadb6714307de4be2067" category="doc">Aumenta el tiempo de espera predeterminado del buzón de ONTAP Mediator en configuraciones IP de MetroCluster</block>
   <block id="2782611b81a323af0ab55dcdc0bed9b0" category="paragraph">Los nodos IP de MetroCluster pueden acceder a los discos de buzón de ONTAP Mediator usando sesiones iSCSI, que tienen un tiempo de espera de conexión predeterminado de 10 segundos, incluyendo un solo reintento después de 5 segundos. Dependiendo de tu versión de ONTAP y tu entorno, puedes aumentar el tiempo de espera del buzón hasta un máximo de 60 segundos para evitar interrupciones en la conmutación de sitios no planificada asistida por Mediator (MAUSO).</block>
-  <block id="dc2661dcef8886857b7dbbc6bea4baa5" category="paragraph">NetApp recomienda que aumentes el tiempo de espera predeterminado de la conexión del buzón si usas protocolos de redundancia de red (como HSRP o VRRP), protocolos de evitación de bucles (como STP) o si la latencia de red en tu entorno supera el tiempo de espera predeterminado de 10 segundos.</block>
   <block id="5989de7ef1290d3b1851ce9197407a9a" category="paragraph">Deberías evaluar la ventana de interrupción, es decir, el tiempo que tarda en volver a conectar los nodos IP de MetroCluster al ONTAP Mediator. Si tarda más de 10 segundos, deberías establecer el valor de tiempo de espera para que sea unos segundos mayor que el tiempo que tarda en volver a conectar los nodos IP de MetroCluster.</block>
   <block id="96da1e735aedafb1dcf6dc852a630b69" category="paragraph">Si la conectividad se mantiene de forma independiente desde cada sitio y la interrupción en un sitio no afecta la conectividad con ONTAP Mediator desde el sitio superviviente, el valor predeterminado de 10 segundos es suficiente y no deberías cambiar el tiempo de espera del buzón.</block>
   <block id="d7960d10ef798af16bf54c0dcc02e80b" category="list-text">Las siguientes versiones de ONTAP admiten aumentar el tiempo de espera del buzón de ONTAP Mediator:</block>
@@ -14497,4 +14495,8 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="33e1bc7f8120f8d7e792eda1953f5c0d" category="list-text">Verifica que el partner-sysid es correcto:</block>
   <block id="d9e511ce59427a6a6f5e2d82b3caa85c" category="list-text">Después de que los LIF interclúster estén activados, verifica el estado del clúster de iguales y restablece la interconexión de clústeres según sea necesario.</block>
   <block id="9aadb95a414b8c0423f92f9ec9df69d8" category="sidebar">Aumenta el tiempo de espera predeterminado del buzón de ONTAP Mediator</block>
+  <block id="27a4277d57a9c4676312c7a5013a9b75" category="list-text">Coincidencia: puerto TCP 65200, origen, destino o ambos</block>
+  <block id="e2bba64dd4e20eb5cd27b969fbf8dbce" category="paragraph">NetApp recomienda que aumentes el tiempo de espera de conexión al buzón por defecto si se da alguna de las siguientes circunstancias en tu entorno:</block>
+  <block id="d57bb94baa67d066f16fc9fc5b6def7e" category="list-text">Estás usando protocolos de redundancia de red (como HSRP o VRRP) o protocolos para evitar bucles (como STP).</block>
+  <block id="29c1e5df7e26dbc34a0230732d8e3a0c" category="list-text">El tiempo de reconvergencia de la red (por ejemplo, cuando los protocolos de enrutamiento se estabilizan o HSRP/VRRP se activan después de una reelección) puede superar el tiempo de espera predeterminado de 10 segundos.</block>
 </blocks>

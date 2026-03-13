@@ -17,7 +17,7 @@ Los enlaces entre switches (ISL) que manejan el tráfico MetroCluster en todas l
 
 == Requisitos de ISL de MetroCluster
 
-Lo siguiente se aplica a los ISL en todas las configuraciones IP de MetroCluster:
+Estos requisitos se aplican a los ISL en todas las configuraciones IP de MetroCluster:
 
 * Ambas estructuras deben tener el mismo número de ISL.
 * Los ISL de una estructura deben tener todos la misma velocidad y longitud.
@@ -26,7 +26,7 @@ Lo siguiente se aplica a los ISL en todas las configuraciones IP de MetroCluster
 * Los ISL deben tener la misma topología. Por ejemplo, todos deben ser enlaces directos, o si la configuración utiliza WDM, todos deben usar WDM.
 * La velocidad ISL mínima requerida depende del modelo de plataforma:
 +
-** A partir de ONTAP 9.18.1, las plataformas con una velocidad de puerto backend IP de MetroCluster de 100Gbps requieren una velocidad de enlace ISL mínima de 100Gbps. Usar una velocidad ISL diferente requiere una Feature Product Variance Request (FPVR). Para presentar una FPVR, contacta a tu equipo de ventas de NetApp.
+** A partir de ONTAP 9.18.1, las plataformas con una velocidad de puerto backend IP de MetroCluster de 100Gbps requieren una velocidad de enlace ISL mínima de 100Gbps. Usar una velocidad ISL diferente requiere una Feature Policy Variance Request (FPVR). Para presentar una FPVR, contacta a tu equipo de ventas de NetApp.
 +
 
 CAUTION: Las actualizaciones a ONTAP 9.18.1 y posteriores en plataformas que actualmente no cumplen el requisito de ISL de 100Gbps no están bloqueadas y pueden realizarse. Sin embargo, NetApp recomienda encarecidamente que los clientes hagan la transición a la conectividad ISL de 100Gbps para mantener los niveles de rendimiento y disponibilidad esperados.
@@ -49,7 +49,6 @@ Lo siguiente se aplica al tráfico de ida y vuelta entre los conmutadores IP de 
 * La pérdida de paquetes debe ser inferior o igual al 0,01%. La pérdida máxima de paquetes es la suma de todas las pérdidas de todos los enlaces de la ruta entre los nodos MetroCluster y la pérdida en las interfaces IP de MetroCluster locales.
 * El valor de fluctuación admitido es 3ms para ida y vuelta (o 1,5ms para ida y vuelta).
 * La red debe asignar y mantener la cantidad de ancho de banda de acuerdo de nivel de servicio necesaria para el tráfico MetroCluster, independientemente de las microráfagas y los picos en el tráfico.
-* Si utiliza ONTAP 9,7 o una versión posterior, la red intermedia entre los dos sitios debe proporcionar un ancho de banda mínimo de 4,5Gbps GB para la configuración de IP de MetroCluster.
 
 
 

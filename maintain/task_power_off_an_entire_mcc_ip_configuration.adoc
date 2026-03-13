@@ -4,19 +4,19 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, power, off, entire, metrocluster, ip, configuration 
 summary: Debe apagar toda la configuración de IP de MetroCluster y todo el equipo antes de que pueda iniciarse el mantenimiento o la reubicación. 
 ---
-= Apagado de una configuración de IP de MetroCluster completa
+= Apague toda una configuración de IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Debe apagar toda la configuración de IP de MetroCluster y todo el equipo antes de que pueda iniciarse el mantenimiento o la reubicación.
+Apaga toda la configuración de MetroCluster IP y todo el equipo antes de empezar el mantenimiento o la reubicación.
 
 
 NOTE: A partir de ONTAP 9.8, el `*storage switch*` el comando se sustituye por `*system switch*`. Los siguientes pasos muestran el `*storage switch*` Pero si ejecuta ONTAP 9.8 o una versión posterior, el `*system switch*` el comando es preferido.
 
-. Compruebe la configuración de MetroCluster en ambos sitios de la configuración de MetroCluster.
+. Verifica la configuración de MetroCluster desde ambos sitios.
 +
 .. Confirmar que la configuración de MetroCluster y el modo operativo son normales. +
 `*metrocluster show*`
@@ -53,7 +53,7 @@ cluster_A_site_A::*>metrocluster modify -auto-switchover-failure-domain auso-dis
 ----
 +
 
-NOTE: En una configuración de IP de MetroCluster, el dominio de fallo DE AUSO ya está establecido en 'auso-disabled' a menos que la configuración esté configurada con Mediator de ONTAP.
+NOTE: En una configuración IP de MetroCluster, el dominio de fallo de AUSO ya está establecido en 'auso-disabled' a menos que la configuración use ONTAP Mediator.
 
 . Compruebe el cambio con el comando
 +
@@ -70,14 +70,12 @@ NOTE: En una configuración de IP de MetroCluster, el dominio de fallo DE AUSO y
         End Time: 4/25/2020 20:20:36
           Errors: -
 ----
-. Detenga los nodos:
-+
-`*halt*`
-
+. Detén los nodos en ambos sitios:
 +
 [listing]
 ----
-system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true
+cluster_A::*>system node halt -node * -inhibit-takeover true -ignore-quorum-warnings true
+cluster_B::*>system node halt -node * -inhibit-takeover true -ignore-quorum-warnings true
 ----
 . Apague el siguiente equipo en el sitio:
 +

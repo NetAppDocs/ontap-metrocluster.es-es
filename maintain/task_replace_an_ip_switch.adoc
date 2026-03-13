@@ -143,7 +143,7 @@ Si actualiza o degrada un conmutador, aplique el último archivo RCF admitido pa
 +
 .. Modifique todas las LIF del clúster para deshabilitar la reversión automática:
 +
-[source, asciidoc]
+[source, cli]
 ----
 network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
 ----
@@ -236,7 +236,7 @@ NOTE: Si actualiza o degrada las redes, repita todos los pasos para la segunda r
 
 . Modifique todas las LIF de clúster para volver a habilitar la reversión automática:
 +
-[source, asciidoc]
+[source, cli]
 ----
 network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert true
 ----

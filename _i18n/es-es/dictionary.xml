@@ -3841,7 +3841,6 @@
   <block id="91271938ac44f690cd5a064a6a92425f" category="paragraph">Cada LIF de clúster debería mostrar el valor true para es Home y tener un administrador de estado/Oper de up/up</block>
   <block id="e74ba48b87be882bffe68906351b713a" category="list-text">Compruebe que la reversión automática está habilitada en todas las LIF del clúster:</block>
   <block id="e4490c39e3c7c690b2b28793dd430b44" category="paragraph"><block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix="" category="inline-code"></block></block>
-  <block id="0bc247e1fb33acc5636986c990aa1e9a" category="section-title">Eliminación de la configuración de las aplicaciones de supervisión</block>
   <block id="ae81bff40f90f640ae14eb37aaf345ea" category="paragraph">Si la configuración existente se supervisa con el software MetroCluster Tiebreaker, el Mediador de ONTAP u otras aplicaciones de terceros (por ejemplo, ClusterLion) que puedan iniciar una conmutación de sitios, debe eliminar la configuración de MetroCluster del software de supervisión antes de la actualización.</block>
   <block id="dbdccf881e62a812392682de3b418def" category="list-text">Elimine la configuración de MetroCluster existente de tiebreaker, Mediator u otro software que pueda iniciar la conmutación.</block>
   <block id="7fc17decf9554a362d80ff8052528439" category="cell">Si está usando...</block>
@@ -3917,7 +3916,6 @@
   <block id="3f95b2ea711d433e26a8b5eb63bbd17a" category="paragraph"><block ref="02b924a96c72679822883a70dfe48211" prefix="" category="inline-code"></block></block>
   <block id="2494cf3ea6304f13d911614b50a2449f" category="admonition">Debe completar este paso en cada nodo IP de MetroCluster.</block>
   <block id="4fbb06a55d361d0cd8cf430f9a799e67" category="list-text">Compruebe que se han duplicado los agregados raíz:</block>
-  <block id="6c46e592d5f16891d3a16e5f364e031b" category="section-title">Finalización de la adición de nuevos nodos</block>
   <block id="756f29d7bcbe7decf6b979c0706fc9a1" category="paragraph">Debe incorporar el nuevo grupo de recuperación ante desastres a la configuración de MetroCluster y crear agregados de datos reflejados en los nuevos nodos.</block>
   <block id="b24de9180a5deb759a394eebcd1a0305" category="list-text">Crear agregados de datos reflejados en cada uno de los nuevos nodos de MetroCluster:</block>
   <block id="7062dd7205e5ed0cba84efd4203bc9cc" category="paragraph">En el ejemplo siguiente se muestra la creación de un agregado en node_A_1-new.</block>
@@ -12545,10 +12543,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="be4fd0012ddc006ea303591c9df6f76d" category="paragraph"><block ref="39b06b9a26b49c3db6d9409a6abaa9d8" prefix="" category="inline-code"></block></block>
   <block id="9e1d9b9e8b88355df08194559af6865a" category="summary">Durante una conmutación de sitios, no se deben ejecutar ciertas operaciones.</block>
   <block id="fa33dcb38c0cd6e15dd757f1ef3072ee" category="doc">Limitaciones cuando la configuración de MetroCluster está cambiando</block>
-  <block id="5722cde27dfa05f795a5466b6d0859c9" category="paragraph">Cuando el sistema está en conmutación, no se deben llevar a cabo ciertas operaciones. Obtenga información sobre las operaciones restringidas cuando el sistema está en switchover.</block>
-  <block id="b72a4837907e7fef0771c42da901c811" category="section-title">Operaciones restringidas en la conmutación de sitios</block>
-  <block id="1b5f91752d52b3bac4319cf07ea0efb8" category="paragraph">Las siguientes operaciones no son compatibles cuando el sistema está en switchover:</block>
-  <block id="272c8dfc8e0821088d85ed5d0fe037a8" category="list-text">Creación o eliminación de agregados y volúmenes</block>
   <block id="d825dd35fde2fe33a56ef95c52f545a0" category="list-text">Crear o eliminar SVM</block>
   <block id="8c120d60e412429a6f43b748c02dc233" category="list-text">Crear o eliminar LIF</block>
   <block id="9cc6607cba1650bc799439425f9b085e" category="list-text">Agregar o quitar discos (solo si se van a sustituir como parte de un procedimiento de recuperación)</block>
@@ -13436,7 +13430,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="4e4facc560c88d40d47ce2b1369d5552" category="doc">Configurar la recopilación de registros en un conmutador IP de MetroCluster</block>
   <block id="d5a5c9619599da12d87af6daeab1ece6" category="paragraph">En una configuración de IP de MetroCluster, puede configurar la recopilación de registros para recopilar registros de conmutadores con fines de depuración.</block>
   <block id="7c51c84110459cf460a444094be133c4" category="admonition">En los switches Broadcom y Cisco, se requiere un nuevo usuario para cada clúster con recopilación de registros. Por ejemplo, MetroCluster 1, MetroCluster 2, MetroCluster 3 y MetroCluster 4 requieren la configuración de un usuario independiente en los switches. No se admiten varias claves SSH para el mismo usuario.</block>
-  <block id="8ac20e3719b6b58e94e5a4385e87b52e" category="paragraph">El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración de la recopilación, solicitando registros detallados de *Soporte* y habilitando una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.</block>
   <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*NOTA:* Si habilita el modo FIPS, debe completar lo siguiente:</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">Vuelva a generar las claves SSH en el switch siguiendo las instrucciones del proveedor.</block>
   <block id="a60a00967db7342947b326a8f7618f52" category="list-text">Regenerar claves SSH en ONTAP mediante<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
@@ -14500,4 +14493,15 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="108a4ad72df5c318a77dad90928d8770" category="admonition">En una configuración IP de MetroCluster, el dominio de fallo de AUSO ya está establecido en 'auso-disabled' a menos que la configuración use ONTAP Mediator.</block>
   <block id="6ba9661e38afca32fe30fec08ca5c4ab" category="list-text">Detén los nodos en ambos sitios:</block>
   <block id="f759ce596ef74c921d7bddaf277a11c8" category="paragraph">*Nota:* La velocidad de 25 GbE requiere el adaptador transceptor MAM1Q00A-QSA28.</block>
+  <block id="316fa55db721e45107647fc0de79704f" category="paragraph">El control del estado de los switches de Ethernet (CSHM) es responsable de garantizar el estado operativo de los switches de red y de recopilar los registros de los switches con fines de depuración. Este procedimiento te guía por el proceso de configurar la recopilación, solicitar registros detallados de *Support* y habilitar una recopilación por hora de datos *Periodic* que recopila AutoSupport.</block>
+  <block id="4526d2820ba573572df0eafdc557014c" category="paragraph">Cuando el sistema está en conmutación de sitios, NetApp recomienda que evites realizar ciertas operaciones.</block>
+  <block id="6efa43350457e5d9dbe5d6c555eb32f9" category="paragraph">Las siguientes operaciones no se recomiendan cuando el sistema está en conmutación de sitios y solo debes realizarlas bajo la guía del soporte de NetApp:</block>
+  <block id="9ea78d85c08becd89d5d23daef8687fa" category="list-text">Crear o eliminar agregados</block>
+  <block id="56f10876ae2bed5f3da63c125772429f" category="list-text">Creación o eliminación de volúmenes (incluidos los volúmenes cifrados)</block>
+  <block id="6e05136dba32fad75bd64f601602c77e" category="section-title">Eliminar la configuración de las aplicaciones de supervisión</block>
+  <block id="a8b426026583d79d39676c969bdc3456" category="section-title">Prepara los nuevos módulos controladores</block>
+  <block id="af8fde2f19f4ba506d9bb950533f5776" category="list-text">Desde el modo de mantenimiento, emite el comando halt para salir del modo de mantenimiento:</block>
+  <block id="b8bbebbdaa85ea395d4339565372cafe" category="list-text">Arranca el sistema y ve a la configuración del clúster:</block>
+  <block id="e219586e70791b35867f7d4dc343163f" category="section-title">Configura los LIF intercluster, crea las interfaces MetroCluster y refleja los agregados raíz</block>
+  <block id="8780af330d271744603135da4ae91fd9" category="section-title">Finaliza la adición de los nuevos nodos</block>
 </blocks>

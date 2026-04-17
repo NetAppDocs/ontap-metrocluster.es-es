@@ -11,15 +11,12 @@ summary: Durante una conmutación de sitios, no se deben ejecutar ciertas operac
 
 
 [role="lead"]
-Cuando el sistema está en conmutación, no se deben llevar a cabo ciertas operaciones. Obtenga información sobre las operaciones restringidas cuando el sistema está en switchover.
+Cuando el sistema está en conmutación de sitios, NetApp recomienda que evites realizar ciertas operaciones.
 
+Las siguientes operaciones no se recomiendan cuando el sistema está en conmutación de sitios y solo debes realizarlas bajo la guía del soporte de NetApp:
 
-
-== Operaciones restringidas en la conmutación de sitios
-
-Las siguientes operaciones no son compatibles cuando el sistema está en switchover:
-
-* Creación o eliminación de agregados y volúmenes
+* Crear o eliminar agregados
+* Creación o eliminación de volúmenes (incluidos los volúmenes cifrados)
 * Crear o eliminar SVM
 * Crear o eliminar LIF
 * Agregar o quitar discos (solo si se van a sustituir como parte de un procedimiento de recuperación)

@@ -15,7 +15,7 @@ En una configuración de IP de MetroCluster, puede configurar la recopilación d
 CAUTION: En los switches Broadcom y Cisco, se requiere un nuevo usuario para cada clúster con recopilación de registros. Por ejemplo, MetroCluster 1, MetroCluster 2, MetroCluster 3 y MetroCluster 4 requieren la configuración de un usuario independiente en los switches. No se admiten varias claves SSH para el mismo usuario.
 
 .Acerca de esta tarea
-El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración de la recopilación, solicitando registros detallados de *Soporte* y habilitando una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.
+El control del estado de los switches de Ethernet (CSHM) es responsable de garantizar el estado operativo de los switches de red y de recopilar los registros de los switches con fines de depuración. Este procedimiento te guía por el proceso de configurar la recopilación, solicitar registros detallados de *Support* y habilitar una recopilación por hora de datos *Periodic* que recopila AutoSupport.
 
 *NOTA:* Si habilita el modo FIPS, debe completar lo siguiente:
 

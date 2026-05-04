@@ -19,6 +19,9 @@ Realice una nueva instalación o actualización a tiebreaker 1,6 o tiebreaker 1.
 
 
 
+NOTE: Después de instalar Tiebreaker 1.6 o posterior, necesitas link:concept_configuring_the_tiebreaker_software.html#import-certificates-tb17["importar certificados"] para habilitar la supervisión continua.
+
+
 
 == Instale o actualice a tiebreaker 1.6P1
 
@@ -1393,3 +1396,6 @@ Cleaning up / removing...
 --
 ====
 
+
+.El futuro
+Una vez que hayas instalado o actualizado correctamente Tiebreaker, link:configure-tb-workflow.html["configura el software MetroCluster Tiebreaker"] para añadir las configuraciones de MetroCluster e importar los certificados necesarios.

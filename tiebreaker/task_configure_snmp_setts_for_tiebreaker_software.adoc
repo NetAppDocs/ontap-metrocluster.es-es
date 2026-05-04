@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snmp, tiebreaker, software, configure, setting 
 summary: Para utilizar SNMP con el software Tiebreaker, debe configurar los ajustes de SNMP. 
 ---
-= Configuración de la configuración de SNMP para el software Tiebreaker
+= Configura los ajustes SNMP para el software MetroCluster Tiebreaker
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -83,3 +83,6 @@ Successfully sent SNMP trap for event TEST_SNMP_CONFIG
 NetApp MetroCluster Tiebreaker :>
 ....
 
+
+.El futuro
+link:concept_monitoring_the_mcc_configuration.html["Supervise la configuración de MetroCluster"]

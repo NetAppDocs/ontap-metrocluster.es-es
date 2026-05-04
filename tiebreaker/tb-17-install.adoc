@@ -19,6 +19,9 @@ Instale o actualice a Tiebreaker 1.7 en su host Linux para monitorear las config
 * Puede instalar MetroCluster tiebreaker como usuario no root con suficientes privilegios administrativos para realizar la instalación de tiebreaker, crear tablas y usuarios y definir la contraseña de usuario.
 
 
+
+NOTE: Después de instalar Tiebreaker 1.7, necesitas link:concept_configuring_the_tiebreaker_software.html#import-certificates-tb17["importar certificados"] para habilitar la supervisión continua.
+
 .Pasos
 . Descargue el software MetroCluster Tiebreaker 1.7.
 +
@@ -353,3 +356,6 @@ NOTE: Si su actualización falla con un error debido a certificados faltantes, c
 --
 ====
 
+
+.El futuro
+Una vez que hayas instalado o actualizado correctamente Tiebreaker, link:configure-tb-workflow.html["configura el software MetroCluster Tiebreaker"] para añadir las configuraciones de MetroCluster e importar los certificados necesarios.

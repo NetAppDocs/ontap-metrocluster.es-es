@@ -13,6 +13,9 @@ summary:
 [role="lead"]
 Los nodos IP de MetroCluster pueden acceder a los discos de buzón de ONTAP Mediator usando sesiones iSCSI, que tienen un tiempo de espera de conexión predeterminado de 10 segundos, incluyendo un solo reintento después de 5 segundos. Dependiendo de tu versión de ONTAP y tu entorno, puedes aumentar el tiempo de espera del buzón hasta un máximo de 60 segundos para evitar interrupciones en la conmutación de sitios no planificada asistida por Mediator (MAUSO).
 
+
+NOTE: Esta tarea solo se aplica a un ONTAP Mediator configurado con iSCSI. Esta tarea no se aplica a un ONTAP Mediator que use HTTPS.
+
 NetApp recomienda que aumentes el tiempo de espera de conexión al buzón por defecto si se da alguna de las siguientes circunstancias en tu entorno:
 
 * Estás usando protocolos de redundancia de red (como HSRP o VRRP) o protocolos para evitar bucles (como STP).

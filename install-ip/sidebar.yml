@@ -92,7 +92,7 @@ entries:
       entries:
       - title: Configure los ajustes básicos
         url: "/install-ip/task_switch_config_cisco.html"
-      - title: Configurar el cifrado MACsec en switches Cisco 9336C
+      - title: Configura el cifrado MACsec en los switches Cisco 9336C (opcional)
         url: "/install-ip/task_switch_config_cisco_macsec.html"
     - title: Configure los switches NVIDIA IP
       entries:

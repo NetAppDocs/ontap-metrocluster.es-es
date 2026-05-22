@@ -9207,8 +9207,6 @@
   <block id="e39c1c9f6137c6dbe9a36e7da08ce525" category="paragraph"><block ref="e39c1c9f6137c6dbe9a36e7da08ce525" category="inline-link-macro-rx"></block></block>
   <block id="76c06c220bafe4dc7e175b4584717344" category="paragraph"><block ref="76c06c220bafe4dc7e175b4584717344" category="inline-link-macro-rx"></block></block>
   <block id="a72d2a4ca552186cbf62f182a7dfbe82" category="paragraph"><block ref="a72d2a4ca552186cbf62f182a7dfbe82" category="inline-link-macro-rx"></block></block>
-  <block id="c2cd808fc4b0d9e71ea89cc518cef164" category="summary">Solo debe configurar el cifrado MACsec en los puertos ISL WAN que se ejecuten entre los sitios. Debe configurar MACsec después de aplicar el archivo RCF correcto.</block>
-  <block id="175313fe612a432e5a51082817a697f1" category="doc">Configurar el cifrado MACsec en switches Cisco 9336C</block>
   <block id="3ff849ca07e8d8a0986114f9a8f37362" category="paragraph">Si lo desea, puede configurar el cifrado MACsec en los puertos ISL WAN que se ejecutan entre los sitios. Debe configurar MACsec después de aplicar el archivo RCF correcto.</block>
   <block id="b3b4314c99a828808ed95dc975e51425" category="admonition">El cifrado MACsec sólo se puede aplicar a los puertos WAN ISL.</block>
   <block id="2450cd43f02dcf045350e5a9b43f76b1" category="section-title">Requisitos de licencia para MACsec</block>
@@ -11960,7 +11958,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="601779c42f052b558b7ac9443d399420" category="list-text">Debe determinar el ID de VLAN si los modelos de plataforma admiten identificadores de VLAN (consulte <block ref="05a2d2a273433dceaaaa95abd8b74c34" category="inline-xref-macro-rx"></block>) y si no utiliza los identificadores de VLAN predeterminados.</block>
   <block id="99d8e07cf22b54bf1c4fe9ecde3bd413" category="list-text">Si las interfaces utilizan las VLAN predeterminadas, o el modelo de plataforma no utiliza un ID de VLAN (consulte <block ref="05a2d2a273433dceaaaa95abd8b74c34" category="inline-xref-macro-rx"></block>), el _vlan-id_ no es necesario.</block>
   <block id="26c0375297253dbcc942fe30cefa7b4b" category="paragraph">Solo puede especificar la VLAN durante la creación de la interfaz. Puede configurar las VLAN predeterminadas 10 y 20, o las VLAN dentro del intervalo de 101 a 4096 (o el número admitido por el proveedor del switch, el que sea el número inferior). Después de crear las interfaces de la MetroCluster, no se puede cambiar el identificador de VLAN.</block>
-  <block id="3faee78823aa7a1dc8ffca46972f6fb2" category="image-alt">La muestra las velocidades de red específicas de la plataforma y los modos de puertos de switch para switches que cumplen con MetroCluster.</block>
   <block id="c189be7568f7fe77db4a889353024935" category="admonition">La versión del archivo RCF es diferente a la versión de la herramienta RCFfilegenerator utilizada para generar el archivo. Por ejemplo, puede generar un archivo RCF versión 2,00 utilizando RCFfilegenerator v1,6c.</block>
   <block id="a796207f93572cbc190249400ba34b9b" category="paragraph"><block ref="08689ca588d2fd5d0e0a12366a8cd0a6" prefix="" category="inline-code"></block></block>
   <block id="fc902c4c5eb117926b80fc3a1066d5f9" category="paragraph"><block ref="31e96f11307c41bb11d8a37f3c919979" prefix="" category="inline-code"></block></block>
@@ -13113,8 +13110,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="84b4abdd3b2327d529014e09c966c735" category="doc">Utilice Active IQ Unified Manager y System Manager de ONTAP para ampliar la configuración y supervisión</block>
   <block id="8f331b9c0fe948d4d36e636ae3c61443" category="summary">Cada clúster necesita su propio servidor de protocolo de tiempo de red \(NTP\) para sincronizar el tiempo entre los nodos y sus clientes.</block>
   <block id="3053e08077bad755ce68edce5863f6eb" category="paragraph">Cada clúster necesita su propio servidor de protocolo de tiempo de redes (NTP) para sincronizar la hora entre los nodos y sus clientes.</block>
-  <block id="eff6a3df3a68a6652b79b0a81ba75dda" category="list-text">Los sistemas AFF A30, AFF C30, AFF C60 y FAS50 requieren un adaptador QSFP a SFP+ en la tarjeta del controlador para admitir una velocidad de red de 25Gbps GbE.</block>
-  <block id="8f8d75e3465f8e6ca35857c6cf19f63e" category="paragraph"><block ref="8f8d75e3465f8e6ca35857c6cf19f63e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f7bbc76208ab5ade611be3b207fc4964" category="paragraph">Las particiones internas se dividen en cuatro grupos iguales (cuartos). Cada trimestre se asigna automáticamente a un pool independiente. Las unidades en las bandejas externas se dividen en cuatro grupos iguales (cuartos). Cada bandeja de trimestres se asigna automáticamente a un pool aparte.</block>
   <block id="951ecdd1fc2eee9520c3a6959e6b80fd" category="section-title">Asignación de discos en los sistemas FAS50</block>
   <block id="eac1566268bcf590649d38dfbbc071d8" category="paragraph">AFF A30, AFF C30, AFF C60, FAS50</block>
@@ -13993,7 +13988,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="ab58575dfc3a4cf3868291f7e29fd682" category="doc">Verifique el estado de configuración de HA de su controlador y los componentes del chasis en una configuración de IP de MetroCluster</block>
   <block id="0dd4375e97dbbfc0461527e6636a4e50" category="doc">Configurar los conmutadores IP de Broadcom para la interconexión de clústeres y la conectividad IP de MetroCluster de backend</block>
   <block id="2305966fe63ba176ab9feddd6e84701f" category="doc">Configurar los conmutadores IP de Cisco para la interconexión de clústeres y la conectividad IP de MetroCluster de backend</block>
-  <block id="9edb945b46e8338b6c604c62787c3031" category="doc">Configurar el cifrado MACsec en los conmutadores Cisco 9336C en un sitio IP de MetroCluster</block>
   <block id="e0e912999bb427a16c869c97ad908030" category="doc">Configurar el conmutador NVIDIA IP SN2100 para la interconexión de clústeres y la conectividad IP de MetroCluster de backend</block>
   <block id="25849b8ea5119a6ccbe0ef06d8e35773" category="doc">Pruebe el cambio de nodo ONTAP para su configuración de IP de MetroCluster</block>
   <block id="f42ec02236cb8b0134435967892ad733" category="paragraph"><block ref="f42ec02236cb8b0134435967892ad733" category="inline-link-macro-rx"></block></block>
@@ -14568,4 +14562,29 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="ab84d029506bbf94968a8439506e5c7f" category="paragraph"><block ref="386c9422b8a78bb2663b14ec5cff7d1e" category="inline-link-macro-rx"></block>.</block>
   <block id="ea7f38fbe84ac28be0f7c90cca730a69" category="paragraph">ONTAP 9.19.1</block>
   <block id="65e78b09746a9ca4025a1c248d42a1bb" category="list-text">Verifica que puedes acceder a un servidor HTTP con el sistema.</block>
+  <block id="b91a26ac8a9beeea2dbb082ebcc79563" category="list-text">Los sistemas AFF A30, AFF C30, AFF C60 y FAS50 requieren un adaptador QSFP-to-SFP en la tarjeta del controlador para admitir una velocidad de red de 25Gbps.</block>
+  <block id="68ce146fd9ae3ad96c5895b1c1869059" category="cell">Velocidad de red (Gbps)</block>
+  <block id="0ec1914fce58a6a4d1748f3ace018fa1" category="cell">Modo puerto del switch</block>
+  <block id="9903737bdb8c33503d4677b804a93bb3" category="paragraph">100Gbps</block>
+  <block id="95059acbec372eb955f1645409c0b72a" category="paragraph">40Gbps al actualizar PCM desde FAS9000 o AFF A700</block>
+  <block id="4c75fbf9fcb941c4555168045960e7ff" category="paragraph">Modo trunk</block>
+  <block id="e0d8a184e851ebead0da8ef2d160d077" category="paragraph">AFF C800</block>
+  <block id="fd395a2e4925de0736e72f97908d353b" category="paragraph">ASA C800</block>
+  <block id="dffbd09beb5f8e9746ed2e56e4ff77c5" category="paragraph">ASA A800</block>
+  <block id="538b0a5f377e4a7e386a3066041545ed" category="paragraph">40Gbps o 100Gbps</block>
+  <block id="5ab83f35784f154d55ea7ab58c8e503b" category="paragraph">Modo de acceso</block>
+  <block id="3dd0fd41a169501d96e8394596995cea" category="paragraph">40Gbps</block>
+  <block id="8be061f2ffd8e5438d395c1e9844b4ff" category="paragraph">ASA C400</block>
+  <block id="1ceb5497eb752c50389a2c579cff9567" category="paragraph">25Gbps</block>
+  <block id="5c4d47ba596f06f53b9aa793345127dd" category="paragraph">AFF C250</block>
+  <block id="efb7d807a9229170619783564ab9a186" category="paragraph">ASA C250</block>
+  <block id="58bdeb56c4a59fe27bedb60d1f1b8b90" category="paragraph">ASA A250</block>
+  <block id="0814a528a6e09bdfa454da4598d03b6a" category="paragraph">ASA A150</block>
+  <block id="2731fea24095aa687c94c583e42e365a" category="paragraph">25Gbps o 100Gbps</block>
+  <block id="d9bafc03fd0d1ef7bcb8fe6362c07354" category="summary">Si es necesario, configura el cifrado MACsec solo en los puertos ISL de la WAN que van entre los sitios. Si eliges usar el cifrado MACsec, configúralo después de aplicar el archivo RCF correcto.</block>
+  <block id="0876f65fb1fd364053810f3b546f4ae5" category="doc">Configura el cifrado MACsec en los switches Cisco 9336C en un sitio IP MetroCluster (opcional)</block>
+  <block id="800b8e21fdc6520b5affd604f6034398" category="paragraph">Si es necesario, puedes configurar el cifrado MACsec en los puertos ISL de la WAN que van entre los sitios. Si decides usar el cifrado MACsec, debes configurarlo después de aplicar el archivo RCF correcto.</block>
+  <block id="3b1fc3e7f78026e75788d28bc49ca81d" category="list-text">La encriptación MACsec solo puede aplicarse a los puertos WAN ISL que van entre los sitios.</block>
+  <block id="68bddd16e24ef3e862d1cb8ff822ad2a" category="list-text">Configurar el cifrado MACsec es opcional al configurar los switches Cisco 9336C.</block>
+  <block id="95c3b415a470d1839fa2fedd54783abb" category="sidebar">Configura el cifrado MACsec en los switches Cisco 9336C (opcional)</block>
 </blocks>

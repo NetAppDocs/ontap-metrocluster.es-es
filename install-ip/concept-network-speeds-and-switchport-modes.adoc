@@ -18,7 +18,7 @@ En la siguiente tabla se muestran velocidades de red específicas de plataforma 
 [NOTE]
 ====
 * Los valores que faltan indican que la plataforma no se puede utilizar con un switch compatible con MetroCluster.
-* Los sistemas AFF A30, AFF C30, AFF C60 y FAS50 requieren un adaptador QSFP-to-SFP en la tarjeta del controlador para admitir una velocidad de red de 25Gbps.
+* Los sistemas AFF A30, AFF C30, AFF C60 y FAS50 requieren un adaptador QSFP-to-SFP+ en la tarjeta de la controladora para admitir una velocidad de red de 25Gbps.
 
 
 ====

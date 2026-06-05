@@ -112,7 +112,7 @@ system health alert show
 +
 [source, cli]
 ----
-security key-manager external show-status
+security key-manager external show
 ----
 . Habilite el cifrado integral para cada grupo de recuperación ante desastres:
 +
@@ -226,7 +226,7 @@ system health alert show
 +
 [source, cli]
 ----
-security key-manager external show-status
+security key-manager external show
 ----
 . Deshabilite el cifrado integral en cada grupo de recuperación ante desastres:
 +

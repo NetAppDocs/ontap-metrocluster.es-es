@@ -51,7 +51,7 @@ Si el sid del socio no es correcto, configúrelo:
 +
 `boot_ontap menu`
 
-. Si se utiliza el cifrado de raíz, seleccione la opción de menú de inicio para la configuración de administración de claves.
+. Si el SVM de administración del sistema MetroCluster está configurado con un gestor de claves, selecciona la opción correcta del menú de arranque para tu configuración de gestión de claves.
 +
 |===
 
@@ -64,7 +64,10 @@ Gestión de claves incorporada
  a| 
 Opción `10`
 
-Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+Sigue las instrucciones para proporcionar los siguientes datos para recuperar y restaurar la configuración del key manager:
+
+** La copia de seguridad y la frase de contraseña de Onboard Key Manager
+
 
 
 
@@ -73,7 +76,14 @@ Gestión de claves externas
  a| 
 Opción `11`
 
-Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+Sigue las instrucciones para proporcionar los siguientes datos para recuperar y restaurar la configuración del key manager:
+
+** El número de puerto y la dirección de uno de los servidores de claves primarios para el SVM admin
+** El nombre de usuario y la contraseña si están asociados al servidor de claves primarias elegido
+** El UUID del almacén de claves para el SVM admin (requerido en ONTAP 9.16.1 o posterior)
+
+
+*Nota:* Aunque el SVM admin puede tener hasta cuatro servidores de claves principales, durante el proceso de recuperación solo se puede especificar la información de un servidor de claves principal.
 
 |===
 . En el menú de inicio, seleccione "'(6) Actualizar flash desde backup config'".
@@ -105,7 +115,7 @@ Si el sid del socio no es correcto, configúrelo:
 +
 `setenv partner-sysid <partner-sysID>`
 
-. Si se utiliza el cifrado de raíz, seleccione de nuevo la opción de menú de inicio para la configuración de administración de claves.
+. Si se utiliza el cifrado del volumen raíz, selecciona de nuevo la opción del menú de arranque para tu configuración de gestión de claves.
 +
 |===
 
@@ -118,26 +128,36 @@ Gestión de claves incorporada
  a| 
 Opción `10`
 
-Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+Sigue las instrucciones para proporcionar los siguientes datos para recuperar y restaurar la configuración del key manager:
+
+** La copia de seguridad y la frase de contraseña de Onboard Key Manager
+
 
 
 
  a| 
 Gestión de claves externas
  a| 
-Opción «'11»
+Opción `11`
 
-Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+Sigue las instrucciones para proporcionar los siguientes datos para recuperar y restaurar la configuración del key manager:
+
+** El número de puerto y la dirección de uno de los servidores de claves primarios para el SVM admin
+** El nombre de usuario y la contraseña si están asociados al servidor de claves primarias elegido
+** El UUID del almacén de claves para el SVM admin (requerido en ONTAP 9.16.1 o posterior)
+
+
+*Nota:* Aunque el SVM admin puede tener hasta cuatro servidores de claves principales, durante el proceso de recuperación solo se puede especificar la información de un servidor de claves principal.
 
 |===
 +
-En función del ajuste del gestor de claves, realice el procedimiento de recuperación seleccionando la opción «'10'» o la opción «'11'», seguida de la opción `6` en el primer símbolo del sistema del menú de inicio. Para arrancar los nodos por completo, puede que necesite repetir el procedimiento de recuperación seguido de la opción «'1'» (arranque normal).
+Dependiendo del tipo de key manager, realiza el procedimiento de recuperación seleccionando la opción "`10`" o la opción "`11`", seguida de la opción `6` en el primer prompt del menú de arranque. Para arrancar los nodos completamente, puede que necesites repetir el procedimiento de recuperación continuando con la opción "`1`" (arranque normal).
 
 . Espere a que los nodos sustituidos arranquen.
 +
 Si alguno de los nodos está en modo de toma de control, realice una devolución mediante el `storage failover giveback` comando.
 
-. Si se utiliza el cifrado, restaure las claves con el comando correcto para la configuración de gestión de claves.
+. Si el cifrado está activado en la SVM administradora, restaura las claves utilizando el comando correcto para tu configuración de gestión de claves.
 +
 |===
 
@@ -157,7 +177,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
  a| 
 Gestión de claves externas
  a| 
-`security key-manager external restore -vserver <SVM> -node <node> -key-server <host_name|IP_address:port> -key-id key_id -key-tag key_tag <node_name>`
+`security key-manager external restore -vserver <admin-svm> -key-server <host_name|IP_address:port>`
 
 Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["Restaure las claves de cifrado de gestión de claves externas"^].
 

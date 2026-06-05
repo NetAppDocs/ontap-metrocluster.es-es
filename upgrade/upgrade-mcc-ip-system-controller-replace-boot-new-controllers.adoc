@@ -54,7 +54,7 @@ Si el sid del socio no es correcto, configúrelo:
 +
 `boot_ontap menu`
 
-. Si se utiliza el cifrado de raíz, seleccione la opción de menú de inicio para la configuración de administración de claves.
+. Si el SVM de administración del sistema MetroCluster está configurado con un gestor de claves, selecciona la opción correcta del menú de arranque para tu configuración de gestión de claves.
 +
 |===
 
@@ -65,18 +65,28 @@ Si el sid del socio no es correcto, configúrelo:
  a| 
 Gestión de claves incorporada
  a| 
-Opción «'10»
+Opción `10`
 
-Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+Sigue las instrucciones para proporcionar los siguientes datos para recuperar y restaurar la configuración del key manager:
+
+** La copia de seguridad y la frase de contraseña de Onboard Key Manager
+
 
 
 
  a| 
 Gestión de claves externas
  a| 
-Opción «'11»
+Opción `11`
 
-Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+Sigue las instrucciones para proporcionar los siguientes datos para recuperar y restaurar la configuración del key manager:
+
+** El número de puerto y la dirección de uno de los servidores de claves primarios para el SVM admin
+** El nombre de usuario y la contraseña si están asociados al servidor de claves primarias elegido
+** El UUID del almacén de claves para el SVM admin (requerido en ONTAP 9.16.1 o posterior)
+
+
+*Nota:* Aunque el SVM admin puede tener hasta cuatro servidores de claves principales, durante el proceso de recuperación solo se puede especificar la información de un servidor de claves principal.
 
 |===
 . Desde el menú de inicio, ejecute la opción «'6'».
@@ -111,7 +121,7 @@ Si el sid del socio no es correcto, configúrelo:
 +
 `setenv partner-sysid <partner-sysID>`
 
-. Si se utiliza el cifrado de raíz, seleccione de nuevo la opción de menú de inicio para la configuración de administración de claves.
+. Si se utiliza el cifrado del volumen raíz, selecciona de nuevo la opción del menú de arranque para tu configuración de gestión de claves.
 +
 |===
 
@@ -122,18 +132,28 @@ Si el sid del socio no es correcto, configúrelo:
  a| 
 Gestión de claves incorporada
  a| 
-Opción «'10»
+Opción `10`
 
-Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+Sigue las instrucciones para proporcionar los siguientes datos para recuperar y restaurar la configuración del key manager:
+
+** La copia de seguridad y la frase de contraseña de Onboard Key Manager
+
 
 
 
  a| 
 Gestión de claves externas
  a| 
-Opción «'11»
+Opción `11`
 
-Siga las instrucciones para proporcionar las entradas necesarias para recuperar y restaurar la configuración de Key-Manager.
+Sigue las instrucciones para proporcionar los siguientes datos para recuperar y restaurar la configuración del key manager:
+
+** El número de puerto y la dirección de uno de los servidores de claves primarios para el SVM admin
+** El nombre de usuario y la contraseña si están asociados al servidor de claves primarias elegido
+** El UUID del almacén de claves para el SVM admin (requerido en ONTAP 9.16.1 o posterior)
+
+
+*Nota:* Aunque el SVM admin puede tener hasta cuatro servidores de claves principales, durante el proceso de recuperación solo se puede especificar la información de un servidor de claves principal.
 
 |===
 +
@@ -210,7 +230,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
  a| 
 Gestión de claves externas
  a| 
-`security key-manager external restore -vserver <svm-name> -node <node-name> -key-server <host_name|IP_address:port> -key-id <key_id> -key-tag key_tag <node-name>`
+`security key-manager external restore -vserver <admin-svm> -key-server <host_name|IP_address:port>`
 
 Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["Restaure las claves de cifrado de gestión de claves externas"^].
 

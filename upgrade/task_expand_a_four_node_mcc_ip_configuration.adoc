@@ -1197,6 +1197,10 @@ cluster_A::>
 ----
 . Compruebe que las conexiones están correctamente establecidas: `metrocluster configuration-settings connection show`
 +
+
+NOTE: La salida del comando  `metrocluster configuration-settings connection show` puede variar dependiendo del modelo de tu plataforma. Por ejemplo, en algunas plataformas, las líneas para HA Partner no se muestran en la salida.
+
++
 [listing]
 ----
 cluster_A::> metrocluster configuration-settings connection show

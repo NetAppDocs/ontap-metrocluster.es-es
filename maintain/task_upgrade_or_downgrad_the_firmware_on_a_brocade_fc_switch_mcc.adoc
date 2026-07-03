@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, upgrade, downgrade, firmware, brocade, fc, switch 
 summary: Para actualizar o degradar el firmware en un switch FC de Brocade, debe utilizar comandos específicos de Brocade para deshabilitar el switch, realizar y verificar el cambio de firmware, y reiniciar y volver a habilitar el switch. 
 ---
-= Actualice o degrade el firmware en un switch Brocade FC
+= Actualiza o revierte el firmware en un switch FC Brocade MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,24 @@ summary: Para actualizar o degradar el firmware en un switch FC de Brocade, debe
 
 [role="lead"]
 Para actualizar o degradar el firmware en un switch FC de Brocade, debe utilizar comandos específicos de Brocade para deshabilitar el switch, realizar y verificar el cambio de firmware, y reiniciar y volver a habilitar el switch.
+
+.Antes de empezar
+Lee atentamente la siguiente información antes de usar este procedimiento:
+
+* A partir de Fabric OS 10.x, Brocade solo admite SHA-512 para la autenticación SNMP. ONTAP actualmente no admite SHA-512, ya que su compatibilidad se limita a SHA-256.
++
+Si actualizas el firmware de tu conmutador FC MetroCluster a Fabric OS 10.x, se perderá la visibilidad de la supervisión SNMP desde ONTAP. Esto conlleva un mayor riesgo al solucionar problemas y la pérdida de alertas proactivas.
+
++
+Si actualizas a o vuelves a una versión anterior de Fabric OS 10.x, debes realizar las tareas obligatorias descritas en link:https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-software-upgrade/10-0-x/Upgrading-and-Downgrading-Firmware/v24512876.html["Guía de actualización del software Brocade Fabric OS, 10.0.x - requisitos previos para la actualización o la degradación"^].
+
++
+
+CAUTION: Debes tener muy en cuenta estas limitaciones antes de proceder a actualizar a o volver a una versión anterior de Fabric OS 10.x o versiones posteriores.
+
+* A partir de Fabric OS 9.0.1, SNMPv2 no es compatible en los switches Brocade. Si actualizas a Fabric OS 9.0.1 o una versión posterior, debes usar SNMPv3 para el monitoreo del estado. Para más información, consulta link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#snmpv3-mcc-fc["Configuración de SNMPv3 en una configuración MetroCluster"].
+* Si vas a actualizar a Fabric OS 9.2.x o una versión posterior, debes tener instalado un certificado Brocade TruFOS. Consulta link:https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-software-upgrade/9-2-x/Obtaining-Firmware/download-prerequisites-new/brocade-trufos-certificates.html["Guía de actualización del software de sistema operativo Brocade Fabric, 9,2.x"^] para obtener más información.
+
 
 .Acerca de esta tarea
 Confirme que ha comprobado y realizado las siguientes tareas para su configuración:
@@ -32,10 +50,6 @@ link:enable-console-logging-before-maintenance.html["Active el registro de la co
 
 
 La estructura del switch está deshabilitada durante una actualización o degradación de firmware, y la configuración de MetroCluster se basa en la segunda estructura para continuar el funcionamiento.
-
-A partir de Fabric OS 9,0.1, SNMPv2 no se admite en los switches Brocade. Si actualiza a Fabric OS 9.0.1 o posterior, debe usar SNMPv3 para la supervisión del estado. Para obtener más información, consulte link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-snmpv3-in-a-metrocluster-configuration["Configuración de SNMPv3 en una configuración MetroCluster"].
-
-Si va a actualizar a Fabric OS v 9,2.x o posterior, debe tener instalado un certificado Brocade TruFOS; consulte para obtener más información.link:https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-software-upgrade/9-2-x/Obtaining-Firmware/download-prerequisites-new/brocade-trufos-certificates.html["Guía de actualización del software de sistema operativo Brocade Fabric, 9,2.x"^]
 
 Esta tarea se debe realizar en cada una de las estructuras del switch sucesivamente de modo que todos los conmutadores ejecuten la misma versión de firmware.
 

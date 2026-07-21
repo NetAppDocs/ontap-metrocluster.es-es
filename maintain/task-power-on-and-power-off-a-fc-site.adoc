@@ -21,6 +21,7 @@ image::power-on-off-data-center.gif[MetroCluster con el clúster apagado por man
 
 
 
+[[power-off-a-metrocluster-site]]
 == Apagar un sitio MetroCluster
 
 Debe apagar un sitio y todo el equipo antes de que pueda comenzar el mantenimiento o la reubicación del sitio.
@@ -342,6 +343,7 @@ El siguiente equipo debe apagarse en el orden indicado:
 
 
 
+[[relocating-the-powered-off-site-of-the-metrocluster]]
 == Reubicación del sitio de alimentación fuera del MetroCluster
 
 Una vez apagado el sitio, puede comenzar a realizar tareas de mantenimiento. Este procedimiento es el mismo, tanto si se reubican los componentes de MetroCluster dentro del mismo centro de datos como si se reubican a otro centro de datos.
@@ -549,6 +551,7 @@ switch_A_1# copy running-config startup-config
 
 
 
+[[powering-on-the-metrocluster-configuration-and-returning-to-normal-operation]]
 == Encienda la configuración de MetroCluster y vuelva al funcionamiento normal
 
 Tras completar el mantenimiento o mover el sitio, debe encender el sitio y restablecer la configuración de MetroCluster.

@@ -19,6 +19,7 @@ image::../media/workflow_mcc_ip_high_level_node_and_cluster_configuration_softwa
 
 
 
+[[configure-eight-node-metrocluster-ip-configurations]]
 == Configurar las configuraciones de IP de MetroCluster de ocho nodos
 
 Una configuración MetroCluster de ocho nodos consta de dos grupos de recuperación ante desastres. Para configurar el primer grupo de recuperación ante desastres, complete las tareas de esta sección. Después de configurar el primer grupo de recuperación ante desastres, puede seguir los pasos para link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["ampliar una configuración IP de MetroCluster de cuatro nodos a una configuración de ocho nodos"] .

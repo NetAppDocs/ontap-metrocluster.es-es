@@ -37,6 +37,7 @@ Antes de utilizar el software Tiebreaker, revise la link:../tiebreaker/concept_o
 
 
 
+[[interoperability-of-ontap-mediator-with-other-applications-and-appliances]]
 == Interoperabilidad de Mediador ONTAP con otras aplicaciones y aparatos
 
 No puede utilizar aplicaciones o dispositivos de terceros que puedan activar una conmutación en combinación con Mediador ONTAP. Además, no es posible supervisar una configuración MetroCluster con el software MetroCluster Tiebreaker al usar ONTAP Mediator.

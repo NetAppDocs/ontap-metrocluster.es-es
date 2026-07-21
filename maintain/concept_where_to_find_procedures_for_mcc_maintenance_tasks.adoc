@@ -15,6 +15,7 @@ Aprenda a preparar las tareas de mantenimiento de MetroCluster y a elegir el pro
 
 
 
+[[prepare-for-maintenance-tasks]]
 == Prepárese para las tareas de mantenimiento
 
 Revise la información de link:enable-console-logging-before-maintenance.html["Prepárese para el mantenimiento de MetroCluster"] antes de realizar cualquier procedimiento de mantenimiento.
@@ -24,6 +25,7 @@ NOTE: Debe habilitar el registro de la consola y quitar la supervisión de ONTAP
 
 
 
+[[maintenance-procedures-for-different-types-of-metrocluster-configurations]]
 == Procedimientos de mantenimiento para diferentes tipos de configuraciones de MetroCluster
 
 * Si tiene una configuración de IP de MetroCluster, revise los procedimientos que se indican en link:task-modify-ip-netmask-properties.html["Procedimientos de mantenimiento de las configuraciones IP de MetroCluster"].
@@ -33,6 +35,7 @@ NOTE: Debe habilitar el registro de la consola y quitar la supervisión de ONTAP
 
 
 
+[[all-other-maintenance-procedures]]
 == Todos los demás procedimientos de mantenimiento
 
 La siguiente tabla proporciona enlaces a procedimientos relacionados con el mantenimiento de MetroCluster que no se encuentran en las tres secciones enumeradas anteriormente:

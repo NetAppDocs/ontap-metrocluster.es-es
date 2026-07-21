@@ -15,6 +15,7 @@ Puede usar comandos de ONTAP MetroCluster y Active IQ Unified Manager (anteriorm
 
 
 
+[[checking-the-metrocluster-configuration]]
 == Comprobar la configuración de MetroCluster
 
 Puede comprobar que los componentes y las relaciones de la configuración de MetroCluster funcionan correctamente. Debe hacer una comprobación después de la configuración inicial y después de realizar cualquier cambio en la configuración de MetroCluster. También debe hacer una comprobación antes de una operación de conmutación negociada (planificada) o de conmutación de estado.
@@ -127,12 +128,14 @@ mccint-fas9000-0304
 
 
 
+[[commands-for-checking-and-monitoring-the-metrocluster-configuration]]
 == Comandos para comprobar y supervisar la configuración de MetroCluster
 
 Hay comandos específicos de la ONTAP para supervisar la configuración de MetroCluster y comprobar las operaciones de la MetroCluster.
 
 
 
+[[commands-for-checking-metrocluster-operations]]
 === Comandos para comprobar las operaciones de MetroCluster
 
 |===
@@ -186,6 +189,7 @@ Ver los errores de ubicación de LIF en la configuración de MetroCluster.
 |===
 
 
+[[commands-for-monitoring-the-metrocluster-interconnect]]
 === Comandos para supervisar la interconexión de MetroCluster
 
 |===
@@ -202,6 +206,7 @@ Muestre el estado de mirroring de alta disponibilidad y recuperación ante desas
 |===
 
 
+[[commands-for-monitoring-metrocluster-svms]]
 === Comandos para supervisar las SVM de MetroCluster
 
 |===
@@ -218,6 +223,7 @@ Ver todas las SVM de ambos sitios en la configuración de MetroCluster.
 |===
 
 
+[[using-the-metrocluster-tiebreaker-or-ontap-mediator-to-monitor-the-configuration]]
 == Uso del tiebreaker para MetroCluster o del Mediador ONTAP para supervisar la configuración
 
 Consulte link:../install-ip/concept_considerations_mediator.html["Diferencias entre Mediador de ONTAP y tiebreaker de MetroCluster"] Comprender las diferencias entre estos dos métodos para supervisar la configuración de MetroCluster e iniciar una conmutación automática.
@@ -230,6 +236,7 @@ Utilice estos vínculos para instalar y configurar tiebreaker o Mediator:
 
 
 
+[[how-the-netapp-metrocluster-tiebreaker-software-detects-failures]]
 == Cómo detecta el software MetroCluster Tiebreaker de NetApp los fallos
 
 El software Tierbreaker reside en un host Linux. Solo necesita el software Tierbreaker si desea supervisar dos clústeres y el estado de conectividad entre ellos desde un tercer sitio. Esto permite a cada partner de un clúster distinguir entre un fallo de ISL, cuando los enlaces entre sitios están inactivos, y un fallo del sitio.
@@ -238,6 +245,7 @@ Después de instalar el software Tiebreaker en un host de Linux, puede configura
 
 
 
+[[how-the-tiebreaker-software-detects-intersite-connectivity-failures]]
 === Cómo detecta el software Tiebreaker fallos de conectividad entre sitios
 
 El software MetroCluster Tiebreaker le avisa si se ha perdido toda conectividad entre los sitios.
@@ -270,6 +278,7 @@ El software Tierbreaker recupera regularmente el estado de conectividad entre si
 
 
 
+[[how-the-tiebreaker-software-detects-site-failures]]
 === Cómo detecta el software Tiebreaker los fallos de sitios
 
 El software MetroCluster Tiebreaker de NetApp comprueba la accesibilidad de los nodos de una configuración de MetroCluster y el clúster para determinar si se ha producido un error del sitio. El software Tierbreaker también activa una alerta en determinadas condiciones.
@@ -310,6 +319,7 @@ El software Tierbreaker activa una alerta, pero ONTAP vetará esta alerta. En es
 
 
 
+[[how-the-ontap-mediator-supports-automatic-unplanned-switchover]]
 === Cómo admite el Mediador ONTAP la conmutación automática no planificada
 
 link:../install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["Obtenga más información sobre cómo Mediator de ONTAP admite la conmutación automática de sitios no planificados en las configuraciones de IP de MetroCluster"].

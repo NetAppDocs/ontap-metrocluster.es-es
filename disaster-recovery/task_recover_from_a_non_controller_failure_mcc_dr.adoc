@@ -21,6 +21,7 @@ Después de realizar el mantenimiento o sustitución necesarios del equipo del s
 
 
 
+[[enable-console-logging]]
 == Active el registro de la consola
 
 NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y realice las siguientes acciones al realizar este procedimiento:
@@ -35,6 +36,7 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 
 
+[[healing-the-configuration-in-a-metrocluster-configuration]]
 == Reparar la configuración en una configuración MetroCluster
 
 En configuraciones FC de MetroCluster, se realizan las operaciones de reparación en un orden específico para restaurar la funcionalidad de MetroCluster después de una conmutación de sitios.
@@ -57,6 +59,7 @@ La operación de reparación debe realizarse primero en los agregados de datos y
 
 
 
+[[healing-the-data-aggregates]]
 === Reparar los agregados de datos
 
 Debe reparar los agregados de datos después de reparar y sustituir cualquier hardware del sitio de desastre. Este proceso vuelve a sincronizar los agregados de datos y prepara el centro de desastre (ahora reparado) para su funcionamiento normal. Debe reparar los agregados de datos antes de reparar los agregados raíz.
@@ -124,6 +127,7 @@ aggr_b2   227.1GB  227.1GB   0%    online  0      mcc1-a2      raid_dp, mirrored
 
 
 
+[[healing-the-root-aggregates-after-a-disaster]]
 === Reparación de los agregados raíz después de un desastre
 
 Una vez que los agregados de datos hayan sido sanados, debe recuperar los agregados raíz como preparación para la operación de conmutación de estado.
@@ -164,6 +168,7 @@ mcc1A::> metrocluster operation show
 
 
 
+[[verifying-that-your-system-is-ready-for-a-switchback]]
 == Verificación de que su sistema está listo para una conmutación de estado
 
 Si el sistema ya está en estado de conmutación, puede utilizar `-simulate` opción para obtener una vista previa de los resultados de una operación de regreso.
@@ -241,6 +246,7 @@ El resultado muestra si la operación de conmutación de estado podría ejecutar
 
 
 
+[[example-of-verification-results]]
 === Ejemplo de resultados de verificación
 
 El siguiente ejemplo muestra la verificación correcta de una operación de conmutación de estado:
@@ -272,6 +278,7 @@ Job ID Name                 Vserver    Node           State
 ----
 
 
+[[performing-a-switchback]]
 == Realización de una conmutación de regreso
 
 Después de recuperar la configuración de MetroCluster, puede ejecutar la operación de conmutación de estado de MetroCluster. La operación de conmutación de estado de MetroCluster devuelve la configuración a su estado operativo normal, con las máquinas virtuales de almacenamiento (SVM) sincronizada en el sitio de desastre activas y suministrando datos de los pools de discos locales.
@@ -372,6 +379,7 @@ En ONTAP 8.3, es necesario restablecer manualmente una configuración de SnapMir
 
 
 
+[[verifying-a-successful-switchback]]
 == Verificación de una conmutación de regreso exitosa
 
 Después de llevar a cabo la conmutación de estado, querrá confirmar que todos los agregados y las máquinas virtuales de almacenamiento (SVM) hayan vuelto a conectarse y estén en línea.
@@ -469,6 +477,7 @@ Debe repetir las secciones anteriores para realizar la rotación en la direcció
 
 
 
+[[deleting-stale-aggregate-listings-after-switchback]]
 == Eliminación de listados de agregados obsoletos después de regresar
 
 En algunas circunstancias, después de regresar, puede notar la presencia de agregados _obsoleta_. Los agregados obsoletos son agregados que se han eliminado de ONTAP pero cuya información permanece registrada en el disco. Los agregados obsoletos se muestran con el `nodeshell aggr status -r` pero no con el `storage aggregate show` comando. Puede eliminar estos registros para que ya no aparezcan.

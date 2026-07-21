@@ -15,6 +15,7 @@ Completa el proceso automatizado de actualización de controladoras verificando 
 
 
 
+[[verify-network-reachability]]
 == Verifique la accesibilidad de la red
 
 La operación de automatización ejecuta comprobaciones del sistema de verificación y, a continuación, pausa para poder verificar la accesibilidad de la red. Después de la verificación, se inicia la fase de recuperación de recursos y la operación de automatización ejecuta la conmutación de estado del sitio A y se pausa en las comprobaciones posteriores a la actualización. Después de reanudar la operación de automatización, se realizan las comprobaciones posteriores a la actualización y, si no se detectan errores, Marca la actualización como completada.
@@ -42,6 +43,7 @@ Si las comprobaciones posteriores a la actualización no notificaron ningún err
 
 
 
+[[upgrade-the-nodes-on-clustera]]
 == Actualice los nodos en cluster_A
 
 Debe repetir las tareas de actualización para actualizar los nodos en cluster_A en el sitio A.
@@ -55,6 +57,7 @@ Al repetir el procedimiento, se invierten todas las referencias de ejemplo a los
 
 
 
+[[re-add-internal-drives-to-the-new-controller]]
 == Vuelva a agregar unidades internas al nuevo controlador
 
 Si actualizó de un sistema que solo tiene unidades externas a un sistema con unidades externas e internas (discos y controladores en el mismo chasis), puede agregar o reacomodar los discos que extrajo o desacopló de las ranuras internas del nuevo sistema. Puede hacerlo en cualquier momento después de que la actualización se complete en ambos sitios y el clúster esté en buen estado.
@@ -66,6 +69,7 @@ NOTE: Esta tarea solo se aplica a determinadas combinaciones de mejoras. Consult
 
 
 
+[[reconfigure-ontap-mediator]]
 == Vuelva a configurar ONTAP Mediator
 
 Configure manualmente ONTAP Mediator que se eliminó automáticamente antes de iniciar la actualización.
@@ -75,6 +79,7 @@ Configure manualmente ONTAP Mediator que se eliminó automáticamente antes de i
 
 
 
+[[restore-tiebreaker-monitoring]]
 == Supervisión de tiebreaker para restaurar
 
 Si la configuración de MetroCluster se ha configurado previamente para la supervisión por parte del software Tiebreaker, puede restaurar la conexión de tiebreaker.
@@ -84,6 +89,7 @@ Si la configuración de MetroCluster se ha configurado previamente para la super
 
 
 
+[[configure-end-to-end-encryption]]
 == Configurar el cifrado integral
 
 Si es compatible con su sistema, puede cifrar el tráfico de back-end, como NVlog y los datos de replicación de almacenamiento, entre los sitios IP de MetroCluster. Consulte link:../maintain/task-configure-encryption.html["Configurar el cifrado integral"] si quiere más información.

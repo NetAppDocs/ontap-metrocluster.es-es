@@ -15,12 +15,14 @@ Si la configuración incluye agregados no reflejados, debe tener en cuenta los p
 
 
 
+[[unmirrored-aggregates-and-hierarchical-namespaces]]
 == Agregados no reflejados y espacios de nombres jerárquicos
 
 Si utiliza espacios de nombres jerárquicos, debe configurar la ruta de unión de modo que todos los volúmenes de esa ruta estén en agregados reflejados o solo en agregados no reflejados. La configuración de una combinación de agregados no reflejados y reflejados en la ruta de unión puede impedir el acceso a los agregados no reflejados después de la operación de conmutación.
 
 
 
+[[unmirrored-aggregates-and-maintenance-that-requires-power-shutdown]]
 == Agregados sin espejo y mantenimiento que requiere corte de energía
 
 Si realiza una conmutación negociada para mantenimiento que requiere un apagado de energía en todo el sitio, primero debe desconectar manualmente todos los agregados no reflejados que sean propiedad del sitio del desastre.
@@ -29,24 +31,28 @@ Si no se desconectan los agregados no replicados del sitio del desastre, los nod
 
 
 
+[[unmirrored-aggregates-crs-metadata-volumes-and-data-svm-root-volumes]]
 == Agregados no reflejados, volúmenes de metadatos CRS y volúmenes raíz de SVM de datos
 
 El volumen de metadatos del servicio de replicación de configuración (CRS) y los volúmenes raíz de la SVM de datos deben estar en un agregado reflejado. No se pueden mover estos volúmenes a un agregado no reflejado. Si se encuentran en un agregado no reflejado, las operaciones de cambio y retroceso negociadas se vetan y  `metrocluster check` El comando devuelve una advertencia.
 
 
 
+[[unmirrored-aggregates-and-svms]]
 == Agregados no reflejados y SVM
 
 Debe configurar las SVM solo en agregados reflejados o no reflejados. Configurar las SVM en una combinación de agregados reflejados y no reflejados puede resultar en una operación de conmutación que supere los 120 segundos. Esto puede provocar una interrupción de los datos si los agregados no reflejados no se conectan.
 
 
 
+[[unmirrored-aggregates-and-san]]
 == Agregados no reflejados y SAN
 
 Antes de ONTAP 9.9.1, un LUN no debía ubicarse en un agregado no reflejado. Configurar un LUN en un agregado no reflejado puede provocar una operación de conmutación por encima de 120 segundos y una interrupción del servicio de los datos.
 
 
 
+[[add-storage-shelves-for-unmirrored-aggregates]]
 == Agregue estantes de almacenamiento para agregados sin espejo
 
 Si agrega estantes y desea usarlos para agregados no reflejados en una configuración de IP de MetroCluster , debe hacer lo siguiente:

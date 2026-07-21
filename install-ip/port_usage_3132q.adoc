@@ -20,6 +20,7 @@ Revise estas directrices antes de utilizar las tablas:
 
 
 
+[[choose-the-correct-cabling-table-for-your-configuration]]
 == Elija la tabla de cableado correcta para su configuración
 
 Utilice la siguiente tabla para determinar qué tabla de cableado debe seguir.
@@ -39,16 +40,19 @@ FAS2750, AFF A220
 
 | AFF A800, ASA A800 | <<table_3_cisco_3132q,Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 3)>> 
 |===
+[[table_1_cisco_3132q]]
 .Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 1)
 Revise las asignaciones de puertos de plataforma para cablear un sistema FAS2750 o AFF A220 a un conmutador Cisco 3132Q-V:
 
 image::../media/mcc-ip-cabling-a-fas2750-or-a220-to-a-cisco-3132q-v-switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3132Q-V.]
 
+[[table_2_cisco_3132q]]
 .Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 2)
 Revise las asignaciones de puertos de plataforma para cablear un sistema FAS9000 o AFF A700 a un conmutador Cisco 3132Q-V:
 
 image::../media/mcc-ip-cabling-a-fas9000-or-aff-a700-to-a-cisco-3132q-v-switch.png[Muestra asignaciones de puertos de la plataforma Cisco 3132Q-V.]
 
+[[table_3_cisco_3132q]]
 .Asignaciones de puertos de la plataforma Cisco 3132Q-V (grupo 3)
 Revise las asignaciones de puertos de plataforma para cablear un sistema AFF A800 o ASA A800 a un switch Cisco 3132Q-V:
 

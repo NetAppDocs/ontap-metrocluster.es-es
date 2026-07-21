@@ -19,6 +19,7 @@ Después de la pérdida de datos de NVRAM durante la recuperación tras fallos o
 
 
 
+[[how-nvfail-impacts-access-to-nfs-volumes-or-luns]]
 == Cómo afecta el acceso NVFAIL a volúmenes o LUN de NFS
 
 El estado NVFAIL se establece cuando ONTAP detecta errores de NVRAM durante el arranque, cuando se produce una operación de conmutación de sitios MetroCluster o durante una operación de toma de control de alta disponibilidad si la opción NVFAIL se establece en el volumen. Si no se detectan errores durante el inicio, el servicio de archivos se inicia normalmente. Sin embargo, si se detectan errores de NVRAM o el procesamiento NVFAIL se aplica a una conmutación de desastre, ONTAP detiene las instancias de bases de datos de responder.
@@ -75,6 +76,7 @@ Las LUN de ese volumen se desconectan. La `in-nvfailed-state` Debe borrarse la o
 |===
 
 
+[[commands-for-monitoring-data-loss-events]]
 == Comandos para supervisar eventos de pérdida de datos
 
 Si habilita la opción NVFAIL, recibirá una notificación cuando se produce un bloqueo del sistema causado por incoherencias de NVRAM o un cambio de MetroCluster.
@@ -117,6 +119,7 @@ Consulte la página de manual de cada comando para obtener más información.
 
 
 
+[[accessing-volumes-in-nvfail-state-after-a-switchover]]
 == Acceder a volúmenes con el estado NVFAIL después de una conmutación de sitios
 
 Después de una conmutación de sitios, debe borrar el estado NVFAIL restableciendo el `-in-nvfailed-state` parámetro de `volume modify` para eliminar la restricción de clientes a acceder a los datos.
@@ -141,6 +144,7 @@ link:../manage/concept_monitoring_and_protecting_database_validity_by_using_nvfa
 
 
 
+[[recovering-luns-in-nvfail-states-after-switchover]]
 == Recuperar las LUN con estados NVFAIL después de cambiar
 
 Después de una conmutación de sitios, el host ya no tiene acceso a los datos de las LUN que tienen el estado NVFAIL. Debe realizar una serie de acciones antes de que la base de datos tenga acceso a los LUN.

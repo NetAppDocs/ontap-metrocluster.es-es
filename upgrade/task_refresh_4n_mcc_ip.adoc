@@ -109,6 +109,7 @@ NOTE: Si se actualizan ambos grupos de recuperación de desastres, es posible qu
 
 
 
+[[enable-console-logging]]
 == Active el registro de la consola
 
 NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y realice las siguientes acciones al realizar este procedimiento:
@@ -123,6 +124,7 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 
 
+[[perform-the-refresh-procedure]]
 == Realice el procedimiento de actualización
 
 Utilice los siguientes pasos para actualizar la configuración de IP de MetroCluster.

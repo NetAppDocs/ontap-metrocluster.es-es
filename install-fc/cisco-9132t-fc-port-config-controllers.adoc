@@ -20,6 +20,7 @@ NOTE: Para las configuraciones de ocho nodos, debe ejecutar la división en zona
 
 
 
+[[metrocluster-1-or-dr-group-1]]
 == MetroCluster 1 o el grupo de recuperación ante desastres 1
 
 La siguiente tabla muestra las configuraciones de controlador compatibles con MetroCluster 1 o el grupo de recuperación ante desastres 1 en los switches Cisco 9132T. Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
@@ -349,6 +350,7 @@ LEM1-8
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 == MetroCluster 2 o el grupo de recuperación ante desastres 2
 
 La siguiente tabla muestra las configuraciones compatibles con el controlador Cisco 9132T para MetroCluster 2 o el grupo de recuperación ante desastres 2 en switches Cisco 9132T. Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:

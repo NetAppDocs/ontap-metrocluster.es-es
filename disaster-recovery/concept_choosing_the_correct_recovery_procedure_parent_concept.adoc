@@ -81,6 +81,7 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["Recuperac
 |===
 
 
+[[controller-module-failure-scenarios-during-metrocluster-installation]]
 == Escenarios de fallos del módulo de la controladora durante la instalación de MetroCluster
 
 Responder al fallo de un módulo de controladora durante el procedimiento de configuración de MetroCluster depende de si el se produce `metrocluster configure` el comando se ha completado correctamente.
@@ -95,6 +96,7 @@ NOTE: Debe asegurarse de realizar los pasos de link:https://docs.netapp.com/us-e
 
 
 
+[[controller-module-failure-scenarios-during-metrocluster-fc-to-ip-transition]]
 == Escenarios de fallos del módulo de controlador durante la transición de MetroCluster FC a IP
 
 El procedimiento de recuperación se puede utilizar si se produce un fallo del sitio durante la transición. Sin embargo, solo puede utilizarse si la configuración es una configuración mixta estable, con el grupo de recuperación ante desastres FC y el grupo de recuperación ante desastres IP totalmente configurados. El resultado del `metrocluster node show` El comando debe mostrar ambos grupos de recuperación ante desastres con los ocho nodos.
@@ -104,6 +106,7 @@ IMPORTANT: Si el error se produjo durante la transición cuando los nodos están
 
 
 
+[[controller-module-failure-scenarios-in-eight-node-metrocluster-configurations]]
 == Se escenarios de fallos del módulo de la controladora en configuraciones MetroCluster de ocho nodos
 
 Situaciones de fallo:
@@ -116,6 +119,7 @@ Situaciones de fallo:
 
 
 
+[[single-controller-module-failures-in-a-single-dr-group]]
 === Fallos del módulo de controladora individual en un único grupo de recuperación ante desastres
 
 En este caso, el fallo se limita a un par de alta disponibilidad.
@@ -138,6 +142,7 @@ image::../media/mcc_dr_groups_8_node_with_a_single_controller_failure.gif[Grupos
 
 
 
+[[two-controller-module-failures-in-a-single-dr-group]]
 === Fallos de dos módulos de controladora en un único grupo de recuperación ante desastres
 
 En este caso, el fallo requiere una conmutación. Puede utilizar el procedimiento de recuperación ante fallos del módulo de varios controladores.
@@ -150,6 +155,7 @@ image::../media/mcc_dr_groups_8_node_with_a_multi_controller_failure.gif[Grupos 
 
 
 
+[[single-controller-module-failures-in-separate-dr-groups]]
 === Fallos de módulos de controladora individual en grupos de recuperación ante desastres independientes
 
 En este caso, el fallo se limita a parejas de alta disponibilidad independientes.
@@ -171,6 +177,7 @@ image::../media/mcc_dr_groups_8_node_with_two_single_controller_failures.gif[Gru
 
 
 
+[[three-controller-module-failures-spread-across-the-dr-groups]]
 === Tres fallos de módulos de controladora distribuidos por los grupos de recuperación ante desastres
 
 En este caso, el fallo requiere una conmutación. Puede utilizar el procedimiento de recuperación ante fallos del módulo multicontrolador para el grupo DR uno.
@@ -185,6 +192,7 @@ image::../media/mcc_dr_groups_8_node_with_a_3_controller_failure.gif[Grupos de r
 
 
 
+[[controller-module-failure-scenarios-in-two-node-metrocluster-configurations]]
 == En los escenarios de fallo del módulo de la controladora en configuraciones de MetroCluster de dos nodos
 
 El procedimiento que utilice dependerá de la magnitud del fallo.

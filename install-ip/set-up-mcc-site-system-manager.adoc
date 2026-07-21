@@ -27,10 +27,12 @@ Un sitio MetroCluster consta de dos clústeres. Normalmente, los clústeres se e
 
 
 
+[[assign-a-node-management-ip-address]]
 == Asigne una dirección IP de gestión de nodos
 
 
 
+[[windows-system]]
 === Sistema Windows
 
 Debe conectar el equipo con Windows a la misma subred que las controladoras. De esta forma, se asigna automáticamente una dirección IP de gestión de nodos al sistema.
@@ -42,6 +44,7 @@ Debe conectar el equipo con Windows a la misma subred que las controladoras. De 
 
 
 
+[[other-systems]]
 === Otros sistemas
 
 Debe configurar la dirección IP de gestión de nodos para uno de los nodos del clúster. Puede usar esta dirección IP de gestión de nodos para iniciar el asistente de configuración del clúster.
@@ -50,6 +53,7 @@ Consulte link:https://docs.netapp.com/us-en/ontap/software_setup/task_create_the
 
 
 
+[[initialize-and-configure-the-cluster]]
 == Inicialice y configure el clúster
 
 Para inicializar el clúster, debe establecer una contraseña de administrador para el clúster y configurar las redes de gestión de clústeres y nodos. También puede configurar servicios como un servidor de nombres de dominio (DNS) para resolver nombres de host y un servidor NTP para sincronizar la hora.
@@ -76,6 +80,7 @@ Después de instalar, inicializar y configurar ambos clústeres, siga link:../in
 
 
 
+[[configure-ontap-on-a-new-cluster-video]]
 == Configure ONTAP en un vídeo de clúster nuevo
 
 video::PiX41bospbQ[youtube,width=848,height=480]

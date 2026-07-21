@@ -26,6 +26,7 @@ Si tiene una configuración FC MetroCluster de cuatro nodos, consulte link:conce
 
 
 
+[[enable-console-logging]]
 == Active el registro de la consola
 
 NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y realice las siguientes acciones al realizar este procedimiento:
@@ -40,6 +41,7 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 
 
+[[requirements-for-transition-when-retiring-old-shelves]]
 == Requisitos para la transición cuando se retiran las bandejas antiguas
 
 Antes de iniciar el proceso de transición, debe asegurarse de que la configuración FC de MetroCluster existente cumpla con los requisitos.
@@ -88,6 +90,7 @@ Debe tener acceso remoto a la consola para los seis nodos desde el sitio de Metr
 
 
 
+[[workflow-for-disruptive-transition-when-moving-data-and-retiring-old-storage-shelves]]
 == Flujo de trabajo para realizar una transición disruptiva a la hora de mover datos y retirar bandejas de almacenamiento antiguas
 
 Debe seguir el flujo de trabajo específico para garantizar que la transición se realice correctamente.
@@ -98,6 +101,7 @@ image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[Flujo de t
 
 
 
+[[transitioning-the-configuration]]
 == La transición de la configuración
 
 Debe seguir el procedimiento de transición detallado.
@@ -136,6 +140,7 @@ Siga los pasos de link:task_configure_the_new_nodes_and_complete_transition.html
 
 
 
+[[migrating-the-root-aggregates]]
 == Migrando los agregados raíz
 
 Una vez finalizada la transición, migre los agregados raíz existentes restantes de la configuración FC de MetroCluster a nuevas bandejas en la configuración IP de MetroCluster.
@@ -183,6 +188,7 @@ Puede usar el comando Storage Aggregate show para comprobar el estado de la sinc
 
 
 
+[[migrating-the-data-aggregates]]
 == Migración de los agregados de datos
 
 Cree agregados de datos en las nuevas bandejas y utilice el traslado de volúmenes para transferir los volúmenes de datos de las bandejas anteriores a los agregados en las nuevas bandejas.
@@ -195,6 +201,7 @@ http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-
 
 
 
+[[retiring-shelves-moved-from-nodea1-fc-and-nodea2-fc]]
 == Retirada de las bandejas del nodo_A_1-FC y nodo_A_2-FC
 
 Se retiran las bandejas de almacenamiento antiguas de la configuración original de FC de MetroCluster. Estas bandejas eran originalmente propiedad de node_A_1-FC y node_A_2-FC.
@@ -274,6 +281,7 @@ cluster_B::>
 
 
 
+[[completing-transition]]
 == Completar la transición
 
 Si se quitan los módulos de controladora antiguos, puede completar el proceso de transición.

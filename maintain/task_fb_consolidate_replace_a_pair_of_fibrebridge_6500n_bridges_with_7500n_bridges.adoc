@@ -34,6 +34,7 @@ link:task_replace_a_sle_fc_to_sas_bridge.html["Reemplazar un único puente FC-a-
 
 
 
+[[verifying-storage-connectivity]]
 == Verificación de la conectividad de almacenamiento
 
 Antes de sustituir puentes, debe verificar la conectividad de puente y almacenamiento. Familiarizarse con el resultado del comando le permite confirmar la conectividad posteriormente tras realizar cambios en la configuración.
@@ -99,6 +100,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 
 
+[[hot-swapping-fibrebridge-6500n-bridges-to-create-a-pair-of-fibrebridge-7600n-or-7500n-bridges]]
 == Puentes FibreBridge 6500N de intercambio en caliente para crear un par de puentes FibreBridge 7600N o 7500N
 
 Para intercambiar en caliente uno o dos puentes FibreBridge 6500N para crear una configuración con un par de puentes FibreBridge 7600N o 7500N, debe reemplazar los puentes uno a uno y seguir el procedimiento de cableado correcto. El nuevo cableado es diferente del cableado original.
@@ -248,6 +250,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 
 
+[[cabling-the-bridge-sas-ports-when-consolidating-storage-behind-fibrebridge-7600n-or-7500n-bridges]]
 == Cableado de los puertos SAS puente cuando se consolida el almacenamiento detrás de los puentes FibreBridge 7600N o 7500N
 
 Al consolidar varias pilas de almacenamiento SAS tras un único par de puentes FibreBridge 7600N o 7500N con puertos SAS disponibles, debe mover los cables SAS superior e inferior a los nuevos puentes.
@@ -357,12 +360,14 @@ image::../media/consolidation_sas_bottom_connection_4_stacks.gif[Cableado inferi
 
 
 
+[[updating-zoning-when-adding-fibrebridge-7600n-or-7500n-bridges-to-a-configuration]]
 == Actualización de la división en zonas al agregar puentes FibreBridge 7600N o 7500N a una configuración
 
 La división en zonas debe cambiarse cuando reemplace los puentes FibreBridge 6500N con puentes FibreBridge 7600N o 7500N y utilice ambos puertos FC en los puentes FibreBridge 7600N o 7500N. Los cambios necesarios dependen de si ejecuta una versión de ONTAP anterior a la 9.1 o 9.1 y posterior.
 
 
 
+[[updating-zoning-when-adding-fibrebridge-7500n-bridges-to-a-configuration-prior-to-ontap-9-1]]
 === Actualización de la división en zonas al agregar puentes FibreBridge 7500N a una configuración (anterior a ONTAP 9.1)
 
 La división en zonas debe cambiarse cuando reemplace los puentes FibreBridge 6500N con puentes FibreBridge 7500N y utilice ambos puertos FC en los puentes FibreBridge 7500N. Cada zona no puede tener más de cuatro puertos iniciadores. La división en zonas que utilice depende de si está ejecutando ONTAP antes de la versión 9.1 o 9.1 y posterior
@@ -483,6 +488,7 @@ image::../media/zoning_consolidation_site_a_after.gif[Consolidación de la zonif
 
 
 
+[[updating-zoning-when-adding-fibrebridge-7600n-or-7500n-bridges-to-a-configuration-ontap-9-1-and-later]]
 === Actualización de la división en zonas al agregar puentes FibreBridge 7600N o 7500N a una configuración (ONTAP 9.1 y posterior)
 
 La división en zonas debe cambiarse cuando reemplace los puentes FibreBridge 6500N con puentes FibreBridge 7600N o 7500N y utilice ambos puertos FC en los puentes FibreBridge 7600N o 7500N. Cada zona no puede tener más de cuatro puertos iniciadores.
@@ -509,6 +515,7 @@ Consulte la sección del switch FC de link:../install-fc/index.html["Instalació
 
 
 
+[[cabling-the-second-bridge-fc-port-when-adding-fibrebridge-7600n-or-7500n-bridges-to-a-configuration]]
 == Cableado del segundo puerto FC de puente cuando se agregan puentes FibreBridge 7600N o 7500N a una configuración
 
 Para proporcionar varios caminos a las pilas de almacenamiento, puede cablear el segundo puerto FC de cada puente FibreBridge 7600N o 7500N al añadir el puente FibreBridge 7600N o 7500N a su configuración.
@@ -582,6 +589,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 
 
+[[disabling-unused-sas-ports-on-the-fc-to-sas-bridges]]
 == Desactive los puertos SAS que no utilice en los puentes FC a SAS
 
 Después de realizar cambios de cableado en el puente, debe deshabilitar todos los puertos SAS que no se utilizan en los puentes FC-a SAS para evitar las alertas de supervisión de estado relacionadas con los puertos que no se utilizan.

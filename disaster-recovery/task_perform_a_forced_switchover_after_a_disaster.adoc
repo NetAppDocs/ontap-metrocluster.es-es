@@ -22,6 +22,7 @@ Para determinar si se ha producido un desastre:
 
 
 
+[[fencing-off-the-disaster-site]]
 == Esgrima fuera del lugar del desastre
 
 Después del desastre, si es necesario reemplazar los nodos del sitio de desastres, debe detenerlos para impedir que el sitio reanude el servicio. De lo contrario, se arriesga a que se produzcan daños en los datos si los clientes empiezan a acceder a los nodos antes de completar el procedimiento de sustitución.
@@ -38,6 +39,7 @@ Si los nodos del sitio de desastres han sido destruidos o no se pueden detener, 
 
 
 
+[[performing-a-forced-switchover]]
 == Realizar un cambio forzado
 
 El proceso de conmutación de sitios, además de proporcionar operaciones no disruptivas durante las pruebas y el mantenimiento, le permite recuperarse de un fallo de sitio con un único comando.
@@ -93,12 +95,14 @@ Las relaciones de SnapMirror deben reestablecerse tras la conmutación.
 
 
 
+[[output-for-the-storage-aggregate-plex-show-command-is-indeterminate-after-a-metrocluster-switchover]]
 == El resultado del comando Storage Aggregate plex show es indefinido después de una conmutación de MetroCluster
 
 Cuando ejecute el `storage aggregate plex show` Comando después de una conmutación MetroCluster, el estado de plex0 del agregado raíz conmutado es indefinido y se muestra como con errores. Durante este tiempo, la raíz conmutada no se actualiza. El estado real de este complejo sólo se puede determinar después de la fase de curación del MetroCluster.
 
 
 
+[[accessing-volumes-in-nvfail-state-after-a-switchover]]
 == Acceder a volúmenes con el estado NVFAIL después de una conmutación de sitios
 
 Después de una conmutación de sitios, debe borrar el estado NVFAIL restableciendo el `-in-nvfailed-state` parámetro de `volume modify` para eliminar la restricción de clientes a acceder a los datos.

@@ -15,6 +15,7 @@ El software MetroCluster Tiebreaker automatiza el proceso de recuperación al pe
 
 
 
+[[configuring-autosupport]]
 == Configurando AutoSupport
 
 De forma predeterminada, los mensajes de AutoSupport se envían a NetApp una semana después de la instalación del software Tiebreaker. Los eventos que activan la notificación de AutoSupport incluyen una alarma del software de tiebreaker, la detección de condiciones de desastre en configuraciones de MetroCluster o el estado de configuración de MetroCluster desconocido.
@@ -130,6 +131,7 @@ Autosupport configuration deleted successfully.
 
 
 
+[[snmp-events-and-traps]]
 === Eventos y capturas SNMP
 
 El software MetroCluster Tiebreaker de NetApp utiliza capturas de SNMP para notificar eventos importantes. Estos retos forman parte del archivo MIB de NetApp. Cada captura contiene la siguiente información: Nombre de captura, gravedad, nivel de impacto, Marca de tiempo y mensaje.
@@ -187,6 +189,7 @@ Ahora se puede probar la configuración de SNMP ejecutando el comando de prueba 
 |===
 
 
+[[displaying-the-status-of-monitoring-operations]]
 == Mostrar el estado de las operaciones de supervisión
 
 Puede visualizar el estado general de las operaciones de supervisión de una configuración de MetroCluster.
@@ -286,6 +289,7 @@ MetroCluster: cluster_B
 
 
 
+[[displaying-metrocluster-configuration-information]]
 == Mostrar la información de configuración de MetroCluster
 
 Puede mostrar el nombre y la dirección IP del monitor de todas las instancias de configuraciones de MetroCluster en el software Tiebreaker.
@@ -309,6 +313,7 @@ MetroCluster: North America
 
 
 
+[[creating-dump-files]]
 == Creando archivos de volcado
 
 Guarde el estado general del software Tiebreaker en un archivo de volcado para propósitos de depuración.
@@ -329,6 +334,7 @@ MetroCluster Tiebreaker status successfully dumped in file /var/log/netapp/mcctb
 
 
 
+[[disable-tiebreaker-observer-mode]]
 == Desactivar el modo de observador de desempate
 
 Puede desactivar el modo de observador para que el software Tiebreaker inicie automáticamente un cambio después de detectar una falla en el sitio.

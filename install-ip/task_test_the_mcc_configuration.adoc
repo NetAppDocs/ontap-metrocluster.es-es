@@ -15,6 +15,7 @@ Es posible probar situaciones de errores para confirmar el funcionamiento correc
 
 
 
+[[verifying-negotiated-switchover]]
 == Verificación de la conmutación negociada
 
 Puede probar la operación de conmutación negociada (planificada) para confirmar la disponibilidad de datos ininterrumpida.
@@ -112,6 +113,7 @@ cluster_A::> metrocluster operation show
 
 
 
+[[verifying-healing-and-manual-switchback]]
 == Verificación de la reparación y regreso manual
 
 Puede probar las operaciones de reparación y conmutación de estado manual para verificar que la disponibilidad de los datos no se vea afectada (a excepción de las configuraciones FC de SMB y Solaris), al volver a cambiar el clúster al centro de datos original después de una conmutación negociada.
@@ -276,6 +278,7 @@ cluster_A::> metrocluster operation show
 
 
 
+[[verifying-operation-after-power-line-disruption]]
 == Verificación del funcionamiento después de la interrupción de la línea de potencia
 
 Es posible probar la respuesta de la configuración de MetroCluster al fallo de un PDU.
@@ -337,6 +340,7 @@ Power               Critical condition is detected in storage shelf power supply
 
 
 
+[[verifying-operation-after-loss-of-a-single-storage-shelf]]
 == Verificación del funcionamiento tras la pérdida de una única bandeja de almacenamiento
 
 Usted puede probar el error de una sola bandeja de almacenamiento para verificar que no hay ningún punto único de error.

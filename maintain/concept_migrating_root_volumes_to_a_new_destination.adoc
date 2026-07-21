@@ -15,12 +15,14 @@ Es posible que deba mover volúmenes raíz a otro agregado raíz dentro de una c
 
 
 
+[[migrating-root-volumes-within-a-two-node-metrocluster-configuration]]
 == La migración de volúmenes raíz dentro de una configuración MetroCluster de dos nodos
 
 Para migrar volúmenes raíz a un nuevo agregado raíz dentro de una configuración MetroCluster de dos nodos, debería hacer referencia a https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_move_mroot_to_a_new_root_aggregate_in_a_2-node_Clustered_MetroCluster_with_Switchover["Cómo mover mroot a un nuevo agregado raíz en un Clustered MetroCluster de 2 nodos con conmutación de sitios"]. Este procedimiento muestra cómo migrar sin interrupciones los volúmenes raíz durante una operación de conmutación de MetroCluster. Este procedimiento es ligeramente diferente al procedimiento utilizado en una configuración de cuatro nodos.
 
 
 
+[[migrating-root-volumes-within-a-four-node-metrocluster-configuration]]
 == Migrar volúmenes raíz dentro de una configuración MetroCluster de cuatro nodos
 
 Para migrar volúmenes raíz a un nuevo agregado raíz dentro de una configuración MetroCluster de cuatro nodos, puede usar la http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-930/system%5F%5Fnode%5F%5Fmigrate-root.html["migración-raíz del nodo del sistema"] command mientras cumple con los siguientes requisitos.

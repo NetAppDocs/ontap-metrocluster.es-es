@@ -19,6 +19,7 @@ Debe seguir el flujo de trabajo específico para garantizar una transición no d
 
 
 
+[[four-node-fc-configuration-transition-workflow]]
 == Flujo de trabajo de transición de configuración de FC de cuatro nodos
 
 El proceso de transición comienza con una configuración FC de MetroCluster de cuatro nodos en buen estado.
@@ -35,6 +36,7 @@ image::../media/transition_dr_group_2_ip.png[Nodos IP del grupo 2 de DR de trans
 
 
 
+[[eight-node-fc-configuration-transition-workflow]]
 == Flujo de trabajo de transición de configuración de FC de ocho nodos
 
 El proceso de transición comienza con una configuración de FC de MetroCluster de ocho nodos en buen estado.
@@ -62,6 +64,7 @@ image::../media/mcc_dr_group_c6.png[Configuración de IP de MetroCluster de ocho
 
 
 
+[[transition-process-workflow]]
 == Flujo de trabajo del proceso de transición
 
 Se usará el siguiente flujo de trabajo para realizar la transición de la configuración de MetroCluster.

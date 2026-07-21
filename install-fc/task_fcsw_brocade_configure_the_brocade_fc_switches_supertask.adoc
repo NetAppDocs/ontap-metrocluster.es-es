@@ -66,6 +66,7 @@ Metro-E significa que la trama o la señalización Ethernet se produce de forma 
 
 
 
+[[review-brocade-license-requirements]]
 == Revisar los requisitos de la licencia de Brocade
 
 Se necesitan ciertas licencias para los switches de una configuración de MetroCluster. Debe instalar estas licencias en los cuatro switches.
@@ -104,6 +105,7 @@ Si no tiene estas licencias, debe ponerse en contacto con su representante de ve
 
 
 
+[[set-the-brocade-fc-switch-values-to-factory-defaults]]
 == Establezca los valores del interruptor Brocade FC a los valores predeterminados de fábrica
 
 Debe ajustar el conmutador a sus valores predeterminados de fábrica para garantizar una configuración correcta. Además, debe asignar un nombre exclusivo a cada switch.
@@ -325,6 +327,7 @@ FC_switch_B_1:admin> reboot
 
 
 
+[[configure-basic-switch-settings]]
 == Configurar los ajustes básicos del conmutador
 
 Debe configurar la configuración global básica, incluido el ID de dominio, para los switches Brocade.
@@ -649,6 +652,7 @@ FC_switch_B_1:admin> switchcfgpersistentenable
 
 
 
+[[configure-basic-switch-settings-on-a-brocade-dcx-8510-8-switch]]
 == Configurar los ajustes básicos del conmutador en un conmutador Brocade DCX 8510-8
 
 Debe configurar la configuración global básica, incluido el ID de dominio, para los switches Brocade.
@@ -749,6 +753,7 @@ link:concept_prepare_for_the_mcc_installation.html["Requisitos para usar un swit
 
 
 
+[[configure-e-ports-on-brocade-fc-switches-using-fc-ports]]
 == Configurar puertos E en conmutadores FC de Brocade mediante puertos FC
 
 En el caso de los switches Brocade en los que se configuran los enlaces Inter-Switch (ISL) mediante puertos FC, debe configurar los puertos del switch en cada estructura del switch que conecte el ISL. Estos puertos ISL también se conocen como puertos E-ports.
@@ -1252,6 +1257,7 @@ link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.htm
 
 
 
+[[configuring-10-gbps-ve-ports-on-brocade-fc-7840-switches]]
 == Configuración de puertos ve de 10 Gbps en conmutadores Brocade FC 7840
 
 Al utilizar los puertos ve de 10 Gbps (que utilizan FCIP) para ISL, debe crear interfaces IP en cada puerto y configurar túneles y circuitos FCIP en cada túnel.
@@ -1408,6 +1414,7 @@ FC_switch_A_1:root> portshow fcipcircuit all
 
 
 
+[[configure-40-gbps-ve-ports-on-brocade-7810-and-7840-fc-switches]]
 == Configurar puertos VE de 40 Gbps en los conmutadores FC Brocade 7810 y 7840
 
 Cuando se utilizan los dos puertos ve de 40 GbE (que utilizan FCIP) para ISL, debe crear interfaces IP en cada puerto y configurar túneles y circuitos FCIP en cada túnel.
@@ -1561,6 +1568,7 @@ FC_switch_A_1:root> portshow fcipcircuit all
 
 
 
+[[configure-the-non-e-ports-on-the-brocade-switch]]
 == Configurar los puertos no E en el conmutador Brocade
 
 Debe configurar los puertos que no son E-puertos en el switch de FC. En una configuración MetroCluster, son los puertos que conectan el switch a los iniciadores de HBA, las interconexiones FC-VI y los puentes FC a SAS. Estos pasos deben realizarse en cada puerto.
@@ -1651,6 +1659,7 @@ Non-DFE                             ..  ..  ..  ..  ..  ..  ..  ..  ..
 
 
 
+[[configure-compression-on-isl-ports-on-a-brocade-g620-switch]]
 == Configurar la compresión en los puertos ISL en un conmutador Brocade G620
 
 Si utiliza switches Brocade G620 y habilita la compresión en los ISL, debe configurarse en cada E-Port de los switches.
@@ -1713,12 +1722,14 @@ Port   Configured    Active   Configured   Active  Speed
 ----
 
 
+[[configure-zoning-on-brocade-fc-switches]]
 == Configurar la zonificación en los conmutadores Brocade FC
 
 Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento.
 
 
 
+[[zone-the-fc-vi-ports]]
 === Zonificar los puertos FC-VI
 
 Para cada grupo de recuperación ante desastres de la MetroCluster, debe configurar dos zonas para las conexiones FC-VI que permiten el tráfico de la controladora a la controladora. Estas zonas contienen puertos del switch FC que se conectan a los puertos FC-VI del módulo de la controladora. Estas zonas son zonas de calidad de servicio.
@@ -1937,6 +1948,7 @@ QOSH2_MC1_FAB_2_FCVI (6520)
 |===
 
 
+[[zone-fibrebridge-7500n-or-7600n-bridges-using-one-fc-port]]
 === Puentes de zona FibreBridge 7500N o 7600N que utilizan un puerto FC
 
 Si utiliza puentes FibreBridge 7500N o 7600N utilizando solo uno de los dos puertos FC, debe crear zonas de almacenamiento para los puertos puente. Tiene que comprender las zonas y los puertos asociados antes de configurar las zonas.
@@ -2380,6 +2392,7 @@ Nombres de puente de ejemplo para un grupo de pila en cada sitio:
 |===
 
 
+[[zone-fibrebridge-7500n-bridges-using-both-fc-ports]]
 === Puentes Zone FibreBridge 7500N que utilizan ambos puertos FC
 
 Si utiliza puentes FibreBridge 7500N con ambos puertos FC, debe crear zonas de almacenamiento para los puertos de puente. Tiene que comprender las zonas y los puertos asociados antes de configurar las zonas.
@@ -4269,6 +4282,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC2
 |===
 
 
+[[zone-the-brocade-fc-switches]]
 === Ubica los conmutadores Brocade FC
 
 Debe asignar los puertos del switch a zonas independientes para separar el tráfico de la controladora y del almacenamiento, con zonas para los puertos y las zonas de FC-VI para los puertos de almacenamiento.
@@ -4388,6 +4402,7 @@ zone: MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1
 
 
 
+[[set-isl-encryption-on-brocade-6510-or-g620-switches]]
 == Configurar el cifrado ISL en los conmutadores Brocade 6510 o G620
 
 En los switches Brocade 6510 o G620, puede utilizar de forma opcional la función de cifrado de Brocade en las conexiones ISL. Si desea utilizar la función de cifrado, debe realizar pasos de configuración adicionales en cada switch de la configuración de MetroCluster.
@@ -4407,6 +4422,7 @@ Los pasos deben realizarse en ambos switches de la misma estructura.
 
 
 
+[[disable-virtual-fabric]]
 === Deshabilitar la red virtual
 
 Para configurar el cifrado ISL, debe deshabilitar la estructura virtual en los cuatro switches que se usan en una configuración MetroCluster.
@@ -4421,6 +4437,7 @@ Para configurar el cifrado ISL, debe deshabilitar la estructura virtual en los c
 
 
 
+[[set-the-payload]]
 === Establezca la carga útil
 
 Después de deshabilitar la estructura virtual, debe establecer la carga útil o el tamaño del campo de datos en ambos switches de la estructura.
@@ -4448,6 +4465,7 @@ El tamaño del campo de datos no debe ser superior a 2048.
 
 
 
+[[set-the-authentication-policy]]
 === Defina la directiva de autenticación
 
 Debe configurar la política de autenticación y los parámetros asociados.
@@ -4541,6 +4559,7 @@ Auth Policy is set to ON
 
 
 
+[[enable-isl-encryption-on-brocade-switches]]
 === Habilite el cifrado ISL en switches de Brocade
 
 Después de configurar la política de autenticación y el secreto de autenticación, debe habilitar el cifrado ISL en los puertos para que surta efecto.

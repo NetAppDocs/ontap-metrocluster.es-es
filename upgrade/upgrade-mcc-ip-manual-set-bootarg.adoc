@@ -18,6 +18,7 @@ NOTE: Si su combinación de actualización se ve afectada, es necesario configur
 
 
 
+[[step-1-determine-whether-you-need-to-set-a-bootarg-on-the-old-controllers]]
 == Paso 1: Determine si necesita configurar un bootarg en los controladores antiguos
 
 Antes de iniciar la actualización, determina si necesitas configurar un bootarg en los controladores antiguos usando la siguiente información:
@@ -45,12 +46,14 @@ CAUTION: Si su actualización no requiere que configure ningún bootarg, puede o
 
 
 
+[[step-2-determine-the-bootarg-you-need-to-set-on-the-old-controllers]]
 == Paso 2: Determine el bootarg que necesita configurar en los controladores antiguos
 
 La mayoría de las actualizaciones afectadas requieren que configures la `hw.cxgbe.toe_keepalive_disable` bootarg en los controladores antiguos.  Sin embargo, ciertas rutas de actualización requieren que configures la `bootarg.siw.interop_enabled` bootarg en su lugar.
 
 Utilice la siguiente tabla para determinar qué inicio debe definir para su combinación de actualización específica.
 
+[[upgrade_paths_bootarg_manual]]
 [cols="2*"]
 |===
 | Para esta actualización... | Establecer el inicio... 
@@ -76,6 +79,7 @@ Todas las demás actualizaciones de los sistemas AFF A70, AFF A90, AFF A1K, FAS7
 |===
 
 
+[[step-3-set-the-required-bootarg-on-the-old-controllers]]
 == Paso 3: Configure el bootarg requerido en los controladores antiguos
 
 Después de que hayas determinado el bootarg necesario para tu combinación de actualización, sigue los pasos para establecer el bootarg en los controladores antiguos.

@@ -25,12 +25,14 @@ Revise estas consideraciones antes de utilizar las tablas:
 
 
 
+[[cabling-two-metrocluster-configurations-to-the-switches]]
 == Cableado de dos configuraciones de MetroCluster a los switches
 
 Al cablear más de una configuración MetroCluster a un switch, cablee cada MetroCluster según la tabla correspondiente. Por ejemplo, si conecta un FAS2750 y un AFF A700 al mismo switch, cablee el FAS2750 según "MetroCluster 1" en la Tabla 1, y el AFF A700 según "MetroCluster 2" o "MetroCluster 3" en la Tabla 2. No puede conectar físicamente el sistema FAS2750 y el AFF A700 como "MetroCluster 1".
 
 
 
+[[cabling-eight-node-metrocluster-configurations]]
 == Cableado de configuraciones MetroCluster de ocho nodos
 
 Para la configuración de MetroCluster que ejecuta ONTAP 9.8 y versiones anteriores, algunos procedimientos que se realizan para realizar la transición de una actualización requieren la adición de un segundo grupo de recuperación ante desastres de cuatro nodos a la configuración para crear una configuración temporal de ocho nodos.  A partir de ONTAP 9,9.1, se admiten las configuraciones permanentes de MetroCluster de ocho nodos.

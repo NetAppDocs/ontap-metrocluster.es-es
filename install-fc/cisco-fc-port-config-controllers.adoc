@@ -24,6 +24,7 @@ En las tablas se muestran las configuraciones máximas admitidas, con ocho módu
 ====
 
 
+[[metrocluster-1-or-dr-group-1]]
 == MetroCluster 1 o el grupo de recuperación ante desastres 1
 
 La siguiente tabla muestra las configuraciones de controlador admitidas en MetroCluster 1 o grupo DR 1 en conmutadores Cisco (excluido 9132T).
@@ -446,6 +447,7 @@ Puerto HBA d
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 == MetroCluster 2 o el grupo de recuperación ante desastres 2
 
 La siguiente tabla muestra las configuraciones de controlador admitidas en MetroCluster 2 o el grupo DR 2 en los conmutadores Cisco (excluido el 9132T).

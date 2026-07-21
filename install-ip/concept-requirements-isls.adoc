@@ -15,6 +15,7 @@ Los enlaces entre switches (ISL) que manejan el tráfico MetroCluster en todas l
 
 
 
+[[metrocluster-isl-requirements]]
 == Requisitos de ISL de MetroCluster
 
 Estos requisitos se aplican a los ISL en todas las configuraciones IP de MetroCluster:
@@ -39,6 +40,7 @@ CAUTION: Las actualizaciones a ONTAP 9.18.1 y posteriores en plataformas que act
 
 
 
+[[latency-and-packet-loss-limits-in-the-isls]]
 === Límites de latencia y pérdida de paquetes en los ISL
 
 Lo siguiente se aplica al tráfico de ida y vuelta entre los conmutadores IP de MetroCluster en SITE_A y SITE_B, con la configuración de MetroCluster en funcionamiento estable:
@@ -53,6 +55,7 @@ Lo siguiente se aplica al tráfico de ida y vuelta entre los conmutadores IP de 
 
 
 
+[[transceiver-and-cable-considerations]]
 == Consideraciones sobre el transceptor y el cable
 
 Los SFP o QSFP compatibles con el proveedor de equipos son compatibles con los ISL de MetroCluster. Los SFP y los QSFP que proporciona NetApp o el proveedor del equipo deben ser respaldados por el firmware del switch y del switch.
@@ -66,6 +69,7 @@ NOTE: Si configura un RCF, compruebe que selecciona el modo de velocidad correct
 
 
 
+[[using-xwdm-tdm-and-external-encryption-devices]]
 == Uso de xWDM, TDM y dispositivos de cifrado externos
 
 Cuando utiliza dispositivos xWDM/TDM o dispositivos que proporcionan cifrado en una configuración IP de MetroCluster, el entorno debe cumplir los siguientes requisitos:
@@ -76,6 +80,7 @@ Cuando utiliza dispositivos xWDM/TDM o dispositivos que proporcionan cifrado en 
 
 
 
+[[supported-number-of-isls-and-breakout-cables]]
 == Número admitido de ISLs y cables de conexión
 
 La siguiente tabla muestra el número máximo admitido de ISL que se pueden configurar en un conmutador IP de MetroCluster mediante la configuración de archivo de configuración de referencia (RCF).

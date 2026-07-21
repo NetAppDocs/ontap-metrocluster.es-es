@@ -15,6 +15,7 @@ Arranque las nuevas controladoras y compruebe que las LIF estén alojadas en los
 
 
 
+[[boot-the-new-controllers]]
 == Arranque las nuevas controladoras
 
 Inicie las nuevas controladoras. Verifique que las variables de arranque sean correctas y, si es necesario, realice los pasos de recuperación de cifrado.
@@ -246,6 +247,7 @@ Verifique que los nuevos nodos (site_B) estén en *esperando el estado de regres
 
 
 
+[[verify-and-restore-lif-configuration]]
 == Verifique y restaure la configuración de LIF
 
 Compruebe que las LIF están alojadas en los nodos adecuados antes de continuar con la operación de conmutación de estado automática.

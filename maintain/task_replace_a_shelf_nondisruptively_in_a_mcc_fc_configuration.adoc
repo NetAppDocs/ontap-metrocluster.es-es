@@ -18,6 +18,7 @@ NOTE: Este procedimiento solo se puede utilizar en una configuración de MetroCl
 
 
 
+[[disabling-access-to-the-shelf]]
 == Deshabilitación del acceso a la bandeja
 
 Debe deshabilitar el acceso a la bandeja antes de sustituir los módulos de la bandeja.
@@ -161,6 +162,7 @@ FC_switch_A_2# show interface fc1/6
 
 
 
+[[replacing-the-shelf]]
 == Sustituya la bandeja
 
 Debe quitar físicamente todos los cables y la bandeja antes de insertar y cablear la bandeja y los módulos de bandeja nuevos.
@@ -177,6 +179,7 @@ Debe quitar físicamente todos los cables y la bandeja antes de insertar y cable
 
 
 
+[[reenabling-access-and-verifying-the-operation]]
 == Volver a habilitar el acceso y verificar la operación
 
 Una vez sustituida la bandeja, es necesario volver a habilitar el acceso y comprobar que la nueva bandeja funcione correctamente.

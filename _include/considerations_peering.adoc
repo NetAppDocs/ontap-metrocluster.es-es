@@ -9,12 +9,14 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Con
 
 
 
+[[prerequisites-for-cluster-peering]]
 == Requisitos previos para la relación de clústeres entre iguales
 
 Antes de configurar cluster peering, debe confirmar que se cumple la conectividad entre el puerto, la dirección IP, la subred, el firewall y los requisitos de nomenclatura de clústeres.
 
 
 
+[[connectivity-requirements]]
 === Requisitos de conectividad
 
 Todas las LIF de interconexión de clústeres del clúster local deben poder comunicarse con todas las LIF de interconexión de clústeres del clúster remoto.
@@ -36,6 +38,7 @@ NOTE: ONTAP 9 le permite migrar las redes entre iguales de IPv4 a IPv6 de forma 
 
 
 
+[[port-requirements]]
 === Requisitos de puertos
 
 Se pueden usar puertos dedicados para la comunicación entre clústeres o para compartir puertos que usa la red de datos. Los puertos deben cumplir con los siguientes requisitos:
@@ -55,6 +58,7 @@ Los puertos que se añaden a un dominio de retransmisión pueden ser puertos de 
 
 
 
+[[firewall-requirements]]
 === Requisitos del firewall
 
 Los firewalls y la política de firewall de interconexión de clústeres deben permitir los siguientes protocolos:
@@ -68,6 +72,7 @@ La política predeterminada de firewall de interconexión de clústeres permite 
 
 
 
+[[considerations-when-using-dedicated-ports]]
 == Consideraciones que tener en cuenta al utilizar puertos dedicados
 
 Cuando se determina si se usa un puerto dedicado para la replicación entre clústeres es la solución de red entre clústeres correcta, se deben tener en cuenta las configuraciones y requisitos como el tipo de LAN, el ancho de banda WAN disponible, el intervalo de replicación, la tasa de cambio y el número de puertos.
@@ -85,6 +90,7 @@ El ancho de banda del puerto se comparte entre todas las VLAN y el puerto base.
 
 
 
+[[considerations-when-sharing-data-ports]]
 == Consideraciones que tener en cuenta al compartir puertos de datos
 
 Cuando determinar si compartir un puerto de datos para la replicación entre clústeres es la solución de red entre clústeres correcta, debe tener en cuenta las configuraciones y requisitos como el tipo de LAN, el ancho de banda WAN disponible, el intervalo de replicación, la tasa de cambio y el número de puertos.

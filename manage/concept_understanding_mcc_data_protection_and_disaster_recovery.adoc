@@ -17,6 +17,7 @@ MetroCluster utiliza la duplicación para proteger los datos de un clúster. Pro
 
 
 
+[[how-eight-and-four-node-metrocluster-configurations-provide-local-failover-and-switchover]]
 == Cómo las configuraciones de MetroCluster de ocho y cuatro nodos proporcionan conmutación por error y conmutación locales
 
 Las configuraciones de MetroCluster de ocho y cuatro nodos protegen los datos a nivel local y de clúster. Si está configurando una configuración de MetroCluster, debe saber cómo las configuraciones de MetroCluster protegen sus datos.
@@ -25,6 +26,7 @@ Las configuraciones de MetroCluster protegen los datos mediante dos clústeres r
 
 
 
+[[how-local-ha-data-protection-works-in-a-metrocluster-configuration]]
 === Cómo funciona la protección de datos de alta disponibilidad local en una configuración MetroCluster
 
 Debe comprender cómo funcionan los pares de alta disponibilidad en la configuración de MetroCluster.
@@ -40,12 +42,14 @@ link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["Configura
 
 
 
+[[how-metrocluster-configurations-provide-data-and-configuration-replication]]
 == Cómo proporcionan las configuraciones de MetroCluster la replicación de datos y de la configuración
 
 Las configuraciones de MetroCluster utilizan una gran variedad de funciones de ONTAP para proporcionar replicación síncrona de datos y configuración entre los dos sitios de MetroCluster.
 
 
 
+[[configuration-protection-with-the-configuration-replication-service]]
 === Protección de la configuración con el servicio de replicación de configuración
 
 El Servicio de replicación de configuración de ONTAP (CRS) protege la configuración de MetroCluster mediante la replicación automática de la información al asociado de recuperación ante desastres.
@@ -56,6 +60,7 @@ La información replicada incluye la configuración del clúster y la configurac
 
 
 
+[[replication-of-svms-during-metrocluster-operations]]
 === Replicación de SVM durante las operaciones de MetroCluster
 
 El servicio de replicación de configuración de ONTAP (CRS) proporciona la configuración del servidor de datos redundante y mirroring de los volúmenes de datos que pertenecen al SVM. Si se produce una conmutación, la SVM de origen se deja de funcionar y la SVM de destino, ubicada en el clúster superviviente, se activa.
@@ -111,6 +116,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Admin
 
 
 
+[[how-metrocluster-configurations-use-syncmirror-to-provide-data-redundancy]]
 === Cómo utilizan SyncMirror las configuraciones de MetroCluster para ofrecer redundancia de datos
 
 Los agregados reflejados que utilizan la funcionalidad SyncMirror proporcionan redundancia de datos y contienen los volúmenes de la máquina virtual de almacenamiento (SVM) de origen y de destino. Los datos se replican en pools de discos del clúster de partners. También se admiten agregados no reflejados.
@@ -167,6 +173,7 @@ image::../media/mcc_mirroring_of_pools.gif[Duplicación de grupos de almacenamie
 
 
 
+[[how-nvram-or-nvmem-cache-mirroring-and-dynamic-mirroring-work-in-metrocluster-configurations]]
 === Cómo funcionan el mirroring de caché NVRAM o NVMEM y el mirroring dinámico en las configuraciones de MetroCluster
 
 La memoria no volátil (NVRAM o NVMEM, según el modelo de plataforma) de las controladoras de almacenamiento se refleja tanto en el entorno de alta disponibilidad local como de forma remota a un partner de recuperación ante desastres remoto del sitio del partner. En caso de conmutación al respaldo o conmutación local, esta configuración permite conservar los datos de la caché no volátil.
@@ -226,6 +233,7 @@ image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[Duplicación de N
 
 
 
+[[types-of-disasters-and-recovery-methods]]
 == Tipos de desastres y métodos de recuperación
 
 Debe estar familiarizado con distintos tipos de errores y desastres para que pueda utilizar la configuración de MetroCluster para responder de forma adecuada.
@@ -287,6 +295,7 @@ NOTE: AUSO (conmutación automática sin planificar) no es compatible con las co
 |===
 
 
+[[how-an-eight-node-or-four-node-metrocluster-configuration-provides-nondisruptive-operations]]
 == Cómo una configuración MetroCluster de ocho o cuatro nodos proporciona operaciones no disruptivas
 
 En caso de un problema limitado a un único nodo, una conmutación al nodo de respaldo y una devolución dentro del par de alta disponibilidad local proporcionan un funcionamiento continuo sin interrupciones. En este caso, la configuración de MetroCluster no requiere una conmutación de sitios al sitio remoto.
@@ -301,6 +310,7 @@ Si se produce un segundo fallo después de una conmutación al respaldo local, e
 
 
 
+[[switchover-and-switchback-during-metrocluster-transition]]
 === Conmutación de sitios y conmutación de estado durante la transición a MetroCluster
 
 La transición de FC a IP de MetroCluster implica agregar nodos IP y switches IP de MetroCluster a una configuración FC de MetroCluster existente y, a continuación, retirar los nodos FC de MetroCluster. Dependiendo de la etapa del proceso de transición, las operaciones de conmutación de sitios, reparación y conmutación de estado de MetroCluster utilizan diferentes flujos de trabajo.
@@ -309,6 +319,7 @@ Consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUI
 
 
 
+[[consequences-of-local-failover-after-switchover]]
 === Consecuencias de la conmutación por error local tras la conmutación
 
 Si se produce un cambio de MetroCluster y luego surge un problema en el sitio superviviente, una conmutación por error local puede proporcionar un funcionamiento constante y no disruptivo. Sin embargo, el sistema está en riesgo porque ya no se encuentra en una configuración redundante.
@@ -317,6 +328,7 @@ Si se produce una conmutación por error local después de producirse una conmut
 
 
 
+[[how-a-two-node-metrocluster-configuration-provides-nondisruptive-operations]]
 == Cómo una configuración MetroCluster de dos nodos proporciona operaciones no disruptivas
 
 Si uno de los dos sitios tiene un problema debido al pánico, la conmutación de MetroCluster proporciona un funcionamiento continuo sin interrupciones. Si la pérdida de alimentación afecta tanto al nodo como al almacenamiento, la conmutación no es automática y se produce una interrupción hasta el `metrocluster switchover` se emite el comando.
@@ -330,6 +342,7 @@ link:concept_understanding_mcc_data_protection_and_disaster_recovery.html["Cambi
 
 
 
+[[overview-of-the-switchover-process]]
 == Descripción general del proceso de cambio
 
 La operación de conmutación de sitios de MetroCluster permite la reanudación inmediata de los servicios tras un desastre gracias al traslado del acceso de cliente y almacenamiento del clúster de origen al sitio remoto. En caso de que se produzca una conmutación, debe estar al tanto de los cambios que se esperan y de las acciones que debe realizar.
@@ -360,6 +373,7 @@ NOTE: Este procedimiento sólo debe utilizarse si el otro sitio es estable y no 
 
 
 
+[[availability-of-commands-during-switchover]]
 === Disponibilidad de comandos durante el cambio
 
 En la siguiente tabla se muestra la disponibilidad de los comandos durante la conmutación:
@@ -480,6 +494,7 @@ Es posible romper una relación de SnapMirror entre un extremo de origen y de de
 |===
 
 
+[[differences-in-switchover-between-metrocluster-fc-and-ip-configurations]]
 === Diferencias de conmutación entre las configuraciones de IP y FC de MetroCluster
 
 En configuraciones de IP de MetroCluster, como se accede a los discos remotos a través de los nodos asociados de recuperación ante desastres remotos que actúan como destinos iSCSI, no se puede acceder a los discos remotos cuando los nodos remotos se ven inactivos en una operación de conmutación de sitios. El resultado es diferencias con las configuraciones de FC de MetroCluster:
@@ -493,6 +508,7 @@ NOTE: Si se admiten agregados no reflejados en una configuración IP de MetroClu
 
 
 
+[[disk-ownership-changes-during-ha-takeover-and-metrocluster-switchover-in-a-four-node-metrocluster-configuration]]
 === Cambios en la propiedad de disco durante la toma de control de alta disponibilidad y el cambio de MetroCluster en una configuración MetroCluster de cuatro nodos
 
 La propiedad de discos cambia temporalmente automáticamente durante las operaciones de alta disponibilidad y de MetroCluster. Resulta útil saber cómo el sistema realiza el seguimiento de qué nodo posee qué discos.
@@ -628,6 +644,7 @@ no aplicable
 |===
 
 
+[[considerations-when-using-unmirrored-aggregates]]
 === Consideraciones que tener en cuenta al utilizar agregados no reflejados
 
 Si la configuración incluye agregados no reflejados, debe tener en cuenta los posibles problemas de acceso tras las operaciones de conmutación.
@@ -666,6 +683,7 @@ No se debe ubicar un LUN en un agregado no reflejado. Configurar un LUN en un ag
 
 
 
+[[automatic-unplanned-switchover-in-metrocluster-fc-configurations]]
 === Cambio automático de conmutación por cierre no planificado en configuraciones MetroCluster FC
 
 En las configuraciones de FC de MetroCluster, algunas situaciones pueden activar una conmutación por error no planificada automática (AUSO) en caso de que una controladora en todo el sitio no pueda proporcionar operaciones no disruptivas. SI lo desea, LA AUSO puede desactivarse.
@@ -734,18 +752,21 @@ link:task_perform_switchover_for_tests_or_maintenance.html["Realizar la conmutac
 
 
 
+[[mediator-assisted-automatic-unplanned-switchover-in-metrocluster-ip-configurations]]
 === Conmutación de sitios automática no planificada asistida por mediador en configuraciones de IP de MetroCluster
 
 link:../install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["Obtenga más información sobre cómo Mediator de ONTAP admite la conmutación automática de sitios no planificados en las configuraciones de IP de MetroCluster"].
 
 
 
+[[what-happens-during-healing-metrocluster-fc-configurations]]
 == Qué sucede durante la reparación (configuraciones de MetroCluster FC)
 
 Durante el proceso de reparación en las configuraciones FC de MetroCluster, la resincronización de los agregados reflejados se da en un proceso por fases que prepara los nodos en el sitio de desastre reparado para regresar. Se trata de un evento planificado, por lo que le ofrece un control completo de cada paso para minimizar el tiempo de inactividad. La reparación es un proceso de dos pasos que se produce en los componentes de almacenamiento y controladora.
 
 
 
+[[data-aggregate-healing]]
 === Reparación de agregados de datos
 
 Una vez resuelto el problema en el sitio de desastre, inicia la fase de recuperación del almacenamiento:
@@ -764,6 +785,7 @@ link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["Rep
 
 
 
+[[root-aggregate-healing]]
 === Reparación de agregados raíz
 
 Una vez sincronizados los agregados, comienza la fase de reparación de la controladora, ya que devuelven los agregados CFO y los agregados raíz a sus respectivos socios de recuperación ante desastres.
@@ -772,12 +794,14 @@ link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["Rep
 
 
 
+[[what-happens-during-healing-metrocluster-ip-configurations]]
 == Qué sucede durante la reparación (configuraciones de MetroCluster IP)
 
 Durante el proceso de reparación en las configuraciones IP de MetroCluster, la resincronización de los agregados reflejados se realiza en fases que prepara los nodos en el sitio de desastre reparado para regresar. Se trata de un evento planificado, por lo que le ofrece un control completo de cada paso para minimizar el tiempo de inactividad. La reparación es un proceso de dos pasos que se produce en los componentes de almacenamiento y controladora.
 
 
 
+[[differences-with-metrocluster-fc-configurations]]
 === Diferencias respecto de las configuraciones de FC de MetroCluster
 
 En las configuraciones de IP de MetroCluster, debe arrancar los nodos en el clúster del sitio de desastres antes de que se realice la operación de reparación.
@@ -788,6 +812,7 @@ Si los nodos del sitio de desastres no están en ejecución, la operación de re
 
 
 
+[[data-aggregate-healing]]
 === Reparación de agregados de datos
 
 Una vez resuelto el problema en el sitio de desastre, inicia la fase de recuperación del almacenamiento:
@@ -806,6 +831,7 @@ link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["Rep
 
 
 
+[[root-aggregate-healing]]
 === Reparación de agregados raíz
 
 Una vez que se han sincronizado los agregados, se ejecuta la fase de reparación del agregado raíz. En las configuraciones de IP de MetroCluster, esta fase confirma que los agregados se han recuperado.
@@ -814,12 +840,14 @@ link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["Rep
 
 
 
+[[automatic-healing-of-aggregates-on-metrocluster-ip-configurations-after-switchover]]
 == Reparación automática de los agregados en las configuraciones de IP de MetroCluster tras la conmutación
 
 A partir de ONTAP 9.5, el proceso de reparación se automatiza durante las operaciones de conmutación de sitios negociadas en configuraciones IP de MetroCluster. A partir de ONTAP 9.6, se admiten recuperaciones automatizadas tras efectuar una conmutación por cierre no programada. Esto elimina el requisito de emitir el `metrocluster heal` comandos.
 
 
 
+[[automatic-healing-after-negotiated-switchover-beginning-with-ontap-9-5]]
 === Reparación automática tras la conmutación negociada (empezando por ONTAP 9.5)
 
 Tras realizar una conmutación negociada (un comando de conmutación emitido sin la opción -forzado en caso de desastre verdadero), la funcionalidad de reparación automática simplifica los pasos necesarios para hacer que el sistema funcione correctamente. En los sistemas con reparación automática, ocurre lo siguiente después de la conmutación:
@@ -843,6 +871,7 @@ image::../media/mcc_so_sb_with_autoheal.gif[Conmutación y retroceso de MetroClu
 
 
 
+[[automatic-healing-after-unscheduled-switchover-beginning-with-ontap-9-6]]
 === Reparación automática tras cambio no programado (empezando por ONTAP 9.6)
 
 La reparación automática tras una conmutación sin programar es compatible con las configuraciones IP de MetroCluster, empezando por ONTAP 9.6. Un cambio no programado es uno en el que se emite el `switchover` con el `-forced-on-disaster true` opción.
@@ -869,12 +898,14 @@ image::../media/mcc_uso_with_autoheal.gif[Cambio no programado de MetroCluster c
 
 
 
+[[if-automatic-healing-fails]]
 === Si la reparación automática falla
 
 Si la operación de reparación automática falla por cualquier motivo, debe emitir el `metrocluster heal` Comandos manualmente como se realiza en las versiones de ONTAP anteriores a ONTAP 9.6. Puede utilizar el `metrocluster operation show` y.. `metrocluster operation history show -instance` comandos para supervisar el estado de reparación y determinar la causa de un fallo.
 
 
 
+[[creating-svms-for-a-metrocluster-configuration]]
 == Crear SVM para una configuración de MetroCluster
 
 Puede crear SVM para una configuración de MetroCluster a fin de proporcionar recuperación ante desastres síncrona y alta disponibilidad de datos en clústeres que se configuran para una configuración de MetroCluster.
@@ -959,6 +990,7 @@ Las SVM para la configuración MetroCluster se crean con un tamaño de volumen r
 
 
 
+[[what-happens-during-a-switchback]]
 == Qué sucede durante una conmutación de regreso
 
 Una vez que el sitio de recuperación ante desastres ha recuperado y los agregados se han curado, el proceso de conmutación de estado de MetroCluster devuelve el acceso al cliente y al almacenamiento desde el sitio de recuperación ante desastres al clúster principal.

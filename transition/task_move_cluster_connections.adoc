@@ -15,6 +15,7 @@ Mueva las interfaces de clúster de configuración de MetroCluster FC a los conm
 
 
 
+[[step-1-move-the-cluster-connections-on-the-metrocluster-fc-nodes]]
 == Paso 1: Mover las conexiones del clúster en los nodos FC de MetroCluster
 
 Traslade las conexiones del clúster en los nodos FC de MetroCluster a los conmutadores IP. Los pasos a seguir dependerán de si utiliza conmutadores IP existentes o nuevos.
@@ -25,6 +26,7 @@ Traslade las conexiones del clúster en los nodos FC de MetroCluster a los conmu
 
 
 
+[[which-connections-to-move]]
 === Qué conexiones mover
 
 La siguiente tarea asume que un módulo controlador utiliza dos puertos para las conexiones del clúster. Algunos modelos de módulos de controladora utilizan cuatro o más puertos para la conexión del clúster. En este ejemplo, los puertos se dividen en dos grupos, alternando los puertos entre ambos.
@@ -155,6 +157,7 @@ La interfaz del clúster local en el nodo FC
 |===
 
 
+[[move-the-local-cluster-connections-when-using-new-ip-switches]]
 === Mueva las conexiones del clúster local al utilizar nuevos conmutadores IP
 
 Si está utilizando nuevos conmutadores IP, mueva físicamente las conexiones del clúster de los nodos FC de MetroCluster existentes a los nuevos conmutadores.
@@ -278,6 +281,7 @@ cluster_A::*>
 
 
 
+[[move-the-local-cluster-connections-when-reusing-existing-ip-switches]]
 === Mover las conexiones del clúster local al reutilizar conmutadores IP existentes
 
 Si está reutilizando conmutadores IP existentes, actualice el firmware, reconfigure los conmutadores con los archivos de configuración de referencia (RCF) correctos y mueva las conexiones a los puertos correctos, un conmutador a la vez.
@@ -409,6 +413,7 @@ Cluster-A::*>
 
 
 
+[[step-2-verify-that-the-cluster-connections-are-moved-and-the-cluster-is-healthy]]
 == Paso 2: Verifique que las conexiones del clúster se hayan movido y que el clúster esté en buen estado
 
 Para garantizar que haya una conectividad adecuada y que la configuración esté lista para continuar con el proceso de transición, verifique que las conexiones del clúster se hayan movido correctamente, que los conmutadores del clúster se hayan reconocido y que el clúster esté en buen estado.

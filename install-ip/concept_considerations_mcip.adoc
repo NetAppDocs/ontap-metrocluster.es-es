@@ -15,6 +15,7 @@ Debe comprender cómo acceden las controladoras al almacenamiento remoto y cómo
 
 
 
+[[access-to-remote-storage-in-metrocluster-ip-configurations]]
 == Acceso a almacenamiento remoto en las configuraciones de IP de MetroCluster
 
 En las configuraciones IP de MetroCluster, la única forma en que las controladoras locales pueden llegar a los pools de almacenamiento remoto es mediante las controladoras remotas. Los switches IP se conectan a los puertos Ethernet de las controladoras; no tienen conexiones directas con las bandejas de discos. Si la controladora remota está inactiva, las controladoras locales no pueden llegar a sus pools de almacenamiento remoto.
@@ -23,6 +24,7 @@ Esto es diferente a las configuraciones de MetroCluster FC, en las que los pools
 
 
 
+[[metrocluster-ip-addresses]]
 == Direcciones IP de MetroCluster
 
 Debe saber cómo se implementan las direcciones IP y las interfaces de MetroCluster en una configuración de MetroCluster IP, así como los requisitos asociados.
@@ -140,6 +142,7 @@ Interfaz IP de MetroCluster 2
 |===
 
 
+[[characteristics-of-metrocluster-ip-interfaces]]
 == Características de las interfaces IP de MetroCluster
 
 Las interfaces IP de MetroCluster son específicas para las configuraciones IP de MetroCluster. Tienen características distintas de otros tipos de interfaz de ONTAP:

@@ -15,6 +15,7 @@ Puede agregar enlaces entre switches (ISL), cambiar la velocidad de ISL y volver
 
 
 
+[[add-isls-to-a-cisco-fc-switch]]
 == Agregue ISL a un switch Cisco FC
 
 Puede que necesite agregar ISL a un switch si agrega o actualiza hardware, por ejemplo, agregar o actualizar controladoras más rápidas o switches más rápidos.
@@ -79,6 +80,7 @@ Introduzca los siguientes comandos de configuración, uno por línea. Termine co
 
 
 
+[[change-isl-port-speeds-on-a-cisco-fc-switch]]
 == Cambie las velocidades del puerto ISL en un switch Cisco FC
 
 Puede cambiar la velocidad de los puertos ISL en un switch para mejorar la calidad de un ISL; por ejemplo, reduciendo la velocidad de los ISL que viajan una mayor distancia.
@@ -159,12 +161,14 @@ Introduzca los siguientes comandos de configuración, uno por línea. Termine co
 
 
 
+[[reconfigure-the-vsan-to-guarantee-iod-or-ood-of-frames]]
 == Vuelva a configurar el VSAN para garantizar IOD u OOD de tramas
 
 Se recomienda la configuración de IOD estándar. Solo debe volver a configurar OOD si es necesario.
 
 
 
+[[reconfigure-iod]]
 === Vuelva a configurar IOD
 
 Realice el siguiente paso para volver a configurar IOD de tramas.
@@ -227,6 +231,7 @@ FC_switch_B_1# copy running-config startup-config
 
 
 
+[[reconfigure-ood]]
 === Vuelva a configurar OOD
 
 Realice los siguientes pasos para volver a configurar OOD de tramas.

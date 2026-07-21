@@ -15,6 +15,7 @@ Cuando planifique la configuración de MetroCluster FC, debe comprender los comp
 
 
 
+[[supported-software-and-hardware]]
 == Software y hardware compatibles
 
 El hardware y el software deben ser compatibles con la configuración FC de MetroCluster.
@@ -28,12 +29,14 @@ NOTE: Los switches de almacenamiento MetroCluster no admiten SFP de onda larga. 
 
 
 
+[[hardware-redundancy-in-the-metrocluster-fc-configuration]]
 == Redundancia del hardware en la configuración de MetroCluster FC
 
 Debido a la redundancia del hardware en la configuración FC de MetroCluster, hay dos componentes cada uno en cada sitio. Los sitios son asignados arbitrariamente las letras A y B y los componentes individuales son asignados arbitrariamente los números 1 y 2.
 
 
 
+[[requirement-for-two-ontap-clusters]]
 == Requisito para dos clústeres ONTAP
 
 La configuración MetroCluster FC conectada a la estructura requiere dos clústeres ONTAP, uno en cada sitio MetroCluster.
@@ -48,6 +51,7 @@ Nombres de ejemplo:
 
 
 
+[[requirement-for-four-fc-switches]]
 == Requisito para cuatro switches FC
 
 La configuración de MetroCluster FC conectada a la estructura requiere cuatro switches FC (modelos compatibles con Brocade o Cisco).
@@ -58,6 +62,7 @@ La nomenclatura debe ser única en la configuración de MetroCluster.
 
 
 
+[[requirement-for-two-four-or-eight-controller-modules]]
 == Requisito de dos, cuatro u ocho módulos de controladora
 
 La configuración de MetroCluster FC estructural requiere dos, cuatro u ocho módulos de controladora.
@@ -91,6 +96,7 @@ Nombres de ejemplo:
 
 
 
+[[requirement-for-four-cluster-interconnect-switches]]
 == Requisito para cuatro switches de interconexión de clúster
 
 La configuración de MetroCluster FC con conexión a la estructura requiere cuatro switches de interconexión de clúster (si no utiliza clústeres de dos nodos sin switch)
@@ -99,6 +105,7 @@ Estos switches proporcionan comunicación de clúster entre los módulos de la c
 
 
 
+[[requirement-for-fc-to-sas-bridges]]
 == Requisito de los puentes FC a SAS
 
 La configuración MetroCluster FC conectada a la estructura requiere un par de puentes FC a SAS para cada grupo de pilas de bandejas SAS.
@@ -115,6 +122,7 @@ Los nombres sugeridos utilizados como ejemplos en esta documentación identifica
 
 
 
+[[pool-and-drive-requirements-minimum-supported]]
 == Requisitos de pool y unidad (compatible como mínimo)
 
 Se recomiendan ocho bandejas de discos SAS (cuatro bandejas en cada sitio) para permitir la propiedad de los discos por bandeja.
@@ -144,6 +152,7 @@ Las configuraciones de MetroCluster son compatibles con RAID-DP y RAID4.
 
 
 
+[[drive-location-considerations-for-partially-populated-shelves]]
 == Consideraciones sobre la ubicación de la unidad para bandejas parcialmente ocupadas
 
 Para conseguir la asignación automática correcta de unidades cuando se utilizan bandejas que se han rellenado a la mitad (12 unidades en una bandeja de 24 unidades), las unidades se deben ubicar en las ranuras 0-5 y 18-23.
@@ -152,6 +161,7 @@ En una configuración con una bandeja parcialmente ocupada, las unidades deben d
 
 
 
+[[bridge-naming-conventions]]
 == Convenciones de nomenclatura de puentes
 
 Los puentes utilizan el siguiente ejemplo de nombre:

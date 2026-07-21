@@ -15,6 +15,7 @@ Realizar las tareas requeridas para completar la recuperación tras un fallo de 
 
 
 
+[[reestablishing-object-stores-for-fabricpool-configurations]]
 == Restablecer almacenes de objetos para configuraciones de FabricPool
 
 Si uno de los almacenes de objetos de un reflejo de FabricPool se colocalizó con el centro de desastres de MetroCluster y fue destruido, debe restablecer el almacén de objetos y el mirror de FabricPool.
@@ -30,6 +31,7 @@ Si uno de los almacenes de objetos de un reflejo de FabricPool se colocalizó co
 
 
 
+[[verifying-licenses-on-the-replaced-nodes]]
 == Verificación de licencias en los nodos sustituidos
 
 Debe instalar licencias nuevas para los nodos de reemplazo si los nodos dañados utilizaban funciones de ONTAP que requieren una licencia estándar (de bloqueo de nodo). Para funciones con licencias estándar, cada nodo del clúster debe tener su propia clave para la función.
@@ -116,6 +118,7 @@ NOTE: Las claves de licencia nuevas que necesita se generan automáticamente y s
 
 
 
+[[restoring-key-management]]
 == Restauración de gestión de claves
 
 Si los volúmenes de datos están cifrados, debe restaurar la gestión de claves. Si el volumen raíz se cifra, se debe recuperar la gestión de claves.
@@ -152,6 +155,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
 
 
 
+[[performing-a-switchback]]
 == Realización de una conmutación de regreso
 
 Después de recuperar la configuración de MetroCluster, puede ejecutar la operación de conmutación de estado de MetroCluster. La operación de conmutación de estado de MetroCluster devuelve la configuración a su estado operativo normal, con las máquinas virtuales de almacenamiento (SVM) sincronizada en el sitio de desastre activas y suministrando datos de los pools de discos locales.
@@ -249,6 +253,7 @@ En ONTAP 8.3, es necesario restablecer manualmente una configuración de SnapMir
 
 
 
+[[verifying-a-successful-switchback]]
 == Verificación de una conmutación de regreso exitosa
 
 Después de llevar a cabo la conmutación de estado, querrá confirmar que todos los agregados y las máquinas virtuales de almacenamiento (SVM) hayan vuelto a conectarse y estén en línea.
@@ -344,6 +349,7 @@ Debe repetir las secciones anteriores para realizar la rotación en la direcció
 
 
 
+[[mirroring-the-root-aggregates-of-the-replacement-nodes]]
 == Hacer mirroring de los agregados raíz de los nodos de reemplazo
 
 Si se han sustituido los discos, debe reflejar los agregados raíz de los nuevos nodos en el sitio de recuperación ante desastres.
@@ -448,6 +454,7 @@ Se debe reflejar cualquier agregado raíz que no tenga el estado de reflejo.
 
 
 
+[[reconfiguring-ontap-mediator-metrocluster-ip-configurations]]
 == Reconfiguración del mediador de ONTAP (configuraciones de IP de MetroCluster)
 
 Si tiene una configuración de IP de MetroCluster que se configuró con ONTAP Mediator, debe eliminar y volver a configurar la asociación con ONTAP Mediator.
@@ -470,6 +477,7 @@ Si tiene una configuración de IP de MetroCluster que se configuró con ONTAP Me
 
 
 
+[[verifying-the-health-of-the-metrocluster-configuration]]
 == Comprobación del estado de la configuración de MetroCluster
 
 Debe comprobar el estado de la configuración de MetroCluster para verificar que funciona correctamente.

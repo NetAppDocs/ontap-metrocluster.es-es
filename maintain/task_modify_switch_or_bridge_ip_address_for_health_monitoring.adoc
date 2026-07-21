@@ -19,6 +19,7 @@ Después de modificar las direcciones IP de los switches back-end de MetroCluste
 
 
 
+[[modify-a-switch-ip-address]]
 == Modificar una dirección IP de switch
 
 Sustituya la dirección IP antigua de supervisión de estado de un switch back-end de MetroCluster FC.
@@ -54,6 +55,7 @@ Consulte la documentación del proveedor del switch para que su modelo de switch
 
 
 
+[[modify-an-atto-bridge-ip-address]]
 == Modificar una dirección IP de puente ATTO
 
 Sustituya la dirección IP de supervisión de estado antigua de un puente ATTO.

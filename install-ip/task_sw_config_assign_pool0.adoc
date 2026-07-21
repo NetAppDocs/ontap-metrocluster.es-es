@@ -15,6 +15,7 @@ Si no recibió los sistemas preconfigurados de fábrica, es posible que tenga qu
 
 
 
+[[manually-assigning-drives-for-pool-0-ontap-9-4-and-later]]
 == Asignar manualmente unidades para un pool 0 (ONTAP 9.4 y posterior)
 
 Si el sistema no ha sido preconfigurado de fábrica y no cumple con los requisitos de la asignación automática de unidades, debe asignar manualmente las unidades del pool 0.
@@ -118,6 +119,7 @@ Las unidades se deben asignar de forma simétrica, por lo que cada nodo tiene un
 
 
 
+[[manually-assigning-drives-for-pool-0-ontap-9-3]]
 == Asignar manualmente unidades para el pool 0 (ONTAP 9.3)
 
 Si tiene al menos dos bandejas de discos para cada nodo, utiliza la funcionalidad de asignación automática de ONTAP para asignar automáticamente los discos locales (pool 0).

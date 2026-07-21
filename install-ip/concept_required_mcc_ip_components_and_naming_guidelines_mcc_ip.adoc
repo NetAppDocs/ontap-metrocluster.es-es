@@ -15,6 +15,7 @@ Identifique los componentes de hardware y software necesarios y compatibles para
 
 
 
+[[supported-software-and-hardware]]
 == Software y hardware compatibles
 
 El hardware y el software deben ser compatibles con la configuración IP de MetroCluster.
@@ -25,12 +26,14 @@ Al usar sistemas AFF, todos los módulos de controladora de la configuración Me
 
 
 
+[[hardware-redundancy-requirements-in-a-metrocluster-ip-configuration]]
 == Requisitos de redundancia de hardware en una configuración IP de MetroCluster
 
 Debido a la redundancia del hardware en la configuración IP de MetroCluster, hay dos componentes cada sitio. Los sitios son asignados arbitrariamente las letras A y B, y los componentes individuales son asignados arbitrariamente los números 1 y 2.
 
 
 
+[[ontap-cluster-requirements-in-a-metrocluster-ip-configuration]]
 == Requisitos del clúster de ONTAP en una configuración de IP de MetroCluster
 
 Las configuraciones de IP de MetroCluster requieren dos clústeres de ONTAP, uno en cada sitio de MetroCluster.
@@ -45,6 +48,7 @@ Nombres de ejemplo:
 
 
 
+[[ip-switch-requirements-in-a-metrocluster-ip-configuration]]
 == Requisitos del switch de IP en una configuración de MetroCluster IP
 
 Las configuraciones de IP de MetroCluster requieren cuatro switches IP. Los cuatro switches forman dos estructuras de almacenamiento de switches que proporcionan el ISL entre cada uno de los clústeres en la configuración IP de MetroCluster.
@@ -71,6 +75,7 @@ Nombres de ejemplo:
 
 
 
+[[controller-module-requirements-in-a-metrocluster-ip-configuration]]
 == Requisitos del módulo de controlador en una configuración de IP de MetroCluster
 
 Las configuraciones de IP de MetroCluster requieren cuatro o ocho módulos de controladora.
@@ -89,6 +94,7 @@ Las configuraciones de IP de MetroCluster existentes en sistemas FAS se pueden a
 
 
 
+[[example-names]]
 === Nombres de ejemplo
 
 Los siguientes nombres de ejemplo se utilizan en la documentación:
@@ -109,6 +115,7 @@ Los siguientes nombres de ejemplo se utilizan en la documentación:
 
 
 
+[[gigabit-ethernet-adapter-requirements-in-a-metrocluster-ip-configuration]]
 == Requisitos de adaptador Gigabit Ethernet en una configuración IP de MetroCluster
 
 Las configuraciones de IP de MetroCluster utilizan un adaptador Ethernet de 40/100 Gbps o 10/25 Gbps para las interfaces IP de los switches IP utilizados en la estructura IP de MetroCluster.
@@ -274,6 +281,7 @@ link:concept_considerations_drive_assignment.html["Obtenga más información sob
 
 
 
+[[pool-and-drive-requirements-minimum-supported]]
 == Requisitos de pool y unidad (compatible como mínimo)
 
 Una configuración IP de MetroCluster de cuatro nodos requiere la configuración mínima en cada sitio:
@@ -305,6 +313,7 @@ NOTE: A partir de ONTAP 9,4, las configuraciones IP de MetroCluster admiten nuev
 
 
 
+[[drive-location-considerations-for-partially-populated-shelves]]
 == Consideraciones sobre la ubicación de la unidad para bandejas parcialmente ocupadas
 
 Para conseguir la asignación automática correcta de unidades cuando se utilizan bandejas que se han rellenado a la mitad (12 unidades en una bandeja de 24 unidades), las unidades se deben ubicar en las ranuras 0-5 y 18-23.
@@ -313,6 +322,7 @@ En una configuración con una bandeja parcialmente ocupada, las unidades deben d
 
 
 
+[[drive-location-considerations-for-aff-a800-internal-drives]]
 == Consideraciones sobre la ubicación de las unidades internas AFF A800
 
 Para una correcta implementación de la función ADP, las ranuras de disco del sistema AFF A800 se deben dividir en trimestres y los discos deben ubicarse de forma simétrica en los trimestres.

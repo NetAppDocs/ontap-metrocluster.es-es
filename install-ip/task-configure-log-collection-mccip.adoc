@@ -29,6 +29,7 @@ El control del estado de los switches de Ethernet (CSHM) es responsable de garan
 ====
 
 
+[[before-you-begin]]
 == Antes de empezar
 
 * El usuario debe tener acceso a los comandos de cambio `show` . Si no están disponibles, cree un nuevo usuario y otorgue los permisos necesarios al usuario.
@@ -47,6 +48,7 @@ El control del estado de los switches de Ethernet (CSHM) es responsable de garan
 
 
 
+[[steps]]
 == Pasos
 
 [role="tabbed-block"]

@@ -15,6 +15,7 @@ Actualice los archivos de configuración de referencia de switches (RDM) para la
 
 
 
+[[update-the-switch-rcfs-to-accommodate-the-new-platforms]]
 == Actualice los RFC del switch para acomodar las nuevas plataformas
 
 Debe actualizar los switches a una configuración que admita los nuevos modelos de plataforma.
@@ -49,6 +50,7 @@ Siga los pasos de la sección para su proveedor de switches:
 
 
 
+[[set-the-metrocluster-ip-bootarg-variables]]
 == Establezca las variables bootarg de MetroCluster IP
 
 Ciertos valores de arranque IP de MetroCluster deben configurarse en los nuevos módulos de la controladora. Los valores deben coincidir con los configurados en los módulos de la controladora anteriores.

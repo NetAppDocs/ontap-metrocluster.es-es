@@ -15,6 +15,7 @@ Debe realizar los pasos de configuración finales y devolver la configuración d
 
 
 
+[[verifying-metrocluster-operation-and-assigning-drives-after-transition]]
 == Verificación del funcionamiento de MetroCluster y asignación de unidades después de la transición
 
 Debe verificar que MetroCluster funciona correctamente y asignar unidades al segundo par de nodos nuevos (node_A_2-IP y node_B_2-IP).
@@ -32,6 +33,7 @@ Debe verificar que MetroCluster funciona correctamente y asignar unidades al seg
 
 
 
+[[installing-licenses-for-the-new-controller-module]]
 == Instalación de licencias para el nuevo módulo de controlador
 
 Debe añadir licencias para el nuevo módulo de controladora para todos los servicios ONTAP que requieran licencias estándar (de bloqueo de nodo). Para funciones con licencias estándar, cada nodo del clúster debe tener su propia clave para la función.
@@ -53,6 +55,7 @@ Repita este paso con cada licencia estándar (bloqueo de nodo) requerida.
 
 
 
+[[completing-configuration-of-the-nodes]]
 == Completando la configuración de los nodos
 
 Existen varios pasos de configuración que se pueden realizar antes de completar los procedimientos. Algunos de estos pasos son opcionales.
@@ -77,6 +80,7 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Instalació
 
 
 
+[[sending-a-custom-autosupport-message-after-maintenance]]
 == Envío de un mensaje de AutoSupport personalizado tras el mantenimiento
 
 Después de completar la transición, debe enviar un mensaje de AutoSupport que indique el final del mantenimiento para que se pueda reanudar la creación automática de casos.

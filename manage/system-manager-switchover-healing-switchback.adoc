@@ -18,6 +18,7 @@ NOTE: Los procedimientos de conmutación de sitios y conmutación de estado solo
 
 
 
+[[overview-of-switchover-and-switchback]]
 == Información general sobre conmutación de sitios y conmutación de estado
 
 Un cambio puede producirse en dos instancias:
@@ -45,6 +46,8 @@ El proceso de cambio y devolución que siga dependerá de la versión de ONTAP:
 
 
 
+[[use-system-manager-in-ontap-9-6-or-9-7-for-switchover-and-switchback]]
+[[sm97-sosb]]
 == Use System Manager en ONTAP 9,6 o 9,7 para la conmutación de sitios y la conmutación de estado
 
 .Pasos
@@ -71,10 +74,13 @@ System Manager verifica si es posible una conmutación negociada.
 
 
 
+[[use-system-manager-in-ontap-9-8-or-later-for-switchover-and-switchback]]
+[[sm98-sosb]]
 == Utilice System Manager en ONTAP 9,8 o versiones posteriores para la conmutación de sitios y la conmutación de estado
 
 
 
+[[perform-a-planned-switchover-ontap-9-8-or-later]]
 === Realizar una conmutación de sitios planificada (ONTAP 9,8 o posterior)
 
 .Pasos
@@ -94,6 +100,7 @@ NOTE: El clúster remoto no se debe utilizar para el mantenimiento de datos hast
 
 
 
+[[perform-an-unplanned-switchover-ontap-9-8-or-later]]
 === Realice una conmutación de sitios no planificada (ONTAP 9,8 o posterior).
 
 ONTAP puede iniciar automáticamente un cambio no planificado. Si ONTAP no puede determinar si es necesaria una conmutación de estado, el administrador del sistema del sitio de MetroCluster que aún se ejecuta inicia la conmutación de sitios con los siguientes pasos:
@@ -121,6 +128,7 @@ NOTE: Una vez que el clúster remoto se conecta, no se debe utilizar para el man
 
 
 
+[[perform-a-switchback-ontap-9-8-or-later]]
 === Realice una conmutación de retorno (ONTAP 9,8 o posterior)
 
 .Antes de empezar

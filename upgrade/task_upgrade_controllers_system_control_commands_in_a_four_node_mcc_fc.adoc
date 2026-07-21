@@ -15,6 +15,7 @@ Puede usar esta operación de conmutación de sitios automatizada y guiada de Me
 
 
 
+[[supported-platform-combinations]]
 == Combinaciones de plataformas compatibles
 
 * Para obtener información sobre qué combinaciones de actualizaciones de plataforma son compatibles, revise la tabla de actualización FC de MetroCluster en  link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-fc-controller-upgrades["Elija un procedimiento de actualización de la controladora"].
@@ -24,6 +25,7 @@ Consulte link:concept_choosing_an_upgrade_method_mcc.html["Seleccione un método
 
 
 
+[[about-this-task]]
 == Acerca de esta tarea
 
 * Este procedimiento solo se puede usar para actualizar la controladora.
@@ -79,6 +81,7 @@ En este procedimiento se utilizan los nombres de ejemplo siguientes:
 
 
 
+[[enable-console-logging]]
 == Active el registro de la consola
 
 NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y realice las siguientes acciones al realizar este procedimiento:
@@ -93,6 +96,8 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 
 
+[[prepare-for-the-upgrade]]
+[[fc_controller_replace_prepare]]
 == Prepare la actualización
 
 Para preparar la actualización de la controladora, debe realizar comprobaciones previas del sistema y recopilar la información de la configuración.
@@ -139,6 +144,7 @@ Compruebe si se ha producido este error porque ha reflejado agregados o debido a
 
 
 
+[[gather-information-before-the-upgrade]]
 === Recopile información antes de la actualización
 
 Antes de la actualización, si el volumen raíz está cifrado, se debe recopilar la clave de backup y otra información para arrancar las nuevas controladoras con los volúmenes raíz cifrados anteriores.
@@ -327,6 +333,7 @@ cluster_B::*
 
 
 
+[[remove-the-existing-configuration-from-the-tiebreaker-or-other-monitoring-software]]
 === Elimine la configuración existente del tiebreaker o del otro software de supervisión
 
 Si la configuración existente se supervisa con la configuración de tiebreaker para MetroCluster u otras aplicaciones de terceros (por ejemplo, ClusterLion) que pueden iniciar una conmutación de sitios, debe eliminar la configuración de MetroCluster del tiebreaker o de otro software antes de sustituir el controlador antiguo.
@@ -341,6 +348,7 @@ Consulte la documentación de la aplicación.
 
 
 
+[[replace-the-old-controllers-and-boot-up-the-new-controllers]]
 == Sustituya las controladoras antiguas y arranque las nuevas controladoras
 
 Después de recopilar información y reanudar la operación, la automatización avanza con la operación de conmutación.
@@ -353,6 +361,7 @@ Antes de iniciar la conmutación, la operación de automatización se pone en pa
 
 
 
+[[prepare-the-network-configuration-of-the-old-controllers]]
 === Prepare la configuración de red de las controladoras antiguas
 
 Para garantizar que la red se reanude correctamente en las nuevas controladoras, debe mover los LIF a un puerto común y, a continuación, quitar la configuración de red de las controladoras antiguas.
@@ -454,6 +463,7 @@ Este paso debe realizarse en ambos nodos.
 
 
 
+[[set-up-the-new-controllers]]
 === Configure las nuevas controladoras
 
 Debe montar en rack y cablear las nuevas controladoras.
@@ -484,6 +494,7 @@ https://docs.netapp.com/platstor/index.jsp["Documentación de los sistemas de ha
 
 
 
+[[netboot-the-new-controllers]]
 === Arranque por red las nuevas controladoras
 
 Después de instalar los nodos nuevos, debe reiniciar el sistema para asegurarse de que los nuevos nodos estén ejecutando la misma versión de ONTAP que los nodos originales. El término arranque desde red significa que se arranca desde una imagen ONTAP almacenada en un servidor remoto. Al prepararse para reiniciar el sistema, debe colocar una copia de la imagen de arranque ONTAP 9 en un servidor web al que pueda acceder el sistema.
@@ -556,6 +567,7 @@ NOTE: Debe reiniciar el nodo para poder utilizar el software recién instalado.
 
 
 
+[[clear-the-configuration-on-a-controller-module]]
 === Borrar la configuración de un módulo de controlador
 
 Antes de utilizar un nuevo módulo de controladora en la configuración de MetroCluster, debe borrar la configuración existente.
@@ -595,6 +607,7 @@ Responda `yes` a la solicitud de confirmación.
 
 
 
+[[restore-the-hba-configuration]]
 === Restaure la configuración de HBA
 
 Dependiendo de la presencia y configuración de tarjetas HBA en el módulo de controlador, debe configurarlas correctamente para el uso de su sitio.
@@ -676,6 +689,7 @@ FC
 
 
 
+[[reassign-root-aggregate-disks]]
 === Reasignar discos de agregado raíz
 
 Reasigne los discos del agregado raíz al nuevo módulo de controlador mediante la `sysids` reunidos antes
@@ -791,6 +805,7 @@ aggr0_node_b_1-root        online      raid_dp, aggr    root, nosnap=on,
 
 
 
+[[boot-up-the-new-controllers]]
 === Arranque las nuevas controladoras
 
 Debe reiniciar los controladores desde el menú de arranque para actualizar la imagen flash de la controladora. Se requieren pasos adicionales si está configurado el cifrado.
@@ -1004,6 +1019,7 @@ Verifique que los nuevos nodos (site_B) estén en *esperando el estado de regres
 
 
 
+[[complete-the-upgrade]]
 == Complete la actualización
 
 La operación de automatización ejecuta comprobaciones del sistema de verificación y, a continuación, pausa para poder verificar la accesibilidad de la red. Después de la verificación, se inicia la fase de recuperación de recursos y la operación de automatización ejecuta la conmutación de estado del sitio A y se pausa en las comprobaciones posteriores a la actualización. Después de reanudar la operación de automatización, se realizan las comprobaciones posteriores a la actualización y, si no se detectan errores, Marca la actualización como completada.
@@ -1031,6 +1047,7 @@ Si las comprobaciones posteriores a la actualización no informaron de ningún e
 
 
 
+[[upgrade-the-nodes-on-clustera]]
 == Actualice los nodos en cluster_A
 
 Debe repetir las tareas de actualización para actualizar los nodos en cluster_A en el sitio A.
@@ -1044,6 +1061,7 @@ Al repetir el procedimiento, se invierten todas las referencias de ejemplo a los
 
 
 
+[[restoring-tiebreaker-monitoring]]
 === Restaurar la supervisión de tiebreaker
 
 Si la configuración de MetroCluster se ha configurado previamente para la supervisión por parte del software Tiebreaker, puede restaurar la conexión de tiebreaker.

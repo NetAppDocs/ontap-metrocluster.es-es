@@ -18,10 +18,12 @@ NOTE: Para Cisco 9132T, consulte link:cisco-9132t-fc-port-config-bridges.html["U
 
 
 
+[[shelf-configurations-using-fibrebridge-7500n-or-7600n-using-both-fc-ports-fc1-and-fc2]]
 == Configuraciones de bandeja que utilizan FibreBridge 7500N o 7600N con ambos puertos FC (FC1 y FC2)
 
 
 
+[[metrocluster-1-or-dr-group-1]]
 === MetroCluster 1 o el grupo de recuperación ante desastres 1
 
 La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 1 o el grupo 1 de recuperación ante desastres mediante puentes FibreBridge 7500N o 7600N y ambos puertos FC (FC1 y FC2) en switches Cisco (excepto el 9132T). Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:
@@ -332,6 +334,7 @@ FC2
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 === MetroCluster 2 o el grupo de recuperación ante desastres 2
 
 La siguiente tabla muestra las configuraciones de estantería compatibles en MetroCluster 2 o el grupo 2 de recuperación ante desastres con FibreBridge 7500N o 7600N y ambos puertos FC (FC1 y FC2) en switches Cisco (excepto el 9132T). Tenga en cuenta lo siguiente al utilizar las tablas de cableado:
@@ -642,10 +645,12 @@ n / A
 |===
 
 
+[[shelf-configurations-using-fibrebridge-7500n-or-7600n-using-one-fc-port-fc1-or-fc2-only]]
 == Configuraciones de bandeja que utilizan FibreBridge 7500N o 7600N con solo un puerto FC (FC1 Gb o FC2 Gb)
 
 
 
+[[metrocluster-1-or-dr-group-1]]
 === MetroCluster 1 o el grupo de recuperación ante desastres 1
 
 La siguiente tabla muestra las configuraciones de plataforma compatibles en MetroCluster 1 o el grupo de recuperación ante desastres 1 para puentes FibreBridge 7500N o 7600N que utilizan un puerto FC (FC1 o FC2) en switches Cisco (excepto el 9132T). El archivo de configuración de referencia (RCF) no admite un puerto FC en puentes FibreBridge, por lo que debe configurar manualmente los switches de canal de fibra de back-end.
@@ -952,6 +957,7 @@ bridge_x_8b
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 === MetroCluster 2 o el grupo de recuperación ante desastres 2
 
 La siguiente tabla muestra las configuraciones de estante compatibles en MetroCluster 2 o el grupo 2 de recuperación ante desastres para puentes FibreBridge 7500N o 7600N que utilizan un puerto FC (FC1 o FC2) en switches Cisco (excepto 9132T). Tenga en cuenta lo siguiente al utilizar esta tabla de configuración:

@@ -16,6 +16,7 @@ ONTAP Mediator proporciona LUN de buzón para almacenar información de estado s
 
 NOTE: MAUSO no es compatible con las configuraciones de MetroCluster FC.
 
+[[default_scenarios]]
 Cuando un nodo detecta un fallo de sitio que requiere una conmutación, se realizan los pasos necesarios para confirmar que la conmutación es adecuada y, de ser así, realiza la conmutación. Por defecto, se inicia un MAUSO para los siguientes escenarios:
 
 * El mirroring de SyncMirror y el mirroring de DR de la caché no volátil de cada nodo están funcionando y las cachés y reflejos se sincronizan en el momento de la falla.

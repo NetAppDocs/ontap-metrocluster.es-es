@@ -15,6 +15,7 @@ Configure las nuevas controladoras antes de reiniciar las controladoras para con
 
 
 
+[[set-up-the-new-controllers]]
 == Configure las nuevas controladoras
 
 Debe montar en rack y cablear las nuevas controladoras.
@@ -114,6 +115,7 @@ https://docs.netapp.com/us-en/ontap-systems/index.html["Documentación de los si
 
 
 
+[[netboot-the-new-controllers]]
 == Arranque por red las nuevas controladoras
 
 Después de instalar los nodos nuevos, debe reiniciar el sistema para asegurarse de que los nuevos nodos estén ejecutando la misma versión de ONTAP que los nodos originales. El término arranque desde red significa que se arranca desde una imagen ONTAP almacenada en un servidor remoto. Al prepararse para reiniciar el sistema, debe colocar una copia de la imagen de arranque ONTAP 9 en un servidor web al que pueda acceder el sistema.
@@ -172,6 +174,7 @@ NOTE: Debe reiniciar el nodo para poder utilizar el software recién instalado.
 
 
 
+[[clear-the-configuration-on-a-controller-module]]
 == Borrar la configuración de un módulo de controlador
 
 Antes de utilizar un nuevo módulo de controladora en la configuración de MetroCluster, debe borrar la configuración existente.

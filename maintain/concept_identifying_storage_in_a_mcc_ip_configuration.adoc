@@ -15,6 +15,7 @@ Si necesita sustituir un módulo de unidad o bandeja, primero tiene que identifi
 
 
 
+[[identification-of-local-and-remote-shelves]]
 == Identificación de las bandejas locales y remotas
 
 Cuando se muestra información de una bandeja desde un sitio MetroCluster, todas las unidades remotas están en 0 m, el adaptador de host iSCSI virtual. Esto significa que se accede a las unidades mediante las interfaces IP de MetroCluster. Las demás unidades son locales.
@@ -32,6 +33,7 @@ https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.ht
 
 
 
+[[example-of-sysconfig-a-output]]
 == Ejemplo de salida sysconfig -a.
 
 En el ejemplo siguiente se utiliza la `sysconfig -a` Comando para mostrar los dispositivos en un nodo de la configuración de IP de MetroCluster. Este nodo tiene las siguientes bandejas y dispositivos conectados:

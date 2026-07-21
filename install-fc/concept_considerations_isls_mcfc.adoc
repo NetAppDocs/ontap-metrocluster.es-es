@@ -15,6 +15,7 @@ Debe determinar cuántos ISL se necesitan para cada estructura de switch FC en l
 
 
 
+[[isl-sharing-considerations-ontap-9-2]]
 == Consideraciones de uso compartido de ISL (ONTAP 9.2)
 
 A partir de ONTAP 9.2, se puede utilizar el uso compartido de ISL en los siguientes casos:
@@ -47,6 +48,7 @@ https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 
 
+[[platform-specific-isl-considerations]]
 == Consideraciones sobre ISL específicas de la plataforma
 
 El número de ISL recomendados es específico del modelo de la plataforma. En la siguiente tabla se muestran los requisitos de ISL para cada estructura por modelo de plataforma. Supone que cada ISL tiene una capacidad de 16 Gbps.

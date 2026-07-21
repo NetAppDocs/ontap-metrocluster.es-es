@@ -15,6 +15,7 @@ En los sistemas configurados para ADP, debe verificar que las unidades en un poo
 
 
 
+[[verifying-drive-assignment-of-pool-0-drives-on-adp-systems-at-the-disaster-site-metrocluster-ip-systems]]
 == Verificación de la asignación de unidades del pool 0 en sistemas ADP en el sitio de desastre (sistemas IP de MetroCluster)
 
 Si las unidades se han sustituido en el sitio de desastres y el sistema está configurado para ADP, debe comprobar que las unidades remotas estén visibles para los nodos y que se hayan asignado correctamente.
@@ -72,6 +73,7 @@ node_A_2:0n.43   -          0     43  SSD-NVM unassigned  -         -
 
 
 
+[[assigning-pool-0-drives-on-non-adp-systems-at-the-disaster-site-metrocluster-ip-configurations]]
 == Asignar unidades de pool 0 en sistemas que no son de ADP en el sitio de desastre (configuraciones IP de MetroCluster)
 
 Si las unidades se han sustituido en el sitio de desastres y el sistema no está configurado para ADP, debe asignar manualmente nuevas unidades al pool 0.

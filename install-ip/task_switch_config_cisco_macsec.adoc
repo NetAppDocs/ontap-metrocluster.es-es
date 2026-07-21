@@ -22,12 +22,14 @@ Si es necesario, puedes configurar el cifrado MACsec en los puertos ISL de la WA
 ====
 
 
+[[licensing-requirements-for-macsec]]
 == Requisitos de licencia para MACsec
 
 MACsec requiere una licencia de seguridad. Para obtener una explicación completa del esquema de licencias de Cisco NX-OS y de cómo obtener y solicitar licencias, consulte https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["Guía de licencias de Cisco NX-OS"^]
 
 
 
+[[enable-cisco-macsec-encryption-wan-isls-in-metrocluster-ip-configurations]]
 == Habilita ISL WAN de cifrado Cisco MACsec en configuraciones IP de MetroCluster
 
 Puede habilitar el cifrado MACsec para los switches Cisco 9336C en los ISL WAN en una configuración IP MetroCluster.
@@ -65,6 +67,7 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
+[[configure-a-macsec-key-chain-and-keys]]
 == Configure una cadena de claves y claves MACsec
 
 Puede crear una cadena de claves o claves MACsec en su configuración.
@@ -168,6 +171,7 @@ IP_switch_A_1(config-macseckeychain-macseckey)# show key chain 1
 
 
 
+[[configure-a-macsec-policy]]
 == Configure una directiva de MACsec
 
 .Pasos
@@ -292,6 +296,7 @@ IP_switch_A_1(config-macsec-policy)# show macsec policy
 
 
 
+[[enable-cisco-macsec-encryption-on-the-interfaces]]
 == Active el cifrado Cisco MACsec en las interfaces
 
 . Entre al modo de configuración global:
@@ -337,6 +342,7 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
+[[disable-cisco-macsec-encryption-wan-isls-in-metrocluster-ip-configurations]]
 == Deshabilita los ISL de WAN de cifrado Cisco MACs en las configuraciones IP de MetroCluster
 
 Es posible que deba deshabilitar el cifrado MACsec para los switches Cisco 9336C en los ISL WAN en una configuración IP de MetroCluster.
@@ -398,6 +404,7 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
+[[verifying-the-macsec-configuration]]
 == Verificación de la configuración de MACsec
 
 .Pasos

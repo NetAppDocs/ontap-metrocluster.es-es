@@ -20,6 +20,7 @@ NOTE: Si comparte un ISL con tráfico que no sea de MetroCluster, debe verificar
 
 
 
+[[shared-network-configuration-with-direct-links]]
 == Configuración de red compartida con enlaces directos
 
 En esta topología, dos sitios distintos están conectados mediante vínculos directos. Estos enlaces pueden estar entre los dispositivos xWDM y TDM o switches. La capacidad de los ISL no está dedicada al tráfico de MetroCluster, sino que se comparte con otro tráfico que no sea de MetroCluster.
@@ -28,6 +29,7 @@ image::../media/mcc_ip_networking_with_shared_isls.gif[Ejemplo de red IP de Metr
 
 
 
+[[shared-infrastructure-with-intermediate-networks]]
 == Infraestructura compartida con redes intermedias
 
 En esta topología, los sitios de MetroCluster no están conectados directamente, sino que MetroCluster y el tráfico de host viajan a través de una red.
@@ -37,6 +39,7 @@ image::../media/mcc_ip_networking_with_intermediate_private_networks.gif[Ejemplo
 
 
 
+[[multiple-metrocluster-configurations-sharing-an-intermediate-network]]
 == Varias configuraciones de MetroCluster que comparten una red intermedia
 
 En esta topología, dos configuraciones de MetroCluster independientes comparten la misma red intermedia. En el ejemplo, MetroCluster ONE SWITCH_A_1 y MetroCluster Two SWITCH_A_1, ambos se conectan al mismo conmutador intermedio.
@@ -48,6 +51,7 @@ image::../media/mcc_ip_two_mccs_sharing_the_same_shared_network_sx.gif[Cableado 
 
 
 
+[[combination-of-a-metrocluster-configuration-using-netapp-validated-switches-and-a-configuration-using-metrocluster-compliant-switches]]
 == Combinación de una configuración MetroCluster con switches validados NetApp y una configuración mediante switches conformes a la normativa MetroCluster
 
 Dos configuraciones de MetroCluster separadas comparten el mismo switch intermedio, donde un MetroCluster se configura usando switches validados por NetApp en una configuración de capa 2 compartida (MetroCluster One) y el otro MetroCluster se configura usando switches compatibles con MetroCluster y se conectan directamente a los switches intermedios (MetroCluster Two).

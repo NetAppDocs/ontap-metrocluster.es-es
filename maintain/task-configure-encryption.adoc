@@ -48,6 +48,7 @@ ONTAP 9.15.1
 
 
 
+[[enable-end-to-end-encryption]]
 == Habilite el cifrado integral
 
 Realice los siguientes pasos para habilitar el cifrado de extremo a extremo.
@@ -161,6 +162,7 @@ dr-group-id cluster    node      configuration-state is-encryption-enabled
 
 
 
+[[disable-end-to-end-encryption]]
 == Deshabilite el cifrado integral
 
 Realice los siguientes pasos para desactivar el cifrado de extremo a extremo.

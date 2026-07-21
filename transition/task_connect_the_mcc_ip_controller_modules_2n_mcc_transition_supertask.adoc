@@ -15,6 +15,7 @@ Debe añadir los cuatro nuevos módulos de controladora y cualquier bandeja de a
 
 
 
+[[setting-up-the-new-controllers]]
 == Configurar las nuevas controladoras
 
 Debe montar en rack y cablear las nuevas controladoras IP de MetroCluster a las bandejas de almacenamiento conectadas previamente a las controladoras FC de MetroCluster.
@@ -126,12 +127,14 @@ Siga los pasos para su proveedor de switches:
 
 
 
+[[connecting-and-booting-up-nodea1-ip-and-nodeb1-ip]]
 == Conectar e arrancar node_A_1-IP y node_B_1-IP
 
 Tras conectar las controladoras IP de MetroCluster y los switches IP, realiza la transición y arranca node_A_1-IP y node_B_1-IP.
 
 
 
+[[bringing-up-nodea1-ip]]
 === Poniendo en marcha node_A_1-IP
 
 Debe arrancar el nodo con la opción de transición correcta.
@@ -218,6 +221,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
 
 
 
+[[recovering-key-management-if-the-root-volume-is-encrypted]]
 === Se recupera la gestión de claves si el volumen raíz se cifra
 
 Si el volumen raíz está cifrado, se deben utilizar comandos de arranque especiales para restaurar la gestión de claves.
@@ -373,6 +377,7 @@ El sistema se inicia en el menú de inicio.
 
 
 
+[[creating-the-network-configuration]]
 === Creación de la configuración de red
 
 Debe crear una configuración de red que coincida con la configuración de los nodos FC. Esto es así porque el nodo IP de MetroCluster reproduce la misma configuración cuando arranca, lo que significa que cuando arranque node_A_1-IP y node_B_1-IP, ONTAP intentará host LIF en los mismos puertos que se utilizaron en node_A_1-FC y node_B_1-FC respectivamente.
@@ -428,6 +433,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+[[setting-up-cluster-ports-and-cluster-lifs]]
 === Configurar los puertos del clúster y las LIF del clúster
 
 Debe configurar los puertos y las LIF del clúster. En el sitio a se tienen que realizar los siguientes pasos que se han iniciado con agregados raíz.
@@ -497,6 +503,7 @@ Debe configurar los puertos y las LIF del clúster. En el sitio a se tienen que 
 
 
 
+[[verifying-lif-configuration]]
 === Verificación de la configuración de LIF
 
 Tras mover el almacenamiento de la controladora anterior, siguen presentes las LIF de gestión de nodos, las LIF de gestión de clústeres y las LIF de interconexión de clústeres. Si es necesario, debe mover las LIF a los puertos adecuados.
@@ -569,12 +576,14 @@ Si las LIF están en los puertos deseados, puede omitir el resto de los pasos de
 
 
 
+[[bringing-up-nodea2-ip-and-nodeb2-ip]]
 == Nodos_A_2-IP y node_B_2-IP
 
 Debe utilizar y configurar el nuevo nodo IP de MetroCluster en cada sitio, creando así un par de alta disponibilidad en cada sitio.
 
 
 
+[[bringing-up-nodea2-ip-and-nodeb2-ip]]
 === Nodos_A_2-IP y node_B_2-IP
 
 Debe arrancar los nuevos módulos del controlador de uno en uno utilizando la opción correcta en el menú de inicio.
@@ -749,6 +758,7 @@ Para obtener más información, consulte https://docs.netapp.com/ontap-9/topic/c
 
 
 
+[[verifying-mtu-settings]]
 === Verificación de la configuración de MTU
 
 Compruebe que la configuración de MTU esté establecida correctamente para los puertos y el dominio de retransmisión, y realice cambios.
@@ -766,6 +776,7 @@ Compruebe que la configuración de MTU esté establecida correctamente para los 
 
 
 
+[[configuring-intercluster-lifs]]
 === Configurar las LIF de interconexión de clústeres
 
 Configure las LIF de interconexión de clústeres necesarias para la agrupación de clústeres.
@@ -778,6 +789,7 @@ Esta tarea se debe realizar en ambos nodos nuevos, Node_A_2-IP y node_B_2-IP.
 
 
 
+[[verifying-cluster-peering]]
 === Verificación de la relación de paridad de clústeres
 
 Compruebe que cluster_A y cluster_B tienen una relación entre iguales y que los nodos de cada clúster se pueden comunicar entre sí.

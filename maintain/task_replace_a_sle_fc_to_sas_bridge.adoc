@@ -28,6 +28,7 @@ link:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_
 
 
 
+[[verifying-storage-connectivity]]
 == Verificación de la conectividad de almacenamiento
 
 Antes de sustituir puentes, debe verificar la conectividad de puente y almacenamiento. Familiarizarse con el resultado del comando le permite confirmar la conectividad posteriormente tras realizar cambios en la configuración.
@@ -95,6 +96,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 
 
+[[hot-swapping-a-bridge-with-a-replacement-bridge-of-the-same-model]]
 == Intercambio en caliente de un puente con un puente de reemplazo del mismo modelo
 
 Puede intercambiar en caliente un puente fallido con otro puente del mismo modelo.
@@ -630,6 +632,7 @@ link:concept_in_band_management_of_the_fc_to_sas_bridges.html["Gestión en banda
 
 
 
+[[hot-swapping-a-fibrebridge-7500n-with-a-7600n-bridge]]
 == Intercambio en caliente de un FibreBridge 7500N con un puente 7600N
 
 Puede cambiar en caliente un puente FibreBridge 7500N con un puente 7600N.
@@ -1022,6 +1025,8 @@ link:concept_in_band_management_of_the_fc_to_sas_bridges.html["Gestión en banda
 
 
 
+[[hot-swapping-a-fibrebridge-6500n-bridge-with-a-fibrebridge-7600n-or-7500n-bridge]]
+[[hot_swap_6500n]]
 == Intercambio en caliente de un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N
 
 Puede cambiar en caliente un puente FibreBridge 6500N con un puente FibreBridge 7600N o 7500N para reemplazar un puente fallido o actualizar su puente en una configuración MetroCluster conectada a la estructura o de puente.

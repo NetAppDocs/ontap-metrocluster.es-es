@@ -21,18 +21,21 @@ En un procedimiento de actualización, se reemplazan las controladoras por un nu
 
 
 
+[[supported-controller-upgrades]]
 == Actualizaciones de controladoras admitidas
 
 Obtenga información sobre las combinaciones compatibles de actualización de controladoras MetroCluster IP y FC.
 
 
 
+[[supported-metrocluster-ip-controller-upgrades-using-system-controller-replace-commands]]
 === Actualizaciones de la controladora IP de MetroCluster admitidas mediante comandos de sustitución de la controladora del sistema
 
 Consulte la tabla de link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["Actualizar controladoras en una configuración IP de MetroCluster de cuatro nodos mediante conmutación de sitios y conmutación de estado con comandos de sustitución de controladoras del sistema (ONTAP 9.13.1 y versiones posteriores)"] para ver las plataformas compatibles.
 
 
 
+[[all-other-supported-metrocluster-ip-controller-upgrades]]
 === Todas las demás actualizaciones de controladoras IP de MetroCluster admitidas
 
 Encuentre su plataforma *Source* en las tablas de actualización del controlador MetroCluster en esta sección. Si la intersección de la fila de la plataforma *Source* y la columna de la plataforma *Target* está en blanco, la actualización no es compatible.
@@ -99,6 +102,7 @@ image:../media/mcc-ip-upgrade-asa-comb-9161.png["La muestra las combinaciones de
 
 
 
+[[supported-metrocluster-fc-controller-upgrades]]
 === Actualizaciones de controladora FC de MetroCluster admitidas
 
 Encuentre su plataforma *Source* en las tablas de actualización del controlador MetroCluster en esta sección. Si la intersección de la fila de la plataforma *Source* y la columna de la plataforma *Target* está en blanco, la actualización no es compatible.
@@ -168,6 +172,7 @@ En la siguiente tabla se muestran las combinaciones de plataformas admitidas par
 
 
 
+[[choose-a-procedure-that-uses-the-switchover-and-switchback-process]]
 == Elija un procedimiento que utilice el proceso de switchover y switchback
 
 Después de revisar las combinaciones de actualización admitidas, elija el procedimiento de actualización de controladora correcto para su configuración.
@@ -246,6 +251,7 @@ link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback
 |===
 
 
+[[choosing-a-procedure-using-aggregate-relocation]]
 == Elegir un procedimiento mediante la reubicación de agregados
 
 En un procedimiento de actualización de controladoras basado en ARL, las operaciones de reubicación de agregados se utilizan para mover datos de la configuración anterior de forma no disruptiva a la nueva configuración actualizada.

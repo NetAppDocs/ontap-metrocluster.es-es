@@ -15,6 +15,7 @@ Configure las tarjetas HBA en el módulo de la controladora y verifique y establ
 
 
 
+[[restore-the-hba-configuration]]
 == Restaure la configuración de HBA
 
 Dependiendo de la presencia y configuración de tarjetas HBA en el módulo de controlador, debe configurarlas correctamente para su sitio.
@@ -96,6 +97,7 @@ FC
 
 
 
+[[set-the-ha-state-on-the-new-controllers-and-chassis]]
 == Establezca el estado de alta disponibilidad en las controladoras y el chasis nuevos
 
 Debe comprobar el estado de alta disponibilidad de las controladoras y el chasis y, si es necesario, actualizar el estado para que coincida con la configuración del sistema.
@@ -164,6 +166,7 @@ El nodo debe detenerse en la `LOADER>` prompt.
 
 
 
+[[remove-internal-drives-from-the-chassis-on-the-new-controller]]
 == Retire las unidades internas del chasis del nuevo controlador
 
 Cuando actualiza desde un sistema que solo tiene unidades externas a un sistema que tiene unidades externas e internas (discos y controladores en el mismo chasis), debe quitar o desinstalar todas las unidades internas del nuevo sistema hasta que haya completado la actualización.

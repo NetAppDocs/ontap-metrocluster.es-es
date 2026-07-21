@@ -49,6 +49,7 @@ Esto significa que cuando generes el RCF para tu nueva configuración, puede que
 
 
 
+[[choose-the-correct-cabling-table-for-your-configuration]]
 == Elija la tabla de cableado correcta para su configuración
 
 Revise la tabla de asignaciones de puertos correcta para la configuración. Hay dos conjuntos de tablas de cableado en esta sección:
@@ -59,6 +60,8 @@ Revise la tabla de asignaciones de puertos correcta para la configuración. Hay 
 
 
 
+[[controllers-connecting-switch-attached-ns224-shelves]]
+[[tables_connecting_ns224]]
 === Controladoras conectando bandejas NS224 conectadas a switches
 
 Determine qué tabla de asignación de puertos se debe seguir para las controladoras que conectan bandejas NS224 conectadas a switches.
@@ -88,6 +91,7 @@ La tabla que siga depende de si está utilizando una tarjeta Ethernet 25G (grupo
 
 | AFF A70 AFF C80 AFF A90 AFF A1K | <<table_5_cisco_9336c_fx2,Switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 5)>> 
 |===
+[[table_1a_cisco_9336c_fx2]]
 .Switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 1a)
 Revise las asignaciones de puertos de plataforma para conectar el cable de un sistema AFF A30, AFF C30 o AFF C60 que está conectando bandejas NSS24 conectadas al switch a un switch Cisco 9336C-FX2 mediante una tarjeta Ethernet 25G de cuatro puertos.
 
@@ -96,6 +100,7 @@ NOTE: Esta configuración requiere una tarjeta Ethernet 25G de cuatro puertos en
 
 image:../media/mccip-cabling-greeley-connecting-a30-c30-fas50-c60-25G.png["La muestra el switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 GbE"]
 
+[[table_1b_cisco_9336c_fx2]]
 .Switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 1b)
 Revise las asignaciones de puertos de plataforma para conectar el cable de un sistema AFF A30, AFF C30 o AFF C60 que está conectando bandejas NSS24 conectadas al switch a un switch Cisco 9336C-FX2 mediante una tarjeta Ethernet 100g DE dos puertos.
 
@@ -104,16 +109,19 @@ NOTE: Esta configuración requiere una tarjeta Ethernet 100g de dos puertos en l
 
 image:../media/mccip-cabling-greeley-connecting-a30-c30-fas50-c60-100G.png["La muestra el switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 GbE"]
 
+[[table_2_cisco_9336c_fx2]]
 .Switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 2)
 Revise las asignaciones de puertos de plataforma para conectar el cableado de un sistema AFF A320, AFF C400, ASA C400, AFF A400 o ASA A400 que esté conectando bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
 image::../media/mcc_ip_cabling_a320_c400_a400_to_cisco_9336c_shared_switch.png[La muestra el switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 GbE]
 
+[[table_3_cisco_9336c_fx2]]
 .Switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 3)
 Revise las asignaciones de puertos de plataforma para conectar el cableado de un sistema AFF A50 que está conectando bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
 image:../media/mccip-cabling-greeley-connecting-a50-updated.png["La muestra el switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 GbE"]
 
+[[table_4_cisco_9336c_fx2]]
 .Switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 4)
 Revise las asignaciones de puertos de plataforma para conectar los cables de un sistema AFF A700, AFF C800, ASA C800, AFF A800, AFF A900 o ASA A900 que esté conectando bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
@@ -121,6 +129,7 @@ image:../media/mcc_ip_cabling_a700_c800_a800_a900_to_cisco_9336c_shared_switch.p
 
 *Nota 1*: Utilice los puertos E4A y E4E o E4A y E8a si utiliza un adaptador X91440A (40Gbps). Use los puertos E4A y e4b o E4A y E8a si usa un adaptador de X91153A GbE (100Gbps).
 
+[[table_5_cisco_9336c_fx2]]
 .Switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 5)
 Revise las asignaciones de puertos de plataforma para conectar el cableado de un sistema AFF A70, AFF C80, AFF A90 o AFF A1K que conecta bandejas NSS24 conectadas al switch a un switch Cisco 9336C-FX2:
 
@@ -128,6 +137,8 @@ image::../media/mccip-cabling-greeley-connecting-a70-c80-a-90-fas90-a1k.png[La m
 
 
 
+[[controllers-not-connecting-switch-attached-ns224-shelves]]
+[[tables_not_connecting_ns224]]
 === Las controladoras no conectan las bandejas NS224 conectadas a switches
 
 Determine qué tabla de asignación de puertos se debe seguir para controladoras que no conectan bandejas NS224 conectadas a switches.
@@ -169,21 +180,25 @@ La tabla que siga depende de si está utilizando una tarjeta Ethernet 25G (grupo
 
 | FAS70, AFF A70 AFF C80 FAS90, AFF A90 AFF A1K | <<table_14_cisco_9336c_fx2,El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 14)>> 
 |===
+[[table_6_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 6)
 Revise las asignaciones de puertos de plataforma para conectar el cableado de un sistema AFF A150, ASA A150, FAS2750 o AFF A220 que no conecte bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
 image::../media/mcc-ip-cabling-a-aff-a150-asa-a150-fas2750-aff-a220-to-a-cisco-9336c-shared-switch.png[La muestra que el switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento NS224]
 
+[[table_7_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 7)
 Revise las asignaciones de puertos de plataforma para conectar el cable de un sistema AFF A20 que no esté conectando bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
 image:../media/mcc-ip-aff-a20-to-a-cisco-9336c-shared-switch-not-connecting.png["La muestra que el switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento NS224"]
 
+[[table_8_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 8)
 Revise las asignaciones de puertos de plataforma al cableado de un sistema FAS500f, AFF C250, ASA C250, AFF A250 o ASA A250 que no conecte bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
 image::../media/mcc-ip-cabling-c250-asa-c250-a250-asa-a250-to-cisco-9336c-shared-switch.png[La muestra que el switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento NS224]
 
+[[table_9a_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 9a)
 Revise las asignaciones de puertos de plataforma al cableado de un sistema AFF A30, AFF C30, AFF C60 o FAS50 que no conecta bandejas NSS24 conectadas por switches a un switch Cisco 9336C-FX2 mediante una tarjeta Ethernet 25G de cuatro puertos:
 
@@ -192,6 +207,7 @@ NOTE: Esta configuración requiere una tarjeta Ethernet 25G de cuatro puertos en
 
 image:../media/mccip-cabling-greeley-not-connecting-a30-c30-fas50-c60-25G.png["La muestra que el switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento NS224"]
 
+[[table_9b_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 9b)
 Revise las asignaciones de puertos de plataforma para conectar el cableado de un sistema AFF A30, AFF C30, AFF C60 o FAS50 que no esté conectando bandejas NSS24 conectadas por switches a un switch Cisco 9336C-FX2 mediante una tarjeta Ethernet 100g DE dos puertos:
 
@@ -200,21 +216,25 @@ NOTE: Esta configuración requiere una tarjeta Ethernet 100g de dos puertos en l
 
 image:../media/mccip-cabling-greeley-not-connecting-a30-c30-fas50-c60-100G.png["La muestra el switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 GbE"]
 
+[[table_10_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 10)
 Revise las asignaciones de puertos de plataforma para cablear un sistema FAS8200 o AFF A300 que no esté conectando bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
 image::../media/mcc-ip-cabling-fas8200-affa300-to-cisco-9336c-shared-switch.png[La muestra el switch Cisco 9336C-FX2 que conecta asignaciones de puertos de plataforma de almacenamiento de NS224 GbE]
 
+[[table_11_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 11)
 Revise las asignaciones de puertos de plataforma para conectar los cables de un sistema AFF A320, FAS8300, AFF C400, ASA C400, FAS8700, AFF A400 o ASA A400 que no conecte bandejas NSS24 conectadas al switch a un switch Cisco 9336C-FX2:
 
 image::../media/mcc_ip_cabling_a320_fas8300_a400_fas8700_to_a_cisco_9336c_shared_switch.png[La muestra que el switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento NS224]
 
+[[table_12_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 12)
 Revise las asignaciones de puertos de plataforma para conectar el cable de un sistema AFF A50 que no esté conectando bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
 image::../media/mcc-ip-cabling-aff-a50-cisco-9336c-shared-switch-not-connecting.png[La muestra que el switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento NS224]
 
+[[table_13_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 13)
 Revise las asignaciones de puertos de plataforma al cableado de un sistema FAS9000, AFF A700, AFF C800, ASA C800, AFF A800, ASA A800, FAS9500, AFF A900 o ASA A900 que no conecte las bandejas NSS24 conectadas a switches a un switch Cisco 9336C-FX2:
 
@@ -222,6 +242,7 @@ image::../media/mcc_ip_cabling_a700_a800_fas9000_fas9500_to_cisco_9336c_shared_s
 
 *Nota 1*: Utilice los puertos E4A y E4E o E4A y E8a si utiliza un adaptador X91440A (40Gbps). Use los puertos E4A y e4b o E4A y E8a si usa un adaptador de X91153A GbE (100Gbps).
 
+[[table_14_cisco_9336c_fx2]]
 .El switch Cisco 9336C-FX2 no conecta las asignaciones de puertos de plataforma de almacenamiento de NS224 (grupo 14)
 Revise las asignaciones de puertos de plataforma para conectar los cables de un sistema AFF A70, FAS70, AFF C80, FAS90, AFF A90 o AFF A1K que no conecte bandejas NSS24 conectadas al switch a un switch Cisco 9336C-FX2:
 

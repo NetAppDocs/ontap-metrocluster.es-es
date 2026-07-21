@@ -15,6 +15,7 @@ Al planificar la configuración de MetroCluster, debe conocer los componentes de
 
 
 
+[[supported-software-and-hardware]]
 == Software y hardware compatibles
 
 El hardware y el software deben ser compatibles con la configuración FC de MetroCluster.
@@ -25,12 +26,14 @@ Al usar sistemas AFF, todos los módulos de controladora de la configuración Me
 
 
 
+[[hardware-redundancy-in-the-metrocluster-configuration]]
 == Redundancia del hardware en la configuración de MetroCluster
 
 Debido a la redundancia del hardware en la configuración de MetroCluster, hay dos componentes de cada sitio. Los sitios son asignados arbitrariamente las letras A y B y los componentes individuales son asignados arbitrariamente los números 1 y 2.
 
 
 
+[[requirement-for-two-single-node-ontap-clusters]]
 == Requisito para dos clústeres ONTAP de un solo nodo
 
 La configuración de MetroCluster de ampliación con conexión a puente requiere dos clústeres ONTAP de un solo nodo.
@@ -45,6 +48,7 @@ Nombres de ejemplo:
 
 
 
+[[requirement-for-two-storage-controller-modules]]
 == Requisito para dos módulos de controladora de almacenamiento
 
 La configuración de MetroCluster de ampliación con conexión en puente requiere dos módulos de controladora de almacenamiento.
@@ -76,6 +80,7 @@ Nombres de ejemplo:
 
 
 
+[[requirement-for-fc-to-sas-bridges]]
 == Requisito de los puentes FC a SAS
 
 La configuración de MetroCluster de ampliación conectada a puente requiere dos o más puentes FC a SAS en cada sitio.
@@ -113,6 +118,7 @@ Nombres de ejemplo:
 
 
 
+[[requirement-for-at-least-four-sas-shelves-recommended]]
 == Requisito para al menos cuatro bandejas SAS (recomendado)
 
 La configuración de MetroCluster de ampliación conectada a puente requiere al menos dos bandejas SAS. Sin embargo, se recomiendan dos bandejas en cada sitio para permitir la propiedad de disco por bandeja, con un total de cuatro bandejas SAS.

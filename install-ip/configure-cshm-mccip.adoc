@@ -13,6 +13,7 @@ El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el 
 
 
 
+[[important-notes-for-configuring-cshm-in-a-metrocluster-ip-configuration]]
 == Notas importantes para configurar CSHM en una configuración IP de MetroCluster
 
 Esta sección contiene los pasos genéricos para configurar SNMPv3 y la recopilación de registros en switches Cisco, Broadcom y NVIDIA SN2100. Debe seguir los pasos para una versión de firmware de switch compatible con una configuración IP de MetroCluster. Consulte la link:https://hwu.netapp.com/["Hardware Universe"^] para verificar las versiones de firmware compatibles.

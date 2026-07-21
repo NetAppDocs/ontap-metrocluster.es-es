@@ -15,6 +15,7 @@ Para prepararse para la actualización de la controladora, es posible que deba a
 
 
 
+[[update-the-metrocluster-switch-rcfs-before-upgrading-controllers]]
 == Actualice los RFC del switch de MetroCluster antes de actualizar los controladores
 
 Según los modelos de plataforma antiguos y nuevos, es posible que deba actualizar los archivos de configuración de referencia de switch de MetroCluster antes de actualizar las controladoras.
@@ -115,6 +116,7 @@ Siga los pasos de la sección para su proveedor de switches:
 
 
 
+[[start-the-controller-replacement-operation]]
 == Iniciar la operación de reemplazo del controlador
 
 Cuando se inicia la operación de reemplazo del controlador automatizado, la operación emite una serie de comprobaciones previas y luego se pausa para que pueda recopilar manualmente la información relacionada con la configuración.
@@ -165,6 +167,7 @@ Compruebe si se ha producido este error porque ha reflejado agregados o debido a
 
 
 
+[[gather-information-before-the-upgrade]]
 == Recopile información antes de la actualización
 
 Antes de la actualización, si el volumen raíz está cifrado, se debe recopilar la clave de backup y otra información para arrancar las nuevas controladoras con los volúmenes raíz cifrados anteriores.
@@ -364,6 +367,7 @@ cluster_B::*
 
 
 
+[[remove-the-existing-configuration-from-tiebreaker-or-other-monitoring-software]]
 == Elimine la configuración existente de tiebreaker u otro software de supervisión
 
 Antes de iniciar la actualización, elimine la configuración existente de tiebreaker u otro software de supervisión.

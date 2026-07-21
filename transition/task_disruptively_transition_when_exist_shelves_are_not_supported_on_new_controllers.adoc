@@ -25,6 +25,7 @@ Si tiene una configuración FC MetroCluster de cuatro nodos, consulte link:conce
 
 
 
+[[enable-console-logging]]
 == Active el registro de la consola
 
 NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y realice las siguientes acciones al realizar este procedimiento:
@@ -39,6 +40,7 @@ Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/Sup
 
 
 
+[[requirements-for-transition-when-shelves-are-not-supported-on-the-new-nodes]]
 == Requisitos para la transición cuando no se admiten bandejas en los nuevos nodos
 
 Antes de iniciar el proceso de transición, debe asegurarse de que la configuración cumpla los requisitos.
@@ -87,6 +89,7 @@ https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 
 
+[[workflow-for-disruptive-transition-when-shelves-are-not-supported-by-new-controllers]]
 == Flujo de trabajo para una transición disruptiva cuando las bandejas no son compatibles con las nuevas controladoras
 
 Si los modelos de bandejas existentes no son compatibles con los modelos de plataforma nuevos, debe conectar las nuevas bandejas a la configuración anterior, mover los datos a las nuevas bandejas y, a continuación, efectuar la transición a la nueva configuración.
@@ -97,6 +100,7 @@ image::../media/workflow_2n_transition_old_shelves_not_supported.png[Flujo de tr
 
 
 
+[[preparing-the-new-controller-modules]]
 == Preparación de los nuevos módulos de la controladora
 
 Debe borrar la configuración y la propiedad de disco de los nuevos módulos de la controladora y de las nuevas bandejas de almacenamiento.
@@ -108,6 +112,7 @@ Debe borrar la configuración y la propiedad de disco de los nuevos módulos de 
 
 
 
+[[attaching-the-new-disk-shelves-to-the-existing-metrocluster-fc-controllers]]
 == Conectar las bandejas de discos nuevas a las controladoras FC MetroCluster existentes
 
 Debe asociar las bandejas de unidades nuevas a los módulos de controladoras existentes antes de pasar a una configuración IP de MetroCluster.
@@ -136,6 +141,7 @@ Consulte los requisitos y procedimientos en link:../maintain/task_hot_add_a_sas_
 
 
 
+[[migrate-root-aggregates-and-move-data-to-the-new-disk-shelves]]
 == Migrar agregados raíz y mover datos a las nuevas bandejas de discos
 
 Debe mover los agregados raíz de las bandejas de unidades antiguas a las nuevas bandejas de unidades que utilizarán los nodos de IP de MetroCluster.
@@ -490,6 +496,7 @@ Consulte http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-control
 
 
 
+[[transitioning-the-configuration]]
 == La transición de la configuración
 
 Debe seguir el procedimiento de transición detallado.

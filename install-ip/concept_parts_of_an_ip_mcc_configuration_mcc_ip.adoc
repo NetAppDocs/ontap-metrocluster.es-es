@@ -15,6 +15,7 @@ Al planificar la configuración IP de MetroCluster, deberá comprender los compo
 
 
 
+[[key-hardware-elements]]
 == Elementos clave del hardware
 
 Una configuración IP de MetroCluster incluye los siguientes elementos clave de hardware:
@@ -45,6 +46,7 @@ image::../media/mcc_ip_hardware_architecture_mcc_ip.gif[Arquitectura de hardware
 
 
 
+[[disaster-recovery-dr-groups]]
 == Grupos de recuperación ante desastres
 
 Una configuración IP de MetroCluster consta de un grupo de recuperación ante desastres de cuatro nodos.
@@ -55,6 +57,7 @@ image::../media/mcc_dr_groups_4_node.gif[Grupos de recuperación ante desastres 
 
 
 
+[[illustration-of-the-local-ha-pairs-in-a-metrocluster-configuration]]
 == Una ilustración de los pares de alta disponibilidad locales en una configuración MetroCluster
 
 Cada sitio de MetroCluster consta de controladoras de almacenamiento configuradas como par de alta disponibilidad. Esto permite una redundancia local de modo que si falla una controladora de almacenamiento, su partner de alta disponibilidad local puede hacer el relevo. Estos fallos pueden gestionarse sin una operación de conmutación de sitios MetroCluster.
@@ -68,6 +71,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["
 
 
 
+[[illustration-of-the-metrocluster-ip-and-cluster-interconnect-network]]
 == Ilustración de la red de interconexión de clúster y la IP de MetroCluster
 
 En general, los clústeres de ONTAP incluyen una red de interconexión de clúster para el tráfico entre los nodos del clúster. En configuraciones de IP de MetroCluster, esta red también se utiliza para transportar tráfico de replicación de datos entre los sitios de MetroCluster.
@@ -89,6 +93,7 @@ link:concept_considerations_mcip.html["Consideraciones sobre la configuración d
 
 
 
+[[illustration-of-the-cluster-peering-network]]
 == Ilustración de la red de paridad de clústeres
 
 Los dos clústeres de la configuración de MetroCluster tienen una relación entre iguales a través de una red de clústeres proporcionada por el cliente. Cluster peering admite el mirroring síncrono de máquinas virtuales de almacenamiento (SVM, antes denominadas Vserver) entre sitios.

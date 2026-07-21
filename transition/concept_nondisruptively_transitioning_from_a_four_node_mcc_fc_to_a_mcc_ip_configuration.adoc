@@ -37,6 +37,7 @@ NOTE: Cuando agregue o elimine un grupo DR como parte de este procedimiento, deb
 
 
 
+[[transition-scenarios-supported-by-this-procedure]]
 == Escenarios de transición compatibles con este procedimiento
 
 Revisa la siguiente tabla para conocer los escenarios de transición compatibles con este procedimiento.
@@ -86,6 +87,7 @@ Para más información, consulta la link:concept_transition_workflow_fc_to_ip_tr
 
 
 
+[[important-information-when-adding-an-older-platform-model]]
 == Información importante a la hora de añadir un modelo de plataforma más antiguo
 
 La siguiente guía es para un escenario poco común en el que necesita agregar un modelo de plataforma más antiguo (plataformas lanzadas antes de ONTAP 9.15.1) a una configuración de MetroCluster existente que contiene un modelo de plataforma más nuevo (plataformas lanzadas en ONTAP 9.15.1 o posterior).  Para una transición de FC a IP de ocho nodos, esta guía se aplica si ha efectuado la transición de su primer grupo de recuperación ante desastres de FC a un modelo de plataforma introducido en ONTAP 9.15.1 o posterior y planea migrar el segundo grupo de recuperación ante desastres a una plataforma introducida antes de ONTAP 9.15.1.

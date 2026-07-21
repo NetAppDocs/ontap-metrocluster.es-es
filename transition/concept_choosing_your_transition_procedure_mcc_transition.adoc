@@ -17,6 +17,7 @@ También debe asegurarse de que la plataforma IP de MetroCluster tenga un tamañ
 
 
 
+[[supported-platform-combinations]]
 == Combinaciones de plataformas compatibles
 
 * Todos los procedimientos de transición requieren ONTAP 9.8 o posterior a menos que se indique lo contrario en las notas o según lo requiera una plataforma individual.
@@ -33,6 +34,7 @@ También debe asegurarse de que la plataforma IP de MetroCluster tenga un tamañ
 ====
 
 
+[[supported-aff-and-fas-transition-combinations]]
 === Combinaciones compatibles con la transición AFF y FAS
 
 En las siguientes tablas se muestran las combinaciones de plataformas admitidas. Puede realizar la transición de plataformas en la primera columna a plataformas enumeradas como admitidas en las columnas a la derecha, como lo indican las celdas de la tabla coloreadas.
@@ -71,6 +73,7 @@ image:../media/transition-combinations-group-2.png["Muestra las transiciones adm
 ====
 
 
+[[supported-asa-transition-platform-combinations]]
 === Combinaciones de plataformas de transición ASA compatibles
 
 La siguiente tabla muestra las combinaciones de plataformas compatibles para los sistemas ASA.
@@ -93,6 +96,7 @@ La siguiente tabla muestra las combinaciones de plataformas compatibles para los
 |===
 
 
+[[choose-your-transition-procedure]]
 == Elija el procedimiento de transición
 
 Debe seleccionar un procedimiento de transición según la configuración existente de FC de MetroCluster.

@@ -22,6 +22,7 @@ NOTE: Su configuración requiere licencias adicionales (licencia de puerto de 6 
 
 
 
+[[resetting-the-broadcom-ip-switch-to-factory-defaults]]
 == Restablecer los valores predeterminados de fábrica del conmutador IP de Broadcom
 
 Antes de instalar una nueva versión de software del conmutador y RCF, debe borrar la configuración del conmutador Broadcom y realizar la configuración básica.
@@ -294,6 +295,7 @@ Configuration Saved!
 
 
 
+[[downloading-and-installing-the-broadcom-switch-efos-software]]
 == Descarga e instalación del software EFOS del conmutador Broadcom
 
 Debe descargar el archivo del sistema operativo del conmutador y el archivo RCF en cada switch de la configuración IP de MetroCluster.
@@ -415,6 +417,7 @@ No conforme a FIPS
 
 
 
+[[steps-to-upgrade-efos-with-downloading-the-software-image-to-the-backup-boot-partition]]
 === Pasos para actualizar EFOS con la descarga de la imagen de software a la partición de inicio de copia de seguridad
 
 Sólo puede realizar los siguientes pasos si ambas versiones de EFOS no son compatibles con FIPS o ambas son compatibles con FIPS.
@@ -534,6 +537,7 @@ NOTE: En raras ocasiones, es posible que el conmutador no se inicie. Siga la <<P
 
 
 
+[[steps-to-upgrade-efos-using-the-onie-os-installation]]
 === Pasos para actualizar EFOS mediante LA instalación DEL SO
 
 Puede realizar los siguientes pasos si una versión de EFOS es compatible con FIPS y la otra versión de EFOS no es compatible con FIPS. Estos pasos se pueden utilizar para instalar la imagen EFOS 3.7.x.x no compatible con FIPS o FIPS desde ONIE si el conmutador no arranca.
@@ -682,6 +686,7 @@ El conmutador se reiniciará sin que se aplique ninguna configuración y se rest
 
 
 
+[[downloading-and-installing-the-broadcom-rcf-files]]
 == Descarga e instalación de los archivos Broadcom RCF
 
 Debe generar e instalar el archivo RCF del switch en cada switch de la configuración IP de MetroCluster.
@@ -897,6 +902,7 @@ IP_switch_A_1# reload
 
 
 
+[[disable-unused-isl-ports-and-port-channels]]
 == Deshabilite los puertos ISL y los canales de puertos no utilizados
 
 NetApp recomienda deshabilitar los puertos ISL y los canales de puertos no utilizados para evitar alertas de estado innecesarias.

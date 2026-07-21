@@ -15,9 +15,22 @@ Obtenga información sobre las nuevas características y mejoras de IP de MetroC
 
 Para obtener detalles sobre las características y mejoras de cada versión de ONTAP Mediator, consultelink:https://docs.netapp.com/us-en/ontap/mediator/whats-new-concept.html["¿Qué novedades hay en ONTAP Mediator?"^] .
 
-[cols="4,2"]
+[cols="4,1"]
 |===
 | Capacidad de mediador de ONTAP | Comienzo disponible 
+
+
+ a| 
+A partir de ONTAP Mediator 1.12.1, una única instancia de ONTAP Mediator configurada con HTTPS puede supervisar simultáneamente las siguientes configuraciones:
+
+* Un máximo de diez configuraciones IP de MetroCluster de cuatro nodos o cinco de ocho nodos si se instalan en un host con al menos 8 núcleos de CPU y al menos 16GB de RAM.
+* Una configuración IP de MetroCluster de cuatro nodos y una relación entre iguales activa de SnapMirror si se instala en un sistema operativo host con una CPU de dos núcleos.
+
+
+link:../install-ip/concept_mediator_requirements.html#mediator-multiple-mccip["Conoce más sobre la compatibilidad de ONTAP Mediator con varias configuraciones IP de MetroCluster"].
+ a| 
+ONTAP 9.19.1
+
 
 
  a| 

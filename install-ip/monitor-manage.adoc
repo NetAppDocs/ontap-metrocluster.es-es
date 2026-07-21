@@ -13,6 +13,7 @@ En la mayoría de los casos, los conmutadores Ethernet son descubiertos automát
 
 
 
+[[create-a-switch-entry-so-that-ontap-can-monitor-it]]
 == Cree una entrada de conmutador para que ONTAP pueda supervisarla
 
 .Acerca de esta tarea
@@ -26,6 +27,7 @@ Un ejemplo típico es agregar un conmutador llamado [DeviceName], con la direcci
 
 
 
+[[disable-monitoring-without-deleting-the-switch]]
 == Desactive la supervisión sin eliminar el conmutador
 
 Si desea pausar o detener la supervisión de un determinado conmutador, pero aún así conservarlo para una supervisión futura, modifique su `is-monitoring-enabled-admim` parámetro en lugar de eliminarlo.
@@ -40,6 +42,7 @@ Esto le permite conservar los detalles del switch y la configuración sin genera
 
 
 
+[[remove-a-switch-you-no-longer-need]]
 == Retire un interruptor que ya no necesite
 
 Se utiliza `system switch ethernet delete` para eliminar un interruptor que se ha desconectado o que ya no es necesario:

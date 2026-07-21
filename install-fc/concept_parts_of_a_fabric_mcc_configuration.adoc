@@ -15,6 +15,7 @@ Al planificar la configuración de MetroCluster, debe comprender los componentes
 
 
 
+[[disaster-recovery-dr-groups]]
 == Grupos de recuperación ante desastres
 
 Una configuración de Fabric MetroCluster consta de uno o dos grupos de recuperación ante desastres, en función del número de nodos en la configuración de MetroCluster. Cada grupo de recuperación ante desastres consta de cuatro nodos.
@@ -33,6 +34,7 @@ image::../media/mcc_dr_groups_4_node.gif[Grupos de recuperación ante desastres 
 
 
 
+[[key-hardware-elements]]
 == Elementos clave del hardware
 
 Una configuración MetroCluster incluye los siguientes elementos clave de hardware:
@@ -57,6 +59,7 @@ La red de paridad de clústeres ofrece conectividad para el mirroring de la conf
 
 
 
+[[eight-node-fabric-metrocluster-configuration]]
 == Configuración MetroCluster estructural de ocho nodos
 
 Una configuración de ocho nodos consta de dos clústeres, uno en cada sitio separado geográficamente. Cluster_A está situado en el primer sitio MetroCluster. Cluster_B está situado en el segundo sitio MetroCluster. Cada sitio tiene una pila de almacenamiento SAS. Se admiten pilas de almacenamiento adicionales, pero solo se muestra una en cada sitio. Los pares de alta disponibilidad se configuran como clústeres sin switches, sin switches de Cluster Interconnect. Es compatible con una configuración conmutada, pero no se muestra.
@@ -79,6 +82,7 @@ La configuración de SVM se replica en la red de clústeres entre iguales.
 
 
 
+[[four-node-fabric-metrocluster-configuration]]
 == Configuración MetroCluster de estructura de cuatro nodos
 
 En la siguiente ilustración, se muestra una vista simplificada de una configuración MetroCluster estructural de cuatro nodos. En algunas conexiones, una sola línea representa varias conexiones redundantes entre los componentes. No se muestran las conexiones de red de datos y gestión.
@@ -91,6 +95,7 @@ image::../media/mcc_hardware_architecture_cluster_a_with_7500n.gif[Conectividad 
 
 
 
+[[two-node-fabric-metrocluster-configuration]]
 == Configuración MetroCluster de estructura de dos nodos
 
 En la siguiente ilustración, se muestra una vista simplificada de una configuración de MetroCluster estructural de dos nodos. En algunas conexiones, una sola línea representa varias conexiones redundantes entre los componentes. No se muestran las conexiones de red de datos y gestión.

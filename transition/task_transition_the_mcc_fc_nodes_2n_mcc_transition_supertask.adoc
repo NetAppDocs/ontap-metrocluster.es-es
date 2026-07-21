@@ -15,6 +15,7 @@ Debe recopilar información de los nodos FC de MetroCluster existentes, enviar u
 
 
 
+[[gathering-information-from-the-existing-controller-modules-before-the-transition]]
 == Recopilación de información de los módulos de controladoras existentes antes de la transición
 
 Antes de la transición, debe recopilar información para cada uno de los nodos.
@@ -97,6 +98,7 @@ Esta tarea se realiza en los nodos existentes:
 |===
 
 
+[[sending-a-custom-autosupport-message-prior-to-maintenance]]
 == Envío de un mensaje de AutoSupport personalizado antes del mantenimiento
 
 Antes de realizar el mantenimiento, debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que se está realizando el mantenimiento. Esto les impide abrir un caso suponiendo que se ha producido una interrupción.
@@ -116,6 +118,7 @@ la ventana de mantenimiento en horas especifica la longitud de la ventana de man
 
 
 
+[[transitioning-shutting-down-and-removing-the-metrocluster-fc-nodes]]
 == Realizar la transición, apagar y quitar los nodos FC de MetroCluster
 
 Además de emitir comandos en los nodos FC de MetroCluster, esta tarea incluye la conexión física y la retirada de los módulos de la controladora de cada site.

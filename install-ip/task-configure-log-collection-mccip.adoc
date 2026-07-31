@@ -14,42 +14,30 @@ En una configuración de IP de MetroCluster, puede configurar la recopilación d
 
 CAUTION: En los switches Broadcom y Cisco, se requiere un nuevo usuario para cada clúster con recopilación de registros. Por ejemplo, MetroCluster 1, MetroCluster 2, MetroCluster 3 y MetroCluster 4 requieren la configuración de un usuario independiente en los switches. No se admiten varias claves SSH para el mismo usuario.
 
-.Acerca de esta tarea
-El control del estado de los switches de Ethernet (CSHM) es responsable de garantizar el estado operativo de los switches de red y de recopilar los registros de los switches con fines de depuración. Este procedimiento te guía por el proceso de configurar la recopilación, solicitar registros detallados de *Support* y habilitar una recopilación por hora de datos *Periodic* que recopila AutoSupport.
-
-*NOTA:* Si habilita el modo FIPS, debe completar lo siguiente:
-
-[NOTE]
-====
-. Vuelva a generar las claves SSH en el switch siguiendo las instrucciones del proveedor.
-. Regenerar claves SSH en ONTAP mediante `debug system regenerate-systemshell-key-pair`
-. Volver a ejecutar la rutina de configuración de la recogida de registros con `system switch ethernet log setup-password` el comando
+.Antes de empezar
+* Si utilizas el modo FIPS, realiza lo siguiente antes de configurar la recopilación de registros:
++
+.. Vuelva a generar las claves SSH en el switch siguiendo las instrucciones del proveedor.
+.. Regenera las claves SSH en ONTAP usando `debug system regenerate-systemshell-key-pair`.
+.. Vuelve a ejecutar la configuración de la recopilación de registros usando el comando  `system switch ethernet log setup-password`.
 
 
-====
-
-
-[[before-you-begin]]
-== Antes de empezar
-
-* El usuario debe tener acceso a los comandos de cambio `show` . Si no están disponibles, cree un nuevo usuario y otorgue los permisos necesarios al usuario.
-* La monitorización del estado del interruptor debe estar activada para el interruptor. Verifique esto asegurándose de que  `Is Monitored:` El campo se establece en *verdadero* en la salida del  `system switch ethernet show` dominio.
+* Debes tener acceso a los comandos del switch `show`. Si no lo tienes, crea un nuevo usuario del switch y otórgale los privilegios necesarios.
+* Es necesario habilitar el control del estado del switch. Verifica que el campo  `Is Monitored:` esté establecido en *true* en la salida de  `system switch ethernet show`.
 * Para la recopilación de registros con switches Broadcom y Cisco:
 +
 ** El usuario local debe tener privilegios de administrador de red.
-** Se debe crear un usuario nuevo en el switch de cada configuración del clúster con la recopilación de registros habilitada. Estos switches no admiten varias claves SSH para el mismo usuario. Cualquier configuración de recopilación de registros adicional realizada sobrescribe las claves SSH preexistentes para el usuario.
+** Crea un nuevo usuario de conmutador para cada clúster con la recopilación de registros habilitada. Estos conmutadores no admiten varias claves SSH para el mismo usuario, si vuelves a ejecutar la configuración se sobrescribirá la clave SSH existente.
 
 
-* Para la recopilación de registros de soporte con conmutadores NVIDIA, se debe permitir que _user_ para la recopilación de registros ejecute `cl-support` el comando sin tener que proporcionar una contraseña. Para permitir este uso, ejecute el comando:
+* Para la recopilación de registros de soporte con los switches de NVIDIA, el usuario encargado de la recopilación de registros debe poder ejecutar el comando  `cl-support` sin contraseña. Para permitir esto, ejecuta:
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
 
 
 
-
-
-[[steps]]
-== Pasos
+.Pasos
+Sigue los pasos para tu versión de ONTAP para configurar la recopilación de registros, habilitar la recopilación periódica de datos y, opcionalmente, solicitar registros de soporte bajo demanda.
 
 [role="tabbed-block"]
 ====

@@ -22,6 +22,7 @@ Siga los pasos en modo de mantenimiento.
 NOTE: Los discos de agregado raíz son los únicos discos que se deben volver a asignar durante el proceso de actualización de la controladora. La propiedad de disco de los agregados de datos se trata como parte de la operación de conmutación de sitios/conmutación de estado.
 
 .Pasos
+. Conecta todas las demás conexiones que se habían desconectado de los controladores antiguos a los nuevos módulos controladores.
 . Arranque el sistema en modo de mantenimiento:
 +
 `boot_ontap maint`

@@ -218,7 +218,7 @@ Conecte los cables de los interruptores en el siguiente orden (si es necesario):
 
 .. Si las interfaces del clúster local están *NOT* conectadas a un switch:
 +
-... Utilice la link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched.html["Migrar a un entorno de clúster de NetApp conmutado"] procedimiento para convertir un clúster sin switches en un clúster con switches. Utilice los puertos indicados en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Instalación y configuración de IP de MetroCluster"] O los archivos de cableado RCF para conectar la interfaz del clúster local.
+... Usa el procedimiento link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched.html["Migrar a un entorno de clúster de NetApp conmutado"^] para convertir un clúster sin switches en un clúster conmutado. Usa los puertos indicados en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Instalación y configuración de IP de MetroCluster"] o los archivos de cableado RCF para conectar la interfaz local del clúster.
 
 
 

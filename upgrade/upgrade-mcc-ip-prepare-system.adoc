@@ -752,6 +752,10 @@ dr-group-id cluster     node     node-systemid ha-partner-systemid dr-partner-sy
 Antes de actualizar las plataformas, debe eliminar la supervisión si la configuración de MetroCluster se supervisa con tiebreaker o la utilidad Mediator.
 
 .Pasos
+. Cambie al nivel de privilegio avanzado:
++
+`set -privilege advanced`
+
 . Recopile el resultado del siguiente comando:
 +
 `storage iscsi-initiator show`

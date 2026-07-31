@@ -978,7 +978,7 @@ Esta tarea se realiza para configuraciones MetroCluster de dos nodos que utiliza
 
 Esta tarea debe realizarse en ambos clústeres de la configuración de MetroCluster.
 
-Para obtener más información general sobre la configuración de ONTAP, consulte link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["Configuración de ONTAP"]
+Para obtener más información general sobre la configuración de ONTAP, consulta el link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["Configuración de ONTAP"^]
 
 .Pasos
 . Encienda el primer nodo.
@@ -1836,7 +1836,7 @@ NOTE: Los agregados no reflejados deben ser locales para el nodo a los que perte
 
 * Las unidades son propiedad de un nodo específico; cuando se crea un agregado, todas las unidades de ese agregado deben ser propiedad del mismo nodo, que se convierte en el nodo inicial para ese agregado.
 * Los nombres de agregados deben ajustarse al esquema de nomenclatura que se determinó al planificar la configuración de MetroCluster.
-* La link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"] contiene más información sobre el mirroring de agregados.
+* La link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["Gestión de discos y agregados"^] contiene más información sobre la duplicación de agregados.
 
 
 .Pasos
@@ -2271,6 +2271,6 @@ Puede proporcionar una protección adicional para los archivos de backup de conf
 `system configuration backup settings modify URL-of-destination`
 
 +
-La link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Gestión del clúster con la CLI"] Contiene información adicional bajo la sección _Administrar copias de seguridad de configuración_.
+La link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Gestión del clúster con la CLI"^] contiene información adicional en la sección _Gestión de copias de seguridad de la configuración_.
 
 

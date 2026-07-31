@@ -40,6 +40,9 @@ Esta tarea se puede realizar en cualquier nodo de la configuración de MetroClus
 +
 .. Compruebe las conexiones IP de MetroCluster:
 +
+`set -privilege advanced`
+
++
 `storage iscsi-initiator show`
 
 .. Compruebe que los nodos están funcionando:

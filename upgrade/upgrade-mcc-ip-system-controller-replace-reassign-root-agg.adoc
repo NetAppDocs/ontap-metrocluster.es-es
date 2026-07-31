@@ -35,7 +35,7 @@ Node_B_1
 
 |===
 .Pasos
-. Conecte todas las demás conexiones a los nuevos módulos de controladora (FC-VI, almacenamiento, interconexión de clúster, etc.).
+. Conecta todas las demás conexiones que se habían desconectado de los controladores antiguos a los nuevos módulos controladores.
 . Detenga el sistema e inicie en modo de mantenimiento desde la `LOADER` prompt:
 +
 `boot_ontap maint`

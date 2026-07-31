@@ -882,7 +882,7 @@ A partir de ONTAP 9.18.1, Flash Cache es compatible con los sistemas FAS50 para 
 ====
 * No se pueden tener agregados de datos y el agregado raíz con unidades Flash Cache en el estante interno.
 * Las ranuras 0 y 23 se utilizan para unidades de caché flash.
-* Si va a reutilizar una bandeja de discos externa, verifique que se haya eliminado la propiedad del disco en la bandeja de discos externa antes de conectarla al controlador. Referirse alink:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html["Eliminar la propiedad de ONTAP de un disco"] .
+* Si va a reutilizar una bandeja de discos externa, verifique que se haya eliminado la propiedad del disco en la bandeja de discos externa antes de conectarla al controlador. Referirse alink:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html["Eliminar la propiedad de ONTAP de un disco"^] .
 
 
 ====

@@ -87,6 +87,55 @@ Que la operación de regreso o la operación de continuación de regreso del age
 Realice la corrección sugerida que se proporciona en el resultado del `metrocluster operation show` comando.
 
 |===
+. Realiza las siguientes comprobaciones para confirmar que la conmutación de sitios entre los dos clústeres funciona correctamente:
++
+.. Desde el clúster de recuperación ante desastres, comprueba si es posible realizar una conmutación de sitios del clúster que sigue operativo al clúster de recuperación ante desastres:
++
+`metrocluster switchover -simulate`
+
+.. Desde el clúster que sigue operativo, comprueba si es posible realizar una conmutación de sitios del clúster de recuperación ante desastres al clúster que sigue operativo:
++
+`metrocluster switchover -simulate`
+
+.. Compruebe que los componentes de MetroCluster están en buen estado:
++
+`metrocluster check run`
+
++
+[listing]
+----
+cluster_A::*> metrocluster check run
+----
++
+La operación se ejecuta en segundo plano.
+
+.. Después del `metrocluster check run` la operación finaliza, ejecute:
++
+`metrocluster check show`
+
++
+Después de unos cinco minutos, se muestran los siguientes resultados:
+
++
+[listing]
+----
+cluster_A:::*> metrocluster check show
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+clusters            ok
+connections         ok
+volumes             ok
+7 entries were displayed.
+----
++
+
+NOTE: En un entorno de FC MetroCluster, las 'conexiones' deberían aparecer como "not-applicable" en la salida del comando.
 
 
-Debe repetir las secciones anteriores para realizar la rotación en la dirección opuesta. Si Site_A hizo una conmutación de Site_B, haga que Site_B haga una conmutación de Site_A.
+
+

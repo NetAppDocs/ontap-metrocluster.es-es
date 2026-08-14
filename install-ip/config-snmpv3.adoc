@@ -174,7 +174,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 --
 .Switches Cisco
 --
-Configure un nombre de usuario SNMPv3_USER de SNMPv3 en switches Cisco 9336C-FX2:
+Configura un nombre de usuario SNMPv3 SNMPv3_USER en los switches Cisco Nexus:
 
 * Para *sin autenticación*:
 +
@@ -331,7 +331,7 @@ cluster1::*>
 --
 .NVIDIA - CL 5.4.0
 --
-Configure un nombre de usuario SNMPv3 SNMPv3_USER en los conmutadores NVIDIA SN2100 que ejecutan CLI 5.4.0:
+Configura un nombre de usuario SNMPv3 SNMPv3_USER en los switches NVIDIA Cumulus que ejecutan CL 5.4.0:
 
 * Para *sin autenticación*:
 +
@@ -525,9 +525,9 @@ DEPRECATED-Community String or SNMPv3 Username: -
 
 
 --
-.NVIDIA - CL 5.11.0
+.NVIDIA - CL 5.11.0+
 --
-Configure un nombre de usuario SNMPv3 SNMPv3_USER en los conmutadores NVIDIA SN2100 que ejecutan CLI 5.11.0:
+Configura un nombre de usuario SNMPv3 SNMPv3_USER en los switches NVIDIA Cumulus que ejecutan CLI 5.11.0 o versiones posteriores:
 
 * Para *sin autenticación*:
 +

@@ -969,7 +969,7 @@ Esta tarea debe realizarse en el sitio que contiene las controladoras que se est
 Los switches de Site_A se actualizarán cuando se actualicen las controladoras de Site_A.
 
 .Pasos
-. Prepare los switches IP para la aplicación de los nuevos RFC.
+. Prepara los conmutadores IP para la aplicación de los nuevos archivos de configuración de referencia (RCF).
 +
 Siga los pasos de la sección para su proveedor de switches:
 
@@ -1385,6 +1385,10 @@ Sigue las instrucciones para proporcionar los siguientes datos para recuperar y 
 |===
 +
 Debe realizar el procedimiento de recuperación seleccionando la opción 10 o la opción 11 según la configuración del gestor de claves y la opción 6 en el indicador del menú de inicio. Para arrancar los nodos por completo, es posible que deba realizar el procedimiento de recuperación seguido por la opción 1 (arranque normal).
+
++
+
+NOTE: Cuando ejecutas la opción del menú de arranque `6`, es posible que tengas que restablecer los valores de los bootarg de MetroCluster. Consulta link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html#set-the-metrocluster-ip-bootarg-variables["Establezca las variables bootarg de MetroCluster IP"].
 
 . Espere a que se inicien los nuevos nodos, node_B_1-A900 y node_B_2-A900.
 +

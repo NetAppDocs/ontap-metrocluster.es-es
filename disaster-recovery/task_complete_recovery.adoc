@@ -245,10 +245,6 @@ Si una conmutación de regreso tarda mucho tiempo en terminar, puede comprobar e
 +
 `metrocluster config-replication resync-status show`
 
-. Restablecer cualquier configuración de SnapMirror o SnapVault.
-+
-En ONTAP 8.3, es necesario restablecer manualmente una configuración de SnapMirror perdida después de una operación de conmutación de estado de MetroCluster. En ONTAP 9.0 y versiones posteriores, la relación se restablece de forma automática.
-
 
 
 

@@ -21,7 +21,7 @@ Debe completar todos los pasos en ambos switches para garantizar la conectividad
 En el siguiente procedimiento se supone que se reemplaza un ISL de 10 GB conectado en el puerto del switch eth1/24/1 con dos ISL de 100 GB que se conectan con los puertos del switch 17 y 18.
 
 
-NOTE: Si se utiliza un switch Cisco 9336C-FX2 en una configuración compartida que conecta bandejas NS224, si se cambian los ISL, es posible que se requiera un nuevo archivo RCF. No necesita un nuevo archivo RCF si su velocidad actual y nueva ISL es 40Gbps y 100Gbps. Todos los demás cambios en la velocidad ISL requieren un nuevo archivo RCF. Por ejemplo, cambiar la velocidad ISL de 40Gbps a 100Gbps no requiere un nuevo archivo RCF, pero cambiar la velocidad ISL de 10Gbps a 40Gbps requiere un nuevo archivo RCF.
+NOTE: Si estás utilizando un switch Cisco 9336C-FX2 en una configuración compartida que conecta estantes NS224, cambiar los ISL podría requerir un nuevo archivo de configuración de referencia (RCF). No necesitas un nuevo RCF si las velocidades actual y nueva de los ISL son 40 Gbps y 100 Gbps. Cualquier otro cambio en la velocidad de los ISL requiere un nuevo RCF. Por ejemplo, cambiar la velocidad de los ISL de 40 Gbps a 100 Gbps no requiere un nuevo RCF, pero cambiar la velocidad de los ISL de 10 Gbps a 40 Gbps sí requiere un nuevo RCF.
 
 .Antes de empezar
 Consulte la sección *Interruptores* de la link:https://hwu.netapp.com/["Hardware Universe de NetApp"^] para verificar los transceptores compatibles.
@@ -59,7 +59,7 @@ switch_B_1#
 . Cambie el puerto ISL según sea necesario.
 +
 
-NOTE: Si utiliza switches Cisco 9336C-FX2 en una configuración compartida conectando bandejas NS224 y tiene que actualizar el archivo RCF y aplicar la nueva configuración para los puertos ISL nuevos, siga los pasos hasta link:task_upgrade_rcf_files_on_mcc_ip_switches.html["Actualice los archivos RCF en los conmutadores IP de MetroCluster."]
+NOTE: Si estás utilizando conmutadores Cisco 9336C-FX2 en una configuración compartida que conecta módulos NS224 y necesitas actualizar el RCF y aplicar la nueva configuración para los nuevos puertos ISL, sigue los pasos para link:task_upgrade_rcf_files_on_mcc_ip_switches.html["Actualiza los RCF en los switches IP de MetroCluster."]
 
 +
 [cols="30,70"]

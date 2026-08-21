@@ -113,10 +113,6 @@ Remote: cluster_A         Configuration state configured
 +
 Si una conmutación de regreso tarda mucho tiempo en terminar, puede comprobar el estado de las líneas base en curso utilizando el `metrocluster config-replication resync-status show` comando. Este comando se encuentra en el nivel de privilegio avanzado.
 
-.. Restablecer cualquier configuración de SnapMirror o SnapVault.
-+
-En ONTAP 8.3, es necesario restablecer manualmente una configuración de SnapMirror perdida después de una operación de conmutación de estado de MetroCluster. En ONTAP 9.0 y versiones posteriores, la relación se restablece de forma automática.
-
 
 
 

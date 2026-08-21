@@ -52,9 +52,6 @@ Esto significa evitar la competencia con las operaciones de conmutación de siti
 
 
 
-
-NOTE: Las configuraciones de SnapMirror y SnapVault se eliminan automáticamente.
-
 .Acerca de esta tarea
 La `metrocluster switchover` El comando cambia a través de los nodos de todos los grupos de recuperación ante desastres de la configuración de MetroCluster. Por ejemplo, en una configuración MetroCluster de ocho nodos, conmuta a los nodos en ambos grupos de recuperación ante desastres.
 
@@ -89,9 +86,6 @@ mcc1A::> metrocluster operation show
 Si el cambio es vetado, usted tiene la opción de volver a emitir el `metrocluster switchover-forced-on-disaster true` con el `--override-vetoes` opción. Si utiliza este parámetro opcional, el sistema anula cualquier vetoo suave que haya impedido la conmutación.
 
 
-
-.Después de terminar
-Las relaciones de SnapMirror deben reestablecerse tras la conmutación.
 
 
 

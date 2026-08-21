@@ -48,6 +48,7 @@ NOTE: Todos los demás cambios de configuración que se produzcan durante la apl
 * Debe repetir estos pasos en cada uno de los switches IP de la configuración de IP de MetroCluster.
 * Debe estar conectado al conmutador mediante una conexión de consola serie.
 * Esta tarea restablece la configuración de la red de gestión.
+* Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
 
 
 .Pasos
@@ -128,6 +129,7 @@ Utilice estos pasos si desea reiniciar el conmutador por completo aplicando la i
 NOTE: Para obtener más información sobre la instalación de Cumulus Linux, consulte link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html#initial-configuration-overview["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"^]
 
 * Debe tener la contraseña raíz para `sudo` acceso a los comandos.
+* Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
 
 
 .Pasos
@@ -314,10 +316,14 @@ Debe generar e instalar el archivo RCF del switch en cada switch de la configura
 
 NOTE: Si lleva a cabo una configuración adicional después de restablecer el conmutador y antes de aplicar el archivo RCF, no podrá utilizar este procedimiento.
 
+* Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
 
 
 .Acerca de esta tarea
 Debe repetir estos pasos en cada uno de los switches IP de la configuración de IP de MetroCluster (nueva instalación) o en el conmutador de sustitución (sustitución del switch).
+
+
+NOTE: Debes actualizar los conmutadores en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2. Si tu procedimiento requiere que muevas las LIF del clúster, debes repetir los pasos para mover las LIF del clúster en la segunda estructura (Switch_A_2, Switch_B_2) después de configurar los conmutadores en la primera estructura (Switch_A_1, Switch_B_1). Consulta link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
 
 Si utiliza un adaptador QSFP-a-SFP+, es posible que deba configurar el puerto ISL en el modo de velocidad nativo en lugar del modo de velocidad de salida. Consulte la documentación del proveedor de switches para determinar el modo de velocidad del puerto ISL.
 
@@ -405,6 +411,81 @@ cumulus@IP_switch_A_1:mgmt:~$
 +
 
 NOTE: Cuando configura la opción DAC para varios puertos de switch, solo necesita reiniciar el switch una vez.
+
+. Comprueba que la reversión automática esté activada para las LIF del clúster:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+
+CAUTION: Debes asegurarte de que la reversión automática esté habilitada para las LIF del clúster.
+
+. Si la función de reversión automática no está activada, modifica todas las LIF del clúster para activar la reversión automática:
++
+
+NOTE: Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, es posible que hayas desactivado la reversión automática como parte de los pasos para link:switch-move-cluster-lifs.html["Mueve las LIF del clúster"].
+
++
+.. Vuelve a activar la reversión automática:
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
++
+[listing]
+----
+cluster_A::*> network interface modify -vserver Cluster -lif * -auto-revert true
+
+Warning: Changes to a cluster LIF can affect the health of the Cluster. Are you
+         sure you want to continue? {y|n}: y
+4 entries were modified.
+
+cluster_A::*>
+----
+.. Revertir todos los LIF del clúster que no están actualmente en sus puertos de origen a sus puertos de origen:
++
+`network interface revert -vserver Cluster -lif *`
+
++
+Espera unos minutos a que los LIF vuelvan a su puerto de origen:
+
+.. Comprueba que todos los LIF estén en sus puertos de origen:
++
+[listing]
+----
+cluster_A::*> network interface show -role cluster
+            Logical        Status     Network            Current       Current Is
+Vserver     Interface      Admin/Oper Address/Mask       Node          Port    Home
+----------- -------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node_A_1_clus1 up/up      192.168.204.88/18  node_A_1      e4a     true
+            node_A_1_clus2 up/up      192.168.204.93/18  node_A_1      e4b     true
+            node_A_2_clus1 up/up      192.168.204.96/18  node_A_2      e4a     true
+            node_A_2_clus2 up/up      192.168.204.97/18  node_A_2      e4b     true
+4 entries were displayed.
+----
+.. Comprueba el estado de los nodos de MetroCluster:
++
+`metrocluster node show`
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+
+cluster_A::*>
+----
+
 
 
 

@@ -18,8 +18,8 @@ Varios de los procedimientos de esta sección son procedimientos independientes 
 
 
 
-[[resetting-the-cisco-ip-switch-to-factory-defaults]]
-== Restablecer los valores predeterminados de fábrica del conmutador IP de Cisco
+[[reset-the-cisco-ip-switch-to-factory-defaults]]
+== Restablezca el conmutador IP de Cisco a los valores predeterminados de fábrica
 
 Antes de instalar cualquier archivo RCF, debe borrar la configuración del conmutador Cisco y realizar la configuración básica. Este procedimiento es necesario cuando desea volver a instalar el mismo archivo RCF después de que se haya producido un error en la instalación anterior, o si desea instalar una nueva versión de un archivo RCF.
 
@@ -27,6 +27,7 @@ Antes de instalar cualquier archivo RCF, debe borrar la configuración del conmu
 * Debe repetir estos pasos en cada uno de los switches IP de la configuración de IP de MetroCluster.
 * Debe estar conectado al conmutador mediante la consola serie.
 * Esta tarea restablece la configuración de la red de gestión.
+* Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
 
 
 .Pasos
@@ -169,19 +170,17 @@ IP_switch_A_1#
 
 
 
-[[downloading-and-installing-the-cisco-switch-nx-os-software]]
-== Descargar e instalar el software del switch Cisco NX-OS
+[[download-and-install-the-cisco-switch-nx-os-software]]
+== Descargue e instale el software Cisco Switch NX-OS
 
 Debe descargar el archivo del sistema operativo del conmutador y el archivo RCF en cada switch de la configuración IP de MetroCluster.
 
 .Acerca de esta tarea
 Esta tarea requiere un software de transferencia de archivos, como FTP, TFTP, SFTP, HTTP o SCP, para copiar los archivos a los switches.
 
-Estos pasos deben repetirse en cada switch IP de la configuración de IP de MetroCluster.
+* Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+* Debes utilizar la versión de software del conmutador compatible. Consulta https://hwu.netapp.com["Hardware Universe de NetApp"].
 
-Debe utilizar la versión de software del switch compatible.
-
-https://hwu.netapp.com["Hardware Universe de NetApp"]
 
 .Pasos
 . Descargue el archivo de software NX-OS admitido.
@@ -425,29 +424,106 @@ Module 1 EPLD upgrade is successful.
 +
 `show version module 1 epld`
 
-. Repita estos pasos en los tres switches IP restantes de la configuración IP de MetroCluster.
+. Repite los pasos anteriores en los tres switches IP restantes de la configuración IP de MetroCluster.
++
+
+NOTE: Debes actualizar los conmutadores en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2. Si tu procedimiento requiere que muevas las LIF del clúster, debes repetir los pasos para mover las LIF del clúster en la segunda estructura (Switch_A_2, Switch_B_2) después de configurar los conmutadores en la primera estructura (Switch_A_1, Switch_B_1). Consulta link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+
+. Comprueba que la reversión automática esté activada para las LIF del clúster:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+
+CAUTION: Debes asegurarte de que la reversión automática esté habilitada para las LIF del clúster.
+
+. Si la función de reversión automática no está activada, modifica todas las LIF del clúster para activar la reversión automática:
++
+
+NOTE: Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, es posible que hayas desactivado la reversión automática como parte de los pasos para link:switch-move-cluster-lifs.html["Mueve las LIF del clúster"].
+
++
+.. Vuelve a activar la reversión automática:
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
++
+[listing]
+----
+cluster_A::*> network interface modify -vserver Cluster -lif * -auto-revert true
+
+Warning: Changes to a cluster LIF can affect the health of the Cluster. Are you
+         sure you want to continue? {y|n}: y
+4 entries were modified.
+
+cluster_A::*>
+----
+.. Revertir todos los LIF del clúster que no están actualmente en sus puertos de origen a sus puertos de origen:
++
+`network interface revert -vserver Cluster -lif *`
+
++
+Espera unos minutos a que los LIF vuelvan a su puerto de origen:
+
+.. Comprueba que todos los LIF estén en sus puertos de origen:
++
+[listing]
+----
+cluster_A::*> network interface show -role cluster
+            Logical        Status     Network            Current       Current Is
+Vserver     Interface      Admin/Oper Address/Mask       Node          Port    Home
+----------- -------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node_A_1_clus1 up/up      192.168.204.88/18  node_A_1      e4a     true
+            node_A_1_clus2 up/up      192.168.204.93/18  node_A_1      e4b     true
+            node_A_2_clus1 up/up      192.168.204.96/18  node_A_2      e4a     true
+            node_A_2_clus2 up/up      192.168.204.97/18  node_A_2      e4b     true
+4 entries were displayed.
+----
+.. Comprueba el estado de los nodos de MetroCluster:
++
+`metrocluster node show`
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+
+cluster_A::*>
+----
 
 
 
 
-[[downloading-and-installing-the-cisco-ip-rcf-files]]
-== Descarga e instalación de los archivos Cisco IP RCF
+
+
+[[download-and-install-the-cisco-ip-rcf-files]]
+== Descargue e instale los archivos Cisco IP RCF
 
 Debe generar e instalar el archivo RCF en cada switch de la configuración IP de MetroCluster.
 
 .Acerca de esta tarea
 Esta tarea requiere un software de transferencia de archivos, como FTP, TFTP, SFTP, HTTP o SCP, para copiar los archivos a los switches.
 
-Estos pasos deben repetirse en cada switch IP de la configuración de IP de MetroCluster.
+* Estos pasos deben repetirse en cada switch IP de la configuración de IP de MetroCluster.
+* Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+* Debes utilizar la versión de software del conmutador compatible. Consulta https://hwu.netapp.com["Hardware Universe de NetApp"].
+* Si utiliza un adaptador QSFP-a-SFP+, es posible que deba configurar el puerto ISL en el modo de velocidad nativo en lugar del modo de velocidad de salida. Consulte la documentación del proveedor de switches para determinar el modo de velocidad del puerto ISL.
 
-Debe utilizar la versión de software del switch compatible.
 
-https://hwu.netapp.com["Hardware Universe de NetApp"]
-
-Si utiliza un adaptador QSFP-a-SFP+, es posible que deba configurar el puerto ISL en el modo de velocidad nativo en lugar del modo de velocidad de salida. Consulte la documentación del proveedor de switches para determinar el modo de velocidad del puerto ISL.
-
-Existen cuatro archivos RCF, uno para cada uno de los cuatro conmutadores de la configuración IP de MetroCluster. Debe utilizar los archivos RCF correctos para el modelo de conmutador que esté utilizando.
-
+* Existen cuatro archivos RCF, uno para cada uno de los cuatro conmutadores de la configuración IP de MetroCluster. Debe utilizar los archivos RCF correctos para el modelo de conmutador que esté utilizando.
++
 |===
 
 
@@ -481,6 +557,8 @@ IP_switch_B_2
 NX3232_v1.80_Switch-B2.txt
 
 |===
+
+
 .Pasos
 . Genere los archivos RCF de Cisco para MetroCluster IP.
 +
@@ -606,12 +684,91 @@ IP_switch-A-1# copy running-config startup-config
 IP_switch_A_1# reload
 ----
 . Repita los pasos anteriores en los otros tres switches de la configuración IP de MetroCluster.
++
+
+NOTE: Debes actualizar los conmutadores en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2. Si tu procedimiento requiere que muevas las LIF del clúster, debes repetir los pasos para mover las LIF del clúster en la segunda estructura (Switch_A_2, Switch_B_2) después de configurar los conmutadores en la primera estructura (Switch_A_1, Switch_B_1). Consulta link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+
+. Comprueba que la reversión automática esté activada para las LIF del clúster:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+
+CAUTION: Debes asegurarte de que la reversión automática esté habilitada para las LIF del clúster.
+
+. Si la función de reversión automática no está activada, modifica todas las LIF del clúster para activar la reversión automática:
++
+
+NOTE: Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, es posible que hayas desactivado la reversión automática como parte de los pasos para link:switch-move-cluster-lifs.html["Mueve las LIF del clúster"].
+
++
+.. Vuelve a activar la reversión automática:
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
++
+[listing]
+----
+cluster_A::*> network interface modify -vserver Cluster -lif * -auto-revert true
+
+Warning: Changes to a cluster LIF can affect the health of the Cluster. Are you
+         sure you want to continue? {y|n}: y
+4 entries were modified.
+
+cluster_A::*>
+----
+.. Revertir todos los LIF del clúster que no están actualmente en sus puertos de origen a sus puertos de origen:
++
+`network interface revert -vserver Cluster -lif *`
+
++
+Espera unos minutos a que los LIF vuelvan a su puerto de origen:
+
+.. Comprueba que todos los LIF estén en sus puertos de origen:
++
+[listing]
+----
+cluster_A::*> network interface show -role cluster
+            Logical        Status     Network            Current       Current Is
+Vserver     Interface      Admin/Oper Address/Mask       Node          Port    Home
+----------- -------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node_A_1_clus1 up/up      192.168.204.88/18  node_A_1      e4a     true
+            node_A_1_clus2 up/up      192.168.204.93/18  node_A_1      e4b     true
+            node_A_2_clus1 up/up      192.168.204.96/18  node_A_2      e4a     true
+            node_A_2_clus2 up/up      192.168.204.97/18  node_A_2      e4b     true
+4 entries were displayed.
+----
+.. Comprueba el estado de los nodos de MetroCluster:
++
+`metrocluster node show`
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+
+cluster_A::*>
+----
 
 
 
 
-[[setting-forward-error-correction-for-systems-using-25-gbps-connectivity]]
-== Configuración de la corrección de errores de reenvío para sistemas que utilizan conectividad de 25 Gbps
+
+
+[[set-forward-error-correction-for-systems-using-25-gbps-connectivity]]
+== Configure la corrección de errores de reenvío para sistemas que utilizan conectividad de 25 Gbps
 
 Si el sistema está configurado con conectividad de 25 Gbps, debe establecer manualmente el parámetro Reenviar corrección de error (Fec) en OFF después de aplicar el archivo RCF. El archivo RCF no aplica esta configuración.
 

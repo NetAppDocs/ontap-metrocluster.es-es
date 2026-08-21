@@ -31,6 +31,7 @@ Antes de instalar una nueva versión de software del conmutador y RCF, debe borr
 * Debe repetir estos pasos en cada uno de los switches IP de la configuración de IP de MetroCluster.
 * Debe estar conectado al conmutador mediante la consola serie.
 * Esta tarea restablece la configuración de la red de gestión.
+* Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
 
 
 .Pasos
@@ -303,6 +304,8 @@ Debe descargar el archivo del sistema operativo del conmutador y el archivo RCF 
 .Acerca de esta tarea
 Esta tarea debe repetirse en cada switch de la configuración de IP de MetroCluster.
 
+Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+
 []
 ====
 *Tenga en cuenta lo siguiente:*
@@ -533,6 +536,85 @@ NOTE: En raras ocasiones, es posible que el conmutador no se inicie. Siga la <<P
 
 
 . Repita estos pasos en los tres switches IP restantes de la configuración IP de MetroCluster.
++
+
+NOTE: Debes actualizar los conmutadores en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2. Si tu procedimiento requiere que muevas las LIF del clúster, debes repetir los pasos para mover las LIF del clúster en la segunda estructura (Switch_A_2, Switch_B_2) después de configurar los conmutadores en la primera estructura (Switch_A_1, Switch_B_1). Consulta link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+
+. Comprueba que la reversión automática esté activada para las LIF del clúster:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+
+CAUTION: Debes asegurarte de que la reversión automática esté habilitada para las LIF del clúster.
+
+. Si la función de reversión automática no está activada, modifica todas las LIF del clúster para activar la reversión automática:
++
+
+NOTE: Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, es posible que hayas desactivado la reversión automática como parte de los pasos para link:switch-move-cluster-lifs.html["Mueve las LIF del clúster"].
+
++
+.. Vuelve a activar la reversión automática:
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
++
+[listing]
+----
+cluster_A::*> network interface modify -vserver Cluster -lif * -auto-revert true
+
+Warning: Changes to a cluster LIF can affect the health of the Cluster. Are you
+         sure you want to continue? {y|n}: y
+4 entries were modified.
+
+cluster_A::*>
+----
+.. Revertir todos los LIF del clúster que no están actualmente en sus puertos de origen a sus puertos de origen:
++
+`network interface revert -vserver Cluster -lif *`
+
++
+Espera unos minutos a que los LIF vuelvan a su puerto de origen:
+
+.. Comprueba que todos los LIF estén en sus puertos de origen:
++
+[listing]
+----
+cluster_A::*> network interface show -role cluster
+            Logical        Status     Network            Current       Current Is
+Vserver     Interface      Admin/Oper Address/Mask       Node          Port    Home
+----------- -------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node_A_1_clus1 up/up      192.168.204.88/18  node_A_1      e4a     true
+            node_A_1_clus2 up/up      192.168.204.93/18  node_A_1      e4b     true
+            node_A_2_clus1 up/up      192.168.204.96/18  node_A_2      e4a     true
+            node_A_2_clus2 up/up      192.168.204.97/18  node_A_2      e4b     true
+4 entries were displayed.
+----
+.. Comprueba el estado de los nodos de MetroCluster:
++
+`metrocluster node show`
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+
+cluster_A::*>
+----
+
+
 
 
 
@@ -696,6 +778,8 @@ Esta tarea requiere software de transferencia de archivos, como FTP, TFTP, SFTP 
 
 .Acerca de esta tarea
 Estos pasos deben repetirse en cada switch IP de la configuración de IP de MetroCluster.
+
+Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, comprueba si necesitas trasladar las LIF del clúster al conmutador asociado para garantizar el funcionamiento ininterrumpido del clúster. link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
 
 Existen cuatro archivos RCF, uno para cada uno de los cuatro conmutadores de la configuración IP de MetroCluster. Debe utilizar los archivos RCF correctos para el modelo de conmutador que esté utilizando.
 
@@ -898,6 +982,85 @@ Are you sure you would like to reset the system? (y/n) y
 IP_switch_A_1# reload
 ----
 . Repita los pasos anteriores en los otros tres switches de la configuración IP de MetroCluster.
++
+
+NOTE: Debes actualizar los conmutadores en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2. Si tu procedimiento requiere que muevas las LIF del clúster, debes repetir los pasos para mover las LIF del clúster en la segunda estructura (Switch_A_2, Switch_B_2) después de configurar los conmutadores en la primera estructura (Switch_A_1, Switch_B_1). Consulta link:task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+
+. Comprueba que la reversión automática esté activada para las LIF del clúster:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+
+CAUTION: Debes asegurarte de que la reversión automática esté habilitada para las LIF del clúster.
+
+. Si la función de reversión automática no está activada, modifica todas las LIF del clúster para activar la reversión automática:
++
+
+NOTE: Si estás siguiendo estos pasos como parte de otro procedimiento, como la sustitución o actualización de un conmutador, es posible que hayas desactivado la reversión automática como parte de los pasos para link:switch-move-cluster-lifs.html["Mueve las LIF del clúster"].
+
++
+.. Vuelve a activar la reversión automática:
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
++
+[listing]
+----
+cluster_A::*> network interface modify -vserver Cluster -lif * -auto-revert true
+
+Warning: Changes to a cluster LIF can affect the health of the Cluster. Are you
+         sure you want to continue? {y|n}: y
+4 entries were modified.
+
+cluster_A::*>
+----
+.. Revertir todos los LIF del clúster que no están actualmente en sus puertos de origen a sus puertos de origen:
++
+`network interface revert -vserver Cluster -lif *`
+
++
+Espera unos minutos a que los LIF vuelvan a su puerto de origen:
+
+.. Comprueba que todos los LIF estén en sus puertos de origen:
++
+[listing]
+----
+cluster_A::*> network interface show -role cluster
+            Logical        Status     Network            Current       Current Is
+Vserver     Interface      Admin/Oper Address/Mask       Node          Port    Home
+----------- -------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node_A_1_clus1 up/up      192.168.204.88/18  node_A_1      e4a     true
+            node_A_1_clus2 up/up      192.168.204.93/18  node_A_1      e4b     true
+            node_A_2_clus1 up/up      192.168.204.96/18  node_A_2      e4a     true
+            node_A_2_clus2 up/up      192.168.204.97/18  node_A_2      e4b     true
+4 entries were displayed.
+----
+.. Comprueba el estado de los nodos de MetroCluster:
++
+`metrocluster node show`
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+
+cluster_A::*>
+----
+
+
 
 
 

@@ -11,19 +11,19 @@ summary: 'Debe descargar el archivo de configuración de referencia \(RCF\) en c
 
 
 [role="lead"]
-Debe descargar el archivo de configuración de referencia (RCF) en cada switch de la configuración de la estructura de MetroCluster.
+Debes descargar el archivo de configuración de referencia (RCF) en cada conmutador de la configuración de la estructura de MetroCluster.
 
 .Acerca de esta tarea
-Para utilizar estos archivos RCF, el sistema debe ejecutar ONTAP 9.1 o posterior y debe utilizar el diseño de puerto para ONTAP 9.1 o posterior.
+Para utilizar estos RCF, el sistema debe estar ejecutando ONTAP 9.1 o una versión posterior y debes usar la configuración de puertos para ONTAP 9.1 o una versión posterior.
 
 Si planea utilizar solo uno de los puertos FC en los puentes FibreBridge, configure los conmutadores de canal de fibra de back-end manualmente siguiendo las instrucciones que se encuentran en la sección link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["Asignaciones de puertos para conmutadores FC"] .
 
 .Pasos
-. Consulte la tabla de archivos RCF de la página de descarga de Brocade RCF e identifique el archivo RCF correcto para cada switch de la configuración.
+. Consulta la tabla de RCF en la página de descargas de RCF de Brocade e identifica el RCF adecuado para cada conmutador de tu configuración.
 +
-Los archivos RCF deben aplicarse a los interruptores correctos.
+Los RCF deben aplicarse a los switches correctos.
 
-. Descargue los archivos RCF de los conmutadores desde https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["Descarga de RCF de MetroCluster"] página.
+. Descarga los RCF de los switches desde la página https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["Descarga de RCF de MetroCluster"].
 +
 Los archivos se deben colocar en una ubicación en la que puedan transferirse al conmutador. Hay un archivo separado para cada uno de los cuatro switches que conforman la estructura de dos switches.
 

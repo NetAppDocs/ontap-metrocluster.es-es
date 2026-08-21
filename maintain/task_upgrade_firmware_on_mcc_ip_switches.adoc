@@ -155,6 +155,7 @@ volumes             ok
 
 
 
+. link:../install-ip/switch-move-cluster-lifs.html["Mueve las LIF del clúster"] antes de iniciar la actualización.
 . Instale el software en el primer interruptor.
 +
 
@@ -169,6 +170,10 @@ Siga los pasos para instalar el software de switch en el tema correspondiente de
 ** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-cumulus-software["Descargue e instale el software NVIDIA SN2100 switch Cumulus"]
 
 
-. Repita el paso anterior con cada uno de los conmutadores.
+. Repite los pasos anteriores para cada uno de los switches.
++
+
+NOTE: Una vez que hayas configurado los switches en la primera estructura (Switch_A_1, Switch_B_1), debes repetir los pasos para mover las LIF del clúster en la segunda estructura (Switch_A_2, Switch_B_2). Consulta link:../install-ip/task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+
 . Repetición <<step_1_fw_upgrade,Paso 1>> para comprobar el estado de la configuración.
 

@@ -160,6 +160,10 @@ Sigue las instrucciones para proporcionar los siguientes datos para recuperar y 
 +
 En función del ajuste del gestor de claves, realice el procedimiento de recuperación seleccionando la opción «'10'» o la opción «'11'», seguida de la opción «'6'» en el primer símbolo del sistema del menú de arranque. Para arrancar los nodos por completo, puede que necesite repetir el procedimiento de recuperación seguido de la opción «'1'» (arranque normal).
 
++
+
+NOTE: Cuando ejecutas la opción del menú de arranque `6`, es posible que tengas que restablecer los valores de bootarg de MetroCluster. Consulta link:upgrade-mcc-ip-system-controller-replace-apply-rcf-set-bootarg.html#set-the-metrocluster-ip-bootarg-variables["Establezca las variables bootarg de MetroCluster IP"].
+
 . Arrancar los nodos:
 +
 `boot_ontap`

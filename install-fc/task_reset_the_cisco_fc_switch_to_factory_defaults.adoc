@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, reset, cisco, fc, switch, factory, defaults 
 summary: Antes de instalar una nueva versión de software y RCF, debe borrar la configuración del conmutador Cisco y realizar la configuración básica. 
 ---
-= Restablecer el switch Cisco FC a los valores predeterminados de fábrica
+= Restablece el conmutador FC de Cisco a los valores predeterminados de fábrica en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

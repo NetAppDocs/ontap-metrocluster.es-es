@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, reset, brocade, fc, switch, factory, defaults 
 summary: Antes de instalar una nueva versión de software y archivos RCF, debe borrar la configuración actual del conmutador y realizar la configuración básica. 
 ---
-= Restablecer los valores predeterminados de fábrica del switch FC de Brocade
+= Restablece el conmutador FC de Brocade a los valores predeterminados de fábrica en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

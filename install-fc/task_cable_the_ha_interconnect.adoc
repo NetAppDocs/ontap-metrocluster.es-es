@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, cable, ha, interconnect, cabling 
 summary: Si tiene una configuración MetroCluster de ocho o cuatro nodos y las controladoras de almacenamiento dentro de las parejas de alta disponibilidad se encuentran en un chasis separado, debe cablear la interconexión de alta disponibilidad entre las controladoras. 
 ---
-= Cableado de la interconexión de alta disponibilidad
+= Conecta la interconexión de alta disponibilidad en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

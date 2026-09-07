@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip, switch, configuring, configure, factory defaults, cisco, MACsec encryption, 9336C, 9336, forward error correction, fec 
 summary: 'Al actualizar el firmware del conmutador o el archivo de configuración de referencia (RCF), mueves las LIF del clúster al conmutador asociado para permitir operaciones del clúster sin interrupciones durante la actualización.' 
 ---
-= Mueve los LIF del clúster antes de sustituir un conmutador IP de MetroCluster, cambiar el RCF o actualizar el firmware
+= Mueve las LIF del clúster antes de un cambio de switch, RCF o firmware en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, cable, cluster, peering, connections 
 summary: Debe conectar los puertos del módulo de la controladora utilizados para la interconexión de clústeres de manera que tengan conectividad con el clúster en el sitio de socios. 
 ---
-= Conectar el cableado de las conexiones de los clústeres entre iguales
+= Conecta las conexiones de interconexión del clúster en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

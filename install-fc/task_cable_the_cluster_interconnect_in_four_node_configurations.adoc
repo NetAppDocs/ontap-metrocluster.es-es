@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, cable, cluster, interconnect, four, node 
 summary: En configuraciones MetroCluster de ocho o cuatro nodos, debe conectar la interconexión del clúster entre los módulos de la controladora local en cada sitio. 
 ---
-= Conectar el cableado de la interconexión de clúster en configuraciones de ocho o cuatro nodos
+= Conecta la interconexión del clúster en configuraciones FC de ocho o cuatro nodos MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

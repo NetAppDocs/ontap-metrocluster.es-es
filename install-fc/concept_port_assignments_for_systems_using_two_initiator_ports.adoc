@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, port, assignments, systems, two, initiator, ports 
 summary: Puede configurar sistemas FAS8020, AFF8020, FAS8200 y AFF A300 utilizando un único puerto de iniciador para cada estructura y dos puertos de iniciador para cada controladora. 
 ---
-= Las asignaciones de puertos para los sistemas que utilizan dos puertos iniciadores
+= Asignaciones de puertos para sistemas FC de MetroCluster que usan dos puertos de iniciador
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco, MACsec encryption 
 summary: Si es necesario, configura el cifrado MACsec solo en los puertos ISL de la WAN que van entre los sitios. Si eliges usar el cifrado MACsec, configúralo después de aplicar el archivo RCF correcto. 
 ---
-= Configura el cifrado MACsec en los switches Cisco 9336C en un sitio IP MetroCluster (opcional)
+= Configura el cifrado MACsec en los switches Cisco 9336C en MetroCluster IP
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

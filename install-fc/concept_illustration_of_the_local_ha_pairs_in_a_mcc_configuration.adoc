@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, local, ha, pairs, configuration, illustration 
 summary: En configuraciones MetroCluster de ocho o cuatro nodos, cada sitio consta de controladoras de almacenamiento configuradas como uno o dos pares de alta disponibilidad. Esto permite una redundancia local de modo que si falla una controladora de almacenamiento, su partner de alta disponibilidad local puede hacer el relevo. Estos fallos pueden gestionarse sin una operación de conmutación de sitios MetroCluster. 
 ---
-= Una ilustración de los pares de alta disponibilidad locales en una configuración MetroCluster
+= Ilustración de los pares de HA locales en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

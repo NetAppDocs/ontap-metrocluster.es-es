@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, installing, fc-to-sas, fc, sas, bridges, disk, shelves, atto, fibrebridge 
 summary: Puede instalar y cablear los puentes de ATTO FiberBridge y las bandejas de discos SAS cuando agregue nuevo almacenamiento a la configuración. 
 ---
-= Instale los puentes de FC a SAS y las bandejas de discos SAS
+= Instala puentes FC a SAS y bandejas de discos SAS en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

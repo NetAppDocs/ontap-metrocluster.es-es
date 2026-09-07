@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, cable, isl, sites 
 summary: 'Debe conectar los switches FC de cada sitio mediante los enlaces Inter-Switch \(ISL\) de fibra óptica para formar las estructuras de switches que conectan los componentes de MetroCluster.' 
 ---
-= Cableado de los ISL entre los sitios MetroCluster
+= Conecta los ISL entre los sitios FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

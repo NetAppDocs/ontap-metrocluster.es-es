@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, cable, management, data, connections 
 summary: Debe cablear los puertos de gestión y datos de cada controladora de almacenamiento a las redes del sitio. 
 ---
-= Cableado de conexiones de datos y gestión
+= Conecta los cables de las conexiones de gestión y datos en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

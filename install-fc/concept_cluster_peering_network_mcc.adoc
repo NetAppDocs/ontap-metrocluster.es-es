@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, illustration, cluster, peering, network 
 summary: 'Los dos clústeres de la configuración de MetroCluster tienen una relación entre iguales a través de una red de clústeres proporcionada por el cliente. Cluster peering admite el mirroring síncrono de equipos virtuales de almacenamiento \(SVM, antes conocidos como Vserver\) entre estos sitios.' 
 ---
-= Ilustración de la red de paridad de clústeres
+= Ilustración de la red de interconexión entre clústeres en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -13,11 +13,21 @@ summary: 'Es posible que deba sustituir un switch con errores o actualizar o deg
 [role="lead"]
 Es posible que deba sustituir un switch con errores, actualizar o degradar un switch, o cambiar el uso de switches IP de MetroCluster existentes.
 
+
+CAUTION: Si necesitas sustituir un conmutador en las plataformas AFF A220, AFF A250 o FAS2750, consulta link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/Cluster_and_HA_communication_issues_during_back-end_switch_replacement["el artículo de base de conocimientos «Cluster and HA communication issues during back-end switch replacement»"^].
+
 .Acerca de esta tarea
 Este procedimiento se aplica cuando se utilizan switches validados por NetApp. Si utiliza switches compatibles con MetroCluster, consulte al proveedor de switches.
 
 link:enable-console-logging-before-maintenance.html["Active el registro de la consola"] antes de realizar esta tarea.
 
+[NOTE]
+====
+Las velocidades de enlace mixtas no son compatibles con las plataformas que utilizan una tarjeta de interfaz de red X60134A. Para comprobar si tu plataforma se ve afectada, consulta el  https://hwu.netapp.com/["Hardware Universe"^].
+
+Si vas a sustituir un conmutador que utiliza puertos de 25G por uno nuevo que utilice puertos de 100G en una plataforma afectada (por ejemplo, si sustituyes un conmutador BES-53248 por un conmutador Cisco 9336C en una plataforma AFF A50), consulta link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/100G_link_not_coming_online_during_MetroCluster_back-end_switch_replacement?caseId=2010523490["el artículo de base de conocimientos "100G link not coming online during MetroCluster back-end switch replacement""^].
+
+====
 Este procedimiento admite las siguientes conversiones:
 
 * Cambiando el proveedor del switch, el tipo o ambos. El nuevo conmutador puede ser el mismo que el antiguo cuando un conmutador ha fallado, o puede cambiar el tipo de conmutador (actualizar o degradar el conmutador).

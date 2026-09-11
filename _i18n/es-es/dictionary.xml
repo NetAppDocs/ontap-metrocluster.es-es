@@ -5072,15 +5072,9 @@
   <block id="504d065328326a8677a260e4447bea63" category="paragraph">El módulo del controlador se reinicia pero se detiene en el menú de arranque porque se reformateó el dispositivo de arranque y es necesario restaurar los datos de configuración.</block>
   <block id="f02a9a7436db38c9278de96d8940fedc" category="list-text">Cuando vea el mensaje siguiente, responda<block ref="a6105c0a611b41b08f1209506350279e" prefix=" " category="inline-code"></block>:<block ref="5efa575dbc5a2f338e2df652e950b3ff" prefix=" " category="inline-code"></block></block>
   <block id="e3dcb6e98d703b4041ac7a4b6d40412e" category="list-text">Seleccione opción<block ref="e4da3b7fbbce2345d7772b0674a318d5" prefix=" " category="inline-code"></block> para pasar al modo de mantenimiento desde el menú de arranque. Responda<block ref="a6105c0a611b41b08f1209506350279e" prefix=" " category="inline-code"></block> en el símbolo del sistema hasta que el nodo se detenga en el modo de mantenimiento y en el símbolo del sistema<block ref="2cf8a3bab83c4d2618c18eeeca9ebc98" prefix=" " category="inline-code"></block>.</block>
-  <block id="9c70e72e74a5beec346c7fba9e09ac77" category="list-text">Detenga el nodo:<block ref="4a1bde0ea8bcda2a591f42646813c477" prefix=" " category="inline-code"></block>El nodo debe detenerse en la<block ref="b4e58ddfd75fec23180551a08c0e87c6" prefix=" " category="inline-code"></block> prompt.</block>
-  <block id="a9c684b6388493b28c8bae9224fcb530" category="list-text">En cada nodo, compruebe la fecha, la hora y la zona horaria del sistema:<block ref="8b3eefb87c2c3f87f2074f49e91acf4b" prefix=" " category="inline-code"></block></block>
-  <block id="19940e0e663b8b77ef5ae9bed0adc639" category="list-text">Si es necesario, establezca la fecha en UTC o en la hora media de Greenwich (GMT):<block ref="ce2b665b5815a9c7e13cdb6fc96a5a98" prefix=" " category="inline-code"></block></block>
-  <block id="17cd34e04880fa15bf7da7bdee12d187" category="list-text">Vuelva a arrancar el nodo en modo de mantenimiento para permitir que los cambios de configuración surtan efecto:<block ref="cce56b203b8705f3487342813b7117be" prefix=" " category="inline-code"></block></block>
   <block id="92864f4a1e3e8b31f329dde898c399e7" category="list-text">Compruebe que los cambios realizados sean efectivos y ucadmin muestra los puertos iniciadores FC online.</block>
   <block id="9be73b3dd95d39ff15e33b30275709d3" category="cell">Si tiene este tipo de HBA...</block>
   <block id="8ad2992d6c032a4514706c63ee5d4d1b" category="cell">Utilizar este comando…</block>
-  <block id="6f991264f748ca5e72084279b6293fcc" category="list-text">Compruebe el modo ha-config:<block ref="fb4e6c2e33b945c3ff4d042cb66d2ed4" prefix=" " category="inline-code"></block></block>
-  <block id="351a906b91969bd3f60ac4f7ef2b51fe" category="list-text">Compruebe que dispone de la siguiente salida:</block>
   <block id="ee4c38ecc362bac1e7f1567f237e818c" category="list-text">Detenga el sistema e inicie en modo de mantenimiento desde la<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> prompt:</block>
   <block id="1ecb0dfe9a0842837109d6fe31c0a171" category="list-text">Muestre los discos propiedad de node_B_1-A700:</block>
   <block id="241f0ee84bd4513482899f61a24c6961" category="paragraph">El resultado de ejemplo muestra el ID del sistema del nuevo módulo de controlador (1574774970). Sin embargo, los discos del agregado raíz siguen siendo propiedad del ID de sistema anterior (4068741254). En este ejemplo, no se muestran las unidades que pertenecen a otros nodos en la configuración MetroCluster.</block>
@@ -10811,7 +10805,6 @@
   <block id="16d9a40603d44eea561b00730eec3d91" category="paragraph">ONTAP 9.12.1 y versiones posteriores</block>
   <block id="4951fe611f97b799b2abaf7474848aa1" category="inline-link-macro">Matriz de soporte de SO</block>
   <block id="30177b72c8d5a1bab13142ff42dfc513" category="paragraph">Consulte la <block ref="9f4435e7cf286b329f02bc934ba0dd4b" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
-  <block id="e27eee16ff4c1ce2072fea31052ce7d5" category="paragraph">Ninguno. Las dependencias se incluyen en la instalación.</block>
   <block id="4a558332080902b1daf6c9eb900f075a" category="summary">El procedimiento de instalación de tiebreaker que siga depende de la versión de tiebreaker que esté instalando.</block>
   <block id="686cbe9ae98dac9e3c34fe747bedda27" category="doc">Elija su procedimiento de instalación</block>
   <block id="de537937e28d6ff9bfed73c24f238620" category="paragraph">Tiebreaker 1,6</block>
@@ -14744,4 +14737,23 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="edb9b445f13c3e9e05b61cc6e0b3efdc" category="doc">Configura los switches IP SN2100 de NVIDIA para una configuración IP de MetroCluster</block>
   <block id="20e757ff864b6acd14ec41e7165a63f9" category="doc">Aumenta el tiempo de espera del buzón de ONTAP Mediator en una configuración IP de MetroCluster</block>
   <block id="f081a35160d006cd5323e0740d06220e" category="doc">Tablas de puertos para configuraciones IP de MetroCluster</block>
+  <block id="e0ff38f1490ce2495524f7429045ad81" category="inline-link-macro">el artículo de base de conocimientos «Cluster and HA communication issues during back-end switch replacement»</block>
+  <block id="93c539486532bcd2c15f294efff69106" category="admonition">Si necesitas sustituir un conmutador en las plataformas AFF A220, AFF A250 o FAS2750, consulta <block ref="3468e696d0ad9ec4d429e1b845c952a7" category="inline-link-macro-rx"></block>.</block>
+  <block id="fe4617c4a015a1feba78882255c11625" category="paragraph">Las velocidades de enlace mixtas no son compatibles con las plataformas que utilizan una tarjeta de interfaz de red X60134A. Para comprobar si tu plataforma se ve afectada, consulta el <block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block>.</block>
+  <block id="5f0a2538bca6fe75656437edc2b047c7" category="inline-link-macro">el artículo de base de conocimientos "100G link not coming online during MetroCluster back-end switch replacement"</block>
+  <block id="657f971f966b2ce2da53f2f9bf9abb4b" category="paragraph">Si vas a sustituir un conmutador que utiliza puertos de 25G por uno nuevo que utilice puertos de 100G en una plataforma afectada (por ejemplo, si sustituyes un conmutador BES-53248 por un conmutador Cisco 9336C en una plataforma AFF A50), consulta <block ref="6b31e2facf5f0ecbaec230ff30732341" category="inline-link-macro-rx"></block>.</block>
+  <block id="2c949cfd6a2e8390ab22577d8fcb8862" category="paragraph">Ninguno. OpenJDK 19.0.2 se incluye en la instalación.</block>
+  <block id="cbf667b7a6abb8a525741cdc92045f34" category="paragraph">El estado HA de todos los componentes debe ser <block ref="f46f944e351f8b92e40c3308318738a3" prefix=" " category="inline-code"></block>.</block>
+  <block id="de63ff438cd7316a835d354fccfe0c46" category="list-text">En cada nodo, comprueba la fecha, la hora y la zona horaria del sistema:</block>
+  <block id="3e72511c09e554faf49052f79d627689" category="paragraph"><block ref="7e17e2b336dbdd66c2f45405573b53de" prefix="" category="inline-code"></block></block>
+  <block id="1bf5eb31de796d79cb8b6dfd332d4bb6" category="list-text">Si es necesario, configura la fecha en UTC o en hora media de Greenwich (GMT):</block>
+  <block id="833ce90830a0406f310191c0da1f76da" category="paragraph"><block ref="ce2b665b5815a9c7e13cdb6fc96a5a98" prefix="" category="inline-code"></block></block>
+  <block id="b6d433a7d610fd177455bd83030adfbf" category="list-text">Comprueba la hora utilizando el siguiente comando en el indicador del entorno de arranque:</block>
+  <block id="667f3a6a11750e110d0c1442d2aa20e7" category="paragraph"><block ref="33f065aac47385ce7b7c4bc5d49f430b" prefix="" category="inline-code"></block></block>
+  <block id="3cc2598fed5ed84edf9cf18c5a8293c6" category="list-text">Si es necesario, configura la hora en UTC o GMT:</block>
+  <block id="25a249a3cdba620e6eba67639be13589" category="paragraph"><block ref="aa979bf34f52b205295408bd829f28b6" prefix="" category="inline-code"></block></block>
+  <block id="e02ed2f754f906507b04045b6d64c6a8" category="list-text">Guarda la configuración:</block>
+  <block id="be169689a01b80888d8e5aa7db10c6e9" category="list-text">Recopila variables de entorno:</block>
+  <block id="c464415fe9040cd42442afd5413727d2" category="list-text">Comprueba el modo de ha-config:</block>
+  <block id="bb903f8039d8d74f0348f46c24a33392" category="paragraph">La salida debería ser similar al siguiente ejemplo:</block>
 </blocks>

@@ -977,24 +977,50 @@ Debe comprobar el estado de alta disponibilidad de las controladoras y el chasis
 `ha-config show`
 
 +
-El estado de alta disponibilidad para todos los componentes debe ser mcc.
+El estado HA de todos los componentes debe ser  `mcc`.
 
-. Si el estado del sistema mostrado de la controladora o el chasis no es correcto, establezca el estado de alta disponibilidad:
+. Si el estado del sistema mostrado del controlador no es correcto, configure el estado de alta disponibilidad para el módulo de la controladora y el chasis:
 +
 `ha-config modify controller mcc`
 
 +
 `ha-config modify chassis mcc`
 
-. Detenga el nodo: `halt`El nodo debe detenerse en la `LOADER>` prompt.
-. En cada nodo, compruebe la fecha, la hora y la zona horaria del sistema: `Show date`
-. Si es necesario, establezca la fecha en UTC o en la hora media de Greenwich (GMT): `set date <mm/dd/yyyy>`
-. Compruebe la hora utilizando el siguiente comando en el símbolo del sistema del entorno de arranque: `show time`
-. Si es necesario, establezca la hora en UTC o GMT: `set time <hh:mm:ss>`
-. Guarde los ajustes: `saveenv`
-. Recopile variables de entorno: `printenv`
-. Vuelva a arrancar el nodo en modo de mantenimiento para permitir que los cambios de configuración surtan efecto:
+. Detenga el nodo:
++
+`halt`
+
++
+El nodo debe detenerse en la `LOADER>` prompt.
+
+. En cada nodo, comprueba la fecha, la hora y la zona horaria del sistema:
++
+`show date`
+
+. Si es necesario, configura la fecha en UTC o en hora media de Greenwich (GMT):
++
+`set date <mm/dd/yyyy>`
+
+. Comprueba la hora utilizando el siguiente comando en el indicador del entorno de arranque:
++
+`show time`
+
+. Si es necesario, configura la hora en UTC o GMT:
++
+`set time <hh:mm:ss>`
+
+. Guarda la configuración:
++
+`saveenv`
+
+. Recopila variables de entorno:
++
+`printenv`
+
+. Vuelva a arrancar el nodo en el modo de mantenimiento para aplicar los cambios de configuración:
++
 `boot_ontap maint`
+
 . Compruebe que los cambios realizados sean efectivos y ucadmin muestra los puertos iniciadores FC online.
 +
 |===
@@ -1016,9 +1042,13 @@ FC
 `fcadmin show`
 
 |===
-. Compruebe el modo ha-config: `ha-config show`
+. Comprueba el modo de ha-config:
 +
-.. Compruebe que dispone de la siguiente salida:
+`ha-config show`
+
++
+La salida debería ser similar al siguiente ejemplo:
+
 +
 [listing]
 ----
@@ -1026,70 +1056,6 @@ FC
 Chassis HA configuration: mcc
 Controller HA configuration: mcc
 ----
-
-
-
-
-
-
-[[set-the-ha-state-on-the-new-controllers-and-chassis]]
-=== Establezca el estado de alta disponibilidad en las controladoras y el chasis nuevos
-
-Debe comprobar el estado de alta disponibilidad de las controladoras y el chasis y, si es necesario, actualizar el estado para que coincida con la configuración del sistema.
-
-.Pasos
-. En el modo de mantenimiento, muestre el estado de alta disponibilidad del módulo de controladora y el chasis:
-+
-`ha-config show`
-
-+
-El estado de alta disponibilidad para todos los componentes debe ser mcc.
-
-+
-|===
-
-
-| Si la configuración de MetroCluster tiene... | El estado de alta disponibilidad debería ser... 
-
-
- a| 
-Dos nodos
- a| 
-mcc-2n
-
-
-
- a| 
-Cuatro u ocho nodos
- a| 
-mcc
-
-|===
-. Si el estado del sistema mostrado del controlador no es correcto, configure el estado de alta disponibilidad para el módulo de la controladora y el chasis:
-+
-|===
-
-
-| Si la configuración de MetroCluster tiene... | Emita estos comandos... 
-
-
- a| 
-*Dos nodos*
- a| 
-`ha-config modify controller mcc-2n`
-
-`ha-config modify chassis mcc-2n`
-
-
-
- a| 
-*Cuatro u ocho nodos*
- a| 
-`ha-config modify controller mcc`
-
-`ha-config modify chassis mcc`
-
-|===
 
 
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, upgrade, rcf, files, ip, switches, cleanupfiles, cisco 
 summary: Es posible que necesite actualizar un archivo RCF en un conmutador IP de Cisco. Por ejemplo, una actualización de ONTAP o de firmware del switch requieren un nuevo archivo RCF. 
 ---
-= Actualice los archivos RCF en switches IP de Cisco mediante CleanUpFiles
+= Actualiza los archivos RCF en los switches Cisco usando CleanUpFiles en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

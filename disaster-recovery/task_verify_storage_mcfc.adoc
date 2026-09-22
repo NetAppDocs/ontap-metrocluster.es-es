@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify, storage, configuration 
 summary: Debe confirmar que todo el almacenamiento esté visible de los nodos supervivientes. 
 ---
-= Verificación de la configuración de almacenamiento
+= Verifica la configuración del almacenamiento en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

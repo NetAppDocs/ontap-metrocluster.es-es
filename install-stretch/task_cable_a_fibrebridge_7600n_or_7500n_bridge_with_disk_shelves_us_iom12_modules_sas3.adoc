@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, cable, fibrebridge, bridge, disk, shelves, iom12, modules 
 summary: Después de configurar el puente, puede iniciar el cableado del sistema. 
 ---
-= Cableado de un puente FibreBridge 7600N o 7500N con bandejas de discos con módulos IOM12
+= Conecta un puente FibreBridge 7600N o 7500N con estantes de discos usando módulos IOM12 en una configuración stretch MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

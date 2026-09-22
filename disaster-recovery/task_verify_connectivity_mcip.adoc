@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, ip, configuration, verify, storage, connectivity, remote 
 summary: Debe confirmar que los nodos sustituidos tienen conectividad con las bandejas de discos en el sitio superviviente. 
 ---
-= Verificación de la conectividad de almacenamiento con el sitio remoto (configuraciones de IP de MetroCluster)
+= Verifica la conectividad del almacenamiento con el sitio remoto en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

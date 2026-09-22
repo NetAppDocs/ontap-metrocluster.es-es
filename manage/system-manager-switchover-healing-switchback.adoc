@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: switchover, perform, switchback, system, manager, operation, restore, metrocluster, functionality, ip, configuration 
 summary: Después de una conmutación, debe ejecutar las operaciones de reparación en un orden específico para restaurar la funcionalidad de MetroCluster. 
 ---
-= Utilizar System Manager para llevar a cabo la conmutación de sitios y la conmutación de estado (sólo para configuraciones IP de MetroCluster)
+= Utiliza System Manager para la conmutación de sitios y la reversión en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

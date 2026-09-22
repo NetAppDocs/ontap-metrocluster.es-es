@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fc, sas, bridge, configure, metrocluster, configuration 
 summary: Si sustituyó los puentes FC-a-SAS, debe configurarlos al restaurar la configuración de MetroCluster. 
 ---
-= Configuración de los puentes FC a SAS (solo configuraciones de FC de MetroCluster)
+= Configura los puentes FC a SAS en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

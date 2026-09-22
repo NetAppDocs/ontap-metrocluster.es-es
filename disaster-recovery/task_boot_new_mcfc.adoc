@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: boot, controller, modules, fc 
 summary: Después de que se haya completado la reparación de agregados de datos y raíz, debe arrancar el nodo o los nodos en el sitio de desastre. 
 ---
-= Arrancar los nuevos módulos de la controladora (configuraciones de FC de MetroCluster)
+= Inicia los nuevos módulos controladores en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

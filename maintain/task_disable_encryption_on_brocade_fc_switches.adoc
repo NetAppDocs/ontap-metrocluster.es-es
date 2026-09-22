@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, disable, encryption, brocade, fc, switch 
 summary: Puede que deba deshabilitar el cifrado en los switches Brocade FC. 
 ---
-= Deshabilitación del cifrado en switches Brocade FC
+= Desactiva el cifrado en los switches Brocade en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

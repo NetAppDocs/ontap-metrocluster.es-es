@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: transition, cluster connections 
 summary: Después de revisar todos los requisitos y prepararse para la transición, debe ejecutar el procedimiento de transición. Debe realizar cada tarea en orden, completando todos los pasos de cada tarea antes de pasar a la siguiente. No debe conectar las controladoras nuevas ni las bandejas de almacenamiento a la configuración existente hasta que se indique. 
 ---
-= Mueva las conexiones del clúster local
+= Mover las conexiones del clúster local en una transición de FC a IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, hot, add, sas, disk, shelf, direct, attached, fc, configuration, optical, cables 
 summary: Puede utilizar cables ópticos SAS para añadir en caliente una bandeja de discos SAS a una pila existente de bandejas de discos SAS en una configuración FC MetroCluster de conexión directa, o como una nueva pila a un HBA SAS o un puerto SAS integrado en la controladora. 
 ---
-= Añadir en caliente una bandeja de discos SAS en una configuración MetroCluster FC de conexión directa mediante cables ópticos SAS
+= Agrega en caliente una bandeja de discos SAS en una configuración FC de conexión directa MetroCluster usando cables ópticos SAS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

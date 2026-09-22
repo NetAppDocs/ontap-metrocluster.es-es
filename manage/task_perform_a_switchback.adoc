@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, configuration, switchback, operation, return, operating, operate, state, sync-source, storage, virtual, machine, svm, disaster, site, active, serving, local, disk, pool, perform 
 summary: 'Después de recuperar la configuración de MetroCluster, puede ejecutar la operación de conmutación de estado de MetroCluster. La operación de conmutación de estado de MetroCluster devuelve la configuración a su estado operativo normal, con las máquinas virtuales de almacenamiento sincronizada en origen \(SVM\) en el sitio de desastre activas y proporcionando datos de los pools de discos locales.' 
 ---
-= Realización de una conmutación de regreso
+= Realiza una conmutación de sitios de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, online, offline, ip, interface port 
 summary: Al realizar tareas de mantenimiento es posible que deba desconectar el puerto de la interfaz IP de MetroCluster. 
 ---
-= Puertos de interfaz IP de MetroCluster en línea u fuera de línea
+= Activa o desactiva un puerto de interfaz en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: assign, ownership, drives, replaced 
 summary: Si sustituyó unidades al restaurar el hardware en el sitio de desastres, debe asignar la propiedad a las unidades afectadas. 
 ---
-= Asignación de propiedad de unidades sustituidas
+= Asigna la propiedad de las unidades sustituidas en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

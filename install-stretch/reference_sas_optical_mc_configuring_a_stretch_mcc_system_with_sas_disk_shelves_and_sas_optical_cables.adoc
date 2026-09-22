@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, install, cable, components, two, node, sas, stretch, attached, configuration 
 summary: Las controladoras de almacenamiento deben estar cableadas a los medios de almacenamiento y entre sí. Las controladoras de almacenamiento también deben estar cableadas a la red de datos y gestión. 
 ---
-= Instalación y cableado de componentes de MetroCluster para configuraciones elásticas de dos nodos conectadas a SAS
+= Componentes de cable MetroCluster para una configuración stretch con conexión SAS de dos nodos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

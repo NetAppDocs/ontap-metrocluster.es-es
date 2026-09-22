@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, secure, unsecure, fibrebridge, bridge 
 summary: Para deshabilitar fácilmente los protocolos Ethernet potencialmente no seguros en un puente, comenzando con ONTAP 9.5 puede proteger el puente. Esto desactiva los puertos Ethernet del puente. También puede volver a habilitar el acceso Ethernet. 
 ---
-= Asegurar o desfijar el puente FiberBridge
+= Asegura o desasegura un puente FibreBridge en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

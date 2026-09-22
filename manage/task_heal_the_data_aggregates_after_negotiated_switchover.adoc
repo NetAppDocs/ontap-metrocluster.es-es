@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: heal, data, aggregate, completing, complete, maintenance, test, process, resynchronize, prepare, disaster, operation, root, negotiate, switchover 
 summary: Debe reparar los agregados de datos tras completar cualquier proceso de mantenimiento o prueba. Este proceso vuelve a sincronizar los agregados de datos y prepara el sitio de desastre para su funcionamiento normal. Debe reparar los agregados de datos antes de reparar los agregados raíz. 
 ---
-= Reparar los agregados de datos después de un cambio negociado
+= Recupera los agregados de datos de MetroCluster después de la conmutación de sitios
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

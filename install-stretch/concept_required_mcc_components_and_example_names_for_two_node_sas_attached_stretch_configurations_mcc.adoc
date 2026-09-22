@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, required, hardware, components, naming, guidelines, two, node, sas, configuration 
 summary: La configuración de MetroCluster requiere varios componentes de hardware. Para mayor comodidad y claridad, en la documentación de MetroCluster se utilizan los nombres estándar de los componentes. Un sitio se conoce como Sitio A y el otro se conoce como Sitio B. 
 ---
-= Componentes de hardware de MetroCluster y directrices de nomenclatura necesarias para configuraciones de ampliación conectadas a SAS de dos nodos
+= Componentes de hardware y nomenclatura para una configuración de stretch MetroCluster conectada mediante SAS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

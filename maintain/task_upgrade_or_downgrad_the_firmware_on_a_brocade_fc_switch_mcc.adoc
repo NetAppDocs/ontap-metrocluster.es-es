@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, upgrade, downgrade, firmware, brocade, fc, switch 
 summary: Para actualizar o degradar el firmware en un switch FC de Brocade, debe utilizar comandos específicos de Brocade para deshabilitar el switch, realizar y verificar el cambio de firmware, y reiniciar y volver a habilitar el switch. 
 ---
-= Actualiza o revierte el firmware en un switch FC Brocade MetroCluster
+= Actualiza o revierte a una versión anterior el firmware en un switch FC de Brocade en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

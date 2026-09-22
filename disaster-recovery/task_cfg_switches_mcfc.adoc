@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure, fc, switches, metrocluster, configuration 
 summary: Si ha sustituido los switches FC en el sitio de desastre, debe configurarlos usando los procedimientos específicos del proveedor. 
 ---
-= Configuración de los switches FC (solo configuraciones de MetroCluster FC)
+= Configura los switches FC en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

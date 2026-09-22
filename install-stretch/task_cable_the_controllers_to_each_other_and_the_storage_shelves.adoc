@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, cable, controllers, storage, shelves 
 summary: Los adaptadores FC-VI de la controladora se deben conectar directamente entre sí. Los puertos SAS de la controladora deben cablearse con las pilas de almacenamiento local y remoto. 
 ---
-= Cableado de las controladoras entre sí y las bandejas de almacenamiento
+= Estira los cables de los controladores MetroCluster y de los estantes de almacenamiento
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

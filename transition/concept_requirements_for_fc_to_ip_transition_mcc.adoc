@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, transition, process, configuration, requirement, nondisruptive, fc-to-ip 
 summary: Antes de iniciar el proceso de transición, debe asegurarse de que la configuración cumpla los requisitos. 
 ---
-= Requisitos para la transición de FC a IP sin interrupciones
+= Requisitos para una transición de FC a IP en MetroCluster sin interrupciones
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

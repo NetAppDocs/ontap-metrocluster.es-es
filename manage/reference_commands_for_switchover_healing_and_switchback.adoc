@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, command, perform, metrocluster, disaster, recovery, process, switchover, heal, switchback 
 summary: Hay comandos específicos de la ONTAP para realizar los procesos de recuperación ante desastres de la MetroCluster. 
 ---
-= Comandos para conmutación de sitios, reparación y conmutación de estado
+= Comandos para la conmutación de sitios, la recuperación y el cambio inverso en MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, cable, management, data, connections 
 summary: Debe cablear los puertos de gestión y datos de cada controladora de almacenamiento a las redes del sitio. 
 ---
-= Cableado de conexiones de datos y gestión
+= Realiza el cableado de las conexiones de gestión y datos para una configuración stretch de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

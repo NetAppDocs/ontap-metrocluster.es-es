@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, ontap, disruptive, transition, two-node, metrocluster, fc, configuration, four-node, two-node, retire, storage, shelves, shelf, procedure, exist, drive, requirement, retiring, workflow, moving, data, move, retiring, retire, migrate, migrating, root, aggregate, 
 summary: A partir de ONTAP 9.8, se puede realizar la transición de una configuración FC MetroCluster de dos nodos a una configuración IP de MetroCluster de cuatro nodos y retirar las bandejas de almacenamiento existentes. En el procedimiento se incluyen pasos para mover datos de las bandejas de unidades existentes a la nueva configuración y luego retirar las bandejas antiguas. 
 ---
-= Realizar una transición sin interrupciones de MetroCluster FC a MetroCluster IP cuando retire bandejas de almacenamiento (ONTAP 9.8 y versiones posteriores).
+= Realiza una transición MetroCluster de forma disruptiva al retirar las estanterías de almacenamiento
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

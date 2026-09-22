@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: data, aggregate, heal, root, preparation, switchback, operation, negotiate, switchover 
 summary: Una vez que los agregados de datos hayan sido sanados, debe recuperar los agregados raíz como preparación para la operación de conmutación de estado. 
 ---
-= Reparación de los agregados raíz después de un cambio negociado
+= Recupera los agregados raíz de MetroCluster después de la conmutación de sitios
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

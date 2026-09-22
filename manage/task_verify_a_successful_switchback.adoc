@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: perform, switchback, aggregate, storage, virtual, machine, svm, switch, back, online, verify, successful 
 summary: 'Después de llevar a cabo la conmutación de estado, querrá confirmar que todos los agregados y las máquinas virtuales de almacenamiento \(SVM\) hayan vuelto a conectarse y estén en línea.' 
 ---
-= Verificación de una conmutación de regreso exitosa
+= Verifica que la conmutación de sitios de MetroCluster se haya realizado correctamente
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

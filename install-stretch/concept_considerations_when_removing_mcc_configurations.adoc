@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, considerations, remove, configurations 
 summary: 'Puede quitar la configuración MetroCluster de todos los nodos de un grupo de recuperación ante desastres \(DR\). Tras eliminar la configuración de MetroCluster, todas las interconexiones y la conectividad de disco deben ajustarse para que estén en estado admitido. Si necesita quitar la configuración de MetroCluster, póngase en contacto con el soporte técnico.' 
 ---
-= Eliminar configuraciones de MetroCluster
+= Eliminar una configuración stretch de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

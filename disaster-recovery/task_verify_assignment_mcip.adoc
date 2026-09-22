@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify, adp, verify, drives, pool, automatically, assign 
 summary: En los sistemas configurados para ADP, debe verificar que las unidades en un pool 0 se hayan asignado automáticamente. 
 ---
-= Verificación de la asignación automática o de la asignación manual de unidades del pool 0
+= Verifica o asigna manualmente las unidades del pool 0 en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: information, exist, metrocluster, fc, node, autosupport, message, announcing, announce, maintenance, transition, node, gather, controller, module, send, custom, message, prior, shut, down, removing, remove 
 summary: Debe recopilar información de los nodos FC de MetroCluster existentes, enviar un mensaje de AutoSupport donde se anunciará el inicio del mantenimiento y realizar la transición de los nodos. 
 ---
-= Cambiar los nodos FC de MetroCluster
+= Realice la transición de los nodos FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -37,7 +37,7 @@ Esta tarea se realiza en los nodos existentes:
 | Licencia | se muestra la licencia del sistema |  
 
 
-| Bandejas y números de discos de cada bandeja y detalles de almacenamiento flash, y memoria, NVRAM y tarjetas de red | el nodo del sistema ejecuta -node_name sysconfig |  
+| Estantes y número de discos en cada estante, detalles sobre el almacenamiento flash, la memoria, la NVRAM y las tarjetas de red | el nodo del sistema ejecuta -node_name sysconfig |  
 
 
 | LIF de red de clúster y de gestión de nodos | ejecución del nodo del sistema -node_name sysconfig network interface show -role "cluster,node-mgmt,data" |  

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, fc, sas, bridge, disk, shelf 
 summary: Puede instalar y cablear los puentes de ATTO FiberBridge y las bandejas de discos SAS cuando agregue nuevo almacenamiento a la configuración. 
 ---
-= Instale los puentes de FC a SAS y las bandejas de discos SAS
+= Instala puentes FC a SAS y estantes de discos SAS para una configuración stretch de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

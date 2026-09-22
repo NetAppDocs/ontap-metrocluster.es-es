@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, configuration, fc, sas, bridges 
 summary: Antes de cablear el modelo de los puentes FC-a-SAS, debe configurar los ajustes en el software FibreBridge. 
 ---
-= Configurar los puentes de FC a SAS
+= Configura los bridges de FC a SAS para una configuración stretch de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

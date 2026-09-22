@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, ip, configuration, replacement, controller, module, disaster, site, boot 
 summary: Tiene que arrancar los nodos de reemplazo en el sitio de desastre con el sistema operativo ONTAP. 
 ---
-= Arrancar ONTAP en los módulos de la controladora de repuesto en configuraciones IP de MetroCluster
+= Inicia los nodos de reemplazo en ONTAP en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object, fabricpool, mirror, co-located, metrocluster, disaster, site, destroy, reestablish, store, reestablish, store, configuration, verify, license, replace, node, perform, switchback, successful, root, aggregates, replacement, health, reconfiguring, reconfigure, ontap, mediator, service, ip, configuration 
 summary: Si uno de los almacenes de objetos de un reflejo de FabricPool se colocalizó con el centro de desastres de MetroCluster y fue destruido, debe restablecer el almacén de objetos y el mirror de FabricPool. 
 ---
-= Completando la recuperación
+= Recuperación completa en una configuración MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

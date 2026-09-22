@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, ontap, considerations, configuration 
 summary: Al utilizar ONTAP en una configuración de MetroCluster, debe tener en cuenta ciertas consideraciones para la licencia, la paridad con clústeres fuera de la configuración de MetroCluster, la realización de operaciones de volumen, las operaciones NVFAIL y otras operaciones de ONTAP. 
 ---
-= Consideraciones que tener en cuenta al utilizar ONTAP en una configuración de MetroCluster
+= Uso de ONTAP en una configuración stretch MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

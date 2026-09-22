@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, configuration, unmirrored, aggregates, crs, svm, san 
 summary: Si la configuración incluye agregados no reflejados, debe tener en cuenta los posibles problemas de acceso tras las operaciones de conmutación. 
 ---
-= Consideraciones que tener en cuenta al utilizar agregados no reflejados
+= Agregados no reflejados en una configuración stretch MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, disaster, site, replacement, controller, module, reassign, ownership 
 summary: Si los módulos de controladora o las tarjetas NVRAM se reemplazaron en el sitio de recuperación ante desastres, debe reasignar los discos pertenecientes a los agregados raíz a los módulos de controladora de sustitución. 
 ---
-= Reasignar la propiedad de disco para discos de pool 1 en el sitio de recuperación ante desastres (configuraciones de IP de MetroCluster)
+= Reasigna la propiedad del disco del pool 1 en el sitio de desastre en una configuración MetroCluster IP
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

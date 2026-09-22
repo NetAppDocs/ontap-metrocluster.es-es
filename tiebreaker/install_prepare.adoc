@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
 summary: Antes de instalar y configurar el software tiebreaker, debe verificar que el sistema cumpla ciertos requisitos. 
 ---
-= Prepárese para instalar el software tiebreaker
+= MetroCluster requisitos de instalación del tiebreaker
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -123,6 +123,6 @@ Debe tener en cuenta los siguientes requisitos adicionales:
 
 
 .El futuro
-* Si estás instalando o actualizando a Tiebreaker 1.5 o posterior, link:install_security.html["Proteja la instalación del host y de la base de datos de tiebreaker"].
+* Si estás instalando o actualizando a Tiebreaker 1.5 o posterior, link:install_security.html["Protege el host del Tiebreaker de MetroCluster y la instalación de la base de datos"].
 * Si estás instalando o actualizando a Tiebreaker 1.4, link:install-dependencies-14.html["Instale las dependencias de MetroCluster tiebreaker 1,4"].
 

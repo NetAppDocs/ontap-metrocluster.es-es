@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, cable, two, node, sas, attached, configuration 
 summary: Los componentes de MetroCluster deben instalarse físicamente, cablearse y configurarse en ambos sitios geográficos. 
 ---
-= Cableado de una configuración de MetroCluster ampliado con conexión a SAS de dos nodos
+= Conecte mediante cable una configuración de MetroCluster elástica de dos nodos conectada a SAS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

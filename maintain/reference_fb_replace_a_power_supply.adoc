@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, hot, replacing, failed, power, supply, module 
 summary: Cuando se produce un cambio en el estado de un módulo de fuente de alimentación al puente, puede extraer e instalar el módulo de fuente de alimentación. 
 ---
-= Sustitución en caliente de un módulo de fuente de alimentación con fallos
+= Sustituye en caliente un módulo de alimentación averiado en un FibreBridge en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

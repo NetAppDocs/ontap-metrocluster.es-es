@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace, metrocluster, maintain, service, pair, fibrebridge, bridges 
 summary: Para aprovechar el puerto FC2 adicional de los puentes FibreBridge 7600N o 7500N y reducir el uso de los bastidores, puede sustituir los puentes 6500N sin interrupciones y consolidar hasta cuatro pilas de almacenamiento detrás de un único par de puentes FibreBridge 7600N o 7500N. 
 ---
-= Sustitución de un par de puentes FibreBridge 6500N con puentes 7600N o 7500N
+= Sustituye los puentes FibreBridge 6500N por puentes 7600N o 7500N en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

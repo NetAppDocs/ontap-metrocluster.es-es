@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, configure, software 
 summary: Debe configurar cada nodo en la configuración de MetroCluster en ONTAP. Esto incluye las configuraciones a nivel de nodo y la configuración de los nodos en dos sitios. También debe implementar la relación de MetroCluster entre los dos sitios. 
 ---
-= Configuración del software MetroCluster en ONTAP
+= Configura el software stretch MetroCluster en ONTAP
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

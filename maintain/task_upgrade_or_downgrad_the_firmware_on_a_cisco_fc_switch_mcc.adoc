@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, upgrade, downgrade, firmware, cisco, fc, switch 
 summary: Para actualizar o degradar el firmware en un switch Cisco FC, debe usar comandos específicos de Cisco para deshabilitar el switch, realizar y verificar la actualización, y reiniciar y volver a habilitar el switch. 
 ---
-= Actualizar o degradar el firmware en un switch Cisco FC
+= Actualiza o revierte el firmware en un switch FC de Cisco en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

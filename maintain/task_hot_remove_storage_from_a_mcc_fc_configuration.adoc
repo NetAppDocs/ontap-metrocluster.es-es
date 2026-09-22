@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, hot, remove, storage, fc, configuration 
 summary: Puede quitar bandejas de unidades en caliente, y quitar físicamente las bandejas que han retirado los agregados de las unidades, de una configuración FC de MetroCluster que está en funcionamiento y sirviendo datos. Puede quitar en caliente una o varias bandejas de cualquier parte dentro de una pila de bandejas o quitar una pila de bandejas. 
 ---
-= Quitar almacenamiento en caliente de una configuración FC de MetroCluster
+= Quitar el almacenamiento de una configuración FC de MetroCluster en caliente
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

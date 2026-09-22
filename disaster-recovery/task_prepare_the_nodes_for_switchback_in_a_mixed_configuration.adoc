@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: perform, certain, task, prepare, metrocluster, ip, fc, configuration, switchback, recovery, during, transition, mix 
 summary: Debe llevar a cabo ciertas tareas para preparar la configuración mixta de IP de MetroCluster y FC para la operación de conmutación de estado. Este procedimiento solo se aplica a configuraciones que han encontrado un error durante el proceso de transición de FC a IP de MetroCluster. 
 ---
-= Preparación para la conmutación de estado en una configuración mixta (recuperación durante la transición)
+= Prepárate para la conmutación de sitios en una configuración mixta de MetroCluster durante la transición
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

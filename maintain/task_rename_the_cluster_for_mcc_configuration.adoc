@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, rename, cluster, configuration 
 summary: Cambiar el nombre de un clúster en una configuración de MetroCluster implica realizar los cambios y, a continuación, verificar en los clústeres local y remoto que el cambio haya tenido efecto correctamente. 
 ---
-= Cambiar el nombre de un clúster en configuraciones de MetroCluster
+= Cambiar el nombre de un clúster en una configuración de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

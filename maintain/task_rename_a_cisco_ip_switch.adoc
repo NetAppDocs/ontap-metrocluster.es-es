@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, rename, cisco, ip, switch 
 summary: Es posible que deba cambiar el nombre de un switch IP de Cisco a fin de proporcionar nomenclatura coherente en toda la configuración. 
 ---
-= Cambiar el nombre de un switch IP de Cisco
+= Cambiar el nombre de un switch IP de Cisco en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

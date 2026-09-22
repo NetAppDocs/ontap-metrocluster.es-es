@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: monitor, protect, file, system, consistency, nvfail, parameter, volume, modify, enable, detect, nonvolatile, nvram, switchover, recover, impact, access, nfs, volume, lun, command, monitor, data, loss, event, access 
 summary: 'El parámetro -nvfail del comando volume modify permite que ONTAP detecte inconsistencias de RAM no volátil (NVRAM) cuando el sistema arranca o después de una operación de conmutación. También le avisa y protege al sistema contra el acceso y la modificación de los datos hasta que el volumen se puede recuperar manualmente.' 
 ---
-= Supervisión y protección de la consistencia del sistema de archivos con la opción NVFAIL
+= Supervisa y protege la coherencia del sistema de archivos en MetroCluster usando NVFAIL
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

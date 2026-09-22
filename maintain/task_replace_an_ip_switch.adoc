@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, replace, ip, switch 
 summary: 'Es posible que deba sustituir un switch con errores o actualizar o degradar un switch. El nuevo conmutador puede ser el mismo que el antiguo cuando un conmutador ha fallado, o puede cambiar el tipo de conmutador \(actualizar o degradar el conmutador\).' 
 ---
-= Sustituya un switch IP o cambie el uso de los switches IP de MetroCluster existentes
+= Sustituir o reasignar un switch en una configuración IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

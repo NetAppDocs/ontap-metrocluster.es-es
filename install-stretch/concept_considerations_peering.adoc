@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, peer, peering, ports, cluster, connectivity 
 summary: Debe estar familiarizado con los requisitos previos y las directrices para configurar las relaciones de paridad de MetroCluster. 
 ---
-= Conexión de clústeres entre iguales
+= Interconexión entre clústeres en una configuración stretch MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: switchover, dr, partner, ownership, disk, svm, online, confirm 
 summary: Una vez finalizada la conmutación, debe verificar que los partners de recuperación ante desastres hayan tomado la propiedad de los discos y que las SVM del partner hayan estado en línea. 
 ---
-= Compruebe que las SVM estén en ejecución y los agregados estén en línea
+= Comprueba que las SVM en una configuración de MetroCluster estén en funcionamiento y que los agregados estén en línea
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

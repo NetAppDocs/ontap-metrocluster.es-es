@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, requirements, interfaces, fibrebridge, bridges, manage, configures 
 summary: Puede utilizar la combinación de un puerto serie, Telnet y FTP para administrar los puentes FiberBridge en lugar de las interfaces de administración recomendadas. El sistema debe cumplir los requisitos de la interfaz correspondiente antes de instalar los puentes. 
 ---
-= Requisitos para utilizar otras interfaces para configurar y gestionar puentes FiberBridge
+= FibreBridge requisitos de la interfaz de gestión del puente en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

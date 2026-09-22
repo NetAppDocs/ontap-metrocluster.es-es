@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, cluster, new, brocade, fc, switches 
 summary: Si va a actualizar a nuevos switches FC de Brocade, debe sustituir los switches de la primera estructura, comprobar que la configuración de MetroCluster esté totalmente operativa y, a continuación, sustituir los switches de la segunda estructura. 
 ---
-= Renovación a nuevos switches FC de Brocade
+= Actualiza a los nuevos switches FC de Brocade en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

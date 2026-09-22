@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
 summary: El software Tiebreaker proporciona funcionalidades de supervisión para un entorno de almacenamiento en clúster. También envía notificaciones SNMP en el caso de problemas de conectividad de los nodos y de desastres del sitio. 
 ---
-= Proteja la instalación del host y de la base de datos de tiebreaker
+= Protege el host del Tiebreaker de MetroCluster y la instalación de la base de datos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -161,4 +161,4 @@ link:https://developer.hashicorp.com/vault/tutorials/operations/production-harde
 
 
 .El futuro
-link:install-choose-procedure.html["Elija su procedimiento de instalación"] para instalar o actualizar Tiebreaker.
+link:install-choose-procedure.html["Elige tu procedimiento de instalación de MetroCluster Tiebreaker"] para instalar o actualizar Tiebreaker.

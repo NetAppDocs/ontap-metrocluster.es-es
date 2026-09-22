@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: nondisruptive, transition, fc, ip 
 summary: A partir de ONTAP 9.13.1, puede ejecutar una transición no disruptiva de cargas de trabajo y datos desde una configuración FC de MetroCluster de ocho nodos existente a una nueva configuración de IP de MetroCluster. 
 ---
-= Realizar la transición de forma no disruptiva de un FC de MetroCluster a una configuración IP de MetroCluster (ONTAP 9.8 y posterior)
+= Transición sin interrupciones de MetroCluster FC a MetroCluster IP
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, replace, single, fc, sas, bridge 
 summary: Puede sustituir un puente de forma no disruptiva por un mismo puente de modelo o por un nuevo puente de modelo. 
 ---
-= Reemplazar un único puente FC-a-SAS
+= Sustituye un solo puente FC-a-SAS en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, enable, ip, port, access, bridge, fibrebridge 
 summary: 'Si está utilizando una versión ONTAP anterior a 9.5, o planea utilizar el acceso fuera de banda al puente FibreBridge 7600N utilizando telnet u otros protocolos y servicios de puertos IP \(FTP, ExpressNAV, ICMP o Quickav\), puede activar los servicios de acceso a través del puerto de consola.' 
 ---
-= Habilitar el acceso al puerto IP en el puente FibreBridge 7600N si es necesario
+= Habilita el acceso por puerto IP en el puente FibreBridge 7600N en una configuración stretch de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

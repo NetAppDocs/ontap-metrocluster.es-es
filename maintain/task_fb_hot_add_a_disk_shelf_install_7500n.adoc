@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, hot, add, disk, shelf 
 summary: Puede añadir una bandeja de discos en activo cuando desee aumentar el almacenamiento sin reducir el rendimiento. 
 ---
-= Agregue en caliente una bandeja de discos SAS a una pila de bandejas de discos SAS
+= Agrega en caliente una bandeja de discos SAS a una pila de bandejas en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

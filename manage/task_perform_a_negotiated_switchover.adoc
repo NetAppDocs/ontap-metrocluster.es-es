@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: negotiate, switchover, clean, shut, down, partner, site, operation, metrocluster, perform 
 summary: Una conmutación de sitios negociada cierra limpiamente los procesos del sitio del partner y, a continuación, conmuta las operaciones del sitio del partner. Puede utilizar una conmutación de sitios negociada para realizar mantenimiento en un sitio de MetroCluster o para probar la funcionalidad de conmutación. 
 ---
-= Realización de una conmutación negociada
+= Realiza una conmutación de sitios negociada de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

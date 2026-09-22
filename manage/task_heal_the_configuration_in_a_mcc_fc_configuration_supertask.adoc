@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: switchover, perform, heal, operation, restore, metrocluster, functionality, fc, configuration 
 summary: Después de una conmutación, debe ejecutar las operaciones de reparación en un orden específico para restaurar la funcionalidad de MetroCluster. 
 ---
-= Reparar la configuración en una configuración de MetroCluster FC
+= Flujo de trabajo de recuperación de la configuración para una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

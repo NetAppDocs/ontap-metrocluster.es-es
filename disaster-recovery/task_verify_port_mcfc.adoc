@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify, port, environmental, metrocluster, configuration 
 summary: Debe configurar las variables de entorno en el nodo y, a continuación, apagarlo para preparar la configuración de MetroCluster. 
 ---
-= Verificación de la configuración de puerto (solo configuraciones de MetroCluster FC)
+= Verifica la configuración de los puertos en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

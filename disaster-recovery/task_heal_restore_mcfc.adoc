@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure, fc, switches, metrocluster, configuration 
 summary: Después de reemplazar el hardware y asignar discos, puede ejecutar las operaciones de reparación MetroCluster. 
 ---
-= Realizar la reparación y restauración de reflejos de agregados (configuraciones FC de MetroCluster)
+= Realiza la recuperación de agregados y restaura los espejos en una configuración MetroCluster FC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, atto, fc, switches, bridges, modify, IP, address 
 summary: Reemplace las direcciones IP antiguas de supervisión de estado después de modificar las direcciones IP de los switches back-end de FC MetroCluster o puentes ATTO. 
 ---
-= Modifique una dirección IP de puente ATTO o conmutador para la supervisión del estado
+= Modifica la dirección IP de un switch o un puente ATTO para el monitoreo del estado en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

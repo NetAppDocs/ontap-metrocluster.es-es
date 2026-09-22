@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stage, transition, process, metrocluster, switchover, heal, switchback, operation, fc, ip, workflow 
 summary: Según la etapa del proceso de transición, las operaciones de conmutación de sitios, reparación y conmutación de estado de MetroCluster utilizan el flujo de trabajo de MetroCluster FC o MetroCluster IP. 
 ---
-= Operaciones de conmutación de sitios, reparación y conmutación de estado durante una transición no disruptiva
+= Conmutación de sitios, recuperación y retroceso durante la transición de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

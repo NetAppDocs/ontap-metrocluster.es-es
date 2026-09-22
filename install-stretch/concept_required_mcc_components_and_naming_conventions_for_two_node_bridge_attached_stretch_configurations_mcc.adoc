@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, required, hardware, components, naming, conventions, two, node, stretch, bridge 
 summary: Al planificar la configuración de MetroCluster, debe conocer los componentes de hardware y software necesarios y compatibles. Para mayor comodidad y claridad, también debe comprender las convenciones de nomenclatura que se utilizan para los componentes en ejemplos de la documentación. Por ejemplo, un sitio se denomina Sitio A y el otro se denomina Sitio B. 
 ---
-= Componentes de hardware y convenciones de nomenclatura de MetroCluster necesarios para configuraciones de ampliación conectadas a puente de dos nodos
+= Componentes de hardware y nomenclatura para una configuración stretch conectada a un bridge de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

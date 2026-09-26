@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, install, license, new, controller, module 
 summary: 'Debe añadir licencias para el nuevo módulo de controladora para todos los servicios ONTAP que requieran licencias estándar \(node-locked\). Para funciones con licencias estándar, cada nodo del clúster debe tener su propia clave para la función.' 
 ---
-= Instalación de licencias para el nuevo módulo de controlador
+= Instala licencias para un nuevo módulo de controladora en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

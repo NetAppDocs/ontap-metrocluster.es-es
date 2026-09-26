@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, move, metadata, volume, configuration 
 summary: En una configuración de MetroCluster, se puede mover un volumen de metadatos de un agregado a otro. Puede ser conveniente mover un volumen de metadatos cuando el agregado de origen se decomisione o no se refleja, o por otros motivos que hacen que el agregado no sea elegible. 
 ---
-= Mover un volumen de metadatos en configuraciones de MetroCluster
+= Mover un volumen de metadatos en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

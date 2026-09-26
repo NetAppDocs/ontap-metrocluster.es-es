@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc, requirements 
 summary: Compruebe que el sistema cumpla todos los requisitos antes de ejecutar la actualización de la controladora. 
 ---
-= Requisitos para usar este procedimiento de actualización de IP de MetroCluster
+= Requisitos para las actualizaciones del controlador IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

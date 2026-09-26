@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, set, up, partner, system, id, controller, module 
 summary: Debe establecer el ID de sistema de partner en ambos módulos de la controladora para que puedan formar un par de alta disponibilidad. 
 ---
-= Establecer el ID del sistema asociado para ambos módulos de la controladora
+= Configura el ID del sistema de partners para ambos módulos de controladora durante la ampliación de FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

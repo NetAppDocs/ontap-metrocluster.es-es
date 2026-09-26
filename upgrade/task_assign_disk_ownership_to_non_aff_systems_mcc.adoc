@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, assign, disk, ownership, aff, systems 
 summary: Si los nodos MetroCluster no tienen los discos correctamente asignados, o si utiliza bandejas de discos DS460C en su configuración, debe asignar discos a cada uno de los nodos de la configuración de MetroCluster de bandeja a bandeja. Creará una configuración en la que cada nodo tenga el mismo número de discos en sus pools de discos locales y remotos. 
 ---
-= Asignación de la propiedad de disco en sistemas que no son AFF
+= Asigna la propiedad de los discos para sistemas no AFF en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

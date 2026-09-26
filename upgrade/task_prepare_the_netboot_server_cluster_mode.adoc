@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, prepare, netboot, server, download, image 
 summary: Cuando esté listo para preparar el servidor para reiniciar el sistema, debe descargar la imagen para reiniciar el sistema ONTAP correcta desde el sitio de soporte de NetApp al servidor para reiniciar el sistema y anotar la dirección IP. 
 ---
-= Preparación del servidor para reiniciar el sistema para descargar la imagen
+= Prepara el servidor de arranque por red en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

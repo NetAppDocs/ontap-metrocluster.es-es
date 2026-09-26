@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, configure, fc, sas, bridges, health, monitoring 
 summary: Las herramientas de supervisión SNMP de terceros no son compatibles con los puentes FibreBridge. A partir de ONTAP 9.8, los puentes FC a SAS se supervisan a través de conexiones en banda de forma predeterminada, por lo que no se requiere ninguna configuración adicional. 
 ---
-= Configurar puentes de FC a SAS para supervisión del estado
+= Configura los puentes FC a SAS de MetroCluster para supervisar el estado
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

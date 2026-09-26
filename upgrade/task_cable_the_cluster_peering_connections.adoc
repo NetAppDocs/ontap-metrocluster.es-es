@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, cable, new, controller, modules, cluster, peering, connections 
 summary: Debe conectar el nuevo módulo de controlador a la red de interconexión de clústeres de manera que tenga conectividad con el clúster en el sitio asociado. 
 ---
-= Cableado de las conexiones de interconexión de clústeres del nuevo módulo de controlador
+= Conecta el nuevo módulo de controladora para el peering del clúster FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

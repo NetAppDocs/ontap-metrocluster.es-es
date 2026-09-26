@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, implement, configuration 
 summary: Debe ejecutar el comando MetroCluster configure -refresh TRUE para iniciar la protección de datos en los nodos que se añadieron a una configuración de MetroCluster. 
 ---
-= Implementar la configuración de MetroCluster
+= Implementa la configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

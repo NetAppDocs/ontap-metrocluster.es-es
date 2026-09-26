@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, configure, intercluster, lif, dedicated, ports, shared 
 summary: Puede configurar LIF de interconexión de clústeres en puertos dedicados o compartidos. 
 ---
-= Configure las LIF de interconexión de clústeres
+= Configura las LIF entre clústeres durante una ampliación de FC de dos a cuatro nodos de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Aprenda a configurar LIF de interconexión de clústeres en puertos dedicados y compartidos.
+Descubre cómo configurar las LIF entre clústeres en puertos dedicados y compartidos durante una ampliación de FC de MetroCluster de dos a cuatro nodos.
 
 [role="tabbed-block"]
 ====

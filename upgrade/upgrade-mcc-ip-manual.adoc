@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: A partir de ONTAP 9.8, puede utilizar la operación de conmutación de sitios de MetroCluster para ofrecer servicios no disruptivos a los clientes mientras se actualizan los módulos de controladoras del clúster de partners. 
 ---
-= Flujo de trabajo para actualizaciones de la controladora IP de MetroCluster mediante la conmutación de sitios y la conmutación del estado (ONTAP 9,8 y versiones posteriores)
+= MetroCluster flujo de trabajo de actualización del controlador IP mediante la conmutación de sitios y la conmutación de retorno
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

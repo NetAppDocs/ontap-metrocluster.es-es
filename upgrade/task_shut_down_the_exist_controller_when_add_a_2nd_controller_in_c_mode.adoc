@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, shut, down, existing, controller, module 
 summary: Debe realizar un apagado correcto del módulo de controlador existente para verificar que todos los datos se han escrito en el disco. También debe desconectar los suministros de alimentación. 
 ---
-= Apagar el módulo de la controladora existente
+= Apaga el módulo de controlador existente durante una ampliación FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

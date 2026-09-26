@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, change, ha, config, sett, existing, new, controller, modules 
 summary: Al expandir una configuración de MetroCluster, debe actualizar la configuración de alta disponibilidad del módulo de la controladora existente y el nuevo módulo de la controladora. También debe determinar el ID del sistema del nuevo módulo de controlador. 
 ---
-= Cambiar la configuración de alta disponibilidad en los módulos de la controladora nuevos y existentes
+= Cambia la configuración de «ha-config» en los controladores FC nuevos y existentes de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

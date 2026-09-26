@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, check, configuration 
 summary: 'Puede comprobar que los componentes y las relaciones de la configuración de MetroCluster funcionan correctamente. Debe hacer una comprobación después de la configuración inicial y después de realizar cualquier cambio en la configuración de MetroCluster. También debe hacer una comprobación antes de un cambio negociado \(planificado\) o una operación de regreso.' 
 ---
-= Comprobar la configuración de MetroCluster
+= Comprueba la configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

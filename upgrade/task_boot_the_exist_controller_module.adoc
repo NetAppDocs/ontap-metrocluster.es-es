@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, boot, existing, controller, module 
 summary: Debe arrancar el módulo de la controladora existente en ONTAP. 
 ---
-= Arrancar el módulo de la controladora existente
+= Inicia el módulo de controlador FC existente de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

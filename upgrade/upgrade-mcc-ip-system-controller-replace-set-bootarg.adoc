@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: Las actualizaciones de los sistemas introducidos en ONTAP 9.15.1 o versiones posteriores requieren que establezca un arranque para poder continuar con la actualización. 
 ---
-= Establecer el arranque necesario (para actualizaciones de IP de MetroCluster de los sistemas introducidos en ONTAP 9.15.1 o versiones posteriores)
+= Configura el bootarg necesario para las actualizaciones del controlador IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

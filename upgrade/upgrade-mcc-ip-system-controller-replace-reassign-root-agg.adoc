@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: Reasigne los discos de agregado raíz al nuevo módulo de controlador, con los ID de sistema que ha recopilado anteriormente. 
 ---
-= Reasigne los discos de agregado raíz al nuevo módulo de controlador IP de MetroCluster
+= Reasigna los discos del agregado raíz al nuevo controlador IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

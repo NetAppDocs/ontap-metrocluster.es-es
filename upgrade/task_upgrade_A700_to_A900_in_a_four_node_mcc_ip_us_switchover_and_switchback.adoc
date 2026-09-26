@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controller, ip, configuration, switchover, switchback, workflow, nodes, tiebreaker, verify, bootrage, root, aggregate, disks 
 summary: 'Puede utilizar la operación de conmutación de sitios de MetroCluster para proporcionar un servicio no disruptivo a los clientes mientras se actualizan los módulos de la controladora del clúster de partners. Como parte de este procedimiento, no se pueden actualizar otros componentes (como bandejas de almacenamiento o switches).' 
 ---
-= Actualice controladoras de AFF A700/FAS9000 a AFF A900/FAS9500 en una configuración IP de MetroCluster mediante conmutación de sitios y conmutación de estado (ONTAP 9.10.1 o posterior).
+= Actualizar AFF A700 a AFF A900 o FAS9000 a FAS9500 en una configuración IP de MetroCluster mediante conmutación de sitios y conmutación de regreso
 :allow-uri-read: 
 
 
 [role="lead"]
-Puede utilizar la operación de conmutación de sitios de MetroCluster para proporcionar un servicio no disruptivo a los clientes mientras se actualizan los módulos de la controladora del clúster de partners. Como parte de este procedimiento, no se pueden actualizar otros componentes (como bandejas de almacenamiento o switches).
+A partir de ONTAP 9.10.1, puedes usar la operación de conmutación de sitios de MetroCluster para ofrecer un servicio ininterrumpido a los clientes mientras actualizas los módulos de controladora en el clúster de partners. Otros componentes (como bandejas de almacenamiento o switches) no se pueden actualizar como parte de este procedimiento.
 
 .Acerca de esta tarea
 * Para actualizar los módulos de controladoras A700 de AFF a AFF A900, las controladoras deben ejecutar ONTAP 9.10.1 o posterior.

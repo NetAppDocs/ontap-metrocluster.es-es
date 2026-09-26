@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, send, custom, autosupport, message, add, nodes, configuration 
 summary: Debe emitir un mensaje de AutoSupport para notificar al soporte técnico de NetApp que se está realizando mantenimiento. Al informar al soporte técnico de que el mantenimiento está en marcha, se evita que abran un caso basándose en que se ha producido una interrupción. 
 ---
-= Enviar un mensaje de AutoSupport personalizado antes de añadir nodos a la configuración de MetroCluster
+= Envía un mensaje personalizado de AutoSupport antes de una ampliación de MetroCluster FC de dos a cuatro nodos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

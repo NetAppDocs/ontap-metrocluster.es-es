@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, apply, rcf, files, recable, switches 
 summary: Debe aplicar los archivos RCF para volver a configurar la división en zonas y acomodar los nuevos nodos. 
 ---
-= Recuperar y reconfigurar los interruptores
+= Volver a cablear y reconfigurar los conmutadores FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, fc, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: Puede usar esta operación de conmutación de sitios automatizada y guiada de MetroCluster para realizar una actualización de controladoras sin interrupciones para una configuración FC MetroCluster de cuatro nodos. 
 ---
-= Actualizar controladoras en una configuración FC de MetroCluster de cuatro nodos mediante conmutación de sitios y conmutación de estado con comandos de sustitución de controladoras del sistema (ONTAP 9.10.1 y versiones posteriores)
+= Actualiza los controladores mediante la función «Reemplazar controlador del sistema» en una configuración FC de cuatro nodos de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puede usar esta operación de conmutación de sitios automatizada y guiada de MetroCluster para realizar una actualización de controladoras sin interrupciones en una configuración FC MetroCluster de cuatro nodos. Como parte de este procedimiento, no se pueden actualizar otros componentes (como bandejas de almacenamiento o switches).
+A partir de ONTAP 9.10.1, puedes usar este procedimiento guiado y automatizado de conmutación de sitios de MetroCluster para realizar una actualización de controladoras sin interrupciones en una configuración FC de cuatro nodos MetroCluster mediante comandos `system controller replace`. No puedes actualizar otros componentes (como bandejas de almacenamiento o switches) como parte de este procedimiento.
 
 
 

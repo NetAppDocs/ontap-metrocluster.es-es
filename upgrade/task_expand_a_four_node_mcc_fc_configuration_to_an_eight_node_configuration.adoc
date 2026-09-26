@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, expand, four, node, eight, configuration 
 summary: Para ampliar una configuración FC MetroCluster de cuatro nodos a una configuración FC MetroCluster de ocho nodos, se deben añadir dos controladoras a cada clúster para formar un segundo par de alta disponibilidad en cada sitio MetroCluster y, a continuación, ejecutar la operación de configuración de FC MetroCluster. 
 ---
-= Expandir una configuración FC MetroCluster de cuatro nodos a una configuración de ocho nodos
+= Expanda una configuración MetroCluster FC de cuatro nodos a una configuración de ocho nodos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

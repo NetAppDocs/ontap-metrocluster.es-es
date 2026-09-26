@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, enable, storage, failover, both, controller, module, cluster, ha 
 summary: Después de agregar nuevos módulos de controladoras a la configuración de MetroCluster, debe habilitar la conmutación por error de almacenamiento en ambos módulos de controladoras y habilitar la alta disponibilidad de clúster de forma independiente. 
 ---
-= Habilitar la conmutación por error del almacenamiento en los dos módulos de la controladora y permitir la alta disponibilidad de clúster
+= Habilita la conmutación por error del almacenamiento y la alta disponibilidad del clúster en los módulos de controladora FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

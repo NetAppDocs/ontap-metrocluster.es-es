@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, add, new, controller, module, cluster 
 summary: Debe agregar un nuevo módulo de controlador a cada sitio, creando un par de alta disponibilidad en cada sitio. Este es un proceso de varios pasos que implica cambios de hardware y software que deben realizarse en el orden correcto en cada instalación. 
 ---
-= Agregando un nuevo módulo de controladora a cada clúster
+= Añade un nuevo módulo de controladora a cada clúster FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

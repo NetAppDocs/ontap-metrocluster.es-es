@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, create, unmirrored, data, aggregates 
 summary: Opcionalmente, puede crear agregados de datos no reflejados para datos que no requieren el mirroring redundante que proporcionan las configuraciones de MetroCluster. 
 ---
-= Creación de agregados de datos no reflejados
+= Crear agregados de datos no reflejados en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

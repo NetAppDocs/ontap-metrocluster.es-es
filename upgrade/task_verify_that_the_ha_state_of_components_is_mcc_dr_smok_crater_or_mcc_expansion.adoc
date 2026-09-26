@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, verify, ha, config, component, state 
 summary: En una configuración MetroCluster, el estado ha-config del módulo de controladora y los componentes del chasis debe configurarse en mcc para que arranque correctamente. 
 ---
-= Verificación del estado de los componentes de la configuración de alta disponibilidad
+= Comprueba el estado de "ha-config" de los componentes en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, prepare, cluster, ports, existing, controller, module 
 summary: Antes de instalar un nuevo módulo de controladora, debe configurar los puertos del clúster en el módulo de controladora existente para que los puertos del clúster puedan proporcionar comunicación del clúster con el nuevo módulo de controladora. 
 ---
-= Preparar puertos del clúster en un módulo de controladora existente
+= Prepara los puertos del clúster en un módulo de controladora FC de MetroCluster existente
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

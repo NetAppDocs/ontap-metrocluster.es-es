@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, set, up, ha, mode, existing, controller, module 
 summary: Debe utilizar el comando Storage Failover modify para establecer el modo en el módulo de la controladora existente. El valor de modo se habilita más adelante, después de reiniciar el módulo de controlador. 
 ---
-= Configuración del modo de alta disponibilidad en el módulo de controladora existente
+= Configura el modo HA en un módulo de controladora existente en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

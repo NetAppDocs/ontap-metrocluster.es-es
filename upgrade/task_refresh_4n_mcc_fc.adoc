@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, refresh, four, node, fc, configuration 
 summary: 'Es posible actualizar las controladoras y el almacenamiento en una configuración MetroCluster de cuatro nodos ampliando la configuración para convertirse en una configuración de ocho nodos y eliminar el grupo antiguo de recuperación ante desastres \(DR\).' 
 ---
-= Actualizar una configuración FC de MetroCluster de cuatro nodos
+= Actualice una configuración FC de MetroCluster de cuatro nodos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

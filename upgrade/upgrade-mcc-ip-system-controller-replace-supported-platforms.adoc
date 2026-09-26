@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: Antes de iniciar la actualización de la controladora IP de MetroCluster, es necesario comprobar que la combinación de actualización sea compatible. 
 ---
-= Actualizaciones de la controladora IP de MetroCluster admitidas mediante comandos de sustitución de la controladora del sistema
+= Actualizaciones compatibles de controladoras IP de MetroCluster mediante la sustitución de la controladora del sistema
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

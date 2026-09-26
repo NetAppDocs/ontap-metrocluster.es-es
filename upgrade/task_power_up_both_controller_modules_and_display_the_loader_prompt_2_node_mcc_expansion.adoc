@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, power, up, controller. modules, display, loader, prompt 
 summary: Enciende el módulo de la controladora existente y el nuevo módulo de la controladora para mostrar el aviso del CARGADOR. 
 ---
-= Encender ambos módulos de la controladora y mostrar el aviso del CARGADOR
+= Enciende los módulos de controladora en una configuración FC de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -256,15 +256,23 @@ Si vas a actualizar o degradar los switches en la primera estructura, es posible
 
 NOTE: Si actualizas o vuelves a una versión anterior de la fabric, repite todos los pasos para la segunda fabric.
 
-. Modifique todas las LIF de clúster para volver a habilitar la reversión automática:
+. Restablece todos los LIF del clúster a su puerto de origen.
++
+
+CAUTION: No restablezcas las LIF del clúster a sus puertos de origen hasta que hayas completado los pasos anteriores en todos los conmutadores que requieran una actualización.
+
++
+.. Modifique todas las LIF de clúster para volver a habilitar la reversión automática:
 +
 [source, cli]
 ----
 network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert true
 ----
-. Revertir todos los LIF del clúster que no están actualmente en sus puertos de origen a sus puertos de origen:
+.. Restablece manualmente todos los LIF del clúster que no estén actualmente en sus puertos de origen a sus puertos de origen:
 +
-`network interface revert -vserver * -lif *`
+`network interface revert -vserver Cluster -lif *`
+
+
 
 . De manera opcional, mueva las bandejas NS224.
 +

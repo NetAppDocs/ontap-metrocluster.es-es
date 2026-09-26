@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, refresh, configuration, new, controller 
 summary: Es necesario actualizar la configuración de MetroCluster al ampliarla de una configuración de dos nodos a una de cuatro nodos. 
 ---
-= Actualizar la configuración de MetroCluster con nuevas controladoras
+= Actualizar la configuración de MetroCluster FC con nuevos controladores
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

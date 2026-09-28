@@ -2,7 +2,7 @@
 permalink: upgrade/task_verify_the_state_of_the_mcc_configuration_mcc_expansion.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, verify, state, configuration 
-summary: 'Debe identificar las controladoras existentes y confirmar las relaciones de recuperación ante desastres \(DR\) entre ellas, que las controladoras están en modo normal y que los agregados se han duplicado.' 
+summary: 'Debe identificar las controladoras existentes y confirmar las relaciones de recuperación ante desastres (DR) entre ellas, que las controladoras están en modo normal y que los agregados se han duplicado.' 
 ---
 = Comprueba el estado de la configuración FC de dos nodos MetroCluster
 :allow-uri-read: 

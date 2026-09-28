@@ -2,7 +2,7 @@
 permalink: install-fc/generaltask_fcsw_cisco_configure_the_cisco_fc_switches_with_rcf_files.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, configuring, cisco, fc, switched, rcf, files 
-summary: 'Para configurar un conmutador Cisco FC, debe restablecer la configuración del conmutador a los valores predeterminados de fábrica, instalar el software del conmutador y descargar y aplicar los archivos de configuración de referencia \(RCF\) que proporcionan la configuración completa del conmutador para determinadas configuraciones.' 
+summary: 'Para configurar un conmutador FC de Cisco, restablece la configuración del conmutador a los valores predeterminados de fábrica, instala el software del conmutador y aplica los archivos de configuración de referencia (RCF).' 
 ---
 = Configura los switches FC de Cisco MetroCluster con archivos RCF
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html 
 sidebar: sidebar 
 keywords: controller, failure, extend, module, side, dr, group, metrocluster, configuration, single, controller, two-node, replace, equipment, reassign, equipment, ownership, drive, disaster, recover, multi-controller, storage 
-summary: 'Si el fallo de la controladora se extiende a todos los módulos de controladora de un lado a un grupo de recuperación ante desastres en una configuración MetroCluster \(incluida una sola controladora en una configuración MetroCluster de dos nodos\) o se ha sustituido el almacenamiento, debe sustituir el equipo y reasignar la propiedad de las unidades para recuperarse de un desastre.' 
+summary: Si un fallo del controlador afecta a todos los módulos de un lado de un grupo de recuperación ante desastres, incluso en una configuración de dos nodos, o si se sustituye el almacenamiento, sustituye el equipo y reasigna la propiedad de los discos para recuperar el sistema. 
 ---
 = Recupérate de un fallo en varios controladores o en el almacenamiento en MetroCluster
 :allow-uri-read: 

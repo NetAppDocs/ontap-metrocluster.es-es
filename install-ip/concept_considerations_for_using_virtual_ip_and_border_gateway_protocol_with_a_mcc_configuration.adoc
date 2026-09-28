@@ -2,7 +2,7 @@
 permalink: install-ip/concept_considerations_for_using_virtual_ip_and_border_gateway_protocol_with_a_mcc_configuration.html 
 sidebar: sidebar 
 keywords: ontap, connectivity, virtual, ip, border, gateway, protocol, bgp, combination, vip, front-end, network, metrocluster, redundancy, disaster, recovery, solution, configuration 
-summary: 'A partir de ONTAP 9.5, ONTAP admite conectividad de capa 3 mediante IP virtual \(VIP\) y Protocolo de puerta de enlace de borde \(BGP\). La combinación de VIP y BGP para ofrecer redundancia en las redes de interfaz con la redundancia MetroCluster back-end proporciona una solución de recuperación ante desastres de capa 3.' 
+summary: 'A partir de ONTAP 9.5, ONTAP admite la conectividad de capa 3 mediante direcciones IP virtuales (VIP) y Border Gateway Protocol (BGP), lo que ofrece una solución de recuperación ante desastres de capa 3.' 
 ---
 = Conoce las direcciones IP virtuales y BGP en una configuración de IP de MetroCluster
 :allow-uri-read: 

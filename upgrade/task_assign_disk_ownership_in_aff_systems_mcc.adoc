@@ -2,7 +2,7 @@
 permalink: upgrade/task_assign_disk_ownership_in_aff_systems_mcc.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, assign, disk, ownership, aff, systems 
-summary: 'Si utiliza sistemas AFF en una configuración con agregados reflejados y los nodos no tienen los discos \(SSD\) correctamente asignados, debe asignar la mitad de los discos de cada bandeja a un nodo local y la otra mitad de los discos a su nodo asociado de alta disponibilidad. Debe crear una configuración en la que cada nodo tenga el mismo número de discos en sus pools de discos locales y remotos.' 
+summary: Si utilizas sistemas AFF con agregados reflejados y los discos no están asignados correctamente, asigna la mitad de los discos de cada bandeja al nodo local y la otra mitad a su nodo asociado de alta disponibilidad. 
 ---
 = Asignar la propiedad de los discos para sistemas AFF en una configuración FC de MetroCluster
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: install-ip/task-synchronize-the-system-time-us-ntp.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, synchronize, system, time, ntp 
-summary: 'Cada clúster necesita su propio servidor de protocolo de tiempo de red \(NTP\) para sincronizar el tiempo entre los nodos y sus clientes.' 
+summary: 'Cada clúster necesita su propio servidor de protocolo de tiempo de redes (NTP) para sincronizar la hora entre los nodos y sus clientes.' 
 ---
 = Sincronizar la hora del sistema mediante NTP en una configuración IP de MetroCluster
 :allow-uri-read: 

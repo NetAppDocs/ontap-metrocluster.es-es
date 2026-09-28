@@ -2,7 +2,7 @@
 permalink: install-stretch/concept_considerations_when_removing_mcc_configurations.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, considerations, remove, configurations 
-summary: 'Puede quitar la configuración MetroCluster de todos los nodos de un grupo de recuperación ante desastres \(DR\). Tras eliminar la configuración de MetroCluster, todas las interconexiones y la conectividad de disco deben ajustarse para que estén en estado admitido. Si necesita quitar la configuración de MetroCluster, póngase en contacto con el soporte técnico.' 
+summary: Puedes eliminar la configuración de MetroCluster de todos los nodos de un grupo de DR y ajustar la conectividad de los discos y las interconexiones a un estado compatible. Ponte en contacto con soporte técnico si necesitas ayuda. 
 ---
 = Eliminar una configuración stretch de MetroCluster
 :allow-uri-read: 

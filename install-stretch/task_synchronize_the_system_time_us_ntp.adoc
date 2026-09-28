@@ -2,7 +2,7 @@
 permalink: install-stretch/task_synchronize_the_system_time_us_ntp.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, synchronize, system, time, ntp 
-summary: 'Cada clúster necesita su propio servidor de protocolo de tiempo de red \(NTP\) para sincronizar el tiempo entre los nodos y sus clientes.' 
+summary: 'Cada clúster necesita su propio servidor de protocolo de tiempo de redes (NTP) para sincronizar la hora entre los nodos y sus clientes.' 
 ---
 = Sincroniza la hora del sistema usando NTP en una configuración stretch MetroCluster
 :allow-uri-read: 

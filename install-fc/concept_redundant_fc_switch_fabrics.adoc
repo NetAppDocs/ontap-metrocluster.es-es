@@ -2,7 +2,7 @@
 permalink: install-fc/concept_redundant_fc_switch_fabrics.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, redundant, fc, switch, fabrics 
-summary: 'Cada estructura de switches incluye vínculos entre switches \(ISL\) que conectan los sitios. Los datos se replican de un sitio a otro a través del ISL. Cada estructura de switches debe estar en diferentes rutas físicas para conseguir redundancia.' 
+summary: 'Cada estructura de conmutación incluye enlaces entre conmutadores (ISL) que conectan las sedes y replican datos entre ellas. Cada estructura de conmutación debe utilizar rutas físicas diferentes para la redundancia.' 
 ---
 = Estructuras de switch redundantes en una configuración FC de MetroCluster
 :allow-uri-read: 

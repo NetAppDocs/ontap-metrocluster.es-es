@@ -1583,10 +1583,10 @@ cluster_A::*>
 +
 .. Mostrar los volúmenes para identificar los volúmenes de MDV:
 +
-Si tiene un único agregado de datos con mirroring por sitio, mueva ambos volúmenes de MDV a este único agregado. Si tiene dos o más agregados de datos reflejados, mueva cada volumen de MDV a un agregado diferente.
+Si tienes un único agregado de datos reflejados por sitio, mueve ambos volúmenes MDV a este único agregado. Si tienes dos o más agregados de datos reflejados, mueve cada volumen MDV a un agregado diferente. Después de una ampliación correcta (a una configuración de cuatro u ocho nodos), cada sitio IP de MetroCluster contiene dos volúmenes MDV.
 
 +
-Si va a expandir una configuración de MetroCluster de cuatro nodos a una configuración permanente de ocho nodos, debería mover uno de los volúmenes MDV al nuevo grupo de DR.
+Si vas a ampliar una configuración de MetroCluster de cuatro nodos a una configuración permanente de ocho nodos, debes mover uno de los volúmenes MDV a cualquier agregado reflejado del nuevo grupo de recuperación ante desastres. No importa si el volumen MDV que mueves tiene el sufijo `_A` o `_B`.
 
 +
 En el siguiente ejemplo se muestran los volúmenes MDV en `volume show` salida:
@@ -1642,11 +1642,11 @@ La siguiente salida muestra que el volumen de MDV se ha movido correctamente.
 +
 [listing]
 ----
-cluster_A::*> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+cluster_A::*> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_A
 Vserver     Volume       Aggregate    State      Type       Size  Available Used%
 ---------   ------------ ------------ ---------- ---- ---------- ---------- -----
-cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
-                       aggr_a2      online     RW         10GB     9.50GB    0%
+cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_A
+                         data_a3      online      RW        10GB     9.50GB    0%
 ----
 
 

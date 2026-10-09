@@ -33,17 +33,10 @@ Este procedimiento difiere del procedimiento de reparación de las configuracion
 +
 Si el sistema muestra el aviso del CARGADOR, ejecute el `boot_ontap` comando.
 
-. Realice la fase de reparación del agregado raíz: `metrocluster heal root-aggregates`
+. Reparar los agregados de datos:
 +
-[listing]
-----
-cluster_A::> metrocluster heal root-aggregates
-[Job 137] Job succeeded: Heal Root-Aggregates is successful
-----
-+
-Si se vetó la reparación, tiene la opción de volver a emitir el comando MetroCluster heal root-aggregates con el parámetro --override-vetoes. Si utiliza este parámetro opcional, el sistema anula cualquier vetoo suave que impida la operación de reparación.
+`metrocluster heal aggregates`
 
-. Resincronizar los agregados: `metrocluster heal aggregates`
 +
 [listing]
 ----
@@ -51,9 +44,22 @@ cluster_A::> metrocluster heal aggregates
 [Job 137] Job succeeded: Heal Aggregates is successful
 ----
 +
-Si se vetó la reparación, se tiene la opción de volver a emitir el comando MetroCluster Heal con el parámetro --override-vetoes. Si utiliza este parámetro opcional, el sistema anula cualquier vetoo suave que impida la operación de reparación.
+Si la curación es vetada, usted tiene la opción de reemitir el `metrocluster heal` con el `--override-vetoes` parámetro. Si utiliza este parámetro opcional, el sistema anula cualquier vetoo suave que impida la operación de reparación.
 
-. Para confirmar que la operación de curación se ha completado, ejecute el comando MetroCluster operation show en el clúster en buen estado:
+. Reparar los agregados raíz:
++
+`metrocluster heal root-aggregates`
+
++
+[listing]
+----
+cluster_A::> metrocluster heal root-aggregates
+[Job 137] Job succeeded: Heal Root-Aggregates is successful
+----
++
+Si se rechaza la recuperación, tienes la opción de volver a ejecutar el comando  `metrocluster heal root-aggregates` con el parámetro  `--override-vetoes`. Si utilizas este parámetro opcional, el sistema anula cualquier veto no estricto que impida la operación de recuperación.
+
+. Para confirmar que se completa la operación de curación, ejecute el `metrocluster operation show` comando en el clúster en buen estado:
 +
 [listing]
 ----

@@ -250,7 +250,16 @@ NOTE: Realice este paso para todos los plexes que tengan discos remotos para Clu
 
 
 
-. Desconecta de forma persistente los puertos del switch ISL según el tipo de switch.
+. Pon los puertos del switch ISL fuera de línea. Selecciona el procedimiento correcto para tu tipo de switch.
++
+Los siguientes procedimientos muestran cómo desactivar los puertos ISL que no se utilizan, puedes usar los mismos comandos para desactivar todos los puertos ISL activos como parte de este procedimiento.
+
++
+** link:../install-ip/task_switch_config_cisco.html#disable-unused-isl-ports-and-port-channels["Desactiva los puertos ISL en los switches IP de Cisco"]
+** link:../install-ip/task_switch_config_broadcom.html#disable-unused-isl-ports-and-port-channels["Desactivar los puertos ISL en los conmutadores IP de Broadcom"]
+** link:../install-ip/task_switch_config_nvidia.html#disable-unused-isl-ports-and-port-channels["Desactivar los puertos ISL en los conmutadores IP de NVIDIA"]
+
+
 . Detenga los nodos ejecutando el siguiente comando en cada nodo:
 +
 `node halt -inhibit-takeover true -skip-lif-migration true -node <node-name>`

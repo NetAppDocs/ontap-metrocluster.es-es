@@ -170,6 +170,12 @@ Las siguientes tablas muestran las combinaciones de plataformas compatibles para
 * Las combinaciones de esta tabla sólo se aplican a configuraciones normales o permanentes de ocho nodos.
 * Las combinaciones de plataformas mostradas en esta tabla *NO* se aplican si está utilizando los procedimientos de transición o actualización.
 * Todos los nodos de un grupo de recuperación ante desastres deben tener el mismo tipo y configuración.
+* Cuando realices una ampliación del sistema, el tipo de plataforma antiguo y el nuevo *deben* coincidir:
++
+** Puedes añadir un sistema FAS a otro sistema FAS, o un AFF A-Series a otro AFF A-Series.
+** No puedes añadir un sistema FAS a un AFF A-Series ni un AFF A-Series a un AFF C-Series.
+
+
 
 
 ====

@@ -18,7 +18,7 @@ Es posible que deba cambiar el proveedor de switches FC de Cisco a Brocade o vic
 
 
 .Pasos
-. [[STEP_1,Paso 1]]Compruebe el estado de la configuración.
+. [[step_1]]Comprueba el estado de la configuración.
 +
 .. Compruebe que la MetroCluster esté configurada y en modo normal de cada clúster: `*metrocluster show*`
 +
@@ -91,6 +91,6 @@ Debe seguir los pasos indicados en link:../install-fc/task_configure_the_mcc_har
 
 
 . Encienda los interruptores.
-. Repita para comprobar que la configuración de MetroCluster sea correcta <<Paso 1>>.
+. Comprueba que la configuración de MetroCluster esté en buen estado repitiendo <<step_1,Paso 1>>.
 . Repita los pasos 1 a 7 para el segundo tejido de la configuración.
 

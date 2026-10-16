@@ -10507,10 +10507,8 @@
   <block id="dc97a56f45d09eb47627be2f51eaacac" category="doc">Cambie el proveedor o modelo de un switch de FC</block>
   <block id="34b3750efa9ad33069e758e1d20702b2" category="list-text">Este procedimiento se aplica cuando utiliza switches validados NetApp.</block>
   <block id="038dcdf6b816f0dea514171c0fbec340" category="list-text">Debe realizar los pasos de este procedimiento en una estructura a la vez, para ambas estructuras en la configuración.</block>
-  <block id="12e792350f2f2a26f26efec238939f8c" category="list-text">[[STEP_1,Paso 1]]Compruebe el estado de la configuración.</block>
   <block id="66700e9b823419320bcf568412b3c8f5" category="list-text">Desconecte los ISL de MetroCluster.</block>
   <block id="39c4de53c442cd522fc67edfc4cc59c8" category="list-text">Conecte los cables de los interruptores en el siguiente orden:</block>
-  <block id="4c49ac5fd96c13efa7ddbce7575dd9e4" category="list-text">Repita para comprobar que la configuración de MetroCluster sea correcta <block ref="70a312d559ac5bac88a63c5c7c2e52d3" category="inline-xref-macro-rx"></block>.</block>
   <block id="b81576b1956a4793e86cfb62d8774b3f" category="list-text">Repita los pasos 1 a 7 para el segundo tejido de la configuración.</block>
   <block id="c1f9897c71a9ecfa3b9c9f7cf2180518" category="paragraph">Los nombres sugeridos utilizados como ejemplos en esta documentación identifican el módulo del controlador y la pila a la que se conecta el puente, como se muestra a continuación.</block>
   <block id="498655ab09377cb9366dc958acdc9ea7" category="section-title">Deshabilite los puertos ISL y los canales de puertos no utilizados</block>
@@ -14607,7 +14605,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="c464415fe9040cd42442afd5413727d2" category="list-text">Comprueba el modo de ha-config:</block>
   <block id="bb903f8039d8d74f0348f46c24a33392" category="paragraph">La salida debería ser similar al siguiente ejemplo:</block>
   <block id="82aa61ae9e51df62f98090f4f904d7c6" category="list-text"><block ref="82aa61ae9e51df62f98090f4f904d7c6" category="inline-link-macro-rx"></block></block>
-  <block id="cdb2cb2d1f6128576533f653419f09c5" category="list-text"><block ref="cdb2cb2d1f6128576533f653419f09c5" category="inline-link-macro-rx"></block></block>
   <block id="91584e9f93d8a244006822e2c2f5345a" category="doc">Elige el procedimiento de recuperación adecuado de MetroCluster</block>
   <block id="f24397da4f9715a9f11e47c9635eea3a" category="doc">MetroCluster flujo de trabajo de recuperación ante desastres</block>
   <block id="1a346af97abe0920fa20de0c7db4a224" category="doc">Activa el registro de consola antes de reemplazar el hardware MetroCluster</block>
@@ -14874,4 +14871,10 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="dbf8c386b8c209a8a104209f4811beb1" category="paragraph">Si se rechaza la recuperación, tienes la opción de volver a ejecutar el comando <block ref="4fc02dad333b99cda95cb4d63f746057" prefix=" " category="inline-code"></block> con el parámetro <block ref="5b8353fafaa1c451a58b0b87dede3fc0" prefix=" " category="inline-code"></block>. Si utilizas este parámetro opcional, el sistema anula cualquier veto no estricto que impida la operación de recuperación.</block>
   <block id="2501b01a945a3eabd573e54654793648" category="paragraph">Si tienes un único agregado de datos reflejados por sitio, mueve ambos volúmenes MDV a este único agregado. Si tienes dos o más agregados de datos reflejados, mueve cada volumen MDV a un agregado diferente. Después de una ampliación correcta (a una configuración de cuatro u ocho nodos), cada sitio IP de MetroCluster contiene dos volúmenes MDV.</block>
   <block id="6bd55190cc0a65555cf13d5cf60edc77" category="paragraph">Si vas a ampliar una configuración de MetroCluster de cuatro nodos a una configuración permanente de ocho nodos, debes mover uno de los volúmenes MDV a cualquier agregado reflejado del nuevo grupo de recuperación ante desastres. No importa si el volumen MDV que mueves tiene el sufijo<block ref="3254fb5b504a92168380bac219fc29ca" prefix=" " category="inline-code"></block> o<block ref="b0ba49340c52b617d8bb5e0f66b8e6dc" prefix=" " category="inline-code"></block>.</block>
+  <block id="512c3bde31153c80a98e9b5ec347b11a" category="list-text">[[step_1]]Comprueba el estado de la configuración.</block>
+  <block id="2ff6716e43264896ea2ac1acc2b979d2" category="list-text">Comprueba que la configuración de MetroCluster esté en buen estado repitiendo <block ref="601df3435e384193565099a414178c21" category="inline-xref-macro-rx"></block>.</block>
+  <block id="5f444797ead217a29f43800dfabacfbf" category="list-text">Cuando realizas una actualización del sistema, el tipo de plataforma anterior y el nuevo *deben* coincidir:</block>
+  <block id="ede59518e087cd94a05f8667d5654efc" category="list-text">Puedes añadir un sistema FAS a otro sistema FAS, o un AFF A-Series a otro AFF A-Series.</block>
+  <block id="91b0e1726a138b2c425045cdba0bdc83" category="list-text">No puedes añadir un sistema FAS a un AFF A-Series ni un AFF A-Series a un AFF C-Series.</block>
+  <block id="274e643167d886697821940a9eae3ef3" category="list-text">Cuando realices una ampliación del sistema, el tipo de plataforma antiguo y el nuevo *deben* coincidir:</block>
 </blocks>

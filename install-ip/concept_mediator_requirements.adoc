@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ontap, mediator, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, mtu size, packet loss, bandwidth, firewall, rhel, centos, linux, revert, kernal, upgrade, latency 
 summary: A partir de ONTAP 9.7, ONTAP Mediator puede ayudar a la configuración de IP de MetroCluster a realizar una conmutación automática no planificada al proporcionar un repositorio físicamente separado para la información de estado. 
 ---
-= Requisitos de instalación de ONTAP Mediator para configuraciones IP de MetroCluster
+= Requisitos de configuración de ONTAP Mediator para las configuraciones IP de MetroCluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Su entorno debe cumplir ciertos requisitos.
+Para configurar ONTAP Mediator en una configuración IP de MetroCluster, tu entorno debe cumplir ciertos requisitos.
 
 Los siguientes requisitos se aplican a un grupo de recuperación ante desastres (grupo de recuperación ante desastres). Más información acerca de link:concept_parts_of_an_ip_mcc_configuration_mcc_ip.html#disaster-recovery-dr-groups["Grupos de recuperación ante desastres"].
 
@@ -83,7 +83,7 @@ Por defecto, los nodos IP de MetroCluster acceden a los LUN de buzón de ONTAP M
 
 A partir de ONTAP 9.19.1 y ONTAP Mediator 1.12, puedes configurar una instancia de ONTAP Mediator que use HTTPS para la comunicación en lugar de iSCSI. HTTPS es un protocolo seguro para la comunicación que cifra sesiones completas usando SSL/TLS, lo que proporciona mayor seguridad en comparación con iSCSI.
 
-Puedes instalar ONTAP Mediator con compatibilidad tanto con iSCSI como con HTTPS, o solo con HTTPS. Para más información, consulta link:https://docs.netapp.com/us-en/ontap/mediator/index.html#https-iscsi-installation["Opciones de instalación HTTPS e iSCSI para ONTAP Mediator"^].
+Puedes instalar ONTAP Mediator con compatibilidad tanto con iSCSI como con HTTPS, o solo con HTTPS. Para obtener más información, consulta link:https://docs.netapp.com/us-en/ontap-mediator/install/prepare-install.html#https-iscsi-installation["Opciones de instalación HTTPS e iSCSI para ONTAP Mediator"^].
 
 Puedes configurar ONTAP Mediator con iSCSI o HTTPS, no con ambos. No se admite el uso de una combinación de protocolos en tu implementación.
 
@@ -157,7 +157,7 @@ Si está actualizando ONTAP Mediator, debe cumplir con los requisitos de la vers
 * Todas las versiones de Mediator son compatibles con las configuraciones IP de MetroCluster que ejecutan ONTAP 9.7 o posterior.
 
 
-link:https://docs.netapp.com/us-en/ontap/mediator/index.html["Instalar o actualizar ONTAP Mediator"^]
+link:https://docs.netapp.com/us-en/ontap-mediator/index.html["Instalar o actualizar ONTAP Mediator"^]
 
 
 

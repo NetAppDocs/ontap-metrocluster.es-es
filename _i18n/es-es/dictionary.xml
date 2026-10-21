@@ -8583,7 +8583,6 @@
   <block id="61022df26c2ebed0ba5b50c68d2b8dc6" category="list-text">No aparecen en la salida del<block ref="16fdd92def5a71313d6535c74ef67b81" prefix=" " category="inline-code"></block> comando.</block>
   <block id="c5d60e8f17874f7ca155bb4d1f3eea0b" category="list-text">No conmutan al nodo de respaldo, pero siguen asociados al puerto en el que se crearon.</block>
   <block id="5b04eab200d66e93de7e40e3229c8cde" category="list-text">Las configuraciones de IP de MetroCluster utilizan puertos Ethernet específicos (según la plataforma) para las interfaces IP de MetroCluster.</block>
-  <block id="b88bf0c809fffc695990879900c60d29" category="paragraph">Su entorno debe cumplir ciertos requisitos.</block>
   <block id="a624bf1cb8ea6541888d2e3bfed29f37" category="paragraph">Los siguientes requisitos se aplican a un grupo de recuperación ante desastres (grupo de recuperación ante desastres). Más información acerca de <block ref="0244a225d1215475caa277f136d50b4a" category="inline-link-macro-rx"></block>.</block>
   <block id="9f6204fe619ab6c1e9a1fcd03de81cb5" category="paragraph">La conectividad entre el Mediador ONTAP y cada sitio debe ser de dos dominios de fallo diferentes.</block>
   <block id="c1444ba460cdd9b59c8ecf988ca907c4" category="list-text">ONTAP 9.7 y versiones posteriores admiten conmutación automática sin planificar.</block>
@@ -13063,7 +13062,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="df091e4083ea919fc3a0a8939d1edf09" category="paragraph">Si está actualizando ONTAP Mediator, debe cumplir con los requisitos de la versión de Linux y seguir las pautas para la actualización.</block>
   <block id="2a3e7adab0cb4c934f05558fd4b11142" category="list-text">ONTAP Mediator se puede actualizar desde una versión inmediatamente anterior a la versión actual.</block>
   <block id="931e10d7f833f6006078c296b8f49e42" category="inline-link-macro">Instalar o actualizar ONTAP Mediator</block>
-  <block id="e4fc8483908a1fd217bb07557b043e20" category="paragraph"><block ref="e4fc8483908a1fd217bb07557b043e20" category="inline-link-macro-rx"></block></block>
   <block id="c2f5dea80e3ceaa485bfe3b7ffaf114f" category="paragraph">Nota: Los puertos e5a y e7a solo se pueden usar para LIF entre clústeres. No se pueden usar para un LIF de datos.</block>
   <block id="dfcad5a3f6729276e992c858459078cf" category="paragraph">Las configuraciones de MetroCluster admiten RAID-DP, RAID4 y RAID-TEC.</block>
   <block id="c452f245605b541913c8927f2fb39f4b" category="inline-link-macro">Consideraciones para la asignación automática de unidades y sistemas ADP</block>
@@ -13961,7 +13959,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="a5ae27866152c64d13caa7491b407c4f" category="list-text">Agregar el mediador ONTAP :</block>
   <block id="6ed3fcc536a033a1e0dbf1249734de16" category="paragraph">Descubra las novedades en la plataforma MetroCluster FC y la compatibilidad con switches.</block>
   <block id="7f29812fdda9b63b5432343e48888f3e" category="inline-link-macro">¿Qué novedades hay en ONTAP Mediator?</block>
-  <block id="ddb6a6aeab3697bf98a9f8ec6246d66d" category="paragraph">Para obtener detalles sobre las características y mejoras de cada versión de ONTAP Mediator, consulte<block ref="e9f46c418b00d5917fe7eb2e94490962" category="inline-link-macro-rx"></block> .</block>
   <block id="0812efe70fdb78c8000d6ba26954775e" category="paragraph">IPv6 es compatible con ONTAP Mediator 1.11 o posterior en configuraciones IP de MetroCluster .</block>
   <block id="f2048d473088527114dc19a006677413" category="paragraph"><block ref="f2048d473088527114dc19a006677413" category="inline-link-macro-rx"></block></block>
   <block id="e48e73e576f724fd4213ab1eca7edb4a" category="paragraph">ONTAP 9.18.1</block>
@@ -14072,7 +14069,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="55417ec59fd4af1a5afffacb42333c5a" category="paragraph">Ejemplo usado en este procedimiento: controller_B_1</block>
   <block id="1acb751c22e164e9d61c762caf509e82" category="paragraph">Ejemplo usado en este procedimiento: controller_B_2</block>
   <block id="eccb3ce2fe6ad5d172a57438aae17dae" category="doc">Crea un agregado de datos reflejados en cada nodo FC de MetroCluster</block>
-  <block id="b5fd13a9bac03ffc7e9ccde70adc8242" category="doc">Requisitos de instalación de ONTAP Mediator para configuraciones IP de MetroCluster</block>
   <block id="e5287e41bb7b528f560b85847eb683be" category="paragraph">Si tienes un switch Cisco 9336C-FX2 de 36 puertos y no planeas conectar almacenamiento NS224 al switch, usa las tablas en <block ref="5e1610ecd3627713f0895c655a667651" category="inline-link-macro-rx"></block>.</block>
   <block id="b68398936049bd282794c33831e2aea9" category="paragraph">Soporte para actualizaciones de sistemas AFF A70 a AFF A90 y FAS70 a FAS90 usando los comandos<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> en una configuración IP de MetroCluster.</block>
   <block id="2691309e1710cb6a0083f4722ac33e8d" category="admonition">Las actualizaciones a ONTAP 9.18.1 y posteriores en plataformas que actualmente no cumplen el requisito de ISL de 100Gbps no están bloqueadas y pueden realizarse. Sin embargo, NetApp recomienda encarecidamente que los clientes hagan la transición a la conectividad ISL de 100Gbps para mantener los niveles de rendimiento y disponibilidad esperados.</block>
@@ -14225,7 +14221,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="41dde0734ba4df0eb1bc2446fcd0f56c" category="paragraph"><block ref="2e0cdb2639c7a3d958f9576ceaa2b3a1" prefix="" category="inline-code"></block></block>
   <block id="ffda33d0c6be847a8128046010ba3a6f" category="list-text">Confirma que ONTAP Mediator se ha eliminado de la configuración de MetroCluster ejecutando el siguiente comando en ambos clusters:</block>
   <block id="df021024c5380d4c45805acb611a88ce" category="admonition">Esta tarea solo se aplica a un ONTAP Mediator configurado con iSCSI. Esta tarea no se aplica a un ONTAP Mediator que use HTTPS.</block>
-  <block id="e93b921aee6849e1c62a6629697d16e7" category="paragraph">ONTAP Mediator 1.12 admite configurar un ONTAP Mediator que use HTTPS para la comunicación en configuraciones IP de MetroCluster. HTTPS proporciona mayor seguridad al cifrar sesiones completas usando SSL/TLS. Puedes elegir instalar un ONTAP Mediator que solo use el protocolo HTTPS. El paquete SCST no se instala si se usa este método de instalación. Para más información sobre la instalación de un ONTAP Mediator que solo use el protocolo HTTPS, consulta <block ref="a82349e7909b6ff560747d8c59eb3903" category="inline-link-macro-rx"></block>.</block>
   <block id="835c8a143366575f451949402f3b6bae" category="inline-link-macro">Más información sobre los protocolos iSCSI y HTTPS en ONTAP Mediator</block>
   <block id="ab84d029506bbf94968a8439506e5c7f" category="paragraph"><block ref="386c9422b8a78bb2663b14ec5cff7d1e" category="inline-link-macro-rx"></block>.</block>
   <block id="ea7f38fbe84ac28be0f7c90cca730a69" category="paragraph">ONTAP 9.19.1</block>
@@ -14318,7 +14313,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="f5092147d9fdb4405ffa0ded1187160b" category="section-title">Información importante a la hora de añadir un modelo de plataforma más antiguo</block>
   <block id="de340c0f1f6d36d5e5b0117bb6d6e359" category="admonition">Si estás llevando a cabo una transición de FC de cuatro nodos a IP de ocho nodos, puedes aplicar la RCF de FC de cuatro nodos a IP de ocho nodos antes de añadir el segundo grupo de DR. No tienes que aplicar primero la RCF de FC de cuatro nodos a IP de cuatro nodos.</block>
   <block id="e446b7aa15d19fb426155674878c63fb" category="list-text">A partir de ONTAP 9.19.1 y ONTAP Mediator 1.12, puedes configurar un ONTAP Mediator que use HTTPS para la comunicación en vez de iSCSI. Para más información, consulta <block ref="fb70fb2de5d85ae7e6c4e86202287fd7" category="inline-xref-macro-rx"></block>.</block>
-  <block id="9f26b34d7871bca369159b44ab27880d" category="paragraph">Puedes instalar ONTAP Mediator con compatibilidad tanto con iSCSI como con HTTPS, o solo con HTTPS. Para más información, consulta <block ref="a82349e7909b6ff560747d8c59eb3903" category="inline-link-macro-rx"></block>.</block>
   <block id="2730c7709b8ac3af8d089b14ec12b8b3" category="paragraph">Puedes configurar ONTAP Mediator con iSCSI o HTTPS, no con ambos. No se admite el uso de una combinación de protocolos en tu implementación.</block>
   <block id="fe22847581eb5d6a05ddb7f8a50a61f5" category="paragraph">La compatibilidad con la supervisión de múltiples configuraciones de IP de MetroCluster depende de si estás configurando ONTAP Mediator para iSCSI o HTTPS. Para más información, consulta <block ref="946d16160b4c150a172b373dca588f20" category="inline-xref-macro-rx"></block>.</block>
   <block id="c2cbdc82e4189820757400b0b29fe4e3" category="section-title">Utiliza ONTAP Mediator para supervisar varias configuraciones de MetroCluster IP</block>
@@ -14877,4 +14871,13 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="ede59518e087cd94a05f8667d5654efc" category="list-text">Puedes añadir un sistema FAS a otro sistema FAS, o un AFF A-Series a otro AFF A-Series.</block>
   <block id="91b0e1726a138b2c425045cdba0bdc83" category="list-text">No puedes añadir un sistema FAS a un AFF A-Series ni un AFF A-Series a un AFF C-Series.</block>
   <block id="274e643167d886697821940a9eae3ef3" category="list-text">Cuando realices una ampliación del sistema, el tipo de plataforma antiguo y el nuevo *deben* coincidir:</block>
+  <block id="6d6a8959fe8be022411cbc238fac0307" category="doc">Requisitos de configuración de ONTAP Mediator para las configuraciones IP de MetroCluster</block>
+  <block id="f625c842c2b84a9996443c378f40b4d2" category="paragraph">Para configurar ONTAP Mediator en una configuración IP de MetroCluster, tu entorno debe cumplir ciertos requisitos.</block>
+  <block id="9a608ce32ab7de631be98c1f40c29177" category="paragraph">Puedes instalar ONTAP Mediator con compatibilidad tanto con iSCSI como con HTTPS, o solo con HTTPS. Para obtener más información, consulta <block ref="b01c25df8caeed30ae2730b34801c824" category="inline-link-macro-rx"></block>.</block>
+  <block id="4f2aa567d4485ce75b86d4e84a623069" category="paragraph"><block ref="4f2aa567d4485ce75b86d4e84a623069" category="inline-link-macro-rx"></block></block>
+  <block id="55efe72d62cc9682f4d490549849173c" category="paragraph">Para obtener más información sobre las características y mejoras de cada versión de ONTAP Mediator, consulta <block ref="c3587bc25259fc56e7642234ed2f205f" category="inline-link-macro-rx"></block>.</block>
+  <block id="51300df13686481de730af7df4ff3faf" category="paragraph">ONTAP Mediator 1.12 admite configurar un ONTAP Mediator que use HTTPS para la comunicación en configuraciones IP de MetroCluster. HTTPS ofrece mayor seguridad al cifrar sesiones completas usando SSL/TLS. Puedes elegir instalar un ONTAP Mediator que solo use el protocolo HTTPS. El paquete SCST no se instala si usas este método de instalación. Para más información sobre la instalación de un ONTAP Mediator que solo use el protocolo HTTPS, consulta <block ref="b01c25df8caeed30ae2730b34801c824" category="inline-link-macro-rx"></block>.</block>
+  <block id="706c1d4933d296d42d61b064f4e637ae" category="sidebar">Flujo de trabajo de la instalación</block>
+  <block id="8f817e2a0df7ced319cdc0dd9031e535" category="sidebar">Descubre cómo configurar el software MetroCluster en ONTAP</block>
+  <block id="b60d2ca38a2a217c2f194613ae620303" category="sidebar">Prepárate para configurar ONTAP Mediator</block>
 </blocks>

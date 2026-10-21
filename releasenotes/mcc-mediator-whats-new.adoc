@@ -13,7 +13,7 @@ summary: Con cada versión se proporcionan nuevas funciones del Mediador ONTAP. 
 [role="lead"]
 Obtenga información sobre las nuevas características y mejoras de IP de MetroCluster para la compatibilidad con ONTAP Mediator.
 
-Para obtener detalles sobre las características y mejoras de cada versión de ONTAP Mediator, consultelink:https://docs.netapp.com/us-en/ontap/mediator/whats-new-concept.html["¿Qué novedades hay en ONTAP Mediator?"^] .
+Para obtener más información sobre las características y mejoras de cada versión de ONTAP Mediator, consulta link:https://docs.netapp.com/us-en/ontap-mediator/release-notes/whats-new-in-ontap-mediator.html["¿Qué novedades hay en ONTAP Mediator?"^].
 
 [cols="4,1"]
 |===
@@ -34,7 +34,7 @@ ONTAP 9.19.1
 
 
  a| 
-ONTAP Mediator 1.12 admite configurar un ONTAP Mediator que use HTTPS para la comunicación en configuraciones IP de MetroCluster. HTTPS proporciona mayor seguridad al cifrar sesiones completas usando SSL/TLS. Puedes elegir instalar un ONTAP Mediator que solo use el protocolo HTTPS. El paquete SCST no se instala si se usa este método de instalación. Para más información sobre la instalación de un ONTAP Mediator que solo use el protocolo HTTPS, consulta link:https://docs.netapp.com/us-en/ontap/mediator/index.html#https-iscsi-installation["Opciones de instalación HTTPS e iSCSI para ONTAP Mediator"^].
+ONTAP Mediator 1.12 admite configurar un ONTAP Mediator que use HTTPS para la comunicación en configuraciones IP de MetroCluster. HTTPS ofrece mayor seguridad al cifrar sesiones completas usando SSL/TLS. Puedes elegir instalar un ONTAP Mediator que solo use el protocolo HTTPS. El paquete SCST no se instala si usas este método de instalación. Para más información sobre la instalación de un ONTAP Mediator que solo use el protocolo HTTPS, consulta link:https://docs.netapp.com/us-en/ontap-mediator/install/prepare-install.html#https-iscsi-installation["Opciones de instalación HTTPS e iSCSI para ONTAP Mediator"^].
 
 link:../install-ip/concept_mediator_requirements.html#select-a-communication-protocol-for-ontap-mediator["Más información sobre los protocolos iSCSI y HTTPS en ONTAP Mediator"].
  a| 

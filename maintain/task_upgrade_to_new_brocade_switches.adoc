@@ -76,6 +76,10 @@ image::../media/brocade_upgr_to_g620_replaced_b_1.gif[Actualización de Brocade 
 
 
 . Encienda los nuevos interruptores y deje que se inicien.
+. Al volver al símbolo del sistema del switch, compruebe la versión del firmware del switch:
++
+`firmwareShow`
+
 . Configure los switches FC Brocade mediante uno de los siguientes procedimientos:
 +
 link:../install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html["Configuración de switches FC Brocade con archivos RCF"]
@@ -143,16 +147,6 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 		.
 		.
 ----
-. Al volver al símbolo del sistema del switch, compruebe la versión del firmware del switch:
-+
-`firmwareShow`
-
-+
-Los switches deben ejecutar el firmware admitido más reciente.
-
-+
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
-
 . Simular una operación de switchover:
 +
 .. Desde el símbolo del sistema de cualquier nodo, cambie al nivel de privilegio avanzado: +

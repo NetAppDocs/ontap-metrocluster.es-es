@@ -261,14 +261,11 @@ Parte de la configuración se revierte y los puertos de switch se "desconectan".
 IP_switch_A_1# show running-config diff
 IP_switch_A_1#
 ----
-
-
-. Si ve la salida del sistema, guarde la configuración en ejecución en la configuración de inicio: `copy running-config startup-config`
+.. Si ve la salida del sistema, guarde la configuración en ejecución en la configuración de inicio: `copy running-config startup-config`
 +
 
 NOTE: El resultado del sistema indica que la configuración de inicio y la configuración en ejecución son diferentes y los cambios pendientes. Si no guarda los cambios pendientes, no podrá retroceder utilizando una recarga del conmutador.
 
-+
 .. Aplicar CleanUpFile:
 +
 [listing]
@@ -329,6 +326,11 @@ IP_switch_A_1# copy running-config startup-config
 
 IP_switch_A_1# reload
 ----
+. Repite los pasos anteriores para cada uno de los switches.
++
+
+NOTE: Una vez que hayas configurado los switches en la primera estructura (Switch_A_1, Switch_B_1), debes repetir los pasos para mover las LIF del clúster en la segunda estructura (Switch_A_2, Switch_B_2). Consulta link:../install-ip/task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
+
 . Modifica todas las LIF del clúster para habilitar la reversión automática:
 +
 .. Vuelve a activar la reversión automática:

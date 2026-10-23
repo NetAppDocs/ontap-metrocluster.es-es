@@ -2,7 +2,7 @@
 permalink: disaster-recovery/task_recover_from_a_non_controller_failure_mcc_dr.html 
 sidebar: sidebar 
 keywords: equipment, disaster, site, undergone, require, maintenance, replacement, controller, replace, process, metrocluster, configuration, data, aggregate, switchback, operation, recover, non-controller, failure, heal, configuration, metrocluster, fc, data, aggregate, root, disaster, verify, system, switchback, verification, result, perform, successful, delete, deleting, stale, listing 
-summary: 'Después de realizar el mantenimiento o sustitución necesarios del equipo del sitio de recuperación ante desastres, pero no se reemplazó ninguna controladora, puede comenzar el proceso de devolver la configuración de MetroCluster a un estado totalmente redundante. Esto incluye reparar la configuración (en primer lugar, los agregados de datos y, posteriormente, los agregados raíz) y realizar la operación de conmutación de estado.' 
+summary: Repara la configuración de MetroCluster tras un fallo no relacionado con la controladora y realiza la operación de switchback para volver al funcionamiento normal y totalmente redundante. 
 ---
 = Recupérate de un fallo no relacionado con el controlador en una configuración de MetroCluster
 :allow-uri-read: 
@@ -45,10 +45,7 @@ En las configuraciones de IP de MetroCluster, las operaciones de reparación deb
 
 .Antes de empezar
 * Se debe haber realizado la conmutación y el sitio superviviente debe estar sirviendo datos.
-* Los nodos del sitio de desastres deben estar detenido o apagados.
-+
-No deben arrancarse completamente durante el proceso de curación.
-
+* En configuraciones fabric-attached y stretch MetroCluster, los nodos del sitio del desastre deben detenerse o permanecer apagados. No deben arrancarse por completo durante el proceso de reparación.
 * El almacenamiento en el centro de recuperación ante desastres debe ser accesible (las bandejas se han encendido, son funcionales y están accesibles).
 * En las configuraciones de MetroCluster conectadas a la estructura, los vínculos entre switches (ISL) deben estar funcionando.
 * En configuraciones MetroCluster de cuatro nodos, los nodos del sitio superviviente no deben estar en estado de conmutación por error de alta disponibilidad (todos los nodos deben estar activos y en ejecución para cada par de alta disponibilidad).
@@ -65,7 +62,7 @@ La operación de reparación debe realizarse primero en los agregados de datos y
 Debe reparar los agregados de datos después de reparar y sustituir cualquier hardware del sitio de desastre. Este proceso vuelve a sincronizar los agregados de datos y prepara el centro de desastre (ahora reparado) para su funcionamiento normal. Debe reparar los agregados de datos antes de reparar los agregados raíz.
 
 .Acerca de esta tarea
-En el siguiente ejemplo, se muestra un cambio forzado en el que se pone en línea el agregado de conmutación. Todas las actualizaciones de configuración del clúster remoto se replican correctamente en el clúster local. Puede encender el almacenamiento en el sitio de desastres como parte de este procedimiento, pero no debe encender los módulos de la controladora en el sitio de recuperación ante desastres.
+El siguiente ejemplo muestra una conmutación de sitios forzada, en la que pones en línea el agregado conmutado. Todas las actualizaciones de configuración del clúster remoto se replican correctamente en el clúster local. Como parte de este procedimiento, enciendes el almacenamiento en el sitio de desastre, pero no enciendes ni debes encender los módulos de controladora del sitio de desastre en una configuración MetroCluster conectada a la estructura o de extensión.
 
 .Pasos
 . Compruebe que la conmutación se ha completado:
@@ -93,7 +90,7 @@ controller_A_1::> metrocluster heal -phase aggregates
 [Job 130] Job succeeded: Heal Aggregates is successful.
 ----
 +
-Si la curación es vetada, usted tiene la opción de reemitir el `metrocluster heal` con el `--override-vetoes` parámetro. Si utiliza este parámetro opcional, el sistema anula cualquier vetoo suave que impida la operación de reparación.
+Si se veta la recuperación, puedes volver a emitir el comando `metrocluster heal` con el parámetro `--override-vetoes` para anular cualquier veto leve que impida la operación de recuperación.
 
 . Compruebe que la operación se ha completado:
 +
@@ -147,7 +144,7 @@ mcc1A::> metrocluster heal -phase root-aggregates
 [Job 137] Job succeeded: Heal Root Aggregates is successful
 ----
 +
-Si la curación es vetada, usted tiene la opción de reemitir el `metrocluster heal` con el `--override-vetoes` parámetro. Si utiliza este parámetro opcional, el sistema anula cualquier vetoo suave que impida la operación de reparación.
+Si se veta la recuperación, puedes volver a emitir el comando `metrocluster heal` con el parámetro `--override-vetoes` para anular cualquier veto leve que impida la operación de recuperación.
 
 . Compruebe que la operación de curación se haya completado ejecutando el siguiente comando en el clúster de destino:
 +
@@ -217,7 +214,7 @@ Realice este paso en todas las SVM según sea necesario.
 
 
 
-CAUTION: Debes verificar que la ubicación de los LIF de datos sea correcta en los nuevos nodos antes de realizar la conmutación de sitios. Cuando realizas la conmutación de sitios de la configuración, ONTAP intenta reanudar el tráfico en el puerto principal utilizado por los LIF. Puede ocurrir un fallo de E/S cuando la conexión del puerto principal al puerto del switch y la VLAN es incorrecta. Si tienes algún problema para ubicar los LIF en los nodos o puertos correctos, no continúes con la conmutación de sitios y contacta al soporte técnico de NetApp.
+CAUTION: Debes verificar que la ubicación de las LIF de datos sea correcta en los nodos nuevos antes de realizar un switchback. Cuando haces switchback de la configuración, ONTAP intenta reanudar el tráfico en el puerto de inicio que usan las LIF. Pueden producirse fallos de E/S cuando la conexión del puerto de inicio con el puerto del switch y la VLAN es incorrecta. Si tienes algún problema para colocar las LIF en los nodos o puertos correctos, no continúes con el switchback y ponte en contacto con el soporte técnico de NetApp.
 
 
 
@@ -567,7 +564,7 @@ volumes             ok
 ----
 +
 
-NOTE: En un entorno de FC MetroCluster, las 'conexiones' deberían aparecer como "not-applicable" en la salida del comando.
+NOTE: En un entorno FC de MetroCluster, "connections" debería aparecer como "not-applicable" en la salida del comando.
 
 
 

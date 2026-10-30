@@ -130,9 +130,108 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 .. Compruebe que no hay alertas de estado: `*system health alert show*`
 
 
+. Si la configuración IP de tu MetroCluster tiene bandejas NVMe conectadas a los switches IP de MetroCluster, ejecuta los siguientes comandos para comprobar el estado de las bandejas.
++
+.. Muestra el estado de la bandeja:
++
+`storage shelf show`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster_A::> storage shelf show
+                                                        Module  Operational
+       Shelf Name Shelf ID Serial Number   Model        Type    Status
+----------------- -------- --------------- ------------ ------- -----------
+              1.0        0 952123456789    NS224NSM100  NSM100  Normal
+              1.2        0 952987654321    NS224NSM100  NSM100  Normal
+cluster_A::>
+----
+====
+.. Muestra la conectividad de las bandejas NVMe conectadas al conmutador:
++
+`storage shelf show -shelf <shelf_name> -connectivity`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster_A::> storage shelf show -shelf 1.0 -connectivity
+            Shelf Name: 1.0
+             Stack ID: 1
+             Shelf ID: 0
+            Shelf UID: 00:00:00:00:00:00:00:00
+        Serial Number: 952123456789
+          Module Type: NSM100
+                Model: NS224NSM100
+         Shelf Vendor: NETAPP
+           Disk Count: 24
+      Connection Type: NVMe
+          Shelf State: Online
+               Status: Normal
+Paths:
+
+Controller         Initiator Initiator Side Switch Port Target Side Switch Port    Target Port        TPGN
+------------------ --------- -------------------------- -------------------------- ------------------ ------
+cluster_A-01       0x        -                          0x                         05000005abff0000   67
+cluster_A-02       0x        -                          0x                         030f0005abff0000   44
+
+cluster_A::>
+----
+====
+.. Si es necesario, recopila los nombres de los dispositivos remotos (conmutadores MetroCluster):
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster_A::> storage shelf port show -fields remote-device
+
+shelf id remote-device
+----- -- -------------
+1.0   0  IP_switch_A_1
+1.0   1  IP_switch_B_1
+1.0   2  IP_switch_A_2
+1.0   3  IP_switch_B_2
+4 entries were displayed
+----
+====
+.. Muestra la conectividad de los puertos de las bandejas NVMe conectadas al switch:
++
+`storage shelf port show -remote-device <switch name>`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster_A::> storage shelf port show -remote-device IP_switch_A_1
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.0
+       1 A      connected    false
+       3 B      connected    false
+1.2
+       1 A      connected    false
+       3 B      connected    false
+4 entries were displayed.
+
+cluster_A::>
+----
+====
+
+
 . Configure el nuevo interruptor antes de instalarlo.
 +
-Si está reutilizando los interruptores existentes, vaya a. <<existing_step4,Paso 4>>.
+Si vas a reutilizar los conmutadores existentes, ve a <<existing_disconnect,el paso para desconectar las conexiones del conmutador antiguo>>.
 
 +
 
@@ -142,36 +241,23 @@ NOTE: Si está actualizando o degradando los switches, debe configurar todos los
 Siga los pasos para su proveedor de switches:
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["Configure los switches IP de Broadcom"]
-** link:../install-ip/task_switch_config_cisco.html["Configure los switches IP de Cisco"]
-** link:../install-ip/task_switch_config_nvidia.html["Configure los switches NVIDIA IP"]
-+
 Asegúrese de aplicar el archivo RCF correcto para switch _A_1, _A_2, _B_1 o _B_2. Si el nuevo conmutador es el mismo que el antiguo, deberá aplicar el mismo archivo RCF.
 
 +
 Si actualiza o degrada un conmutador, aplique el último archivo RCF admitido para el nuevo conmutador.
 
++
+** link:../install-ip/task_switch_config_broadcom.html["Configure los switches IP de Broadcom"]
+** link:../install-ip/task_switch_config_cisco.html["Configure los switches IP de Cisco"]
+** link:../install-ip/task_switch_config_nvidia.html["Configure los switches NVIDIA IP"]
 
 
-. Ejecute el comando Port show para ver información acerca de los puertos de red:
-+
-`*network port show*`
-
-+
-.. Modifique todas las LIF del clúster para deshabilitar la reversión automática:
-+
-[source, cli]
-----
-network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
-----
-.. link:../install-ip/switch-move-cluster-lifs.html["Mueve las LIF del clúster"].
+. link:../install-ip/switch-move-cluster-lifs.html["Mueve las LIF del clúster"].
 +
 
 NOTE: Debes actualizar los conmutadores en el siguiente orden: Switch_A_1, Switch_B_1, Switch_A_2, Switch_B_2. Debes repetir los pasos para mover las LIF del clúster en la segunda estructura (Switch_A_2, Switch_B_2) después de haber configurado los conmutadores en la primera estructura (Switch_A_1, Switch_B_1). Consulta link:../install-ip/task_install_and_cable_the_mcc_components.html["Conoce cómo configurar los switches IP MetroCluster"].
 
-
-
-. [[existing_step4]]Desconecte las conexiones del interruptor antiguo.
+. [[existing_disconnect]]Desconecta las conexiones del conmutador antiguo.
 +
 
 NOTE: Solo se desconectan las conexiones que no estén utilizando el mismo puerto en las configuraciones nuevas y antiguas. Si utiliza switches nuevos, debe desconectar todas las conexiones.
@@ -191,13 +277,13 @@ En el ejemplo <<port_usage_worksheet>>, los interruptores no cambian. Los ISL de
 
 . Si está utilizando interruptores nuevos, apague el interruptor antiguo, retire los cables y retire físicamente el interruptor antiguo.
 +
-Si está reutilizando los interruptores existentes, vaya a. <<existing_step6,Paso 6>>.
+Si vas a reutilizar los conmutadores existentes, ve a <<existing_configure,el paso para configurar los conmutadores existentes>>.
 
 +
 
 NOTE: No conecte el cable a los nuevos interruptores excepto a la interfaz de administración (si se utiliza).
 
-. [[Existing_step6]]Configure los conmutadores existentes.
+. [[existing_configure]]Configura los switches existentes.
 +
 Si ya ha configurado previamente los switches, puede omitir este paso.
 
@@ -224,11 +310,19 @@ Conecte los cables de los interruptores en el siguiente orden (si es necesario):
 [NOTE]
 ====
 *** Los puertos utilizados pueden ser diferentes de los del switch antiguo si el tipo de switch es diferente. Si va a actualizar o cambiar a una versión anterior de los switches, realice *NO* el cableado de los ISL locales. Solo conecte los cables de los ISL locales si va a actualizar o cambiar a una versión anterior de los switches de la segunda red, y los dos switches de un sitio son del mismo tipo y cableado.
-*** Si va a actualizar Switch-A1 y Switch-B1, debe realizar los pasos 1 a 6 para los switches Switch-A2 y Switch-B2.
 
 
 ====
 
+
+. Encienda el interruptor o los interruptores.
++
+Si el nuevo conmutador es idéntico, enciéndelo. Si vas a actualizar o revertir la versión de los conmutadores, enciende ambos.
+
+. Repite los pasos anteriores para la segunda estructura (Switch_A_2 y Switch_B_2) una vez que hayas actualizado la primera estructura (Switch_A_1 y Switch_B_1).
++
+
+NOTE: Si vas a sustituir un conmutador averiado por otro del mismo tipo, solo tienes que actualizar el conmutador averiado y no es necesario que repitas los pasos para la segunda estructura.
 
 . Finalice el cableado del clúster local.
 +
@@ -244,18 +338,7 @@ Conecte los cables de los interruptores en el siguiente orden (si es necesario):
 
 
 
-. Encienda el interruptor o los interruptores.
-+
-Si el nuevo conmutador es idéntico, enciéndelo. Si vas a actualizar o revertir la versión de los conmutadores, enciende ambos. La configuración puede funcionar con dos conmutadores diferentes en cada emplazamiento hasta que se actualice la segunda estructura.
-
 . Repita para comprobar que la configuración de MetroCluster sea correcta <<all_step1,Paso 1>>.
-+
-Si vas a actualizar o degradar los switches en la primera estructura, es posible que veas algunas alertas relacionadas con la agrupación en clústeres locales.
-
-+
-
-NOTE: Si actualizas o vuelves a una versión anterior de la fabric, repite todos los pasos para la segunda fabric.
-
 . Restablece todos los LIF del clúster a su puerto de origen.
 +
 
@@ -285,3 +368,6 @@ Si va a volver a configurar una configuración IP de MetroCluster que no conecta
 
 
 
+
+.Después de terminar
+link:../install-ip/task-configure-log-collection-mccip.html["Configurar la recopilación de registros en un conmutador IP de MetroCluster"]

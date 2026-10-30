@@ -49,7 +49,7 @@ link:../install-stretch/concept_considerations_differences.html["Instalación y 
 
 
  a| 
-link:../manage/index.html["Gestión de MetroCluster"]
+link:../manage/task_perform_switchover_for_tests_or_maintenance.html["Realice la conmutación de sitios para pruebas o mantenimiento"]
  a| 
 * Configuración de MetroCluster
 * Conmutación de sitios, reparación y conmutación de estado
@@ -68,7 +68,7 @@ link:../disaster-recovery/concept_dr_workflow.html["Recuperación ante desastres
 
 
  a| 
-link:../maintain/index.html["Mantenimiento de MetroCluster"]
+link:../maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["Mantenimiento de MetroCluster"]
  a| 
 * Directrices de mantenimiento en una configuración de MetroCluster FC
 * Procedimientos de sustitución o actualización de hardware y actualización del firmware para puentes FC a SAS y switches FC

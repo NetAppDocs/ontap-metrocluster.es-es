@@ -497,7 +497,7 @@ cluster_A::*>
 Si el sistema está configurado con conectividad de 25 Gbps, establezca manualmente el parámetro Corrección de errores de reenvío (fec) en OFF después de aplicar el RCF. El RCF no aplica esta configuración.
 
 .Acerca de esta tarea
-* Esta tarea solo se aplica a plataformas que utilizan conectividad de 25 Gbps. Consulte link:../install-ip/port_usage_sn2100.html["Asignaciones de puertos de plataforma para switches IP SN2100 compatibles con NVIDIA"].
+* Esta tarea solo se aplica a las plataformas que utilizan conectividad de 25 Gbps. Consulta link:../install-ip/using_rcf_generator.html["Infórmate sobre el cableado de los conmutadores IP de MetroCluster"].
 * Esta tarea debe realizarse en los cuatro switches de la configuración de IP de MetroCluster.
 * Es necesario actualizar cada puerto del switch de forma individual, no es posible especificar varios puertos o rangos de puertos en el comando.
 

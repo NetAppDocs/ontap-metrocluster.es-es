@@ -59,26 +59,10 @@ entries:
     url: "/install-ip/task_rack_hw_components.html"
   - title: Conecte los cables de los switches IP de MetroCluster
     entries:
-    - title: Cómo utilizar las tablas de puertos con la herramienta RcfFileGenerator
-        o varias configuraciones de MetroCluster
+    - title: Infórmate sobre el cableado de los conmutadores IP de MetroCluster
       url: "/install-ip/using_rcf_generator.html"
-    - title: Asignaciones de puertos de la plataforma para los switches Cisco 3132Q-V.
-      url: "/install-ip/port_usage_3132q.html"
-    - title: Asignaciones de puertos de plataforma para conmutadores Cisco 3232C o
-        Cisco 9336C-FX2 de 36 puertos
-      url: "/install-ip/port_usage_3232c_9336c.html"
-    - title: Asignaciones de puertos de plataforma para conmutadores Cisco 9336C-FX2
-        de 12 puertos
-      url: "/install-ip/port-usage-9336c-fx-2-12-port.html"
-    - title: Asignaciones de puertos de plataforma para conmutadores Cisco 9336C-FX2
-        de 36 puertos que conectan el almacenamiento NS224
-      url: "/install-ip/port_usage_9336c_shared.html"
-    - title: Asignaciones de puertos de plataforma para switches IP BES-53248 compatibles
-        con Broadcom
-      url: "/install-ip/port_usage_bes53248.html"
-    - title: Asignaciones de puertos de plataforma para switches IP SN2100 compatibles
-        con NVIDIA
-      url: "/install-ip/port_usage_sn2100.html"
+    - title: Cablea los switches IP de MetoCluster
+      url: "/install-ip/cable-mcc-ip-switches.html"
   - title: Cablee los datos de la controladora y los puertos de gestión
     url: "/install-ip/task_cable_other_connections.html"
   - title: Configure los switches IP de MetroCluster

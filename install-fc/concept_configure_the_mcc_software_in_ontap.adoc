@@ -3507,7 +3507,7 @@ link:https://docs.netapp.com/us-en/ontap/cloud/high-availability-concept.html["C
 Debe verificar las operaciones de conmutación de sitios, reparación y conmutación de estado de la configuración de MetroCluster.
 
 .Paso
-. Utilice los procedimientos para la conmutación negociada, la reparación y la conmutación de estado que se mencionan en el https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["Recuperación tras un desastre"].
+. Sigue los procedimientos para la conmutación de sitios, la recuperación y la conmutación inversa que se mencionan en link:../manage/task_perform_switchover_for_tests_or_maintenance.html["Realice la conmutación de sitios para pruebas o mantenimiento"].
 
 
 

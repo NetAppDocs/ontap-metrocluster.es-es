@@ -63,17 +63,24 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_consideratio
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["Gestión y recuperación ante desastres de MetroCluster"]
+link:../manage/task_perform_switchover_for_tests_or_maintenance.html["Realice la conmutación de sitios para pruebas o mantenimiento"]
+ a| 
+* Conmutación, reparación y conmutación de estado
+
+
+
+
+ a| 
+link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html["Comprender la protección de datos y la recuperación ante desastres de MetroCluster"]
  a| 
 * Configuración de MetroCluster
-* Conmutación, reparación y conmutación de estado
-* Recuperación ante desastres (DR)
+* Recuperación tras siniestros
 
 
 
 
  a| 
-link:../maintain/index.html["Mantener componentes de MetroCluster"]
+link:../maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["Mantenimiento de MetroCluster"]
  a| 
 * Directrices de mantenimiento en una configuración de MetroCluster FC
 * Sustitución o actualización de hardware. Procedimientos de actualización del firmware para puentes FC-a-SAS y switches FC

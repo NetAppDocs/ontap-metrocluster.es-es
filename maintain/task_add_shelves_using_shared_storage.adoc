@@ -200,7 +200,7 @@ cluster_A::>
 NOTE: Si el conmutador ya está configurado correctamente, puede omitir estas secciones siguientes y pasar directamente a. <<Configuración del cifrado MACsec en switches Cisco 9336C>>, si corresponde o a. <<Conexión de la nueva bandeja NS224>>.
 
 * Es necesario cambiar la configuración del switch para añadir bandejas.
-* Debe revisar los detalles del cableado en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/port_usage_3232c_9336c.html#cabling-a-aff-a800-to-a-cisco-3232c-or-cisco-9336c-switch["Asignaciones de puertos de la plataforma"^].
+* Deberías consultar los detalles del cableado en link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["Infórmate sobre el cableado de los conmutadores IP de MetroCluster"^].
 * Debe utilizar la herramienta **RcfFileGenerator** para crear el archivo RCF para su configuración. La link:https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"^] también ofrece información general sobre el cableado por puerto para cada switch. Asegúrese de elegir la cantidad correcta de bandejas. Existen archivos adicionales creados junto con el archivo RCF que proporcionan un diseño detallado del cableado que se ajusta a sus opciones específicas. Use esta información general sobre el cableado para verificar el cableado cuando cablee las nuevas bandejas.
 
 

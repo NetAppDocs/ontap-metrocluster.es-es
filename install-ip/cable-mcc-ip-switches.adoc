@@ -1,0 +1,38 @@
+---
+permalink: install-ip/cable-mcc-ip-switches.html 
+sidebar: sidebar 
+keywords: cabling, cable, component, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure, rcf, file, generator, RcfFileGenerator 
+summary: Debe comprender cómo utilizar la información de las tablas de puertos para generar correctamente los archivos RCF. 
+---
+= Cablea tus switches IP de MetroCluster con la herramienta RCFfilegenerator y Hardware Universe
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debes saber cómo usar la herramienta RCFfilegenerator y la información disponible en NetApp Hardware Universe para cablear correctamente tus conmutadores.
+
+.Antes de empezar
+Revisa la información en link:using_rcf_generator.html["Infórmate sobre el cableado de los conmutadores IP de MetroCluster"] antes de realizar esta tarea.
+
+.Pasos
+. Descarga e instala la herramienta https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator para MetroCluster IP"^] desde el sitio de soporte de NetApp.
+. Sigue los pasos que se indican en link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/How_to_use_the_RCF_Generator_for_MetroCluster_IP["Cómo usar el generador de RCF para MetroCluster IP"^] para rellenar los campos de tu configuración.
++
+La herramienta genera un resumen del cableado por puerto para cada conmutador.
+
++
+
+NOTE: RcfFileGenerator solo muestra plataformas elegibles cuando se selecciona la primera plataforma.
+
+. Ve a la link:https://hwu.netapp.com/DetailViews/Home.aspx["Hardware Universe"^]
+. Selecciona el tipo de plataforma en la pestaña *Productos* y, a continuación, selecciona tu plataforma concreta e indica si vas a cablear una configuración IP de cuatro o ocho nodos MetroCluster.
+. Selecciona la versión de ONTAP en la ventana de visualización y, a continuación, selecciona *Mostrar resultados*.
+. Selecciona *Conexiones compatibles* y selecciona la pestaña *Conexión de almacenamiento*
+. Recopila la información de los puertos de la controladora para tu configuración.
++
+
+NOTE: La información sobre los puertos del controlador no se incluye en el resumen de cableado generado por la herramienta RcfFileGenerator, por lo que debes utilizar Hardware Universe para recopilar esta información.
+
+

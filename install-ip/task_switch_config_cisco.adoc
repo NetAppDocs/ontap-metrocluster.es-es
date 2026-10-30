@@ -775,7 +775,7 @@ Si el sistema está configurado con conectividad de 25 Gbps, debe establecer man
 .Acerca de esta tarea
 Los puertos de 25 Gbps se deben cablear antes de ejecutar este procedimiento.
 
-link:port_usage_3232c_9336c.html["Asignaciones de puertos de la plataforma para los switches Cisco 3232C o Cisco 9336C"]
+link:using_rcf_generator.html["Infórmate sobre el cableado de los conmutadores IP de MetroCluster"]
 
 Esta tarea sólo se aplica a plataformas que utilizan conectividad de 25 Gbps:
 

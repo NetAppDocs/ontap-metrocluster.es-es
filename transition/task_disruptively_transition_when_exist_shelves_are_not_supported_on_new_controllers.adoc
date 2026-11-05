@@ -149,6 +149,9 @@ Debe mover los agregados raíz de las bandejas de unidades antiguas a las nuevas
 .Acerca de esta tarea
 Esta tarea se realiza antes de la transición de los nodos existentes (node_A_1-FC y node_B_1-FC).
 
+
+NOTE: Antes de realizar una conmutación de sitios, consulta link:../manage/switchover-limitations.html["Limitaciones cuando la configuración de MetroCluster está cambiando"].
+
 .Pasos
 . Realice una conmutación de sitios negociada desde el nodo de la controladora node_B_1-FC:
 +

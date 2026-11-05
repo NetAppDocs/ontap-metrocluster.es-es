@@ -24,6 +24,9 @@ Después de completar esta tarea:
 
 image::../media/mcc_upgrade_cluster_a_in_switchover.png[Muestra cluster_A está listo para la actualización y cluster_B está en switchover]
 
+
+NOTE: Antes de realizar una conmutación de sitios, consulta link:../manage/switchover-limitations.html["Limitaciones cuando la configuración de MetroCluster está cambiando"].
+
 .Pasos
 . Cambie de la configuración de MetroCluster a site_A para que los nodos de site_B puedan actualizarse:
 +

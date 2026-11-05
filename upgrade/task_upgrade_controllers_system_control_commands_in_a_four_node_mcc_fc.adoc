@@ -360,6 +360,9 @@ La operación de automatización inicia la conmutación, `heal-aggregates`, y. `
 Antes de iniciar la conmutación, la operación de automatización se pone en pausa para que pueda comprobar manualmente que todas las LIF están «'más'» en el sitio B. En caso necesario, llevar cualquier LIF «desposeída» a «arriba» y reanudar la operación de automatización utilizando el `system controller replace resume` comando.
 
 
+NOTE: Antes de realizar una conmutación de sitios, consulta link:../manage/switchover-limitations.html["Limitaciones cuando la configuración de MetroCluster está cambiando"].
+
+
 
 [[prepare-the-network-configuration-of-the-old-controllers]]
 === Prepare la configuración de red de las controladoras antiguas

@@ -13,6 +13,9 @@ summary: Después de reparar la configuración de MetroCluster, realiza la opera
 [role="lead"]
 Después de recuperar la configuración de MetroCluster, puede ejecutar la operación de conmutación de estado de MetroCluster. La operación de conmutación de estado de MetroCluster devuelve la configuración a su estado operativo normal, con las máquinas virtuales de almacenamiento (SVM) sincronizada en el sitio de desastre activas y suministrando datos de los pools de discos locales.
 
+.Acerca de esta tarea
+Revisa los siguientes requisitos antes de realizar el switchback:
+
 * El clúster de desastres debe haber cambiado correctamente al clúster superviviente.
 * La reparación debe haberse realizado en los agregados de datos y raíz.
 * Los nodos de clúster supervivientes no deben estar en estado de conmutación por error de alta disponibilidad (todos los nodos deben estar en funcionamiento para cada par de alta disponibilidad).
@@ -20,8 +23,10 @@ Después de recuperar la configuración de MetroCluster, puede ejecutar la opera
 * Se debe reflejar el agregado raíz.
 * Los enlaces Inter-Switch (ISL) deben estar en línea.
 * Deben instalarse las licencias necesarias en el sistema.
-+
-.. Confirme que todos los nodos se encuentran en estado habilitado: `metrocluster node show`
+
+
+.Pasos
+. Confirme que todos los nodos se encuentran en estado habilitado: `metrocluster node show`
 +
 En el ejemplo siguiente se muestran los nodos que están en el estado Enabled:
 
@@ -41,10 +46,10 @@ Group Cluster Node        State          Mirroring Mode
               node_B_2    configured     enabled   waiting for switchback recovery
 4 entries were displayed.
 ----
-.. Confirme que se completó la resincronización en todas las SVM: `metrocluster vserver show`
-.. Compruebe que se hayan completado correctamente las migraciones automáticas LIF que realizan las operaciones de reparación: `metrocluster check lif show`
-.. Realice una conmutación de regreso simulada para verificar que el sistema esté listo: `metrocluster switchback -simulate`
-.. Compruebe la configuración:
+. Confirme que se completó la resincronización en todas las SVM: `metrocluster vserver show`
+. Compruebe que se hayan completado correctamente las migraciones automáticas LIF que realizan las operaciones de reparación: `metrocluster check lif show`
+. Realice una conmutación de regreso simulada para verificar que el sistema esté listo: `metrocluster switchback -simulate`
+. Compruebe la configuración:
 +
 `metrocluster check run`
 
@@ -76,8 +81,8 @@ clusters            ok
 connections         ok
 6 entries were displayed.
 ----
-.. Lleve a cabo la conmutación de estado; para ello, ejecute el comando de conmutación de estado de MetroCluster desde cualquier nodo del clúster superviviente: `metrocluster switchback`
-.. Compruebe el progreso de la operación de regreso: `metrocluster show`
+. Lleve a cabo la conmutación de estado; para ello, ejecute el comando de conmutación de estado de MetroCluster desde cualquier nodo del clúster superviviente: `metrocluster switchback`
+. Compruebe el progreso de la operación de regreso: `metrocluster show`
 +
 La operación de conmutación de estado aún está en curso cuando el resultado muestra la opción de espera para regresar:
 
@@ -112,7 +117,5 @@ Remote: cluster_A         Configuration state configured
 ----
 +
 Si una conmutación de regreso tarda mucho tiempo en terminar, puede comprobar el estado de las líneas base en curso utilizando el `metrocluster config-replication resync-status show` comando. Este comando se encuentra en el nivel de privilegio avanzado.
-
-
 
 

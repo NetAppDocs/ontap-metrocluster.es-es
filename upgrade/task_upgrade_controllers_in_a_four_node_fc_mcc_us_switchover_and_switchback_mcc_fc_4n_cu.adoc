@@ -648,6 +648,9 @@ Tras completar esta tarea, Cluster_A está activo y está sirviendo datos para a
 
 image::../media/mcc_upgrade_cluster_a_in_switchover.png[Sitio_B inactivo y listo para actualización después del cambio de MetroCluster]
 
+
+NOTE: Antes de realizar una conmutación de sitios, consulta link:../manage/switchover-limitations.html["Limitaciones cuando la configuración de MetroCluster está cambiando"].
+
 .Pasos
 . Cambie de la configuración de MetroCluster a site_A para que los nodos de site_B puedan actualizarse:
 +

@@ -136,4 +136,5 @@ Po10         1       eth  trunk  up      none                                a-1
 Po11         1       eth  trunk  up      none                                a-100G(D)  lacp
 ----
 . Repita el procedimiento para la tela 2.
+. Si en la configuración de IP de tu MetroCluster tienes activado el control de congestión WAN ISL, debes link:mcc-congestion-control.html#refresh-congestion-control["actualiza la configuración del control de congestión de la ISL de la WAN"].
 

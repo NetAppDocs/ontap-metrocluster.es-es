@@ -491,6 +491,22 @@ Puede mover un volumen para SVM sincronizada en origen y destino.
  a| 
 Es posible romper una relación de SnapMirror entre un extremo de origen y de destino de un reflejo de protección de datos.
 
+
+
+ a| 
+`vserver modify -storage-limit`
+ a| 
+A partir de ONTAP 9.20.1, se pueden configurar límites de almacenamiento para las SVM que forman parte de una configuración IP de MetroCluster.
+
+Las siguientes restricciones se aplican a la activación o desactivación de los límites de almacenamiento durante una conmutación de sitios de MetroCluster:
+
+* En la SVM de destino de sincronización, no puedes usar el comando `vserver modify -storage-limit` para activar o desactivar el límite de almacenamiento. Esto significa que no puedes cambiar el valor de 0 a un valor distinto de cero ni de un valor distinto de cero a 0. El comando falla con el siguiente error:
++
+`This operation is not permitted on a Vserver that is configured as the destination of a MetroCluster Vserver relationship`
+
+* Aún puedes cambiar el límite de almacenamiento de un valor distinto de cero a otro (por ejemplo, de 100 TB a 200 TB). Este nuevo valor se mantiene tras la conmutación de retorno.
+
+
 |===
 
 

@@ -2,7 +2,7 @@
 permalink: releasenotes/mcc-new-features.html 
 sidebar: sidebar 
 keywords: new metrocluster features 
-summary:  
+summary: Descubre las funciones nuevas y mejoradas de MetroCluster en cada versión de ONTAP 9. 
 ---
 = Novedades en las funciones de MetroCluster
 :allow-uri-read: 
@@ -13,11 +13,64 @@ summary:
 [role="lead"]
 Cada versión del software de gestión de datos ONTAP 9 ofrece funciones nuevas y mejoradas que mejoran las funcionalidades, la capacidad de gestión y el rendimiento de las configuraciones de ONTAP MetroCluster.
 
-Para obtener información detallada sobre problemas conocidos, limitaciones y precauciones sobre la actualización que afectan a las configuraciones de ONTAP MetroCluster, consulte la https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["Notas de la versión de ONTAP 9"^]. Debe iniciar sesión con su cuenta de NetApp o crear una cuenta para acceder a las Notas de la versión.
+Para obtener más información sobre los problemas conocidos, las limitaciones y las precauciones de actualización que afectan a las configuraciones de ONTAP MetroCluster, consulta el https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["Notas de la versión de ONTAP 9"^]. Debes iniciar sesión con tu cuenta de NetApp o crear una cuenta para acceder a las Release Notes.
 
 [cols="20,65,15"]
 |===
 | Funciones admitidas en la configuración de MetroCluster | Descripción y dónde obtener más información | Comienzo disponible 
+
+
+ a| 
+Compatibilidad con SHA-512 para la autenticación de SNMPv3
+ a| 
+ONTAP admite SHA-512 para la autenticación SNMPv3 en los conmutadores MetroCluster.
+ a| 
+ONTAP 9.20.1
+
+
+
+ a| 
+MetroCluster Compatibilidad IP para el control de congestión de la ISL WAN
+ a| 
+Puedes habilitar el control de congestión de los enlaces entre switches de WAN (ISL) en las configuraciones IP de MetroCluster para que los ISL que funcionan con anchos de banda más bajos o mixtos, como 10 Gbps, 25 Gbps o 40 Gbps, puedan usarse con plataformas que tengan una velocidad de puerto de backend IP de MetroCluster de 100 Gbps.
+
+link:../install-ip/mcc-congestion-control.html["Configurar el control de congestión en una configuración IP de MetroCluster"]
+ a| 
+ONTAP 9.20.1
+
+
+
+ a| 
+MetroCluster es compatible con SnapMirror S3
+ a| 
+Puedes crear relaciones de SnapMirror S3 en una configuración de MetroCluster que permanezcan disponibles y se reanuden desde el sitio activo durante la conmutación de sitios y el retorno.
+
+link:https://docs.netapp.com/us-en/ontap/s3-snapmirror/index.html#snapmirror-s3-requirements["Más información sobre SnapMirror S3"^]
+ a| 
+ONTAP 9.20.1
+
+
+
+ a| 
+MetroCluster compatibilidad con la gestión del ciclo de vida de buckets de ONTAP S3
+ a| 
+Puedes crear reglas de gestión del ciclo de vida de buckets S3 de ONTAP para buckets S3 nativos en una configuración de MetroCluster.
+
+https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-lifecycle-rule-task.html["Crear una regla de gestión del ciclo de vida de un bucket de ONTAP S3"]
+ a| 
+ONTAP 9.20.1
+
+
+
+ a| 
+MetroCluster compatibilidad de IP con los límites de capacidad de SVM de ONTAP
+ a| 
+Puedes configurar los límites de almacenamiento para los SVM que forman parte de una configuración IP de MetroCluster.
+
+https://docs.netapp.com/us-en/ontap/volumes/manage-svm-capacity.html["Administra los límites de capacidad de ONTAP SVM"^]
+ a| 
+ONTAP 9.20.1
+
 
 
  a| 

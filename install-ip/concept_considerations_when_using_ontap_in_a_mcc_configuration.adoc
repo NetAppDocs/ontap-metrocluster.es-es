@@ -34,6 +34,31 @@ La configuración de ONTAP de los dos clústeres, incluidas las redes, debería 
 
 
 
+[[svm-storage-limit-support-in-a-metrocluster-ip-configuration]]
+== Compatibilidad con el límite de almacenamiento de SVM en una configuración IP de MetroCluster
+
+A partir de ONTAP 9.20.1, se pueden configurar límites de almacenamiento para las SVM que forman parte de una configuración IP de MetroCluster.
+
+
+CAUTION: Debes asegurarte de que la configuración de tu MetroCluster no supere los límites establecidos para tu plataforma que se indican en https://hwu.netapp.com/["Hardware Universe"^].
+
+* Durante el funcionamiento normal (no en conmutación de sitios), solo puedes cambiar la configuración del límite de almacenamiento en la *sync-source SVM*. No puedes activar, desactivar ni modificar los límites de almacenamiento en la *sync-destination SVM*.
+* Durante la conmutación de sitios, se aplican las siguientes restricciones al *sync-destination SVM*:
++
+** No puedes utilizar el comando `vserver modify -storage-limit` para activar o desactivar el límite de almacenamiento en el SVM de destino de sincronización. Es decir, no puedes cambiar el valor de 0 a un valor distinto de cero ni de un valor distinto de cero a 0. El comando falla con el siguiente error:
++
+`This operation is not permitted on a Vserver that is configured as the destination of a MetroCluster Vserver relationship`
+
+** Aún puedes cambiar el límite de almacenamiento de un valor distinto de cero a otro (por ejemplo, de 100 TB a 200 TB). Este nuevo valor se mantiene tras la conmutación de retorno.
+** Para activar o desactivar el límite de almacenamiento, espera a que se complete switchback y, a continuación, realiza el cambio en la *sync-source SVM*. Luego, el valor se replica en la sync-destination SVM.
+
+
+
+
+Para más información, consulta link:https://docs.netapp.com/us-en/ontap/volumes/manage-svm-capacity.html["Gestiona la capacidad de ONTAP SVM"^]
+
+
+
 [[metrocluster-operations-in-ontap-system-manager]]
 == Operaciones de MetroCluster en System Manager de ONTAP
 

@@ -16,6 +16,9 @@ Una vez que se recopila información y se reanuda la operación, la operación d
 .Antes de empezar
 Antes de iniciar la conmutación, la operación de automatización se pone en pausa para que pueda comprobar manualmente que todas las LIF están «'más'» en el sitio B. En caso necesario, llevar cualquier LIF «desposeída» a «arriba» y reanudar la operación de automatización utilizando el `system controller replace resume` comando.
 
+
+NOTE: Antes de realizar una conmutación de sitios, consulta link:../manage/switchover-limitations.html["Limitaciones cuando la configuración de MetroCluster está cambiando"].
+
 La operación de automatización inicia las operaciones de conmutación de sitios. Una vez finalizadas estas operaciones, la operación se detiene en *PAUSE para la intervención del usuario* para que pueda montar en rack e instalar los controladores, arrancar los controladores asociados y reasignar los discos agregados raíz al nuevo módulo del controlador desde la copia de seguridad flash usando la `sysids` recopilada anteriormente.
 
 .Acerca de esta tarea

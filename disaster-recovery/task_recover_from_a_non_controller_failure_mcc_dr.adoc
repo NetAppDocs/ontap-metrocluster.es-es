@@ -239,7 +239,7 @@ Ejecute el comando: `boot_ontap`
 
 --
 ====
-. Cuando se complete el arranque del nodo, compruebe que se han duplicado los agregados raíz.
+. Una vez finalizado el arranque del nodo, comprueba que el agregado raíz y los agregados de datos estén duplicados.
 +
 [role="tabbed-block"]
 ====
@@ -258,9 +258,21 @@ Ejecute el comando: `boot_ontap`
 --
 .Si un plex está fuera de línea:
 --
-En línea el plex:
+.. Desde el sitio del desastre, comprueba los plexes del agregado raíz:
++
+`storage aggregate plex show`
 
++
+Si un plex de agregado raíz está fuera de línea, ponlo en línea desde el sitio de recuperación ante desastres:
+
++
 `storage aggregate plex online -aggregate <aggregate_name> -plex <plex_name>`
+
+.. Desde el sitio que sigue activo, pon en línea todos los plexes que estén sin conexión:
++
+`storage aggregate plex online -aggregate <aggregate_name> -plex <plex_name>`
+
+
 
 --
 .Si ambos plexos están presentes:

@@ -10589,10 +10589,6 @@
   <block id="4f8a3836e9b2b61340340f61f8a1d944" category="list-text">Compruebe que los ISL y los canales de puerto para los ISL se han establecido entre ambos switches:</block>
   <block id="f1ba48098d6a9078f5a1ba8e0141de5b" category="paragraph"><block ref="d975a431de1e74582bd6e6f677a19ad0" prefix="" category="inline-code"></block></block>
   <block id="61f7733093f25bb223a42607ca2406c1" category="list-text">Puede utilizar usuarios que puedan elevar el acceso raíz para instalar y administrar el software Tiebreaker.</block>
-  <block id="88b4165ca48e72ba667b9778d007aaad" category="inline-link-macro">Documentación de producto de Red Hat Enterprise Linux 8</block>
-  <block id="a984325f757f454ac079ec671b9324d6" category="list-text"><block ref="a984325f757f454ac079ec671b9324d6" category="inline-link-macro-rx"></block></block>
-  <block id="ff7401ad1796e3298f03e4bd7f3432f0" category="inline-link-macro">Documentación de producto de Red Hat Enterprise Linux 9</block>
-  <block id="9208e559efedea4d185e467a4ad4e657" category="list-text"><block ref="9208e559efedea4d185e467a4ad4e657" category="inline-link-macro-rx"></block></block>
   <block id="c5de0a644266fc0016715f94fa5fe1e3" category="list-text">La autenticación multifactor (MFA) mejora la seguridad de su organización al requerir que los administradores se identifiquen usando más del nombre de usuario y la contraseña. Aunque es importante, los nombres de usuario y las contraseñas son vulnerables a ataques de fuerza bruta y pueden ser robados por terceros.</block>
   <block id="6de657c388054d5bb983a1d1351b1f89" category="list-text">Red Hat Enterprise Linux 8 proporciona MFA que requiere que los usuarios proporcionen más de una información para autenticarse correctamente en una cuenta o host de Linux. La información adicional puede ser una contraseña única enviada a su teléfono móvil a través de SMS o credenciales de una aplicación como Google Authenticator, hyphhydramine io Authy, o FreeOTP.</block>
   <block id="37c5a21bd601c49050ac3301b684599c" category="list-text">El switch Cisco 9336C-FX2 tiene dos tipos de almacenamiento de switch diferentes con un nombre diferente en el RCF. Use la siguiente tabla para determinar el tipo de almacenamiento Cisco 9336C-FX2 correcto para su configuración:</block>
@@ -10935,7 +10931,6 @@ Se aplica a todas las configuraciones MetroCluster.</block>
   <block id="5f4eaac69c780a3f8ab154192e4a1a26" category="paragraph">Encienda los nodos.</block>
   <block id="2900f8420dafccee0a2692e48506c6cb" category="open-title">Si los nodos se encuentran en el símbolo del SISTEMA DEL CARGADOR:</block>
   <block id="796bd1c27d5eea106367802d9fd5bd0e" category="paragraph">Ejecute el comando:<block ref="ce54ef17bebf280339d340bd40dff593" prefix=" " category="inline-code"></block></block>
-  <block id="4129cca17421055c633ccbc72f65d61f" category="list-text">Cuando se complete el arranque del nodo, compruebe que se han duplicado los agregados raíz.</block>
   <block id="9abd59a18f57d6cb4282adb209f8b563" category="list-text">Tiene dos puentes FibreBridge 7600N conectados a una pila de bandejas de discos SAS.</block>
   <block id="fc35f0bbf60965f7ec34001ad687a3f3" category="list-text">Tiene un puente FibreBridge 7500N y un puente FibreBridge 7600N conectado a una pila de bandejas de discos SAS.</block>
   <block id="3ed94c5d90da7ee057d27e4a111e2d56" category="list-text">Apague el puente ATTO y retire los cables de alimentación conectados al puente.</block>
@@ -12919,7 +12914,6 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="eb10fb6e54a620d06a2f18c1a660ffe4" category="paragraph"><block ref="10736eb62e72d120f2dcaa0fe0b7666f" prefix="" category="inline-code"></block></block>
   <block id="b78dcdf12c052d8955dc51b3b3b7b105" category="list-text">Restablezca la relación con el espejo recreando el espejo:</block>
   <block id="e6534782a81c039714b69e68abd6dd24" category="open-title">Si un plex está fuera de línea:</block>
-  <block id="5bf31f2147933b41528417b67db14d59" category="paragraph">En línea el plex:</block>
   <block id="db0df63b9e668f95fb18ff3a3c311c03" category="paragraph"><block ref="abdcc012bb91335575fa83e50f5bd9f2" prefix="" category="inline-code"></block></block>
   <block id="173d04d1482af7bc613216daa9c54d3b" category="open-title">Si ambos plexos están presentes:</block>
   <block id="0cb322072bf2ca0a4a593635bde1f36d" category="paragraph">Este procedimiento muestra los pasos genéricos para configurar SNMPv3 en un conmutador. Es posible que algunas de las versiones de firmware del conmutador mencionadas no sean compatibles con una configuración IP de MetroCluster.</block>
@@ -14609,4 +14603,9 @@ El ejemplo siguiente muestra que utiliza SCP para descargar el archivo<block ref
   <block id="d767cb0daa2b9f99d4df03c9aab82dcf" category="inline-link-macro">Configurar SNMPv3 en una configuración FC de MetroCluster</block>
   <block id="03566696538cfda6a95b84d024de7471" category="list-text"><block ref="03566696538cfda6a95b84d024de7471" category="inline-link-macro-rx"></block></block>
   <block id="b764b19381cd7173232f5f43720ae5ab" category="paragraph"><block ref="b764b19381cd7173232f5f43720ae5ab" category="inline-link-rx"></block></block>
+  <block id="0fd554e2bd5c77028a0e4b9cf23cb355" category="list-text">Una vez finalizado el arranque del nodo, comprueba que el agregado raíz y los agregados de datos estén duplicados.</block>
+  <block id="deeb3685d767fe055d8e7a311a05a358" category="list-text">Desde el sitio del desastre, comprueba los plexes del agregado raíz:</block>
+  <block id="d32d5b0eb401273883444ec479100a71" category="paragraph">Si un plex de agregado raíz está fuera de línea, ponlo en línea desde el sitio de recuperación ante desastres:</block>
+  <block id="f85fb61bc25eb6f45e4c0694af0df745" category="list-text">Desde el sitio que sigue activo, pon en línea todos los plexes que estén sin conexión:</block>
+  <block id="b909d0d71a62c66cc30531dbb7405c49" category="admonition">No pongas sin conexión los plexos de los agregados raíz de Cluster_B (aggr0).</block>
 </blocks>
